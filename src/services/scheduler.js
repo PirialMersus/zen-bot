@@ -7,6 +7,10 @@ const TICK_MS = 60 * 1000;
 
 export const startScheduler = bot => {
   setInterval(async () => {
+    if (process.env.NODE_ENV === 'production' && process.env.HEALTHCHECKS_URL) {
+      fetch(process.env.HEALTHCHECKS_URL).catch(() => {});
+    }
+
     const now = new Date();
 
     const reminders = await Reminder.find({ isActive: true });
