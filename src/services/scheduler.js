@@ -1,14 +1,23 @@
 // src/services/scheduler.js
+import https from 'https';
 import Reminder from '../models/Reminder.js';
 import User from '../models/User.js';
 import { isQuietNow } from './quietHours.js';
 
 const TICK_MS = 60 * 1000;
 
+const pingHealthchecks = url => {
+  try {
+    https.get(url, res => {
+      res.resume();
+    }).on('error', () => {});
+  } catch {}
+};
+
 export const startScheduler = bot => {
   setInterval(async () => {
     if (process.env.NODE_ENV === 'production' && process.env.HEALTHCHECKS_URL) {
-      fetch(process.env.HEALTHCHECKS_URL).catch(() => {});
+      pingHealthchecks(process.env.HEALTHCHECKS_URL);
     }
 
     const now = new Date();
