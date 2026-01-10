@@ -6,18 +6,12 @@ import { isQuietNow } from './quietHours.js';
 
 const TICK_MS = 60 * 1000;
 
-const pingHealthchecks = url => {
-  try {
-    https.get(url, res => {
-      res.resume();
-    }).on('error', () => {});
-  } catch {}
-};
-
 export const startScheduler = bot => {
   setInterval(async () => {
     if (process.env.NODE_ENV === 'production' && process.env.HEALTHCHECKS_URL) {
-      pingHealthchecks(process.env.HEALTHCHECKS_URL);
+      https.get(process.env.HEALTHCHECKS_URL, res => {
+        res.resume();
+      }).on('error', () => {});
     }
 
     const now = new Date();
@@ -30,10 +24,7 @@ export const startScheduler = bot => {
         if (diff < r.intervalMinutes * 60 * 1000) continue;
       }
 
-      const user = await User.findOne({
-        telegramId: Number(r.userId)
-      });
-
+      const user = await User.findOne({ telegramId: Number(r.userId) });
       if (isQuietNow(user?.quietHours, now)) continue;
 
       const footer = r.deleteAfterSeconds
@@ -48,10 +39,7 @@ export const startScheduler = bot => {
 
       if (r.deleteAfterSeconds) {
         setTimeout(() => {
-          bot.telegram.deleteMessage(
-            r.chatId,
-            msg.message_id
-          ).catch(() => {});
+          bot.telegram.deleteMessage(r.chatId, msg.message_id).catch(() => {});
         }, r.deleteAfterSeconds * 1000);
       }
 
