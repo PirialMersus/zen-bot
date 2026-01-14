@@ -28,7 +28,7 @@ export const startScheduler = bot => {
       if (isQuietNow(user?.quietHours, now)) continue;
 
       const footer = r.deleteAfterSeconds
-        ? `\n\n_автоудаление через ${r.deleteAfterSeconds} сек._`
+        ? `\n\n_(автоудаление через ${r.deleteAfterSeconds} сек)_`
         : '';
 
       const msg = await bot.telegram.sendMessage(
