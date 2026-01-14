@@ -133,7 +133,7 @@ const finalizeReminder = async ctx => {
   ctx.session.creatingReminder = null;
   ctx.session.waitingCustomInterval = false;
 
-  await ctx.reply(TEXTS.REMINDERS.CREATED, mainKeyboard);
+  await ctx.reply(TEXTS.REMINDERS.CREATED, mainKeyboard(ctx));
 };
 
 export const handleMyReminders = async ctx => {

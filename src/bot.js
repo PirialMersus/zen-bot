@@ -19,6 +19,7 @@ import {handleQuietToggle, handleSettings} from "./handlers/settings/index.js";
 import {UI} from "./constants/ui.js";
 import {TEXTS} from "./constants/texts.js";
 import {mainKeyboard} from "./keyboard/main.js";
+import {handleAdminUsers30d} from "./handlers/admin.js";
 
 export const bot = new Telegraf(process.env.BOT_TOKEN);
 
@@ -53,7 +54,7 @@ bot.action('settings:back', async ctx => {
 
   await ctx.reply(
     TEXTS.MENU.MAIN,
-    mainKeyboard
+    mainKeyboard(ctx)
   );
 });
 bot.hears([UI.CONFIRM_YES, UI.CONFIRM_NO], handleConfirmAction);
@@ -62,6 +63,8 @@ bot.hears(BUTTONS.BACK, handleBack);
 
 bot.hears(UI.POINTER_NEXT, handleNextPointer);
 bot.hears(UI.POINTER_TO_REMINDER, handlePointerToReminder);
+
+bot.hears(UI.ADMIN_USERS_30D, handleAdminUsers30d);
 
 bot.on('text', async ctx => {
   await handleCustomIntervalInput(ctx);

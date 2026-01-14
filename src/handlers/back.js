@@ -6,7 +6,7 @@ export const handleBack = async ctx => {
   const r = ctx.session?.creatingReminder;
 
   if (!r) {
-    await ctx.reply(TEXTS.MENU.MAIN, mainKeyboard);
+    await ctx.reply(TEXTS.MENU.MAIN, mainKeyboard(ctx));
     return;
   }
 
@@ -14,7 +14,7 @@ export const handleBack = async ctx => {
     ctx.session.creatingReminder = null;
     ctx.session.waitingCustomInterval = false;
     ctx.session.confirmAction = null;
-    await ctx.reply(TEXTS.MENU.MAIN, mainKeyboard);
+    await ctx.reply(TEXTS.MENU.MAIN, mainKeyboard(ctx));
     return;
   }
 
@@ -31,5 +31,5 @@ export const handleBack = async ctx => {
   }
 
   ctx.session.creatingReminder = null;
-  await ctx.reply(TEXTS.MENU.MAIN, mainKeyboard);
+  await ctx.reply(TEXTS.MENU.MAIN, mainKeyboard(ctx));
 };
