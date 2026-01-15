@@ -5,6 +5,9 @@ import { bot } from './bot.js';
 import { startScheduler } from './services/scheduler.js';
 import {startServer} from "./server.js";
 
+process.on('unhandledRejection', () => {});
+process.on('uncaughtException', () => {});
+
 await connectDB();
 
 startScheduler(bot);

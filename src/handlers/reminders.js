@@ -117,23 +117,25 @@ const saveLastReminderText = async (ctx, text) => {
 };
 
 const finalizeReminder = async ctx => {
-  const data = ctx.session.creatingReminder;
+  try {
+    const data = ctx.session.creatingReminder;
 
-  await Reminder.create({
-    userId: String(ctx.from.id),
-    chatId: ctx.chat.id,
-    text: data.text,
-    intervalMinutes: data.intervalMinutes,
-    deleteAfterSeconds: 10,
-    isActive: true
-  });
+    await Reminder.create({
+      userId: String(ctx.from.id),
+      chatId: ctx.chat.id,
+      text: data.text,
+      intervalMinutes: data.intervalMinutes,
+      deleteAfterSeconds: 10,
+      isActive: true
+    });
 
-  await saveLastReminderText(ctx, data.text);
+    await saveLastReminderText(ctx, data.text);
 
-  ctx.session.creatingReminder = null;
-  ctx.session.waitingCustomInterval = false;
+    ctx.session.creatingReminder = null;
+    ctx.session.waitingCustomInterval = false;
 
-  await ctx.reply(TEXTS.REMINDERS.CREATED, mainKeyboard(ctx));
+    await ctx.reply(TEXTS.REMINDERS.CREATED, mainKeyboard(ctx));
+  } catch (e) {}
 };
 
 export const handleMyReminders = async ctx => {
