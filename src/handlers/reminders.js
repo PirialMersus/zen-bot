@@ -6,8 +6,8 @@ import { reminderTextKeyboard } from '../keyboard/reminderText.js';
 import { mainKeyboard } from '../keyboard/main.js';
 import Reminder from '../models/Reminder.js';
 import User from '../models/User.js';
-import {TEXTS} from "../constants/texts.js";
-import {UI} from "../constants/ui.js";
+import { TEXTS } from "../constants/texts.js";
+import { UI } from "../constants/ui.js";
 
 const DEFAULT_REMINDER_TEXTS = [
   'Не вовлекайся 🧘',
@@ -20,7 +20,7 @@ const formatInterval = minutes => {
   return `Каждые ${minutes} мин`;
 };
 
-const previewText = text => {
+export const previewText = text => {
   if (!text) return '';
   return text.length > 40 ? `${text.slice(0, 40)}…` : text;
 };
@@ -31,11 +31,9 @@ export const handleReminders = async ctx => {
 
 export const handleCreateReminder = async ctx => {
   ctx.session ??= {};
-  ctx.session.creatingReminder = {
-    fromPointer: false
-  };
+  ctx.session.creatingReminder = { fromPointer: false };
   ctx.session.waitingCustomInterval = false;
-
+  ctx.session.reminderStep = 'TEXT';
 
   const user = await User.findOne({ telegramId: ctx.from.id });
 
@@ -54,7 +52,7 @@ export const handleCreateReminder = async ctx => {
 };
 
 export const handleReminderText = async ctx => {
-  if (!ctx.session?.creatingReminder) return;
+  if (ctx.session?.reminderStep !== 'TEXT') return;
 
   const text = ctx.message.text;
 
@@ -67,6 +65,7 @@ export const handleReminderText = async ctx => {
   }
 
   ctx.session.creatingReminder.text = text;
+  ctx.session.reminderStep = 'INTERVAL';
 
   const preview = previewText(text);
 
@@ -77,35 +76,49 @@ export const handleReminderText = async ctx => {
 };
 
 export const handleIntervalPreset = async (ctx, minutes) => {
-  if (!ctx.session?.creatingReminder) return;
+  if (ctx.session?.reminderStep !== 'INTERVAL') return;
 
   ctx.session.creatingReminder.intervalMinutes = minutes;
+  ctx.session.reminderStep = null;
 
   await finalizeReminder(ctx);
 };
 
 export const handleCustomIntervalRequest = async ctx => {
-  if (!ctx.session?.creatingReminder) return;
+  ctx.session ??= {};
 
-  ctx.session.waitingCustomInterval = true;
+  if (!ctx.session.creatingReminder) return;
 
-  await ctx.reply(TEXTS.REMINDERS.ASK_CUSTOM_INTERVAL, Markup.removeKeyboard());
+  ctx.session.reminderStep = 'CUSTOM_INTERVAL';
+
+  await ctx.reply(
+    `${TEXTS.REMINDERS.ASK_CUSTOM_INTERVAL}\n\n⌨️ Введите количество минут цифрами`,
+    Markup.keyboard([['⬅️ Назад']]).resize()
+  );
 };
 
 export const handleCustomIntervalInput = async ctx => {
-  if (!ctx.session?.waitingCustomInterval) return;
+
+  if (!ctx.session) {
+    return false;
+  }
+
+  if (ctx.session.reminderStep !== 'CUSTOM_INTERVAL') {
+    return false;
+  }
 
   const minutes = Number(ctx.message.text);
 
   if (!Number.isInteger(minutes) || minutes < 1) {
     await ctx.reply(TEXTS.REMINDERS.MIN_INTERVAL);
-    return;
+    return true;
   }
 
-  ctx.session.waitingCustomInterval = false;
   ctx.session.creatingReminder.intervalMinutes = minutes;
+  ctx.session.reminderStep = null;
 
   await finalizeReminder(ctx);
+  return true;
 };
 
 const saveLastReminderText = async (ctx, text) => {
@@ -133,6 +146,7 @@ const finalizeReminder = async ctx => {
 
     ctx.session.creatingReminder = null;
     ctx.session.waitingCustomInterval = false;
+    ctx.session.reminderStep = null;
 
     await ctx.reply(TEXTS.REMINDERS.CREATED, mainKeyboard(ctx));
   } catch (e) {}
@@ -183,24 +197,19 @@ ${formatInterval(r.intervalMinutes)}
   }
 };
 
-
-
 export const handleRequestAction = async (ctx, type) => {
-  ctx.session ??= {};
   const id = ctx.callbackQuery.data.split(':')[1];
 
   const reminder = await Reminder.findById(id);
   if (!reminder) return;
 
-  ctx.session.confirmAction = { type, id };
-
-  await ctx.editMessageReplyMarkup();
+  await ctx.editMessageReplyMarkup().catch(() => {});
 
   await ctx.reply(
     `Вы точно хотите ${type === 'delete' ? 'удалить' : 'изменить статус'} напоминание?\n\n«${previewText(reminder.text)}»`,
     Markup.inlineKeyboard([
       [
-        Markup.button.callback(UI.CONFIRM_YES, 'confirm:yes'),
+        Markup.button.callback(UI.CONFIRM_YES, `confirm:${type}:${id}`),
         Markup.button.callback(UI.CONFIRM_NO, 'confirm:no')
       ]
     ])
@@ -208,29 +217,27 @@ export const handleRequestAction = async (ctx, type) => {
 };
 
 export const handleConfirmAction = async ctx => {
-  const action = ctx.session?.confirmAction;
-  if (!action) return;
+  const data = ctx.callbackQuery.data;
 
-  if (ctx.callbackQuery.data === 'confirm:no') {
-    ctx.session.confirmAction = null;
-    await ctx.editMessageReplyMarkup();
+  if (data === 'confirm:no') {
+    await ctx.editMessageReplyMarkup().catch(() => {});
     return;
   }
 
-  if (action.type === 'delete') {
-    await Reminder.findByIdAndDelete(action.id);
+  const [, type, id] = data.split(':');
+
+  if (type === 'delete') {
+    await Reminder.findByIdAndDelete(id);
   }
 
-  if (action.type === 'pause' || action.type === 'resume') {
-    const r = await Reminder.findById(action.id);
+  if (type === 'pause' || type === 'resume') {
+    const r = await Reminder.findById(id);
     if (r) {
       r.isActive = !r.isActive;
       await r.save();
     }
   }
 
-  ctx.session.confirmAction = null;
-  await ctx.editMessageReplyMarkup();
-
+  await ctx.editMessageReplyMarkup().catch(() => {});
   await handleMyReminders(ctx);
 };
