@@ -19,32 +19,39 @@ export const startScheduler = bot => {
     const reminders = await Reminder.find({ isActive: true });
 
     for (const r of reminders) {
-      if (r.lastSentAt) {
-        const diff = now - new Date(r.lastSentAt);
-        if (diff < r.intervalMinutes * 60 * 1000) continue;
+      try {
+        if (r.lastSentAt) {
+          const diff = now - new Date(r.lastSentAt);
+          if (diff < r.intervalMinutes * 60 * 1000) continue;
+        }
+
+        const user = await User.findOne({ telegramId: Number(r.userId) });
+        if (isQuietNow(user?.quietHours, now)) continue;
+
+        const footer = r.deleteAfterSeconds
+          ? `\n\n_(автоудаление через ${r.deleteAfterSeconds} сек)_`
+          : '';
+
+        const msg = await bot.telegram.sendMessage(
+          r.chatId,
+          r.text + footer,
+          { parse_mode: 'Markdown' }
+        );
+
+        if (r.deleteAfterSeconds) {
+          setTimeout(() => {
+            bot.telegram.deleteMessage(r.chatId, msg.message_id).catch(() => {});
+          }, r.deleteAfterSeconds * 1000);
+        }
+
+        r.lastSentAt = now;
+        await r.save();
+      } catch (e) {
+        if (e?.response?.error_code === 403) {
+          r.isActive = false;
+          await r.save();
+        }
       }
-
-      const user = await User.findOne({ telegramId: Number(r.userId) });
-      if (isQuietNow(user?.quietHours, now)) continue;
-
-      const footer = r.deleteAfterSeconds
-        ? `\n\n_(автоудаление через ${r.deleteAfterSeconds} сек)_`
-        : '';
-
-      const msg = await bot.telegram.sendMessage(
-        r.chatId,
-        r.text + footer,
-        { parse_mode: 'Markdown' }
-      );
-
-      if (r.deleteAfterSeconds) {
-        setTimeout(() => {
-          bot.telegram.deleteMessage(r.chatId, msg.message_id).catch(() => {});
-        }, r.deleteAfterSeconds * 1000);
-      }
-
-      r.lastSentAt = now;
-      await r.save();
     }
   }, TICK_MS);
 };
