@@ -2,88 +2,110 @@
 import https from 'https';
 import Reminder from '../models/Reminder.js';
 import User from '../models/User.js';
-import { isQuietNow } from './quietHours.js';
+import { isQuietNow, getQuietEndDate } from './quietHours.js';
 import { logError } from '../utils/logger.js';
+import { cleanupUser } from './cleanupUser.js';
 
 const TICK_MS = 60 * 1000;
 const CREATOR_ID = Number(process.env.CREATOR_ID);
 const NOTIFICATIONS_PAUSED = false;
 const IS_DEV = process.env.NODE_ENV === 'development';
 
-// 🧠 вычисляем автоудаление
-const getDeleteAfterSeconds = reminder => {
-  // в dev — только админу и 60 секунд
-  if (IS_DEV) {
-    if (Number(reminder.userId) === CREATOR_ID) {
-      return 60;
-    }
-    return null;
-  }
+const INACTIVE_DAYS = 30;
+const DAY_MS = 24 * 60 * 60 * 1000;
 
-  // в prod — как задано в reminder
+const getDeleteAfterSeconds = reminder => {
+  if (IS_DEV && Number(reminder.userId) === CREATOR_ID) return 60;
   return reminder.deleteAfterSeconds ?? null;
 };
+
+const toUserDate = (date, timezone) =>
+  timezone
+    ? new Date(date.toLocaleString('en-US', { timeZone: timezone }))
+    : date;
+
+let lastCleanupDay = null;
 
 export const startScheduler = bot => {
   setInterval(async () => {
     try {
-      // healthcheck
       if (process.env.NODE_ENV === 'production' && process.env.HEALTHCHECKS_URL) {
-        https
-          .get(process.env.HEALTHCHECKS_URL, res => res.resume())
-          .on('error', () => {});
+        https.get(process.env.HEALTHCHECKS_URL, r => r.resume()).on('error', () => {});
       }
 
       const now = new Date();
 
-      let reminders = [];
-      try {
-        reminders = await Reminder.find({ isActive: true });
-      } catch (e) {
-        logError(e, { scope: 'Reminder.find' });
-        return;
+      const today = now.toISOString().slice(0, 10);
+      if (lastCleanupDay !== today) {
+        lastCleanupDay = today;
+        const border = new Date(Date.now() - INACTIVE_DAYS * DAY_MS);
+
+        const users = await User.find(
+          { lastActivityAt: { $lt: border } },
+          { telegramId: 1 }
+        ).limit(100).catch(() => []);
+
+        for (const u of users) {
+          await cleanupUser(u.telegramId).catch(() => {});
+        }
       }
 
+      const reminders = await Reminder.find({
+        isActive: true,
+        nextRunAt: { $lte: now }
+      })
+        .sort({ nextRunAt: 1 })
+        .lean(false)
+        .catch(() => []);
+
       if (!reminders.length) return;
+
+      const usersCache = new Map();
+      const sentThisTick = new Set();
+      const queueIndex = new Map();
 
       for (const r of reminders) {
         try {
           if (!r.text || !r.intervalMinutes) continue;
+          if (NOTIFICATIONS_PAUSED && Number(r.userId) !== CREATOR_ID) continue;
 
-          if (NOTIFICATIONS_PAUSED && Number(r.userId) !== CREATOR_ID) {
+          let user = usersCache.get(r.userId);
+          if (!user) {
+            user = await User.findOne({ telegramId: Number(r.userId) }).catch(() => null);
+            usersCache.set(r.userId, user);
+          }
+
+          const userNow = toUserDate(now, user?.timezone);
+
+          if (isQuietNow(user, userNow)) {
+            const next = getQuietEndDate(user, userNow);
+            r.nextRunAt = next;
+            await r.save().catch(() => {});
             continue;
           }
 
-          if (r.lastSentAt) {
-            const diff = now - new Date(r.lastSentAt);
-            if (diff < r.intervalMinutes * 60 * 1000) continue;
+          if (sentThisTick.has(r.userId)) {
+            const idx = (queueIndex.get(r.userId) ?? 0) + 1;
+            queueIndex.set(r.userId, idx);
+            r.nextRunAt = new Date(now.getTime() + idx * TICK_MS);
+            await r.save().catch(() => {});
+            continue;
           }
-
-          let user = null;
-          try {
-            user = await User.findOne({ telegramId: Number(r.userId) });
-          } catch (e) {
-            logError(e, {
-              scope: 'User.findOne',
-              userId: r.userId
-            });
-          }
-
-          if (isQuietNow(user?.quietHours, now)) continue;
-
-          const deleteAfterSeconds = getDeleteAfterSeconds(r);
-
-          const footer = deleteAfterSeconds
-            ? `\n\n(автоудаление через ${deleteAfterSeconds} сек)`
-            : '';
 
           let msg;
-
           try {
-            msg = await bot.telegram.sendMessage(
-              r.chatId,
-              r.text + footer
-            );
+            const deleteAfterSeconds = getDeleteAfterSeconds(r);
+            const footer = deleteAfterSeconds
+              ? `\n\n(автоудаление через ${deleteAfterSeconds} сек)`
+              : '';
+
+            msg = await bot.telegram.sendMessage(r.chatId, r.text + footer);
+
+            if (deleteAfterSeconds) {
+              setTimeout(() => {
+                bot.telegram.deleteMessage(r.chatId, msg.message_id).catch(() => {});
+              }, deleteAfterSeconds * 1000);
+            }
           } catch (e) {
             const code = e?.response?.error_code;
 
@@ -96,39 +118,21 @@ export const startScheduler = bot => {
             });
 
             if (code === 403) {
-              await Reminder.deleteMany({ userId: r.userId }).catch(err =>
-                logError(err, { scope: 'Reminder.deleteMany', userId: r.userId })
-              );
+              await cleanupUser(r.userId).catch(() => {});
+            }
 
-              await User.deleteOne({ telegramId: Number(r.userId) }).catch(err =>
-                logError(err, { scope: 'User.deleteOne', userId: r.userId })
-              );
+            if (code === 400) {
+              r.isActive = false;
+              await r.save().catch(() => {});
             }
 
             continue;
           }
 
-          if (deleteAfterSeconds) {
-            setTimeout(() => {
-              bot.telegram
-                .deleteMessage(r.chatId, msg.message_id)
-                .catch(err =>
-                  logError(err, {
-                    scope: 'deleteMessage',
-                    chatId: r.chatId,
-                    messageId: msg.message_id
-                  })
-                );
-            }, deleteAfterSeconds * 1000);
-          }
-
+          sentThisTick.add(r.userId);
           r.lastSentAt = now;
-          await r.save().catch(err =>
-            logError(err, {
-              scope: 'Reminder.save',
-              reminderId: r._id
-            })
-          );
+          r.nextRunAt = new Date(now.getTime() + r.intervalMinutes * 60 * 1000);
+          await r.save().catch(() => {});
         } catch (e) {
           logError(e, {
             scope: 'scheduler:loop',

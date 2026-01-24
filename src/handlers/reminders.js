@@ -14,10 +14,16 @@ const DEFAULT_REMINDER_TEXTS = [
   'В этом теле никого нет 🤯'
 ];
 
+const normalizeText = text =>
+  text.replace(/^«|»$/g, '').trim();
+
+const escapeMarkdown = text =>
+  text.replace(/[_*[\]()~`>#+\-=|{}.!]/g, '\\$&');
+
 const formatInterval = minutes => {
-  if (minutes === 1440) return 'Раз в день';
-  if (minutes === 60) return 'Каждый час';
-  return `Каждые ${minutes} мин`;
+  if (minutes === 1440) return 'Раз в день ⌛';
+  if (minutes === 60) return 'Каждый час ⌛';
+  return `Каждые ${minutes} мин ⌛`;
 };
 
 export const previewText = text => {
@@ -37,9 +43,14 @@ export const handleCreateReminder = async ctx => {
 
   const user = await User.findOne({ telegramId: ctx.from.id });
 
-  const texts = user?.lastReminderTexts?.length
+  const stored = user?.lastReminderTexts?.length
     ? user.lastReminderTexts
-    : DEFAULT_REMINDER_TEXTS;
+    : [];
+
+  const texts = [
+    ...stored.filter(t => !DEFAULT_REMINDER_TEXTS.includes(t)),
+    ...DEFAULT_REMINDER_TEXTS
+  ].slice(0, 4);
 
   const subtitle = user?.lastReminderTexts?.length
     ? '✍️ Введите текст сообщения или выберите из последних'
@@ -54,7 +65,13 @@ export const handleCreateReminder = async ctx => {
 export const handleReminderText = async ctx => {
   if (ctx.session?.reminderStep !== 'TEXT') return;
 
-  const text = ctx.message.text;
+  let text = ctx.message.text;
+
+  if (text.endsWith('…')) {
+    const user = await User.findOne({ telegramId: ctx.from.id });
+    const full = user?.lastReminderTexts?.find(t => t.startsWith(text.slice(0, -1)));
+    if (full) text = full;
+  }
 
   if (text === '✍️ Ввести новый текст') {
     await ctx.reply(
@@ -122,27 +139,59 @@ export const handleCustomIntervalInput = async ctx => {
 };
 
 const saveLastReminderText = async (ctx, text) => {
-  await User.findOneAndUpdate(
-    { telegramId: ctx.from.id },
-    { $push: { lastReminderTexts: { $each: [text], $slice: -4 } } },
-    { upsert: true }
+  const user = await User.findOne({ telegramId: ctx.from.id });
+  if (!user) return;
+
+  const clean = normalizeText(text);
+
+  const stored = user.lastReminderTexts?.length
+    ? user.lastReminderTexts
+    : DEFAULT_REMINDER_TEXTS;
+
+  const userTexts = stored
+    .filter(t => !DEFAULT_REMINDER_TEXTS.includes(t))
+    .filter(t => t !== clean);
+
+  const nextUserTexts = [clean, ...userTexts].slice(
+    0,
+    4 - DEFAULT_REMINDER_TEXTS.length
   );
+
+  user.lastReminderTexts = [
+    ...nextUserTexts,
+    ...DEFAULT_REMINDER_TEXTS
+  ];
+
+  await user.save();
 };
+
 
 const finalizeReminder = async ctx => {
   try {
     const data = ctx.session.creatingReminder;
+    const now = new Date();
+
+    const cleanText = normalizeText(data.text);
 
     await Reminder.create({
       userId: String(ctx.from.id),
       chatId: ctx.chat.id,
-      text: data.text,
+      text: cleanText,
       intervalMinutes: data.intervalMinutes,
       deleteAfterSeconds: 10,
-      isActive: true
+      isActive: true,
+      nextRunAt: new Date(now.getTime() + data.intervalMinutes * 60 * 1000)
     });
 
-    await saveLastReminderText(ctx, data.text);
+    const intervalLabel = formatInterval(data.intervalMinutes);
+
+    const safeText = escapeMarkdown(cleanText);
+
+    await ctx.reply(
+      `${intervalLabel}\n\n«${cleanText}»`
+    );
+
+    await saveLastReminderText(ctx, cleanText);
 
     ctx.session.creatingReminder = null;
     ctx.session.waitingCustomInterval = false;
@@ -151,6 +200,7 @@ const finalizeReminder = async ctx => {
     await ctx.reply(TEXTS.REMINDERS.CREATED, mainKeyboard(ctx));
   } catch (e) {}
 };
+
 
 export const handleMyReminders = async ctx => {
   ctx.session ??= {};
@@ -177,6 +227,7 @@ export const handleMyReminders = async ctx => {
 
     const msg = await ctx.reply(
       `*${i + 1}.* ${status}
+
 ${formatInterval(r.intervalMinutes)}
 
 «${r.text}»`,

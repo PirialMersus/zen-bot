@@ -1,17 +1,41 @@
 // src/services/quietHours.js
-const BELARUS_OFFSET_HOURS = 3;
+import { DateTime } from 'luxon';
 
-export const isQuietNow = (quietHours, date = new Date()) => {
-  if (!quietHours || quietHours.enabled === false) return false;
+const DEFAULT_OFFSET_HOURS = 3;
 
-  const utcHour = date.getUTCHours();
-  const hour = (utcHour + BELARUS_OFFSET_HOURS) % 24;
-
-  const { start, end } = quietHours;
-
-  if (start < end) {
-    return hour >= start && hour < end;
+const getUserDateTime = (user, date) => {
+  if (user?.timezone) {
+    return DateTime.fromJSDate(date).setZone(user.timezone);
   }
 
-  return hour >= start || hour < end;
+  return DateTime.fromJSDate(date).plus({ hours: DEFAULT_OFFSET_HOURS });
+};
+
+export const isQuietNow = (user, date = new Date()) => {
+  const q = user?.quietHours;
+  if (!q || q.enabled === false) return false;
+
+  const dt = getUserDateTime(user, date);
+  const hour = dt.hour;
+
+  if (q.start < q.end) {
+    return hour >= q.start && hour < q.end;
+  }
+
+  return hour >= q.start || hour < q.end;
+};
+
+export const getQuietEndDate = (user, date = new Date()) => {
+  const q = user.quietHours;
+  let dt = getUserDateTime(user, date);
+
+  if (!isQuietNow(user, date)) return dt.toJSDate();
+
+  let end = dt.set({ hour: q.end, minute: 0, second: 0 });
+
+  if (q.start > q.end && dt.hour >= q.start) {
+    end = end.plus({ days: 1 });
+  }
+
+  return end.toJSDate();
 };

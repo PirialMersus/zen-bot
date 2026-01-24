@@ -1,7 +1,16 @@
 // src/handlers/settings/index.js
-import { handleQuietToggle, handleSettings } from './quietHours.js';
+import {
+  handleSettings,
+  handleQuietToggle,
+  handleTimezoneMenu,
+  handleTimezoneRegion,
+  handleTimezoneSet
+} from './quietHours.js';
 
 export {
   handleSettings,
-  handleQuietToggle
+  handleQuietToggle,
+  handleTimezoneMenu,
+  handleTimezoneRegion,
+  handleTimezoneSet
 };

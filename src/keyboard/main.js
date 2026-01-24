@@ -7,13 +7,12 @@ export const mainKeyboard = ctx => {
   const isAdmin = String(ctx.from.id) === process.env.CREATOR_ID;
 
   const rows = [
-    [BUTTONS.REMINDERS, BUTTONS.POINTER]
+    [BUTTONS.REMINDERS, BUTTONS.POINTER],
+    [BUTTONS.SUPPORT, BUTTONS.SETTINGS]
   ];
 
   if (isAdmin) {
-    rows.push([BUTTONS.SETTINGS, UI.ADMIN_USERS_30D]);
-  } else {
-    rows.push([BUTTONS.SETTINGS]);
+    rows.push([UI.ADMIN_USERS_30D]);
   }
 
   return Markup.keyboard(rows).resize();

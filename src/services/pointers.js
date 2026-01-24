@@ -13,7 +13,3 @@ export const getRandomPointer = async () => {
 
   return pointer || null;
 };
-
-export const getAllPointers = async () => {
-  return Pointer.find({ isActive: true }).sort({ createdAt: -1 });
-};

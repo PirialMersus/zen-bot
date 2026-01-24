@@ -12,6 +12,12 @@ export const settingsKeyboard = enabled =>
     ],
     [
       Markup.button.callback(
+        BUTTONS.TIMEZONE,
+        'settings:timezone'
+      )
+    ],
+    [
+      Markup.button.callback(
         BUTTONS.BACK,
         'settings:back'
       )

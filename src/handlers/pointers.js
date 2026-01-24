@@ -5,7 +5,6 @@ import {intervalKeyboard} from '../keyboard/intervals.js';
 import {TEXTS} from '../constants/texts.js';
 import {BUTTONS} from '../constants/buttons.js';
 import {UI} from '../constants/ui.js';
-import Activity from '../models/Activity.js';
 
 const previewText = text =>
   text.length > 60 ? text.slice(0, 57) + '…' : text;
@@ -19,11 +18,6 @@ const sendPointer = async ctx => {
 
   ctx.session ??= {};
   ctx.session.lastPointerText = pointer.text;
-
-  await Activity.create({
-    telegramId: ctx.from.id,
-    type: 'pointer:get'
-  });
 
   const text = pointer.source
     ? `${pointer.text}\n\n— ${pointer.source}`
@@ -54,6 +48,9 @@ export const handlePointerToReminder = async ctx => {
     text,
     fromPointer: true
   };
+
+  ctx.session.reminderStep = 'INTERVAL';
+  ctx.session.waitingCustomInterval = false;
 
   const preview = previewText(text);
 
