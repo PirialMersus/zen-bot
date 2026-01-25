@@ -74,9 +74,16 @@ export const startScheduler = bot => {
             usersCache.set(r.userId, user);
           }
 
-          const userNow = toUserDate(now, user?.timezone);
+          if (isQuietNow(user, now)) {
+            const byInterval = new Date(
+              now.getTime() + r.intervalMinutes * 60 * 1000
+            );
 
-          if (isQuietNow(user, userNow)) {
+            if (!r.nextRunAt || r.nextRunAt < byInterval) {
+              r.nextRunAt = byInterval;
+              await r.save().catch(() => {});
+            }
+
             continue;
           }
 
