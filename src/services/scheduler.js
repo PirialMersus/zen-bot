@@ -2,7 +2,7 @@
 import https from 'https';
 import Reminder from '../models/Reminder.js';
 import User from '../models/User.js';
-import { isQuietNow, getQuietEndDate } from './quietHours.js';
+import { isQuietNow } from './quietHours.js';
 import { logError } from '../utils/logger.js';
 import { cleanupUser } from './cleanupUser.js';
 
@@ -62,7 +62,6 @@ export const startScheduler = bot => {
 
       const usersCache = new Map();
       const sentThisTick = new Set();
-      const queueIndex = new Map();
 
       for (const r of reminders) {
         try {
@@ -78,17 +77,10 @@ export const startScheduler = bot => {
           const userNow = toUserDate(now, user?.timezone);
 
           if (isQuietNow(user, userNow)) {
-            const next = getQuietEndDate(user, userNow);
-            r.nextRunAt = next;
-            await r.save().catch(() => {});
             continue;
           }
 
           if (sentThisTick.has(r.userId)) {
-            const idx = (queueIndex.get(r.userId) ?? 0) + 1;
-            queueIndex.set(r.userId, idx);
-            r.nextRunAt = new Date(now.getTime() + idx * TICK_MS);
-            await r.save().catch(() => {});
             continue;
           }
 
