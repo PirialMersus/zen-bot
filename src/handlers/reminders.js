@@ -1,13 +1,20 @@
 // src/handlers/reminders.js
 import { Markup } from 'telegraf';
-import { remindersKeyboard } from '../keyboard/reminders.js';
-import { intervalKeyboard } from '../keyboard/intervals.js';
-import { reminderTextKeyboard } from '../keyboard/reminderText.js';
-import { mainKeyboard } from '../keyboard/main.js';
 import Reminder from '../models/Reminder.js';
 import User from '../models/User.js';
-import { TEXTS } from "../constants/texts.js";
-import { UI } from "../constants/ui.js";
+import { TEXTS } from '../constants/texts.js';
+import { UI } from '../constants/ui.js';
+import { remindersKeyboard } from '../keyboard/reminders.js';
+import { reminderTextKeyboard } from '../keyboard/reminderText.js';
+import { intervalKeyboard } from '../keyboard/intervals.js';
+import { deleteAfterKeyboard } from '../keyboard/deleteAfter.js';
+import { mainKeyboard } from '../keyboard/main.js';
+
+export const REMINDER_STEP = {
+  TEXT: 'TEXT',
+  INTERVAL: 'INTERVAL',
+  AUTO_DELETE: 'AUTO_DELETE'
+};
 
 const DEFAULT_REMINDER_TEXTS = [
   'Не вовлекайся 🧘',
@@ -16,9 +23,6 @@ const DEFAULT_REMINDER_TEXTS = [
 
 const normalizeText = text =>
   text.replace(/^«|»$/g, '').trim();
-
-const escapeMarkdown = text =>
-  text.replace(/[_*[\]()~`>#+\-=|{}.!]/g, '\\$&');
 
 const formatInterval = minutes => {
   if (minutes === 1440) return 'Раз в день ⌛';
@@ -31,45 +35,80 @@ export const previewText = text => {
   return text.length > 40 ? `${text.slice(0, 40)}…` : text;
 };
 
+export const renderReminderStep = async ctx => {
+  const step = ctx.session.reminderStep;
+  const data = ctx.session.creatingReminder;
+
+  if (step === REMINDER_STEP.TEXT) {
+    const user = await User.findOne({ telegramId: ctx.from.id });
+
+    const stored = user?.lastReminderTexts?.length
+      ? user.lastReminderTexts
+      : [];
+
+    const texts = [
+      ...stored.filter(t => !DEFAULT_REMINDER_TEXTS.includes(t)),
+      ...DEFAULT_REMINDER_TEXTS
+    ].slice(0, 4);
+
+    const subtitle = stored.length
+      ? '✍️ Введите текст сообщения или выберите из последних'
+      : '✍️ Введите текст сообщения или выберите из предложенных';
+
+    await ctx.reply(
+      `${TEXTS.REMINDERS.ASK_TEXT}\n\n${subtitle}`,
+      reminderTextKeyboard(texts)
+    );
+    return;
+  }
+
+  if (step === REMINDER_STEP.INTERVAL) {
+    await ctx.reply(
+      `<i>${TEXTS.REMINDERS.ASK_INTERVAL}</i>
+
+«${previewText(data.text)}»
+
+<i>${TEXTS.REMINDERS.ASK_INTERVAL_HINT}</i>`,
+      { parse_mode: 'HTML', ...intervalKeyboard }
+    );
+    return;
+  }
+
+  if (step === REMINDER_STEP.AUTO_DELETE) {
+    await ctx.reply(
+      `<i>${TEXTS.REMINDERS.ASK_DELETE_AFTER}</i>
+
+«${previewText(data.text)}»
+
+<i>${TEXTS.REMINDERS.ASK_DELETE_AFTER_HINT}</i>`,
+      { parse_mode: 'HTML', ...deleteAfterKeyboard }
+    );
+  }
+};
+
 export const handleReminders = async ctx => {
   await ctx.reply(TEXTS.MENU.REMINDERS, remindersKeyboard);
 };
 
 export const handleCreateReminder = async ctx => {
   ctx.session ??= {};
-  ctx.session.creatingReminder = { fromPointer: false };
-  ctx.session.waitingCustomInterval = false;
-  ctx.session.reminderStep = 'TEXT';
-
-  const user = await User.findOne({ telegramId: ctx.from.id });
-
-  const stored = user?.lastReminderTexts?.length
-    ? user.lastReminderTexts
-    : [];
-
-  const texts = [
-    ...stored.filter(t => !DEFAULT_REMINDER_TEXTS.includes(t)),
-    ...DEFAULT_REMINDER_TEXTS
-  ].slice(0, 4);
-
-  const subtitle = user?.lastReminderTexts?.length
-    ? '✍️ Введите текст сообщения или выберите из последних'
-    : '✍️ Введите текст сообщения или выберите из предложенных';
-
-  await ctx.reply(
-    `${TEXTS.REMINDERS.ASK_TEXT}\n\n${subtitle}`,
-    reminderTextKeyboard(texts)
-  );
+  ctx.session.creatingReminder = {
+    deleteAfterSeconds: 10
+  };
+  ctx.session.reminderStep = REMINDER_STEP.TEXT;
+  await renderReminderStep(ctx);
 };
 
 export const handleReminderText = async ctx => {
-  if (ctx.session?.reminderStep !== 'TEXT') return;
+  if (ctx.session?.reminderStep !== REMINDER_STEP.TEXT) return;
 
   let text = ctx.message.text;
 
   if (text.endsWith('…')) {
     const user = await User.findOne({ telegramId: ctx.from.id });
-    const full = user?.lastReminderTexts?.find(t => t.startsWith(text.slice(0, -1)));
+    const full = user?.lastReminderTexts?.find(t =>
+      t.startsWith(text.slice(0, -1))
+    );
     if (full) text = full;
   }
 
@@ -82,47 +121,20 @@ export const handleReminderText = async ctx => {
   }
 
   ctx.session.creatingReminder.text = text;
-  ctx.session.reminderStep = 'INTERVAL';
-
-  const preview = previewText(text);
-
-  await ctx.reply(
-    `${TEXTS.REMINDERS.ASK_INTERVAL}\n\n«${preview}»`,
-    intervalKeyboard
-  );
+  ctx.session.reminderStep = REMINDER_STEP.INTERVAL;
+  await renderReminderStep(ctx);
 };
 
 export const handleIntervalPreset = async (ctx, minutes) => {
-  if (ctx.session?.reminderStep !== 'INTERVAL') return;
+  if (ctx.session?.reminderStep !== REMINDER_STEP.INTERVAL) return;
 
   ctx.session.creatingReminder.intervalMinutes = minutes;
-  ctx.session.reminderStep = null;
-
-  await finalizeReminder(ctx);
+  ctx.session.reminderStep = REMINDER_STEP.AUTO_DELETE;
+  await renderReminderStep(ctx);
 };
 
-export const handleCustomIntervalRequest = async ctx => {
-  ctx.session ??= {};
-
-  if (!ctx.session.creatingReminder) return;
-
-  ctx.session.reminderStep = 'CUSTOM_INTERVAL';
-
-  await ctx.reply(
-    `${TEXTS.REMINDERS.ASK_CUSTOM_INTERVAL}\n\n⌨️ Введите количество минут цифрами`,
-    Markup.keyboard([['⬅️ Назад']]).resize()
-  );
-};
-
-export const handleCustomIntervalInput = async ctx => {
-
-  if (!ctx.session) {
-    return false;
-  }
-
-  if (ctx.session.reminderStep !== 'CUSTOM_INTERVAL') {
-    return false;
-  }
+export const handleIntervalInput = async ctx => {
+  if (ctx.session?.reminderStep !== REMINDER_STEP.INTERVAL) return false;
 
   const minutes = Number(ctx.message.text);
 
@@ -132,6 +144,42 @@ export const handleCustomIntervalInput = async ctx => {
   }
 
   ctx.session.creatingReminder.intervalMinutes = minutes;
+  ctx.session.reminderStep = REMINDER_STEP.AUTO_DELETE;
+  await renderReminderStep(ctx);
+  return true;
+};
+
+export const handleDeleteAfterPreset = async ctx => {
+  if (ctx.session?.reminderStep !== REMINDER_STEP.AUTO_DELETE) return;
+
+  const text = ctx.message.text;
+
+  let seconds;
+
+  if (text === '10 сек') seconds = 10;
+  if (text === '30 сек') seconds = 30;
+  if (text === '1 мин') seconds = 60;
+  if (text === 'Не удалять') seconds = null;
+
+  if (seconds === undefined) return;
+
+  ctx.session.creatingReminder.deleteAfterSeconds = seconds;
+  ctx.session.reminderStep = null;
+
+  await finalizeReminder(ctx);
+};
+
+export const handleDeleteAfterInput = async ctx => {
+  if (ctx.session?.reminderStep !== REMINDER_STEP.AUTO_DELETE) return false;
+
+  const seconds = Number(ctx.message.text);
+
+  if (!Number.isInteger(seconds) || seconds < 1) {
+    await ctx.reply(TEXTS.REMINDERS.INVALID_SECONDS);
+    return true;
+  }
+
+  ctx.session.creatingReminder.deleteAfterSeconds = seconds;
   ctx.session.reminderStep = null;
 
   await finalizeReminder(ctx);
@@ -165,74 +213,80 @@ const saveLastReminderText = async (ctx, text) => {
   await user.save();
 };
 
-
 const finalizeReminder = async ctx => {
-  try {
-    const data = ctx.session.creatingReminder;
-    const now = new Date();
+  const data = ctx.session.creatingReminder;
+  const now = new Date();
+  const cleanText = normalizeText(data.text);
 
-    const cleanText = normalizeText(data.text);
+  await Reminder.create({
+    userId: String(ctx.from.id),
+    chatId: ctx.chat.id,
+    text: cleanText,
+    intervalMinutes: data.intervalMinutes,
+    deleteAfterSeconds: data.deleteAfterSeconds,
+    isActive: true,
+    nextRunAt: new Date(
+      now.getTime() + data.intervalMinutes * 60 * 1000
+    )
+  });
 
-    await Reminder.create({
-      userId: String(ctx.from.id),
-      chatId: ctx.chat.id,
-      text: cleanText,
-      intervalMinutes: data.intervalMinutes,
-      deleteAfterSeconds: 10,
-      isActive: true,
-      nextRunAt: new Date(now.getTime() + data.intervalMinutes * 60 * 1000)
-    });
+  const intervalLabel = formatInterval(data.intervalMinutes);
 
-    const intervalLabel = formatInterval(data.intervalMinutes);
+  const deleteAfterLabel =
+    data.deleteAfterSeconds === null
+      ? 'не удаляется'
+      : `через ${data.deleteAfterSeconds} сек`;
 
-    const safeText = escapeMarkdown(cleanText);
+  await ctx.reply(
+    `<i>${intervalLabel}</i>
+<i>(автоудаление: ${deleteAfterLabel})</i>
 
-    await ctx.reply(
-      `${intervalLabel}\n\n«${cleanText}»`
-    );
+«${cleanText}»`,
+    { parse_mode: 'HTML' }
+  );
 
-    await saveLastReminderText(ctx, cleanText);
+  await saveLastReminderText(ctx, cleanText);
 
-    ctx.session.creatingReminder = null;
-    ctx.session.waitingCustomInterval = false;
-    ctx.session.reminderStep = null;
+  ctx.session.creatingReminder = null;
+  ctx.session.reminderStep = null;
 
-    await ctx.reply(TEXTS.REMINDERS.CREATED, mainKeyboard(ctx));
-  } catch (e) {}
+  await ctx.reply(
+    `<i>${TEXTS.REMINDERS.CREATED}</i>`,
+    { parse_mode: 'HTML', ...mainKeyboard(ctx) }
+  );
 };
 
-
 export const handleMyReminders = async ctx => {
-  ctx.session ??= {};
-  ctx.session.reminderListMessages ??= [];
-
-  for (const id of ctx.session.reminderListMessages) {
-    await ctx.telegram.deleteMessage(ctx.chat.id, id).catch(() => {});
-  }
-  ctx.session.reminderListMessages = [];
-
   const reminders = await Reminder.find({
     userId: String(ctx.from.id)
   }).sort({ createdAt: 1 });
 
   if (!reminders.length) {
-    const msg = await ctx.reply(TEXTS.REMINDERS.NONE, remindersKeyboard);
-    ctx.session.reminderListMessages.push(msg.message_id);
+    await ctx.reply(TEXTS.REMINDERS.NONE, remindersKeyboard);
     return;
   }
 
   for (let i = 0; i < reminders.length; i++) {
     const r = reminders[i];
-    const status = r.isActive ? TEXTS.STATUS.ACTIVE : TEXTS.STATUS.PAUSED;
 
-    const msg = await ctx.reply(
-      `*${i + 1}.* ${status}
+    const status = r.isActive
+      ? TEXTS.STATUS.ACTIVE
+      : TEXTS.STATUS.PAUSED;
 
-${formatInterval(r.intervalMinutes)}
+    const autoDeleteLabel =
+      r.deleteAfterSeconds === null
+        ? '(автоудаление: не удаляется)'
+        : `(автоудаление: через ${r.deleteAfterSeconds} сек)`;
+
+    await ctx.reply(
+      `<b>${i + 1}.</b> ${status}
+
+<i>${formatInterval(r.intervalMinutes)}</i>
+<i>${autoDeleteLabel}</i>
 
 «${r.text}»`,
       {
-        parse_mode: 'Markdown',
+        parse_mode: 'HTML',
         ...Markup.inlineKeyboard([
           [
             r.isActive
@@ -243,21 +297,20 @@ ${formatInterval(r.intervalMinutes)}
         ])
       }
     );
-
-    ctx.session.reminderListMessages.push(msg.message_id);
   }
 };
 
 export const handleRequestAction = async (ctx, type) => {
   const id = ctx.callbackQuery.data.split(':')[1];
-
   const reminder = await Reminder.findById(id);
   if (!reminder) return;
 
   await ctx.editMessageReplyMarkup().catch(() => {});
 
   await ctx.reply(
-    `Вы точно хотите ${type === 'delete' ? 'удалить' : 'изменить статус'} напоминание?\n\n«${previewText(reminder.text)}»`,
+    `Вы точно хотите ${
+      type === 'delete' ? 'удалить' : 'изменить статус'
+    } напоминание?\n\n«${previewText(reminder.text)}»`,
     Markup.inlineKeyboard([
       [
         Markup.button.callback(UI.CONFIRM_YES, `confirm:${type}:${id}`),

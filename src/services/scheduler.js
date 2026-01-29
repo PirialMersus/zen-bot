@@ -8,7 +8,6 @@ import { cleanupUser } from './cleanupUser.js';
 
 const TICK_MS = 60 * 1000;
 const CREATOR_ID = Number(process.env.CREATOR_ID);
-const NOTIFICATIONS_PAUSED = false;
 const IS_DEV = process.env.NODE_ENV === 'development';
 
 const INACTIVE_DAYS = 30;
@@ -19,10 +18,8 @@ const getDeleteAfterSeconds = reminder => {
   return reminder.deleteAfterSeconds ?? null;
 };
 
-const toUserDate = (date, timezone) =>
-  timezone
-    ? new Date(date.toLocaleString('en-US', { timeZone: timezone }))
-    : date;
+const calcNextRun = (from, minutes) =>
+  new Date(from.getTime() + minutes * 60 * 1000);
 
 let lastCleanupDay = null;
 
@@ -66,7 +63,6 @@ export const startScheduler = bot => {
       for (const r of reminders) {
         try {
           if (!r.text || !r.intervalMinutes) continue;
-          if (NOTIFICATIONS_PAUSED && Number(r.userId) !== CREATOR_ID) continue;
 
           let user = usersCache.get(r.userId);
           if (!user) {
@@ -75,9 +71,7 @@ export const startScheduler = bot => {
           }
 
           if (isQuietNow(user, now)) {
-            const byInterval = new Date(
-              now.getTime() + r.intervalMinutes * 60 * 1000
-            );
+            const byInterval = calcNextRun(now, r.intervalMinutes);
 
             if (!r.nextRunAt || r.nextRunAt < byInterval) {
               r.nextRunAt = byInterval;
@@ -95,10 +89,14 @@ export const startScheduler = bot => {
           try {
             const deleteAfterSeconds = getDeleteAfterSeconds(r);
             const footer = deleteAfterSeconds
-              ? `\n\n(автоудаление через ${deleteAfterSeconds} сек)`
+              ? `\n\n<i>(автоудаление через ${deleteAfterSeconds} сек)</i>`
               : '';
 
-            msg = await bot.telegram.sendMessage(r.chatId, r.text + footer);
+            msg = await bot.telegram.sendMessage(
+              r.chatId,
+              r.text + footer,
+              { parse_mode: 'HTML' }
+            );
 
             if (deleteAfterSeconds) {
               setTimeout(() => {
@@ -130,7 +128,7 @@ export const startScheduler = bot => {
 
           sentThisTick.add(r.userId);
           r.lastSentAt = now;
-          r.nextRunAt = new Date(now.getTime() + r.intervalMinutes * 60 * 1000);
+          r.nextRunAt = calcNextRun(now, r.intervalMinutes);
           await r.save().catch(() => {});
         } catch (e) {
           logError(e, {

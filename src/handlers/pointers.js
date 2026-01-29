@@ -50,12 +50,13 @@ export const handlePointerToReminder = async ctx => {
   };
 
   ctx.session.reminderStep = 'INTERVAL';
-  ctx.session.waitingCustomInterval = false;
 
   const preview = previewText(text);
 
   await ctx.reply(
-    `${TEXTS.REMINDERS.ASK_INTERVAL}\n\n«${preview}»`,
-    intervalKeyboard
+    `<i>${TEXTS.REMINDERS.ASK_INTERVAL}</i>
+
+«${preview}»`,
+    { parse_mode: 'HTML', ...intervalKeyboard }
   );
 };

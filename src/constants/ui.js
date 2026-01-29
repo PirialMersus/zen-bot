@@ -10,7 +10,6 @@ export const UI = {
   INTERVAL_15: 'Каждые 15 минут',
   INTERVAL_60: 'Каждый час',
   INTERVAL_1440: 'Раз в день',
-  INTERVAL_CUSTOM: 'Своя периодичность (мин)',
 
   CONFIRM_YES: '✅ Да',
   CONFIRM_NO: '❌ Нет',

@@ -1,34 +1,32 @@
 // src/handlers/back.js
 import { mainKeyboard } from '../keyboard/main.js';
-import { intervalKeyboard } from '../keyboard/intervals.js';
 import { TEXTS } from '../constants/texts.js';
+import { REMINDER_STEP } from './reminders.js';
+import { renderReminderStep } from './reminders.js';
 
 export const handleBack = async ctx => {
   ctx.session ??= {};
-  const step = ctx.session?.reminderStep;
+
+  const step = ctx.session.reminderStep;
 
   if (!step) {
-    ctx.session.creatingReminder = null;
-    ctx.session.waitingCustomInterval = false;
     await ctx.reply(TEXTS.MENU.MAIN, mainKeyboard(ctx));
     return;
   }
 
-  if (step === 'CUSTOM_INTERVAL') {
-    ctx.session.waitingCustomInterval = false;
-    ctx.session.reminderStep = 'INTERVAL';
-    await ctx.reply(TEXTS.REMINDERS.ASK_INTERVAL, intervalKeyboard);
+  if (step === REMINDER_STEP.AUTO_DELETE) {
+    ctx.session.reminderStep = REMINDER_STEP.INTERVAL;
+    await renderReminderStep(ctx);
     return;
   }
 
-  if (step === 'INTERVAL') {
-    ctx.session.creatingReminder.intervalMinutes = null;
-    ctx.session.reminderStep = 'TEXT';
-    await ctx.reply(TEXTS.REMINDERS.ASK_TEXT);
+  if (step === REMINDER_STEP.INTERVAL) {
+    ctx.session.reminderStep = REMINDER_STEP.TEXT;
+    await renderReminderStep(ctx);
     return;
   }
 
-  if (step === 'TEXT') {
+  if (step === REMINDER_STEP.TEXT) {
     ctx.session.creatingReminder = null;
     ctx.session.reminderStep = null;
     await ctx.reply(TEXTS.MENU.MAIN, mainKeyboard(ctx));
