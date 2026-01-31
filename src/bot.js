@@ -1,5 +1,11 @@
 // src/bot.js
 import { Telegraf, session } from 'telegraf';
+import { BUTTONS } from './constants/buttons.js';
+import { TEXTS } from './constants/texts.js';
+import { UI } from './constants/ui.js';
+import { handleAdminUsers30d } from './handlers/admin.js';
+import { handleGetAuthCode } from './handlers/auth.js';
+import { handleBack } from './handlers/back.js';
 import { handleStart } from './handlers/menu.js';
 import {
   handleNextPointer,
@@ -7,19 +13,17 @@ import {
   handlePointerToReminder
 } from './handlers/pointers.js';
 import {
-  handleReminders,
-  handleCreateReminder,
-  handleReminderText,
-  handleIntervalPreset,
-  handleIntervalInput,
-  handleMyReminders,
-  handleRequestAction,
   handleConfirmAction,
+  handleCreateReminder,
+  handleDeleteAfterInput,
   handleDeleteAfterPreset,
-  handleDeleteAfterInput
+  handleIntervalInput,
+  handleIntervalPreset,
+  handleMyReminders,
+  handleReminderText,
+  handleReminders,
+  handleRequestAction
 } from './handlers/reminders.js';
-import { handleBack } from './handlers/back.js';
-import { BUTTONS } from './constants/buttons.js';
 import {
   handleQuietToggle,
   handleSettings,
@@ -27,11 +31,8 @@ import {
   handleTimezoneRegion,
   handleTimezoneSet
 } from './handlers/settings/index.js';
-import { UI } from './constants/ui.js';
-import { TEXTS } from './constants/texts.js';
-import { mainKeyboard } from './keyboard/main.js';
-import { handleAdminUsers30d } from './handlers/admin.js';
 import { intervalKeyboard } from './keyboard/intervals.js';
+import { mainKeyboard } from './keyboard/main.js';
 import { activityMiddleware } from './middlewares/activity.js';
 
 export const bot = new Telegraf(process.env.BOT_TOKEN);
@@ -48,6 +49,10 @@ bot.catch((err, ctx) => {
 });
 
 bot.start(handleStart);
+
+// Mobile app auth
+bot.command('getcode', handleGetAuthCode);
+bot.action('get_auth_code', handleGetAuthCode);
 
 bot.hears(BUTTONS.POINTER, handlePointer);
 bot.hears(BUTTONS.REMINDERS, handleReminders);
@@ -74,17 +79,17 @@ bot.action(/^timezone:set:/, handleTimezoneSet);
 bot.action('settings:quiet_toggle', handleQuietToggle);
 
 bot.action('settings:back', async ctx => {
-  await ctx.answerCbQuery().catch(() => {});
-  await ctx.deleteMessage().catch(() => {});
-  await ctx.reply(TEXTS.MENU.MAIN, mainKeyboard(ctx)).catch(() => {});
+  await ctx.answerCbQuery().catch(() => { });
+  await ctx.deleteMessage().catch(() => { });
+  await ctx.reply(TEXTS.MENU.MAIN, mainKeyboard(ctx)).catch(() => { });
 });
 
 bot.action('reminder:back_to_intervals', async ctx => {
   ctx.session ??= {};
   ctx.session.reminderStep = 'INTERVAL';
 
-  await ctx.answerCbQuery().catch(() => {});
-  await ctx.deleteMessage().catch(() => {});
+  await ctx.answerCbQuery().catch(() => { });
+  await ctx.deleteMessage().catch(() => { });
 
   const preview = ctx.session?.creatingReminder?.text
     ? `\n\n«${ctx.session.creatingReminder.text.slice(0, 40)}»`

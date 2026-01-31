@@ -11,7 +11,10 @@ const schema = new mongoose.Schema({
   createdAt: { type: Date, default: Date.now },
 
   lastSentAt: Date,
-  nextRunAt: { type: Date, index: true }
+  nextRunAt: { type: Date, index: true },
+
+  // Поле для мобильного приложения
+  soundId: { type: String, default: 'default' }
 });
 
 export default mongoose.model('Reminder', schema);

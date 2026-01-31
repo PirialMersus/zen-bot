@@ -16,7 +16,12 @@ const schema = new mongoose.Schema({
   },
 
   timezone: { type: String, default: 'Europe/Minsk' },
-  lastActivityAt: { type: Date }
+  lastActivityAt: { type: Date },
+
+  // Поля для мобильного приложения
+  authCode: { type: String },
+  authCodeExpiresAt: { type: Date },
+  pushTokens: [{ type: String }]
 }, { timestamps: true });
 
 export default mongoose.model('User', schema);

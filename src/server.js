@@ -1,11 +1,30 @@
 // src/server.js
-import http from 'http';
+import cors from 'cors';
+import express from 'express';
+import apiRouter from './api/index.js';
+
+const app = express();
+
+// Middleware
+app.use(cors());
+app.use(express.json());
+
+// Health check (для Render)
+app.get('/', (req, res) => {
+  res.send('zen-bot is running 🧘');
+});
+
+app.get('/health', (req, res) => {
+  res.json({ status: 'ok', timestamp: new Date().toISOString() });
+});
+
+// API routes для мобильного приложения
+app.use('/api', apiRouter);
+
+const PORT = process.env.PORT || 3000;
 
 export const startServer = () => {
-  const port = process.env.PORT || 3000;
-
-  http.createServer((_, res) => {
-    res.writeHead(200);
-    res.end('ok');
-  }).listen(port);
+  app.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}`);
+  });
 };
