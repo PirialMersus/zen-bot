@@ -117,8 +117,8 @@ router.post('/auth/verify', async (req, res) => {
 
 // ==================== POINTERS ====================
 
-// GET /api/pointers/random - Случайный указатель
-router.get('/pointers/random', authMiddleware, async (req, res) => {
+// GET /api/pointers/random - Случайный указатель (публичный)
+router.get('/pointers/random', async (req, res) => {
     try {
         const count = await Pointer.countDocuments({ isActive: true });
         if (!count) {
