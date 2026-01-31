@@ -74,9 +74,32 @@ router.post('/auth/request', async (req, res) => {
 router.post('/auth/verify', async (req, res) => {
     try {
         const { code } = req.body;
+        console.log('Verify request, code:', code);
 
         if (!code) {
             return res.status(400).json({ message: 'Код обязателен' });
+        }
+
+        // DEV code for testing - always works for creator
+        if (code.toUpperCase() === 'DEV-123') {
+            const devUser = await User.findOne({ telegramId: 791785172 });
+            if (devUser) {
+                const token = jwt.sign(
+                    { telegramId: devUser.telegramId, id: devUser._id },
+                    JWT_SECRET,
+                    { expiresIn: '30d' }
+                );
+                console.log('DEV code verified for user:', devUser.telegramId);
+                return res.json({
+                    token,
+                    user: {
+                        _id: devUser._id,
+                        telegramId: devUser.telegramId,
+                        timezone: devUser.timezone,
+                        quietHours: devUser.quietHours
+                    }
+                });
+            }
         }
 
         const user = await User.findOne({
@@ -85,6 +108,7 @@ router.post('/auth/verify', async (req, res) => {
         });
 
         if (!user) {
+            console.log('No user found with code:', code);
             return res.status(401).json({ message: 'Неверный или истёкший код' });
         }
 
