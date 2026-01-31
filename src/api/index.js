@@ -258,7 +258,8 @@ router.get('/user/settings', authMiddleware, async (req, res) => {
             _id: req.user._id,
             telegramId: req.user.telegramId,
             timezone: req.user.timezone,
-            quietHours: req.user.quietHours
+            quietHours: req.user.quietHours,
+            notificationChannel: req.user.notificationChannel || 'telegram'
         });
     } catch (error) {
         console.error('USER_SETTINGS_GET_ERROR', error);
@@ -280,7 +281,8 @@ router.patch('/user/settings', authMiddleware, async (req, res) => {
             _id: req.user._id,
             telegramId: req.user.telegramId,
             timezone: req.user.timezone,
-            quietHours: req.user.quietHours
+            quietHours: req.user.quietHours,
+            notificationChannel: req.user.notificationChannel || 'telegram'
         });
     } catch (error) {
         console.error('USER_SETTINGS_UPDATE_ERROR', error);
@@ -309,6 +311,28 @@ router.post('/user/push-token', authMiddleware, async (req, res) => {
         res.json({ message: 'Token сохранён' });
     } catch (error) {
         console.error('PUSH_TOKEN_ERROR', error);
+        res.status(500).json({ message: 'Ошибка сервера' });
+    }
+});
+
+// PUT /api/user/notification-channel - Обновить канал уведомлений
+router.put('/user/notification-channel', authMiddleware, async (req, res) => {
+    try {
+        const { channel } = req.body;
+
+        if (!channel || !['telegram', 'app'].includes(channel)) {
+            return res.status(400).json({ message: 'channel должен быть telegram или app' });
+        }
+
+        req.user.notificationChannel = channel;
+        await req.user.save();
+
+        res.json({
+            message: 'Канал уведомлений обновлён',
+            notificationChannel: channel
+        });
+    } catch (error) {
+        console.error('NOTIFICATION_CHANNEL_ERROR', error);
         res.status(500).json({ message: 'Ошибка сервера' });
     }
 });

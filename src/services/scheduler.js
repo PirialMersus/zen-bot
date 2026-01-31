@@ -2,9 +2,9 @@
 import https from 'https';
 import Reminder from '../models/Reminder.js';
 import User from '../models/User.js';
-import { isQuietNow } from './quietHours.js';
 import { logError } from '../utils/logger.js';
 import { cleanupUser } from './cleanupUser.js';
+import { isQuietNow } from './quietHours.js';
 
 const TICK_MS = 60 * 1000;
 const CREATOR_ID = Number(process.env.CREATOR_ID);
@@ -23,11 +23,42 @@ const calcNextRun = (from, minutes) =>
 
 let lastCleanupDay = null;
 
+// Expo Push API
+const sendPushNotification = async (pushTokens, text, soundId) => {
+  const messages = pushTokens
+    .filter(token => token && token.startsWith('ExponentPushToken'))
+    .map(token => ({
+      to: token,
+      sound: 'default',
+      title: 'Напоминание',
+      body: text,
+      data: { soundId: soundId || 'default' },
+    }));
+
+  if (!messages.length) return false;
+
+  const response = await fetch('https://exp.host/--/api/v2/push/send', {
+    method: 'POST',
+    headers: {
+      'Accept': 'application/json',
+      'Accept-Encoding': 'gzip, deflate',
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(messages),
+  });
+
+  if (!response.ok) {
+    throw new Error(`Expo Push API error: ${response.status}`);
+  }
+
+  return true;
+};
+
 export const startScheduler = bot => {
   setInterval(async () => {
     try {
       if (process.env.NODE_ENV === 'production' && process.env.HEALTHCHECKS_URL) {
-        https.get(process.env.HEALTHCHECKS_URL, r => r.resume()).on('error', () => {});
+        https.get(process.env.HEALTHCHECKS_URL, r => r.resume()).on('error', () => { });
       }
 
       const now = new Date();
@@ -43,7 +74,7 @@ export const startScheduler = bot => {
         ).limit(100).catch(() => []);
 
         for (const u of users) {
-          await cleanupUser(u.telegramId).catch(() => {});
+          await cleanupUser(u.telegramId).catch(() => { });
         }
       }
 
@@ -75,7 +106,7 @@ export const startScheduler = bot => {
 
             if (!r.nextRunAt || r.nextRunAt < byInterval) {
               r.nextRunAt = byInterval;
-              await r.save().catch(() => {});
+              await r.save().catch(() => { });
             }
 
             continue;
@@ -92,16 +123,25 @@ export const startScheduler = bot => {
               ? `\n\n<i>(автоудаление через ${deleteAfterSeconds} сек)</i>`
               : '';
 
-            msg = await bot.telegram.sendMessage(
-              r.chatId,
-              r.text + footer,
-              { parse_mode: 'HTML' }
-            );
+            // Проверяем канал уведомлений
+            const useApp = user?.notificationChannel === 'app' && user?.pushTokens?.length > 0;
 
-            if (deleteAfterSeconds) {
-              setTimeout(() => {
-                bot.telegram.deleteMessage(r.chatId, msg.message_id).catch(() => {});
-              }, deleteAfterSeconds * 1000);
+            if (useApp) {
+              // Отправка через Expo Push API
+              await sendPushNotification(user.pushTokens, r.text, r.soundId);
+            } else {
+              // Отправка в Telegram
+              msg = await bot.telegram.sendMessage(
+                r.chatId,
+                r.text + footer,
+                { parse_mode: 'HTML' }
+              );
+
+              if (deleteAfterSeconds && msg) {
+                setTimeout(() => {
+                  bot.telegram.deleteMessage(r.chatId, msg.message_id).catch(() => { });
+                }, deleteAfterSeconds * 1000);
+              }
             }
           } catch (e) {
             const code = e?.response?.error_code;
@@ -115,12 +155,12 @@ export const startScheduler = bot => {
             });
 
             if (code === 403) {
-              await cleanupUser(r.userId).catch(() => {});
+              await cleanupUser(r.userId).catch(() => { });
             }
 
             if (code === 400) {
               r.isActive = false;
-              await r.save().catch(() => {});
+              await r.save().catch(() => { });
             }
 
             continue;
@@ -129,7 +169,7 @@ export const startScheduler = bot => {
           sentThisTick.add(r.userId);
           r.lastSentAt = now;
           r.nextRunAt = calcNextRun(now, r.intervalMinutes);
-          await r.save().catch(() => {});
+          await r.save().catch(() => { });
         } catch (e) {
           logError(e, {
             scope: 'scheduler:loop',
