@@ -120,7 +120,14 @@ export const handleReminderText = async ctx => {
     return;
   }
 
-  ctx.session.creatingReminder.text = text;
+  if (text === UI.REMINDER_RANDOM) {
+    ctx.session.creatingReminder.isRandomPointer = true;
+    ctx.session.creatingReminder.text = UI.REMINDER_RANDOM;
+  } else {
+    ctx.session.creatingReminder.text = text;
+    ctx.session.creatingReminder.isRandomPointer = false;
+  }
+
   ctx.session.reminderStep = REMINDER_STEP.INTERVAL;
   await renderReminderStep(ctx);
 };
@@ -190,6 +197,8 @@ const saveLastReminderText = async (ctx, text) => {
   const user = await User.findOne({ telegramId: ctx.from.id });
   if (!user) return;
 
+  if (text === UI.REMINDER_RANDOM) return;
+
   const clean = normalizeText(text);
 
   const stored = user.lastReminderTexts?.length
@@ -225,6 +234,7 @@ const finalizeReminder = async ctx => {
     intervalMinutes: data.intervalMinutes,
     deleteAfterSeconds: data.deleteAfterSeconds,
     isActive: true,
+    isRandomPointer: !!data.isRandomPointer,
     nextRunAt: new Date(
       now.getTime() + data.intervalMinutes * 60 * 1000
     )
@@ -278,13 +288,15 @@ export const handleMyReminders = async ctx => {
         ? '(автоудаление: не удаляется)'
         : `(автоудаление: через ${r.deleteAfterSeconds} сек)`;
 
+    const displayText = r.isRandomPointer ? UI.REMINDER_RANDOM : r.text;
+
     await ctx.reply(
       `<b>${i + 1}.</b> ${status}
 
 <i>${formatInterval(r.intervalMinutes)}</i>
 <i>${autoDeleteLabel}</i>
 
-«${r.text}»`,
+«${displayText}»`,
       {
         parse_mode: 'HTML',
         ...Markup.inlineKeyboard([

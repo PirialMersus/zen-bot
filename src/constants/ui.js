@@ -5,6 +5,7 @@ export const UI = {
 
   REMINDER_CREATE: '➕ Создать напоминание',
   REMINDER_MY: '📋 Мои напоминания',
+  REMINDER_RANDOM: '🎲 Случайный указатель',
 
   INTERVAL_5: 'Каждые 5 минут',
   INTERVAL_15: 'Каждые 15 минут',

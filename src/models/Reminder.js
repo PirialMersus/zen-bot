@@ -14,7 +14,9 @@ const schema = new mongoose.Schema({
   nextRunAt: { type: Date, index: true },
 
   // Поле для мобильного приложения
-  soundId: { type: String, default: 'default' }
+  soundId: { type: String, default: 'default' },
+
+  isRandomPointer: { type: Boolean, default: false }
 });
 
 export default mongoose.model('Reminder', schema);
