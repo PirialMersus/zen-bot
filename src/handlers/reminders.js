@@ -30,6 +30,33 @@ const formatInterval = minutes => {
   return `Каждые ${minutes} мин ⌛`;
 };
 
+const formatReminderMessageText = (r, indexStr) => {
+  const status = r.isActive ? TEXTS.STATUS.ACTIVE : TEXTS.STATUS.PAUSED;
+  const autoDeleteLabel =
+    r.deleteAfterSeconds === null
+      ? '(автоудаление: не удаляется)'
+      : `(автоудаление: через ${r.deleteAfterSeconds} сек)`;
+  const displayText = r.isRandomPointer ? UI.REMINDER_RANDOM : r.text;
+
+  return `<b>${indexStr}.</b> ${status}
+
+<i>${formatInterval(r.intervalMinutes)}</i>
+<i>${autoDeleteLabel}</i>
+
+«${displayText}»`;
+};
+
+const getReminderMessageKeyboard = r => {
+  return Markup.inlineKeyboard([
+    [
+      r.isActive
+        ? Markup.button.callback('⏸ Приостановить', `pause:${r.id}`)
+        : Markup.button.callback('▶️ Возобновить', `resume:${r.id}`),
+      Markup.button.callback('🗑 Удалить', `delete:${r.id}`)
+    ]
+  ]);
+};
+
 export const previewText = text => {
   if (!text) return '';
   return text.length > 40 ? `${text.slice(0, 40)}…` : text;
@@ -278,35 +305,11 @@ export const handleMyReminders = async ctx => {
 
   for (let i = 0; i < reminders.length; i++) {
     const r = reminders[i];
-
-    const status = r.isActive
-      ? TEXTS.STATUS.ACTIVE
-      : TEXTS.STATUS.PAUSED;
-
-    const autoDeleteLabel =
-      r.deleteAfterSeconds === null
-        ? '(автоудаление: не удаляется)'
-        : `(автоудаление: через ${r.deleteAfterSeconds} сек)`;
-
-    const displayText = r.isRandomPointer ? UI.REMINDER_RANDOM : r.text;
-
     await ctx.reply(
-      `<b>${i + 1}.</b> ${status}
-
-<i>${formatInterval(r.intervalMinutes)}</i>
-<i>${autoDeleteLabel}</i>
-
-«${displayText}»`,
+      formatReminderMessageText(r, i + 1),
       {
         parse_mode: 'HTML',
-        ...Markup.inlineKeyboard([
-          [
-            r.isActive
-              ? Markup.button.callback('⏸ Приостановить', `pause:${r.id}`)
-              : Markup.button.callback('▶️ Возобновить', `resume:${r.id}`),
-            Markup.button.callback('🗑 Удалить', `delete:${r.id}`)
-          ]
-        ])
+        ...getReminderMessageKeyboard(r)
       }
     );
   }
@@ -315,45 +318,63 @@ export const handleMyReminders = async ctx => {
 export const handleRequestAction = async (ctx, type) => {
   const id = ctx.callbackQuery.data.split(':')[1];
   const reminder = await Reminder.findById(id);
-  if (!reminder) return;
+  if (!reminder) return ctx.answerCbQuery('Напоминание не найдено').catch(() => {});
 
-  await ctx.editMessageReplyMarkup().catch(() => {});
+  if (type === 'pause' || type === 'resume') {
+    reminder.isActive = !reminder.isActive;
+    await reminder.save();
 
-  await ctx.reply(
-    `Вы точно хотите ${
-      type === 'delete' ? 'удалить' : 'изменить статус'
-    } напоминание?\n\n«${previewText(reminder.text)}»`,
-    Markup.inlineKeyboard([
-      [
-        Markup.button.callback(UI.CONFIRM_YES, `confirm:${type}:${id}`),
-        Markup.button.callback(UI.CONFIRM_NO, 'confirm:no')
-      ]
-    ])
-  );
+    const originalText = ctx.callbackQuery.message?.text || '';
+    const matchIndex = originalText.match(/^(\d+)\./);
+    const indexStr = matchIndex ? matchIndex[1] : '?';
+
+    await ctx.editMessageText(
+      formatReminderMessageText(reminder, indexStr),
+      {
+        parse_mode: 'HTML',
+        ...getReminderMessageKeyboard(reminder)
+      }
+    ).catch(() => {});
+
+    return ctx.answerCbQuery('Статус изменен').catch(() => {});
+  }
+
+  if (type === 'delete') {
+    await ctx.editMessageReplyMarkup(
+      Markup.inlineKeyboard([
+        [
+          Markup.button.callback('🗑 Подтвердить удаление', `confirm:delete:${id}`),
+          Markup.button.callback('❌ Отмена', `confirm:cancel:${id}`)
+        ]
+      ]).reply_markup
+    ).catch(() => {});
+
+    return ctx.answerCbQuery().catch(() => {});
+  }
 };
 
 export const handleConfirmAction = async ctx => {
   const data = ctx.callbackQuery.data;
+  await ctx.answerCbQuery().catch(() => {});
 
   if (data === 'confirm:no') {
-    await ctx.editMessageReplyMarkup().catch(() => {});
+    await ctx.deleteMessage().catch(() => {});
     return;
   }
 
   const [, type, id] = data.split(':');
 
-  if (type === 'delete') {
-    await Reminder.findByIdAndDelete(id);
-  }
-
-  if (type === 'pause' || type === 'resume') {
+  if (type === 'cancel') {
     const r = await Reminder.findById(id);
     if (r) {
-      r.isActive = !r.isActive;
-      await r.save();
+      await ctx.editMessageReplyMarkup(getReminderMessageKeyboard(r).reply_markup).catch(() => {});
     }
+    return;
   }
 
-  await ctx.editMessageReplyMarkup().catch(() => {});
-  await handleMyReminders(ctx);
+  if (type === 'delete') {
+    await Reminder.findByIdAndDelete(id);
+    await ctx.deleteMessage().catch(() => {});
+    return;
+  }
 };
