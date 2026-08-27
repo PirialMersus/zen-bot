@@ -36,7 +36,15 @@ const formatReminderMessageText = (r, indexStr) => {
     r.deleteAfterSeconds === null
       ? '(автоудаление: не удаляется)'
       : `(автоудаление: через ${r.deleteAfterSeconds} сек)`;
-  const displayText = r.isRandomPointer ? UI.REMINDER_RANDOM : r.text;
+
+  let displayText = r.text;
+  if (r.isRandomPointer) {
+    displayText = UI.REMINDER_RANDOM;
+  } else if (r.photoFileId) {
+    displayText = r.caption ? `📷 Фото: «${r.caption}»` : '📷 Фотография';
+  } else if (r.videoFileId) {
+    displayText = r.caption ? `🎬 Видео: «${r.caption}»` : '🎬 Видео';
+  }
 
   return `<b>${indexStr}.</b> ${status}
 
@@ -79,8 +87,8 @@ export const renderReminderStep = async ctx => {
     ].slice(0, 4);
 
     const subtitle = stored.length
-      ? '✍️ Введите текст сообщения или выберите из последних'
-      : '✍️ Введите текст сообщения или выберите из предложенных';
+      ? '✍️ Введите текст, выберите из предложенных или отправьте 📷 фото / 🎬 видео'
+      : '✍️ Введите текст, выберите из предложенных или отправьте 📷 фото / 🎬 видео';
 
     await ctx.reply(
       `${TEXTS.REMINDERS.ASK_TEXT}\n\n${subtitle}`,
@@ -123,6 +131,41 @@ export const handleCreateReminder = async ctx => {
     deleteAfterSeconds: 10
   };
   ctx.session.reminderStep = REMINDER_STEP.TEXT;
+  await renderReminderStep(ctx);
+};
+
+export const handleReminderPhoto = async ctx => {
+  if (ctx.session?.reminderStep !== REMINDER_STEP.TEXT) return;
+
+  const photoArray = ctx.message.photo;
+  if (!photoArray || !photoArray.length) return;
+
+  const largestPhoto = photoArray[photoArray.length - 1];
+  const caption = ctx.message.caption ? ctx.message.caption.trim() : null;
+
+  ctx.session.creatingReminder.photoFileId = largestPhoto.file_id;
+  ctx.session.creatingReminder.caption = caption;
+  ctx.session.creatingReminder.text = caption ? `📷 Фото: ${caption}` : '📷 Фотография';
+  ctx.session.creatingReminder.isRandomPointer = false;
+
+  ctx.session.reminderStep = REMINDER_STEP.INTERVAL;
+  await renderReminderStep(ctx);
+};
+
+export const handleReminderVideo = async ctx => {
+  if (ctx.session?.reminderStep !== REMINDER_STEP.TEXT) return;
+
+  const video = ctx.message.video || ctx.message.video_note;
+  if (!video) return;
+
+  const caption = ctx.message.caption ? ctx.message.caption.trim() : null;
+
+  ctx.session.creatingReminder.videoFileId = video.file_id;
+  ctx.session.creatingReminder.caption = caption;
+  ctx.session.creatingReminder.text = caption ? `🎬 Видео: ${caption}` : '🎬 Видео';
+  ctx.session.creatingReminder.isRandomPointer = false;
+
+  ctx.session.reminderStep = REMINDER_STEP.INTERVAL;
   await renderReminderStep(ctx);
 };
 
@@ -258,6 +301,9 @@ const finalizeReminder = async ctx => {
     userId: String(ctx.from.id),
     chatId: ctx.chat.id,
     text: cleanText,
+    photoFileId: data.photoFileId || null,
+    videoFileId: data.videoFileId || null,
+    caption: data.caption || null,
     intervalMinutes: data.intervalMinutes,
     deleteAfterSeconds: data.deleteAfterSeconds,
     isActive: true,
@@ -282,7 +328,9 @@ const finalizeReminder = async ctx => {
     { parse_mode: 'HTML' }
   );
 
-  await saveLastReminderText(ctx, cleanText);
+  if (!data.photoFileId && !data.videoFileId) {
+    await saveLastReminderText(ctx, cleanText);
+  }
 
   ctx.session.creatingReminder = null;
   ctx.session.reminderStep = null;

@@ -135,24 +135,57 @@ export const startScheduler = bot => {
               ? `\n\n<i>(автоудаление через ${deleteAfterSeconds} сек)</i>`
               : '';
 
-            // Проверяем канал уведомлений
             const useApp = user?.notificationChannel === 'app' && user?.pushTokens?.length > 0;
 
-            if (useApp) {
-              // Отправка через Expo Push API
-              await sendPushNotification(user.pushTokens, messageText, r.soundId);
-            } else {
-              // Отправка в Telegram
-              msg = await bot.telegram.sendMessage(
-                r.chatId,
-                messageText + footer,
-                { parse_mode: 'HTML' }
-              );
+            if (r.photoFileId) {
+              const photoCaption = r.caption ? `${r.caption}${footer}` : (footer ? footer.trim() : '');
+              if (useApp) {
+                await sendPushNotification(user.pushTokens, r.caption || '📷 Фотография', r.soundId);
+              } else {
+                msg = await bot.telegram.sendPhoto(
+                  r.chatId,
+                  r.photoFileId,
+                  photoCaption ? { caption: photoCaption, parse_mode: 'HTML' } : {}
+                );
 
-              if (deleteAfterSeconds && msg) {
-                setTimeout(() => {
-                  bot.telegram.deleteMessage(r.chatId, msg.message_id).catch(() => { });
-                }, deleteAfterSeconds * 1000);
+                if (deleteAfterSeconds && msg) {
+                  setTimeout(() => {
+                    bot.telegram.deleteMessage(r.chatId, msg.message_id).catch(() => { });
+                  }, deleteAfterSeconds * 1000);
+                }
+              }
+            } else if (r.videoFileId) {
+              const videoCaption = r.caption ? `${r.caption}${footer}` : (footer ? footer.trim() : '');
+              if (useApp) {
+                await sendPushNotification(user.pushTokens, r.caption || '🎬 Видео', r.soundId);
+              } else {
+                msg = await bot.telegram.sendVideo(
+                  r.chatId,
+                  r.videoFileId,
+                  videoCaption ? { caption: videoCaption, parse_mode: 'HTML' } : {}
+                );
+
+                if (deleteAfterSeconds && msg) {
+                  setTimeout(() => {
+                    bot.telegram.deleteMessage(r.chatId, msg.message_id).catch(() => { });
+                  }, deleteAfterSeconds * 1000);
+                }
+              }
+            } else {
+              if (useApp) {
+                await sendPushNotification(user.pushTokens, messageText, r.soundId);
+              } else {
+                msg = await bot.telegram.sendMessage(
+                  r.chatId,
+                  messageText + footer,
+                  { parse_mode: 'HTML' }
+                );
+
+                if (deleteAfterSeconds && msg) {
+                  setTimeout(() => {
+                    bot.telegram.deleteMessage(r.chatId, msg.message_id).catch(() => { });
+                  }, deleteAfterSeconds * 1000);
+                }
               }
             }
           } catch (e) {

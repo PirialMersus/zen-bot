@@ -1,4 +1,3 @@
-// src/bot.js
 import { Telegraf, session } from 'telegraf';
 import { BUTTONS } from './constants/buttons.js';
 import { TEXTS } from './constants/texts.js';
@@ -20,6 +19,8 @@ import {
   handleIntervalInput,
   handleIntervalPreset,
   handleMyReminders,
+  handleReminderPhoto,
+  handleReminderVideo,
   handleReminderText,
   handleReminders,
   handleRequestAction
@@ -117,6 +118,14 @@ bot.hears(TEXTS.INTERVALS.OPTIONS, async ctx => {
   }
 
   await handleDeleteAfterPreset(ctx, TEXTS.INTERVALS.MAP[ctx.message.text]);
+});
+
+bot.on('photo', async ctx => {
+  await handleReminderPhoto(ctx);
+});
+
+bot.on(['video', 'video_note'], async ctx => {
+  await handleReminderVideo(ctx);
 });
 
 bot.on('text', async ctx => {
