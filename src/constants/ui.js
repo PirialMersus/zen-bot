@@ -1,10 +1,9 @@
-// src/constants/ui.js
 export const UI = {
   POINTER_NEXT: '➡️ Следующий',
-  POINTER_TO_REMINDER: '🔔 Сделать напоминанием',
+  POINTER_TO_REMINDER: '🔔 В напоминание',
 
-  REMINDER_CREATE: '➕ Создать напоминание',
-  REMINDER_MY: '📋 Мои напоминания',
+  REMINDER_CREATE: '➕ Создать',
+  REMINDER_MY: '📋 Список',
   REMINDER_RANDOM: '🎲 Случайный указатель',
 
   INTERVAL_5: 'Каждые 5 минут',

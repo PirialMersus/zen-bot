@@ -51,9 +51,11 @@ bot.catch((err, ctx) => {
 
 bot.start(handleStart);
 
-// Mobile app auth
 bot.command('getcode', handleGetAuthCode);
 bot.action('get_auth_code', handleGetAuthCode);
+
+bot.action('pointer:next', handleNextPointer);
+bot.action('pointer:to_reminder', handlePointerToReminder);
 
 bot.hears(BUTTONS.POINTER, handlePointer);
 bot.hears(BUTTONS.REMINDERS, handleReminders);
