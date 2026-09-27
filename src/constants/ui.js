@@ -13,7 +13,7 @@ export const UI = {
 
   CONFIRM_YES: '✅ Да',
   CONFIRM_NO: '❌ Нет',
-  ADMIN_USERS_30D: '👥 Пользователи за 30 дней',
+  ADMIN_ACTIVE_USERS: '👥 Активные пользователи',
   SUPPORT: '🛠 Техподдержка',
   TIMEZONE: '🌍 Часовой пояс'
 };

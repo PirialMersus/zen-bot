@@ -1,4 +1,3 @@
-// src/keyboard/main.js
 import {Markup} from 'telegraf';
 import {BUTTONS} from "../constants/buttons.js";
 import {UI} from "../constants/ui.js";
@@ -12,7 +11,7 @@ export const mainKeyboard = ctx => {
   ];
 
   if (isAdmin) {
-    rows.push([UI.ADMIN_USERS_30D]);
+    rows.push([UI.ADMIN_ACTIVE_USERS]);
   }
 
   return Markup.keyboard(rows).resize();

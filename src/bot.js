@@ -2,7 +2,7 @@ import { Telegraf, session } from 'telegraf';
 import { BUTTONS } from './constants/buttons.js';
 import { TEXTS } from './constants/texts.js';
 import { UI } from './constants/ui.js';
-import { handleAdminUsers30d } from './handlers/admin.js';
+import { handleAdminActiveUsers } from './handlers/admin.js';
 import { handleGetAuthCode } from './handlers/auth.js';
 import { handleBack } from './handlers/back.js';
 import { handleStart } from './handlers/menu.js';
@@ -107,7 +107,7 @@ bot.action('reminder:back_to_intervals', async ctx => {
 bot.hears(BUTTONS.BACK, handleBack);
 bot.hears(UI.POINTER_NEXT, handleNextPointer);
 bot.hears(UI.POINTER_TO_REMINDER, handlePointerToReminder);
-bot.hears(UI.ADMIN_USERS_30D, handleAdminUsers30d);
+bot.hears(UI.ADMIN_ACTIVE_USERS, handleAdminActiveUsers);
 
 bot.hears(BUTTONS.SUPPORT, async ctx => {
   await ctx.reply(TEXTS.SUPPORT);
