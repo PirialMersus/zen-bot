@@ -18,6 +18,15 @@ const schema = new mongoose.Schema({
   timezone: { type: String, default: 'Europe/Minsk' },
   lastActivityAt: { type: Date },
 
+  shuffleQueue: {
+    type: [Number],
+    default: []
+  },
+  shuffleIndex: {
+    type: Number,
+    default: 0
+  },
+
   // Поля для мобильного приложения
   authCode: { type: String },
   authCodeExpiresAt: { type: Date },

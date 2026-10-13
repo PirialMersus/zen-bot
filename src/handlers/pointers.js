@@ -1,5 +1,5 @@
 import { Markup } from 'telegraf';
-import { getRandomPointer } from '../services/pointers.js';
+import { getNextPointerForUser } from '../services/pointers.js';
 import { intervalKeyboard } from '../keyboard/intervals.js';
 import { TEXTS } from '../constants/texts.js';
 import { UI } from '../constants/ui.js';
@@ -17,7 +17,7 @@ const buildPointerInlineKeyboard = () => {
 };
 
 export const handlePointer = async ctx => {
-  const pointer = await getRandomPointer();
+  const pointer = await getNextPointerForUser(ctx.from.id);
   if (!pointer) {
     await ctx.reply(TEXTS.POINTERS.EMPTY);
     return;
@@ -42,7 +42,7 @@ export const handleNextPointer = async ctx => {
     await ctx.answerCbQuery().catch(() => {});
   }
 
-  const pointer = await getRandomPointer();
+  const pointer = await getNextPointerForUser(ctx.from.id);
   if (!pointer) {
     if (isCallbackQueryEvent) {
       await ctx.editMessageText(TEXTS.POINTERS.EMPTY).catch(() => {});
