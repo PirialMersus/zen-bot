@@ -21,8 +21,10 @@ const appendNewIndicesToExistingQueue = (existingQueue, previousTotalCount, newT
   return [...existingQueue, ...shuffledNewIndices];
 };
 
-export const getNextPointerForUser = async (telegramUserId) => {
-  const activePointersQuery = { isActive: true };
+export const getNextPointerForUser = async (telegramUserId, tagFilter = null) => {
+  const activePointersQuery = tagFilter
+    ? { isActive: true, tags: tagFilter }
+    : { isActive: true };
   const totalActiveCount = await Pointer.countDocuments(activePointersQuery);
   if (!totalActiveCount) return null;
 

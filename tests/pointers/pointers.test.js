@@ -7,6 +7,7 @@ import {
 } from '../../src/handlers/pointers.js';
 import { REMINDER_STEP } from '../../src/handlers/reminders.js';
 import { Pointer } from '../../src/models/Pointer.js';
+import { getNextPointerForUser } from '../../src/services/pointers.js';
 import { createMockContext } from '../helpers/mockContext.js';
 
 describe('Указатели (Pointers)', () => {
@@ -79,5 +80,48 @@ describe('Указатели (Pointers)', () => {
       fromPointer: true
     });
     expect(mockContext.reply).toHaveBeenCalled();
+  });
+});
+
+describe('getNextPointerForUser — фильтрация по тегу тишина', () => {
+  it('должен возвращать только указатели с тегом тишина, когда передан этот фильтр', async () => {
+    await Pointer.create({ text: 'Тишина 1', tags: ['тишина'], isActive: true });
+    await Pointer.create({ text: 'Без тега', tags: [], isActive: true });
+    await Pointer.create({ text: 'Другой тег', tags: ['практика'], isActive: true });
+
+    const pointer = await getNextPointerForUser(777001, 'тишина');
+
+    expect(pointer).not.toBeNull();
+    expect(pointer.tags).toContain('тишина');
+  });
+
+  it('не должен возвращать указатели без тега тишина при фильтрации', async () => {
+    await Pointer.create({ text: 'Только без тишины', tags: ['практика'], isActive: true });
+
+    const pointer = await getNextPointerForUser(777002, 'тишина');
+
+    expect(pointer).toBeNull();
+  });
+
+  it('должен возвращать все активные указатели без фильтра по тегу', async () => {
+    await Pointer.create({ text: 'Любой активный', tags: ['практика'], isActive: true });
+    await Pointer.create({ text: 'С тишиной', tags: ['тишина'], isActive: true });
+
+    const pointer = await getNextPointerForUser(777003);
+
+    expect(pointer).not.toBeNull();
+  });
+
+  it('не должен смешивать шаффл-очереди пользователей с разными фильтрами', async () => {
+    await Pointer.create({ text: 'Тишина А', tags: ['тишина'], isActive: true });
+    await Pointer.create({ text: 'Тишина Б', tags: ['тишина'], isActive: true });
+    await Pointer.create({ text: 'Без тега 1', tags: [], isActive: true });
+    await Pointer.create({ text: 'Без тега 2', tags: [], isActive: true });
+
+    const pointerWithFilter = await getNextPointerForUser(777004, 'тишина');
+    const pointerWithoutFilter = await getNextPointerForUser(777005);
+
+    expect(pointerWithFilter.tags).toContain('тишина');
+    expect(pointerWithoutFilter).not.toBeNull();
   });
 });

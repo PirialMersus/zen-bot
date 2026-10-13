@@ -1,7 +1,9 @@
 import { describe, expect, it } from 'vitest';
 import Reminder from '../../src/models/Reminder.js';
 import User from '../../src/models/User.js';
+import { Pointer } from '../../src/models/Pointer.js';
 import { isQuietNow } from '../../src/services/quietHours.js';
+import { getNextPointerForUser } from '../../src/services/pointers.js';
 
 describe('Планировщик и тихие часы (Scheduler & Quiet Hours)', () => {
   it('должен возвращать false, если тихие часы отключены', () => {
@@ -81,5 +83,68 @@ describe('Планировщик и тихие часы (Scheduler & Quiet Hours
 
     expect(readyReminders.length).toBe(1);
     expect(readyReminders[0].userId).toBe('1001');
+  });
+});
+
+describe('Рандомные напоминания — фильтр по тегу тишина', () => {
+  it('должен возвращать только указатели с тегом тишина для рандомного напоминания', async () => {
+    await Pointer.create({ text: 'Тишина для напоминания', tags: ['тишина'], isActive: true });
+    await Pointer.create({ text: 'Практика — не для напоминания', tags: ['практика'], isActive: true });
+    await Pointer.create({ text: 'Без тега — не для напоминания', tags: [], isActive: true });
+
+    const telegramUserId = 55500001;
+    await User.create({ telegramId: telegramUserId });
+
+    const pointer = await getNextPointerForUser(telegramUserId, 'тишина');
+
+    expect(pointer).not.toBeNull();
+    expect(pointer.tags).toContain('тишина');
+    expect(pointer.text).toBe('Тишина для напоминания');
+  });
+
+  it('не должен возвращать указатель, если нет ни одного с тегом тишина', async () => {
+    await Pointer.create({ text: 'Только практика', tags: ['практика'], isActive: true });
+    await Pointer.create({ text: 'Без тегов вообще', tags: [], isActive: true });
+
+    const telegramUserId = 55500002;
+    await User.create({ telegramId: telegramUserId });
+
+    const pointer = await getNextPointerForUser(telegramUserId, 'тишина');
+
+    expect(pointer).toBeNull();
+  });
+
+  it('рандомное напоминание без тишина-указателей не должно подменять текст напоминания', async () => {
+    await Pointer.create({ text: 'Любой активный без тишины', tags: ['практика'], isActive: true });
+
+    const telegramUserId = 55500003;
+    const fixedReminderText = 'Мой фиксированный текст напоминания';
+
+    await User.create({ telegramId: telegramUserId });
+
+    const pointer = await getNextPointerForUser(telegramUserId, 'тишина');
+
+    const actualMessageText = pointer
+      ? (pointer.source ? `${pointer.text}\n\n— ${pointer.source}` : pointer.text)
+      : fixedReminderText;
+
+    expect(actualMessageText).toBe(fixedReminderText);
+  });
+
+  it('должен чередовать указатели с тегом тишина без повторов', async () => {
+    await Pointer.create({ text: 'Тишина X', tags: ['тишина'], isActive: true });
+    await Pointer.create({ text: 'Тишина Y', tags: ['тишина'], isActive: true });
+
+    const telegramUserId = 55500004;
+    await User.create({ telegramId: telegramUserId });
+
+    const firstPointer = await getNextPointerForUser(telegramUserId, 'тишина');
+    const secondPointer = await getNextPointerForUser(telegramUserId, 'тишина');
+
+    expect(firstPointer).not.toBeNull();
+    expect(secondPointer).not.toBeNull();
+    expect(firstPointer.tags).toContain('тишина');
+    expect(secondPointer.tags).toContain('тишина');
+    expect(firstPointer.text).not.toBe(secondPointer.text);
   });
 });

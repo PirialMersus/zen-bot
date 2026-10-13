@@ -122,7 +122,7 @@ export const startScheduler = bot => {
             let messageText = r.text;
 
             if (r.isRandomPointer) {
-              const pointer = await getNextPointerForUser(Number(r.userId)).catch(() => null);
+              const pointer = await getNextPointerForUser(Number(r.userId), 'тишина').catch(() => null);
               if (pointer) {
                 messageText = pointer.source
                   ? `${pointer.text}\n\n— ${pointer.source}`
