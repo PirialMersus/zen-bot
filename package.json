@@ -9,7 +9,7 @@
     "seed:pointers": "node scripts/seedPointers.js",
     "test": "vitest run",
     "test:watch": "vitest",
-    "prepare": "husky"
+    "prepare": "husky || true"
   },
   "keywords": [],
   "author": "",
