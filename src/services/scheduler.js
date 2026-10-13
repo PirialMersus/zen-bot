@@ -5,7 +5,7 @@ import User from '../models/User.js';
 import { logError } from '../utils/logger.js';
 import { cleanupUser } from './cleanupUser.js';
 import { isQuietNow } from './quietHours.js';
-import { getRandomPointer } from '../services/pointers.js';
+import { getNextPointerForUser } from '../services/pointers.js';
 
 const TICK_MS = 60 * 1000;
 const CREATOR_ID = Number(process.env.CREATOR_ID);
@@ -122,7 +122,7 @@ export const startScheduler = bot => {
             let messageText = r.text;
 
             if (r.isRandomPointer) {
-              const pointer = await getRandomPointer('тишина').catch(() => null);
+              const pointer = await getNextPointerForUser(Number(r.userId)).catch(() => null);
               if (pointer) {
                 messageText = pointer.source
                   ? `${pointer.text}\n\n— ${pointer.source}`
