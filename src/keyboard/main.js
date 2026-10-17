@@ -11,7 +11,7 @@ export const mainKeyboard = ctx => {
   ];
 
   if (isAdmin) {
-    rows.push([UI.ADMIN_ACTIVE_USERS]);
+    rows.push([UI.ADMIN_ACTIVE_USERS, UI.ADMIN_BROADCAST]);
   }
 
   return Markup.keyboard(rows).resize();

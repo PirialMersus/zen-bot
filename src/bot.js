@@ -2,7 +2,16 @@ import { Telegraf, session } from 'telegraf';
 import { BUTTONS } from './constants/buttons.js';
 import { TEXTS } from './constants/texts.js';
 import { UI } from './constants/ui.js';
-import { handleAdminActiveUsers } from './handlers/admin.js';
+import {
+  handleAdminActiveUsers,
+  handleAdminBroadcastCancel,
+  handleAdminBroadcastConfirm,
+  handleAdminBroadcastMessage,
+  handleAdminBroadcastStart,
+  handleFeedbackCancel,
+  handleFeedbackMessage,
+  handleFeedbackStart
+} from './handlers/admin.js';
 import { handleGetAuthCode } from './handlers/auth.js';
 import { handleBack } from './handlers/back.js';
 import { handleStart } from './handlers/menu.js';
@@ -75,6 +84,11 @@ bot.action(/^delete:/, ctx => handleRequestAction(ctx, 'delete'));
 
 bot.action(/^confirm:/, handleConfirmAction);
 
+bot.action('broadcast:confirm', handleAdminBroadcastConfirm);
+bot.action('broadcast:cancel', handleAdminBroadcastCancel);
+bot.action('feedback:start', handleFeedbackStart);
+bot.action('feedback:cancel', handleFeedbackCancel);
+
 bot.action('settings:timezone', handleTimezoneMenu);
 bot.action(/^timezone:region:/, handleTimezoneRegion);
 bot.action(/^timezone:set:/, handleTimezoneSet);
@@ -108,6 +122,7 @@ bot.hears(BUTTONS.BACK, handleBack);
 bot.hears(UI.POINTER_NEXT, handleNextPointer);
 bot.hears(UI.POINTER_TO_REMINDER, handlePointerToReminder);
 bot.hears(UI.ADMIN_ACTIVE_USERS, handleAdminActiveUsers);
+bot.hears(UI.ADMIN_BROADCAST, handleAdminBroadcastStart);
 
 bot.hears(BUTTONS.SUPPORT, async ctx => {
   await ctx.reply(TEXTS.SUPPORT);
@@ -123,14 +138,25 @@ bot.hears(TEXTS.INTERVALS.OPTIONS, async ctx => {
 });
 
 bot.on('photo', async ctx => {
+  if (await handleFeedbackMessage(ctx)) return;
+  if (await handleAdminBroadcastMessage(ctx)) return;
   await handleReminderPhoto(ctx);
 });
 
 bot.on(['video', 'video_note'], async ctx => {
+  if (await handleFeedbackMessage(ctx)) return;
+  if (await handleAdminBroadcastMessage(ctx)) return;
   await handleReminderVideo(ctx);
 });
 
+bot.on(['voice', 'audio', 'document'], async ctx => {
+  if (await handleFeedbackMessage(ctx)) return;
+  if (await handleAdminBroadcastMessage(ctx)) return;
+});
+
 bot.on('text', async ctx => {
+  if (await handleFeedbackMessage(ctx)) return;
+  if (await handleAdminBroadcastMessage(ctx)) return;
   if (await handleDeleteAfterInput(ctx)) return;
   if (await handleIntervalInput(ctx)) return;
   await handleReminderText(ctx);

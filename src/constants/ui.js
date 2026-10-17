@@ -14,6 +14,7 @@ export const UI = {
   CONFIRM_YES: '✅ Да',
   CONFIRM_NO: '❌ Нет',
   ADMIN_ACTIVE_USERS: '👥 Активные пользователи',
+  ADMIN_BROADCAST: '📢 Рассылка',
   SUPPORT: '🛠 Техподдержка',
   TIMEZONE: '🌍 Часовой пояс'
 };

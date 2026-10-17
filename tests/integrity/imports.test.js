@@ -80,4 +80,12 @@ describe('Целостность импортов модулей (Integrity Chec
     const module = await import('../../src/handlers/settings/index.js');
     expect(module).toBeTruthy();
   });
+
+  it('должен успешно импортировать хендлер администратора и рассылки', async () => {
+    const module = await import('../../src/handlers/admin.js');
+    expect(typeof module.handleAdminActiveUsers).toBe('function');
+    expect(typeof module.handleAdminBroadcastStart).toBe('function');
+    expect(typeof module.handleFeedbackStart).toBe('function');
+    expect(typeof module.handleFeedbackMessage).toBe('function');
+  });
 });
