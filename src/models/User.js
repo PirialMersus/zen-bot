@@ -3,6 +3,9 @@ import mongoose from 'mongoose';
 
 const schema = new mongoose.Schema({
   telegramId: { type: Number, index: true },
+  firstName: { type: String },
+  lastName: { type: String },
+  username: { type: String },
 
   lastReminderTexts: {
     type: [String],
