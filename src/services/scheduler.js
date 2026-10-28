@@ -4,7 +4,7 @@ import Reminder from '../models/Reminder.js';
 import User from '../models/User.js';
 import { logError } from '../utils/logger.js';
 import { cleanupUser } from './cleanupUser.js';
-import { isQuietNow } from './quietHours.js';
+import { isQuietNow, getQuietEndDate } from './quietHours.js';
 import { getNextPointerForUser } from '../services/pointers.js';
 
 const TICK_MS = 60 * 1000;
@@ -103,10 +103,10 @@ export const startScheduler = bot => {
           }
 
           if (isQuietNow(user, now)) {
-            const byInterval = calcNextRun(now, r.intervalMinutes);
+            const quietEndDate = getQuietEndDate(user, now);
 
-            if (!r.nextRunAt || r.nextRunAt < byInterval) {
-              r.nextRunAt = byInterval;
+            if (!r.nextRunAt || r.nextRunAt < quietEndDate) {
+              r.nextRunAt = quietEndDate;
               await r.save().catch(() => { });
             }
 

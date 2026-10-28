@@ -2,7 +2,7 @@ import { describe, expect, it } from 'vitest';
 import Reminder from '../../src/models/Reminder.js';
 import User from '../../src/models/User.js';
 import { Pointer } from '../../src/models/Pointer.js';
-import { isQuietNow } from '../../src/services/quietHours.js';
+import { isQuietNow, getQuietEndDate } from '../../src/services/quietHours.js';
 import { getNextPointerForUser } from '../../src/services/pointers.js';
 
 describe('Планировщик и тихие часы (Scheduler & Quiet Hours)', () => {
@@ -42,6 +42,32 @@ describe('Планировщик и тихие часы (Scheduler & Quiet Hours
     const result = isQuietNow(testUser, targetDateUtc);
 
     expect(result).toBe(true);
+  });
+
+  it('должен вычислять окончание тихих часов на следующее утро при вызове поздно вечером', () => {
+    const testUser = {
+      quietHours: { enabled: true, start: 23, end: 8 },
+      timezone: 'UTC'
+    };
+    const lateEveningDate = new Date('2026-10-27T23:30:00Z');
+    const expectedEndDate = new Date('2026-10-28T08:00:00Z');
+
+    const result = getQuietEndDate(testUser, lateEveningDate);
+
+    expect(result.toISOString()).toBe(expectedEndDate.toISOString());
+  });
+
+  it('должен вычислять окончание тихих часов на текущее утро при вызове ранним утром', () => {
+    const testUser = {
+      quietHours: { enabled: true, start: 23, end: 8 },
+      timezone: 'UTC'
+    };
+    const earlyMorningDate = new Date('2026-10-28T07:15:00Z');
+    const expectedEndDate = new Date('2026-10-28T08:00:00Z');
+
+    const result = getQuietEndDate(testUser, earlyMorningDate);
+
+    expect(result.toISOString()).toBe(expectedEndDate.toISOString());
   });
 
   it('должен находить только активные напоминания, чей срок выполнения наступил', async () => {
