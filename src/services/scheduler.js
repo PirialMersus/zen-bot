@@ -104,11 +104,11 @@ export const startScheduler = bot => {
 
           if (isQuietNow(user, now)) {
             const quietEndDate = getQuietEndDate(user, now);
+            const nextRunByInterval = calcNextRun(now, r.intervalMinutes);
+            const nextScheduledDate = nextRunByInterval < quietEndDate ? nextRunByInterval : quietEndDate;
 
-            if (!r.nextRunAt || r.nextRunAt < quietEndDate) {
-              r.nextRunAt = quietEndDate;
-              await r.save().catch(() => { });
-            }
+            r.nextRunAt = nextScheduledDate;
+            await r.save().catch(() => { });
 
             continue;
           }

@@ -1,5 +1,7 @@
 // src/handlers/settings/quietHours.js
 import User from '../../models/User.js';
+import Reminder from '../../models/Reminder.js';
+import { getQuietEndDate } from '../../services/quietHours.js';
 import { settingsKeyboard } from '../../keyboard/settings.js';
 import { TEXTS } from '../../constants/texts.js';
 import { timezoneRegionsKeyboard } from '../../keyboard/timezoneRegions.js';
@@ -78,12 +80,38 @@ export const handleSettings = async ctx => {
 
 export const handleQuietToggle = async ctx => {
   const user = await User.findOne({ telegramId: ctx.from.id });
+  const nextQuietState = !user?.quietHours?.enabled;
 
   await User.findOneAndUpdate(
     { telegramId: ctx.from.id },
-    { 'quietHours.enabled': !user.quietHours.enabled },
+    { 'quietHours.enabled': nextQuietState },
     { upsert: true }
   );
+
+  if (!nextQuietState && user) {
+    const currentMoment = new Date();
+    const previousQuietUser = {
+      ...user.toObject(),
+      quietHours: {
+        ...user.quietHours,
+        enabled: true
+      }
+    };
+    const quietEndDate = getQuietEndDate(previousQuietUser, currentMoment);
+
+    if (quietEndDate > currentMoment) {
+      await Reminder.updateMany(
+        {
+          userId: String(ctx.from.id),
+          isActive: true,
+          nextRunAt: { $gt: currentMoment, $lte: quietEndDate }
+        },
+        {
+          $set: { nextRunAt: currentMoment }
+        }
+      );
+    }
+  }
 
   await renderSettings(ctx);
 };

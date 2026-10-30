@@ -110,6 +110,36 @@ describe('Планировщик и тихие часы (Scheduler & Quiet Hours
     expect(readyReminders.length).toBe(1);
     expect(readyReminders[0].userId).toBe('1001');
   });
+
+  it('должен сдвигать короткое напоминание в тихие часы на свой интервал', () => {
+    const testUser = {
+      quietHours: { enabled: true, start: 23, end: 8 },
+      timezone: 'UTC'
+    };
+    const currentNightTime = new Date('2026-10-27T23:15:00Z');
+    const intervalMinutes = 5;
+
+    const quietEndDate = getQuietEndDate(testUser, currentNightTime);
+    const nextByInterval = new Date(currentNightTime.getTime() + intervalMinutes * 60 * 1000);
+    const nextScheduledDate = nextByInterval < quietEndDate ? nextByInterval : quietEndDate;
+
+    expect(nextScheduledDate.toISOString()).toBe('2026-10-27T23:20:00.000Z');
+  });
+
+  it('должен сдвигать суточное напоминание в тихие часы на момент окончания тихих часов', () => {
+    const testUser = {
+      quietHours: { enabled: true, start: 23, end: 8 },
+      timezone: 'UTC'
+    };
+    const currentNightTime = new Date('2026-10-28T07:19:00Z');
+    const intervalMinutes = 1440;
+
+    const quietEndDate = getQuietEndDate(testUser, currentNightTime);
+    const nextByInterval = new Date(currentNightTime.getTime() + intervalMinutes * 60 * 1000);
+    const nextScheduledDate = nextByInterval < quietEndDate ? nextByInterval : quietEndDate;
+
+    expect(nextScheduledDate.toISOString()).toBe('2026-10-28T08:00:00.000Z');
+  });
 });
 
 describe('Рандомные напоминания — фильтр по тегу тишина', () => {
