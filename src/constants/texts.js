@@ -46,7 +46,12 @@ const RUSSIAN_TEXTS = {
         : `🔔 Выключены (${range})`
   },
 
-  SUPPORT: 'Поддержка и обратная связь:\n👉 @pirial_mersus',
+  SUPPORT: `Техподдержка, обратная связь и пожелания:
+👉 @pirial_mersus
+
+Группа в Telegram: @dzenline
+
+Если захотите поблагодарить за бота или поддержать проект — напишите @Streamline6 ❤️`,
 
   INTERVALS: {
     OPTIONS: ['10 сек', '30 сек', '1 мин', 'Не удалять'],
@@ -102,7 +107,12 @@ I will remind you about what truly matters
         : `🔔 Disabled (${range})`
   },
 
-  SUPPORT: 'Support & feedback:\n👉 @pirial_mersus',
+  SUPPORT: `Support, feedback & suggestions:
+👉 @pirial_mersus
+
+Telegram community: @dzenline
+
+If you would like to support the project or say thanks — message @Streamline6 ❤️`,
 
   INTERVALS: {
     OPTIONS: ['10 sec', '30 sec', '1 min', 'Do not delete'],
