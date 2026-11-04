@@ -72,25 +72,11 @@ describe('Изоляция языков и защита от утечки анг
     expect(updatedUserRecord.shuffleIndex).toBeLessThanOrEqual(2);
   });
 
-  it('должен сохранять русский язык по умолчанию в middleware для любых кодов языка Telegram', async () => {
-    const foreignLanguageCodesList = [
-      'en',
-      'en-US',
-      'en-GB',
-      'fr',
-      'de',
-      'es',
-      'zh',
-      'ja',
-      'ar',
-      '',
-      null,
-      undefined
-    ];
-
+  it('должен корректно определять язык в middleware в зависимости от кода языка Telegram', async () => {
+    const slavicLanguageCodesList = ['ru', 'be', 'uk'];
     let startTelegramIdCounter = 991000;
 
-    for (const testedTelegramLanguageCode of foreignLanguageCodesList) {
+    for (const testedTelegramLanguageCode of slavicLanguageCodesList) {
       startTelegramIdCounter++;
       const currentTestTelegramId = startTelegramIdCounter;
 
@@ -112,6 +98,31 @@ describe('Изоляция языков и защита от утечки анг
       const registeredUserRecord = await User.findOne({ telegramId: currentTestTelegramId });
       expect(registeredUserRecord).not.toBeNull();
       expect(registeredUserRecord.language).toBe('ru');
+    }
+
+    const foreignLanguageCodesList = ['en', 'fr', 'de', 'es'];
+    for (const testedTelegramLanguageCode of foreignLanguageCodesList) {
+      startTelegramIdCounter++;
+      const currentTestTelegramId = startTelegramIdCounter;
+
+      const mockContext = createMockContext({
+        userId: currentTestTelegramId,
+        customUpdate: {
+          message: {
+            from: { id: currentTestTelegramId, language_code: testedTelegramLanguageCode },
+            text: '/start'
+          }
+        }
+      });
+      mockContext.from.language_code = testedTelegramLanguageCode;
+
+      await activityMiddleware(mockContext, async () => {});
+
+      expect(mockContext.state.userLanguage).toBe('en');
+
+      const registeredUserRecord = await User.findOne({ telegramId: currentTestTelegramId });
+      expect(registeredUserRecord).not.toBeNull();
+      expect(registeredUserRecord.language).toBe('en');
     }
   });
 
@@ -137,8 +148,13 @@ describe('Изоляция языков и защита от утечки анг
     }
   });
 
-  it('должен в хэндлерах отправлять русские тексты и кнопки даже если у пользователя английский клиент', async () => {
+  it('должен в хэндлерах отправлять русские тексты и кнопки если в базе сохранен русский язык даже при английском клиенте', async () => {
     const englishClientUserId = 66554433;
+
+    await User.create({
+      telegramId: englishClientUserId,
+      language: 'ru'
+    });
 
     await Pointer.create([
       { text: 'Наблюдение за дыханием', isActive: true }
@@ -200,8 +216,14 @@ describe('Изоляция языков и защита от утечки анг
     expect(receivedPointer).toBeNull();
   });
 
-  it('должен в режиме создания напоминания из указателя отправлять русские клавиатуры интервалов', async () => {
+  it('должен в режиме создания напоминания из указателя отправлять русские клавиатуры интервалов если в базе сохранен русский язык', async () => {
     const englishClientUserId = 55443322;
+
+    await User.create({
+      telegramId: englishClientUserId,
+      language: 'ru'
+    });
+
     const mockContext = createMockContext({
       userId: englishClientUserId,
       from: { id: englishClientUserId, language_code: 'en' },

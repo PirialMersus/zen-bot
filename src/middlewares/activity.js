@@ -3,6 +3,18 @@ import User from '../models/User.js';
 
 const defaultFallbackLanguage = 'ru';
 
+export const detectUserLanguage = userLanguageCode => {
+  if (!userLanguageCode || typeof userLanguageCode !== 'string') {
+    return defaultFallbackLanguage;
+  }
+  const normalizedLanguageCode = userLanguageCode.toLowerCase().trim().slice(0, 2);
+  const slavicRussianLanguageCodes = ['ru', 'be', 'uk'];
+  if (slavicRussianLanguageCodes.includes(normalizedLanguageCode)) {
+    return 'ru';
+  }
+  return 'en';
+};
+
 export const resolveUserLanguage = async ctx => {
   if (ctx.state?.userLanguage === 'en' || ctx.state?.userLanguage === 'ru') {
     return ctx.state.userLanguage;
@@ -10,15 +22,17 @@ export const resolveUserLanguage = async ctx => {
   const telegramId = ctx.from?.id || ctx.callbackQuery?.from?.id;
   if (telegramId) {
     const existingUser = await User.findOne({ telegramId }).lean().catch(() => null);
-    if (existingUser?.language === 'en') {
+    if (existingUser?.language === 'en' || existingUser?.language === 'ru') {
       ctx.state = ctx.state || {};
-      ctx.state.userLanguage = 'en';
-      return 'en';
+      ctx.state.userLanguage = existingUser.language;
+      return existingUser.language;
     }
   }
+  const telegramLanguageCode = ctx.from?.language_code || ctx.callbackQuery?.from?.language_code;
+  const detectedLanguage = detectUserLanguage(telegramLanguageCode);
   ctx.state = ctx.state || {};
-  ctx.state.userLanguage = defaultFallbackLanguage;
-  return defaultFallbackLanguage;
+  ctx.state.userLanguage = detectedLanguage;
+  return detectedLanguage;
 };
 
 const notifyAdministratorAboutNewUser = async (ctx, telegramId) => {
@@ -63,7 +77,13 @@ export const activityMiddleware = async (ctx, next) => {
     await notifyAdministratorAboutNewUser(ctx, telegramId);
   }
 
-  const effectiveLanguage = existingUserRecord?.language === 'en' ? 'en' : defaultFallbackLanguage;
+  const telegramLanguageCode = ctx.from?.language_code || ctx.callbackQuery?.from?.language_code;
+  const initialLanguageForNewUser = detectUserLanguage(telegramLanguageCode);
+
+  const effectiveLanguage = existingUserRecord?.language === 'en' || existingUserRecord?.language === 'ru'
+    ? existingUserRecord.language
+    : initialLanguageForNewUser;
+
   ctx.state = ctx.state || {};
   ctx.state.userLanguage = effectiveLanguage;
 
@@ -78,7 +98,7 @@ export const activityMiddleware = async (ctx, next) => {
         username: ctx.from?.username || null
       },
       $setOnInsert: {
-        language: defaultFallbackLanguage
+        language: effectiveLanguage
       }
     },
     { upsert: true }

@@ -90,7 +90,7 @@ describe('Мультиязычность и переключение языко�
     await activityMiddleware(foreignContext, async () => {});
 
     const createdForeignUser = await User.findOne({ telegramId: foreignSpeakerId });
-    expect(createdForeignUser.language).toBe('ru');
+    expect(createdForeignUser.language).toBe('en');
   });
 
   it('должен выдавать указатели на выбранном языке пользователя', async () => {
