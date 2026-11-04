@@ -10,6 +10,7 @@ export const createMockContext = (customOptions = {}) => {
     sendVideo: vi.fn().mockResolvedValue({ message_id: 1001 }),
     deleteMessage: vi.fn().mockResolvedValue(true),
     editMessageText: vi.fn().mockResolvedValue(true),
+    editMessageReplyMarkup: vi.fn().mockResolvedValue(true),
     answerCbQuery: vi.fn().mockResolvedValue(true),
     copyMessage: vi.fn().mockResolvedValue({ message_id: 1002 })
   };
@@ -38,6 +39,7 @@ export const createMockContext = (customOptions = {}) => {
     answerCbQuery: vi.fn().mockResolvedValue(true),
     deleteMessage: vi.fn().mockResolvedValue(true),
     editMessageText: vi.fn().mockResolvedValue(true),
+    editMessageReplyMarkup: vi.fn().mockResolvedValue(true),
     ...customOptions.extra
   };
 
