@@ -1,33 +1,25 @@
+// src/keyboard/settings.js
 import { Markup } from 'telegraf';
-import { getButtons } from '../constants/buttons.js';
+import { BUTTONS } from '../constants/buttons.js';
 
-export const settingsKeyboard = (enabled, language = 'ru') => {
-  const buttons = getButtons(language);
-
-  return Markup.inlineKeyboard([
+export const settingsKeyboard = enabled =>
+  Markup.inlineKeyboard([
     [
       Markup.button.callback(
-        enabled ? buttons.QUIET_OFF : buttons.QUIET_ON,
+        enabled ? BUTTONS.QUIET_OFF : BUTTONS.QUIET_ON,
         'settings:quiet_toggle'
       )
     ],
     [
       Markup.button.callback(
-        buttons.TIMEZONE,
+        BUTTONS.TIMEZONE,
         'settings:timezone'
       )
     ],
     [
       Markup.button.callback(
-        buttons.LANGUAGE,
-        'settings:language'
-      )
-    ],
-    [
-      Markup.button.callback(
-        buttons.BACK,
+        BUTTONS.BACK,
         'settings:back'
       )
     ]
   ]);
-};

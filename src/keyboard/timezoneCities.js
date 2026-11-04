@@ -1,29 +1,29 @@
+// src/keyboard/timezoneCities.js
 import { Markup } from 'telegraf';
 import { DateTime } from 'luxon';
 import { TIMEZONE_REGIONS } from '../constants/timezones.js';
-import { getButtons } from '../constants/buttons.js';
+import { BUTTONS } from '../constants/buttons.js';
 
-const formatCityTimezoneLabel = timezoneString => {
-  const dateTimeInstance = DateTime.now().setZone(timezoneString);
-  const timezoneOffsetString = dateTimeInstance.toFormat('ZZ');
-  const cityName = timezoneString.split('/')[1].replace('_', ' ');
-  return `${cityName} (UTC${timezoneOffsetString})`;
+const label = tz => {
+  const dt = DateTime.now().setZone(tz);
+  const offset = dt.toFormat('ZZ');
+  const city = tz.split('/')[1].replace('_', ' ');
+  return `${city} (UTC${offset})`;
 };
 
-export const timezoneCitiesKeyboard = (regionKey, language = 'ru') => {
-  const buttons = getButtons(language);
-  const selectedRegion = TIMEZONE_REGIONS[regionKey];
+export const timezoneCitiesKeyboard = regionKey => {
+  const region = TIMEZONE_REGIONS[regionKey];
 
-  const sortedTimezoneList = [...selectedRegion.zones].sort((timezoneFirst, timezoneSecond) => {
-    const cityFirst = timezoneFirst.split('/')[1].replace('_', ' ');
-    const citySecond = timezoneSecond.split('/')[1].replace('_', ' ');
-    return cityFirst.localeCompare(citySecond);
+  const sortedZones = [...region.zones].sort((a, b) => {
+    const cityA = a.split('/')[1].replace('_', ' ');
+    const cityB = b.split('/')[1].replace('_', ' ');
+    return cityA.localeCompare(cityB);
   });
 
   return Markup.inlineKeyboard([
-    ...sortedTimezoneList.map(timezoneIdentifier => [
-      Markup.button.callback(formatCityTimezoneLabel(timezoneIdentifier), `timezone:set:${timezoneIdentifier}`)
+    ...sortedZones.map(tz => [
+      Markup.button.callback(label(tz), `timezone:set:${tz}`)
     ]),
-    [Markup.button.callback(buttons.BACK, 'settings:timezone')]
+    [Markup.button.callback(BUTTONS.BACK, 'settings:timezone')]
   ]);
 };

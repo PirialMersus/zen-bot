@@ -7,9 +7,7 @@
     "start": "node src/index.js",
     "dev": "nodemon src/index.js",
     "seed:pointers": "node scripts/seedPointers.js",
-    "seed:pointers:ru": "node scripts/seedPointers.js",
-    "seed:pointers:en": "node scripts/seedPointersEn.js",
-    "test": "vitest run --fileParallelism=false",
+    "test": "vitest run",
     "test:watch": "vitest",
     "prepare": "husky || true"
   },

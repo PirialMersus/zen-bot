@@ -1,3 +1,4 @@
+// src/services/scheduler.js
 import https from 'https';
 import Reminder from '../models/Reminder.js';
 import User from '../models/User.js';
@@ -23,13 +24,14 @@ const calcNextRun = (from, minutes) =>
 
 let lastCleanupDay = null;
 
-const sendPushNotification = async (pushTokens, text, soundId, title = 'Напоминание') => {
+// Expo Push API
+const sendPushNotification = async (pushTokens, text, soundId) => {
   const messages = pushTokens
     .filter(token => token && token.startsWith('ExponentPushToken'))
     .map(token => ({
       to: token,
       sound: 'default',
-      title,
+      title: 'Напоминание',
       body: text,
       data: { soundId: soundId || 'default' },
     }));
@@ -56,27 +58,24 @@ const sendPushNotification = async (pushTokens, text, soundId, title = 'Напо
 export const startScheduler = bot => {
   setInterval(async () => {
     try {
+      if (process.env.NODE_ENV === 'production' && process.env.HEALTHCHECKS_URL) {
+        https.get(process.env.HEALTHCHECKS_URL, r => r.resume()).on('error', () => { });
+      }
+
       const now = new Date();
 
-      const currentDay = now.toISOString().slice(0, 10);
-      if (lastCleanupDay !== currentDay) {
-        lastCleanupDay = currentDay;
-        const cutoff = new Date(now.getTime() - INACTIVE_DAYS * DAY_MS);
+      const today = now.toISOString().slice(0, 10);
+      if (lastCleanupDay !== today) {
+        lastCleanupDay = today;
+        const border = new Date(Date.now() - INACTIVE_DAYS * DAY_MS);
 
-        try {
-          const inactiveUsers = await User.find(
-            {
-              lastActivityAt: { $lt: cutoff },
-              pushTokens: { $exists: true, $not: { $size: 0 } }
-            },
-            { telegramId: 1 }
-          ).lean();
+        const users = await User.find(
+          { lastActivityAt: { $lt: border } },
+          { telegramId: 1 }
+        ).limit(100).catch(() => []);
 
-          for (const u of inactiveUsers) {
-            await cleanupUser(u.telegramId).catch(() => { });
-          }
-        } catch (e) {
-          logError(e, { scope: 'inactiveUserCleanup' });
+        for (const u of users) {
+          await cleanupUser(u.telegramId).catch(() => { });
         }
       }
 
@@ -121,7 +120,6 @@ export const startScheduler = bot => {
           let msg;
           try {
             let messageText = r.text;
-            const userLanguage = user?.language === 'en' ? 'en' : 'ru';
 
             if (r.isRandomPointer) {
               const pointer = await getNextPointerForUser(Number(r.userId), 'тишина').catch(() => null);
@@ -134,19 +132,15 @@ export const startScheduler = bot => {
 
             const deleteAfterSeconds = getDeleteAfterSeconds(r);
             const footer = deleteAfterSeconds
-              ? (userLanguage === 'en'
-                ? `\n\n<i>(auto-delete in ${deleteAfterSeconds} sec)</i>`
-                : `\n\n<i>(автоудаление через ${deleteAfterSeconds} сек)</i>`)
+              ? `\n\n<i>(автоудаление через ${deleteAfterSeconds} сек)</i>`
               : '';
 
             const useApp = user?.notificationChannel === 'app' && user?.pushTokens?.length > 0;
-            const pushTitle = userLanguage === 'en' ? 'Reminder' : 'Напоминание';
 
             if (r.photoFileId) {
               const photoCaption = r.caption ? `${r.caption}${footer}` : (footer ? footer.trim() : '');
               if (useApp) {
-                const fallbackCaption = userLanguage === 'en' ? '📷 Photo' : '📷 Фотография';
-                await sendPushNotification(user.pushTokens, r.caption || fallbackCaption, r.soundId, pushTitle);
+                await sendPushNotification(user.pushTokens, r.caption || '📷 Фотография', r.soundId);
               } else {
                 msg = await bot.telegram.sendPhoto(
                   r.chatId,
@@ -163,8 +157,7 @@ export const startScheduler = bot => {
             } else if (r.videoFileId) {
               const videoCaption = r.caption ? `${r.caption}${footer}` : (footer ? footer.trim() : '');
               if (useApp) {
-                const fallbackCaption = userLanguage === 'en' ? '🎬 Video' : '🎬 Видео';
-                await sendPushNotification(user.pushTokens, r.caption || fallbackCaption, r.soundId, pushTitle);
+                await sendPushNotification(user.pushTokens, r.caption || '🎬 Видео', r.soundId);
               } else {
                 msg = await bot.telegram.sendVideo(
                   r.chatId,
@@ -180,7 +173,7 @@ export const startScheduler = bot => {
               }
             } else {
               if (useApp) {
-                await sendPushNotification(user.pushTokens, messageText, r.soundId, pushTitle);
+                await sendPushNotification(user.pushTokens, messageText, r.soundId);
               } else {
                 msg = await bot.telegram.sendMessage(
                   r.chatId,
@@ -219,16 +212,19 @@ export const startScheduler = bot => {
           }
 
           sentThisTick.add(r.userId);
-
           r.lastSentAt = now;
           r.nextRunAt = calcNextRun(now, r.intervalMinutes);
           await r.save().catch(() => { });
         } catch (e) {
-          logError(e, { scope: 'reminderItem', reminderId: r._id });
+          logError(e, {
+            scope: 'scheduler:loop',
+            reminderId: r?._id,
+            userId: r?.userId
+          });
         }
       }
     } catch (e) {
-      logError(e, { scope: 'schedulerTick' });
+      logError(e, { scope: 'scheduler:tick' });
     }
   }, TICK_MS);
 };

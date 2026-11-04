@@ -1,7 +1,7 @@
-import { Pointer, PointerEn } from '../models/Pointer.js';
+import { Pointer } from '../models/Pointer.js';
 import User from '../models/User.js';
 
-const buildShuffledIndexArray = length => {
+const buildShuffledIndexArray = (length) => {
   const indexArray = Array.from({ length }, (_, i) => i);
   for (let currentIndex = indexArray.length - 1; currentIndex > 0; currentIndex--) {
     const randomIndex = Math.floor(Math.random() * (currentIndex + 1));
@@ -10,57 +10,38 @@ const buildShuffledIndexArray = length => {
   return indexArray;
 };
 
-const resolveEffectiveTagFilter = (tagFilter, userLanguage) => {
-  if (!tagFilter) return null;
-  if (userLanguage === 'en' && tagFilter === 'тишина') {
-    return 'stillness';
+const appendNewIndicesToExistingQueue = (existingQueue, previousTotalCount, newTotalCount) => {
+  const newIndices = [];
+  for (let i = previousTotalCount; i < newTotalCount; i++) {
+    newIndices.push(i);
   }
-  if (userLanguage === 'ru' && tagFilter === 'stillness') {
-    return 'тишина';
-  }
-  return tagFilter;
-};
+  if (newIndices.length === 0) return existingQueue;
 
-const selectPointerModelByLanguage = language => {
-  return language === 'en' ? PointerEn : Pointer;
-};
-
-export const getPointerByNumber = async (pointerNumber, language = 'ru') => {
-  const numericPointerIdentifier = Number(pointerNumber);
-  if (!numericPointerIdentifier || isNaN(numericPointerIdentifier)) return null;
-
-  const targetPointerModel = selectPointerModelByLanguage(language);
-  return await targetPointerModel.findOne({ number: numericPointerIdentifier, isActive: true });
+  const shuffledNewIndices = buildShuffledIndexArray(newIndices.length).map(i => newIndices[i]);
+  return [...existingQueue, ...shuffledNewIndices];
 };
 
 export const getNextPointerForUser = async (telegramUserId, tagFilter = null) => {
+  const activePointersQuery = tagFilter
+    ? { isActive: true, tags: tagFilter }
+    : { isActive: true };
+  const totalActiveCount = await Pointer.countDocuments(activePointersQuery);
+  if (!totalActiveCount) return null;
+
   let user = await User.findOne({ telegramId: telegramUserId });
   if (!user) {
     user = await User.create({ telegramId: telegramUserId });
   }
 
-  const userLanguage = user?.language === 'en' ? 'en' : 'ru';
-  const effectiveTagFilter = resolveEffectiveTagFilter(tagFilter, userLanguage);
-  const targetPointerModel = selectPointerModelByLanguage(userLanguage);
-
-  const activePointersQuery = {
-    isActive: true
-  };
-
-  if (effectiveTagFilter) {
-    activePointersQuery.tags = effectiveTagFilter;
-  }
-
-  const totalActiveCount = await targetPointerModel.countDocuments(activePointersQuery);
-  if (!totalActiveCount) return null;
-
   const previousQueueLength = user.shuffleQueue.length;
   let currentQueue = [...user.shuffleQueue];
   let currentIndex = user.shuffleIndex;
 
-  if (previousQueueLength === 0 || previousQueueLength !== totalActiveCount) {
+  if (previousQueueLength === 0) {
     currentQueue = buildShuffledIndexArray(totalActiveCount);
     currentIndex = 0;
+  } else if (totalActiveCount > previousQueueLength) {
+    currentQueue = appendNewIndicesToExistingQueue(currentQueue, previousQueueLength, totalActiveCount);
   } else if (currentIndex >= currentQueue.length) {
     currentQueue = buildShuffledIndexArray(totalActiveCount);
     currentIndex = 0;
@@ -68,7 +49,7 @@ export const getNextPointerForUser = async (telegramUserId, tagFilter = null) =>
 
   const pointerPositionIndex = currentQueue[currentIndex];
 
-  const [pointer] = await targetPointerModel.find(activePointersQuery)
+  const [pointer] = await Pointer.find(activePointersQuery)
     .skip(pointerPositionIndex)
     .limit(1);
 
@@ -78,8 +59,7 @@ export const getNextPointerForUser = async (telegramUserId, tagFilter = null) =>
       { telegramId: telegramUserId },
       { shuffleQueue: freshQueue, shuffleIndex: 0 }
     );
-    const [fallbackPointer] = await targetPointerModel.find(activePointersQuery).limit(1);
-    return fallbackPointer || null;
+    return null;
   }
 
   const nextIndex = currentIndex + 1 >= currentQueue.length ? 0 : currentIndex + 1;

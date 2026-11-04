@@ -1,16 +1,10 @@
+// src/keyboard/intervals.js
 import { Markup } from 'telegraf';
-import { getButtons } from '../constants/buttons.js';
-import { getUi } from '../constants/ui.js';
+import {BUTTONS} from "../constants/buttons.js";
+import {UI} from "../constants/ui.js";
 
-export const getIntervalKeyboard = (language = 'ru') => {
-  const buttons = getButtons(language);
-  const ui = getUi(language);
-
-  return Markup.keyboard([
-    [ui.INTERVAL_5, ui.INTERVAL_15],
-    [ui.INTERVAL_60, ui.INTERVAL_1440],
-    [buttons.BACK]
-  ]).resize();
-};
-
-export const intervalKeyboard = getIntervalKeyboard('ru');
+export const intervalKeyboard = Markup.keyboard([
+  [UI.INTERVAL_5, UI.INTERVAL_15],
+  [UI.INTERVAL_60, UI.INTERVAL_1440],
+  [BUTTONS.BACK]
+]).resize();
