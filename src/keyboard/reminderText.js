@@ -1,16 +1,19 @@
-// src/keyboard/reminderText.js
 import { Markup } from 'telegraf';
-import { UI } from '../constants/ui.js';
+import { getButtons } from '../constants/buttons.js';
+import { getUi } from '../constants/ui.js';
 
-export const reminderTextKeyboard = texts => {
-  const rows = [[UI.REMINDER_RANDOM]];
-  const unique = [...new Set((texts || []).map(t => t.trim()).filter(Boolean))];
+export const reminderTextKeyboard = (texts, language = 'ru') => {
+  const buttons = getButtons(language);
+  const ui = getUi(language);
 
-  for (let i = 0; i < unique.length; i += 2) {
-    rows.push(unique.slice(i, i + 2));
+  const rows = [[ui.REMINDER_RANDOM]];
+  const uniqueTexts = [...new Set((texts || []).map(item => item.trim()).filter(Boolean))];
+
+  for (let index = 0; index < uniqueTexts.length; index += 2) {
+    rows.push(uniqueTexts.slice(index, index + 2));
   }
 
-  rows.push(['⬅️ Назад']);
+  rows.push([buttons.BACK]);
 
   return Markup.keyboard(rows).resize();
 };

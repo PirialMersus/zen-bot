@@ -1,6 +1,26 @@
 import Activity from '../models/Activity.js';
 import User from '../models/User.js';
 
+const defaultFallbackLanguage = 'ru';
+
+export const resolveUserLanguage = async ctx => {
+  if (ctx.state?.userLanguage === 'en' || ctx.state?.userLanguage === 'ru') {
+    return ctx.state.userLanguage;
+  }
+  const telegramId = ctx.from?.id || ctx.callbackQuery?.from?.id;
+  if (telegramId) {
+    const existingUser = await User.findOne({ telegramId }).lean().catch(() => null);
+    if (existingUser?.language === 'en') {
+      ctx.state = ctx.state || {};
+      ctx.state.userLanguage = 'en';
+      return 'en';
+    }
+  }
+  ctx.state = ctx.state || {};
+  ctx.state.userLanguage = defaultFallbackLanguage;
+  return defaultFallbackLanguage;
+};
+
 const notifyAdministratorAboutNewUser = async (ctx, telegramId) => {
   const administratorTelegramIdentifier = process.env.CREATOR_ID;
   if (!administratorTelegramIdentifier) return;
@@ -37,12 +57,15 @@ export const activityMiddleware = async (ctx, next) => {
   if (!telegramId) return next();
 
   const now = new Date();
-
   const existingUserRecord = await User.findOne({ telegramId }).lean().catch(() => null);
 
   if (!existingUserRecord) {
     await notifyAdministratorAboutNewUser(ctx, telegramId);
   }
+
+  const effectiveLanguage = existingUserRecord?.language === 'en' ? 'en' : defaultFallbackLanguage;
+  ctx.state = ctx.state || {};
+  ctx.state.userLanguage = effectiveLanguage;
 
   await User.updateOne(
     { telegramId },
@@ -53,6 +76,9 @@ export const activityMiddleware = async (ctx, next) => {
         firstName: ctx.from?.first_name || null,
         lastName: ctx.from?.last_name || null,
         username: ctx.from?.username || null
+      },
+      $setOnInsert: {
+        language: defaultFallbackLanguage
       }
     },
     { upsert: true }

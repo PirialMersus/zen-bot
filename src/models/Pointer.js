@@ -1,8 +1,10 @@
-// src/models/Pointer.js
-
 import mongoose from 'mongoose';
 
-const PointerSchema = new mongoose.Schema({
+const pointerSchemaDefinition = {
+  number: {
+    type: Number,
+    index: true
+  },
   text: {
     type: String,
     required: true
@@ -19,8 +21,18 @@ const PointerSchema = new mongoose.Schema({
     type: Boolean,
     default: true
   }
-}, {
-  timestamps: true
+};
+
+const russianPointerSchema = new mongoose.Schema(pointerSchemaDefinition, {
+  timestamps: true,
+  collection: 'pointers'
 });
 
-export const Pointer = mongoose.model('Pointer', PointerSchema);
+const englishPointerSchema = new mongoose.Schema(pointerSchemaDefinition, {
+  timestamps: true,
+  collection: 'pointers_en'
+});
+
+export const Pointer = mongoose.model('Pointer', russianPointerSchema);
+export const PointerRu = Pointer;
+export const PointerEn = mongoose.model('PointerEn', englishPointerSchema);
