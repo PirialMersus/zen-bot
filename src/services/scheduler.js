@@ -56,6 +56,10 @@ const sendPushNotification = async (pushTokens, text, soundId, title = 'Напо
 export const startScheduler = bot => {
   setInterval(async () => {
     try {
+      if (process.env.NODE_ENV === 'production' && process.env.HEALTHCHECKS_URL) {
+        https.get(process.env.HEALTHCHECKS_URL, r => r.resume()).on('error', () => { });
+      }
+
       const now = new Date();
 
       const currentDay = now.toISOString().slice(0, 10);
