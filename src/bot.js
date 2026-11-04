@@ -9,6 +9,7 @@ import {
   handleAdminBroadcastMessage,
   handleAdminBroadcastStart,
   handleAdminGetPointerByNumber,
+  handleAdminSearchPointers,
   handleFeedbackCancel,
   handleFeedbackMessage,
   handleFeedbackStart
@@ -139,6 +140,9 @@ bot.hears(UI.ADMIN_BROADCAST, handleAdminBroadcastStart);
 bot.command(['pointer', 'p'], handleAdminGetPointerByNumber);
 bot.hears(/^(?:получить\s+)?(?:pointer|указатель)(?:\s+(?:en|ru))?\s+\d+$/i, handleAdminGetPointerByNumber);
 bot.hears(/^\/p(?:ointer)?(?:_(?:en|ru))?\s+\d+$/i, handleAdminGetPointerByNumber);
+
+bot.command(['find', 'search', 'f'], handleAdminSearchPointers);
+bot.hears(/^(?:\/find|\/search|\/f|найти|поиск)(?:_(?:en|ru))?(?:\s+.+)?$/i, handleAdminSearchPointers);
 
 bot.hears([BUTTONS.ru.SUPPORT, BUTTONS.en.SUPPORT], async ctx => {
   const userLanguage = await resolveUserLanguage(ctx);

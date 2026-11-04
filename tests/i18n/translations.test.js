@@ -24,7 +24,13 @@ import {
   handleLanguageMenu,
   handleLanguageSet
 } from '../../src/handlers/settings/quietHours.js';
-import { handlePointer, handleNextPointer } from '../../src/handlers/pointers.js';
+import {
+  handlePointer,
+  handleNextPointer,
+  handlePointerToReminder
+} from '../../src/handlers/pointers.js';
+import { resolveUserLanguage } from '../../src/middlewares/activity.js';
+import { getNextPointerForUser } from '../../src/services/pointers.js';
 import { PointerEn } from '../../src/models/Pointer.js';
 import Reminder from '../../src/models/Reminder.js';
 import User from '../../src/models/User.js';
@@ -407,5 +413,76 @@ describe('Покрытие всех переводов и целостность
     const editedButtons = editedOptions.reply_markup.inline_keyboard.flat().map(buttonItem => buttonItem.text);
     expect(editedButtons).toContain(UI.en.POINTER_TO_REMINDER);
     expect(editedButtons).toContain(UI.en.POINTER_NEXT);
+  });
+
+  it('должен переводить указатель в напоминание на английском языке через handlePointerToReminder', async () => {
+    const englishUserId = 88771200;
+    await User.create({ telegramId: englishUserId, language: 'en' });
+
+    const pointerToReminderContext = createMockContext({
+      userId: englishUserId,
+      session: {
+        lastPointerText: 'Observe the present moment'
+      }
+    });
+
+    await handlePointerToReminder(pointerToReminderContext);
+
+    expect(pointerToReminderContext.reply).toHaveBeenCalled();
+    const [askIntervalMessage, intervalOptions] = pointerToReminderContext.reply.mock.calls[0];
+    expect(askIntervalMessage).toContain(TEXTS.en.REMINDERS.ASK_INTERVAL);
+    expect(askIntervalMessage).toContain(TEXTS.en.REMINDERS.ASK_INTERVAL_HINT);
+    expect(askIntervalMessage).toContain('Observe the present moment');
+
+    const intervalButtons = intervalOptions.reply_markup.keyboard.flat();
+    expect(intervalButtons).toContain(UI.en.INTERVAL_5);
+    expect(intervalButtons).toContain(UI.en.INTERVAL_60);
+    expect(intervalButtons).toContain(BUTTONS.en.BACK);
+  });
+
+  it('должен отправлять текст службы заботы на английском языке', async () => {
+    const englishUserId = 88771201;
+    await User.create({ telegramId: englishUserId, language: 'en' });
+
+    const supportContext = createMockContext({ userId: englishUserId });
+    const userLanguage = await resolveUserLanguage(supportContext);
+    const texts = getTexts(userLanguage);
+
+    await supportContext.reply(texts.SUPPORT);
+
+    expect(supportContext.reply).toHaveBeenCalledWith(TEXTS.en.SUPPORT);
+  });
+
+  it('должен автоматически сопоставлять тег тишина с тегом stillness для англоязычного пользователя в планировщике', async () => {
+    const englishUserId = 88771202;
+    await User.create({ telegramId: englishUserId, language: 'en' });
+
+    await PointerEn.create({
+      number: 10,
+      text: 'Silence is the language of the heart',
+      tags: ['stillness'],
+      isActive: true
+    });
+
+    const pointerResult = await getNextPointerForUser(englishUserId, 'тишина');
+
+    expect(pointerResult).not.toBeNull();
+    expect(pointerResult.tags).toContain('stillness');
+    expect(pointerResult.text).toBe('Silence is the language of the heart');
+  });
+
+  it('должен безопасно обрабатывать попытку установки неподдерживаемого языка', async () => {
+    const testUserId = 88771203;
+    await User.create({ telegramId: testUserId, language: 'ru' });
+
+    const unsupportedLanguageContext = createMockContext({
+      userId: testUserId,
+      callbackData: 'settings:language:set:fr'
+    });
+
+    await handleLanguageSet(unsupportedLanguageContext);
+
+    const userInDb = await User.findOne({ telegramId: testUserId });
+    expect(userInDb.language).toBe('ru');
   });
 });

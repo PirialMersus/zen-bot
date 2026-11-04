@@ -67,7 +67,8 @@ export const handleLanguageMenu = async ctx => {
 };
 
 export const handleLanguageSet = async ctx => {
-  const selectedLanguage = ctx.callbackQuery.data.split(':').pop();
+  const rawSelectedLanguage = ctx.callbackQuery.data.split(':').pop();
+  const selectedLanguage = rawSelectedLanguage === 'en' ? 'en' : 'ru';
 
   await User.updateOne(
     { telegramId: ctx.from.id },

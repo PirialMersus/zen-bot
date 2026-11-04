@@ -51,7 +51,7 @@ const RUSSIAN_TEXTS = {
 
 Группа в Telegram: @dzenline
 
-Если захотите поблагодарить за бота или поддержать проект — напишите @Streamline6 ❤️`,
+Если захотите поблагодарить за бота или поддержать проект материально - напишите @Streamline6 ❤️`,
 
   INTERVALS: {
     OPTIONS: ['10 сек', '30 сек', '1 мин', 'Не удалять'],
@@ -112,7 +112,7 @@ I will remind you about what truly matters
 
 Telegram community: @dzenline
 
-If you would like to support the project or say thanks — message @Streamline6 ❤️`,
+If you would like to say thanks for the bot or support the project financially - message @Streamline6 ❤️`,
 
   INTERVALS: {
     OPTIONS: ['10 sec', '30 sec', '1 min', 'Do not delete'],

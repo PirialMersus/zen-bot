@@ -237,6 +237,7 @@ describe('Изоляция языков и защита от утечки анг
     expect(mockContext.reply).toHaveBeenCalled();
     const [replyMessageText, replyMessageOptions] = mockContext.reply.mock.calls[0];
     expect(replyMessageText).toContain('Как часто напоминать:');
+    expect(replyMessageText).toContain('Можно выбрать кнопкой или ввести количество минут цифрами');
 
     const replyMarkup = replyMessageOptions.reply_markup;
     const keyboardRows = replyMarkup.keyboard;

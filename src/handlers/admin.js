@@ -3,7 +3,11 @@ import { BUTTONS } from '../constants/buttons.js';
 import { UI, getUi } from '../constants/ui.js';
 import Reminder from '../models/Reminder.js';
 import User from '../models/User.js';
-import { getPointerByNumber } from '../services/pointers.js';
+import {
+  getPointerByNumber,
+  findPointersByText,
+  countPointersByText
+} from '../services/pointers.js';
 import { resolveUserLanguage } from '../middlewares/activity.js';
 import { buildPointerInlineKeyboard, formatPointerText } from './pointers.js';
 
@@ -310,6 +314,66 @@ export const handleAdminGetPointerByNumber = async ctx => {
     formattedPointerMessage,
     buildPointerInlineKeyboard(targetPointerLanguage)
   );
+
+  return true;
+};
+
+export const handleAdminSearchPointers = async ctx => {
+  if (String(ctx.from?.id) !== process.env.CREATOR_ID) return false;
+
+  const rawIncomingMessageText = ctx.message?.text || '';
+  const trimmedLowerCasedText = rawIncomingMessageText.trim().toLowerCase();
+
+  let targetPointerLanguage = 'ru';
+  const languageModifierMatch = trimmedLowerCasedText.match(/(?:^|\s|_)(en|ru)(?:\s|$)/i);
+  if (languageModifierMatch) {
+    targetPointerLanguage = languageModifierMatch[1].toLowerCase();
+  } else if (ctx.state?.userLanguage === 'en') {
+    targetPointerLanguage = 'en';
+  }
+
+  let extractedSearchPhrase = rawIncomingMessageText
+    .replace(/^\/(?:find|search|f)(?:_(?:en|ru))?/i, '')
+    .replace(/^(?:найти|поиск)(?:\s+указатель|\s+pointer)?/i, '')
+    .trim();
+
+  extractedSearchPhrase = extractedSearchPhrase
+    .replace(/^(?:en|ru)\s+/i, '')
+    .replace(/\s+(?:en|ru)$/i, '')
+    .trim();
+
+  if (!extractedSearchPhrase) {
+    await ctx.reply('⚠️ Укажите текст для поиска. Пример: /find тишина или /find en stillness');
+    return true;
+  }
+
+  const maximumReturnedPointersCount = 10;
+  const [totalFoundCount, foundPointersList] = await Promise.all([
+    countPointersByText(extractedSearchPhrase, targetPointerLanguage),
+    findPointersByText(extractedSearchPhrase, targetPointerLanguage, maximumReturnedPointersCount)
+  ]);
+
+  if (totalFoundCount === 0 || foundPointersList.length === 0) {
+    await ctx.reply(`❌ Указатели с текстом «${extractedSearchPhrase}» (${targetPointerLanguage.toUpperCase()}) не найдены.`);
+    return true;
+  }
+
+  ctx.session ??= {};
+
+  for (const singlePointerRecord of foundPointersList) {
+    const formattedPointerMessage = formatPointerText(singlePointerRecord);
+    ctx.session.lastPointerText = singlePointerRecord.text;
+    await ctx.reply(
+      formattedPointerMessage,
+      buildPointerInlineKeyboard(targetPointerLanguage)
+    );
+  }
+
+  if (totalFoundCount > foundPointersList.length) {
+    await ctx.reply(
+      `ℹ️ Найдено всего: ${totalFoundCount}. Показаны первые ${foundPointersList.length}. Уточните поисковую фразу для более точного совпадения.`
+    );
+  }
 
   return true;
 };

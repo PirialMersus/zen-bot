@@ -4216,3270 +4216,3264 @@ What is actually happening right now — before your explanation of it?`,
   },
   {
     number: 555,
-    text: `Conduct your outer affairs with the mind half asleep and half awake, like someone who is awake within a dream.`,
-    source: "Yoga Vasistha",
-    tags: ["stillness"]
-  },
-  {
-    number: 556,
     text: `Remain free from anxiety, with the mind released from its movements and resting within itself.`,
     source: "Yoga Vasistha",
     tags: ["stillness"]
   },
   {
-    number: 557,
+    number: 556,
     text: `Abide in pure consciousness, cleansing it of the stain of desire.`,
     source: "Yoga Vasistha",
     tags: ["stillness"]
   },
   {
-    number: 558,
+    number: 557,
     text: `Conduct your outer affairs as though your faculties were resting in sleep. Do not strive to obtain what is absent, and do not reject what comes.`,
     source: "Yoga Vasistha",
     tags: ["stillness"]
   },
   {
-    number: 559,
+    number: 558,
     text: `Every falsehood disappears under inquiry, just as darkness disappears when light appears.`,
     source: "Yoga Vasistha",
     tags: ["stillness"]
   },
   {
-    number: 560,
+    number: 559,
     text: `Wise is the one who acts through the outer senses while remaining free from inner desires and abiding in peace.`,
     source: "Yoga Vasistha",
     tags: ["stillness"]
   },
   {
-    number: 561,
+    number: 560,
     text: `Rest calmly in the search for liberation upon the unborn, indestructible, unchanging, and pure Supreme.`,
     source: "Yoga Vasistha",
     tags: ["stillness"]
   },
   {
-    number: 562,
+    number: 561,
     text: `One who devotes their whole being to contemplating consciousness and feels it within themselves comes to know the futility of worldly appearances.`,
     source: "Yoga Vasistha",
     tags: ["stillness"]
   },
   {
-    number: 563,
+    number: 562,
     text: `Train yourself in this contemplation. Seeing external objects within the perceiving consciousness, regard the outer world as a dreamlike appearance.`,
     source: "Yoga Vasistha",
     tags: ["stillness"]
   },
   {
-    number: 564,
+    number: 563,
     text: `Give up fear, pride, grief, sorrow, greed, and other delusions; remain peaceful, like the Divine Spirit.`,
     source: "Yoga Vasistha",
     tags: ["stillness"]
   },
   {
-    number: 565,
+    number: 564,
     text: `Meditation in which the separate “I” fades and one's separateness is forgotten is the peace of the sages — unchanging and unfading.`,
     source: "Yoga Vasistha",
     tags: ["stillness"]
   },
   {
-    number: 566,
+    number: 565,
     text: `Make the inquiry, together with the wise, into these questions the work of your whole life: “What am I? What are visible objects? What are life and the living soul? How and from where do they arise?”`,
     source: "Yoga Vasistha",
     tags: ["stillness"]
   },
   {
-    number: 567,
+    number: 566,
     text: `All fantasies and desires are restrained by refusing to continue sustaining them in thought; the absence of desire leads to liberation.`,
     source: "Yoga Vasistha",
     tags: ["stillness"]
   },
   {
-    number: 568,
+    number: 567,
     text: `First, carefully investigate the meaning of words — both in your own mind and in speech. Then habitual delusions will gradually grow quiet.`,
     source: "Yoga Vasistha",
     tags: ["stillness"]
   },
   {
-    number: 569,
+    number: 568,
     text: `Abiding in the Supreme Spirit, contemplate the Divine Mind within your own mind, and investigate the emptiness within and around you.`,
     source: "Yoga Vasistha",
     tags: ["stillness"]
   },
   {
-    number: 570,
+    number: 569,
     text: `Remain at peace and do not be disturbed inwardly. Be free of notions and delusions, unattached and free, like open space.`,
     source: "Yoga Vasistha",
     tags: ["stillness"]
   },
   {
-    number: 571,
+    number: 570,
     text: `Seeing the countless distinctions in the world, remain free of divisions such as “I,” “you,” and the rest; contemplate yourself as the One Supreme.`,
     source: "Yoga Vasistha",
     tags: ["stillness"]
   },
   {
-    number: 572,
+    number: 571,
     text: `Do not allow visible objects to draw your gaze, and do not let thoughts about them seize your mind.`,
     source: "Yoga Vasistha",
     tags: ["stillness"]
   },
   {
-    number: 573,
+    number: 572,
     text: `When the division between what is seen and the one who sees disappears, remain free of thought, like an autumn sky without clouds.`,
     source: "Yoga Vasistha",
     tags: ["stillness"]
   },
   {
-    number: 574,
+    number: 573,
     text: `Receive the touch of objects when they come to you, without desiring them.`,
     source: "Yoga Vasistha",
     tags: ["stillness"]
   },
   {
-    number: 575,
+    number: 574,
     text: `You may taste what is offered to you, without craving it or savoring its sweetness.`,
     source: "Yoga Vasistha",
     tags: ["stillness"]
   },
   {
-    number: 576,
+    number: 575,
     text: `You may see whatever appears before your eyes, without desiring it or becoming intoxicated by what you see.`,
     source: "Yoga Vasistha",
     tags: ["stillness"]
   },
   {
-    number: 577,
+    number: 576,
     text: `Enjoy sense objects with complete non-involvement: do not pursue them or indulge in them.`,
     source: "Yoga Vasistha",
     tags: ["stillness"]
   },
   {
-    number: 578,
+    number: 577,
     text: `Freedom from desire in the heart is steadiness of mind; there is no better instruction for attaining peace than contentment.`,
     source: "Yoga Vasistha",
     tags: ["stillness"]
   },
   {
-    number: 579,
+    number: 578,
     text: `When the mind gains the steadiness needed for meditation, its faculties become quiet, and only pure consciousness remains — undivided and filled with the Supreme.`,
     source: "Yoga Vasistha",
     tags: ["stillness"]
   },
   {
-    number: 580,
+    number: 579,
     text: `As long as the mind dwells on other thoughts, it remains a stranger to meditation.`,
     source: "Yoga Vasistha",
     tags: ["stillness"]
   },
   {
-    number: 581,
+    number: 580,
     text: `Turn to contemplation after listening to teachings, reading sacred texts, and repeating mantras and prayers. When tired of meditation, return to reading and listening. Sit calmly in meditation, without fear or worry, in a comfortable and relaxed state.`,
     source: "Yoga Vasistha",
     tags: ["stillness"]
   },
   {
-    number: 582,
+    number: 581,
     text: `When the mind turns outward, gently bring attention back to the very fact of awareness.`,
     source: "Yoga Vasistha",
     tags: ["stillness"]
   },
   {
-    number: 583,
+    number: 582,
     text: `Examine the thought “I am acting.” Find the one you call the doer beyond the very idea of that person.`,
     source: "Yoga Vasistha",
     tags: ["stillness"]
   },
   {
-    number: 584,
+    number: 583,
     text: `Do not fight the thoughts that arise. Investigate their nature and do not add more thoughts to them.`,
     source: "Yoga Vasistha",
     tags: ["stillness"]
   },
   {
-    number: 585,
+    number: 584,
     text: `In silence, investigate the gap between two thoughts without trying to make it last.`,
     source: "Yoga Vasistha",
     tags: ["stillness"]
   },
   {
-    number: 586,
+    number: 585,
     text: `Notice how the mind creates an image of itself and then mistakes that image for reality.`,
     source: "Yoga Vasistha",
     tags: ["stillness"]
   },
   {
-    number: 587,
+    number: 586,
     text: `When you hear a sound, attend not only to the sound but also to the awareness in which it appears.`,
     source: "Yoga Vasistha",
     tags: ["stillness"]
   },
   {
-    number: 588,
+    number: 587,
     text: `When you see an object, investigate seeing itself, rather than stopping at the name and image of what you have seen.`,
     source: "Yoga Vasistha",
     tags: ["stillness"]
   },
   {
-    number: 589,
+    number: 588,
     text: `Notice how silent perception gives way to the mental naming of an object, and distinguish these two processes.`,
     source: "Yoga Vasistha",
     tags: ["stillness"]
   },
   {
-    number: 590,
+    number: 589,
     text: `Investigate the feeling of “mine”: where does it arise, and what makes an experience seem to belong to you?`,
     source: "Yoga Vasistha",
     tags: ["stillness"]
   },
   {
-    number: 591,
+    number: 590,
     text: `See whether you can find a boundary of consciousness where the body ends and the surrounding world begins.`,
     source: "Yoga Vasistha",
     tags: ["stillness"]
   },
   {
-    number: 592,
+    number: 591,
     text: `Do not confine yourself to a story about your own past. Notice that the story itself exists as a thought right now.`,
     source: "Yoga Vasistha",
     tags: ["stillness"]
   },
   {
-    number: 593,
+    number: 592,
     text: `If you seek liberation, avoid the temptations of the senses as though they were poison. Cultivate patience, sincerity, compassion, contentment, and truthfulness.`,
     source: "Ashtavakra Gita, I.2",
     tags: ["stillness"]
   },
   {
-    number: 594,
+    number: 593,
     text: `You are not earth, water, fire, air, or space. Know yourself as the consciousness that witnesses all of these.`,
     source: "Ashtavakra Gita, I.3",
     tags: ["stillness"]
   },
   {
-    number: 595,
+    number: 594,
     text: `Remain in consciousness, knowing yourself to be distinct from the body. Then you will attain happiness, peace, and freedom from bondage.`,
     source: "Ashtavakra Gita, I.4",
     tags: ["stillness"]
   },
   {
-    number: 596,
+    number: 595,
     text: `You do not belong to any category of people, nor are you anything that can be seen with the eyes. You are the formless witness of everything.`,
     source: "Ashtavakra Gita, I.5",
     tags: ["stillness"]
   },
   {
-    number: 597,
+    number: 596,
     text: `Righteousness and unrighteousness, pleasure and pain — these are states of mind. You are neither the doer nor the receiver of the fruits of action.`,
     source: "Ashtavakra Gita, I.6",
     tags: ["stillness"]
   },
   {
-    number: 598,
+    number: 597,
     text: `You are the witness of everything and are always free. Your bondage arises from delusion about your own nature.`,
     source: "Ashtavakra Gita, I.7",
     tags: ["stillness"]
   },
   {
-    number: 599,
+    number: 598,
     text: `Give up the belief “I am the doer.” Be free of the thought that you are the source of all actions performed.`,
     source: "Ashtavakra Gita, I.8",
     tags: ["stillness"]
   },
   {
-    number: 600,
+    number: 599,
     text: `Burn ignorance in the fire of understanding: “I am pure awareness.” Be free from suffering.`,
     source: "Ashtavakra Gita, I.9",
     tags: ["stillness"]
   },
   {
-    number: 601,
+    number: 600,
     text: `Everything arises in what you are, like a snake mistakenly seen in a rope. You are awareness and supreme bliss.`,
     source: "Ashtavakra Gita, I.10",
     tags: ["stillness"]
   },
   {
-    number: 602,
+    number: 601,
     text: `If you consider yourself free, you are free; if you consider yourself bound, you are bound. Your beliefs shape your experience.`,
     source: "Ashtavakra Gita, I.11",
     tags: ["stillness"]
   },
   {
-    number: 603,
+    number: 602,
     text: `Your true nature is perfect, free, and serene witnessing consciousness, attached to nothing and desiring nothing.`,
     source: "Ashtavakra Gita, I.12",
     tags: ["stillness"]
   },
   {
-    number: 604,
+    number: 603,
     text: `Contemplate yourself as unmoving awareness, free from duality. Give up mistaken ideas about yourself.`,
     source: "Ashtavakra Gita, I.13",
     tags: ["stillness"]
   },
   {
-    number: 605,
+    number: 604,
     text: `For a long time you have been a prisoner of identification with the body. Cut this bond with the knowledge: “I am awareness.”`,
     source: "Ashtavakra Gita, I.14",
     tags: ["stillness"]
   },
   {
-    number: 606,
+    number: 605,
     text: `You are already free, inactive, self-luminous, and unstained. Your bondage rests on a delusion about yourself.`,
     source: "Ashtavakra Gita, I.15",
     tags: ["stillness"]
   },
   {
-    number: 607,
+    number: 606,
     text: `Everything is filled with you and dwells in you, for your nature is pure awareness. Do not limit yourself.`,
     source: "Ashtavakra Gita, I.16",
     tags: ["stillness"]
   },
   {
-    number: 608,
+    number: 607,
     text: `You are unchanging, formless, and still; you are inconceivable and undisturbed awareness. Cling to nothing but consciousness.`,
     source: "Ashtavakra Gita, I.17",
     tags: ["stillness"]
   },
   {
-    number: 609,
+    number: 608,
     text: `Recognize the transient as apparent and the unchanging as abiding. Thus you will stop mistaking illusion for truth.`,
     source: "Ashtavakra Gita, I.18",
     tags: ["stillness"]
   },
   {
-    number: 610,
+    number: 609,
     text: `Just as a mirror exists independently of its reflections, the Supreme is present within the body and beyond it.`,
     source: "Ashtavakra Gita, I.19",
     tags: ["stillness"]
   },
   {
-    number: 611,
+    number: 610,
     text: `Investigate all that exists as though it were a piece of cloth being unraveled thread by thread. What remains when the inquiry is complete?`,
     source: "Ashtavakra Gita, II.5",
     tags: ["stillness"]
   },
   {
-    number: 612,
+    number: 611,
     text: `Mindfulness is the path to the deathless; heedlessness is the path to death. The mindful do not die spiritually; the heedless are already as if dead.`,
     source: "Dhammapada, 21",
     tags: ["stillness"]
   },
   {
-    number: 613,
+    number: 612,
     text: `The wise, dwelling in concentration, persistent and diligent, attain the highest liberation.`,
     source: "Dhammapada, 23",
     tags: ["stillness"]
   },
   {
-    number: 614,
+    number: 613,
     text: `The mind is difficult to restrain and difficult to control; it wanders wherever it wishes. A tamed mind brings happiness.`,
     source: "Dhammapada, 35",
     tags: ["stillness"]
   },
   {
-    number: 615,
+    number: 614,
     text: `Let the wise guard the mind, which is difficult to see and difficult to hold. A mind properly guarded brings happiness.`,
     source: "Dhammapada, 36",
     tags: ["stillness"]
   },
   {
-    number: 616,
+    number: 615,
     text: `As rain does not penetrate a well-thatched roof, passion does not penetrate a well-developed mind.`,
     source: "Dhammapada, 14.13",
     tags: ["stillness"]
   },
   {
-    number: 617,
+    number: 616,
     text: `Do no evil. Do good. Purify your own mind. This is the teaching of the awakened ones.`,
     source: "Dhammapada, 183",
     tags: ["stillness"]
   },
   {
-    number: 618,
+    number: 617,
     text: `Do not follow base desires. Do not live heedlessly. Do not cling to false views. Do not deepen the world's bondage.`,
     source: "Dhammapada, 167",
     tags: ["stillness"]
   },
   {
-    number: 619,
+    number: 618,
     text: `One who was once heedless but later becomes mindful illuminates the world like the moon freed from clouds.`,
     source: "Dhammapada, 172",
     tags: ["stillness"]
   },
   {
-    number: 620,
+    number: 619,
     text: `Differences arise from superimposed ideas. When these ideas disappear, one reality remains.`,
     source: "Atma Bodha, 10",
     tags: ["stillness"]
   },
   {
-    number: 621,
+    number: 620,
     text: `Do not mistake the body for your true “self.” The body is made of transient elements and is the seat of pleasure and pain.`,
     source: "Atma Bodha, 12",
     tags: ["stillness"]
   },
   {
-    number: 622,
+    number: 621,
     text: `When the breath naturally pauses between inhalation and exhalation, attend to the space of peace that opens in that pause.`,
     source: "Vijñāna Bhairava Tantra, verse 25",
     tags: ["stillness"]
   },
   {
-    number: 623,
+    number: 622,
     text: `Contemplate space as though it were filled with subtle circles of light. Keep your attention on space itself, not on thoughts about it.`,
     source: "Vijñāna Bhairava Tantra, verse 32",
     tags: ["stillness"]
   },
   {
-    number: 624,
+    number: 623,
     text: `Contemplate empty space, a plain wall, or a motionless object. Observe how attention sinks into contemplation and the mind grows quiet.`,
     source: "Vijñāna Bhairava Tantra, verse 33",
     tags: ["stillness"]
   },
   {
-    number: 625,
+    number: 624,
     text: `With your eyes closed, direct attention inward, toward the center of the head. Gradually deepen your concentration without becoming distracted by thoughts that arise.`,
     source: "Vijñāna Bhairava Tantra, verse 34",
     tags: ["stillness"]
   },
   {
-    number: 626,
+    number: 625,
     text: `Imagine the central space of your being as the delicate thread of a lotus. Contemplate it as the inner space of awareness.`,
     source: "Vijñāna Bhairava Tantra, verse 35",
     tags: ["stillness"]
   },
   {
-    number: 627,
+    number: 626,
     text: `Observe the beginning and ending of any sound. Keep your attention on its arising and disappearing, noticing the silence on either side of the sound.`,
     source: "Vijñāna Bhairava Tantra, verse 40",
     tags: ["stillness"]
   },
   {
-    number: 628,
+    number: 627,
     text: `Contemplate the space in every direction within the body. Do not limit attention to separate parts of the body; allow it to encompass the inner space as a whole.`,
     source: "Vijñāna Bhairava Tantra, verse 43",
     tags: ["stillness"]
   },
   {
-    number: 629,
+    number: 628,
     text: `Imagine that all the substance of the body is permeated by space. Contemplate this continuously until this perception becomes steady.`,
     source: "Vijñāna Bhairava Tantra, verse 47",
     tags: ["stillness"]
   },
   {
-    number: 630,
+    number: 629,
     text: `Direct your attention to the space above your head and allow the mind to dissolve into a sense of openness, without holding on to its habitual forms.`,
     source: "Vijñāna Bhairava Tantra, verse 50",
     tags: ["stillness"]
   },
   {
-    number: 631,
+    number: 630,
     text: `At any moment, wherever you may be, bring your attention back to the subtle space above your head. Notice how the mind gradually grows quiet.`,
     source: "Vijñāna Bhairava Tantra, verse 51",
     tags: ["stillness"]
   },
   {
-    number: 632,
+    number: 631,
     text: `Imagine all the familiar forms of the world gradually dissolving. Observe what remains when the mind stops clinging to these forms.`,
     source: "Vijñāna Bhairava Tantra, verse 53",
     tags: ["stillness"]
   },
   {
-    number: 633,
+    number: 632,
     text: `When external sensations subside before sleep, but sleep has not yet come, keep a clear awareness of this intermediate state.`,
     source: "Vijñāna Bhairava Tantra, verse 75",
     tags: ["stillness"]
   },
   {
-    number: 634,
+    number: 633,
     text: `When intense joy arises, direct your attention not to its cause, but to the experience of joy itself. Allow the mind to sink into it.`,
     source: "Vijñāna Bhairava Tantra, verse 71",
     tags: ["stillness"]
   },
   {
-    number: 635,
+    number: 634,
     text: `While enjoying pleasant food, notice the feeling of joy and fullness itself. Focus on the experience without losing awareness.`,
     source: "Vijñāna Bhairava Tantra, verse 72",
     tags: ["stillness"]
   },
   {
-    number: 636,
+    number: 635,
     text: `When listening to music or singing, give your full attention to the sound. Do not drift into unrelated thoughts as attention naturally merges with the sound.`,
     source: "Vijñāna Bhairava Tantra, verse 73",
     tags: ["stillness"]
   },
   {
-    number: 637,
+    number: 636,
     text: `When the mind finds satisfaction in an experience, keep your attention on the experience itself. Explore the fullness that arises in this state.`,
     source: "Vijñāna Bhairava Tantra, verse 74",
     tags: ["stillness"]
   },
   {
-    number: 638,
+    number: 637,
     text: `Imagine your own nature as the sky: without boundaries and without a definite form. Abide in this contemplation.`,
     source: "Vijñāna Bhairava Tantra, verse 92",
     tags: ["stillness"]
   },
   {
-    number: 639,
+    number: 638,
     text: `When a strong desire suddenly arises, notice it immediately. Do not suppress it or follow it — watch as it gradually settles.`,
     source: "Vijñāna Bhairava Tantra, verse 96",
     tags: ["stillness"]
   },
   {
-    number: 640,
+    number: 639,
     text: `Observe how other people are perceived. Investigate the consciousness through which you recognize their presence, without reducing it to the image of a body.`,
     source: "Vijñāna Bhairava Tantra, verse 107",
     tags: ["stillness"]
   },
   {
-    number: 641,
+    number: 640,
     text: `Allow the mind to remain without its habitual supports of thoughts and notions. Do not create new mental constructions.`,
     source: "Vijñāna Bhairava Tantra, verse 108",
     tags: ["stillness"]
   },
   {
-    number: 642,
+    number: 641,
     text: `Notice wherever the mind turns — inward or outward. Explore the possibility of remaining aware in either direction.`,
     source: "Vijñāna Bhairava Tantra, verse 116",
     tags: ["stillness"]
   },
   {
-    number: 643,
+    number: 642,
     text: `Do not try to comprehend reality with the mind alone. Contemplate what cannot be fully grasped by thought, what has no familiar form and cannot be defined. Remain with it without trying to explain it.`,
     source: "Vijñāna Bhairava Tantra, verse 127",
     tags: ["stillness"]
   },
   {
-    number: 644,
+    number: 643,
     text: `Direct your attention to the open space around you. Perceive it as boundless and needing no support, without creating mental boundaries.`,
     source: "Vijñāna Bhairava Tantra, verse 128",
     tags: ["stillness"]
   },
   {
-    number: 645,
+    number: 644,
     text: `When a sensation arises that is difficult to define, do not rush to name it. Stay with direct perception.`,
     source: "Vijñāna Bhairava Tantra, verse 130",
     tags: ["stillness"]
   },
   {
-    number: 646,
+    number: 645,
     text: `Do not regard pleasure and pain as separate from perception. Notice how they arise through the senses, and return to calm presence.`,
     source: "Vijñāna Bhairava Tantra, verse 136",
     tags: ["stillness"]
   },
   {
-    number: 647,
+    number: 646,
     text: `Observe how thoughts, life energy, and the idea of your own “I” arise and settle. Explore the state in which these processes dissolve.`,
     source: "Vijñāna Bhairava Tantra, verse 138",
     tags: ["stillness"]
   },
   {
-    number: 648,
+    number: 647,
     text: `Stay with what is, without turning the experience into a story about yourself. Let a sensation be a sensation, before the mind turns it into a personal story.`,
     source: "Yoga Sutras of Patanjali, I.4",
     tags: ["stillness"]
   },
   {
-    number: 649,
+    number: 648,
     text: `Do not try to make the mind motionless by force. Develop the ability to return to clarity whenever attention wanders.`,
     source: "Yoga Sutras of Patanjali, I.13–I.14",
     tags: ["stillness"]
   },
   {
-    number: 650,
+    number: 649,
     text: `Look at your own reaction without justifying or condemning it. See it as it manifests right now.`,
     source: "Dhammapada, verses 1–2",
     tags: ["stillness"]
   },
   {
-    number: 651,
+    number: 650,
     text: `Remember how quickly the pleasant changes, and how long the mind tries to hold on to it. Look at pleasure without demanding that it continue.`,
     source: "Dhammapada, verses 277–279",
     tags: ["stillness"]
   },
   {
-    number: 652,
+    number: 651,
     text: `Do not measure your inner state by how pleasant it feels. Observe the pleasant, the unpleasant, and the neutral with equal attentiveness.`,
     source: "Dhammapada, verses 83–85",
     tags: ["stillness"]
   },
   {
-    number: 653,
+    number: 652,
     text: `Do not try to hold on to a special state that once seemed like awakening. Investigate the one who wants to make the experience permanent and claim it as their own.`,
     source: "Ashtavakra Gita, Chapter 15",
     tags: ["stillness"]
   },
   {
-    number: 654,
+    number: 653,
     text: `Do not seek freedom only in the disappearance of thoughts. Investigate whether you can remain unbound by them even while they continue to arise.`,
     source: "Ashtavakra Gita, Chapter 18",
     tags: ["stillness"]
   },
   {
-    number: 655,
+    number: 654,
     text: `Act attentively, but observe how the mind claims the result as its own. Separate the action itself from the constant mental expectation of reward.`,
     source: "Bhagavad Gita, 2.47–2.48",
     tags: ["stillness"]
   },
   {
-    number: 656,
+    number: 655,
     text: `When success brings excitement and failure brings discouragement, notice both reactions before they completely take hold of you.`,
     source: "Bhagavad Gita, 2.48",
     tags: ["stillness"]
   },
   {
-    number: 657,
+    number: 656,
     text: `During a conversation, try listening without preparing your own reply in advance. Notice the moment listening stops and an inner argument begins.`,
     source: "Bhagavad Gita, 6.25–6.26",
     tags: ["stillness"]
   },
   {
-    number: 658,
+    number: 657,
     text: `When the mind returns to the same subject again and again, do not demand that it disappear immediately. Each time, notice its return and gently free attention from the repetition.`,
     source: "Bhagavad Gita, 6.26",
     tags: ["stillness"]
   },
   {
-    number: 659,
+    number: 658,
     text: `See whether you can perform a simple task without constant inner commentary. Let the action be complete even if the mind stops describing it.`,
     source: "Bhagavad Gita, 5.8–5.9",
     tags: ["stillness"]
   },
   {
-    number: 660,
+    number: 659,
     text: `Do not mistake detachment for indifference. Notice whether you can care about what is happening without turning every situation into proof of your own importance.`,
     source: "Bhagavad Gita, 12.13–12.14",
     tags: ["stillness"]
   },
   {
-    number: 661,
+    number: 660,
     text: `Instead of seeking a new experience, look at the very capacity to be aware. Do not describe it — notice that every image is already something noticed.`,
     source: "Kena Upanishad, I.4–I.9",
     tags: ["stillness"]
   },
   {
-    number: 662,
+    number: 661,
     text: `Imagine the senses as horses and attention as the reins. See where each impression carries you when attention follows it without discernment.`,
     source: "Katha Upanishad, I.3.3–I.3.6",
     tags: ["stillness"]
   },
   {
-    number: 663,
+    number: 662,
     text: `Do not mistake the direction of habit for your own free choice. Notice what captures attention, and ask whether you really need to follow it.`,
     source: "Katha Upanishad, I.3.5–I.3.9",
     tags: ["stillness"]
   },
   {
-    number: 664,
+    number: 663,
     text: `Notice the transition from waking to drowsiness. Thoughts become less coherent, yet the fact that the state is changing can still be observed. Remain attentive without tension.`,
     source: "Mandukya Upanishad, verses 3–5",
     tags: ["stillness"]
   },
   {
-    number: 665,
+    number: 664,
     text: `Look at another person without reducing them to a role in your life. For a moment, set aside your expectations and meet what is actually before you.`,
     source: "Isha Upanishad, verses 6–7",
     tags: ["stillness"]
   },
   {
-    number: 666,
+    number: 665,
     text: `When the mind seeks a special state, notice the urge to separate ordinary life from something supposedly more spiritual. Explore what is happening here, without waiting for an exceptional experience.`,
     source: "Isha Upanishad, verses 9–11",
     tags: ["stillness"]
   },
   {
-    number: 667,
+    number: 666,
     text: `When attention is completely absorbed by a strong sensory impression, notice not only the impression but also the moment in which distraction disappears.`,
     source: "Vijñāna Bhairava Tantra, verse 67",
     tags: ["stillness"]
   },
   {
-    number: 668,
+    number: 667,
     text: `Look at a feeling as it arises without immediately calling it good or bad. Allow it to be noticed before the mind begins building a story around it.`,
     source: "Vijñāna Bhairava Tantra, verse 96",
     tags: ["stillness"]
   },
   {
-    number: 669,
+    number: 668,
     text: `When a strong emotion arises, investigate it directly: where is it felt, how does it change, and what thoughts are trying to sustain it?`,
     source: "Vijñāna Bhairava Tantra, verse 101",
     tags: ["stillness"]
   },
   {
-    number: 670,
+    number: 669,
     text: `When the mind cannot find its familiar support, do not rush to create a new one. Notice the very urge to anchor itself in a definite explanation of what is happening.`,
     source: "Vijñāna Bhairava Tantra, verse 108",
     tags: ["stillness"]
   },
   {
-    number: 671,
+    number: 670,
     text: `Do not look for awareness as a special experience. Everything that can be seen, felt, or imagined is already something that is known. What, then, are you looking for?`,
     source: "Ramana Maharshi, \"Who Am I?\", questions 1–3",
     tags: ["stillness"]
   },
   {
-    number: 672,
+    number: 671,
     text: `Give up not only identification with the body, but also identification with feelings, life energy, the mind, and ignorance. What remains when none of them is taken to be your essence?`,
     source: "Ramana Maharshi, \"Who Am I?\", question 1",
     tags: ["stillness"]
   },
   {
-    number: 673,
+    number: 672,
     text: `Stop treating liberation as something to acquire in the future. Investigate whether you have ever truly ceased to be what you are seeking.`,
     source: "Ramana Maharshi, \"Who Am I?\", questions 4–5",
     tags: ["stillness"]
   },
   {
-    number: 674,
+    number: 673,
     text: `You consider yourself the witness of the world. But are you not creating yet another boundary this way — between yourself and the world? Investigate where this boundary is.`,
     source: "Ashtavakra Gita, I.7",
     tags: ["stillness"]
   },
   {
-    number: 675,
+    number: 674,
     text: `Do not make a motionless mind a condition for realization. Investigate that by which both stillness and the movement of thoughts are known. Does it depend on the state of the mind?`,
     source: "Ashtavakra Gita, I.15",
     tags: ["stillness"]
   },
   {
-    number: 676,
+    number: 675,
     text: `Imagine a mirror and its many reflections. Investigate whether the mirror itself becomes any of the things that appear in it. What does this analogy point to in your own nature?`,
     source: "Ashtavakra Gita, I.19",
     tags: ["stillness"]
   },
   {
-    number: 677,
+    number: 676,
     text: `Imagine the space inside a vessel. The vessel only seems to limit the space. Investigate whether consciousness is truly confined within the boundaries of the body.`,
     source: "Ashtavakra Gita, I.20",
     tags: ["stillness"]
   },
   {
-    number: 678,
+    number: 677,
     text: `Do not think of yourself as a point from which the rest of the world is perceived. Examine the very idea of inner and outer. Where is their division directly experienced?`,
     source: "Ashtavakra Gita, I.20",
     tags: ["stillness"]
   },
   {
-    number: 679,
+    number: 678,
     text: `Imagine the body acting by itself, like any other phenomenon. Investigate whether there is a separate owner and controller inside it.`,
     source: "Ashtavakra Gita, III.10",
     tags: ["stillness"]
   },
   {
-    number: 680,
+    number: 679,
     text: `A mirage seems real until its nature is recognized. Investigate what in the perceived world is taken to exist independently only because of a habitual assumption.`,
     source: "Avadhuta Gita, I.3",
     tags: ["stillness"]
   },
   {
-    number: 681,
+    number: 680,
     text: `The mind seems to be a separate entity that thinks, remembers, and imagines. Try to find the mind itself, not individual thoughts. What exactly do you call the mind?`,
     source: "Avadhuta Gita, I.9",
     tags: ["stillness"]
   },
   {
-    number: 682,
+    number: 681,
     text: `You are trying to see the Self as something visible or hidden. But can awareness itself be discovered in the same way as any object?`,
     source: "Avadhuta Gita, I.10",
     tags: ["stillness"]
   },
   {
-    number: 683,
+    number: 682,
     text: `The mind cannot turn its own ground into an object of knowledge. Do not try to grasp with thought that by which thought itself becomes known.`,
     source: "Kena Upanishad, I.4–5",
     tags: ["stillness"]
   },
   {
-    number: 684,
+    number: 683,
     text: `You can see many things, but you cannot see the seer as yet another thing. Stop searching for an external object and investigate the nature of seeing itself.`,
     source: "Brihadaranyaka Upanishad, III.4.2",
     tags: ["stillness"]
   },
   {
-    number: 685,
+    number: 684,
     text: `Compare waking and dreaming. In both states, an entire world appears and seems independent. Investigate what makes each of them convincing and real.`,
     source: "Mandukya Upanishad, verses 3–4",
     tags: ["stillness"]
   },
   {
-    number: 686,
+    number: 685,
     text: `Sleep ends, waking continues, and then sleep returns. Investigate the changing nature of these states, and do not rush to identify yourself with any one of them.`,
     source: "Mandukya Upanishad, verses 3–7",
     tags: ["stillness"]
   },
   {
-    number: 687,
+    number: 686,
     text: `“Only Consciousness is alive. Everything objective is dead and inert.”`,
     source: "Sri Atmananda Krishna Menon",
     tags: ["stillness"]
   },
   {
-    number: 688,
+    number: 687,
     text: `“Meditation is a return home, an opportunity to relax and rest.”`,
     source: "Vimala Thakar",
     tags: ["stillness"]
   },
   {
-    number: 689,
+    number: 688,
     text: `Do not meditate in order to attain some state. Allow yourself to relax into what is already here.`,
     source: "Vimala Thakar",
     tags: ["stillness"]
   },
   {
-    number: 690,
+    number: 689,
     text: `Do not create silence. Stop interfering with it. Let everything happen without disturbing the inner peace.`,
     source: "Vimala Thakar",
     tags: ["stillness"]
   },
   {
-    number: 691,
+    number: 690,
     text: `Do not postpone meditation to a special time. Let silence become a way of being.`,
     source: "Vimala Thakar",
     tags: ["stillness"]
   },
   {
-    number: 692,
+    number: 691,
     text: `Stop playing the role of a spiritual person. Let go of the image of a seeker, a practitioner, and a future enlightened one. Be what is here before these images.`,
     source: "Vimala Thakar",
     tags: ["stillness"]
   },
   {
-    number: 693,
+    number: 692,
     text: `Do not manage every movement of the mind. Give up the habit of interfering. Allow life to unfold without constant inner control.`,
     source: "Vimala Thakar",
     tags: ["stillness"]
   },
   {
-    number: 694,
+    number: 693,
     text: `Do not try to become silent. Stop sustaining the inner noise. Silence does not need your effort.`,
     source: "Vimala Thakar",
     tags: ["stillness"]
   },
   {
-    number: 695,
+    number: 694,
     text: `Remain in effortless awareness. Do not choose what is allowed to appear. Do not push anything away. Let wholeness be whole.`,
     source: "Vimala Thakar",
     tags: ["stillness"]
   },
   {
-    number: 696,
+    number: 695,
     text: `Do not be the one who is aware of an object. Abide as awareness itself, without attachment to what is being known.`,
     source: "Atmananda Krishna Menon",
     tags: ["stillness"]
   },
   {
-    number: 697,
+    number: 696,
     text: `Do not look for permanence among changing things. Recognize the unchanging background against which all experiences appear and disappear.`,
     source: "Atmananda Krishna Menon",
     tags: ["stillness"]
   },
   {
-    number: 698,
+    number: 697,
     text: `Do not lose yourself in the content of an experience. As soon as something becomes known, turn toward the very fact of knowing. Remain there.`,
     source: "Atmananda Krishna Menon",
     tags: ["stillness"]
   },
   {
-    number: 699,
+    number: 698,
     text: `Do not look for presence in the future. You do not need to become what you already are. Recognize your own presence.`,
     source: "Swami Abhishiktananda",
     tags: ["stillness"]
   },
   {
-    number: 700,
+    number: 699,
     text: `Do not direct Truth somewhere outside. Do not create a distance between yourself and the Absolute. Stop searching beyond being itself.`,
     source: "Swami Abhishiktananda",
     tags: ["stillness"]
   },
   {
-    number: 701,
+    number: 700,
     text: `Awaken. Rise. Remain aware. Do not turn awakening into a dream of some future event. Be attentive to reality itself.`,
     source: "Swami Abhishiktananda",
     tags: ["stillness"]
   },
   {
-    number: 702,
+    number: 701,
     text: `Sink deeper into silence until the need to constantly remember yourself as a separate person disappears.`,
     source: "Swami Abhishiktananda",
     tags: ["stillness"]
   },
   {
-    number: 703,
+    number: 702,
     text: `Ask yourself: “Am I aware?” Do not answer in words. Simply stop and recognize immediate presence.`,
     source: "Sailor Bob Adamson",
     tags: ["stillness"]
   },
   {
-    number: 704,
+    number: 703,
     text: `Stop. Look. Before the thought that you are seeing appears, seeing is already happening. Remain in this immediate knowing.`,
     source: "Sailor Bob Adamson",
     tags: ["stillness"]
   },
   {
-    number: 705,
+    number: 704,
     text: `Do not fight thoughts. They arise in awareness, and therefore cannot separate you from awareness itself.`,
     source: "Sailor Bob Adamson",
     tags: ["stillness"]
   },
   {
-    number: 706,
+    number: 705,
     text: `Do not turn presence into a special state. It does not appear after meditation or disappear during ordinary life. Recognize it again and again.`,
     source: "Sailor Bob Adamson",
     tags: ["stillness"]
   },
   {
-    number: 707,
+    number: 706,
     text: `Do not reject what appears now. A thought, a sound, a form, or a feeling — all of it manifests in awareness. Recognize the same ground in everything.`,
     source: "Sailor Bob Adamson",
     tags: ["stillness"]
   },
   {
-    number: 708,
+    number: 707,
     text: `Do not hold on to yesterday's understanding. Look directly now. Truth does not need a memory of a previous experience.`,
     source: "Sailor Bob Adamson",
     tags: ["stillness"]
   },
   {
-    number: 709,
+    number: 708,
     text: `Do not withdraw from the world for the sake of awareness. Remain open to the world without losing sight of that from which it is directly perceived.`,
     source: "Douglas Harding",
     tags: ["stillness"]
   },
   {
-    number: 710,
+    number: 709,
     text: `Test your true nature not only in meditation. Remain in direct seeing while talking, moving, and acting.`,
     source: "Douglas Harding",
     tags: ["stillness"]
   },
   {
-    number: 711,
+    number: 710,
     text: `Do not wait for a special moment to become what you are. Stop postponing the recognition of your own nature.`,
     source: "Siddharameshwar Maharaj",
     tags: ["stillness"]
   },
   {
-    number: 712,
+    number: 711,
     text: `Play your part in the comedy, but do not identify with it!`,
     source: "Wei Wu Wei",
     tags: ["stillness"]
   },
   {
-    number: 713,
+    number: 712,
     text: `Awareness has no fixed point, like the sky.`,
     source: "Khenpo Gangshar",
     tags: ["stillness"]
   },
   {
-    number: 714,
+    number: 713,
     text: `Let go of all your thoughts and all your understanding.`,
     source: "Seung Sahn",
     tags: ["stillness"]
   },
   {
-    number: 715,
+    number: 714,
     text: `Stop in the middle of your own speech. Wake up.`,
     source: "Vernon Howard",
     tags: ["stillness"]
   },
   {
-    number: 716,
+    number: 715,
     text: `Thoughts do not touch you.`,
     source: "John Wheeler",
     tags: ["stillness"]
   },
   {
-    number: 717,
+    number: 716,
     text: `In the moment of anger there is no observer. Only a second later does the one who says “I am angry” appear.`,
     source: "Jiddu Krishnamurti",
     tags: ["stillness"]
   },
   {
-    number: 718,
+    number: 717,
     text: `Life is always fresh, always new, and always free.`,
     source: "Sailor Bob Adamson",
     tags: ["stillness"]
   },
   {
-    number: 719,
+    number: 718,
     text: `Simply recognize your present awakening. Do not forget it and do not become distracted.`,
     source: "Tulku Urgyen Rinpoche",
     tags: ["stillness"]
   },
   {
-    number: 720,
+    number: 719,
     text: `To study the Way of the Buddha is to study the self. To study the self is to forget the self.`,
     source: "Dogen",
     tags: ["stillness"]
   },
   {
-    number: 721,
+    number: 720,
     text: `Notice what is happening at the very moment it happens. Do not analyze it afterward — see it now.`,
     source: "Toni Packer",
     tags: ["stillness"]
   },
   {
-    number: 722,
+    number: 721,
     text: `What you are is pure, silent awareness.`,
     source: "Eli Jaxon-Bear",
     tags: ["stillness"]
   },
   {
-    number: 723,
+    number: 722,
     text: `Investigate yourself with the urgency of someone whose hair is on fire. Do not put it off for even a moment.`,
     source: "Hakuin",
     tags: ["stillness"]
   },
   {
-    number: 724,
+    number: 723,
     text: `If I do not become free in this life, then when?!`,
     source: "Kodo Sawaki",
     tags: ["stillness"]
   },
   {
-    number: 725,
+    number: 724,
     text: `Mindfulness is the path to the Deathless. Heedlessness is the path to death. The heedless are already as if dead.`,
     source: "The Buddha",
     tags: ["stillness"]
   },
   {
-    number: 726,
+    number: 725,
     text: `All conditioned things fall apart. Practice tirelessly!`,
     source: "The Buddha",
     tags: ["stillness"]
   },
   {
-    number: 727,
+    number: 726,
     text: `While alive, become completely dead. And then do as you please.`,
     source: "Sido Bunan",
     tags: ["stillness"]
   },
   {
-    number: 728,
+    number: 727,
     text: `Do not remember. Do not imagine. Do not think. Do not analyze. Do not control. Relax. Rest.`,
     source: "Tilopa",
     tags: ["stillness"]
   },
   {
-    number: 729,
+    number: 728,
     text: `Too much talk is useless. Remain in solitude. Meditate. Practice the Dharma!`,
     source: "Milarepa",
     tags: ["stillness"]
   },
   {
-    number: 730,
+    number: 729,
     text: `Other than unwavering mindfulness and non-distraction, there is no other practice.`,
     source: "Gampopa",
     tags: ["stillness"]
   },
   {
-    number: 731,
+    number: 730,
     text: `Remember yourself always and everywhere.`,
     source: "G. I. Gurdjieff",
     tags: ["stillness"]
   },
   {
-    number: 732,
+    number: 731,
     text: `Set aside every question except one: “Who am I?” Strive to discover what you truly are.`,
     source: "Nisargadatta Maharaj",
     tags: ["stillness"]
   },
   {
-    number: 733,
+    number: 732,
     text: `Impermanence is swift. Life and death are matters of great importance. Do not lose a single moment. Give your whole mind to the practice of the Way.`,
     source: "Dogen",
     tags: ["stillness"]
   },
   {
-    number: 734,
+    number: 733,
     text: `Let go a little and you will gain a little peace. Let go completely and you will gain complete peace.`,
     source: "Ajahn Chah",
     tags: ["stillness"]
   },
   {
-    number: 735,
+    number: 734,
     text: `Do not spend your life talking about the Way. Enter into practice with your whole being.`,
     source: "Milarepa",
     tags: ["stillness"]
   },
   {
-    number: 736,
+    number: 735,
     text: `No time! No time! There is no time to rest! When death suddenly arrives, what will you do? Begin practicing right now!`,
     source: "Patrul Rinpoche",
     tags: ["stillness"]
   },
   {
-    number: 737,
+    number: 736,
     text: `Like one pierced by a sword, like one whose head is on fire, move forward with awareness, leaving sensual desires behind.`,
     source: "Tissa",
     tags: ["stillness"]
   },
   {
-    number: 738,
+    number: 737,
     text: `Death spares no one. Practice diligently every day. There is no other way to meet it.`,
     source: "Ajahn Maha Bua",
     tags: ["stillness"]
   },
   {
-    number: 739,
+    number: 738,
     text: `One who has overcome the illness called “tomorrow” has a chance to attain what they came into this world for.`,
     source: "G. I. Gurdjieff",
     tags: ["stillness"]
   },
   {
-    number: 740,
+    number: 739,
     text: `Five minutes of genuine inner work are worth more than twenty-four hours spent half-heartedly.`,
     source: "G. I. Gurdjieff",
     tags: ["stillness"]
   },
   {
-    number: 741,
+    number: 740,
     text: `Fight continuously against your subjective weaknesses. Strive to uproot them without showing yourself any mercy.`,
     source: "G. I. Gurdjieff",
     tags: ["stillness"]
   },
   {
-    number: 742,
+    number: 741,
     text: `Recognize that you can die at any moment. This is one of the strongest incentives to begin genuine work on yourself.`,
     source: "G. I. Gurdjieff",
     tags: ["stillness"]
   },
   {
-    number: 743,
+    number: 742,
     text: `Choose something small that you genuinely want to do but somehow never manage to do. Make it your main task. Let nothing get in the way.`,
     source: "G. I. Gurdjieff",
     tags: ["stillness"]
   },
   {
-    number: 744,
+    number: 743,
     text: `Remember yourself — always and everywhere.`,
     source: "G. I. Gurdjieff",
     tags: ["stillness"]
   },
   {
-    number: 745,
+    number: 744,
     text: `Your ideas control you. Let go of your ideas.`,
     source: "Seung Sahn",
     tags: ["stillness"]
   },
   {
-    number: 746,
+    number: 745,
     text: `The spiritual path is too difficult, too long, and too demanding. It is no stroll. But once you have begun, finish it.`,
     source: "Chogyam Trungpa",
     tags: ["stillness"]
   },
   {
-    number: 747,
+    number: 746,
     text: `Life is short, and death comes without warning. I have no time to waste it on meaningless talk.`,
     source: "Milarepa",
     tags: ["stillness"]
   },
   {
-    number: 748,
+    number: 747,
     text: `All compounded things are subject to decay. Practice tirelessly!`,
     source: "The Buddha",
     tags: ["stillness"]
   },
   {
-    number: 749,
+    number: 748,
     text: `You must make the effort yourself. Buddhas only point out the way.`,
     source: "The Buddha",
     tags: ["stillness"]
   },
   {
-    number: 750,
+    number: 749,
     text: `You can see your true nature only now. Only now.`,
     source: "Bodhidharma",
     tags: ["stillness"]
   },
   {
-    number: 751,
+    number: 750,
     text: `Awareness has never been asleep.`,
     source: "David Carse",
     tags: ["stillness"]
   },
   {
-    number: 752,
+    number: 751,
     text: `Spirituality is awakening. Most people are born, live, and die asleep.`,
     source: "Anthony de Mello",
     tags: ["stillness"]
   },
   {
-    number: 753,
+    number: 752,
     text: `Every time you notice that you have become distracted, you have already returned. Do not waste that return on blaming yourself. The next moment belongs to inquiry again.`,
     source: null,
     tags: ["stillness"]
   },
   {
-    number: 754,
+    number: 753,
     text: `Make the practice concrete: one minute, 5...15, 30 minutes of direct perception. No searching for new techniques, no comparing with past experiences, and no premature conclusions.`,
     source: null,
     tags: ["stillness"]
   },
   {
-    number: 755,
+    number: 754,
     text: `What matters is the persistence with which you return to yourself.`,
     source: "Nisargadatta Maharaj",
     tags: ["stillness"]
   },
   {
-    number: 756,
+    number: 755,
     text: `Look, listen, be aware, without allowing thought to push you in any direction.`,
     source: "Jiddu Krishnamurti",
     tags: ["stillness"]
   },
   {
-    number: 757,
+    number: 756,
     text: `Attention is observation without an observer.`,
     source: "Jiddu Krishnamurti",
     tags: ["stillness"]
   },
   {
-    number: 758,
+    number: 757,
     text: `Be aware without condemning, evaluating, or comparing.`,
     source: "Jiddu Krishnamurti",
     tags: ["stillness"]
   },
   {
-    number: 759,
+    number: 758,
     text: `Be attentive to the very moment when you are inattentive.`,
     source: "Jiddu Krishnamurti",
     tags: ["stillness"]
   },
   {
-    number: 760,
+    number: 759,
     text: `There is only the observation of what is.`,
     source: "Jiddu Krishnamurti",
     tags: ["stillness"]
   },
   {
-    number: 761,
+    number: 760,
     text: `All the wonders of life are available only in the present moment.`,
     source: "Thich Nhat Hanh",
     tags: ["stillness"]
   },
   {
-    number: 762,
+    number: 761,
     text: `There is only one moment in which we can be truly alive: the present moment.`,
     source: "Thich Nhat Hanh",
     tags: ["stillness"]
   },
   {
-    number: 763,
+    number: 762,
     text: `The present moment is filled with joy and happiness.`,
     source: "Thich Nhat Hanh",
     tags: ["stillness"]
   },
   {
-    number: 764,
+    number: 763,
     text: `Yoga is the cessation of the fluctuations of the mind.`,
     source: "Patanjali",
     tags: ["stillness"]
   },
   {
-    number: 765,
+    number: 764,
     text: `Attain the utmost emptiness; firmly preserve stillness.`,
     source: "Lao Tzu",
     tags: ["stillness"]
   },
   {
-    number: 766,
+    number: 765,
     text: `Look at what is here and now, rather than seeking what is not here.`,
     source: "Ajahn Sumedho",
     tags: ["stillness"]
   },
   {
-    number: 767,
+    number: 766,
     text: `We must exist right here, right now.`,
     source: "Shunryu Suzuki",
     tags: ["stillness"]
   },
   {
-    number: 768,
+    number: 767,
     text: `Do not strive for a special state of mind.`,
     source: "Shunryu Suzuki",
     tags: ["stillness"]
   },
   {
-    number: 769,
+    number: 768,
     text: `Realize deeply: the present moment is all you will ever have.`,
     source: "Eckhart Tolle",
     tags: ["stillness"]
   },
   {
-    number: 770,
+    number: 769,
     text: `Turn inward and look.`,
     source: "Plotinus",
     tags: ["stillness"]
   },
   {
-    number: 771,
+    number: 770,
     text: `Confine yourself to the present.`,
     source: "Marcus Aurelius",
     tags: ["stillness"]
   },
   {
-    number: 772,
+    number: 771,
     text: `Do not fall into the emotion. Let it unfold fully, but do not hand it the steering wheel.`,
     source: null,
     tags: ["stillness"]
   },
   {
-    number: 773,
+    number: 772,
     text: `Take one step back from your own drama. Events continue, thoughts sound, feelings move — and you do not have to drown in them.`,
     source: null,
     tags: ["stillness"]
   },
   {
-    number: 774,
+    number: 773,
     text: `Stop waiting for the right moment to be present. This moment is the only place where you can ever be.`,
     source: null,
     tags: ["stillness"]
   },
   {
-    number: 775,
+    number: 774,
     text: `Do not try to stop thoughts. Withdraw attention from their content and feel the very space in which they sound.`,
     source: null,
     tags: ["stillness"]
   },
   {
-    number: 776,
+    number: 775,
     text: `When anger overwhelms you, do not become that anger. Feel its force without surrendering your clarity to it.`,
     source: null,
     tags: ["stillness"]
   },
   {
-    number: 777,
+    number: 776,
     text: `Do not escape the present into the expectation of a better life. That is how you miss the life that is already happening.`,
     source: null,
     tags: ["stillness"]
   },
   {
-    number: 778,
+    number: 777,
     text: `Do not try to become uninvolved. See involvement itself, do not feed it, and do not create another fighter on top of it.`,
     source: null,
     tags: ["stillness"]
   },
   {
-    number: 779,
+    number: 778,
     text: `Stop waiting for life to become convenient for awakening. Wake up in the middle of this mess, not after it ends.`,
     source: null,
     tags: ["stillness"]
   },
   {
-    number: 780,
+    number: 779,
     text: `Do not suppress desire and do not chase after it. Feel the impulse in its entirety, while keeping the freedom not to obey it.`,
     source: null,
     tags: ["stillness"]
   },
   {
-    number: 781,
+    number: 780,
     text: `Stop waiting for the moment when you will finally begin to practice. That moment has already arrived. You are once again postponing the very thing you supposedly live for.`,
     source: null,
     tags: ["stillness"]
   },
   {
-    number: 782,
+    number: 781,
     text: `How many more times will you forget yourself before you realize that this very forgetting is your deepest habit?`,
     source: null,
     tags: ["stillness"]
   },
   {
-    number: 783,
+    number: 782,
     text: `Do not give any event the right to consume your entire attention. Take part in what is happening, but do not lose clarity.`,
     source: null,
     tags: ["stillness"]
   },
   {
-    number: 784,
+    number: 783,
     text: `Every time you find yourself inside yet another story, step out of it immediately. You do not have to watch this endless film to the end.`,
     source: null,
     tags: ["stillness"]
   },
   {
-    number: 785,
+    number: 784,
     text: `Stop living as though you had an infinite amount of time to awaken. You do not know how much time you have left.`,
     source: null,
     tags: ["stillness"]
   },
   {
-    number: 786,
+    number: 785,
     text: `Do not let any thought automatically become your reality. First see it. See how it arises, exists, and disappears.`,
     source: null,
     tags: ["stillness"]
   },
   {
-    number: 787,
+    number: 786,
     text: `You do not need to wait until a conversation, a task, a walk, or a meeting is over to return to contemplation. This very moment is your practice.`,
     source: null,
     tags: ["stillness"]
   },
   {
-    number: 788,
+    number: 787,
     text: `The mind will offer you a thousand reasons to return to habitual existence. Do not treat every suggestion it makes as a command.`,
     source: null,
     tags: ["stillness"]
   },
   {
-    number: 789,
+    number: 788,
     text: `Do not let boredom make decisions for you. The mind is bored — wonderful. Now you have a chance to see it without its usual entertainment.`,
     source: null,
     tags: ["stillness"]
   },
   {
-    number: 790,
+    number: 789,
     text: `Stop constantly leaving direct experience in order to think about it. Do not explain what is happening. Look.`,
     source: null,
     tags: ["stillness"]
   },
   {
-    number: 791,
+    number: 790,
     text: `You do not need to finish all your tasks before turning to awakening. All your tasks will never be finished. Stop making them a condition for your practice.`,
     source: null,
     tags: ["stillness"]
   },
   {
-    number: 792,
+    number: 791,
     text: `Every desire for immediate pleasure is an opportunity to see how attention becomes captive to an impulse. Do not hand yourself over to every desire that arises.`,
     source: null,
     tags: ["stillness"]
   },
   {
-    number: 793,
+    number: 792,
     text: `Do not let your phone, messages, news, or other people's thoughts determine the state in which you will spend the next hour.`,
     source: null,
     tags: ["stillness"]
   },
   {
-    number: 794,
+    number: 793,
     text: `Your attention is the most precious thing you have in this life. Stop giving it away indiscriminately.`,
     source: null,
     tags: ["stillness"]
   },
   {
-    number: 795,
+    number: 794,
     text: `Before replying, notice the reaction. Before objecting, notice the urge to defend yourself. Before speaking, notice the one who is already preparing to speak.`,
     source: null,
     tags: ["stillness"]
   },
   {
-    number: 796,
+    number: 795,
     text: `Do not spend the whole day waiting for a few minutes of evening meditation. Let meditation stop being a separate event and become the quality of the entire day.`,
     source: null,
     tags: ["stillness"]
   },
   {
-    number: 797,
+    number: 796,
     text: `You have become absorbed in a story about yourself again. You are building the future, defending the past, proving that you are right. Stop. Look at what is happening before the whole story begins.`,
     source: null,
     tags: ["stillness"]
   },
   {
-    number: 798,
+    number: 797,
     text: `Do not wait for the emotion to end. At the very peak of its intensity, examine what you are taking to be yourself and what is actually happening.`,
     source: null,
     tags: ["stillness"]
   },
   {
-    number: 799,
+    number: 798,
     text: `Every irritation is a signal: attention has been captured. Every resentment is an invitation to inquire. Every anxiety is an opportunity to see the mechanism of identification.`,
     source: null,
     tags: ["stillness"]
   },
   {
-    number: 800,
+    number: 799,
     text: `Do not let someone else's behavior steal your awareness. Another person may speak, argue, or become angry, but why immerse yourself in automaticity too?`,
     source: null,
     tags: ["stillness"]
   },
   {
-    number: 801,
+    number: 800,
     text: `Do not turn practice into something you will do when you are in the right mood. You practice precisely when the mind does not want to practice.`,
     source: null,
     tags: ["stillness"]
   },
   {
-    number: 802,
+    number: 801,
     text: `Use every transition from one task to another as a reminder. Do not carry automaticity from one activity into the next. Pause for a second. Return to direct experience.`,
     source: null,
     tags: ["stillness"]
   },
   {
-    number: 803,
+    number: 802,
     text: `Do not fall asleep inside your own plans. Planning is necessary, but constantly living in an imagined future means losing direct contact with what is happening.`,
     source: null,
     tags: ["stillness"]
   },
   {
-    number: 804,
+    number: 803,
     text: `Do not let a good mood lull your vigilance, or a bad mood destroy your practice. No state should determine your ability to contemplate.`,
     source: null,
     tags: ["stillness"]
   },
   {
-    number: 805,
+    number: 804,
     text: `You do not have to believe every thought simply because it has appeared in your consciousness. Stop being an unquestioning follower of your own mind.`,
     source: null,
     tags: ["stillness"]
   },
   {
-    number: 806,
+    number: 805,
     text: `Stop rehearsing life in your head. It is happening now, while you are busy with its mental copy again.`,
     source: null,
     tags: ["stillness"]
   },
   {
-    number: 807,
+    number: 806,
     text: `Do not allow yourself to drift into forgetfulness for hours. If you notice automaticity, return immediately. You do not need to finish the thought, story, or inner dialogue first.`,
     source: null,
     tags: ["stillness"]
   },
   {
-    number: 808,
+    number: 807,
     text: `Awaken attention before a habitual reaction turns into an action. Notice not only the consequences, but the very birth of the impulse.`,
     source: null,
     tags: ["stillness"]
   },
   {
-    number: 809,
+    number: 808,
     text: `Do not make exceptions for everyday life. If you are aware only during meditation, your practice is still limited to special conditions.`,
     source: null,
     tags: ["stillness"]
   },
   {
-    number: 810,
+    number: 809,
     text: `Let every time you open a door remind you to open your attention. Let every ring bring you back to contemplation. Let every moment of waiting become practice.`,
     source: null,
     tags: ["stillness"]
   },
   {
-    number: 811,
+    number: 810,
     text: `You do not need to defeat the mind. You need to stop following every one of its movements without question. Let it do its job while you investigate what is happening.`,
     source: null,
     tags: ["stillness"]
   },
   {
-    number: 812,
+    number: 811,
     text: `Do not turn spiritual understanding into a new personality. Do not become someone who constantly tells themselves how aware they are. Investigate the very appearance of this image.`,
     source: null,
     tags: ["stillness"]
   },
   {
-    number: 813,
+    number: 812,
     text: `Look right now at what attention is occupied with. Not in a minute. Not after reading. Not after the next task. Now.`,
     source: null,
     tags: ["stillness"]
   },
   {
-    number: 814,
+    number: 813,
     text: `Every minute spent on autopilot is another opportunity you have not used to investigate your own nature. Stop treating automatic living as normal.`,
     source: null,
     tags: ["stillness"]
   },
   {
-    number: 815,
+    number: 814,
     text: `Do not wait for a special experience. Do not wait for silence, bliss, emptiness, or the disappearance of thoughts. Your task is to investigate what is, not to wait for what you like to appear.`,
     source: null,
     tags: ["stillness"]
   },
   {
-    number: 816,
+    number: 815,
     text: `Do not let the familiar “later” steal another day. If you are able to remember the practice, you are able to return to it.`,
     source: null,
     tags: ["stillness"]
   },
   {
-    number: 817,
+    number: 816,
     text: `Stop being the person who is constantly preparing to awaken. Look at what is available for direct inquiry right now.`,
     source: null,
     tags: ["stillness"]
   },
   {
-    number: 818,
+    number: 817,
     text: `Do not use the concept of non-doing to justify inattention. Non-doing is not drowsiness or indifference. Do not lose clarity.`,
     source: null,
     tags: ["stillness"]
   },
   {
-    number: 819,
+    number: 818,
     text: `Your main task is not to make this day interesting, eventful, or successful. Do not forget to investigate the one who is experiencing this day.`,
     source: null,
     tags: ["stillness"]
   },
   {
-    number: 820,
+    number: 819,
     text: `Do not let success, failure, praise, or criticism knock you out of practice. Is yet another event really more important than investigating what you are?`,
     source: null,
     tags: ["stillness"]
   },
   {
-    number: 821,
+    number: 820,
     text: `Do not fall asleep in automaticity simply because today has been an ordinary day. An ordinary day is a perfect opportunity to test how continuous your practice is.`,
     source: null,
     tags: ["stillness"]
   },
   {
-    number: 822,
+    number: 821,
     text: `Do not look for circumstances in life that will finally allow you to practice. Practice in the circumstances that already exist.`,
     source: null,
     tags: ["stillness"]
   },
   {
-    number: 823,
+    number: 822,
     text: `Let contemplation matter more than yet another thought about contemplation. Stop thinking endlessly about practice. Return to it.`,
     source: null,
     tags: ["stillness"]
   },
   {
-    number: 824,
+    number: 823,
     text: `Do not let habits tear your life apart. Notice how many decisions are made for you through sheer inertia. Begin to see this mechanism as it operates.`,
     source: null,
     tags: ["stillness"]
   },
   {
-    number: 825,
+    number: 824,
     text: `The next time you catch yourself wandering aimlessly in the mind, do not continue out of inertia. Interrupt the chain. You do not have to follow it to the end.`,
     source: null,
     tags: ["stillness"]
   },
   {
-    number: 826,
+    number: 825,
     text: `Do not let any meeting, conversation, or task completely push inquiry itself out of your attention. Practice does not require you to leave what is happening.`,
     source: null,
     tags: ["stillness"]
   },
   {
-    number: 827,
+    number: 826,
     text: `Do not ask yourself whether you have practiced enough today. Ask why you are forgetting to practice again right now.`,
     source: null,
     tags: ["stillness"]
   },
   {
-    number: 828,
+    number: 827,
     text: `While you wait for the right moment to awaken, the only moment truly available for inquiry is passing by.`,
     source: null,
     tags: ["stillness"]
   },
   {
-    number: 829,
+    number: 828,
     text: `Do not let yourself live your life again solely from the habitual center of personality. Whenever it appears, investigate: is this really a center, or merely another sensation and thought?`,
     source: null,
     tags: ["stillness"]
   },
   {
-    number: 830,
+    number: 829,
     text: `Return. Not when you finish reading. Not when you solve all your problems. Not when circumstances change. Return right now.`,
     source: null,
     tags: ["stillness"]
   },
   {
-    number: 831,
+    number: 830,
     text: `Arise! Awake! The path is difficult, like the edge of a razor. Do not walk it half-heartedly.`,
     source: "Katha Upanishad 1.3.14 (interpretive translation)",
     tags: ["stillness"]
   },
   {
-    number: 832,
+    number: 831,
     text: `The mind is restless and difficult to control. But it can be tamed through constant practice and dispassion.`,
     source: "Bhagavad Gita 6.35 (interpretive translation)",
     tags: ["stillness"]
   },
   {
-    number: 833,
+    number: 832,
     text: `In the seen, only the seen. In the heard, only the heard. Do not add anything extra to direct experience.`,
     source: "Udana 1.10, Bahiya's instruction (interpretive translation)",
     tags: ["stillness"]
   },
   {
-    number: 834,
+    number: 833,
     text: `Walking, know that you are walking. Standing, know that you are standing. Whether speaking or silent, maintain clear awareness.`,
     source: "Satipatthana Sutta (interpretive translation)",
     tags: ["stillness"]
   },
   {
-    number: 835,
+    number: 834,
     text: `If you wish to preserve the path, guard the mind. Without this, the other spiritual disciplines will not hold.`,
     source: "Shantideva (adaptation)",
     tags: ["stillness"]
   },
   {
-    number: 836,
+    number: 835,
     text: `The mind wanders and is difficult to restrain. The wise guard it as carefully as an archer straightens an arrow.`,
     source: "Dhammapada 33–36 (interpretive translation)",
     tags: ["stillness"]
   },
   {
-    number: 837,
+    number: 836,
     text: `Do not open another text until you have tested the previous pointer in your own experience. One more truth read will not replace a single minute of practice.`,
     source: null,
     tags: ["stillness"]
   },
   {
-    number: 838,
+    number: 837,
     text: `Choose one formal practice and stick with it for 30 days. Do not reconsider the decision every time the novelty wears off.`,
     source: null,
     tags: ["stillness"]
   },
   {
-    number: 839,
+    number: 838,
     text: `Set a fixed time for practice. It should not be a reward for having finished all your other tasks.`,
     source: null,
     tags: ["stillness"]
   },
   {
-    number: 840,
+    number: 839,
     text: `Give practice the best moments of your attention, not only the tired leftovers of the evening.`,
     source: null,
     tags: ["stillness"]
   },
   {
-    number: 841,
+    number: 840,
     text: `Limit reading and listening to spiritual teachings to a dedicated time. The rest of the time, do not consume the Path — test it.`,
     source: null,
     tags: ["stillness"]
   },
   {
-    number: 842,
+    number: 841,
     text: `Do not confuse the ability to explain a teaching with the willingness to follow it. You can know the map perfectly and never take a single step.`,
     source: null,
     tags: ["stillness"]
   },
   {
-    number: 843,
+    number: 842,
     text: `Stop changing methods at the first sign of boredom. Perhaps, for the first time in a long while, your mind is simply not getting its usual entertainment.`,
     source: null,
     tags: ["stillness"]
   },
   {
-    number: 844,
+    number: 843,
     text: `Do not let inspiration promise what your schedule does not support. Intention must show up in concrete actions.`,
     source: null,
     tags: ["stillness"]
   },
   {
-    number: 845,
+    number: 844,
     text: `Do not let spiritual reading, satsangs, and conversations replace independent work. Their purpose is to bring you back to practice.`,
     source: null,
     tags: ["stillness"]
   },
   {
-    number: 846,
+    number: 845,
     text: `Distinguish what is urgent from what is merely loud. Not every message needs an immediate reply. Not every desire needs to be fulfilled.`,
     source: null,
     tags: ["stillness"]
   },
   {
-    number: 847,
+    number: 846,
     text: `Leave at least one meal a day without a screen or background sound. Notice how quickly the mind begins demanding extra stimulation.`,
     source: null,
     tags: ["stillness"]
   },
   {
-    number: 848,
+    number: 847,
     text: `Take one walk without music, podcasts, or phone calls. Do not fill every second with information.`,
     source: null,
     tags: ["stillness"]
   },
   {
-    number: 849,
+    number: 848,
     text: `Do not let incoming messages determine the order of your day. Reply when it is truly necessary, not in response to every impulse.`,
     source: null,
     tags: ["stillness"]
   },
   {
-    number: 850,
+    number: 849,
     text: `Before agreeing to another meeting or request, find out: is it truly necessary, or are you afraid of someone's displeasure?`,
     source: null,
     tags: ["stillness"]
   },
   {
-    number: 851,
+    number: 850,
     text: `Do one ordinary task without consuming content at the same time. Do not split your attention between several streams.`,
     source: null,
     tags: ["stillness"]
   },
   {
-    number: 852,
+    number: 851,
     text: `Stop constantly switching between tasks. Choose one action, finish it, and only then move on to the next.`,
     source: null,
     tags: ["stillness"]
   },
   {
-    number: 853,
+    number: 852,
     text: `Do not fill every free minute with new information. Leave some room in which nothing interesting is happening for the mind.`,
     source: null,
     tags: ["stillness"]
   },
   {
-    number: 854,
+    number: 853,
     text: `Stop keeping unnecessary conversations going out of habit. Do not fear silence or depend on constant social validation.`,
     source: null,
     tags: ["stillness"]
   },
   {
-    number: 855,
+    number: 854,
     text: `Do not give the best hours of your day to someone else's agenda, leaving only whatever is left for your own practice.`,
     source: null,
     tags: ["stillness"]
   },
   {
-    number: 856,
+    number: 855,
     text: `When waiting for someone else's reply, do not turn waiting into constant checking. Do not hand another person control over your attention.`,
     source: null,
     tags: ["stillness"]
   },
   {
-    number: 857,
+    number: 856,
     text: `Name three situations in which you most often lose clarity. Do not say “life in general.” Name specific situations.`,
     source: null,
     tags: ["stillness"]
   },
   {
-    number: 858,
+    number: 857,
     text: `Which motive most often pulls you away from practice: boredom, anxiety, the desire to please, fear of making a decision, or the need for excitement? Find the main one.`,
     source: null,
     tags: ["stillness"]
   },
   {
-    number: 859,
+    number: 858,
     text: `Do not say “I have no time” until you have honestly looked at how much time each day goes to things you do not need at all.`,
     source: null,
     tags: ["stillness"]
   },
   {
-    number: 860,
+    number: 859,
     text: `If you promised yourself you would practice but did not, do not invent a profound philosophical explanation. Acknowledge the fact.`,
     source: null,
     tags: ["stillness"]
   },
   {
-    number: 861,
+    number: 860,
     text: `Do not use “everything happens by itself” as an excuse for your own lack of discipline. Look at what actually depends on your decisions.`,
     source: null,
     tags: ["stillness"]
   },
   {
-    number: 862,
+    number: 861,
     text: `Do not call it dispassion when you are avoiding something that takes courage: a difficult conversation, admitting a mistake, or fulfilling a commitment.`,
     source: null,
     tags: ["stillness"]
   },
   {
-    number: 863,
+    number: 862,
     text: `If you are avoiding a person, a task, or a decision, do not cover it with the words “I choose silence.” First find out what exactly you are running from.`,
     source: null,
     tags: ["stillness"]
   },
   {
-    number: 864,
+    number: 863,
     text: `Do not confuse silence with wisdom. Sometimes you need to tell the truth, apologize, or set a boundary.`,
     source: null,
     tags: ["stillness"]
   },
   {
-    number: 865,
+    number: 864,
     text: `Do not turn other people into “samsara” that gets in the way of your awakening. Investigate your own reactions to them.`,
     source: null,
     tags: ["stillness"]
   },
   {
-    number: 866,
+    number: 865,
     text: `Do not be proud of communicating less. What matters is not the number of interactions, but how free you are from automatic reactions within them.`,
     source: null,
     tags: ["stillness"]
   },
   {
-    number: 867,
+    number: 866,
     text: `When someone else's judgment changes your behavior, do not blame people for influencing you. Investigate your own need for approval.`,
     source: null,
     tags: ["stillness"]
   },
   {
-    number: 868,
+    number: 867,
     text: `After every formal practice, choose one quality to test in everyday life: patience, precision, honesty, composure, or attentiveness.`,
     source: null,
     tags: ["stillness"]
   },
   {
-    number: 869,
+    number: 868,
     text: `For one week, track just one recurring automatic habit. Do not try to remake your entire life at once.`,
     source: null,
     tags: ["stillness"]
   },
   {
-    number: 870,
+    number: 869,
     text: `Each evening, write down three facts: what captured your attention today, how long it took, and what helped you notice what was happening.`,
     source: null,
     tags: ["stillness"]
   },
   {
-    number: 871,
+    number: 870,
     text: `After a rushed decision, reconstruct the sequence: event — emotion — thought — action. See exactly where you stopped seeing clearly.`,
     source: null,
     tags: ["stillness"]
   },
   {
-    number: 872,
+    number: 871,
     text: `Do not try to fix your entire life in one day. Change one habit that regularly takes your attention away, and carry the experiment through to the end.`,
     source: null,
     tags: ["stillness"]
   },
   {
-    number: 873,
+    number: 872,
     text: `Do not turn a missed practice session into a spiritual drama. There is no need to hate yourself or wait until next Monday. Resume the rhythm you have established.`,
     source: null,
     tags: ["stillness"]
   },
   {
-    number: 874,
+    number: 873,
     text: `Do not make rest the enemy of practice. Exhaustion is not enlightenment. Restore the body and continue the work with a clear mind.`,
     source: null,
     tags: ["stillness"]
   },
   {
-    number: 875,
+    number: 874,
     text: `Do not turn spiritual discipline into self-punishment. Seriousness is measured by consistency, not by how harshly you treat yourself.`,
     source: null,
     tags: ["stillness"]
   },
   {
-    number: 876,
+    number: 875,
     text: `Do not wait until you have an hour free. Five free minutes can also become a complete exercise in attention.`,
     source: null,
     tags: ["stillness"]
   },
   {
-    number: 877,
+    number: 876,
     text: `Do not confuse giving up the worldly rat race with giving up responsibility. Do what needs to be done, keep your word, care for the body — without turning it into endless inner agitation.`,
     source: null,
     tags: ["stillness"]
   },
   {
-    number: 878,
+    number: 877,
     text: `Evaluate your practice by its real effects. Is there less impulsiveness, self-deception, unnecessary reactivity, and need to constantly defend your self-image?`,
     source: null,
     tags: ["stillness"]
   },
   {
-    number: 879,
+    number: 878,
     text: `Make practice your highest priority not as a beautiful promise, but in your calendar, your use of time, your attention, and your daily decisions.`,
     source: null,
     tags: ["stillness"]
   },
   {
-    number: 880,
+    number: 879,
     text: `Suffering means only one thing: you are having a bad dream. Happiness means you are having a good dream. Enlightenment means you have awakened from the dream entirely.`,
     source: "Jed McKenna",
     tags: ["stillness"]
   },
   {
-    number: 881,
+    number: 880,
     text: `Sit down. Shut up. Ask yourself what is true until you know. That is the whole practice. Everything else is postponing the leap.`,
     source: "Jed McKenna, \"Spiritual Enlightenment: The Damnedest Thing\"",
     tags: ["stillness"]
   },
   {
-    number: 882,
+    number: 881,
     text: `The battle is not between good and evil, but between the true and the false. See the false as false — and the war is over.`,
     source: "Jed McKenna",
     tags: ["stillness"]
   },
   {
-    number: 883,
+    number: 882,
     text: `The self cannot attain the absence of self. The one who desires enlightenment is the only wall in its way.`,
     source: "Jed McKenna",
     tags: ["stillness"]
   },
   {
-    number: 884,
+    number: 883,
     text: `There is no true self. Truth and selfhood exclude one another.`,
     source: "Jed McKenna",
     tags: ["stillness"]
   },
   {
-    number: 885,
+    number: 884,
     text: `The deepest truth about any person is the absence of a person.`,
     source: "Jed McKenna",
     tags: ["stillness"]
   },
   {
-    number: 886,
+    number: 885,
     text: `Peel away the layers of ego, and at the center there will be neither an onion nor you — only emptiness.`,
     source: "Jed McKenna",
     tags: ["stillness"]
   },
   {
-    number: 887,
+    number: 886,
     text: `Every fear is ultimately the fear of not being.`,
     source: "Jed McKenna",
     tags: ["stillness"]
   },
   {
-    number: 888,
+    number: 887,
     text: `No belief is true. Not one. Not even this one.`,
     source: "Jed McKenna",
     tags: ["stillness"]
   },
   {
-    number: 889,
+    number: 888,
     text: `The false self cannot become true. It can only disappear.`,
     source: "Jed McKenna",
     tags: ["stillness"]
   },
   {
-    number: 890,
+    number: 889,
     text: `All belief systems are stories we invent so we do not have to look into emptiness.`,
     source: "Jed McKenna",
     tags: ["stillness"]
   },
   {
-    number: 891,
+    number: 890,
     text: `The self is ego, and ego is a lie. There is nothing more to see.`,
     source: "Jed McKenna",
     tags: ["stillness"]
   },
   {
-    number: 892,
+    number: 891,
     text: `There is no self, and nothing to realize. To understand that there is nothing to realize — that is realization.`,
     source: "U. G. Krishnamurti",
     tags: ["stillness"]
   },
   {
-    number: 893,
+    number: 892,
     text: `Everything you do to free yourself from the self is the self.`,
     source: "U. G. Krishnamurti",
     tags: ["stillness"]
   },
   {
-    number: 894,
+    number: 893,
     text: `Your constant use of thought to prolong a separate “I” — that is what you are.`,
     source: "U. G. Krishnamurti",
     tags: ["stillness"]
   },
   {
-    number: 895,
+    number: 894,
     text: `You do not want to find the answer. You want your question to remain untouched.`,
     source: "U. G. Krishnamurti",
     tags: ["stillness"]
   },
   {
-    number: 896,
+    number: 895,
     text: `This is a state of hopelessness. Any movement in any direction takes you away from what you are.`,
     source: "U. G. Krishnamurti",
     tags: ["stillness"]
   },
   {
-    number: 897,
+    number: 896,
     text: `Your only problem is the attempt to become what you are not.`,
     source: "U. G. Krishnamurti",
     tags: ["stillness"]
   },
   {
-    number: 898,
+    number: 897,
     text: `Give up the idea that you are a human being. That is all that is required.`,
     source: "Nisargadatta Maharaj, \"I Am That\"",
     tags: ["stillness"]
   },
   {
-    number: 899,
+    number: 898,
     text: `There is no such thing as a human being. There are only limitations and the sense of being limited.`,
     source: "Nisargadatta Maharaj",
     tags: ["stillness"]
   },
   {
-    number: 900,
+    number: 899,
     text: `To see the false as false is meditation. It must continue all the time.`,
     source: "Nisargadatta Maharaj, \"I Am That\"",
     tags: ["stillness"]
   },
   {
-    number: 901,
+    number: 900,
     text: `I ask you only to stop imagining that you were born, have parents, a body, and a mind. All of this is a vision within a vision.`,
     source: "Nisargadatta Maharaj, \"I Am That\"",
     tags: ["stillness"]
   },
   {
-    number: 902,
+    number: 901,
     text: `I ask you: what proof do you have that you were born? Can you say that you remember your birth?`,
     source: "Nisargadatta Maharaj, \"I Am That\"",
     tags: ["stillness"]
   },
   {
-    number: 903,
+    number: 902,
     text: `It is your mind that creates bondage, and your mind that creates liberation. Beyond the mind there is neither.`,
     source: "Nisargadatta Maharaj, \"I Am That\"",
     tags: ["stillness"]
   },
   {
-    number: 904,
+    number: 903,
     text: `Discard false ideas. That is all. True ideas are not needed — they do not exist.`,
     source: "Nisargadatta Maharaj, \"I Am That\"",
     tags: ["stillness"]
   },
   {
-    number: 905,
+    number: 904,
     text: `Wisdom is eternal meditation on your true “I.” It depends neither on time nor on circumstances.`,
     source: "Nisargadatta Maharaj",
     tags: ["stillness"]
   },
   {
-    number: 906,
+    number: 905,
     text: `The feeling “I am working” is itself the obstacle. Ask, “Who is working?” — and follow that question to its source.`,
     source: "Ramana Maharshi, \"Talks with Sri Ramana Maharshi\"",
     tags: ["stillness"]
   },
   {
-    number: 907,
+    number: 906,
     text: `What exists now and is troubling you? It is this “I.” Get rid of it — and be happy.`,
     source: "Ramana Maharshi, \"Talks with Sri Ramana Maharshi\"",
     tags: ["stillness"]
   },
   {
-    number: 908,
+    number: 907,
     text: `Seek the source of thoughts, and you will discover that the thought “I” does not exist.`,
     source: "Ramana Maharshi, \"Talks with Sri Ramana Maharshi\"",
     tags: ["stillness"]
   },
   {
-    number: 909,
+    number: 908,
     text: `Turn inward with the question “Who am I?” — not as a thought, but as an investigation into where the “I” arises from.`,
     source: "Ramana Maharshi, \"Be As You Are\"",
     tags: ["stillness"]
   },
   {
-    number: 910,
+    number: 909,
     text: `Of all thoughts, the thought “I” is the first. Find its source, and all other thoughts will disappear along with it.`,
     source: "Ramana Maharshi",
     tags: ["stillness"]
   },
   {
-    number: 911,
+    number: 910,
     text: `The thought “Who am I?” will destroy all other thoughts and then, like the stick used to stir a funeral pyre, it too will burn up in the end.`,
     source: "Ramana Maharshi",
     tags: ["stillness"]
   },
   {
-    number: 912,
+    number: 911,
     text: `You are the one “I” that pervades all existence — infinite, peaceful, pure, unchanging, and immortal.`,
     source: "Ashtavakra Gita",
     tags: ["stillness"]
   },
   {
-    number: 913,
+    number: 912,
     text: `One who sees that pleasure and pain, hope and despair, life and death are one is free from opposites.`,
     source: "Ashtavakra Gita",
     tags: ["stillness"]
   },
   {
-    number: 914,
+    number: 913,
     text: `You are neither the creator nor the enjoyer of the fruits. You are always free.`,
     source: "Ashtavakra Gita",
     tags: ["stillness"]
   },
   {
-    number: 915,
+    number: 914,
     text: `When a person sees that they are neither the doer nor the one who enjoys the fruits, the waves of the mind subside by themselves.`,
     source: "Ashtavakra Gita",
     tags: ["stillness"]
   },
   {
-    number: 916,
+    number: 915,
     text: `You have been bitten by the black snake of self-importance: “I am the doer.” Drink the nectar of knowledge — “I am not the doer” — and be happy.`,
     source: "Ashtavakra Gita",
     tags: ["stillness"]
   },
   {
-    number: 917,
+    number: 916,
     text: `Meditate on yourself as unmoving awareness, free from duality. Do not remain confined to either the inner or the outer.`,
     source: "Ashtavakra Gita",
     tags: ["stillness"]
   },
   {
-    number: 918,
+    number: 917,
     text: `There is no world, no seeker of liberation, no yogi, no seer, no bound one, and no liberated one.`,
     source: "Avadhuta Gita",
     tags: ["stillness"]
   },
   {
-    number: 919,
+    number: 918,
     text: `For me, who am free of individuality, there is neither a doer nor one who reaps the fruits of action.`,
     source: "Avadhuta Gita",
     tags: ["stillness"]
   },
   {
-    number: 920,
+    number: 919,
     text: `Everything appears within me, like a reflection in a mirror. Yet I am neither the reflection nor the mirror.`,
     source: "Avadhuta Gita",
     tags: ["stillness"]
   },
   {
-    number: 921,
+    number: 920,
     text: `There is no initiation, no scripture, no disciple, no teacher, and no goal of human existence.`,
     source: "Avadhuta Gita",
     tags: ["stillness"]
   },
   {
-    number: 922,
+    number: 921,
     text: `The Buddhas and all living beings are only One Mind. Outside this Mind, there is not a single dharma.`,
     source: "Huangbo, \"Wan Ling Record\"",
     tags: ["stillness"]
   },
   {
-    number: 923,
+    number: 922,
     text: `No bodies, no minds — this is the way of the Buddhas.`,
     source: "Huangbo, \"Wan Ling Record\"",
     tags: ["stillness"]
   },
   {
-    number: 924,
+    number: 923,
     text: `If you meet the Buddha, kill the Buddha. If you meet a patriarch, kill the patriarch. Only then will you attain liberation.`,
     source: "Linji, \"Record of Linji\"",
     tags: ["stillness"]
   },
   {
-    number: 925,
+    number: 924,
     text: `Originally, there is no Bodhi tree, no stand for the bright mirror. From the beginning, not a single thing exists — where could dust settle?`,
     source: "Huineng, \"Platform Sutra\"",
     tags: ["stillness"]
   },
   {
-    number: 926,
+    number: 925,
     text: `To study the Buddha Way is to study the self. To study the self is to forget the self. To forget the self is to be verified by the ten thousand things.`,
     source: "Dogen, \"Genjokoan\"",
     tags: ["stillness"]
   },
   {
-    number: 927,
+    number: 926,
     text: `There is no me and no you, no seeker, no enlightenment, no disciple, and no guru. There is only this.`,
     source: "Tony Parsons, \"The Open Secret\"",
     tags: ["stillness"]
   },
   {
-    number: 928,
+    number: 927,
     text: `Why are you unhappy? Because 99.9% of everything you think and do, you do for yourself — and no such “self” exists.`,
     source: "Wei Wu Wei",
     tags: ["stillness"]
   },
   {
-    number: 929,
+    number: 928,
     text: `Events happen and actions are performed, but there is no individual doer.`,
     source: "Ramesh Balsekar",
     tags: ["stillness"]
   },
   {
-    number: 930,
+    number: 929,
     text: `In the morning, before opening your eyes, find the one who woke up before you.`,
     source: null,
     tags: ["stillness"]
   },
   {
-    number: 931,
+    number: 930,
     text: `Practice is not about sitting still for thirty minutes. Practice is about not sitting back into the armchair of automatism.`,
     source: null,
     tags: ["stillness"]
   },
   {
-    number: 932,
+    number: 931,
     text: `Check right now: is your attention here because you brought it here — or because the words captured it on their own?`,
     source: null,
     tags: ["stillness"]
   },
   {
-    number: 933,
+    number: 932,
     text: `If practice feels boring, you have reached the place where the mind stops getting paid. Do not walk away.`,
     source: null,
     tags: ["stillness"]
   },
   {
-    number: 934,
+    number: 933,
     text: `Who is breathing while you read this?`,
     source: null,
     tags: ["stillness"]
   },
   {
-    number: 935,
+    number: 934,
     text: `Any explanation of your state is already an escape from that state.`,
     source: null,
     tags: ["stillness"]
   },
   {
-    number: 936,
+    number: 935,
     text: `Before falling asleep, ask just one question: what happened today without "me"?`,
     source: null,
     tags: ["stillness"]
   },
   {
-    number: 937,
+    number: 936,
     text: `Practice is not about adding silence, but removing the commentator.`,
     source: null,
     tags: ["stillness"]
   },
   {
-    number: 938,
+    number: 937,
     text: `When you have no strength left to practice — that is when practice begins. Everything before was just a warm-up.`,
     source: null,
     tags: ["stillness"]
   },
   {
-    number: 939,
+    number: 938,
     text: `You are looking with your eyes for the place where the eyes are looking from. This cannot be done with the eyes. So still them.`,
     source: null,
     tags: ["stillness"]
   },
   {
-    number: 940,
+    number: 939,
     text: `Irritation at these words is also just content of consciousness. Who is being irritated?`,
     source: null,
     tags: ["stillness"]
   },
   {
-    number: 941,
+    number: 940,
     text: `You are perfectly precise when counting money, and half-blind when counting yourself. Straighten your attention.`,
     source: null,
     tags: ["stillness"]
   },
   {
-    number: 942,
+    number: 941,
     text: `Boredom is the moment the mind stops receiving input. Stay. Input is not needed.`,
     source: null,
     tags: ["stillness"]
   },
   {
-    number: 943,
+    number: 942,
     text: `Do not ask the mind to be quiet. Just stop answering it first.`,
     source: null,
     tags: ["stillness"]
   },
   {
-    number: 944,
+    number: 943,
     text: `If all thoughts disappeared tomorrow, who would survive? Find that one now, before tomorrow comes.`,
     source: null,
     tags: ["stillness"]
   },
   {
-    number: 945,
+    number: 944,
     text: `Irritation is the currency of the mind. Do not accept it as payment.`,
     source: null,
     tags: ["stillness"]
   },
   {
-    number: 946,
+    number: 945,
     text: `The story ends where you stop retelling it even to yourself.`,
     source: null,
     tags: ["stillness"]
   },
   {
-    number: 947,
+    number: 946,
     text: `There is one moment in the day when you are guaranteed to be alone with yourself: this one. Use it.`,
     source: null,
     tags: ["stillness"]
   },
   {
-    number: 948,
+    number: 947,
     text: `Tonight, do not try to stay awake. Try to find the one who falls asleep.`,
     source: null,
     tags: ["stillness"]
   },
   {
-    number: 949,
+    number: 948,
     text: `Enlightenment is not "another state I haven't seen yet." It is the end of the one who collects states.`,
     source: null,
     tags: ["stillness"]
   },
   {
-    number: 950,
+    number: 949,
     text: `The mind demands proof that it exists. Give it a task it cannot fulfill: let it show itself without a thought about itself.`,
     source: null,
     tags: ["stillness"]
   },
   {
-    number: 951,
+    number: 950,
     text: `If "practice ruins relationships," look at who you were building in their place before you practiced.`,
     source: null,
     tags: ["stillness"]
   },
   {
-    number: 952,
+    number: 951,
     text: `Every day you die a thousand small deaths: switching tasks, opening a door, taking a breath. One of them will be the real one. Rehearse.`,
     source: null,
     tags: ["stillness"]
   },
   {
-    number: 953,
+    number: 952,
     text: `You do not "lose awareness." You notice the loss — and that noticing is awareness itself. Do not miss it a second time.`,
     source: null,
     tags: ["stillness"]
   },
   {
-    number: 954,
+    number: 953,
     text: `Tomorrow you will be whoever you are today — until you check whether the one who "was" ever existed at all.`,
     source: null,
     tags: ["stillness"]
   },
   {
-    number: 955,
+    number: 954,
     text: `Everything will pass, and nothing will remain. In this lies my wealth.`,
     source: "John of the Cross",
     tags: ["stillness"]
   },
   {
-    number: 956,
+    number: 955,
     text: `Keep quiet. Just remain silent.`,
     source: "Papaji (H. W. L. Poonja)",
     tags: ["stillness"]
   },
   {
-    number: 957,
+    number: 956,
     text: `Silence is not the absence of sound. It is what remains when the fleeting has passed away.`,
     source: "Francis Lucille",
     tags: ["stillness"]
   },
   {
-    number: 958,
+    number: 957,
     text: `Silence does not need to be manufactured. It is already here.`,
     source: "Namkhai Norbu",
     tags: ["stillness"]
   },
   {
-    number: 959,
+    number: 958,
     text: `Whatever arises is merely the play of the mind.`,
     source: "Longchenpa",
     tags: ["stillness"]
   },
   {
-    number: 960,
+    number: 959,
     text: `Silence is the profoundest language of God.`,
     source: "Paramahansa Yogananda",
     tags: ["stillness"]
   },
   {
-    number: 961,
+    number: 960,
     text: `Silence is above all worldly prudence.`,
     source: "Saint Ignatius (Brianchaninov)",
     tags: ["stillness"]
   },
   {
-    number: 962,
+    number: 961,
     text: `Show me your original face — the one you had before your father and mother were born.`,
     source: "Zuiku (Dialogue of Bodhidharma and Huike)",
     tags: ["stillness"]
   },
   {
-    number: 963,
+    number: 962,
     text: `Everything you started, you eventually finished: jobs, books, relationships. You will not finish practice. Practice will finish you.`,
     source: null,
     tags: ["stillness"]
   },
   {
-    number: 964,
+    number: 963,
     text: `You are not postponing practice because you "haven't understood yet." You "haven't understood yet" because you are postponing practice.`,
     source: null,
     tags: ["stillness"]
   },
   {
-    number: 965,
+    number: 964,
     text: `While everything is fine, practice seems unnecessary. That is precisely why you must do it while everything is fine.`,
     source: null,
     tags: ["stillness"]
   },
   {
-    number: 966,
+    number: 965,
     text: `Hurrying is the mind running away from the only place where you are. It can run as much as it likes. It has nowhere to go.`,
     source: null,
     tags: ["stillness"]
   },
   {
-    number: 967,
+    number: 966,
     text: `These words are not an answer. They are a mirror. You are reading yourself.`,
     source: null,
     tags: ["stillness"]
   },
   {
-    number: 968,
+    number: 967,
     text: `The question "how is my state?" is already a state. Who is asking it?`,
     source: null,
     tags: ["stillness"]
   },
   {
-    number: 969,
+    number: 968,
     text: `Life does not become practice. Life is practice — or you are asleep. A schedule has nothing to do with it.`,
     source: null,
     tags: ["stillness"]
   },
   {
-    number: 970,
+    number: 969,
     text: `The mind asks for a quiet minute. There will be no quiet minutes. Practice in the noise.`,
     source: null,
     tags: ["stillness"]
   },
   {
-    number: 971,
+    number: 970,
     text: `Pain in the body is not an obstacle to practice. It is the very material of practice.`,
     source: null,
     tags: ["stillness"]
   },
   {
-    number: 972,
+    number: 971,
     text: `The mind dies every single night — and you do not weep for it. Why all this fuss now?`,
     source: null,
     tags: ["stillness"]
   },
   {
-    number: 973,
+    number: 972,
     text: `Loneliness is the mind left without spectators. Practice is the same, but without the mind.`,
     source: null,
     tags: ["stillness"]
   },
   {
-    number: 974,
+    number: 973,
     text: `If no one ever knew that you practiced, would you still continue? The answer shows who is practicing.`,
     source: null,
     tags: ["stillness"]
   },
   {
-    number: 975,
+    number: 974,
     text: `Behind every "I finally got it," the mind lays a foundation and moves in. Do not build. Understanding is nobody's property.`,
     source: null,
     tags: ["stillness"]
   },
   {
-    number: 976,
+    number: 975,
     text: `Stay silent just once today when you feel the urge to prove something. That is the practice.`,
     source: null,
     tags: ["stillness"]
   },
   {
-    number: 977,
+    number: 976,
     text: `Rage is energy that the mind steals from you. Take it back: look at rage from outside of rage.`,
     source: null,
     tags: ["stillness"]
   },
   {
-    number: 978,
+    number: 977,
     text: `You can escape a city, a job, a relationship. You cannot escape yourself. That is the good news.`,
     source: null,
     tags: ["stillness"]
   },
   {
-    number: 979,
+    number: 978,
     text: `The second before reading this and the second after are the exact same life. You are in it — or you are in the commentary.`,
     source: null,
     tags: ["stillness"]
   },
   {
-    number: 980,
+    number: 979,
     text: `If practice "isn't working," examine what you were counting on. Expectation is the mind's rake.`,
     source: null,
     tags: ["stillness"]
   },
   {
-    number: 981,
+    number: 980,
     text: `Your phone is the most honest coach: every time you reach for it mindlessly, the mind confesses, "I cannot bear myself." Listen to that confession.`,
     source: null,
     tags: ["stillness"]
   },
   {
-    number: 982,
+    number: 981,
     text: `The most expensive minute of the day is the one you surrender without return. An entire life consists of such minutes. Give one of them to practice.`,
     source: null,
     tags: ["stillness"]
   },
   {
-    number: 983,
+    number: 982,
     text: `The mind sells you "I'll start on Monday." The mind does not live in any Monday.`,
     source: null,
     tags: ["stillness"]
   },
   {
-    number: 984,
+    number: 983,
     text: `You don't need a "deep" practice. You need to stop being superficial with yourself.`,
     source: null,
     tags: ["stillness"]
   },
   {
-    number: 985,
+    number: 984,
     text: `When the mind says "I already know this," it means you read it but never tested it. Knowledge without verification is just an ornament for the ego.`,
     source: null,
     tags: ["stillness"]
   },
   {
-    number: 986,
+    number: 985,
     text: `Every time you catch yourself thinking "I am already practicing," ask: who exactly is practicing? Right now.`,
     source: null,
     tags: ["stillness"]
   },
   {
-    number: 987,
+    number: 986,
     text: `Do not believe what you hear by tradition, nor rumors, nor writings. When you know for yourselves that these things lead to harm and suffering, abandon them. When you know for yourselves that these things lead to benefit and peace, then accept and live by them.`,
     source: "Buddha, Kesaputtiya Sutta (Kalama Sutta)",
     tags: ["stillness"]
   },
   {
-    number: 988,
+    number: 987,
     text: `All conditioned phenomena are like a dream, an illusion, a bubble, a shadow. One should give rise to a mind that rests on nothing whatsoever.`,
     source: "Diamond Sutra",
     tags: ["stillness"]
   },
   {
-    number: 989,
+    number: 988,
     text: `Whatever joy there is in this world arises from wishing joy to others. Whatever suffering there is in this world arises from wishing joy only for oneself.`,
     source: "Shantideva, \"Bodhicaryavatara\"",
     tags: ["stillness"]
   },
   {
-    number: 990,
+    number: 989,
     text: `If you can help, help. If you cannot help, at least do no harm. That is my entire religion.`,
     source: "Dalai Lama XIV",
     tags: ["stillness"]
   },
   {
-    number: 991,
+    number: 990,
     text: `You can't stop the waves, but you can learn to surf. It is the same with the mind: do not fight it — learn to balance on it.`,
     source: "Jon Kabat-Zinn, \"Wherever You Go, There You Are\"",
     tags: ["stillness"]
   },
   {
-    number: 992,
+    number: 991,
     text: `You were never born and you will never die. What was born is the body. You are that which watches the body — and it knows neither birth nor death.`,
     source: "Papaji (H. W. L. Poonja), \"Nothing Ever Happened\"",
     tags: ["stillness"]
   },
   {
-    number: 993,
+    number: 992,
     text: `Keep quiet. Do nothing. And you will see that you have never done anything. Everything has always happened on its own.`,
     source: "Papaji",
     tags: ["stillness"]
   },
   {
-    number: 994,
+    number: 993,
     text: `Consciousness does not know about things. It knows only itself. Everything you have ever known is consciousness knowing itself.`,
     source: "Rupert Spira, \"Presence\"",
     tags: ["stillness"]
   },
   {
-    number: 995,
+    number: 994,
     text: `Whatever happens, happens by itself. You are neither the doer nor the enjoyer of fruits. You are the witness. Know this — and be free.`,
     source: "Nisargadatta Maharaj, \"I Am That\"",
     tags: ["stillness"]
   },
   {
-    number: 996,
+    number: 995,
     text: `You are not in the body. The body is in you. You are not in the world. The world is in you. How can what is inside me ever trouble me?`,
     source: "Nisargadatta Maharaj, \"I Am That\"",
     tags: ["stillness"]
   },
   {
-    number: 997,
+    number: 996,
     text: `What you are seeking, you already are. Stop even for a moment — and you will see that you have never been searching for anything.`,
     source: "Nisargadatta Maharaj",
     tags: ["stillness"]
   },
   {
-    number: 998,
+    number: 997,
     text: `All problems of the mind arise when it looks outward. Turn it inward, toward the one who thinks — and the problems dissolve along with the one to whom they belonged.`,
     source: "Ramana Maharshi, \"Talks with Sri Ramana Maharshi\"",
     tags: ["stillness"]
   },
   {
-    number: 999,
+    number: 998,
     text: `Out beyond ideas of wrongdoing and rightdoing there is a field. When the soul lies down in that grass, the world is too full to talk about.`,
     source: "Jalal al-Din Rumi",
     tags: ["stillness"]
   },
   {
-    number: 1000,
+    number: 999,
     text: `To gain everything, consent to lose everything. Going into God does not mean walking toward light, but into a dark night where light is no longer needed. Nothing, nothing, nothing. Even in heaven.`,
     source: "John of the Cross, \"Ascent of Mount Carmel\"",
     tags: ["stillness"]
   },
   {
-    number: 1001,
+    number: 1000,
     text: `You are alive as long as the next thought arises. If in one moment no thought arises — where then is your death? Go and discover that place.`,
     source: "Gaofeng Yuanmiao",
     tags: ["stillness"]
   },
   {
-    number: 1002,
+    number: 1001,
     text: `Do not try to make yourself like me. Everything you need is already within you.`,
     source: "Shoushan Shengnian",
     tags: ["stillness"]
   },
   {
-    number: 1003,
+    number: 1002,
     text: `The one who hears these words right now is Buddha. Seek nowhere else. The seeker is that which is sought — which is the very reason he does not find it.`,
     source: "Bassui Tokusho",
     tags: ["stillness"]
   },
   {
-    number: 1004,
+    number: 1003,
     text: `Take up one idea. Make that one idea your life. Think of it, dream of it, live on that idea. Let every cell of your body be full of that idea, and other ideas will leave of themselves.`,
     source: "Swami Vivekananda",
     tags: ["stillness"]
   },
   {
-    number: 1005,
+    number: 1004,
     text: `You check your phone to make sure the world hasn't forgotten you. But who checks if you have forgotten the world?`,
     source: null,
     tags: ["stillness"]
   },
   {
-    number: 1006,
+    number: 1005,
     text: `Your voice sounds while you remain silent. Hear it.`,
     source: null,
     tags: ["stillness"]
   },
   {
-    number: 1007,
+    number: 1006,
     text: `When everything important is finished — who will remain? Get to know him before the chores are done.`,
     source: null,
     tags: ["stillness"]
   },
   {
-    number: 1008,
+    number: 1007,
     text: `Death will not take you. Death will take what you were holding onto — and you will be left empty-handed.`,
     source: null,
     tags: ["stillness"]
   },
   {
-    number: 1009,
+    number: 1008,
     text: `Do not try to be here. You cannot be anywhere else. Test this — by trying to leave.`,
     source: null,
     tags: ["stillness"]
   },
   {
-    number: 1010,
+    number: 1009,
     text: `The mind says, "It's not time yet." Time is what disappears when you disappear. Find it.`,
     source: null,
     tags: ["stillness"]
   },
   {
-    number: 1011,
+    number: 1010,
     text: `You wait for a sign from practice. Practice waits for a sign from you. See who blinks first.`,
     source: null,
     tags: ["stillness"]
   },
   {
-    number: 1012,
+    number: 1011,
     text: `Your life is a story you recite by heart. One day the mind will miss a line. Do not rush it.`,
     source: null,
     tags: ["stillness"]
   },
   {
-    number: 1013,
+    number: 1012,
     text: `Pain says "this is with me." Silence says "this." Listen to both — and choose the one that requires no choosing.`,
     source: null,
     tags: ["stillness"]
   },
   {
-    number: 1014,
+    number: 1013,
     text: `You look for the one who will stay by your side until the end. You have never parted from him. Yet you have never met him either.`,
     source: null,
     tags: ["stillness"]
   },
   {
-    number: 1015,
+    number: 1014,
     text: `Do not turn loneliness into a room. It is a door.`,
     source: null,
     tags: ["stillness"]
   },
   {
-    number: 1016,
+    number: 1015,
     text: `Who read the first word of this pointer? You will never see him again. Everything else is theater.`,
     source: null,
     tags: ["stillness"]
   },
   {
-    number: 1017,
+    number: 1016,
     text: `You think practice takes time. In truth, practice returns time. The clock ticks faster without you.`,
     source: null,
     tags: ["stillness"]
   },
   {
-    number: 1018,
+    number: 1017,
     text: `Every answer gives birth to the next question. Find the only place where nothing is born.`,
     source: null,
     tags: ["stillness"]
   },
   {
-    number: 1019,
+    number: 1018,
     text: `Do not try to stop wanting. Understand what the one who wants is truly seeking.`,
     source: null,
     tags: ["stillness"]
   },
   {
-    number: 1020,
+    number: 1019,
     text: `Your suffering is a precise portrait of your "I." Turn the portrait toward yourself.`,
     source: null,
     tags: ["stillness"]
   },
   {
-    number: 1021,
+    number: 1020,
     text: `You did not forget practice. You forgot that you forgot. Find the one who forgot — and practice will find itself.`,
     source: null,
     tags: ["stillness"]
   },
   {
-    number: 1022,
+    number: 1021,
     text: `The world ends where the word ends. Extend the silence between two words — and the world will not have time to be reborn.`,
     source: null,
     tags: ["stillness"]
   },
   {
-    number: 1023,
+    number: 1022,
     text: `Do not pretend you are asleep just to wake yourself up. A sleeping person does not pretend.`,
     source: null,
     tags: ["stillness"]
   },
   {
-    number: 1024,
+    number: 1023,
     text: `You ask life for a sign. Life asks the same of you. See who looks away first.`,
     source: null,
     tags: ["stillness"]
   },
   {
-    number: 1025,
+    number: 1024,
     text: `Today, do one thing that the mind calls meaningless — and do it as if everything depended on it. That is practice without mind.`,
     source: null,
     tags: ["stillness"]
   },
   {
-    number: 1026,
+    number: 1025,
     text: `Do not say "I understood." Say: "understanding." And notice who has been left unemployed.`,
     source: null,
     tags: ["stillness"]
   },
   {
-    number: 1027,
+    number: 1026,
     text: `You look for the end of the road with eyes that walk in circles. Close them — and the circle will dissolve on its own.`,
     source: null,
     tags: ["stillness"]
   },
   {
-    number: 1028,
+    number: 1027,
     text: `Who wakes up tomorrow morning? Find him tonight — and tomorrow will never arrive.`,
     source: null,
     tags: ["stillness"]
   },
   {
-    number: 1029,
+    number: 1028,
     text: `The mind fears silence because there is nothing to cling to in it. Let it be afraid. Fear is also silence making noise.`,
     source: null,
     tags: ["stillness"]
   },
   {
-    number: 1030,
+    number: 1029,
     text: `You think you are looking at the world. Test it: what happens to the world when you stop looking?`,
     source: null,
     tags: ["stillness"]
   },
   {
-    number: 1031,
+    number: 1030,
     text: `Practice is not about holding onto awareness. Practice is about letting go of holding it — and seeing who was grasping.`,
     source: null,
     tags: ["stillness"]
   },
   {
-    number: 1032,
+    number: 1031,
     text: `Your mind is the only enemy that fears you more than you fear it. Look at it directly — and it will retreat on its own.`,
     source: null,
     tags: ["stillness"]
   },
   {
-    number: 1033,
+    number: 1032,
     text: `Do not expect practice to give you something. It has already taken away the most precious thing — the one who was waiting.`,
     source: null,
     tags: ["stillness"]
   },
   {
-    number: 1034,
+    number: 1033,
     text: `You were always free. Freedom does not arrive — the belief in bondage simply departs. Bondage is only a habit. And a habit does not have to be fed.`,
     source: "Ranjit Maharaj",
     tags: ["stillness"]
   },
   {
-    number: 1035,
+    number: 1034,
     text: `Know the one who knows — and knowledge will dissolve along with the knower. Only the knowing remains that there is no one to know.`,
     source: "Wolter Keers",
     tags: ["stillness"]
   },
   {
-    number: 1036,
+    number: 1035,
     text: `Everything you seek is seeking you. Everything you want to know already knows you. Relinquish the role of the seeker — and the search completes itself.`,
     source: "Adyashanti",
     tags: ["stillness"]
   },
   {
-    number: 1037,
+    number: 1036,
     text: `If you can see the thought, you are not the thought. If you can see the emotion, you are not the emotion. Find the one who sees this — and everything else will tell its own story.`,
     source: "Mooji",
     tags: ["stillness"]
   },
   {
-    number: 1038,
+    number: 1037,
     text: `Stop. Do not try to become what you are not. Open your eyes to what you already are — and it will turn out there was nothing to open.`,
     source: "Gangaji",
     tags: ["stillness"]
   },
   {
-    number: 1039,
+    number: 1038,
     text: `Happiness is what you are when you stop seeking it on the outside. But if you claim it as yours from the inside, you are still searching.`,
     source: "Lester Levenson",
     tags: ["stillness"]
   },
   {
-    number: 1040,
+    number: 1039,
     text: `All is mere representation. There is neither seer nor seen — there is only representation itself. Realize this, and the world collapses like a line of words.`,
     source: "Vasubandhu, \"Twenty Verses on Consciousness Only\"",
     tags: ["stillness"]
   },
   {
-    number: 1041,
+    number: 1040,
     text: `The pacification of all concepts, the cessation of all fabrications: neither arising nor ceasing — this is suchness, this is nirvana.`,
     source: "Nagarjuna, \"Mulamadhyamakakarika\" 25.24",
     tags: ["stillness"]
   },
   {
-    number: 1042,
+    number: 1041,
     text: `Just as water and waves are not different, the mind and the world are not different. What you divide is what divides you.`,
     source: "Lankavatara Sutra",
     tags: ["stillness"]
   },
   {
-    number: 1043,
+    number: 1042,
     text: `I am Brahman: unborn, undecaying, self-luminous, beyond every experience of birth and death. Know this — and where could fear possibly go?`,
     source: "Adi Shankara, \"Vivekachudamani\"",
     tags: ["stillness"]
   },
   {
-    number: 1044,
+    number: 1043,
     text: `Let nothing disturb you, let nothing frighten you. All things are passing. God never changes. Patience achieves all things. Whoever rests within is beyond danger.`,
     source: "Teresa of Ávila",
     tags: ["stillness"]
   },
   {
-    number: 1045,
+    number: 1044,
     text: `Attention is the rarest and purest form of love. True prayer is not words, but attention. Look so long until the seer vanishes into the looking.`,
     source: "Simone Weil, \"Gravity and Grace\"",
     tags: ["stillness"]
   },
   {
-    number: 1046,
+    number: 1045,
     text: `Though my awareness is Buddha, I still become a slave by chasing thoughts. If I follow a thought, I am deceived. If I recognize the thought, I am Buddha.`,
     source: "Padmasambhava",
     tags: ["stillness"]
   },
   {
-    number: 1047,
+    number: 1046,
     text: `Washing your feet, think that you are washing the mind. Sweeping the floor, think that you are sweeping the ego. Any chore done this way is meditation.`,
     source: "Sri Ramakrishna",
     tags: ["stillness"]
   },
   {
-    number: 1048,
+    number: 1047,
     text: `"I'll start on Monday" is the mind's favorite lie, with which it kills your aliveness every day. Tomorrow does not exist; there is only the raw friction of the present moment.`,
     source: null,
     tags: ["stillness"]
   },
   {
-    number: 1049,
+    number: 1048,
     text: `The alternative to refusing discipline is the quiet, suffocating depression of someone who spent their whole life serving petty domestic needs and fears, never once meeting themselves.`,
     source: null,
     tags: ["stillness"]
   },
   {
-    number: 1050,
+    number: 1049,
     text: `You call it "trusting the flow" when you're simply too lazy to look your own inertia in the face. That is not surrender to being; it is surrender to mediocrity.`,
     source: null,
     tags: ["stillness"]
   },
   {
-    number: 1051,
+    number: 1050,
     text: `The alternative to awakening is remaining a well-fed, obedient character in someone else's nightmare until your biological fuel runs out completely.`,
     source: null,
     tags: ["stillness"]
   },
   {
-    number: 1052,
+    number: 1051,
     text: `Comfort is the anesthetic the matrix injects into your veins so you won't notice your vitality being dismantled for spare parts.`,
     source: null,
     tags: ["stillness"]
   },
   {
-    number: 1053,
+    number: 1052,
     text: `You want a gentle, convenient spiritual path. But the razor's edge demands the dissolution of the personality, while the gentle path merely cradles it in pretty packaging.`,
     source: null,
     tags: ["stillness"]
   },
   {
-    number: 1054,
+    number: 1053,
     text: `Stop bargaining with your laziness. The mind loves debating whether "today is a good day for practice." For the ego, the day of its demise is never a convenient one.`,
     source: null,
     tags: ["stillness"]
   },
   {
-    number: 1055,
+    number: 1054,
     text: `If you release the thread of awareness right now, who takes the wheel? Exactly: that ancient survival algorithm that has driven you in circles of resentment and anxiety for ages.`,
     source: null,
     tags: ["stillness"]
   },
   {
-    number: 1056,
+    number: 1055,
     text: `The alternative to self-inquiry is lifelong self-justification, disguised as sophisticated philosophy and deep internal analysis.`,
     source: null,
     tags: ["stillness"]
   },
   {
-    number: 1057,
+    number: 1056,
     text: `You use practice as a spa treatment for stress relief, instead of using it as a guillotine for your illusions.`,
     source: null,
     tags: ["stillness"]
   },
   {
-    number: 1058,
+    number: 1057,
     text: `Discipline is not a prison sentence. It is the only crowbar capable of breaking down the rusted door of your automated reactions.`,
     source: null,
     tags: ["stillness"]
   },
   {
-    number: 1059,
+    number: 1058,
     text: `Your favorite excuse is "I need rest." A corpse rests forever. While you breathe, be alive or stop pretending to be a seeker.`,
     source: null,
     tags: ["stillness"]
   },
   {
-    number: 1060,
+    number: 1059,
     text: `Motivation never arrives first. It only appears when you move the body past the dead point in spite of the mind's resistance.`,
     source: null,
     tags: ["stillness"]
   },
   {
-    number: 1061,
+    number: 1060,
     text: `You negotiate with your mind as if it were a reasonable partner. It is a parasite. Stop asking its permission for your own clarity.`,
     source: null,
     tags: ["stillness"]
   },
   {
-    number: 1062,
+    number: 1061,
     text: `One second of total, vigilant presence is worth more than tons of non-duality books read from cover to cover.`,
     source: null,
     tags: ["stillness"]
   },
   {
-    number: 1063,
+    number: 1062,
     text: `If you don't bite through the illusion now, while your joints are strong and your mind is agile, what do you hope for in old age? The matrix adores submissive elders.`,
     source: null,
     tags: ["stillness"]
   },
   {
-    number: 1064,
+    number: 1063,
     text: `You fear losing your "uniqueness," even though your individuality is just a worn-out record playing other people's traumas and fears.`,
     source: null,
     tags: ["stillness"]
   },
   {
-    number: 1065,
+    number: 1064,
     text: `Every time you choose slumber over an effort upon yourself, you vote for another year of psychological slavery.`,
     source: null,
     tags: ["stillness"]
   },
   {
-    number: 1066,
+    number: 1065,
     text: `The alternative to the path is absolute safety, absolute predictability, and the absolute emptiness of a life squandered in vain.`,
     source: null,
     tags: ["stillness"]
   },
   {
-    number: 1067,
+    number: 1066,
     text: `The mind whispers: "Let's analyze why I feel so sluggish today." The seeker replies: "There is no sluggish one," — and does what must be done.`,
     source: null,
     tags: ["stillness"]
   },
   {
-    number: 1068,
+    number: 1067,
     text: `Relentless truth waits for you around the corner of every convenient excuse. Stop turning away the moment it gets hot.`,
     source: null,
     tags: ["stillness"]
   },
   {
-    number: 1069,
+    number: 1068,
     text: `The difference between knowing the truth and living it is measured by the amount of laziness overcome.`,
     source: null,
     tags: ["stillness"]
   },
   {
-    number: 1070,
+    number: 1069,
     text: `Stop calling procrastination "intuitive relaxation." Your body wants to idle; your true nature demands a breakthrough. Choose consciously.`,
     source: null,
     tags: ["stillness"]
   },
   {
-    number: 1071,
+    number: 1070,
     text: `No one is coming to save you. Not a guru, not favorable circumstances, not a random insight. Only your own incorruptible gaze.`,
     source: null,
     tags: ["stillness"]
   },
   {
-    number: 1072,
+    number: 1071,
     text: `When the alarm rings or the hour of practice arrives, the mind invents a thousand reasons to postpone it. That is your clearest sign: you have struck the exact spot.`,
     source: null,
     tags: ["stillness"]
   },
   {
-    number: 1073,
+    number: 1072,
     text: `Choose comfort today — and tomorrow you won't even remember what you betrayed yourself for. That is how the dream deepens.`,
     source: null,
     tags: ["stillness"]
   },
   {
-    number: 1074,
+    number: 1073,
     text: `Do not look for "peace of mind." A mind at peace is merely a sleeping predator. Seek that which sees the mind itself.`,
     source: null,
     tags: ["stillness"]
   },
   {
-    number: 1075,
+    number: 1074,
     text: `Discipline is a laser beam that burns away the background noise of endless mental radio.`,
     source: null,
     tags: ["stillness"]
   },
   {
-    number: 1076,
+    number: 1075,
     text: `Without rigorous discipline, your greatest insights turn into dusty quotes on a smartphone screen while you drown in everyday trivia.`,
     source: null,
     tags: ["stillness"]
   },
   {
-    number: 1077,
+    number: 1076,
     text: `Your ego loves its own melodrama. Strip away its tragic costume — and you will behold a ringing, empty, breathtaking silence.`,
     source: null,
     tags: ["stillness"]
   },
   {
-    number: 1078,
+    number: 1077,
     text: `Using spiritual jargon to mask your own irresponsibility is the highest form of intellectual fraud.`,
     source: null,
     tags: ["stillness"]
   },
   {
-    number: 1079,
+    number: 1078,
     text: `When practice seems to hit a dead end, know this: you didn't hit a wall; your concept of yourself did. Smash it.`,
     source: null,
     tags: ["stillness"]
   },
   {
-    number: 1080,
+    number: 1079,
     text: `True devotion to the path is tested not in moments of inspiration, but when you want to howl from exhaustion yet still contemplate and look deep within.`,
     source: null,
     tags: ["stillness"]
   },
   {
-    number: 1081,
+    number: 1080,
     text: `If you do not meet your shadow consciously, it will continue to rule your life disguised as "cruel fate" and circumstance.`,
     source: null,
     tags: ["stillness"]
   },
   {
-    number: 1082,
+    number: 1081,
     text: `You cherish your weaknesses because they give you an excuse not to demand the impossible from yourself. Destroy those concessions.`,
     source: null,
     tags: ["stillness"]
   },
   {
-    number: 1083,
+    number: 1082,
     text: `Look around: where is the center of this room? Where is the center of your thoughts? There is none. Rest in this centerless infinity.`,
     source: null,
     tags: ["stillness"]
   },
   {
-    number: 1084,
+    number: 1083,
     text: `While you wait for inspiration or the ideal mood, the mind quietly and methodically steals another day of your life. Do not fall for its bargaining — practice through reluctance.`,
     source: null,
     tags: ["stillness"]
   },
   {
-    number: 1085,
+    number: 1084,
     text: `Stop confusing vairagya (dispassion) with depression and apathy. True non-attachment is not withdrawing from life, but the ability to soar through the furnace of events without getting scorched.`,
     source: null,
     tags: ["stillness"]
   },
   {
-    number: 1086,
+    number: 1085,
     text: `Every time you postpone contemplation for cheap dopamine, the mind checks a box: "This one is back on the leash. Game continues."`,
     source: null,
     tags: ["stillness"]
   },
   {
-    number: 1087,
+    number: 1086,
     text: `The spiritual search is not a cozy stroll among lotuses; it is a fierce war against your own habit of constantly lying to yourself about who is running the show.`,
     source: "U.G. Krishnamurti",
     tags: ["stillness"]
   },
   {
-    number: 1088,
+    number: 1087,
     text: `You think you have time. But life is slipping away right now as you finish this thought. Surface from the dream before the scenery is packed away.`,
     source: null,
     tags: ["stillness"]
   },
   {
-    number: 1089,
+    number: 1088,
     text: `To study the Way is to study the self. To study the self is to forget the self. To forget the self is to be actualized by myriad things.`,
     source: "Dogen",
     tags: ["stillness"]
   },
   {
-    number: 1090,
+    number: 1089,
     text: `Strict contemplation is not sitting in the lotus posture with a wise face. It is the relentless dismantling of every mental prop until raw reality alone remains.`,
     source: "Bodhidharma",
     tags: ["stillness"]
   },
   {
-    number: 1091,
+    number: 1090,
     text: `Just as rain easily penetrates a poorly thatched house, passion easily penetrates an untrained mind that lacks constant vigilance.`,
     source: "Dhammapada",
     tags: ["stillness"]
   },
   {
-    number: 1092,
+    number: 1091,
     text: `Do not seek silence by avoiding noise. True Zen is remaining the immovable center even when the whole world collapses around you.`,
     source: "Shunryu Suzuki",
     tags: ["stillness"]
   },
   {
-    number: 1093,
+    number: 1092,
     text: `If you meet the concept of "enlightenment" on the way, kill it. Any mental image of a goal becomes your greatest obstacle.`,
     source: "Huangbo",
     tags: ["stillness"]
   },
   {
-    number: 1094,
+    number: 1093,
     text: `Do not seek the truth; only cease to cherish your habitual opinions and judgments.`,
     source: "Sengcan",
     tags: ["stillness"]
   },
   {
-    number: 1095,
+    number: 1094,
     text: `One moment of distraction, and you are a character again. One moment of pinpoint vigilance, and the dream shatters into thousands of tiny droplets.`,
     source: null,
     tags: ["stillness"]
   },
   {
-    number: 1096,
+    number: 1095,
     text: `Silence is not the refusal to speak. It is the total absence of internal bargaining and dispute with the present moment.`,
     source: "Vimala Thakar",
     tags: ["stillness"]
   },
   {
-    number: 1097,
+    number: 1096,
     text: `You are neither earth, nor water, nor fire, nor air, nor mind. Know yourself as untouched Consciousness, and you will find peace right now.`,
     source: "Ashtavakra Gita",
     tags: ["stillness"]
   },
   {
-    number: 1098,
+    number: 1097,
     text: `Keep the mind half-asleep to worldly bustle and fully awake to the contemplation of its own foundation.`,
     source: "Yoga Vasistha",
     tags: ["stillness"]
   },
   {
-    number: 1099,
+    number: 1098,
     text: `In the moment when the breath pauses between inhalation and exhalation, turn your attention to the opening silence. There lies your true home.`,
     source: "Vijnana Bhairava Tantra",
     tags: ["stillness"]

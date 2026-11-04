@@ -101,7 +101,11 @@ export const handlePointerToReminder = async ctx => {
   const preview = previewText(text);
 
   await ctx.reply(
-    `<i>${texts.REMINDERS.ASK_INTERVAL}</i>\n\n«${preview}»`,
+    `<i>${texts.REMINDERS.ASK_INTERVAL}</i>
+
+«${preview}»
+
+<i>${texts.REMINDERS.ASK_INTERVAL_HINT}</i>`,
     { parse_mode: 'HTML', ...getIntervalKeyboard(userLanguage) }
   );
 };

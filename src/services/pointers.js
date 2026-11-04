@@ -25,6 +25,46 @@ const selectPointerModelByLanguage = language => {
   return language === 'en' ? PointerEn : Pointer;
 };
 
+const escapeRegularExpressionString = unescapedTextString => {
+  return unescapedTextString.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+};
+
+const buildTextSearchCriteria = rawSearchQuery => {
+  const normalizedSearchQuery = typeof rawSearchQuery === 'string' ? rawSearchQuery.trim() : '';
+  if (!normalizedSearchQuery) {
+    return null;
+  }
+
+  const escapedSearchPattern = escapeRegularExpressionString(normalizedSearchQuery);
+  return {
+    text: { $regex: escapedSearchPattern, $options: 'i' },
+    isActive: true
+  };
+};
+
+export const findPointersByText = async (rawSearchQuery, language = 'ru', maximumRecordsLimit = 10) => {
+  const searchCriteria = buildTextSearchCriteria(rawSearchQuery);
+  if (!searchCriteria) {
+    return [];
+  }
+
+  const targetPointerModel = selectPointerModelByLanguage(language);
+  return await targetPointerModel
+    .find(searchCriteria)
+    .sort({ number: 1 })
+    .limit(maximumRecordsLimit);
+};
+
+export const countPointersByText = async (rawSearchQuery, language = 'ru') => {
+  const searchCriteria = buildTextSearchCriteria(rawSearchQuery);
+  if (!searchCriteria) {
+    return 0;
+  }
+
+  const targetPointerModel = selectPointerModelByLanguage(language);
+  return await targetPointerModel.countDocuments(searchCriteria);
+};
+
 export const getPointerByNumber = async (pointerNumber, language = 'ru') => {
   const numericPointerIdentifier = Number(pointerNumber);
   if (!numericPointerIdentifier || isNaN(numericPointerIdentifier)) return null;
