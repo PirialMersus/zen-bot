@@ -1,10 +1,11 @@
-// src/handlers/settings/index.js
 import {
   handleSettings,
   handleQuietToggle,
   handleTimezoneMenu,
   handleTimezoneRegion,
-  handleTimezoneSet
+  handleTimezoneSet,
+  handleLanguageMenu,
+  handleLanguageSet
 } from './quietHours.js';
 
 export {
@@ -12,5 +13,7 @@ export {
   handleQuietToggle,
   handleTimezoneMenu,
   handleTimezoneRegion,
-  handleTimezoneSet
+  handleTimezoneSet,
+  handleLanguageMenu,
+  handleLanguageSet
 };

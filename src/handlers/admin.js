@@ -1,8 +1,19 @@
 import { Markup } from 'telegraf';
 import { BUTTONS } from '../constants/buttons.js';
-import { UI } from '../constants/ui.js';
+import { UI, getUi } from '../constants/ui.js';
 import Reminder from '../models/Reminder.js';
 import User from '../models/User.js';
+import { getPointerByNumber } from '../services/pointers.js';
+import { resolveUserLanguage } from '../middlewares/activity.js';
+import { buildPointerInlineKeyboard, formatPointerText } from './pointers.js';
+
+const collectAllButtonValues = buttonObject =>
+  Object.values(buttonObject).flatMap(item => (typeof item === 'object' && item !== null ? Object.values(item) : [item]));
+
+const allKnownNavigationButtons = [
+  ...collectAllButtonValues(BUTTONS),
+  ...collectAllButtonValues(UI)
+];
 
 export const handleAdminActiveUsers = async ctx => {
   if (String(ctx.from?.id) !== process.env.CREATOR_ID) return;
@@ -81,9 +92,7 @@ export const handleAdminBroadcastMessage = async ctx => {
 
   const incomingText = ctx.message?.text;
   if (incomingText) {
-    const isNavigationButton =
-      Object.values(BUTTONS).includes(incomingText) ||
-      Object.values(UI).includes(incomingText);
+    const isNavigationButton = allKnownNavigationButtons.includes(incomingText);
 
     if (isNavigationButton) {
       ctx.session.adminBroadcastStep = null;
@@ -97,22 +106,20 @@ export const handleAdminBroadcastMessage = async ctx => {
   ctx.session.broadcastSourceMessageId = ctx.message.message_id;
   ctx.session.adminBroadcastStep = 'AWAITING_CONFIRMATION';
 
-  const totalRegisteredUsersCount = await User.countDocuments();
-
-  const confirmationText = [
+  const previewConfirmationText = [
     '📢 <b>Подтверждение рассылки</b>',
     '',
-    'Сообщение принято к отправке.',
-    `Получателей: <b>${totalRegisteredUsersCount}</b> чел.`,
+    'Выше показано сообщение, которое получат все пользователи.',
+    'К нему будет добавлена кнопка «✍️ Ответить».',
     '',
-    'Запустить рассылку всем пользователям?'
+    'Отправить сообщение всем пользователям?'
   ].join('\n');
 
-  await ctx.reply(confirmationText, {
+  await ctx.reply(previewConfirmationText, {
     parse_mode: 'HTML',
     ...Markup.inlineKeyboard([
       [
-        Markup.button.callback('🚀 Отправить всем', 'broadcast:confirm'),
+        Markup.button.callback('✅ Да, разослать', 'broadcast:confirm'),
         Markup.button.callback('❌ Отмена', 'broadcast:cancel')
       ]
     ])
@@ -123,90 +130,95 @@ export const handleAdminBroadcastMessage = async ctx => {
 
 export const handleAdminBroadcastConfirm = async ctx => {
   if (String(ctx.from?.id) !== process.env.CREATOR_ID) return;
-  if (ctx.session?.adminBroadcastStep !== 'AWAITING_CONFIRMATION') return;
+  if (ctx.session?.adminBroadcastStep !== 'AWAITING_CONFIRMATION') {
+    await ctx.answerCbQuery('Рассылка не ожидает подтверждения').catch(() => {});
+    return;
+  }
 
   const sourceChatIdentifier = ctx.session.broadcastSourceChatId;
   const sourceMessageIdentifier = ctx.session.broadcastSourceMessageId;
 
   if (!sourceChatIdentifier || !sourceMessageIdentifier) {
-    await ctx.answerCbQuery('Ошибка: исходное сообщение не найдено').catch(() => {});
+    await ctx.answerCbQuery('Исходное сообщение не найдено').catch(() => {});
     return;
   }
 
-  await ctx.answerCbQuery('Рассылка запущена').catch(() => {});
-  await ctx.editMessageText(
-    '⏳ <b>Идет рассылка сообщений...</b>\nПожалуйста, подождите завершения.',
-    { parse_mode: 'HTML' }
-  ).catch(() => {});
+  await ctx.answerCbQuery('Запуск рассылки...').catch(() => {});
+  await ctx.editMessageText('🚀 Рассылка началась. По завершении придет отчет.').catch(() => {});
 
   ctx.session.adminBroadcastStep = null;
   ctx.session.broadcastSourceChatId = null;
   ctx.session.broadcastSourceMessageId = null;
 
-  const allRegisteredUsers = await User.find({}, { telegramId: 1 });
-  let successfullyDeliveredCount = 0;
-  let deliveryFailuresCount = 0;
+  const allTelegramUsers = await User.find(
+    { telegramId: { $exists: true, $ne: null } },
+    { telegramId: 1 }
+  ).lean().catch(() => []);
 
-  for (const userRecord of allRegisteredUsers) {
-    if (!userRecord.telegramId) continue;
+  const totalRecipientsCount = allTelegramUsers.length;
+  let successfulDeliveriesCount = 0;
+  let failedDeliveriesCount = 0;
+
+  const feedbackInlineKeyboard = Markup.inlineKeyboard([
+    [Markup.button.callback('✍️ Ответить', 'feedback:start')]
+  ]);
+
+  for (const recipientUser of allTelegramUsers) {
     try {
       await ctx.telegram.copyMessage(
-        userRecord.telegramId,
+        recipientUser.telegramId,
         sourceChatIdentifier,
         sourceMessageIdentifier,
         {
-          reply_markup: Markup.inlineKeyboard([
-            [Markup.button.callback('✍️ Ответить', 'feedback:start')]
-          ]).reply_markup
+          reply_markup: feedbackInlineKeyboard.reply_markup
         }
       );
-      successfullyDeliveredCount += 1;
-    } catch (deliveryError) {
-      deliveryFailuresCount += 1;
+      successfulDeliveriesCount++;
+    } catch {
+      failedDeliveriesCount++;
     }
 
     await new Promise(resolveTimer => setTimeout(resolveTimer, 40));
   }
 
   const broadcastReportText = [
-    '✅ <b>Рассылка успешно завершена!</b>',
+    '📊 <b>Отчет о рассылке</b>',
     '',
-    `• Доставлено: <b>${successfullyDeliveredCount}</b>`,
-    `• Не доставлено (бот заблокирован): <b>${deliveryFailuresCount}</b>`
+    `• Всего пользователей: <b>${totalRecipientsCount}</b>`,
+    `• Успешно доставлено: <b>${successfulDeliveriesCount}</b>`,
+    `• Ошибок отправки: <b>${failedDeliveriesCount}</b>`
   ].join('\n');
 
   await ctx.reply(broadcastReportText, { parse_mode: 'HTML' });
 };
 
 export const handleFeedbackStart = async ctx => {
-  await ctx.answerCbQuery().catch(() => {});
   ctx.session ??= {};
   ctx.session.feedbackAwaiting = true;
 
-  const feedbackPromptText = [
+  await ctx.answerCbQuery().catch(() => {});
+
+  const promptText = [
     '✍️ <b>Обратная связь</b>',
     '',
-    'Напишите ваш ответ или отправьте голосовое сообщение, видео, кружок, фото или документ.',
-    '',
-    'Ваше сообщение будет напрямую передано создателю бота.'
+    'Напишите ваш ответ одним сообщением (можно отправить текст, фото или видео).'
   ].join('\n');
 
-  await ctx.reply(
-    feedbackPromptText,
-    {
-      parse_mode: 'HTML',
-      ...Markup.inlineKeyboard([
-        [Markup.button.callback('❌ Отмена', 'feedback:cancel')]
-      ])
-    }
-  );
+  await ctx.reply(promptText, {
+    parse_mode: 'HTML',
+    ...Markup.inlineKeyboard([
+      [Markup.button.callback('❌ Отмена', 'feedback:cancel')]
+    ])
+  });
 };
 
 export const handleFeedbackCancel = async ctx => {
   await ctx.answerCbQuery().catch(() => {});
+
   if (ctx.session) {
     ctx.session.feedbackAwaiting = false;
   }
+
   await ctx.editMessageText('Отправка ответа отменена.').catch(() => {});
 };
 
@@ -215,9 +227,7 @@ export const handleFeedbackMessage = async ctx => {
 
   const incomingMessageText = ctx.message?.text;
   if (incomingMessageText) {
-    const isNavigationButton =
-      Object.values(BUTTONS).includes(incomingMessageText) ||
-      Object.values(UI).includes(incomingMessageText);
+    const isNavigationButton = allKnownNavigationButtons.includes(incomingMessageText);
 
     if (isNavigationButton) {
       ctx.session.feedbackAwaiting = false;
@@ -259,3 +269,47 @@ export const handleFeedbackMessage = async ctx => {
   return true;
 };
 
+export const handleAdminGetPointerByNumber = async ctx => {
+  if (String(ctx.from?.id) !== process.env.CREATOR_ID) return false;
+
+  const rawIncomingMessageText = ctx.message?.text || '';
+  const trimmedLowerCasedText = rawIncomingMessageText.trim().toLowerCase();
+
+  let targetPointerLanguage = 'ru';
+  const languageModifierMatch = trimmedLowerCasedText.match(/(?:^|\s|_)(en|ru)(?:\s|$)/i);
+  if (languageModifierMatch) {
+    targetPointerLanguage = languageModifierMatch[1].toLowerCase();
+  } else if (ctx.state?.userLanguage === 'en') {
+    targetPointerLanguage = 'en';
+  }
+
+  let requestedPointerNumber = null;
+  const numberDigitsMatch = rawIncomingMessageText.match(/\d+/);
+  if (numberDigitsMatch) {
+    requestedPointerNumber = parseInt(numberDigitsMatch[0], 10);
+  }
+
+  if (!requestedPointerNumber) {
+    await ctx.reply('⚠️ Укажите номер указателя. Пример: /p 42 или получить pointer 42');
+    return true;
+  }
+
+  const foundPointerRecord = await getPointerByNumber(requestedPointerNumber, targetPointerLanguage);
+
+  if (!foundPointerRecord) {
+    await ctx.reply(`❌ Указатель #${requestedPointerNumber} (${targetPointerLanguage.toUpperCase()}) не найден в базе.`);
+    return true;
+  }
+
+  const formattedPointerMessage = formatPointerText(foundPointerRecord);
+
+  ctx.session ??= {};
+  ctx.session.lastPointerText = foundPointerRecord.text;
+
+  await ctx.reply(
+    formattedPointerMessage,
+    buildPointerInlineKeyboard(targetPointerLanguage)
+  );
+
+  return true;
+};

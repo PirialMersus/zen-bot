@@ -1,4 +1,3 @@
-// src/models/User.js
 import mongoose from 'mongoose';
 
 const schema = new mongoose.Schema({
@@ -6,6 +5,12 @@ const schema = new mongoose.Schema({
   firstName: { type: String },
   lastName: { type: String },
   username: { type: String },
+
+  language: {
+    type: String,
+    enum: ['ru', 'en'],
+    default: 'ru'
+  },
 
   lastReminderTexts: {
     type: [String],
@@ -30,12 +35,10 @@ const schema = new mongoose.Schema({
     default: 0
   },
 
-  // Поля для мобильного приложения
   authCode: { type: String },
   authCodeExpiresAt: { type: Date },
   pushTokens: [{ type: String }],
 
-  // Канал уведомлений: telegram (по умолчанию) или app
   notificationChannel: {
     type: String,
     enum: ['telegram', 'app'],

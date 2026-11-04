@@ -1,77 +1,146 @@
-// src/handlers/settings/quietHours.js
 import User from '../../models/User.js';
 import Reminder from '../../models/Reminder.js';
 import { getQuietEndDate } from '../../services/quietHours.js';
 import { settingsKeyboard } from '../../keyboard/settings.js';
-import { TEXTS } from '../../constants/texts.js';
-import { timezoneRegionsKeyboard } from '../../keyboard/timezoneRegions.js';
+import { languageSelectionKeyboard } from '../../keyboard/language.js';
+import { mainKeyboard } from '../../keyboard/main.js';
+import { getTexts } from '../../constants/texts.js';
+import { getTimezoneRegionsKeyboard } from '../../keyboard/timezoneRegions.js';
 import { timezoneCitiesKeyboard } from '../../keyboard/timezoneCities.js';
+import { resolveUserLanguage } from '../../middlewares/activity.js';
 
 export const handleTimezoneMenu = async ctx => {
-  await ctx.answerCbQuery();
-  await ctx.deleteMessage();
+  const userLanguage = await resolveUserLanguage(ctx);
+  await ctx.answerCbQuery().catch(() => {});
+  await ctx.deleteMessage().catch(() => {});
 
-  await ctx.reply(
-    '🌍 Выберите регион:',
-    timezoneRegionsKeyboard
-  );
+  const promptText = userLanguage === 'en' ? '🌍 Select region:' : '🌍 Выберите регион:';
+
+  await ctx.reply(promptText, getTimezoneRegionsKeyboard(userLanguage));
 };
 
 export const handleTimezoneRegion = async ctx => {
+  const userLanguage = await resolveUserLanguage(ctx);
   const regionKey = ctx.callbackQuery.data.split(':').pop();
 
-  await ctx.answerCbQuery();
-  await ctx.deleteMessage();
+  await ctx.answerCbQuery().catch(() => {});
+  await ctx.deleteMessage().catch(() => {});
 
-  await ctx.reply(
-    '🌍 Выберите город:',
-    timezoneCitiesKeyboard(regionKey)
-  );
+  const promptText = userLanguage === 'en' ? '🌍 Select city:' : '🌍 Выберите город:';
+
+  await ctx.reply(promptText, timezoneCitiesKeyboard(regionKey, userLanguage));
 };
 
 export const handleTimezoneSet = async ctx => {
-  const tz = ctx.callbackQuery.data.split(':').pop();
+  const userLanguage = await resolveUserLanguage(ctx);
+  const timezoneValue = ctx.callbackQuery.data.split(':').pop();
 
   await User.findOneAndUpdate(
     { telegramId: ctx.from.id },
-    { timezone: tz },
+    { timezone: timezoneValue },
     { upsert: true }
   );
 
-  await ctx.answerCbQuery();
+  await ctx.answerCbQuery().catch(() => {});
 
   try {
     await ctx.deleteMessage();
   } catch {}
 
-  await ctx.reply(
-    `✅ Часовой пояс установлен:\n🌍 ${tz}`
+  const confirmationText = userLanguage === 'en'
+    ? `✅ Timezone set:\n🌍 ${timezoneValue}`
+    : `✅ Часовой пояс установлен:\n🌍 ${timezoneValue}`;
+
+  await ctx.reply(confirmationText);
+};
+
+export const handleLanguageMenu = async ctx => {
+  const userLanguage = await resolveUserLanguage(ctx);
+  const texts = getTexts(userLanguage);
+
+  await ctx.answerCbQuery().catch(() => {});
+  try {
+    await ctx.deleteMessage();
+  } catch {}
+
+  await ctx.reply(texts.SETTINGS.LANGUAGE_TITLE, languageSelectionKeyboard(userLanguage));
+};
+
+export const handleLanguageSet = async ctx => {
+  const selectedLanguage = ctx.callbackQuery.data.split(':').pop();
+
+  await User.updateOne(
+    { telegramId: ctx.from.id },
+    {
+      $set: {
+        language: selectedLanguage,
+        shuffleIndex: 0,
+        shuffleQueue: []
+      }
+    },
+    { upsert: true }
   );
+
+  ctx.state = ctx.state || {};
+  ctx.state.userLanguage = selectedLanguage;
+
+  await ctx.answerCbQuery().catch(() => {});
+
+  try {
+    await ctx.deleteMessage();
+  } catch {}
+
+  const texts = getTexts(selectedLanguage);
+  await ctx.reply(texts.SETTINGS.LANGUAGE_CHANGED, mainKeyboard(ctx, selectedLanguage));
 };
 
 const renderSettings = async ctx => {
+  const userLanguage = await resolveUserLanguage(ctx);
+  const texts = getTexts(userLanguage);
+
   const user = await User.findOne({ telegramId: ctx.from.id }) ?? {
     quietHours: { enabled: true, start: 23, end: 8 },
-    timezone: 'Europe/Minsk'
+    timezone: 'Europe/Minsk',
+    language: userLanguage
   };
 
-  const q = user.quietHours;
-  const tz = user.timezone || 'Europe/Minsk';
+  const quietSettings = user.quietHours;
+  const timezoneValue = user.timezone || 'Europe/Minsk';
 
-  const text = `${TEXTS.MENU.SETTINGS}
+  const quietStatusLabel = userLanguage === 'en'
+    ? (quietSettings.enabled ? 'enabled' : 'disabled')
+    : (quietSettings.enabled ? 'включены' : 'выключены');
 
-🌙 Тихие часы: ${q.enabled ? 'включены' : 'выключены'}
-⏰ ${q.start}:00–${q.end}:00
+  const languageDisplayName = userLanguage === 'en' ? 'English' : 'Русский';
+
+  const localizedSettingsText = userLanguage === 'en'
+    ? `${texts.MENU.SETTINGS}
+
+🌙 Quiet hours: ${quietStatusLabel}
+⏰ ${quietSettings.start}:00–${quietSettings.end}:00
+
+🌍 Timezone:
+${timezoneValue}
+
+🌐 Language:
+${languageDisplayName}`
+    : `${texts.MENU.SETTINGS}
+
+🌙 Тихие часы: ${quietStatusLabel}
+⏰ ${quietSettings.start}:00–${quietSettings.end}:00
 
 🌍 Часовой пояс:
-${tz}`;
+${timezoneValue}
+
+🌐 Язык:
+${languageDisplayName}`;
 
   if (ctx.callbackQuery) {
-    await ctx.answerCbQuery();
-    await ctx.deleteMessage();
+    await ctx.answerCbQuery().catch(() => {});
+    await ctx.deleteMessage().catch(() => {});
   }
 
-  await ctx.reply(text, settingsKeyboard(q.enabled));
+  await ctx.reply(localizedSettingsText, settingsKeyboard(quietSettings.enabled, userLanguage));
 };
 
 export const handleSettings = async ctx => {

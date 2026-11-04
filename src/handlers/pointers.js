@@ -1,38 +1,45 @@
 import { Markup } from 'telegraf';
 import { getNextPointerForUser } from '../services/pointers.js';
-import { intervalKeyboard } from '../keyboard/intervals.js';
-import { TEXTS } from '../constants/texts.js';
-import { UI } from '../constants/ui.js';
+import { getIntervalKeyboard } from '../keyboard/intervals.js';
+import { getTexts } from '../constants/texts.js';
+import { getUi } from '../constants/ui.js';
+import { resolveUserLanguage } from '../middlewares/activity.js';
 
 const previewText = text =>
   text.length > 60 ? text.slice(0, 57) + '…' : text;
 
-const buildPointerInlineKeyboard = () => {
+export const formatPointerText = pointer =>
+  pointer?.source ? `${pointer.text}\n\n— ${pointer.source}` : (pointer?.text || '');
+
+export const buildPointerInlineKeyboard = (language = 'ru') => {
+  const ui = getUi(language);
+
   return Markup.inlineKeyboard([
     [
-      Markup.button.callback(UI.POINTER_TO_REMINDER, 'pointer:to_reminder'),
-      Markup.button.callback(UI.POINTER_NEXT, 'pointer:next')
+      Markup.button.callback(ui.POINTER_TO_REMINDER, 'pointer:to_reminder'),
+      Markup.button.callback(ui.POINTER_NEXT, 'pointer:next')
     ]
   ]);
 };
 
 export const handlePointer = async ctx => {
+  const userLanguage = await resolveUserLanguage(ctx);
+  const texts = getTexts(userLanguage);
   const pointer = await getNextPointerForUser(ctx.from.id);
+
   if (!pointer) {
-    await ctx.reply(TEXTS.POINTERS.EMPTY);
+    await ctx.reply(texts.POINTERS.EMPTY);
     return;
   }
 
   ctx.session ??= {};
   ctx.session.lastPointerText = pointer.text;
 
-  const formattedText = pointer.source
-    ? `${pointer.text}\n\n— ${pointer.source}`
-    : pointer.text;
+  const formattedText = formatPointerText(pointer);
 
   await ctx.reply(
     formattedText,
-    buildPointerInlineKeyboard()
+    buildPointerInlineKeyboard(userLanguage)
   );
 };
 
@@ -42,12 +49,15 @@ export const handleNextPointer = async ctx => {
     await ctx.answerCbQuery().catch(() => {});
   }
 
+  const userLanguage = await resolveUserLanguage(ctx);
+  const texts = getTexts(userLanguage);
   const pointer = await getNextPointerForUser(ctx.from.id);
+
   if (!pointer) {
     if (isCallbackQueryEvent) {
-      await ctx.editMessageText(TEXTS.POINTERS.EMPTY).catch(() => {});
+      await ctx.editMessageText(texts.POINTERS.EMPTY).catch(() => {});
     } else {
-      await ctx.reply(TEXTS.POINTERS.EMPTY);
+      await ctx.reply(texts.POINTERS.EMPTY);
     }
     return;
   }
@@ -55,19 +65,17 @@ export const handleNextPointer = async ctx => {
   ctx.session ??= {};
   ctx.session.lastPointerText = pointer.text;
 
-  const formattedText = pointer.source
-    ? `${pointer.text}\n\n— ${pointer.source}`
-    : pointer.text;
+  const formattedText = formatPointerText(pointer);
 
   if (isCallbackQueryEvent) {
     await ctx.editMessageText(
       formattedText,
-      buildPointerInlineKeyboard()
+      buildPointerInlineKeyboard(userLanguage)
     ).catch(() => {});
   } else {
     await ctx.reply(
       formattedText,
-      buildPointerInlineKeyboard()
+      buildPointerInlineKeyboard(userLanguage)
     );
   }
 };
@@ -80,6 +88,9 @@ export const handlePointerToReminder = async ctx => {
   const text = ctx.session?.lastPointerText;
   if (!text) return;
 
+  const userLanguage = await resolveUserLanguage(ctx);
+  const texts = getTexts(userLanguage);
+
   ctx.session.creatingReminder = {
     text,
     fromPointer: true
@@ -90,7 +101,7 @@ export const handlePointerToReminder = async ctx => {
   const preview = previewText(text);
 
   await ctx.reply(
-    `<i>${TEXTS.REMINDERS.ASK_INTERVAL}</i>\n\n«${preview}»`,
-    { parse_mode: 'HTML', ...intervalKeyboard }
+    `<i>${texts.REMINDERS.ASK_INTERVAL}</i>\n\n«${preview}»`,
+    { parse_mode: 'HTML', ...getIntervalKeyboard(userLanguage) }
   );
 };

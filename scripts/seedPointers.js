@@ -1,7 +1,6 @@
-// scripts/seedPointers.js
 import 'dotenv/config';
 import mongoose from 'mongoose';
-import pointers from '../data/pointers.js';
+import pointersRu from '../data/pointers.js';
 import { connectDB } from '../src/storage/db.js';
 import { Pointer } from '../src/models/Pointer.js';
 
@@ -9,15 +8,16 @@ await connectDB();
 
 await Pointer.deleteMany({});
 
-const docs = pointers.map(p => ({
-  text: p.text,
-  source: p.source ?? null,
-  tags: p.tags ?? [],
+const russianDocuments = pointersRu.map((pointerItem, index) => ({
+  number: pointerItem.number ?? (index + 1),
+  text: pointerItem.text,
+  source: pointerItem.source ?? null,
+  tags: pointerItem.tags ?? [],
   isActive: true
 }));
 
-await Pointer.insertMany(docs);
+await Pointer.insertMany(russianDocuments);
 
 await mongoose.disconnect();
 
-console.log(`Seeded ${docs.length} pointers`);
+console.log(`Seeded ${russianDocuments.length} RU pointers into 'pointers' collection`);

@@ -1,16 +1,17 @@
-// src/handlers/back.js
 import { mainKeyboard } from '../keyboard/main.js';
-import { TEXTS } from '../constants/texts.js';
-import { REMINDER_STEP } from './reminders.js';
-import { renderReminderStep } from './reminders.js';
+import { getTexts } from '../constants/texts.js';
+import { REMINDER_STEP, renderReminderStep } from './reminders.js';
+import { resolveUserLanguage } from '../middlewares/activity.js';
 
 export const handleBack = async ctx => {
   ctx.session ??= {};
 
   const step = ctx.session.reminderStep;
+  const userLanguage = await resolveUserLanguage(ctx);
+  const texts = getTexts(userLanguage);
 
   if (!step) {
-    await ctx.reply(TEXTS.MENU.MAIN, mainKeyboard(ctx));
+    await ctx.reply(texts.MENU.MAIN, mainKeyboard(ctx, userLanguage));
     return;
   }
 
@@ -29,6 +30,6 @@ export const handleBack = async ctx => {
   if (step === REMINDER_STEP.TEXT) {
     ctx.session.creatingReminder = null;
     ctx.session.reminderStep = null;
-    await ctx.reply(TEXTS.MENU.MAIN, mainKeyboard(ctx));
+    await ctx.reply(texts.MENU.MAIN, mainKeyboard(ctx, userLanguage));
   }
 };

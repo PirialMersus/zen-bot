@@ -1,14 +1,14 @@
-// src/handlers/reminders.js
 import { Markup } from 'telegraf';
 import Reminder from '../models/Reminder.js';
 import User from '../models/User.js';
-import { TEXTS } from '../constants/texts.js';
-import { UI } from '../constants/ui.js';
-import { remindersKeyboard } from '../keyboard/reminders.js';
+import { getTexts } from '../constants/texts.js';
+import { getUi, UI } from '../constants/ui.js';
+import { getRemindersKeyboard } from '../keyboard/reminders.js';
 import { reminderTextKeyboard } from '../keyboard/reminderText.js';
-import { intervalKeyboard } from '../keyboard/intervals.js';
-import { deleteAfterKeyboard } from '../keyboard/deleteAfter.js';
+import { getIntervalKeyboard } from '../keyboard/intervals.js';
+import { getDeleteAfterKeyboard } from '../keyboard/deleteAfter.js';
 import { mainKeyboard } from '../keyboard/main.js';
+import { resolveUserLanguage } from '../middlewares/activity.js';
 
 export const REMINDER_STEP = {
   TEXT: 'TEXT',
@@ -16,51 +16,75 @@ export const REMINDER_STEP = {
   AUTO_DELETE: 'AUTO_DELETE'
 };
 
-const DEFAULT_REMINDER_TEXTS = [
-  'Не вовлекайся 🧘',
-  'В этом теле никого нет 🤯'
-];
+const DEFAULT_REMINDER_TEXTS_BY_LANGUAGE = {
+  ru: [
+    'Не вовлекайся 🧘',
+    'В этом теле никого нет 🤯'
+  ],
+  en: [
+    'Do not get involved 🧘',
+    'There is no one in this body 🤯'
+  ]
+};
 
 const normalizeText = text =>
   text.replace(/^«|»$/g, '').trim();
 
-const formatInterval = minutes => {
+const formatInterval = (minutes, language = 'ru') => {
+  if (language === 'en') {
+    if (minutes === 1440) return 'Once a day ⌛';
+    if (minutes === 60) return 'Every hour ⌛';
+    return `Every ${minutes} min ⌛`;
+  }
   if (minutes === 1440) return 'Раз в день ⌛';
   if (minutes === 60) return 'Каждый час ⌛';
   return `Каждые ${minutes} мин ⌛`;
 };
 
-const formatReminderMessageText = (r, indexStr) => {
-  const status = r.isActive ? TEXTS.STATUS.ACTIVE : TEXTS.STATUS.PAUSED;
-  const autoDeleteLabel =
-    r.deleteAfterSeconds === null
-      ? '(автоудаление: не удаляется)'
-      : `(автоудаление: через ${r.deleteAfterSeconds} сек)`;
+const formatReminderMessageText = (reminderItem, indexNumberString, language = 'ru') => {
+  const texts = getTexts(language);
+  const ui = getUi(language);
+  const status = reminderItem.isActive ? texts.STATUS.ACTIVE : texts.STATUS.PAUSED;
 
-  let displayText = r.text;
-  if (r.isRandomPointer) {
-    displayText = UI.REMINDER_RANDOM;
-  } else if (r.photoFileId) {
-    displayText = r.caption ? `📷 Фото: «${r.caption}»` : '📷 Фотография';
-  } else if (r.videoFileId) {
-    displayText = r.caption ? `🎬 Видео: «${r.caption}»` : '🎬 Видео';
+  const autoDeleteLabel = language === 'en'
+    ? (reminderItem.deleteAfterSeconds === null
+      ? '(auto-delete: do not delete)'
+      : `(auto-delete: in ${reminderItem.deleteAfterSeconds} sec)`)
+    : (reminderItem.deleteAfterSeconds === null
+      ? '(автоудаление: не удаляется)'
+      : `(автоудаление: через ${reminderItem.deleteAfterSeconds} сек)`);
+
+  let displayText = reminderItem.text;
+  if (reminderItem.isRandomPointer) {
+    displayText = ui.REMINDER_RANDOM;
+  } else if (reminderItem.photoFileId) {
+    const photoPrefix = language === 'en' ? '📷 Photo' : '📷 Фотография';
+    const photoWithCaptionPrefix = language === 'en' ? '📷 Photo' : '📷 Фото';
+    displayText = reminderItem.caption ? `${photoWithCaptionPrefix}: «${reminderItem.caption}»` : photoPrefix;
+  } else if (reminderItem.videoFileId) {
+    const videoPrefix = language === 'en' ? '🎬 Video' : '🎬 Видео';
+    displayText = reminderItem.caption ? `${videoPrefix}: «${reminderItem.caption}»` : videoPrefix;
   }
 
-  return `<b>${indexStr}.</b> ${status}
+  return `<b>${indexNumberString}.</b> ${status}
 
-<i>${formatInterval(r.intervalMinutes)}</i>
+<i>${formatInterval(reminderItem.intervalMinutes, language)}</i>
 <i>${autoDeleteLabel}</i>
 
 «${displayText}»`;
 };
 
-const getReminderMessageKeyboard = r => {
+const getReminderMessageKeyboard = (reminderItem, language = 'ru') => {
+  const pauseLabel = language === 'en' ? '⏸ Pause' : '⏸ Приостановить';
+  const resumeLabel = language === 'en' ? '▶️ Resume' : '▶️ Возобновить';
+  const deleteLabel = language === 'en' ? '🗑 Delete' : '🗑 Удалить';
+
   return Markup.inlineKeyboard([
     [
-      r.isActive
-        ? Markup.button.callback('⏸ Приостановить', `pause:${r.id}`)
-        : Markup.button.callback('▶️ Возобновить', `resume:${r.id}`),
-      Markup.button.callback('🗑 Удалить', `delete:${r.id}`)
+      reminderItem.isActive
+        ? Markup.button.callback(pauseLabel, `pause:${reminderItem.id}`)
+        : Markup.button.callback(resumeLabel, `resume:${reminderItem.id}`),
+      Markup.button.callback(deleteLabel, `delete:${reminderItem.id}`)
     ]
   ]);
 };
@@ -73,56 +97,61 @@ export const previewText = text => {
 export const renderReminderStep = async ctx => {
   const step = ctx.session.reminderStep;
   const data = ctx.session.creatingReminder;
+  const userLanguage = await resolveUserLanguage(ctx);
+  const texts = getTexts(userLanguage);
+  const defaultTexts = DEFAULT_REMINDER_TEXTS_BY_LANGUAGE[userLanguage] || DEFAULT_REMINDER_TEXTS_BY_LANGUAGE.ru;
 
   if (step === REMINDER_STEP.TEXT) {
     const user = await User.findOne({ telegramId: ctx.from.id });
 
-    const stored = user?.lastReminderTexts?.length
+    const storedTexts = user?.lastReminderTexts?.length
       ? user.lastReminderTexts
       : [];
 
-    const texts = [
-      ...stored.filter(t => !DEFAULT_REMINDER_TEXTS.includes(t)),
-      ...DEFAULT_REMINDER_TEXTS
+    const suggestedTexts = [
+      ...storedTexts.filter(item => !defaultTexts.includes(item)),
+      ...defaultTexts
     ].slice(0, 4);
 
-    const subtitle = stored.length
-      ? '✍️ Введите текст, выберите из предложенных или отправьте 📷 фото / 🎬 видео'
+    const subtitle = userLanguage === 'en'
+      ? '✍️ Type text, choose from suggestions or send 📷 photo / 🎬 video'
       : '✍️ Введите текст, выберите из предложенных или отправьте 📷 фото / 🎬 видео';
 
     await ctx.reply(
-      `${TEXTS.REMINDERS.ASK_TEXT}\n\n${subtitle}`,
-      reminderTextKeyboard(texts)
+      `${texts.REMINDERS.ASK_TEXT}\n\n${subtitle}`,
+      reminderTextKeyboard(suggestedTexts, userLanguage)
     );
     return;
   }
 
   if (step === REMINDER_STEP.INTERVAL) {
     await ctx.reply(
-      `<i>${TEXTS.REMINDERS.ASK_INTERVAL}</i>
+      `<i>${texts.REMINDERS.ASK_INTERVAL}</i>
 
 «${previewText(data.text)}»
 
-<i>${TEXTS.REMINDERS.ASK_INTERVAL_HINT}</i>`,
-      { parse_mode: 'HTML', ...intervalKeyboard }
+<i>${texts.REMINDERS.ASK_INTERVAL_HINT}</i>`,
+      { parse_mode: 'HTML', ...getIntervalKeyboard(userLanguage) }
     );
     return;
   }
 
   if (step === REMINDER_STEP.AUTO_DELETE) {
     await ctx.reply(
-      `<i>${TEXTS.REMINDERS.ASK_DELETE_AFTER}</i>
+      `<i>${texts.REMINDERS.ASK_DELETE_AFTER}</i>
 
 «${previewText(data.text)}»
 
-<i>${TEXTS.REMINDERS.ASK_DELETE_AFTER_HINT}</i>`,
-      { parse_mode: 'HTML', ...deleteAfterKeyboard }
+<i>${texts.REMINDERS.ASK_DELETE_AFTER_HINT}</i>`,
+      { parse_mode: 'HTML', ...getDeleteAfterKeyboard(userLanguage) }
     );
   }
 };
 
 export const handleReminders = async ctx => {
-  await ctx.reply(TEXTS.MENU.REMINDERS, remindersKeyboard);
+  const userLanguage = await resolveUserLanguage(ctx);
+  const texts = getTexts(userLanguage);
+  await ctx.reply(texts.MENU.REMINDERS, getRemindersKeyboard(userLanguage));
 };
 
 export const handleCreateReminder = async ctx => {
@@ -140,12 +169,15 @@ export const handleReminderPhoto = async ctx => {
   const photoArray = ctx.message.photo;
   if (!photoArray || !photoArray.length) return;
 
+  const userLanguage = await resolveUserLanguage(ctx);
   const largestPhoto = photoArray[photoArray.length - 1];
   const caption = ctx.message.caption ? ctx.message.caption.trim() : null;
 
   ctx.session.creatingReminder.photoFileId = largestPhoto.file_id;
   ctx.session.creatingReminder.caption = caption;
-  ctx.session.creatingReminder.text = caption ? `📷 Фото: ${caption}` : '📷 Фотография';
+  const photoFallbackText = userLanguage === 'en' ? '📷 Photo' : '📷 Фотография';
+  const photoPrefix = userLanguage === 'en' ? '📷 Photo' : '📷 Фото';
+  ctx.session.creatingReminder.text = caption ? `${photoPrefix}: ${caption}` : photoFallbackText;
   ctx.session.creatingReminder.isRandomPointer = false;
 
   ctx.session.reminderStep = REMINDER_STEP.INTERVAL;
@@ -158,11 +190,13 @@ export const handleReminderVideo = async ctx => {
   const video = ctx.message.video || ctx.message.video_note;
   if (!video) return;
 
+  const userLanguage = await resolveUserLanguage(ctx);
   const caption = ctx.message.caption ? ctx.message.caption.trim() : null;
 
   ctx.session.creatingReminder.videoFileId = video.file_id;
   ctx.session.creatingReminder.caption = caption;
-  ctx.session.creatingReminder.text = caption ? `🎬 Видео: ${caption}` : '🎬 Видео';
+  const videoPrefix = userLanguage === 'en' ? '🎬 Video' : '🎬 Видео';
+  ctx.session.creatingReminder.text = caption ? `${videoPrefix}: ${caption}` : videoPrefix;
   ctx.session.creatingReminder.isRandomPointer = false;
 
   ctx.session.reminderStep = REMINDER_STEP.INTERVAL;
@@ -172,29 +206,26 @@ export const handleReminderVideo = async ctx => {
 export const handleReminderText = async ctx => {
   if (ctx.session?.reminderStep !== REMINDER_STEP.TEXT) return;
 
-  let text = ctx.message.text;
+  let incomingText = ctx.message.text;
 
-  if (text.endsWith('…')) {
+  if (incomingText.endsWith('…')) {
     const user = await User.findOne({ telegramId: ctx.from.id });
-    const full = user?.lastReminderTexts?.find(t =>
-      t.startsWith(text.slice(0, -1))
+    const fullMatch = user?.lastReminderTexts?.find(item =>
+      item.startsWith(incomingText.slice(0, -1))
     );
-    if (full) text = full;
+    if (fullMatch) incomingText = fullMatch;
   }
 
-  if (text === '✍️ Ввести новый текст') {
-    await ctx.reply(
-      '✍️ Введите новый текст напоминания',
-      Markup.removeKeyboard()
-    );
-    return;
-  }
+  const isRandomPointerCommand =
+    incomingText === UI.ru.REMINDER_RANDOM ||
+    incomingText === UI.en.REMINDER_RANDOM ||
+    incomingText === UI.REMINDER_RANDOM;
 
-  if (text === UI.REMINDER_RANDOM) {
+  if (isRandomPointerCommand) {
     ctx.session.creatingReminder.isRandomPointer = true;
-    ctx.session.creatingReminder.text = UI.REMINDER_RANDOM;
+    ctx.session.creatingReminder.text = incomingText;
   } else {
-    ctx.session.creatingReminder.text = text;
+    ctx.session.creatingReminder.text = incomingText;
     ctx.session.creatingReminder.isRandomPointer = false;
   }
 
@@ -214,9 +245,11 @@ export const handleIntervalInput = async ctx => {
   if (ctx.session?.reminderStep !== REMINDER_STEP.INTERVAL) return false;
 
   const minutes = Number(ctx.message.text);
+  const userLanguage = await resolveUserLanguage(ctx);
+  const texts = getTexts(userLanguage);
 
   if (!Number.isInteger(minutes) || minutes < 1) {
-    await ctx.reply(TEXTS.REMINDERS.MIN_INTERVAL);
+    await ctx.reply(texts.REMINDERS.MIN_INTERVAL);
     return true;
   }
 
@@ -229,18 +262,18 @@ export const handleIntervalInput = async ctx => {
 export const handleDeleteAfterPreset = async ctx => {
   if (ctx.session?.reminderStep !== REMINDER_STEP.AUTO_DELETE) return;
 
-  const text = ctx.message.text;
+  const incomingText = ctx.message.text;
 
-  let seconds;
+  let secondsValue;
 
-  if (text === '10 сек') seconds = 10;
-  if (text === '30 сек') seconds = 30;
-  if (text === '1 мин') seconds = 60;
-  if (text === 'Не удалять') seconds = null;
+  if (incomingText === '10 сек' || incomingText === '10 sec') secondsValue = 10;
+  if (incomingText === '30 сек' || incomingText === '30 sec') secondsValue = 30;
+  if (incomingText === '1 мин' || incomingText === '1 min') secondsValue = 60;
+  if (incomingText === 'Не удалять' || incomingText === 'Do not delete') secondsValue = null;
 
-  if (seconds === undefined) return;
+  if (secondsValue === undefined) return;
 
-  ctx.session.creatingReminder.deleteAfterSeconds = seconds;
+  ctx.session.creatingReminder.deleteAfterSeconds = secondsValue;
   ctx.session.reminderStep = null;
 
   await finalizeReminder(ctx);
@@ -250,9 +283,11 @@ export const handleDeleteAfterInput = async ctx => {
   if (ctx.session?.reminderStep !== REMINDER_STEP.AUTO_DELETE) return false;
 
   const seconds = Number(ctx.message.text);
+  const userLanguage = await resolveUserLanguage(ctx);
+  const texts = getTexts(userLanguage);
 
   if (!Number.isInteger(seconds) || seconds < 1) {
-    await ctx.reply(TEXTS.REMINDERS.INVALID_SECONDS);
+    await ctx.reply(texts.REMINDERS.INVALID_SECONDS);
     return true;
   }
 
@@ -267,26 +302,33 @@ const saveLastReminderText = async (ctx, text) => {
   const user = await User.findOne({ telegramId: ctx.from.id });
   if (!user) return;
 
-  if (text === UI.REMINDER_RANDOM) return;
+  const isRandomPointerCommand =
+    text === UI.ru.REMINDER_RANDOM ||
+    text === UI.en.REMINDER_RANDOM ||
+    text === UI.REMINDER_RANDOM;
+
+  if (isRandomPointerCommand) return;
 
   const clean = normalizeText(text);
+  const userLanguage = user.language || 'ru';
+  const defaultTexts = DEFAULT_REMINDER_TEXTS_BY_LANGUAGE[userLanguage] || DEFAULT_REMINDER_TEXTS_BY_LANGUAGE.ru;
 
   const stored = user.lastReminderTexts?.length
     ? user.lastReminderTexts
-    : DEFAULT_REMINDER_TEXTS;
+    : defaultTexts;
 
   const userTexts = stored
-    .filter(t => !DEFAULT_REMINDER_TEXTS.includes(t))
-    .filter(t => t !== clean);
+    .filter(item => !defaultTexts.includes(item))
+    .filter(item => item !== clean);
 
   const nextUserTexts = [clean, ...userTexts].slice(
     0,
-    4 - DEFAULT_REMINDER_TEXTS.length
+    4 - defaultTexts.length
   );
 
   user.lastReminderTexts = [
     ...nextUserTexts,
-    ...DEFAULT_REMINDER_TEXTS
+    ...defaultTexts
   ];
 
   await user.save();
@@ -296,6 +338,8 @@ const finalizeReminder = async ctx => {
   const data = ctx.session.creatingReminder;
   const now = new Date();
   const cleanText = normalizeText(data.text);
+  const userLanguage = await resolveUserLanguage(ctx);
+  const texts = getTexts(userLanguage);
 
   await Reminder.create({
     userId: String(ctx.from.id),
@@ -307,22 +351,27 @@ const finalizeReminder = async ctx => {
     intervalMinutes: data.intervalMinutes,
     deleteAfterSeconds: data.deleteAfterSeconds,
     isActive: true,
-    isRandomPointer: !!data.isRandomPointer,
+    isRandomPointer: Boolean(data.isRandomPointer),
     nextRunAt: new Date(
       now.getTime() + data.intervalMinutes * 60 * 1000
     )
   });
 
-  const intervalLabel = formatInterval(data.intervalMinutes);
+  const intervalLabel = formatInterval(data.intervalMinutes, userLanguage);
 
-  const deleteAfterLabel =
-    data.deleteAfterSeconds === null
+  const deleteAfterLabel = userLanguage === 'en'
+    ? (data.deleteAfterSeconds === null
+      ? 'do not delete'
+      : `in ${data.deleteAfterSeconds} sec`)
+    : (data.deleteAfterSeconds === null
       ? 'не удаляется'
-      : `через ${data.deleteAfterSeconds} сек`;
+      : `через ${data.deleteAfterSeconds} сек`);
+
+  const autoDeletePrefix = userLanguage === 'en' ? 'auto-delete' : 'автоудаление';
 
   await ctx.reply(
     `<i>${intervalLabel}</i>
-<i>(автоудаление: ${deleteAfterLabel})</i>
+<i>(${autoDeletePrefix}: ${deleteAfterLabel})</i>
 
 «${cleanText}»`,
     { parse_mode: 'HTML' }
@@ -336,63 +385,73 @@ const finalizeReminder = async ctx => {
   ctx.session.reminderStep = null;
 
   await ctx.reply(
-    `<i>${TEXTS.REMINDERS.CREATED}</i>`,
-    { parse_mode: 'HTML', ...mainKeyboard(ctx) }
+    `<i>${texts.REMINDERS.CREATED}</i>`,
+    { parse_mode: 'HTML', ...mainKeyboard(ctx, userLanguage) }
   );
 };
 
 export const handleMyReminders = async ctx => {
+  const userLanguage = await resolveUserLanguage(ctx);
+  const texts = getTexts(userLanguage);
+
   const reminders = await Reminder.find({
     userId: String(ctx.from.id)
   }).sort({ createdAt: 1 });
 
   if (!reminders.length) {
-    await ctx.reply(TEXTS.REMINDERS.NONE, remindersKeyboard);
+    await ctx.reply(texts.REMINDERS.NONE, getRemindersKeyboard(userLanguage));
     return;
   }
 
-  for (let i = 0; i < reminders.length; i++) {
-    const r = reminders[i];
+  for (let index = 0; index < reminders.length; index++) {
+    const reminderItem = reminders[index];
     await ctx.reply(
-      formatReminderMessageText(r, i + 1),
+      formatReminderMessageText(reminderItem, index + 1, userLanguage),
       {
         parse_mode: 'HTML',
-        ...getReminderMessageKeyboard(r)
+        ...getReminderMessageKeyboard(reminderItem, userLanguage)
       }
     );
   }
 };
 
 export const handleRequestAction = async (ctx, type) => {
-  const id = ctx.callbackQuery.data.split(':')[1];
-  const reminder = await Reminder.findById(id);
-  if (!reminder) return ctx.answerCbQuery('Напоминание не найдено').catch(() => {});
+  const userLanguage = await resolveUserLanguage(ctx);
+  const reminderIdentifier = ctx.callbackQuery.data.split(':')[1];
+  const reminderItem = await Reminder.findById(reminderIdentifier);
+
+  const notFoundMessage = userLanguage === 'en' ? 'Reminder not found' : 'Напоминание не найдено';
+  if (!reminderItem) return ctx.answerCbQuery(notFoundMessage).catch(() => {});
 
   if (type === 'pause' || type === 'resume') {
-    reminder.isActive = !reminder.isActive;
-    await reminder.save();
+    reminderItem.isActive = !reminderItem.isActive;
+    await reminderItem.save();
 
     const originalText = ctx.callbackQuery.message?.text || '';
     const matchIndex = originalText.match(/^(\d+)\./);
     const indexStr = matchIndex ? matchIndex[1] : '?';
 
     await ctx.editMessageText(
-      formatReminderMessageText(reminder, indexStr),
+      formatReminderMessageText(reminderItem, indexStr, userLanguage),
       {
         parse_mode: 'HTML',
-        ...getReminderMessageKeyboard(reminder)
+        ...getReminderMessageKeyboard(reminderItem, userLanguage)
       }
     ).catch(() => {});
 
-    return ctx.answerCbQuery('Статус изменен').catch(() => {});
+    const statusChangedAlert = userLanguage === 'en' ? 'Status updated' : 'Статус изменен';
+    return ctx.answerCbQuery(statusChangedAlert).catch(() => {});
   }
 
   if (type === 'delete') {
+    const confirmDeleteButtonLabel = userLanguage === 'en' ? '🗑 Confirm delete' : '🗑 Подтвердить удаление';
+    const cancelDeleteButtonLabel = userLanguage === 'en' ? '❌ Cancel' : '❌ Отмена';
+
     await ctx.editMessageReplyMarkup(
       Markup.inlineKeyboard([
         [
-          Markup.button.callback('🗑 Подтвердить удаление', `confirm:delete:${id}`),
-          Markup.button.callback('❌ Отмена', `confirm:cancel:${id}`)
+          Markup.button.callback(confirmDeleteButtonLabel, `confirm:delete:${reminderIdentifier}`),
+          Markup.button.callback(cancelDeleteButtonLabel, `confirm:cancel:${reminderIdentifier}`)
         ]
       ]).reply_markup
     ).catch(() => {});
@@ -402,26 +461,27 @@ export const handleRequestAction = async (ctx, type) => {
 };
 
 export const handleConfirmAction = async ctx => {
-  const data = ctx.callbackQuery.data;
+  const callbackDataString = ctx.callbackQuery.data;
   await ctx.answerCbQuery().catch(() => {});
 
-  if (data === 'confirm:no') {
+  if (callbackDataString === 'confirm:no') {
     await ctx.deleteMessage().catch(() => {});
     return;
   }
 
-  const [, type, id] = data.split(':');
+  const [, actionType, reminderIdentifier] = callbackDataString.split(':');
+  const userLanguage = await resolveUserLanguage(ctx);
 
-  if (type === 'cancel') {
-    const r = await Reminder.findById(id);
-    if (r) {
-      await ctx.editMessageReplyMarkup(getReminderMessageKeyboard(r).reply_markup).catch(() => {});
+  if (actionType === 'cancel') {
+    const reminderItem = await Reminder.findById(reminderIdentifier);
+    if (reminderItem) {
+      await ctx.editMessageReplyMarkup(getReminderMessageKeyboard(reminderItem, userLanguage).reply_markup).catch(() => {});
     }
     return;
   }
 
-  if (type === 'delete') {
-    await Reminder.findByIdAndDelete(id);
+  if (actionType === 'delete') {
+    await Reminder.findByIdAndDelete(reminderIdentifier);
     await ctx.deleteMessage().catch(() => {});
     return;
   }

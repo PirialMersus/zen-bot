@@ -1,11 +1,16 @@
-// src/keyboard/timezoneRegions.js
 import { Markup } from 'telegraf';
 import { TIMEZONE_REGIONS } from '../constants/timezones.js';
-import { BUTTONS } from '../constants/buttons.js';
+import { getButtons } from '../constants/buttons.js';
 
-export const timezoneRegionsKeyboard = Markup.inlineKeyboard([
-  ...Object.entries(TIMEZONE_REGIONS).map(([key, r]) => [
-    Markup.button.callback(r.label, `timezone:region:${key}`)
-  ]),
-  [Markup.button.callback(BUTTONS.BACK, 'settings:back')]
-]);
+export const getTimezoneRegionsKeyboard = (language = 'ru') => {
+  const buttons = getButtons(language);
+
+  return Markup.inlineKeyboard([
+    ...Object.entries(TIMEZONE_REGIONS).map(([key, regionItem]) => [
+      Markup.button.callback(regionItem.label, `timezone:region:${key}`)
+    ]),
+    [Markup.button.callback(buttons.BACK, 'settings:back')]
+  ]);
+};
+
+export const timezoneRegionsKeyboard = getTimezoneRegionsKeyboard('ru');
