@@ -30,8 +30,8 @@ const russianDescription = `Этот бот создан, чтобы мягко 
 
 Нажми «Запустить» прямо сейчас 👇`;
 
-const englishShortDescription = 'Non-duality pointers and gentle reminders to guide you back to inner clarity. 🧘‍♂️✨';
-const russianShortDescription = 'Указатели недвойственности и умные напоминания для мягкого возвращения в состояние ясности. 🧘‍♂️✨';
+const englishShortDescription = 'Your pocket satsang. Precise words of masters that bring you back to practice.';
+const russianShortDescription = 'Твой карманный сатсанг. Точные фразы мастеров, возвращающие к практике.';
 
 const executeApiMethod = async (methodName, requestPayload) => {
   const apiEndpointUrl = `https://api.telegram.org/bot${targetBotToken}/${methodName}`;
