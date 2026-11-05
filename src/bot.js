@@ -34,10 +34,16 @@ import {
   handleReminderVideo,
   handleReminderText,
   handleReminders,
-  handleRequestAction
+  handleRequestAction,
+  handleViewReminder,
+  handleReminderListCallback
 } from './handlers/reminders.js';
 import {
   handleQuietToggle,
+  handleQuietHoursMenu,
+  handleQuietHoursSetPreset,
+  handleQuietHoursCustomPrompt,
+  handleQuietHoursCustomInput,
   handleSettings,
   handleTimezoneMenu,
   handleTimezoneRegion,
@@ -101,6 +107,14 @@ bot.action('settings:language', handleLanguageMenu);
 bot.action(/^settings:language:set:/, handleLanguageSet);
 bot.action('settings:language:back', handleSettings);
 
+bot.action('settings:menu', handleSettings);
+bot.action('settings:quiet_hours:menu', handleQuietHoursMenu);
+bot.action(/^settings:quiet_hours:preset:/, handleQuietHoursSetPreset);
+bot.action('settings:quiet_hours:custom', handleQuietHoursCustomPrompt);
+
+bot.action('reminder:list', handleReminderListCallback);
+bot.action(/^reminder:view:/, handleViewReminder);
+
 bot.action('settings:quiet_toggle', handleQuietToggle);
 
 bot.action('settings:back', async ctx => {
@@ -134,8 +148,8 @@ bot.action('reminder:back_to_intervals', async ctx => {
 bot.hears([BUTTONS.ru.BACK, BUTTONS.en.BACK], handleBack);
 bot.hears([UI.ru.POINTER_NEXT, UI.en.POINTER_NEXT], handleNextPointer);
 bot.hears([UI.ru.POINTER_TO_REMINDER, UI.en.POINTER_TO_REMINDER], handlePointerToReminder);
-bot.hears(UI.ADMIN_ACTIVE_USERS, handleAdminActiveUsers);
-bot.hears(UI.ADMIN_BROADCAST, handleAdminBroadcastStart);
+bot.hears([UI.ru.ADMIN_ACTIVE_USERS, UI.en.ADMIN_ACTIVE_USERS], handleAdminActiveUsers);
+bot.hears([UI.ru.ADMIN_BROADCAST, UI.en.ADMIN_BROADCAST], handleAdminBroadcastStart);
 
 bot.command(['pointer', 'p'], handleAdminGetPointerByNumber);
 bot.hears(/^(?:получить\s+)?(?:pointer|указатель)(?:\s+(?:en|ru))?\s+\d+$/i, handleAdminGetPointerByNumber);
@@ -191,8 +205,9 @@ bot.on(['voice', 'audio', 'document'], async ctx => {
 bot.on('text', async ctx => {
   if (await handleFeedbackMessage(ctx)) return;
   if (await handleAdminBroadcastMessage(ctx)) return;
-  if (await handleAdminGetPointerByNumber(ctx)) return;
+  if (await handleQuietHoursCustomInput(ctx)) return;
   if (await handleDeleteAfterInput(ctx)) return;
   if (await handleIntervalInput(ctx)) return;
+  if (await handleAdminGetPointerByNumber(ctx)) return;
   await handleReminderText(ctx);
 });

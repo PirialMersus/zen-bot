@@ -7477,5 +7477,172 @@ What is actually happening right now — before your explanation of it?`,
     text: `In the moment when the breath pauses between inhalation and exhalation, turn your attention to the opening silence. There lies your true home.`,
     source: "Vijnana Bhairava Tantra",
     tags: ["stillness"]
+  },
+  {
+    number: 1099,
+    text: `- Who experiences?
+- Who desires?
+- Who plans?
+- Who works?
+
+Someone might say, the character. But there is no character either. There is only a story about a character. That story is what you are.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1100,
+    text: `There is perception, and there is perception from the perspective of "I". The latter is a limitation of perception to "I". To remain as perception, one must perceive the perception from the perspective of "I".`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1101,
+    text: `As soon as the thought "later" appears, don't argue with it. Take one step toward your practice before the next thought appears. Procrastination feeds on discussion.`,
+    source: null,
+    tags: ["silence"]
+  },
+  {
+    number: 1102,
+    text: `The impulse to get distracted is not an order. Catch it before you act: where do you feel it? What does it promise? Who is it promising relief to? Investigate the impulse itself.`,
+    source: null,
+    tags: ["silence"]
+  },
+  {
+    number: 1103,
+    text: `Is your finger already reaching for the screen? Stop before you touch it. Investigate the movement toward your phone itself. Don't turn another impulse into another wasted minute.`,
+    source: null,
+    tags: ["silence"]
+  },
+  {
+    number: 1104,
+    text: `Before distracting or entertaining yourself, ask: "What exactly am I looking for right now?" Don't settle for the answer "rest." Identify the real need. What are you trying to escape from?`,
+    source: null,
+    tags: ["silence"]
+  },
+  {
+    number: 1105,
+    text: `Don't start your day with a stream of other people's information. Before letting other people's thoughts into your mind, investigate the very feeling of "I have woken up."`,
+    source: null,
+    tags: ["silence"]
+  },
+  {
+    number: 1106,
+    text: `Started entertaining yourself automatically? Stop as soon as you notice. Don't keep watching just because you've already started. The minute that's passed doesn't obligate you to give away the next one.`,
+    source: null,
+    tags: ["silence"]
+  },
+  {
+    number: 1107,
+    text: `Habit lives not in promises but in repetition. Break the chain at a specific point: the impulse arose, but the habitual action did not follow. That's your work.`,
+    source: null,
+    tags: ["silence"]
+  },
+  {
+    number: 1108,
+    text: `Stop lying to yourself that just a little more entertainment will finally make you feel rested. Look at the desire for yet another dose of stimulation. Who keeps demanding more?`,
+    source: null,
+    tags: ["silence"]
+  },
+  {
+    number: 1109,
+    text: `Don't wait for the desire to entertain yourself to disappear. Let it be there. Your task is not to automatically surrender your next action to it.`,
+    source: null,
+    tags: ["silence"]
+  },
+  {
+    number: 1110,
+    text: `Don't let a moment of pleasure quietly buy your entire evening. See the price before agreeing to the deal.`,
+    source: null,
+    tags: ["silence"]
+  },
+  {
+    number: 1111,
+    text: `Sexual desire is neither an order nor a reason for shame. Observe the sensations, images, and promise of pleasure. Don't suppress the impulse, but don't become its automatic executor either.`,
+    source: null,
+    tags: ["silence"]
+  },
+  {
+    number: 1112,
+    text: `Don't turn eating into a spiritual test. Hungry? Eat properly. Practice doesn't require depriving the body of what it needs. Don't treat food as the enemy; investigate your own automatic behavior instead.`,
+    source: null,
+    tags: ["silence"]
+  },
+  {
+    number: 1113,
+    text: `When you feel like eating even though you're not hungry, don't blame yourself or forbid yourself from eating. Pause for a moment and discover what you're seeking beyond nourishment.`,
+    source: null,
+    tags: ["silence"]
+  },
+  {
+    number: 1114,
+    text: `Don't use pleasure as a way to escape yourself. Pleasure can be present. But why do you constantly need to run away from something?`,
+    source: null,
+    tags: ["silence"]
+  },
+  {
+    number: 1115,
+    text: `Every desire makes a promise: "Do this, and you'll feel better." Test that promise. What exactly is being sought? And who is supposed to feel better?`,
+    source: null,
+    tags: ["silence"]
+  },
+  {
+    number: 1116,
+    text: `You don't need to defeat desire forever. You need to see it now. One impulse, one pause, one clear return. Repeat.`,
+    source: null,
+    tags: ["silence"]
+  },
+  {
+    number: 1117,
+    text: `While the kettle is heating, don't reach for your phone. Use those minutes for self-inquiry. Everyday life offers you thousands of opportunities to practice.`,
+    source: null,
+    tags: ["silence"]
+  },
+  {
+    number: 1118,
+    text: `Every time you enter a new room, notice not only where the body has arrived, but also the very experience of what is happening. Don't automatically return to the familiar first-person perspective.`,
+    source: null,
+    tags: ["silence"]
+  },
+  {
+    number: 1119,
+    text: `When you hear a notification, don't respond immediately. First, notice your reaction to the sound itself. Are you directing your attention, or is every signal directing you?`,
+    source: null,
+    tags: ["silence"]
+  },
+  {
+    number: 1120,
+    text: `Before responding impulsively, investigate the one who wants to respond. Sometimes one second of clarity can save hours of pointless internal dialogue.`,
+    source: null,
+    tags: ["silence"]
+  },
+  {
+    number: 1121,
+    text: `After a strong emotion arises, don't rush to explain why you experienced it. Don't create another story. Look directly at the experience itself.`,
+    source: null,
+    tags: ["silence"]
+  },
+  {
+    number: 1122,
+    text: `Overcome anger with the absence of anger, evil with goodness, stinginess with generosity, and lies with truth. Don't become an extension of what you encounter.`,
+    source: "Buddha",
+    tags: ["silence"]
+  },
+  {
+    number: 1123,
+    text: `Be straightforward, humble, open to guidance, and free from arrogance. Don't humiliate anyone. Wish no one harm. Isn't this also part of genuine spiritual practice?`,
+    source: "Buddha",
+    tags: ["silence"]
+  },
+  {
+    number: 1124,
+    text: `There are two extremes: the pursuit of pleasure and the torment of oneself. Neither leads to awakening. Seek neither comfort at any cost nor suffering for the sake of spiritual significance. Follow the Middle Way.`,
+    source: "Buddha",
+    tags: ["silence"]
+  },
+  {
+    number: 1125,
+    text: `Keep your word, even in small things. Don't promise what you don't intend to fulfill. Reliability is a far greater sign of inner maturity than the ability to speak beautifully about freedom.`,
+    source: null,
+    tags: ["silence"]
   }
 ];

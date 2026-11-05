@@ -279,6 +279,11 @@ export const handleAdminGetPointerByNumber = async ctx => {
   const rawIncomingMessageText = ctx.message?.text || '';
   const trimmedLowerCasedText = rawIncomingMessageText.trim().toLowerCase();
 
+  const isExplicitPointerCommand = /^(?:\/p(?:ointer)?(?:_(?:en|ru))?|(?:получить\s+)?(?:pointer|указатель))(?:\s+(?:en|ru))?(?:\s+\d+|\s*$)/i.test(trimmedLowerCasedText);
+  if (!isExplicitPointerCommand) {
+    return false;
+  }
+
   let targetPointerLanguage = 'ru';
   const languageModifierMatch = trimmedLowerCasedText.match(/(?:^|\s|_)(en|ru)(?:\s|$)/i);
   if (languageModifierMatch) {

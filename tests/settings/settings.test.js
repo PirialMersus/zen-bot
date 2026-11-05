@@ -130,7 +130,8 @@ describe('Настройки пользователя (Settings)', () => {
     const updatedUser = await User.findOne({ telegramId: telegramUserId });
     expect(updatedUser.timezone).toBe('Europe/Warsaw');
     expect(mockContext.reply).toHaveBeenCalledWith(
-      expect.stringContaining('Europe/Warsaw')
+      expect.stringContaining('Europe/Warsaw'),
+      expect.anything()
     );
   });
 });

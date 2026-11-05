@@ -1,4 +1,5 @@
 import { Markup } from 'telegraf';
+import { DateTime } from 'luxon';
 import Reminder from '../models/Reminder.js';
 import User from '../models/User.js';
 import { getTexts } from '../constants/texts.js';
@@ -41,7 +42,25 @@ const formatInterval = (minutes, language = 'ru') => {
   return `Каждые ${minutes} мин ⌛`;
 };
 
-const formatReminderMessageText = (reminderItem, indexNumberString, language = 'ru') => {
+export const formatNextRunTime = (nextRunDate, userTimezone = 'Europe/Minsk', language = 'ru') => {
+  if (!nextRunDate) return '';
+
+  const targetDate = DateTime.fromJSDate(nextRunDate).setZone(userTimezone);
+  const now = DateTime.now().setZone(userTimezone);
+  const timeString = targetDate.toFormat('HH:mm');
+
+  if (targetDate.hasSame(now, 'day')) {
+    return language === 'en' ? `today at ${timeString}` : `сегодня в ${timeString}`;
+  }
+
+  if (targetDate.hasSame(now.plus({ days: 1 }), 'day')) {
+    return language === 'en' ? `tomorrow at ${timeString}` : `завтра в ${timeString}`;
+  }
+
+  return `${targetDate.toFormat('dd.MM')} ${timeString}`;
+};
+
+export const formatReminderMessageText = (reminderItem, indexNumberString, language = 'ru', userTimezone = 'Europe/Minsk') => {
   const texts = getTexts(language);
   const ui = getUi(language);
   const status = reminderItem.isActive ? texts.STATUS.ACTIVE : texts.STATUS.PAUSED;
@@ -66,27 +85,94 @@ const formatReminderMessageText = (reminderItem, indexNumberString, language = '
     displayText = reminderItem.caption ? `${videoPrefix}: «${reminderItem.caption}»` : videoPrefix;
   }
 
+  const nextRunString = reminderItem.isActive && reminderItem.nextRunAt
+    ? formatNextRunTime(reminderItem.nextRunAt, userTimezone, language)
+    : null;
+
+  const nextRunLabel = language === 'en' ? '🕒 Next run' : '🕒 Следующее';
+  const nextRunLine = nextRunString ? `\n<i>${nextRunLabel}: ${nextRunString}</i>` : '';
+
   return `<b>${indexNumberString}.</b> ${status}
 
 <i>${formatInterval(reminderItem.intervalMinutes, language)}</i>
-<i>${autoDeleteLabel}</i>
+<i>${autoDeleteLabel}</i>${nextRunLine}
 
 «${displayText}»`;
 };
 
-const getReminderMessageKeyboard = (reminderItem, language = 'ru') => {
-  const pauseLabel = language === 'en' ? '⏸ Pause' : '⏸ Приостановить';
+export const getReminderMessageKeyboard = (reminderItem, language = 'ru', showBackToList = true) => {
+  const pauseLabel = language === 'en' ? '⏸️ Pause' : '⏸️ Приостановить';
   const resumeLabel = language === 'en' ? '▶️ Resume' : '▶️ Возобновить';
   const deleteLabel = language === 'en' ? '🗑 Delete' : '🗑 Удалить';
+  const backToListLabel = language === 'en' ? '⬅️ All reminders' : '⬅️ Ко всем напоминаниям';
 
-  return Markup.inlineKeyboard([
-    [
-      reminderItem.isActive
-        ? Markup.button.callback(pauseLabel, `pause:${reminderItem.id}`)
-        : Markup.button.callback(resumeLabel, `resume:${reminderItem.id}`),
-      Markup.button.callback(deleteLabel, `delete:${reminderItem.id}`)
-    ]
-  ]);
+  const actionRow = [
+    reminderItem.isActive
+      ? Markup.button.callback(pauseLabel, `pause:${reminderItem.id}`)
+      : Markup.button.callback(resumeLabel, `resume:${reminderItem.id}`),
+    Markup.button.callback(deleteLabel, `delete:${reminderItem.id}`)
+  ];
+
+  const rows = [actionRow];
+  if (showBackToList) {
+    rows.push([Markup.button.callback(backToListLabel, 'reminder:list')]);
+  }
+
+  return Markup.inlineKeyboard(rows);
+};
+
+export const buildRemindersListPayload = (reminders, userLanguage = 'ru', userTimezone = 'Europe/Minsk') => {
+  const ui = getUi(userLanguage);
+
+  const headerTitle = userLanguage === 'en' ? '📋 <b>Your reminders:</b>' : '📋 <b>Ваши напоминания:</b>';
+  const hintFooter = userLanguage === 'en'
+    ? '<i>Tap a number below to manage a reminder 👇</i>'
+    : '<i>Нажмите на номер ниже для управления напоминанием 👇</i>';
+
+  const lines = reminders.map((reminderItem, index) => {
+    const indexNumber = index + 1;
+    const statusIcon = reminderItem.isActive ? '🟢' : '⏸️';
+
+    let displayText = reminderItem.text;
+    if (reminderItem.isRandomPointer) {
+      displayText = ui.REMINDER_RANDOM;
+    } else if (reminderItem.photoFileId) {
+      const photoPrefix = userLanguage === 'en' ? '📷 Photo' : '📷 Фото';
+      displayText = reminderItem.caption ? `${photoPrefix}: «${reminderItem.caption}»` : photoPrefix;
+    } else if (reminderItem.videoFileId) {
+      const videoPrefix = userLanguage === 'en' ? '🎬 Video' : '🎬 Видео';
+      displayText = reminderItem.caption ? `${videoPrefix}: «${reminderItem.caption}»` : videoPrefix;
+    }
+
+    const shortText = previewText(displayText);
+    const intervalLabel = formatInterval(reminderItem.intervalMinutes, userLanguage);
+
+    const nextRunTime = reminderItem.isActive && reminderItem.nextRunAt
+      ? formatNextRunTime(reminderItem.nextRunAt, userTimezone, userLanguage)
+      : null;
+
+    const nextRunSuffix = nextRunTime ? ` • 🕒 ${nextRunTime}` : '';
+
+    return `<b>${indexNumber}.</b> ${statusIcon} «${shortText}»\n   <i>${intervalLabel}${nextRunSuffix}</i>`;
+  });
+
+  const fullText = `${headerTitle}\n\n${lines.join('\n\n')}\n\n${hintFooter}`;
+
+  const buttons = reminders.map((reminderItem, index) => {
+    const label = String(index + 1);
+    return Markup.button.callback(label, `reminder:view:${reminderItem.id}`);
+  });
+
+  const keyboardRows = [];
+  const chunkSize = 5;
+  for (let i = 0; i < buttons.length; i += chunkSize) {
+    keyboardRows.push(buttons.slice(i, i + chunkSize));
+  }
+
+  return {
+    text: fullText,
+    keyboard: Markup.inlineKeyboard(keyboardRows)
+  };
 };
 
 export const previewText = text => {
@@ -394,25 +480,98 @@ export const handleMyReminders = async ctx => {
   const userLanguage = await resolveUserLanguage(ctx);
   const texts = getTexts(userLanguage);
 
-  const reminders = await Reminder.find({
-    userId: String(ctx.from.id)
-  }).sort({ createdAt: 1 });
+  const [reminders, user] = await Promise.all([
+    Reminder.find({ userId: String(ctx.from.id) }).sort({ createdAt: 1 }),
+    User.findOne({ telegramId: ctx.from.id })
+  ]);
 
   if (!reminders.length) {
     await ctx.reply(texts.REMINDERS.NONE, getRemindersKeyboard(userLanguage));
     return;
   }
 
-  for (let index = 0; index < reminders.length; index++) {
-    const reminderItem = reminders[index];
+  const userTimezone = user?.timezone || 'Europe/Minsk';
+
+  if (reminders.length === 1) {
+    const singleReminder = reminders[0];
     await ctx.reply(
-      formatReminderMessageText(reminderItem, index + 1, userLanguage),
+      formatReminderMessageText(singleReminder, '1', userLanguage, userTimezone),
       {
         parse_mode: 'HTML',
-        ...getReminderMessageKeyboard(reminderItem, userLanguage)
+        ...getReminderMessageKeyboard(singleReminder, userLanguage, false)
       }
     );
+    return;
   }
+
+  const { text, keyboard } = buildRemindersListPayload(reminders, userLanguage, userTimezone);
+
+  await ctx.reply(text, {
+    parse_mode: 'HTML',
+    ...keyboard
+  });
+};
+
+export const handleReminderListCallback = async ctx => {
+  const userLanguage = await resolveUserLanguage(ctx);
+  const texts = getTexts(userLanguage);
+
+  await ctx.answerCbQuery().catch(() => {});
+
+  const [reminders, user] = await Promise.all([
+    Reminder.find({ userId: String(ctx.from.id) }).sort({ createdAt: 1 }),
+    User.findOne({ telegramId: ctx.from.id })
+  ]);
+
+  if (!reminders.length) {
+    await ctx.editMessageText(texts.REMINDERS.NONE).catch(async () => {
+      await ctx.reply(texts.REMINDERS.NONE).catch(() => {});
+    });
+    return;
+  }
+
+  const userTimezone = user?.timezone || 'Europe/Minsk';
+  const { text, keyboard } = buildRemindersListPayload(reminders, userLanguage, userTimezone);
+
+  await ctx.editMessageText(text, {
+    parse_mode: 'HTML',
+    ...keyboard
+  }).catch(async () => {
+    await ctx.reply(text, {
+      parse_mode: 'HTML',
+      ...keyboard
+    }).catch(() => {});
+  });
+};
+
+export const handleViewReminder = async ctx => {
+  const userLanguage = await resolveUserLanguage(ctx);
+  const reminderId = ctx.callbackQuery.data.replace('reminder:view:', '');
+
+  await ctx.answerCbQuery().catch(() => {});
+
+  const [reminderItem, allUserReminders, user] = await Promise.all([
+    Reminder.findById(reminderId),
+    Reminder.find({ userId: String(ctx.from.id) }).sort({ createdAt: 1 }),
+    User.findOne({ telegramId: ctx.from.id })
+  ]);
+
+  if (!reminderItem) {
+    const notFoundMessage = userLanguage === 'en' ? 'Reminder not found' : 'Напоминание не найдено';
+    await ctx.answerCbQuery(notFoundMessage).catch(() => {});
+    return handleReminderListCallback(ctx);
+  }
+
+  const indexNumber = allUserReminders.findIndex(item => String(item._id) === String(reminderItem._id)) + 1;
+  const userTimezone = user?.timezone || 'Europe/Minsk';
+
+  await ctx.editMessageText(
+    formatReminderMessageText(reminderItem, indexNumber > 0 ? String(indexNumber) : '1', userLanguage, userTimezone),
+    {
+      parse_mode: 'HTML',
+      ...getReminderMessageKeyboard(reminderItem, userLanguage, true)
+    }
+  ).catch(() => {});
 };
 
 export const handleRequestAction = async (ctx, type) => {
@@ -427,15 +586,19 @@ export const handleRequestAction = async (ctx, type) => {
     reminderItem.isActive = !reminderItem.isActive;
     await reminderItem.save();
 
-    const originalText = ctx.callbackQuery.message?.text || '';
-    const matchIndex = originalText.match(/^(\d+)\./);
-    const indexStr = matchIndex ? matchIndex[1] : '?';
+    const [allUserReminders, user] = await Promise.all([
+      Reminder.find({ userId: String(ctx.from.id) }).sort({ createdAt: 1 }),
+      User.findOne({ telegramId: ctx.from.id })
+    ]);
+
+    const indexNumber = allUserReminders.findIndex(item => String(item._id) === String(reminderItem._id)) + 1;
+    const userTimezone = user?.timezone || 'Europe/Minsk';
 
     await ctx.editMessageText(
-      formatReminderMessageText(reminderItem, indexStr, userLanguage),
+      formatReminderMessageText(reminderItem, indexNumber > 0 ? String(indexNumber) : '1', userLanguage, userTimezone),
       {
         parse_mode: 'HTML',
-        ...getReminderMessageKeyboard(reminderItem, userLanguage)
+        ...getReminderMessageKeyboard(reminderItem, userLanguage, true)
       }
     ).catch(() => {});
 
@@ -462,9 +625,9 @@ export const handleRequestAction = async (ctx, type) => {
 
 export const handleConfirmAction = async ctx => {
   const callbackDataString = ctx.callbackQuery.data;
-  await ctx.answerCbQuery().catch(() => {});
 
   if (callbackDataString === 'confirm:no') {
+    await ctx.answerCbQuery().catch(() => {});
     await ctx.deleteMessage().catch(() => {});
     return;
   }
@@ -473,16 +636,28 @@ export const handleConfirmAction = async ctx => {
   const userLanguage = await resolveUserLanguage(ctx);
 
   if (actionType === 'cancel') {
-    const reminderItem = await Reminder.findById(reminderIdentifier);
+    await ctx.answerCbQuery().catch(() => {});
+    const [reminderItem, allUserReminders, user] = await Promise.all([
+      Reminder.findById(reminderIdentifier),
+      Reminder.find({ userId: String(ctx.from.id) }).sort({ createdAt: 1 }),
+      User.findOne({ telegramId: ctx.from.id })
+    ]);
+
     if (reminderItem) {
-      await ctx.editMessageReplyMarkup(getReminderMessageKeyboard(reminderItem, userLanguage).reply_markup).catch(() => {});
+      const indexNumber = allUserReminders.findIndex(item => String(item._id) === String(reminderItem._id)) + 1;
+      const userTimezone = user?.timezone || 'Europe/Minsk';
+
+      await ctx.editMessageReplyMarkup(
+        getReminderMessageKeyboard(reminderItem, userLanguage, true).reply_markup
+      ).catch(() => {});
     }
     return;
   }
 
   if (actionType === 'delete') {
     await Reminder.findByIdAndDelete(reminderIdentifier);
-    await ctx.deleteMessage().catch(() => {});
-    return;
+    const deleteAlertText = userLanguage === 'en' ? 'Reminder deleted' : 'Напоминание удалено';
+    await ctx.answerCbQuery(deleteAlertText).catch(() => {});
+    return handleReminderListCallback(ctx);
   }
 };

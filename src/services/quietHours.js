@@ -1,4 +1,3 @@
-// src/services/quietHours.js
 import { DateTime } from 'luxon';
 
 const DEFAULT_OFFSET_HOURS = 3;

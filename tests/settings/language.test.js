@@ -27,7 +27,7 @@ describe('Мультиязычность и переключение языко�
     expect(buttonTexts).toContain('🇬🇧 English');
   });
 
-  it('должен переключать язык на английский и обнулять очередь перемешивания', async () => {
+  it('должен переключать язык на английский и сохранять прогресс очереди перемешивания без обнуления', async () => {
     const telegramUserId = 66778899;
     await User.create({
       telegramId: telegramUserId,
@@ -45,8 +45,8 @@ describe('Мультиязычность и переключение языко�
 
     const updatedUser = await User.findOne({ telegramId: telegramUserId });
     expect(updatedUser.language).toBe('en');
-    expect(updatedUser.shuffleIndex).toBe(0);
-    expect(updatedUser.shuffleQueue).toEqual([]);
+    expect(updatedUser.shuffleIndex).toBe(3);
+    expect(updatedUser.shuffleQueue).toEqual([5, 4, 3, 2, 1]);
 
     expect(mockContext.reply).toHaveBeenCalled();
     const replyText = mockContext.reply.mock.calls[0][0];
@@ -122,5 +122,54 @@ describe('Мультиязычность и переключение языко�
     const silencePointer = await getNextPointerForUser(englishUserId, 'тишина');
     expect(silencePointer).not.toBeNull();
     expect(silencePointer.tags).toContain('stillness');
+  });
+
+  it('должен сохранять прогресс очереди указателей при переключении языка между русским и английским', async () => {
+    const switchingLanguageUserId = 77889900;
+
+    await Pointer.deleteMany({});
+    await PointerEn.deleteMany({});
+
+    await Pointer.create([
+      { number: 1, text: 'Русский указатель 1', isActive: true },
+      { number: 2, text: 'Русский указатель 2', isActive: true },
+      { number: 3, text: 'Русский указатель 3', isActive: true }
+    ]);
+
+    await PointerEn.create([
+      { number: 1, text: 'English pointer 1', isActive: true },
+      { number: 2, text: 'English pointer 2', isActive: true },
+      { number: 3, text: 'English pointer 3', isActive: true }
+    ]);
+
+    await User.create({
+      telegramId: switchingLanguageUserId,
+      language: 'ru',
+      shuffleQueue: [0, 1, 2],
+      shuffleIndex: 0
+    });
+
+    const firstPointerInRussian = await getNextPointerForUser(switchingLanguageUserId);
+    expect(firstPointerInRussian.text).toBe('Русский указатель 1');
+
+    const userStateAfterFirstRead = await User.findOne({ telegramId: switchingLanguageUserId });
+    expect(userStateAfterFirstRead.shuffleIndex).toBe(1);
+
+    const switchLanguageContext = createMockContext({
+      userId: switchingLanguageUserId,
+      callbackData: 'settings:language:set:en'
+    });
+    await handleLanguageSet(switchLanguageContext);
+
+    const userStateAfterLanguageSwitch = await User.findOne({ telegramId: switchingLanguageUserId });
+    expect(userStateAfterLanguageSwitch.language).toBe('en');
+    expect(userStateAfterLanguageSwitch.shuffleIndex).toBe(1);
+    expect(userStateAfterLanguageSwitch.shuffleQueue).toEqual([0, 1, 2]);
+
+    const secondPointerInEnglish = await getNextPointerForUser(switchingLanguageUserId);
+    expect(secondPointerInEnglish.text).toBe('English pointer 2');
+
+    const userStateAfterSecondRead = await User.findOne({ telegramId: switchingLanguageUserId });
+    expect(userStateAfterSecondRead.shuffleIndex).toBe(2);
   });
 });

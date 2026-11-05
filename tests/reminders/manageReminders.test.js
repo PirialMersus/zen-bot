@@ -6,6 +6,7 @@ import {
   handleRequestAction
 } from '../../src/handlers/reminders.js';
 import Reminder from '../../src/models/Reminder.js';
+import User from '../../src/models/User.js';
 import { createMockContext } from '../helpers/mockContext.js';
 
 describe('Управление существующими напоминаниями', () => {
@@ -42,7 +43,10 @@ describe('Управление существующими напоминания
 
     await handleMyReminders(mockContext);
 
-    expect(mockContext.reply).toHaveBeenCalledTimes(2);
+    expect(mockContext.reply).toHaveBeenCalledTimes(1);
+    const replyMessageText = mockContext.reply.mock.calls[0][0];
+    expect(replyMessageText).toContain('Первое напоминание');
+    expect(replyMessageText).toContain('Второе напоминание');
   });
 
   it('должен переключать статус напоминания на паузу и обратно', async () => {
@@ -101,6 +105,44 @@ describe('Управление существующими напоминания
 
     const deletedReminderInDb = await Reminder.findById(reminderToDelete.id);
     expect(deletedReminderInDb).toBeNull();
-    expect(confirmDeleteMockContext.deleteMessage).toHaveBeenCalled();
+    expect(confirmDeleteMockContext.editMessageText).toHaveBeenCalled();
+  });
+
+  it('должен показывать список оставшихся напоминаний после удаления напоминания', async () => {
+    const telegramUserId = 11223355;
+    await User.create({ telegramId: telegramUserId, timezone: 'Europe/Minsk' });
+
+    const reminderToDelete = await Reminder.create({
+      userId: String(telegramUserId),
+      chatId: telegramUserId,
+      text: 'Первое напоминание',
+      intervalMinutes: 10,
+      isActive: true
+    });
+
+    await Reminder.create({
+      userId: String(telegramUserId),
+      chatId: telegramUserId,
+      text: 'Второе оставшееся напоминание',
+      intervalMinutes: 20,
+      isActive: true
+    });
+
+    const confirmDeleteMockContext = createMockContext({
+      userId: telegramUserId,
+      callbackData: `confirm:delete:${reminderToDelete.id}`
+    });
+
+    await handleConfirmAction(confirmDeleteMockContext);
+
+    const deletedReminderInDb = await Reminder.findById(reminderToDelete.id);
+    expect(deletedReminderInDb).toBeNull();
+    expect(confirmDeleteMockContext.editMessageText).toHaveBeenCalled();
+    const [editedText, editedOptions] = confirmDeleteMockContext.editMessageText.mock.calls[0];
+    expect(editedText).toContain('Второе оставшееся напоминание');
+    expect(editedText).not.toContain('Первое напоминание');
+
+    const inlineButtons = editedOptions.reply_markup.inline_keyboard.flat();
+    expect(inlineButtons.some(button => button.text === '1')).toBe(true);
   });
 });

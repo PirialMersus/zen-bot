@@ -1,4 +1,3 @@
-// src/services/cleanupUser.js
 import User from '../models/User.js';
 import Reminder from '../models/Reminder.js';
 import Activity from '../models/Activity.js';

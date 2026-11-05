@@ -1,7 +1,7 @@
 import mongoose from 'mongoose';
 
 const schema = new mongoose.Schema({
-  userId: String,
+  userId: { type: String, index: true },
   chatId: { type: Number, index: true },
   text: String,
   photoFileId: { type: String, default: null },
@@ -19,5 +19,7 @@ const schema = new mongoose.Schema({
 
   isRandomPointer: { type: Boolean, default: false }
 });
+
+schema.index({ isActive: 1, nextRunAt: 1 });
 
 export default mongoose.model('Reminder', schema);

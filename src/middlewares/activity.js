@@ -92,7 +92,6 @@ export const activityMiddleware = async (ctx, next) => {
     {
       $set: {
         lastActivityAt: now,
-        lastSeenAt: now,
         firstName: ctx.from?.first_name || null,
         lastName: ctx.from?.last_name || null,
         username: ctx.from?.username || null

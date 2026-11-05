@@ -1,4 +1,3 @@
-// src/handlers/auth.js
 import crypto from 'node:crypto';
 import { Markup } from 'telegraf';
 import User from '../models/User.js';
@@ -12,11 +11,9 @@ export const handleGetAuthCode = async (ctx) => {
             return;
         }
 
-        // Генерируем код
         const code = crypto.randomBytes(3).toString('hex').toUpperCase();
         const formattedCode = `${code.slice(0, 3)}-${code.slice(3, 6)}`;
 
-        // Сохраняем код (действителен 10 минут)
         user.authCode = formattedCode;
         user.authCodeExpiresAt = new Date(Date.now() + 10 * 60 * 1000);
         await user.save();

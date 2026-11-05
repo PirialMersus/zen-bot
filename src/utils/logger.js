@@ -1,4 +1,3 @@
-// src/utils/logger.js
 export const logError = (error, meta = {}) => {
   const time = new Date().toISOString();
 

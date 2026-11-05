@@ -13,7 +13,7 @@ const RUSSIAN_UI = {
 
   CONFIRM_YES: '✅ Да',
   CONFIRM_NO: '❌ Нет',
-  ADMIN_ACTIVE_USERS: '👥 Активные пользователи',
+  ADMIN_ACTIVE_USERS: '👥 Пользователи',
   ADMIN_BROADCAST: '📢 Рассылка',
   SUPPORT: '🛠 Техподдержка',
   TIMEZONE: '🌍 Часовой пояс'
@@ -34,8 +34,8 @@ const ENGLISH_UI = {
 
   CONFIRM_YES: '✅ Yes',
   CONFIRM_NO: '❌ No',
-  ADMIN_ACTIVE_USERS: '👥 Активные пользователи',
-  ADMIN_BROADCAST: '📢 Рассылка',
+  ADMIN_ACTIVE_USERS: '👥 Users',
+  ADMIN_BROADCAST: '📢 Broadcast',
   SUPPORT: '🛠 Support',
   TIMEZONE: '🌍 Timezone'
 };

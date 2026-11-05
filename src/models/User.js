@@ -1,7 +1,7 @@
 import mongoose from 'mongoose';
 
 const schema = new mongoose.Schema({
-  telegramId: { type: Number, index: true },
+  telegramId: { type: Number, index: true, unique: true, sparse: true },
   firstName: { type: String },
   lastName: { type: String },
   username: { type: String },

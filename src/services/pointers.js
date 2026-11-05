@@ -109,6 +109,7 @@ export const getNextPointerForUser = async (telegramUserId, tagFilter = null) =>
   const pointerPositionIndex = currentQueue[currentIndex];
 
   const [pointer] = await targetPointerModel.find(activePointersQuery)
+    .sort({ number: 1, _id: 1 })
     .skip(pointerPositionIndex)
     .limit(1);
 
@@ -118,7 +119,9 @@ export const getNextPointerForUser = async (telegramUserId, tagFilter = null) =>
       { telegramId: telegramUserId },
       { shuffleQueue: freshQueue, shuffleIndex: 0 }
     );
-    const [fallbackPointer] = await targetPointerModel.find(activePointersQuery).limit(1);
+    const [fallbackPointer] = await targetPointerModel.find(activePointersQuery)
+      .sort({ number: 1, _id: 1 })
+      .limit(1);
     return fallbackPointer || null;
   }
 

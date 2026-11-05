@@ -1,19 +1,23 @@
-// src/api/index.js
-// API endpoints для мобильного приложения HabitReminder
-
 import express from 'express';
 import jwt from 'jsonwebtoken';
 import crypto from 'node:crypto';
-import { Pointer } from '../models/Pointer.js';
+import { Pointer, PointerEn } from '../models/Pointer.js';
 import Reminder from '../models/Reminder.js';
 import User from '../models/User.js';
 
 const router = express.Router();
 
-// JWT Secret - добавь в .env: JWT_SECRET=your-secret-key
-const JWT_SECRET = process.env.JWT_SECRET || 'habit-reminder-jwt-secret-2024';
+const RESOLVED_JWT_SECRET = process.env.JWT_SECRET || 'zen-bot-mobile-app-secret-2024-habit-reminder';
 
-// Middleware для проверки токена
+const ALLOWED_REMINDER_UPDATE_FIELDS = [
+    'text',
+    'intervalMinutes',
+    'deleteAfterSeconds',
+    'soundId',
+    'isActive',
+    'caption'
+];
+
 const authMiddleware = async (req, res, next) => {
     try {
         const token = req.headers.authorization?.replace('Bearer ', '');
@@ -21,7 +25,7 @@ const authMiddleware = async (req, res, next) => {
             return res.status(401).json({ message: 'Токен не предоставлен' });
         }
 
-        const decoded = jwt.verify(token, JWT_SECRET);
+        const decoded = jwt.verify(token, RESOLVED_JWT_SECRET);
         const user = await User.findOne({ telegramId: decoded.telegramId });
 
         if (!user) {
@@ -35,9 +39,6 @@ const authMiddleware = async (req, res, next) => {
     }
 };
 
-// ==================== AUTH ====================
-
-// POST /api/auth/request - Запрос кода авторизации
 router.post('/auth/request', async (req, res) => {
     try {
         const { telegramId } = req.body;
@@ -51,11 +52,9 @@ router.post('/auth/request', async (req, res) => {
             return res.status(404).json({ message: 'Пользователь не найден. Сначала запустите бота.' });
         }
 
-        // Генерируем код
         const code = crypto.randomBytes(3).toString('hex').toUpperCase();
         const formattedCode = `${code.slice(0, 3)}-${code.slice(3, 6)}`;
 
-        // Сохраняем код (действителен 10 минут)
         user.authCode = formattedCode;
         user.authCodeExpiresAt = new Date(Date.now() + 10 * 60 * 1000);
         await user.save();
@@ -70,26 +69,24 @@ router.post('/auth/request', async (req, res) => {
     }
 });
 
-// POST /api/auth/verify - Проверка кода
 router.post('/auth/verify', async (req, res) => {
     try {
         const { code } = req.body;
-        console.log('Verify request, code:', code);
 
         if (!code) {
             return res.status(400).json({ message: 'Код обязателен' });
         }
 
-        // DEV code for testing - always works for creator
-        if (code.toUpperCase() === 'DEV-123') {
-            const devUser = await User.findOne({ telegramId: 791785172 });
+        const isDevelopmentEnvironment = process.env.NODE_ENV === 'development';
+        if (isDevelopmentEnvironment && code.toUpperCase() === 'DEV-123') {
+            const developmentCreatorTelegramId = process.env.CREATOR_ID ? Number(process.env.CREATOR_ID) : 791785172;
+            const devUser = await User.findOne({ telegramId: developmentCreatorTelegramId });
             if (devUser) {
                 const token = jwt.sign(
                     { telegramId: devUser.telegramId, id: devUser._id },
-                    JWT_SECRET,
+                    RESOLVED_JWT_SECRET,
                     { expiresIn: '30d' }
                 );
-                console.log('DEV code verified for user:', devUser.telegramId);
                 return res.json({
                     token,
                     user: {
@@ -108,19 +105,16 @@ router.post('/auth/verify', async (req, res) => {
         });
 
         if (!user) {
-            console.log('No user found with code:', code);
             return res.status(401).json({ message: 'Неверный или истёкший код' });
         }
 
-        // Очищаем код
         user.authCode = null;
         user.authCodeExpiresAt = null;
         await user.save();
 
-        // Генерируем JWT токен
         const token = jwt.sign(
             { telegramId: user.telegramId, id: user._id },
-            JWT_SECRET,
+            RESOLVED_JWT_SECRET,
             { expiresIn: '30d' }
         );
 
@@ -139,19 +133,20 @@ router.post('/auth/verify', async (req, res) => {
     }
 });
 
-// ==================== POINTERS ====================
-
-// GET /api/pointers/random - Случайный указатель (публичный)
 router.get('/pointers/random', async (req, res) => {
     try {
-        const count = await Pointer.countDocuments({ isActive: true });
+        const requestedLanguage = req.query.language || req.query.lang || 'ru';
+        const targetPointerModel = requestedLanguage === 'en' ? PointerEn : Pointer;
+
+        const count = await targetPointerModel.countDocuments({ isActive: true });
         if (!count) {
             return res.status(404).json({ message: 'Указатели не найдены' });
         }
 
-        const random = Math.floor(Math.random() * count);
-        const [pointer] = await Pointer.find({ isActive: true })
-            .skip(random)
+        const randomPositionIndex = Math.floor(Math.random() * count);
+        const [pointer] = await targetPointerModel.find({ isActive: true })
+            .sort({ number: 1, _id: 1 })
+            .skip(randomPositionIndex)
             .limit(1);
 
         res.json(pointer);
@@ -161,9 +156,6 @@ router.get('/pointers/random', async (req, res) => {
     }
 });
 
-// ==================== REMINDERS ====================
-
-// GET /api/reminders - Список напоминаний пользователя
 router.get('/reminders', authMiddleware, async (req, res) => {
     try {
         const reminders = await Reminder.find({
@@ -177,7 +169,6 @@ router.get('/reminders', authMiddleware, async (req, res) => {
     }
 });
 
-// POST /api/reminders - Создать напоминание
 router.post('/reminders', authMiddleware, async (req, res) => {
     try {
         const { text, intervalMinutes, deleteAfterSeconds, soundId } = req.body;
@@ -205,15 +196,25 @@ router.post('/reminders', authMiddleware, async (req, res) => {
     }
 });
 
-// PATCH /api/reminders/:id - Обновить напоминание
 router.patch('/reminders/:id', authMiddleware, async (req, res) => {
     try {
         const { id } = req.params;
-        const updates = req.body;
+        const incomingUpdates = req.body || {};
+
+        const sanitizedUpdates = {};
+        for (const allowedField of ALLOWED_REMINDER_UPDATE_FIELDS) {
+            if (incomingUpdates[allowedField] !== undefined) {
+                sanitizedUpdates[allowedField] = incomingUpdates[allowedField];
+            }
+        }
+
+        if (Object.keys(sanitizedUpdates).length === 0) {
+            return res.status(400).json({ message: 'Нет допустимых полей для обновления' });
+        }
 
         const reminder = await Reminder.findOneAndUpdate(
             { _id: id, userId: String(req.user.telegramId) },
-            { $set: updates },
+            { $set: sanitizedUpdates },
             { new: true }
         );
 
@@ -228,7 +229,6 @@ router.patch('/reminders/:id', authMiddleware, async (req, res) => {
     }
 });
 
-// DELETE /api/reminders/:id - Удалить напоминание
 router.delete('/reminders/:id', authMiddleware, async (req, res) => {
     try {
         const { id } = req.params;
@@ -249,9 +249,6 @@ router.delete('/reminders/:id', authMiddleware, async (req, res) => {
     }
 });
 
-// ==================== USER SETTINGS ====================
-
-// GET /api/user/settings - Получить настройки
 router.get('/user/settings', authMiddleware, async (req, res) => {
     try {
         res.json({
@@ -267,7 +264,6 @@ router.get('/user/settings', authMiddleware, async (req, res) => {
     }
 });
 
-// PATCH /api/user/settings - Обновить настройки
 router.patch('/user/settings', authMiddleware, async (req, res) => {
     try {
         const { timezone, quietHours } = req.body;
@@ -290,7 +286,6 @@ router.patch('/user/settings', authMiddleware, async (req, res) => {
     }
 });
 
-// POST /api/user/push-token - Сохранить push token
 router.post('/user/push-token', authMiddleware, async (req, res) => {
     try {
         const { token } = req.body;
@@ -315,7 +310,6 @@ router.post('/user/push-token', authMiddleware, async (req, res) => {
     }
 });
 
-// PUT /api/user/notification-channel - Обновить канал уведомлений
 router.put('/user/notification-channel', authMiddleware, async (req, res) => {
     try {
         const { channel } = req.body;

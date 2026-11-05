@@ -1,10 +1,11 @@
 import { Markup } from 'telegraf';
 import { getButtons } from '../constants/buttons.js';
-import { UI } from '../constants/ui.js';
+import { getUi } from '../constants/ui.js';
 
 export const mainKeyboard = (ctx, explicitLanguage = null) => {
   const userLanguage = explicitLanguage || ctx?.state?.userLanguage || 'ru';
   const buttons = getButtons(userLanguage);
+  const ui = getUi(userLanguage);
   const telegramUserId = ctx?.from?.id || ctx?.callbackQuery?.from?.id;
   const isAdministrator = String(telegramUserId) === process.env.CREATOR_ID;
 
@@ -14,7 +15,7 @@ export const mainKeyboard = (ctx, explicitLanguage = null) => {
   ];
 
   if (isAdministrator) {
-    rows.push([UI.ADMIN_ACTIVE_USERS, UI.ADMIN_BROADCAST]);
+    rows.push([ui.ADMIN_ACTIVE_USERS, ui.ADMIN_BROADCAST]);
   }
 
   return Markup.keyboard(rows).resize();

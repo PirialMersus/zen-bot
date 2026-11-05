@@ -34,7 +34,7 @@ const RUSSIAN_TEXTS = {
 
   STATUS: {
     ACTIVE: '🟢 Активно',
-    PAUSED: '⏸ Пауза'
+    PAUSED: '⏸️ Пауза'
   },
 
   SETTINGS: {
@@ -95,7 +95,7 @@ I will remind you about what truly matters
 
   STATUS: {
     ACTIVE: '🟢 Active',
-    PAUSED: '⏸ Paused'
+    PAUSED: '⏸️ Paused'
   },
 
   SETTINGS: {

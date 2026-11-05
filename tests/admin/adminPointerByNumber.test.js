@@ -182,4 +182,16 @@ describe('Админская команда получения указател�
     expect(executionResult).toBe(false);
     expect(mockUserContext.reply).not.toHaveBeenCalled();
   });
+
+  it('не должен перехватывать обычный ввод числа от администратора при создании напоминания', async () => {
+    const mockAdminContext = createMockContext({
+      userId: administratorTelegramIdentifier,
+      text: '4'
+    });
+
+    const executionResult = await handleAdminGetPointerByNumber(mockAdminContext);
+
+    expect(executionResult).toBe(false);
+    expect(mockAdminContext.reply).not.toHaveBeenCalled();
+  });
 });

@@ -52,19 +52,19 @@ const runSetup = async () => {
 
   console.log(`Configuring bot descriptions: @${botInfoResponse.result.username}`);
 
-  await executeApiMethod('setMyName', { name: russianBotName });
-  await executeApiMethod('setMyName', { name: russianBotName, language_code: 'ru' });
+  await executeApiMethod('setMyName', { name: englishBotName });
   await executeApiMethod('setMyName', { name: englishBotName, language_code: 'en' });
+  await executeApiMethod('setMyName', { name: russianBotName, language_code: 'ru' });
 
-  await executeApiMethod('setMyDescription', { description: russianDescription });
-  await executeApiMethod('setMyDescription', { description: russianDescription, language_code: 'ru' });
+  await executeApiMethod('setMyDescription', { description: englishDescription });
   await executeApiMethod('setMyDescription', { description: englishDescription, language_code: 'en' });
+  await executeApiMethod('setMyDescription', { description: russianDescription, language_code: 'ru' });
 
-  await executeApiMethod('setMyShortDescription', { short_description: russianShortDescription });
-  await executeApiMethod('setMyShortDescription', { short_description: russianShortDescription, language_code: 'ru' });
+  await executeApiMethod('setMyShortDescription', { short_description: englishShortDescription });
   await executeApiMethod('setMyShortDescription', { short_description: englishShortDescription, language_code: 'en' });
+  await executeApiMethod('setMyShortDescription', { short_description: russianShortDescription, language_code: 'ru' });
 
-  console.log('Descriptions and names updated successfully with Russian as default!');
+  console.log('Descriptions and names updated successfully with English as default!');
 };
 
 runSetup();

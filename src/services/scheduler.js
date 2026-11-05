@@ -53,8 +53,17 @@ const sendPushNotification = async (pushTokens, text, soundId, title = 'Напо
   return true;
 };
 
+let isSchedulerTickProcessing = false;
+
 export const startScheduler = bot => {
   setInterval(async () => {
+    if (isSchedulerTickProcessing) {
+      logError(new Error('Scheduler tick skipped: previous tick is still in progress'), { scope: 'schedulerTickOverlap' });
+      return;
+    }
+
+    isSchedulerTickProcessing = true;
+
     try {
       if (process.env.NODE_ENV === 'production' && process.env.HEALTHCHECKS_URL) {
         https.get(process.env.HEALTHCHECKS_URL, r => r.resume()).on('error', () => { });
@@ -233,6 +242,8 @@ export const startScheduler = bot => {
       }
     } catch (e) {
       logError(e, { scope: 'schedulerTick' });
+    } finally {
+      isSchedulerTickProcessing = false;
     }
   }, TICK_MS);
 };

@@ -14,6 +14,7 @@ import {
   handleReminderText,
   handleRequestAction,
   handleConfirmAction,
+  handleViewReminder,
   REMINDER_STEP
 } from '../../src/handlers/reminders.js';
 import {
@@ -268,7 +269,7 @@ describe('Покрытие всех переводов и целостность
 
     const inlineActionButtons = singleReminderOptions.reply_markup.inline_keyboard.flat();
     const actionButtonsTextList = inlineActionButtons.map(buttonItem => buttonItem.text);
-    expect(actionButtonsTextList).toContain('⏸ Pause');
+    expect(actionButtonsTextList).toContain('⏸️ Pause');
     expect(actionButtonsTextList).toContain('🗑 Delete');
 
     const pauseActionContext = createMockContext({

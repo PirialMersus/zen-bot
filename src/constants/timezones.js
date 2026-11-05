@@ -1,4 +1,3 @@
-// src/constants/timezones.js
 export const TIMEZONE_REGIONS = {
   europe: {
     label: '🇪🇺 Европа',

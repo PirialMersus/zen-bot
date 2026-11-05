@@ -1,151 +1,118 @@
 import User from '../../models/User.js';
 import Reminder from '../../models/Reminder.js';
 import { getQuietEndDate } from '../../services/quietHours.js';
-import { settingsKeyboard } from '../../keyboard/settings.js';
-import { languageSelectionKeyboard } from '../../keyboard/language.js';
-import { mainKeyboard } from '../../keyboard/main.js';
-import { getTexts } from '../../constants/texts.js';
-import { getTimezoneRegionsKeyboard } from '../../keyboard/timezoneRegions.js';
-import { timezoneCitiesKeyboard } from '../../keyboard/timezoneCities.js';
+import { quietHoursKeyboard } from '../../keyboard/quietHours.js';
 import { resolveUserLanguage } from '../../middlewares/activity.js';
+import { renderSettings, handleSettings } from './general.js';
+import { handleTimezoneMenu, handleTimezoneRegion, handleTimezoneSet } from './timezone.js';
+import { handleLanguageMenu, handleLanguageSet } from './language.js';
 
-export const handleTimezoneMenu = async ctx => {
+export {
+  renderSettings,
+  handleSettings,
+  handleTimezoneMenu,
+  handleTimezoneRegion,
+  handleTimezoneSet,
+  handleLanguageMenu,
+  handleLanguageSet
+};
+
+export const handleQuietHoursMenu = async ctx => {
   const userLanguage = await resolveUserLanguage(ctx);
   await ctx.answerCbQuery().catch(() => {});
   await ctx.deleteMessage().catch(() => {});
 
-  const promptText = userLanguage === 'en' ? '🌍 Select region:' : '🌍 Выберите регион:';
+  const promptText = userLanguage === 'en'
+    ? '🌙 <b>Quiet hours schedule</b>\n\nChoose a preset or set custom hours:'
+    : '🌙 <b>Расписание тихих часов</b>\n\nВыберите готовый интервал или задайте свой:';
 
-  await ctx.reply(promptText, getTimezoneRegionsKeyboard(userLanguage));
+  await ctx.reply(promptText, {
+    parse_mode: 'HTML',
+    ...quietHoursKeyboard(userLanguage)
+  });
 };
 
-export const handleTimezoneRegion = async ctx => {
+export const handleQuietHoursSetPreset = async ctx => {
   const userLanguage = await resolveUserLanguage(ctx);
-  const regionKey = ctx.callbackQuery.data.split(':').pop();
-
-  await ctx.answerCbQuery().catch(() => {});
-  await ctx.deleteMessage().catch(() => {});
-
-  const promptText = userLanguage === 'en' ? '🌍 Select city:' : '🌍 Выберите город:';
-
-  await ctx.reply(promptText, timezoneCitiesKeyboard(regionKey, userLanguage));
-};
-
-export const handleTimezoneSet = async ctx => {
-  const userLanguage = await resolveUserLanguage(ctx);
-  const timezoneValue = ctx.callbackQuery.data.split(':').pop();
+  const callbackSegments = ctx.callbackQuery.data.split(':');
+  const startHour = Number(callbackSegments[callbackSegments.length - 2]);
+  const endHour = Number(callbackSegments[callbackSegments.length - 1]);
 
   await User.findOneAndUpdate(
     { telegramId: ctx.from.id },
-    { timezone: timezoneValue },
-    { upsert: true }
-  );
-
-  await ctx.answerCbQuery().catch(() => {});
-
-  try {
-    await ctx.deleteMessage();
-  } catch {}
-
-  const confirmationText = userLanguage === 'en'
-    ? `✅ Timezone set:\n🌍 ${timezoneValue}`
-    : `✅ Часовой пояс установлен:\n🌍 ${timezoneValue}`;
-
-  await ctx.reply(confirmationText);
-};
-
-export const handleLanguageMenu = async ctx => {
-  const userLanguage = await resolveUserLanguage(ctx);
-  const texts = getTexts(userLanguage);
-
-  await ctx.answerCbQuery().catch(() => {});
-  try {
-    await ctx.deleteMessage();
-  } catch {}
-
-  await ctx.reply(texts.SETTINGS.LANGUAGE_TITLE, languageSelectionKeyboard(userLanguage));
-};
-
-export const handleLanguageSet = async ctx => {
-  const rawSelectedLanguage = ctx.callbackQuery.data.split(':').pop();
-  const selectedLanguage = rawSelectedLanguage === 'en' ? 'en' : 'ru';
-
-  await User.updateOne(
-    { telegramId: ctx.from.id },
     {
-      $set: {
-        language: selectedLanguage,
-        shuffleIndex: 0,
-        shuffleQueue: []
-      }
+      'quietHours.start': startHour,
+      'quietHours.end': endHour
     },
     { upsert: true }
   );
 
-  ctx.state = ctx.state || {};
-  ctx.state.userLanguage = selectedLanguage;
+  const confirmationText = userLanguage === 'en'
+    ? `✅ Quiet hours updated:\n⏰ ${startHour}:00–${endHour}:00`
+    : `✅ Расписание тихих часов обновлено:\n⏰ ${startHour}:00–${endHour}:00`;
 
-  await ctx.answerCbQuery().catch(() => {});
-
-  try {
-    await ctx.deleteMessage();
-  } catch {}
-
-  const texts = getTexts(selectedLanguage);
-  await ctx.reply(texts.SETTINGS.LANGUAGE_CHANGED, mainKeyboard(ctx, selectedLanguage));
+  await renderSettings(ctx, confirmationText);
 };
 
-const renderSettings = async ctx => {
+export const handleQuietHoursCustomPrompt = async ctx => {
   const userLanguage = await resolveUserLanguage(ctx);
-  const texts = getTexts(userLanguage);
+  await ctx.answerCbQuery().catch(() => {});
+  await ctx.deleteMessage().catch(() => {});
 
-  const user = await User.findOne({ telegramId: ctx.from.id }) ?? {
-    quietHours: { enabled: true, start: 23, end: 8 },
-    timezone: 'Europe/Minsk',
-    language: userLanguage
-  };
+  ctx.session ??= {};
+  ctx.session.isSettingCustomQuietHours = true;
 
-  const quietSettings = user.quietHours;
-  const timezoneValue = user.timezone || 'Europe/Minsk';
+  const promptText = userLanguage === 'en'
+    ? '✍️ Enter quiet hours as <code>START-END</code> (e.g. <code>23-8</code> or <code>22:00-07:00</code>):'
+    : '✍️ Введите часы тишины в формате <code>НАЧАЛО-КОНЕЦ</code> (например, <code>23-8</code> или <code>22:00-07:00</code>):';
 
-  const quietStatusLabel = userLanguage === 'en'
-    ? (quietSettings.enabled ? 'enabled' : 'disabled')
-    : (quietSettings.enabled ? 'включены' : 'выключены');
+  await ctx.reply(promptText, { parse_mode: 'HTML' });
+};
 
-  const languageDisplayName = userLanguage === 'en' ? 'English' : 'Русский';
+export const handleQuietHoursCustomInput = async ctx => {
+  if (!ctx.session?.isSettingCustomQuietHours) return false;
 
-  const localizedSettingsText = userLanguage === 'en'
-    ? `${texts.MENU.SETTINGS}
+  const rawInputText = ctx.message?.text?.trim() || '';
+  const parsedTimeMatch = rawInputText.match(/^(\d{1,2})(?::00)?\s*[-–—]\s*(\d{1,2})(?::00)?$/);
 
-🌙 Quiet hours: ${quietStatusLabel}
-⏰ ${quietSettings.start}:00–${quietSettings.end}:00
+  const userLanguage = await resolveUserLanguage(ctx);
 
-🌍 Timezone:
-${timezoneValue}
-
-🌐 Language:
-${languageDisplayName}`
-    : `${texts.MENU.SETTINGS}
-
-🌙 Тихие часы: ${quietStatusLabel}
-⏰ ${quietSettings.start}:00–${quietSettings.end}:00
-
-🌍 Часовой пояс:
-${timezoneValue}
-
-🌐 Язык:
-${languageDisplayName}`;
-
-  if (ctx.callbackQuery) {
-    await ctx.answerCbQuery().catch(() => {});
-    await ctx.deleteMessage().catch(() => {});
+  if (!parsedTimeMatch) {
+    const errorPrompt = userLanguage === 'en'
+      ? '⚠️ Please specify hours in format <code>23-8</code> or <code>22:00-07:00</code>:'
+      : '⚠️ Пожалуйста, укажите часы в формате <code>23-8</code> или <code>22:00-07:00</code>:';
+    await ctx.reply(errorPrompt, { parse_mode: 'HTML' });
+    return true;
   }
 
-  await ctx.reply(localizedSettingsText, settingsKeyboard(quietSettings.enabled, userLanguage));
-};
+  const startHour = Number(parsedTimeMatch[1]);
+  const endHour = Number(parsedTimeMatch[2]);
 
-export const handleSettings = async ctx => {
-  await renderSettings(ctx);
+  if (startHour < 0 || startHour > 23 || endHour < 0 || endHour > 23 || startHour === endHour) {
+    const rangeErrorPrompt = userLanguage === 'en'
+      ? '⚠️ Hours must be between 0 and 23 and must not match:'
+      : '⚠️ Часы должны быть от 0 до 23 и не совпадать:';
+    await ctx.reply(rangeErrorPrompt, { parse_mode: 'HTML' });
+    return true;
+  }
+
+  ctx.session.isSettingCustomQuietHours = null;
+
+  await User.findOneAndUpdate(
+    { telegramId: ctx.from.id },
+    {
+      'quietHours.start': startHour,
+      'quietHours.end': endHour
+    },
+    { upsert: true }
+  );
+
+  const confirmationText = userLanguage === 'en'
+    ? `✅ Quiet hours updated:\n⏰ ${startHour}:00–${endHour}:00`
+    : `✅ Расписание тихих часов обновлено:\n⏰ ${startHour}:00–${endHour}:00`;
+
+  await renderSettings(ctx, confirmationText);
+  return true;
 };
 
 export const handleQuietToggle = async ctx => {

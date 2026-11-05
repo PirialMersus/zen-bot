@@ -1,4 +1,3 @@
-// src/index.js
 import 'dotenv/config';
 import { connectDB } from './storage/db.js';
 import { bot } from './bot.js';

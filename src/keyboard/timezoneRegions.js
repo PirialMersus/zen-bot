@@ -9,7 +9,7 @@ export const getTimezoneRegionsKeyboard = (language = 'ru') => {
     ...Object.entries(TIMEZONE_REGIONS).map(([key, regionItem]) => [
       Markup.button.callback(regionItem.label, `timezone:region:${key}`)
     ]),
-    [Markup.button.callback(buttons.BACK, 'settings:back')]
+    [Markup.button.callback(buttons.BACK, 'settings:menu')]
   ]);
 };
 
