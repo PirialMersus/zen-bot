@@ -6,7 +6,8 @@ import User from '../models/User.js';
 import {
   getPointerByNumber,
   findPointersByText,
-  countPointersByText
+  countPointersByText,
+  isPointerInFavorites
 } from '../services/pointers.js';
 import { resolveUserLanguage } from '../middlewares/activity.js';
 import { buildPointerInlineKeyboard, formatPointerText } from './pointers.js';
@@ -314,10 +315,13 @@ export const handleAdminGetPointerByNumber = async ctx => {
 
   ctx.session ??= {};
   ctx.session.lastPointerText = foundPointerRecord.text;
+  ctx.session.lastPointerId = String(foundPointerRecord._id);
+
+  const isFavorite = await isPointerInFavorites(ctx.from?.id, foundPointerRecord._id);
 
   await ctx.reply(
     formattedPointerMessage,
-    buildPointerInlineKeyboard(targetPointerLanguage)
+    buildPointerInlineKeyboard(targetPointerLanguage, isFavorite, foundPointerRecord._id, 'random')
   );
 
   return true;
@@ -368,9 +372,13 @@ export const handleAdminSearchPointers = async ctx => {
   for (const singlePointerRecord of foundPointersList) {
     const formattedPointerMessage = formatPointerText(singlePointerRecord);
     ctx.session.lastPointerText = singlePointerRecord.text;
+    ctx.session.lastPointerId = String(singlePointerRecord._id);
+
+    const isFavorite = await isPointerInFavorites(ctx.from?.id, singlePointerRecord._id);
+
     await ctx.reply(
       formattedPointerMessage,
-      buildPointerInlineKeyboard(targetPointerLanguage)
+      buildPointerInlineKeyboard(targetPointerLanguage, isFavorite, singlePointerRecord._id, 'random')
     );
   }
 

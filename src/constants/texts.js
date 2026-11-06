@@ -16,7 +16,11 @@ const RUSSIAN_TEXTS = {
   },
 
   POINTERS: {
-    EMPTY: 'Пока нет указателей.'
+    EMPTY: 'Пока нет указателей.',
+    FAVORITE_EMPTY: 'У вас пока нет избранных указателей. Читая случайные указатели, нажимайте «⭐ В избранное», чтобы сохранить понравившиеся.',
+    FAVORITE_ADDED: 'Добавлено в избранное ⭐',
+    FAVORITE_REMOVED: 'Удалено из избранного',
+    FAVORITE_REMINDER_EMPTY: 'У вас пока нет избранных указателей. Сначала добавьте понравившиеся указатели в избранное.'
   },
 
   REMINDERS: {
@@ -77,7 +81,11 @@ I will remind you about what truly matters
   },
 
   POINTERS: {
-    EMPTY: 'No pointers yet.'
+    EMPTY: 'No pointers yet.',
+    FAVORITE_EMPTY: 'You have no favorite pointers yet. While reading pointers, click "⭐ To favorites" to save them.',
+    FAVORITE_ADDED: 'Added to favorites ⭐',
+    FAVORITE_REMOVED: 'Removed from favorites',
+    FAVORITE_REMINDER_EMPTY: 'You have no favorite pointers yet. First add pointers to your favorites.'
   },
 
   REMINDERS: {

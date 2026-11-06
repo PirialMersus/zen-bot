@@ -35,6 +35,19 @@ const schema = new mongoose.Schema({
     default: 0
   },
 
+  favoritePointers: [{
+    pointerId: { type: mongoose.Schema.Types.ObjectId, index: true },
+    addedAt: { type: Date, default: Date.now }
+  }],
+  favoriteQueue: {
+    type: [Number],
+    default: []
+  },
+  favoriteIndex: {
+    type: Number,
+    default: 0
+  },
+
   authCode: { type: String },
   authCodeExpiresAt: { type: Date },
   pushTokens: [{ type: String }],

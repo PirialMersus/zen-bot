@@ -15,7 +15,9 @@ const ALLOWED_REMINDER_UPDATE_FIELDS = [
     'deleteAfterSeconds',
     'soundId',
     'isActive',
-    'caption'
+    'caption',
+    'isRandomPointer',
+    'isFavoritePointer'
 ];
 
 const authMiddleware = async (req, res, next) => {
@@ -171,7 +173,7 @@ router.get('/reminders', authMiddleware, async (req, res) => {
 
 router.post('/reminders', authMiddleware, async (req, res) => {
     try {
-        const { text, intervalMinutes, deleteAfterSeconds, soundId } = req.body;
+        const { text, intervalMinutes, deleteAfterSeconds, soundId, isRandomPointer, isFavoritePointer } = req.body;
 
         if (!text || !intervalMinutes) {
             return res.status(400).json({ message: 'text и intervalMinutes обязательны' });
@@ -186,6 +188,8 @@ router.post('/reminders', authMiddleware, async (req, res) => {
             deleteAfterSeconds: deleteAfterSeconds ?? 10,
             soundId: soundId || 'default',
             isActive: true,
+            isRandomPointer: Boolean(isRandomPointer),
+            isFavoritePointer: Boolean(isFavoritePointer),
             nextRunAt: new Date(now.getTime() + intervalMinutes * 60 * 1000)
         });
 

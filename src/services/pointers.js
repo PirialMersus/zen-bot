@@ -1,3 +1,4 @@
+import mongoose from 'mongoose';
 import { Pointer, PointerEn } from '../models/Pointer.js';
 import User from '../models/User.js';
 
@@ -134,4 +135,123 @@ export const getNextPointerForUser = async (telegramUserId, tagFilter = null) =>
   );
 
   return pointer;
+};
+
+export const isPointerInFavorites = async (telegramUserId, pointerId) => {
+  if (!pointerId || !mongoose.Types.ObjectId.isValid(pointerId)) return false;
+  const user = await User.findOne({
+    telegramId: telegramUserId,
+    'favoritePointers.pointerId': pointerId
+  }).lean();
+  return Boolean(user);
+};
+
+export const toggleFavoritePointer = async (telegramUserId, pointerId) => {
+  if (!pointerId || !mongoose.Types.ObjectId.isValid(pointerId)) {
+    return { isFavorite: false, totalFavorites: 0 };
+  }
+
+  let user = await User.findOne({ telegramId: telegramUserId });
+  if (!user) {
+    user = await User.create({ telegramId: telegramUserId });
+  }
+
+  const existingIndex = user.favoritePointers.findIndex(
+    item => String(item.pointerId) === String(pointerId)
+  );
+
+  let isFavoriteNow = false;
+
+  if (existingIndex >= 0) {
+    user.favoritePointers = user.favoritePointers.filter(
+      item => String(item.pointerId) !== String(pointerId)
+    );
+    user.favoriteQueue = [];
+    user.favoriteIndex = 0;
+    isFavoriteNow = false;
+  } else {
+    user.favoritePointers.push({ pointerId });
+    user.favoriteQueue = [];
+    user.favoriteIndex = 0;
+    isFavoriteNow = true;
+  }
+
+  await user.save();
+  return { isFavorite: isFavoriteNow, totalFavorites: user.favoritePointers.length };
+};
+
+export const getNextFavoritePointerForUser = async (telegramUserId) => {
+  let user = await User.findOne({ telegramId: telegramUserId });
+  if (!user || !user.favoritePointers || user.favoritePointers.length === 0) {
+    return null;
+  }
+
+  const userLanguage = user.language === 'en' ? 'en' : 'ru';
+  const targetPointerModel = selectPointerModelByLanguage(userLanguage);
+  const fallbackPointerModel = userLanguage === 'en' ? Pointer : PointerEn;
+
+  const validFavorites = [];
+  const resolvedPointersMap = new Map();
+
+  for (const item of user.favoritePointers) {
+    if (!item?.pointerId || !mongoose.Types.ObjectId.isValid(item.pointerId)) {
+      continue;
+    }
+    let doc = await targetPointerModel.findById(item.pointerId);
+    if (!doc) {
+      doc = await fallbackPointerModel.findById(item.pointerId);
+    }
+    if (doc && doc.isActive) {
+      validFavorites.push(item);
+      resolvedPointersMap.set(String(doc._id), doc);
+    }
+  }
+
+  if (validFavorites.length === 0) {
+    if (user.favoritePointers.length > 0) {
+      user.favoritePointers = [];
+      user.favoriteQueue = [];
+      user.favoriteIndex = 0;
+      await user.save();
+    }
+    return null;
+  }
+
+  if (validFavorites.length !== user.favoritePointers.length) {
+    user.favoritePointers = validFavorites;
+    user.favoriteQueue = [];
+    user.favoriteIndex = 0;
+  }
+
+  const totalFavoritesCount = validFavorites.length;
+  let currentQueue = [...user.favoriteQueue];
+  let currentIndex = user.favoriteIndex;
+
+  if (currentQueue.length === 0 || currentQueue.length !== totalFavoritesCount || currentIndex >= currentQueue.length) {
+    currentQueue = buildShuffledIndexArray(totalFavoritesCount);
+    currentIndex = 0;
+  }
+
+  const selectedPositionIndex = currentQueue[currentIndex];
+  const selectedFavoriteItem = validFavorites[selectedPositionIndex];
+  const pointer = resolvedPointersMap.get(String(selectedFavoriteItem.pointerId));
+
+  const nextIndex = currentIndex + 1 >= currentQueue.length ? 0 : currentIndex + 1;
+  const nextQueue = nextIndex === 0 ? buildShuffledIndexArray(totalFavoritesCount) : currentQueue;
+
+  await User.updateOne(
+    { telegramId: telegramUserId },
+    {
+      favoritePointers: validFavorites,
+      favoriteQueue: nextQueue,
+      favoriteIndex: nextIndex
+    }
+  );
+
+  return pointer;
+};
+
+export const countUserFavoritePointers = async (telegramUserId) => {
+  const user = await User.findOne({ telegramId: telegramUserId }).lean();
+  return user?.favoritePointers?.length || 0;
 };

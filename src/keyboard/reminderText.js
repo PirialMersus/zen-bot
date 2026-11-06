@@ -6,7 +6,7 @@ export const reminderTextKeyboard = (texts, language = 'ru') => {
   const buttons = getButtons(language);
   const ui = getUi(language);
 
-  const rows = [[ui.REMINDER_RANDOM]];
+  const rows = [[ui.REMINDER_RANDOM, ui.REMINDER_FAVORITE]];
   const uniqueTexts = [...new Set((texts || []).map(item => item.trim()).filter(Boolean))];
 
   for (let index = 0; index < uniqueTexts.length; index += 2) {

@@ -10,6 +10,7 @@ import { getIntervalKeyboard } from '../keyboard/intervals.js';
 import { getDeleteAfterKeyboard } from '../keyboard/deleteAfter.js';
 import { mainKeyboard } from '../keyboard/main.js';
 import { resolveUserLanguage } from '../middlewares/activity.js';
+import { countUserFavoritePointers } from '../services/pointers.js';
 
 export const REMINDER_STEP = {
   TEXT: 'TEXT',
@@ -74,7 +75,9 @@ export const formatReminderMessageText = (reminderItem, indexNumberString, langu
       : `(автоудаление: через ${reminderItem.deleteAfterSeconds} сек)`);
 
   let displayText = reminderItem.text;
-  if (reminderItem.isRandomPointer) {
+  if (reminderItem.isFavoritePointer) {
+    displayText = ui.REMINDER_FAVORITE;
+  } else if (reminderItem.isRandomPointer) {
     displayText = ui.REMINDER_RANDOM;
   } else if (reminderItem.photoFileId) {
     const photoPrefix = language === 'en' ? '📷 Photo' : '📷 Фотография';
@@ -134,7 +137,9 @@ export const buildRemindersListPayload = (reminders, userLanguage = 'ru', userTi
     const statusIcon = reminderItem.isActive ? '🟢' : '⏸️';
 
     let displayText = reminderItem.text;
-    if (reminderItem.isRandomPointer) {
+    if (reminderItem.isFavoritePointer) {
+      displayText = ui.REMINDER_FAVORITE;
+    } else if (reminderItem.isRandomPointer) {
       displayText = ui.REMINDER_RANDOM;
     } else if (reminderItem.photoFileId) {
       const photoPrefix = userLanguage === 'en' ? '📷 Photo' : '📷 Фото';
@@ -235,6 +240,9 @@ export const renderReminderStep = async ctx => {
 };
 
 export const handleReminders = async ctx => {
+  ctx.session ??= {};
+  ctx.session.reminderStep = null;
+  ctx.session.creatingReminder = null;
   const userLanguage = await resolveUserLanguage(ctx);
   const texts = getTexts(userLanguage);
   await ctx.reply(texts.MENU.REMINDERS, getRemindersKeyboard(userLanguage));
@@ -305,14 +313,34 @@ export const handleReminderText = async ctx => {
   const isRandomPointerCommand =
     incomingText === UI.ru.REMINDER_RANDOM ||
     incomingText === UI.en.REMINDER_RANDOM ||
-    incomingText === UI.REMINDER_RANDOM;
+    incomingText === UI.REMINDER_RANDOM ||
+    incomingText === '🎲 Случайный указатель' ||
+    incomingText === '🎲 Random pointer';
 
-  if (isRandomPointerCommand) {
+  const isFavoritePointerCommand =
+    incomingText === UI.ru.REMINDER_FAVORITE ||
+    incomingText === UI.en.REMINDER_FAVORITE ||
+    incomingText === UI.REMINDER_FAVORITE;
+
+  if (isFavoritePointerCommand) {
+    const favoriteCount = await countUserFavoritePointers(ctx.from.id);
+    if (!favoriteCount) {
+      const userLanguage = await resolveUserLanguage(ctx);
+      const texts = getTexts(userLanguage);
+      await ctx.reply(texts.POINTERS.FAVORITE_REMINDER_EMPTY);
+      return;
+    }
+    ctx.session.creatingReminder.isFavoritePointer = true;
+    ctx.session.creatingReminder.isRandomPointer = false;
+    ctx.session.creatingReminder.text = incomingText;
+  } else if (isRandomPointerCommand) {
     ctx.session.creatingReminder.isRandomPointer = true;
+    ctx.session.creatingReminder.isFavoritePointer = false;
     ctx.session.creatingReminder.text = incomingText;
   } else {
     ctx.session.creatingReminder.text = incomingText;
     ctx.session.creatingReminder.isRandomPointer = false;
+    ctx.session.creatingReminder.isFavoritePointer = false;
   }
 
   ctx.session.reminderStep = REMINDER_STEP.INTERVAL;
@@ -388,12 +416,17 @@ const saveLastReminderText = async (ctx, text) => {
   const user = await User.findOne({ telegramId: ctx.from.id });
   if (!user) return;
 
-  const isRandomPointerCommand =
+  const isSpecialPointerCommand =
     text === UI.ru.REMINDER_RANDOM ||
     text === UI.en.REMINDER_RANDOM ||
-    text === UI.REMINDER_RANDOM;
+    text === UI.REMINDER_RANDOM ||
+    text === '🎲 Случайный указатель' ||
+    text === '🎲 Random pointer' ||
+    text === UI.ru.REMINDER_FAVORITE ||
+    text === UI.en.REMINDER_FAVORITE ||
+    text === UI.REMINDER_FAVORITE;
 
-  if (isRandomPointerCommand) return;
+  if (isSpecialPointerCommand) return;
 
   const clean = normalizeText(text);
   const userLanguage = user.language || 'ru';
@@ -438,6 +471,7 @@ const finalizeReminder = async ctx => {
     deleteAfterSeconds: data.deleteAfterSeconds,
     isActive: true,
     isRandomPointer: Boolean(data.isRandomPointer),
+    isFavoritePointer: Boolean(data.isFavoritePointer),
     nextRunAt: new Date(
       now.getTime() + data.intervalMinutes * 60 * 1000
     )

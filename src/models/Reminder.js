@@ -17,7 +17,8 @@ const schema = new mongoose.Schema({
 
   soundId: { type: String, default: 'default' },
 
-  isRandomPointer: { type: Boolean, default: false }
+  isRandomPointer: { type: Boolean, default: false },
+  isFavoritePointer: { type: Boolean, default: false }
 });
 
 schema.index({ isActive: 1, nextRunAt: 1 });

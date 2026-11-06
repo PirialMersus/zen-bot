@@ -20,6 +20,10 @@ import { handleStart } from './handlers/menu.js';
 import {
   handleNextPointer,
   handlePointer,
+  handlePointersMenu,
+  handleRandomPointer,
+  handleFavoritePointer,
+  handleToggleFavoritePointer,
   handlePointerToReminder
 } from './handlers/pointers.js';
 import {
@@ -73,10 +77,13 @@ bot.start(handleStart);
 bot.command('getcode', handleGetAuthCode);
 bot.action('get_auth_code', handleGetAuthCode);
 
-bot.action('pointer:next', handleNextPointer);
+bot.action(/^pointer:next/, handleNextPointer);
 bot.action('pointer:to_reminder', handlePointerToReminder);
+bot.action(/^pointer:fav_toggle/, handleToggleFavoritePointer);
 
-bot.hears([BUTTONS.ru.POINTER, BUTTONS.en.POINTER], handlePointer);
+bot.hears([BUTTONS.ru.POINTER, BUTTONS.en.POINTER], handlePointersMenu);
+bot.hears([UI.ru.POINTER_RANDOM, UI.en.POINTER_RANDOM], handleRandomPointer);
+bot.hears([UI.ru.POINTER_FAVORITE, UI.en.POINTER_FAVORITE], handleFavoritePointer);
 bot.hears([BUTTONS.ru.REMINDERS, BUTTONS.en.REMINDERS], handleReminders);
 bot.hears([BUTTONS.ru.SETTINGS, BUTTONS.en.SETTINGS], handleSettings);
 

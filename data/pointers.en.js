@@ -7644,5 +7644,611 @@ Someone might say, the character. But there is no character either. There is onl
     text: `Keep your word, even in small things. Don't promise what you don't intend to fulfill. Reliability is a far greater sign of inner maturity than the ability to speak beautifully about freedom.`,
     source: null,
     tags: ["silence"]
-  }
+  },
+  {
+    number: 1126,
+    text: `Death stands behind your shoulder and waits. She does not insult, rush, or argue. She simply reminds you: every day spent sleepwalking through life is another piece of your life already surrendered.`,
+    source: null,
+    tags: ["silence"]
+  },
+  {
+    number: 1127,
+    text: `Juan Matus told Castaneda: remember your death. Not as a source of fear, but as an advisor. Ask yourself: if this were your last day, would you be sitting here exactly as you are now?`,
+    source: "Carlos Castaneda",
+    tags: ["silence"]
+  },
+  {
+    number: 1128,
+    text: `Seneca wrote: it is not that we have too little time, but that we waste so much of it. You spend your life trying to kill time — and that is the one thing you can never get back.`,
+    source: "Seneca",
+    tags: ["silence"]
+  },
+  {
+    number: 1129,
+    text: `No one is coming. No teacher, no sign, no circumstance, no Monday. What you are searching for outside as a reason to begin is already within you — reaching from your future self toward the present.`,
+    source: null,
+    tags: ["silence"]
+  },
+  {
+    number: 1130,
+    text: `Gurdjieff called it the only miracle available to human beings: a person is capable of anything. Every time you say "I can't," you trade that miracle for the comfort of an excuse.`,
+    source: "Gurdjieff",
+    tags: ["silence"]
+  },
+  {
+    number: 1131,
+    text: `Someone irritates you? Good. Irritation is a tentacle pulling you out of automatic behavior. Who gave that person the power to decide what state of mind you will live in for the next hour?`,
+    source: null,
+    tags: ["silence"]
+  },
+  {
+    number: 1132,
+    text: `You want motivation? Here it is: you have already spent so many days on everything except what matters most. Every new day that begins with the same "later" is not a repetition — it is a deeper surrender.`,
+    source: null,
+    tags: ["silence"]
+  },
+  {
+    number: 1133,
+    text: `Nietzsche: "What does not kill me makes me stronger." But this applies to someone who willingly walks toward what challenges them. A person who merely survives through inaction does not become stronger — only quieter.`,
+    source: "Nietzsche",
+    tags: ["silence"]
+  },
+  {
+    number: 1134,
+    text: `Bruce Lee: "Don't think. Feel. It is like a finger pointing away to the moon. Don't concentrate on the finger, or you will miss all that heavenly glory." Stop thinking about the practice. Do it.`,
+    source: "Bruce Lee",
+    tags: ["silence"]
+  },
+  {
+    number: 1135,
+    text: `You are not living your life. Your habits, traffic, social media feeds, and other people's demands are living it for you. Take back at least your morning. Make the first hour of the day yours, and the rest of the day will follow.`,
+    source: null,
+    tags: ["silence"]
+  },
+  {
+    number: 1136,
+    text: `Steve Jobs asked himself every morning: if today were the last day of my life, would I want to do what I am about to do today? When the answer is "no" for too many days in a row, it is time to change something.`,
+    source: "Steve Jobs",
+    tags: ["silence"]
+  },
+  {
+    number: 1137,
+    text: `Milarepa said: "Last year, I thought about meditating. Today, I meditate." Between those two sentences lies a year lost to overthinking.`,
+    source: "Milarepa",
+    tags: ["silence"]
+  },
+  {
+    number: 1138,
+    text: `Perhaps the hardest spiritual exercise is not sitting in the lotus position, fasting, or retreating into the mountains. The hardest thing is to encounter a difficult person without losing yourself in your reaction to them.`,
+    source: null,
+    tags: ["silence"]
+  },
+  {
+    number: 1139,
+    text: `If your practice depends on your mood, it is not a practice — it is a hobby. Mood is weather. Discipline is climate. Build your climate.`,
+    source: null,
+    tags: ["silence"]
+  },
+  {
+    number: 1140,
+    text: `A hero and a coward experience the same fear. The difference is that the hero counts to three, while the coward counts to infinity. Count. Act.`,
+    source: null,
+    tags: ["silence"]
+  },
+  {
+    number: 1141,
+    text: `One day, you may find yourself in a hospital bed, and a doctor will say something that turns all your "laters" into "nevers." You don't need to wait for that bed. Tell yourself what matters now.`,
+    source: null,
+    tags: ["silence"]
+  },
+  {
+    number: 1142,
+    text: `Do not confuse peace with the absence of problems. True peace is tested precisely when everything around you is changing. You can stand in the middle of a storm without allowing it to settle inside you. Silence is not the absence of wind, but a depth the wind cannot reach.`,
+    source: null,
+    tags: ["silence"]
+  },
+  {
+    number: 1143,
+    text: `Arnold Schwarzenegger: "You have two voices. One says: give up, you're tired. The other says: one more rep." The voice you obey most often is the one that eventually becomes you.`,
+    source: "Arnold Schwarzenegger",
+    tags: ["silence"]
+  },
+  {
+    number: 1144,
+    text: `You don't need to abandon everything and disappear into the mountains. You need to devote one day to what truly matters. One honest day. That may be enough to see what your life was before it.`,
+    source: null,
+    tags: ["silence"]
+  },
+  {
+    number: 1145,
+    text: `You ask yourself: "Why am I doing this?" Because a year from now, you will either thank yourself for this day or ask "why?" all over again. Only the question will weigh more heavily.`,
+    source: null,
+    tags: ["silence"]
+  },
+  {
+    number: 1146,
+    text: `If someone told you that you had only one week left, you would discover what truly matters within an hour. But no one has told you that. Consider yourself fortunate: you have the chance to discover it without having only a week left.`,
+    source: null,
+    tags: ["silence"]
+  },
+  {
+    number: 1147,
+    text: `A person grows old not when their hair turns gray, but when they stop wanting anything. Ask yourself: what did you want a year ago, and what do you want now? If the list has grown shorter, you are growing old. Add something to it.`,
+    source: null,
+    tags: ["silence"]
+  },
+  {
+    number: 1148,
+    text: `Whoever controls their morning controls their life. Whoever surrenders their morning to algorithms surrenders their destiny as well. Take your morning back.`,
+    source: null,
+    tags: ["silence"]
+  },
+  {
+    number: 1149,
+    text: `Practice that depends on your mood is a hobby. Put it on your calendar like a meeting with the person you love most in the world.`,
+    source: null,
+    tags: ["silence"]
+  },
+  {
+    number: 1150,
+    text: `Practice first, then email. Practice first, then news. Practice first, then everything else. Never the reverse — otherwise "everything else" will consume everything.`,
+    source: null,
+    tags: ["silence"]
+  },
+  {
+    number: 1151,
+    text: `Make the very first action of the day a physical anchor: feet on the floor — and ten seconds of pure listening. Not for a result. Simply so the mind does not begin your day.`,
+    source: null,
+    tags: ["silence"]
+  },
+  {
+    number: 1152,
+    text: `Go to sleep on one condition: tomorrow, before you touch your phone — one minute of presence. Just one. That is far cheaper than a year of regret.`,
+    source: null,
+    tags: ["silence"]
+  },
+  {
+    number: 1153,
+    text: `Tell one person that you practice consistently. Now silence is no longer an option. Disgrace is an ancient and effective engine.`,
+    source: null,
+    tags: ["silence"]
+  },
+  {
+    number: 1154,
+    text: `Set three alarms a day with a single word: "Stop." Not for meditation. Simply to notice three times where attention is resting right now.`,
+    source: null,
+    tags: ["silence"]
+  },
+  {
+    number: 1155,
+    text: `Stop waiting for inspiration. Inspiration is an opium for those who cannot make a decision. A decision is made once and is no longer up for discussion.`,
+    source: null,
+    tags: ["silence"]
+  },
+  {
+    number: 1156,
+    text: `Choose one doorway in your home. Every time you cross it — one second: pause, listen, step. In a month, you will have a hundred awakenings woven directly into the fabric of your day.`,
+    source: null,
+    tags: ["silence"]
+  },
+  {
+    number: 1157,
+    text: `Do not fight procrastination. Make the practice so small that refusing it feels more embarrassing than doing it. One breath. Start with a single breath.`,
+    source: null,
+    tags: ["silence"]
+  },
+  {
+    number: 1158,
+    text: `You did not "forget" about the practice. You chose your phone, conversation, food, sleep, drama. Call it a choice — and it becomes yours. And what is yours, you can change.`,
+    source: null,
+    tags: ["silence"]
+  },
+  {
+    number: 1159,
+    text: `A practice without sacrifice is hollow. Sacrifice something tangible: half an hour of a TV show, an extra cup of coffee, an argument. What costs nothing changes nothing.`,
+    source: null,
+    tags: ["silence"]
+  },
+  {
+    number: 1160,
+    text: `As long as practice fits into the leftovers of your day, it fits into the leftovers of you. Flip it: let the leftovers arrange themselves around the practice.`,
+    source: null,
+    tags: ["silence"]
+  },
+  {
+    number: 1161,
+    text: `Eat the frog: do the practice first thing, before the mind gets a chance to negotiate. The mind awakens by the second minute — then it is already too late.`,
+    source: null,
+    tags: ["silence"]
+  },
+  {
+    number: 1162,
+    text: `One day a week — a day when practice matters more than any person, call, or event. Do not retreat to the mountains. Just surrender this morning to no one.`,
+    source: null,
+    tags: ["silence"]
+  },
+  {
+    number: 1163,
+    text: `Missed a day? Do not compensate and do not repent. The rule: never miss more than one. Two missed days in a row is already a new habit.`,
+    source: null,
+    tags: ["silence"]
+  },
+  {
+    number: 1164,
+    text: `Forbid yourself from saying "now is not the time." Replace it with: "what single minute of practice can this exact moment offer?" There is always an answer.`,
+    source: null,
+    tags: ["silence"]
+  },
+  {
+    number: 1165,
+    text: `Sleep is the first practice. Going to bed, let go of the day three times: the day is gone, I am gone, the morning will decide for itself. Whoever cannot die in the evening cannot truly awaken in the morning.`,
+    source: null,
+    tags: ["silence"]
+  },
+  {
+    number: 1166,
+    text: `The mind resists the first five minutes the most. Make a deal with yourself for just five. The sixth will arrive on its own — or not, but those five can never be taken away.`,
+    source: null,
+    tags: ["silence"]
+  },
+  {
+    number: 1167,
+    text: `When you look at an object without concepts or labels, as if for the first time in your life, the boundary between you and it dissolves, for pure attention is true love.`,
+    source: null,
+    tags: ["silence"]
+  },
+  {
+    number: 1168,
+    text: `Practicing in a queue, in traffic, while waiting is not about saving time. It is acknowledging that time was never yours while you were asleep within it.`,
+    source: null,
+    tags: ["silence"]
+  },
+  {
+    number: 1169,
+    text: `Remove your phone from your bedroom for a week. Not for a digital detox — but so the morning belongs to the one who woke up, not to the ones sending messages.`,
+    source: null,
+    tags: ["silence"]
+  },
+  {
+    number: 1170,
+    text: `Before eating — one breath, look at the food, give thanks or remain silent. A hungry mind rushes. A fed mind sleeps. You are not caught between them.`,
+    source: null,
+    tags: ["silence"]
+  },
+  {
+    number: 1171,
+    text: `Turn fatigue into a signal, not an excuse. Fatigue is when the familiar "I" begins to fracture. The perfect moment to look and see who is tired.`,
+    source: null,
+    tags: ["silence"]
+  },
+  {
+    number: 1172,
+    text: `Do not trust promises made in the evening. The evening mind writes checks the morning mind refuses to cash. Pay immediately: lie down — stand up — sit down.`,
+    source: null,
+    tags: ["silence"]
+  },
+  {
+    number: 1173,
+    text: `Practice silence for one hour a day: not silence of the mouth, but silence of commentary. Words may flow — but your signature is on them only after a pause.`,
+    source: null,
+    tags: ["silence"]
+  },
+  {
+    number: 1174,
+    text: `Sit down and say aloud: "Today, practice matters more than my mood, my tasks, and my relationships." If that feels shameful, you are living in reverse.`,
+    source: null,
+    tags: ["silence"]
+  },
+  {
+    number: 1175,
+    text: `If you remain the same after practice, you did not practice — you rested. The only difference is that after real practice, someone is left unemployed. Find that one.`,
+    source: null,
+    tags: ["silence"]
+  },
+  {
+    number: 1176,
+    text: `Stop discussing practice with your tired evening self. Decide once in the morning — and in the evening, simply execute. The evening has no voting rights.`,
+    source: null,
+    tags: ["silence"]
+  },
+  {
+    number: 1177,
+    text: `Make a list of ten things that "interfere with practice." Now rewrite it: "ten things I choose instead of practice." Reads differently, doesn't it?`,
+    source: null,
+    tags: ["silence"]
+  },
+  {
+    number: 1178,
+    text: `Fifteen minutes of morning stillness. Not meditation — stillness. The body does not move, and the mind is forced to reveal itself without the rustle of activities.`,
+    source: null,
+    tags: ["silence"]
+  },
+  {
+    number: 1179,
+    text: `A practice nobody knows about is the easiest to abandon. Find one witness. Not a mentor — a witness. A witness is stronger than motivation.`,
+    source: null,
+    tags: ["silence"]
+  },
+  {
+    number: 1180,
+    text: `Every morning, the first question of the day: "What matters more today than my clarity?" Do not answer in words. Look at the very first action you take — there is your answer.`,
+    source: null,
+    tags: ["silence"]
+  },
+  {
+    number: 1181,
+    text: `One day without music, podcasts, or background noise. Is silence irritating? Excellent. Irritation shows what the mind feeds on when you are not looking.`,
+    source: null,
+    tags: ["silence"]
+  },
+  {
+    number: 1182,
+    text: `You think of practice as an activity, but it is the place from which all activities arise. Mistake the address, and you walk past your own home all day.`,
+    source: null,
+    tags: ["silence"]
+  },
+  {
+    number: 1183,
+    text: `The rule of one trace: each day must leave one thing testifying to practice — a note, silence before sleep, an unspoken word. Just one. But every single day.`,
+    source: null,
+    tags: ["silence"]
+  },
+  {
+    number: 1184,
+    text: `Do not seek balance between practice and life. Balance is sought on a scale. You are not a scale. Practice first, and life flowing from it — never the reverse.`,
+    source: null,
+    tags: ["silence"]
+  },
+  {
+    number: 1185,
+    text: `Take a vow for forty days: ten minutes at the exact same time. A vow works not by magic, but because breaking it requires conscious choice. A conscious refusal is better than a hundred unconscious ones.`,
+    source: null,
+    tags: ["silence"]
+  },
+  {
+    number: 1186,
+    text: `Every time you catch yourself thinking "there is no time," stop and take one breath slower than usual. Just one. Now there was time. Remember that feeling.`,
+    source: null,
+    tags: ["silence"]
+  },
+  {
+    number: 1187,
+    text: `An hour of practice on a calm day is worth less than a minute of practice on a day of chaos. Do not avoid difficult days — they are your training ground, not your excuse.`,
+    source: null,
+    tags: ["silence"]
+  },
+  {
+    number: 1188,
+    text: `The mind says: "practice can wait, first let me sort out my life." Life is the sorting out. Practice is the place from which it is sorted. You have mistaken the address again.`,
+    source: null,
+    tags: ["silence"]
+  },
+  {
+    number: 1189,
+    text: `Make slipping up harder than practicing: yoga mat unrolled the night before, phone in another room, timer set. Laziness is a landscape. Change the landscape, do not try to be a hero.`,
+    source: null,
+    tags: ["silence"]
+  },
+  {
+    number: 1190,
+    text: `Today, do nothing "spiritual." Simply do everything ten percent slower: eat, write, speak, walk. Slowness does not require time — it requires a master.`,
+    source: null,
+    tags: ["silence"]
+  },
+  {
+    number: 1191,
+    text: `Once a day, ask aloud: "What am I doing right now?" — and fall silent before the mind answers with words. The answer will come wordlessly, or it will not come at all — then look wider.`,
+    source: null,
+    tags: ["silence"]
+  },
+  {
+    number: 1192,
+    text: `You spent years learning to argue, earn money, and be liked. How many weeks did you give to the ability to simply be here? That is your true hierarchy — not the one in your head.`,
+    source: null,
+    tags: ["silence"]
+  },
+  {
+    number: 1193,
+    text: `Practice is the only endeavor that cannot be inherited, bought, or delegated. That is why the mind abandons it first. The mind dislikes what cannot be purchased.`,
+    source: null,
+    tags: ["silence"]
+  },
+  {
+    number: 1194,
+    text: `Read nothing new about practice for a week. Not a single line. If practice grows cold without new texts, you were never in love with practice, only with reading about it.`,
+    source: null,
+    tags: ["silence"]
+  },
+  {
+    number: 1195,
+    text: `Do not abandon practice because "it is not working." People abandon what has already worked. Practice that "does not work" is the only real one. The rest is rehearsing an image.`,
+    source: null,
+    tags: ["silence"]
+  },
+  {
+    number: 1196,
+    text: `Say "no" to one task today — and give that freed minute to practice. That is what priority looks like not in your head, but in action.`,
+    source: null,
+    tags: ["silence"]
+  },
+  {
+    number: 1197,
+    text: `Your week will reveal your faith far more accurately than your books. What did you give your best hours to seven days in a row? There is your god. The rest is literature.`,
+    source: null,
+    tags: ["silence"]
+  },
+  {
+    number: 1198,
+    text: `Make practice expensive: pay something for it before it even begins — wake up earlier, take a walk instead of watching a show, hold your tongue in a dispute. Free things cost nothing, and therefore yield nothing.`,
+    source: null,
+    tags: ["silence"]
+  },
+  {
+    number: 1199,
+    text: `Do not turn practice into a shelter from people. A shelter smells of fear. Practice right inside the meat grinder of the day — that is where it truly exists, or it does not exist at all.`,
+    source: null,
+    tags: ["silence"]
+  },
+  {
+    number: 1200,
+    text: `The mind rushes you to the end of your practice. Let it rush. Sit for thirty more seconds. Those thirty seconds are the only part of the day where you do not follow orders.`,
+    source: null,
+    tags: ["silence"]
+  },
+  {
+    number: 1201,
+    text: `Ask your day honestly: if practice were a meeting with the most important person in your life — would you be late today, reschedule, or forget? There is your answer about who comes first in your life.`,
+    source: null,
+    tags: ["silence"]
+  },
+  {
+    number: 1202,
+    text: `You fear that practice will steal your life. In truth, it is not practice that steals it — it is sleepwalking through life. Hours spent asleep on autopilot can never be reclaimed by any practice.`,
+    source: null,
+    tags: ["silence"]
+  },
+  {
+    number: 1203,
+    text: `Practice is not a supplement to your day like vitamins. Practice is the fabric from which the day is woven. If it is a "supplement" — weave at least one hour out of it. See what remains.`,
+    source: null,
+    tags: ["silence"]
+  },
+  {
+    number: 1204,
+    text: `For a week, do not track your practice — track its killers: the exact moment when "now" turned into "later." Catch that moment once, and you will see the killer face to face.`,
+    source: null,
+    tags: ["silence"]
+  },
+  {
+    number: 1205,
+    text: `When everything is crumbling — do not wait for "better times to practice." The crumbling is the practice arriving early as an unexpected guest. Meet it at the door.`,
+    source: null,
+    tags: ["silence"]
+  },
+  {
+    number: 1206,
+    text: `Create a practice room where there is no room: washing your face, sipping tea, turning a key. A place is not physical space. A place is an intention repeated a hundred times.`,
+    source: null,
+    tags: ["silence"]
+  },
+  {
+    number: 1207,
+    text: `Do not expect practice to become pleasant. What becomes pleasant is what brings a selfish payoff. Practice does not trade. It simply opens your eyes — and at first, that hurts.`,
+    source: null,
+    tags: ["silence"]
+  },
+  {
+    number: 1208,
+    text: `Instant awakening is not the result of long accumulation, but a sudden release of all concepts in the present wordless moment.`,
+    source: "Dmitry Tyurin",
+    tags: ["silence"]
+  },
+  {
+    number: 1209,
+    text: `The complete cessation of the mind occurs when attention stops clinging to emerging thoughts and returns to its source.`,
+    source: "Mooji",
+    tags: ["silence"]
+  },
+  {
+    number: 1210,
+    text: `A unique experiment: look at familiar things without accumulated past experience, so you may see this world for the very first time.`,
+    source: null,
+    tags: ["silence"]
+  },
+  {
+    number: 1211,
+    text: `Inner non-involvement allows you to participate fully in life, leaving behind no mental residue and no grasping.`,
+    source: null,
+    tags: ["silence"]
+  },
+  {
+    number: 1212,
+    text: `Liberation is not the acquisition of new experience or knowledge. It is the loss of the illusion that there is anyone separate here who needs to be liberated. Notice the silent presence that remains before thoughts arise.`,
+    source: "Tony Parsons",
+    tags: ["silence"]
+  },
+  {
+    number: 1213,
+    text: `Do not try to hold onto an insight. Anything that can be held is merely a mental footprint of the past.`,
+    source: "Tony Parsons",
+    tags: ["silence"]
+  },
+  {
+    number: 1214,
+    text: `The search for enlightenment is an escape from that which is already fully expressed in this very moment.`,
+    source: "Tony Parsons",
+    tags: ["silence"]
+  },
+  {
+    number: 1215,
+    text: `The absence of a personal history is not a loss, but the discovery of ringing, absolute freedom.`,
+    source: "Gegham",
+    tags: ["silence"]
+  },
+  {
+    number: 1216,
+    text: `You are not bound by karma, nor bound by the body. You are pure Consciousness, having neither beginning nor end.`,
+    source: "Avadhuta Gita",
+    tags: ["silence"]
+  },
+  {
+    number: 1217,
+    text: `Drop the burden of past knowledge and look at the world with fresh eyes right this second.`,
+    source: null,
+    tags: ["silence"]
+  },
+  {
+    number: 1218,
+    text: `Direct presence requires no preconditions or meditative techniques.`,
+    source: null,
+    tags: ["silence"]
+  },
+  {
+    number: 1219,
+    text: `All suffering is merely resistance to what has already occurred.`,
+    source: "S. Kuldin",
+    tags: ["silence"]
+  },
+  {
+    number: 1220,
+    text: `Look at everything that is happening as though you are seeing it for the very first time in your life.`,
+    source: null,
+    tags: ["silence"]
+  },
+  {
+    number: 1221,
+    text: `Do not be afraid to let go of thoughts: what you truly are can never be lost.`,
+    source: "Mooji",
+    tags: ["silence"]
+  },
+  {
+    number: 1222,
+    text: `Notice: in the very center of any storm of emotion, an absolute, untouched silence always abides.`,
+    source: null,
+    tags: ["silence"]
+  },
+  {
+    number: 1223,
+    text: "Disillusionment is the best thing that can happen to a seeker. It kills the hopes of the mind.",
+    source: "Karl Renz",
+    tags: ["silence"]
+  },
+  {
+    number: 1224,
+    text: "Try taking a step away from this moment. Notice that you always remain Here.",
+    source: "Karl Renz",
+    tags: ["silence"]
+  },
+  {
+    number: 1225,
+    text: "Right now: look at the huge importance the mind gives to this thought. And smile.",
+    source: "Karl Renz",
+    tags: ["silence"]
+  },
+  {
+    number: 1226,
+    text: "Try making a mistake in Being right now. Notice the absolute impossibility of it.",
+    source: "Karl Renz",
+    tags: ["silence"]
+  },
 ];
