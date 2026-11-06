@@ -1,5 +1,7 @@
 const RUSSIAN_UI = {
   POINTER_NEXT: '➡️ Следующий',
+  POINTER_NEXT_FAV: '➡️ Следующий ⭐',
+  POINTER_FAV_MODE_BADGE: (current, total) => total ? `⭐ Избранные (${current} из ${total})` : '⭐ Режим: Избранное',
   POINTER_TO_REMINDER: '🔔 В напоминание',
   POINTER_RANDOM: '🎲 Случайный',
   POINTER_FAVORITE: '⭐ Из избранного',
@@ -27,6 +29,8 @@ const RUSSIAN_UI = {
 
 const ENGLISH_UI = {
   POINTER_NEXT: '➡️ Next',
+  POINTER_NEXT_FAV: '➡️ Next ⭐',
+  POINTER_FAV_MODE_BADGE: (current, total) => total ? `⭐ Favorites (${current} of ${total})` : '⭐ Mode: Favorites',
   POINTER_TO_REMINDER: '🔔 To reminder',
   POINTER_RANDOM: '🎲 Random',
   POINTER_FAVORITE: '⭐ From favorites',

@@ -8251,4 +8251,34 @@ Someone might say, the character. But there is no character either. There is onl
     source: "Karl Renz",
     tags: ["silence"]
   },
+  {
+    number: 1227,
+    text: `You don't forget the practice. You just temporarily become the one who forgot. And that can be noticed too.`,
+    source: null,
+    tags: ["silence"]
+  },
+  {
+    number: 1228,
+    text: `The moment you realize you've drifted into thoughts again is the purest moment of the day.`,
+    source: null,
+    tags: ["silence"]
+  },
+  {
+    number: 1229,
+    text: `The thought of practice and the practice itself are not the same thing. One requires effort, the other is already here.`,
+    source: null,
+    tags: ["silence"]
+  },
+  {
+    number: 1230,
+    text: `Even if you "slept through" the whole day — the moment you notice it, you are already awake.`,
+    source: null,
+    tags: ["silence"]
+  },
+  {
+    number: 1231,
+    text: `Do not seek special states. The ordinary state is already unusual enough if you look at it.`,
+    source: null,
+    tags: ["silence"]
+  },
 ];

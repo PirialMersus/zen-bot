@@ -23,6 +23,7 @@ import {
   handlePointersMenu,
   handleRandomPointer,
   handleFavoritePointer,
+  handleFavoriteInfo,
   handleToggleFavoritePointer,
   handlePointerToReminder
 } from './handlers/pointers.js';
@@ -80,6 +81,7 @@ bot.action('get_auth_code', handleGetAuthCode);
 bot.action(/^pointer:next/, handleNextPointer);
 bot.action('pointer:to_reminder', handlePointerToReminder);
 bot.action(/^pointer:fav_toggle/, handleToggleFavoritePointer);
+bot.action('pointer:fav_info', handleFavoriteInfo);
 
 bot.hears([BUTTONS.ru.POINTER, BUTTONS.en.POINTER], handlePointersMenu);
 bot.hears([UI.ru.POINTER_RANDOM, UI.en.POINTER_RANDOM], handleRandomPointer);

@@ -3,6 +3,7 @@ import { TEXTS } from '../../src/constants/texts.js';
 import { UI } from '../../src/constants/ui.js';
 import { BUTTONS } from '../../src/constants/buttons.js';
 import {
+  handleFavoriteInfo,
   handleFavoritePointer,
   handleNextPointer,
   handlePointer,
@@ -261,5 +262,59 @@ describe('Всестороннее тестирование функционал
 
     expect(userAfterClean).toBeNull();
     expect(remAfterClean).toBeNull();
+  });
+
+  it('должен отображать локализованный бейдж и чистый текст цитаты на английском языке', async () => {
+    const englishUserId = 77708;
+    await User.create({ telegramId: englishUserId, language: 'en' });
+
+    const firstEnPointer = await PointerEn.create({
+      text: 'Pure awareness prior to thought',
+      source: 'Nisargadatta Maharaj',
+      isActive: true
+    });
+    const secondEnPointer = await PointerEn.create({
+      text: 'What you are looking for is what is looking',
+      source: 'Francis Lucille',
+      isActive: true
+    });
+
+    await toggleFavoritePointer(englishUserId, firstEnPointer._id);
+    await toggleFavoritePointer(englishUserId, secondEnPointer._id);
+
+    const favoriteContext = createMockContext({ userId: englishUserId });
+    await handleFavoritePointer(favoriteContext);
+
+    expect(favoriteContext.reply).toHaveBeenCalled();
+    const [replyText, replyOptions] = favoriteContext.reply.mock.calls[0];
+
+    expect(replyText).not.toContain('Favorites');
+    expect(replyText).not.toContain('⭐');
+    expect(replyText).toContain('—');
+
+    const inlineKeyboardRows = replyOptions.reply_markup.inline_keyboard;
+    expect(inlineKeyboardRows[0][0].text).toBe(UI.en.POINTER_FAV_MODE_BADGE(1, 2));
+    expect(inlineKeyboardRows[0][0].callback_data).toBe('pointer:fav_info');
+    expect(inlineKeyboardRows[1][1].text).toBe(UI.en.POINTER_NEXT_FAV);
+
+    const infoContext = createMockContext({ userId: englishUserId, callbackData: 'pointer:fav_info' });
+    await handleFavoriteInfo(infoContext);
+    expect(infoContext.answerCbQuery).toHaveBeenCalledWith(TEXTS.en.POINTERS.FAVORITE_BADGE_INFO, { show_alert: false });
+
+    const nextFavoriteContext = createMockContext({
+      userId: englishUserId,
+      callbackData: 'pointer:next:favorite',
+      session: {
+        pointerMode: 'favorite',
+        lastPointerId: String(firstEnPointer._id)
+      }
+    });
+    await handleNextPointer(nextFavoriteContext);
+
+    expect(nextFavoriteContext.answerCbQuery).toHaveBeenCalledWith(TEXTS.en.POINTERS.FAVORITE_TOAST(2, 2));
+    const [editedText, editedOptions] = nextFavoriteContext.editMessageText.mock.calls[0];
+    expect(editedText).not.toContain('Favorites');
+    expect(editedText).not.toContain('⭐');
+    expect(editedOptions.reply_markup.inline_keyboard[0][0].text).toBe(UI.en.POINTER_FAV_MODE_BADGE(2, 2));
   });
 });

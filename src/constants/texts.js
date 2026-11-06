@@ -20,7 +20,9 @@ const RUSSIAN_TEXTS = {
     FAVORITE_EMPTY: 'У вас пока нет избранных указателей. Читая случайные указатели, нажимайте «⭐ В избранное», чтобы сохранить понравившиеся.',
     FAVORITE_ADDED: 'Добавлено в избранное ⭐',
     FAVORITE_REMOVED: 'Удалено из избранного',
-    FAVORITE_REMINDER_EMPTY: 'У вас пока нет избранных указателей. Сначала добавьте понравившиеся указатели в избранное.'
+    FAVORITE_REMINDER_EMPTY: 'У вас пока нет избранных указателей. Сначала добавьте понравившиеся указатели в избранное.',
+    FAVORITE_BADGE_INFO: 'Вы просматриваете своё личное избранное ⭐',
+    FAVORITE_TOAST: (current, total) => total ? `⭐ Избранное: ${current} из ${total}` : '⭐ Режим: Избранное'
   },
 
   REMINDERS: {
@@ -85,7 +87,9 @@ I will remind you about what truly matters
     FAVORITE_EMPTY: 'You have no favorite pointers yet. While reading pointers, click "⭐ To favorites" to save them.',
     FAVORITE_ADDED: 'Added to favorites ⭐',
     FAVORITE_REMOVED: 'Removed from favorites',
-    FAVORITE_REMINDER_EMPTY: 'You have no favorite pointers yet. First add pointers to your favorites.'
+    FAVORITE_REMINDER_EMPTY: 'You have no favorite pointers yet. First add pointers to your favorites.',
+    FAVORITE_BADGE_INFO: 'You are browsing your personal favorites ⭐',
+    FAVORITE_TOAST: (current, total) => total ? `⭐ Favorites: ${current} of ${total}` : '⭐ Mode: Favorites'
   },
 
   REMINDERS: {

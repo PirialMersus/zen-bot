@@ -248,6 +248,11 @@ export const getNextFavoritePointerForUser = async (telegramUserId) => {
     }
   );
 
+  if (pointer) {
+    pointer.favoritePosition = currentIndex + 1;
+    pointer.totalFavorites = totalFavoritesCount;
+  }
+
   return pointer;
 };
 

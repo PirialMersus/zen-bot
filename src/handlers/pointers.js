@@ -19,11 +19,12 @@ const previewText = text =>
 export const formatPointerText = pointer =>
   pointer?.source ? `${pointer.text}\n\n— ${pointer.source}` : (pointer?.text || '');
 
-export const buildPointerInlineKeyboard = (arg1 = 'ru', isFavorite = false, pointerId = null, mode = 'random') => {
+export const buildPointerInlineKeyboard = (arg1 = 'ru', isFavorite = false, pointerId = null, mode = 'random', favoriteInfo = null) => {
   let language = 'ru';
   let targetPointerId = pointerId;
   let targetIsFavorite = isFavorite;
   let targetMode = mode;
+  let targetFavoriteInfo = favoriteInfo;
 
   if (typeof arg1 === 'string' && (arg1 === 'ru' || arg1 === 'en')) {
     language = arg1;
@@ -31,7 +32,7 @@ export const buildPointerInlineKeyboard = (arg1 = 'ru', isFavorite = false, poin
     targetPointerId = String(arg1);
   }
 
-  return createPointerInlineKeyboard(targetPointerId, targetIsFavorite, targetMode, language);
+  return createPointerInlineKeyboard(targetPointerId, targetIsFavorite, targetMode, language, targetFavoriteInfo);
 };
 
 export const handlePointer = async ctx => {
@@ -97,24 +98,34 @@ export const handleFavoritePointer = async ctx => {
     return;
   }
 
+  const favoriteInfo = {
+    current: pointer.favoritePosition || 1,
+    total: pointer.totalFavorites || favoriteCount
+  };
+
   ctx.session ??= {};
   ctx.session.lastPointerText = pointer.text;
   ctx.session.lastPointerId = String(pointer._id);
   ctx.session.pointerMode = 'favorite';
+  ctx.session.favoritePosition = favoriteInfo.current;
+  ctx.session.totalFavorites = favoriteInfo.total;
 
   const formattedText = formatPointerText(pointer);
 
   await ctx.reply(
     formattedText,
-    buildPointerInlineKeyboard(userLanguage, true, pointer._id, 'favorite')
+    buildPointerInlineKeyboard(userLanguage, true, pointer._id, 'favorite', favoriteInfo)
   );
+};
+
+export const handleFavoriteInfo = async ctx => {
+  const userLanguage = await resolveUserLanguage(ctx);
+  const texts = getTexts(userLanguage);
+  await ctx.answerCbQuery(texts.POINTERS.FAVORITE_BADGE_INFO, { show_alert: false }).catch(() => {});
 };
 
 export const handleNextPointer = async ctx => {
   const isCallbackQueryEvent = Boolean(ctx.callbackQuery);
-  if (isCallbackQueryEvent) {
-    await ctx.answerCbQuery().catch(() => {});
-  }
 
   const callbackData = ctx.callbackQuery?.data || '';
   const isFavoriteMode = callbackData.startsWith('pointer:next:favorite') || ctx.session?.pointerMode === 'favorite';
@@ -125,11 +136,24 @@ export const handleNextPointer = async ctx => {
 
   let pointer = null;
   let isFavorite = false;
+  let favoriteInfo = null;
 
   if (isFavoriteMode) {
     pointer = await getNextFavoritePointerForUser(ctx.from.id);
     isFavorite = true;
+    if (pointer) {
+      favoriteInfo = {
+        current: pointer.favoritePosition || 1,
+        total: pointer.totalFavorites || 1
+      };
+      if (isCallbackQueryEvent) {
+        await ctx.answerCbQuery(texts.POINTERS.FAVORITE_TOAST(favoriteInfo.current, favoriteInfo.total)).catch(() => {});
+      }
+    }
   } else {
+    if (isCallbackQueryEvent) {
+      await ctx.answerCbQuery().catch(() => {});
+    }
     pointer = await getNextPointerForUser(ctx.from.id);
     if (pointer) {
       isFavorite = await isPointerInFavorites(ctx.from.id, pointer._id);
@@ -150,18 +174,22 @@ export const handleNextPointer = async ctx => {
   ctx.session.lastPointerText = pointer.text;
   ctx.session.lastPointerId = String(pointer._id);
   ctx.session.pointerMode = currentMode;
+  if (favoriteInfo) {
+    ctx.session.favoritePosition = favoriteInfo.current;
+    ctx.session.totalFavorites = favoriteInfo.total;
+  }
 
   const formattedText = formatPointerText(pointer);
 
   if (isCallbackQueryEvent) {
     await ctx.editMessageText(
       formattedText,
-      buildPointerInlineKeyboard(userLanguage, isFavorite, pointer._id, currentMode)
+      buildPointerInlineKeyboard(userLanguage, isFavorite, pointer._id, currentMode, favoriteInfo)
     ).catch(() => {});
   } else {
     await ctx.reply(
       formattedText,
-      buildPointerInlineKeyboard(userLanguage, isFavorite, pointer._id, currentMode)
+      buildPointerInlineKeyboard(userLanguage, isFavorite, pointer._id, currentMode, favoriteInfo)
     );
   }
 };
@@ -180,16 +208,25 @@ export const handleToggleFavoritePointer = async ctx => {
 
   const userLanguage = await resolveUserLanguage(ctx);
   const texts = getTexts(userLanguage);
-  const { isFavorite } = await toggleFavoritePointer(ctx.from.id, targetPointerId);
+  const { isFavorite, totalFavorites } = await toggleFavoritePointer(ctx.from.id, targetPointerId);
 
   const answerNotice = isFavorite ? texts.POINTERS.FAVORITE_ADDED : texts.POINTERS.FAVORITE_REMOVED;
   await ctx.answerCbQuery(answerNotice).catch(() => {});
+
+  let favoriteInfo = null;
+  if (modeFromCallback === 'favorite') {
+    favoriteInfo = {
+      current: ctx.session?.favoritePosition || 1,
+      total: totalFavorites
+    };
+  }
 
   const updatedKeyboard = buildPointerInlineKeyboard(
     userLanguage,
     isFavorite,
     targetPointerId,
-    modeFromCallback
+    modeFromCallback,
+    favoriteInfo
   );
 
   await ctx.editMessageReplyMarkup(updatedKeyboard.reply_markup).catch(() => {});

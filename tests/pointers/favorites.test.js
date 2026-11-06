@@ -2,6 +2,7 @@ import { describe, expect, it } from 'vitest';
 import { TEXTS } from '../../src/constants/texts.js';
 import { UI } from '../../src/constants/ui.js';
 import {
+  handleFavoriteInfo,
   handleFavoritePointer,
   handleNextPointer,
   handlePointer,
@@ -295,5 +296,98 @@ describe('Избранные указатели', () => {
     const ids = [String(nextFavOne._id), String(nextFavTwo._id)];
     expect(ids).toContain(String(first._id));
     expect(ids).toContain(String(second._id));
+  });
+
+  it('должен отображать бейдж избранного и кнопку листания избранных с чистым текстом цитаты', async () => {
+    const userId = 9008;
+    const pointerFirst = await Pointer.create({
+      text: 'Первый чистый указатель без мусорных плашек',
+      source: 'Мастер Дзэн',
+      isActive: true
+    });
+    const pointerSecond = await Pointer.create({
+      text: 'Второй чистый указатель для пересылки',
+      source: 'Карл Ренц',
+      isActive: true
+    });
+
+    await toggleFavoritePointer(userId, pointerFirst._id);
+    await toggleFavoritePointer(userId, pointerSecond._id);
+
+    const favoriteContext = createMockContext({ userId });
+    await handleFavoritePointer(favoriteContext);
+
+    expect(favoriteContext.reply).toHaveBeenCalled();
+    const [replyText, replyOptions] = favoriteContext.reply.mock.calls[0];
+
+    expect(replyText).not.toContain('Избранное');
+    expect(replyText).not.toContain('⭐');
+    expect(replyText).toContain('—');
+
+    const inlineKeyboardRows = replyOptions.reply_markup.inline_keyboard;
+    expect(inlineKeyboardRows).toHaveLength(3);
+
+    const badgeRow = inlineKeyboardRows[0];
+    expect(badgeRow).toHaveLength(1);
+    expect(badgeRow[0].text).toBe(UI.ru.POINTER_FAV_MODE_BADGE(1, 2));
+    expect(badgeRow[0].callback_data).toBe('pointer:fav_info');
+
+    const actionRow = inlineKeyboardRows[1];
+    expect(actionRow[1].text).toBe(UI.ru.POINTER_NEXT_FAV);
+    expect(actionRow[1].callback_data).toBe('pointer:next:favorite');
+
+    const toggleRow = inlineKeyboardRows[2];
+    expect(toggleRow[0].text).toBe(UI.ru.POINTER_FAV_REMOVE);
+    expect(toggleRow[0].callback_data).toContain('favorite');
+
+    const infoContext = createMockContext({ userId, callbackData: 'pointer:fav_info' });
+    await handleFavoriteInfo(infoContext);
+    expect(infoContext.answerCbQuery).toHaveBeenCalledWith(TEXTS.ru.POINTERS.FAVORITE_BADGE_INFO, { show_alert: false });
+
+    const nextFavoriteContext = createMockContext({
+      userId,
+      callbackData: 'pointer:next:favorite',
+      session: {
+        pointerMode: 'favorite',
+        lastPointerId: String(pointerFirst._id)
+      }
+    });
+    await handleNextPointer(nextFavoriteContext);
+
+    expect(nextFavoriteContext.answerCbQuery).toHaveBeenCalledWith(TEXTS.ru.POINTERS.FAVORITE_TOAST(2, 2));
+    expect(nextFavoriteContext.editMessageText).toHaveBeenCalled();
+    const [editedText, editedOptions] = nextFavoriteContext.editMessageText.mock.calls[0];
+    expect(editedText).not.toContain('Избранное');
+    expect(editedText).not.toContain('⭐');
+
+    const editedRows = editedOptions.reply_markup.inline_keyboard;
+    expect(editedRows[0][0].text).toBe(UI.ru.POINTER_FAV_MODE_BADGE(2, 2));
+    expect(editedRows[1][1].text).toBe(UI.ru.POINTER_NEXT_FAV);
+  });
+
+  it('должен отображать стандартную клавиатуру без бейджа в режиме случайных указателей', async () => {
+    const userId = 9009;
+    await Pointer.create({
+      text: 'Обычный случайный указатель для всех',
+      isActive: true
+    });
+
+    const randomContext = createMockContext({ userId });
+    await handleRandomPointer(randomContext);
+
+    expect(randomContext.reply).toHaveBeenCalled();
+    const [replyText, replyOptions] = randomContext.reply.mock.calls[0];
+    expect(replyText).toBe('Обычный случайный указатель для всех');
+
+    const inlineKeyboardRows = replyOptions.reply_markup.inline_keyboard;
+    expect(inlineKeyboardRows).toHaveLength(2);
+
+    const allButtons = inlineKeyboardRows.flat();
+    const hasBadgeButton = allButtons.some(button => button.callback_data === 'pointer:fav_info');
+    expect(hasBadgeButton).toBe(false);
+
+    const nextButton = allButtons.find(button => button.callback_data === 'pointer:next:random');
+    expect(nextButton).toBeDefined();
+    expect(nextButton.text).toBe(UI.ru.POINTER_NEXT);
   });
 });
