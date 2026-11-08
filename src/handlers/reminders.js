@@ -402,8 +402,8 @@ export const handleDeleteAfterPreset = async ctx => {
 
   if (incomingText === '10 сек' || incomingText === '10 sec') secondsValue = 10;
   if (incomingText === '30 сек' || incomingText === '30 sec') secondsValue = 30;
-  if (incomingText === '1 мин' || incomingText === '1 min') secondsValue = 60;
-  if (incomingText === 'Не удалять' || incomingText === 'Do not delete') secondsValue = null;
+  if (incomingText === '1 мин' || incomingText === '1 min' || incomingText === '1 хв') secondsValue = 60;
+  if (incomingText === 'Не удалять' || incomingText === 'Do not delete' || incomingText === 'Не видаляти') secondsValue = null;
 
   if (secondsValue === undefined) return;
 

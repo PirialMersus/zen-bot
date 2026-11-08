@@ -17,6 +17,32 @@ await connectDB();
 startScheduler(bot);
 startServer();
 
-await bot.launch().catch(err => {
-  console.error('BOT_LAUNCH_ERROR', err);
-});
+let isBotTerminating = false;
+
+const startBotWithAutoRestart = async () => {
+  const retryDelayMilliseconds = 5000;
+
+  while (!isBotTerminating) {
+    try {
+      await bot.launch();
+      break;
+    } catch (launchError) {
+      if (isBotTerminating) {
+        break;
+      }
+      const errorMessageString = launchError?.message || String(launchError);
+      console.error('BOT_LAUNCH_ERROR', errorMessageString);
+      await new Promise(resolveTimeout => setTimeout(resolveTimeout, retryDelayMilliseconds));
+    }
+  }
+};
+
+const handleTerminationSignal = signalName => {
+  isBotTerminating = true;
+  bot.stop(signalName);
+};
+
+process.once('SIGINT', () => handleTerminationSignal('SIGINT'));
+process.once('SIGTERM', () => handleTerminationSignal('SIGTERM'));
+
+await startBotWithAutoRestart();

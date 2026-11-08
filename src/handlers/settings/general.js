@@ -74,5 +74,8 @@ ${languageDisplayName}`;
 };
 
 export const handleSettings = async ctx => {
+  ctx.session ??= {};
+  ctx.session.reminderStep = null;
+  ctx.session.creatingReminder = null;
   await renderSettings(ctx);
 };

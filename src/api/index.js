@@ -138,11 +138,18 @@ router.post('/auth/verify', async (req, res) => {
 router.get('/pointers/random', async (req, res) => {
     try {
         const requestedLanguage = req.query.language || req.query.lang || 'ru';
-        const targetPointerModel = requestedLanguage === 'en'
+        let targetPointerModel = requestedLanguage === 'en'
             ? PointerEn
             : (requestedLanguage === 'uk' ? PointerUk : Pointer);
 
-        const count = await targetPointerModel.countDocuments({ isActive: true });
+        let count = await targetPointerModel.countDocuments({ isActive: true });
+        if (!count && targetPointerModel !== Pointer) {
+            const totalCollectionCount = await targetPointerModel.countDocuments({});
+            if (totalCollectionCount === 0) {
+                targetPointerModel = Pointer;
+                count = await targetPointerModel.countDocuments({ isActive: true });
+            }
+        }
         if (!count) {
             return res.status(404).json({ message: 'Указатели не найдены' });
         }

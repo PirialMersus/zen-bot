@@ -154,7 +154,10 @@ bot.action('reminder:back_to_intervals', async ctx => {
   );
 });
 
-bot.hears([BUTTONS.ru.BACK, BUTTONS.en.BACK, BUTTONS.uk.BACK], handleBack);
+bot.hears([
+  BUTTONS.ru.BACK, BUTTONS.en.BACK, BUTTONS.uk.BACK,
+  UI.ru.POINTER_TO_MENU, UI.en.POINTER_TO_MENU, UI.uk.POINTER_TO_MENU
+], handleBack);
 bot.hears([UI.ru.POINTER_NEXT, UI.en.POINTER_NEXT, UI.uk.POINTER_NEXT], handleNextPointer);
 bot.hears([UI.ru.POINTER_TO_REMINDER, UI.en.POINTER_TO_REMINDER, UI.uk.POINTER_TO_REMINDER], handlePointerToReminder);
 bot.hears([UI.ru.ADMIN_ACTIVE_USERS, UI.en.ADMIN_ACTIVE_USERS, UI.uk.ADMIN_ACTIVE_USERS], handleAdminActiveUsers);

@@ -305,4 +305,61 @@ describe('Изоляция языков и защита от утечки анг
     const firstUkrainianPointer = ukrainianPointersDataset[0];
     expect(firstUkrainianPointer.text).toMatch(cyrillicRegularExpression);
   });
+
+  it('должен безопасно откатываться к русской коллекции указателей если коллекция языка пуста', async () => {
+    const emptyCollectionUserId = 99887766;
+
+    await User.create({
+      telegramId: emptyCollectionUserId,
+      language: 'uk'
+    });
+
+    await Pointer.create([
+      { number: 1, text: 'Русский базовый указатель', isActive: true, tags: ['тишина'] }
+    ]);
+
+    const receivedPointer = await getNextPointerForUser(emptyCollectionUserId);
+    expect(receivedPointer).not.toBeNull();
+    expect(receivedPointer.text).toBe('Русский базовый указатель');
+  });
+
+  it('должен поддерживать украинские опции автоудаления в handleDeleteAfterPreset', async () => {
+    const { handleDeleteAfterPreset, REMINDER_STEP } = await import('../../src/handlers/reminders.js');
+    const Reminder = (await import('../../src/models/Reminder.js')).default;
+
+    const testUserTelegramId = 99887755;
+    const mockContextOneMinute = createMockContext({
+      userId: testUserTelegramId,
+      text: '1 хв',
+      session: {
+        reminderStep: REMINDER_STEP.AUTO_DELETE,
+        creatingReminder: {
+          text: 'Тест нагадування',
+          intervalMinutes: 60
+        }
+      }
+    });
+
+    await handleDeleteAfterPreset(mockContextOneMinute);
+    const savedReminderOneMinute = await Reminder.findOne({ userId: testUserTelegramId, text: 'Тест нагадування' });
+    expect(savedReminderOneMinute).not.toBeNull();
+    expect(savedReminderOneMinute.deleteAfterSeconds).toBe(60);
+
+    const mockContextNeverDelete = createMockContext({
+      userId: testUserTelegramId,
+      text: 'Не видаляти',
+      session: {
+        reminderStep: REMINDER_STEP.AUTO_DELETE,
+        creatingReminder: {
+          text: 'Тест нагадування 2',
+          intervalMinutes: 60
+        }
+      }
+    });
+
+    await handleDeleteAfterPreset(mockContextNeverDelete);
+    const savedReminderNeverDelete = await Reminder.findOne({ userId: testUserTelegramId, text: 'Тест нагадування 2' });
+    expect(savedReminderNeverDelete).not.toBeNull();
+    expect(savedReminderNeverDelete.deleteAfterSeconds).toBeNull();
+  });
 });

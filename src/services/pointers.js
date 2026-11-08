@@ -76,7 +76,14 @@ export const getPointerByNumber = async (pointerNumber, language = 'ru') => {
   if (!numericPointerIdentifier || isNaN(numericPointerIdentifier)) return null;
 
   const targetPointerModel = selectPointerModelByLanguage(language);
-  return await targetPointerModel.findOne({ number: numericPointerIdentifier, isActive: true });
+  let pointerDocument = await targetPointerModel.findOne({ number: numericPointerIdentifier, isActive: true });
+  if (!pointerDocument && targetPointerModel !== Pointer) {
+    const totalCollectionCount = await targetPointerModel.countDocuments({});
+    if (totalCollectionCount === 0) {
+      pointerDocument = await Pointer.findOne({ number: numericPointerIdentifier, isActive: true });
+    }
+  }
+  return pointerDocument;
 };
 
 export const getNextPointerForUser = async (telegramUserId, tagFilter = null) => {
@@ -86,10 +93,10 @@ export const getNextPointerForUser = async (telegramUserId, tagFilter = null) =>
   }
 
   const userLanguage = ['en', 'uk'].includes(user?.language) ? user.language : 'ru';
-  const effectiveTagFilter = resolveEffectiveTagFilter(tagFilter, userLanguage);
-  const targetPointerModel = selectPointerModelByLanguage(userLanguage);
+  let effectiveTagFilter = resolveEffectiveTagFilter(tagFilter, userLanguage);
+  let targetPointerModel = selectPointerModelByLanguage(userLanguage);
 
-  const activePointersQuery = {
+  let activePointersQuery = {
     isActive: true
   };
 
@@ -97,7 +104,20 @@ export const getNextPointerForUser = async (telegramUserId, tagFilter = null) =>
     activePointersQuery.tags = effectiveTagFilter;
   }
 
-  const totalActiveCount = await targetPointerModel.countDocuments(activePointersQuery);
+  let totalActiveCount = await targetPointerModel.countDocuments(activePointersQuery);
+  if (!totalActiveCount && targetPointerModel !== Pointer) {
+    const totalCollectionCount = await targetPointerModel.countDocuments({});
+    if (totalCollectionCount === 0) {
+      targetPointerModel = Pointer;
+      effectiveTagFilter = resolveEffectiveTagFilter(tagFilter, 'ru');
+      activePointersQuery = { isActive: true };
+      if (effectiveTagFilter) {
+        activePointersQuery.tags = effectiveTagFilter;
+      }
+      totalActiveCount = await targetPointerModel.countDocuments(activePointersQuery);
+    }
+  }
+
   if (!totalActiveCount) return null;
 
   const previousQueueLength = user.shuffleQueue.length;
