@@ -16,53 +16,16 @@ export const renderSettings = async (ctx, prefixMessage = '') => {
   const quietSettings = user.quietHours;
   const timezoneValue = user.timezone || 'Europe/Minsk';
 
-  const quietStatusLabel = userLanguage === 'en'
-    ? (quietSettings.enabled ? 'enabled' : 'disabled')
+  const localizedSettingsPrompt = userLanguage === 'en'
+    ? `⚙️ ${texts.MENU.SETTINGS}\n\nTap an option below to customize:`
     : userLanguage === 'uk'
-      ? (quietSettings.enabled ? 'увімкнено' : 'вимкнено')
-      : (quietSettings.enabled ? 'включены' : 'выключены');
+      ? `⚙️ ${texts.MENU.SETTINGS}\n\nОберіть потрібний пункт для зміни:`
+      : `⚙️ ${texts.MENU.SETTINGS}\n\nНажмите на нужный пункт для изменения:`;
 
-  const languageDisplayName = userLanguage === 'en'
-    ? 'English'
-    : userLanguage === 'uk'
-      ? 'Українська'
-      : 'Русский';
-
-  let localizedSettingsText = userLanguage === 'en'
-    ? `${texts.MENU.SETTINGS}
-
-🌙 Quiet hours: ${quietStatusLabel}
-⏰ ${quietSettings.start}:00–${quietSettings.end}:00
-
-🌍 Timezone:
-${timezoneValue}
-
-🌐 Language:
-${languageDisplayName}`
-    : userLanguage === 'uk'
-      ? `${texts.MENU.SETTINGS}
-
-🌙 Тихі години: ${quietStatusLabel}
-⏰ ${quietSettings.start}:00–${quietSettings.end}:00
-
-🌍 Часовий пояс:
-${timezoneValue}
-
-🌐 Мова:
-${languageDisplayName}`
-      : `${texts.MENU.SETTINGS}
-
-🌙 Тихие часы: ${quietStatusLabel}
-⏰ ${quietSettings.start}:00–${quietSettings.end}:00
-
-🌍 Часовой пояс:
-${timezoneValue}
-
-🌐 Язык:
-${languageDisplayName}`;
+  let localizedSettingsText = localizedSettingsPrompt;
 
   if (prefixMessage) {
-    localizedSettingsText = `${prefixMessage}\n\n${localizedSettingsText}`;
+    localizedSettingsText = `${prefixMessage}\n\n${localizedSettingsPrompt}`;
   }
 
   if (ctx.callbackQuery) {
@@ -70,7 +33,13 @@ ${languageDisplayName}`;
     await ctx.deleteMessage().catch(() => {});
   }
 
-  await ctx.reply(localizedSettingsText, settingsKeyboard(quietSettings.enabled, userLanguage));
+  await ctx.reply(
+    localizedSettingsText,
+    settingsKeyboard(quietSettings.enabled, userLanguage, {
+      quietHours: quietSettings,
+      timezone: timezoneValue
+    })
+  );
 };
 
 export const handleSettings = async ctx => {

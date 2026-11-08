@@ -18,9 +18,11 @@ describe('Настройки пользователя (Settings)', () => {
     await handleSettings(mockContext);
 
     expect(mockContext.reply).toHaveBeenCalled();
-    const replyMessage = mockContext.reply.mock.calls[0][0];
-    expect(replyMessage).toContain('Тихие часы');
-    expect(replyMessage).toContain('Часовой пояс');
+    const [replyMessage, replyOptions] = mockContext.reply.mock.calls[0];
+    expect(replyMessage).toContain('Настройки');
+    const buttonTexts = replyOptions.reply_markup.inline_keyboard.flat().map(button => button.text);
+    expect(buttonTexts.some(text => text.includes('тихих часов'))).toBe(true);
+    expect(buttonTexts.some(text => text.includes('Часовой пояс'))).toBe(true);
   });
 
   it('должен переключать флаг тихих часов', async () => {
