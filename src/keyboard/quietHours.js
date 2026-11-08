@@ -12,13 +12,21 @@ export const quietHoursKeyboard = (language = 'ru') => {
       late: '🌌 01:00 – 10:00 (Late)',
       custom: '✍️ Custom schedule'
     }
-    : {
-      early: '🌅 22:00 – 07:00 (Ранний)',
-      standard: '🌙 23:00 – 08:00 (Стандартный)',
-      nightOwl: '🦉 00:00 – 09:00 (Сова)',
-      late: '🌌 01:00 – 10:00 (Поздний)',
-      custom: '✍️ Задать своё время'
-    };
+    : language === 'uk'
+      ? {
+        early: '🌅 22:00 – 07:00 (Ранній)',
+        standard: '🌙 23:00 – 08:00 (Стандартний)',
+        nightOwl: '🦉 00:00 – 09:00 (Нічна сова)',
+        late: '🌌 01:00 – 10:00 (Пізній)',
+        custom: '✍️ Вказати свій час'
+      }
+      : {
+        early: '🌅 22:00 – 07:00 (Ранний)',
+        standard: '🌙 23:00 – 08:00 (Стандартный)',
+        nightOwl: '🦉 00:00 – 09:00 (Сова)',
+        late: '🌌 01:00 – 10:00 (Поздний)',
+        custom: '✍️ Задать своё время'
+      };
 
   return Markup.inlineKeyboard([
     [Markup.button.callback(presetLabels.early, 'settings:quiet_hours:preset:22:7')],

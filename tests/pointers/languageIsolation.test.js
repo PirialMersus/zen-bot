@@ -1,12 +1,13 @@
 import { describe, expect, it } from 'vitest';
-import { Pointer, PointerEn } from '../../src/models/Pointer.js';
+import { Pointer, PointerEn, PointerUk } from '../../src/models/Pointer.js';
 import User from '../../src/models/User.js';
 import { getNextPointerForUser } from '../../src/services/pointers.js';
 import { activityMiddleware, resolveUserLanguage } from '../../src/middlewares/activity.js';
 import { handleNextPointer, handlePointer, handlePointerToReminder } from '../../src/handlers/pointers.js';
 import { createMockContext } from '../helpers/mockContext.js';
-import russianPointersDataset from '../../data/pointers.js';
+import russianPointersDataset from '../../data/pointers.ru.js';
 import englishPointersDataset from '../../data/pointers.en.js';
+import ukrainianPointersDataset from '../../data/pointers.uk.js';
 
 describe('Изоляция языков и защита от утечки английского контента', () => {
   it('должен отдавать только русские указатели пользователю без языка при наличии активных английских указателей в базе', async () => {
@@ -33,6 +34,20 @@ describe('Изоляция языков и защита от утечки анг
       expect(receivedPointer.text).toMatch(cyrillicCharactersRegularExpression);
       expect(receivedPointer.text).not.toContain('English');
     }
+  });
+
+  it('должен отдавать украинские указатели пользователю с украинским языком при наличии PointerUk в базе', async () => {
+    const ukrainianUserTelegramId = 88112299;
+    await User.create({ telegramId: ukrainianUserTelegramId, language: 'uk' });
+
+    await PointerUk.create([
+      { text: 'Український вказівник 1', isActive: true, tags: ['тиша'] },
+      { text: 'Український вказівник 2', isActive: true, tags: ['тиша'] }
+    ]);
+
+    const receivedPointer = await getNextPointerForUser(ukrainianUserTelegramId);
+    expect(receivedPointer).not.toBeNull();
+    expect(receivedPointer.text).toContain('Український вказівник');
   });
 
   it('должен корректно находить старые русские указатели без поля language', async () => {
@@ -73,7 +88,7 @@ describe('Изоляция языков и защита от утечки анг
   });
 
   it('должен корректно определять язык в middleware в зависимости от кода языка Telegram', async () => {
-    const slavicLanguageCodesList = ['ru', 'be', 'uk'];
+    const slavicLanguageCodesList = ['ru', 'be'];
     let startTelegramIdCounter = 991000;
 
     for (const testedTelegramLanguageCode of slavicLanguageCodesList) {
@@ -98,6 +113,31 @@ describe('Изоляция языков и защита от утечки анг
       const registeredUserRecord = await User.findOne({ telegramId: currentTestTelegramId });
       expect(registeredUserRecord).not.toBeNull();
       expect(registeredUserRecord.language).toBe('ru');
+    }
+
+    const ukrainianLanguageCodesList = ['uk'];
+    for (const testedTelegramLanguageCode of ukrainianLanguageCodesList) {
+      startTelegramIdCounter++;
+      const currentTestTelegramId = startTelegramIdCounter;
+
+      const mockContext = createMockContext({
+        userId: currentTestTelegramId,
+        customUpdate: {
+          message: {
+            from: { id: currentTestTelegramId, language_code: testedTelegramLanguageCode },
+            text: '/start'
+          }
+        }
+      });
+      mockContext.from.language_code = testedTelegramLanguageCode;
+
+      await activityMiddleware(mockContext, async () => {});
+
+      expect(mockContext.state.userLanguage).toBe('uk');
+
+      const registeredUserRecord = await User.findOne({ telegramId: currentTestTelegramId });
+      expect(registeredUserRecord).not.toBeNull();
+      expect(registeredUserRecord.language).toBe('uk');
     }
 
     const foreignLanguageCodesList = ['en', 'fr', 'de', 'es'];
@@ -253,12 +293,16 @@ describe('Изоляция языков и защита от утечки анг
   it('должен гарантировать целостность данных в датасетах указателей', () => {
     expect(russianPointersDataset.length).toBeGreaterThan(100);
     expect(englishPointersDataset.length).toBeGreaterThan(100);
+    expect(ukrainianPointersDataset.length).toBe(russianPointersDataset.length);
 
-    const cyrillicRegularExpression = /[а-яА-ЯёЁ]/;
+    const cyrillicRegularExpression = /[а-яА-ЯёЁіІїЇєЄ]/;
     const firstRussianPointer = russianPointersDataset[0];
     expect(firstRussianPointer.text).toMatch(cyrillicRegularExpression);
 
     const firstEnglishPointer = englishPointersDataset[0];
     expect(firstEnglishPointer.text.length).toBeGreaterThan(5);
+
+    const firstUkrainianPointer = ukrainianPointersDataset[0];
+    expect(firstUkrainianPointer.text).toMatch(cyrillicRegularExpression);
   });
 });

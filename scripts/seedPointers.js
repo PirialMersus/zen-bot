@@ -1,6 +1,6 @@
 import 'dotenv/config';
 import mongoose from 'mongoose';
-import pointersRu from '../data/pointers.js';
+import pointersRu from '../data/pointers.ru.js';
 import { connectDB } from '../src/storage/db.js';
 import { Pointer } from '../src/models/Pointer.js';
 

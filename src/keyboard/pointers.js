@@ -19,9 +19,9 @@ export const buildPointerInlineKeyboard = (pointerId, isFavorite = false, mode =
   if (mode === 'favorite') {
     const badgeText = favoriteInfo
       ? ui.POINTER_FAV_MODE_BADGE(favoriteInfo.current, favoriteInfo.total)
-      : (language === 'en' ? '⭐ Mode: Favorites' : '⭐ Режим: Избранное');
+      : (language === 'en' ? '⭐ Mode: Favorites' : (language === 'uk' ? '⭐ Режим: Обране' : '⭐ Режим: Избранное'));
 
-    const nextFavText = ui.POINTER_NEXT_FAV || (language === 'en' ? '➡️ Next ⭐' : '➡️ Следующий ⭐');
+    const nextFavText = ui.POINTER_NEXT_FAV || (language === 'en' ? '➡️ Next ⭐' : (language === 'uk' ? '➡️ Наступний ⭐' : '➡️ Следующий ⭐'));
 
     return Markup.inlineKeyboard([
       [

@@ -26,6 +26,10 @@ const DEFAULT_REMINDER_TEXTS_BY_LANGUAGE = {
   en: [
     'Do not get involved 🧘',
     'There is no one in this body 🤯'
+  ],
+  uk: [
+    'Не втягуйся 🧘',
+    'У цьому тілі нікого немає 🤯'
   ]
 };
 
@@ -37,6 +41,11 @@ const formatInterval = (minutes, language = 'ru') => {
     if (minutes === 1440) return 'Once a day ⌛';
     if (minutes === 60) return 'Every hour ⌛';
     return `Every ${minutes} min ⌛`;
+  }
+  if (language === 'uk') {
+    if (minutes === 1440) return 'Раз на день ⌛';
+    if (minutes === 60) return 'Щогодини ⌛';
+    return `Кожні ${minutes} хв ⌛`;
   }
   if (minutes === 1440) return 'Раз в день ⌛';
   if (minutes === 60) return 'Каждый час ⌛';
@@ -51,11 +60,15 @@ export const formatNextRunTime = (nextRunDate, userTimezone = 'Europe/Minsk', la
   const timeString = targetDate.toFormat('HH:mm');
 
   if (targetDate.hasSame(now, 'day')) {
-    return language === 'en' ? `today at ${timeString}` : `сегодня в ${timeString}`;
+    if (language === 'en') return `today at ${timeString}`;
+    if (language === 'uk') return `сьогодні о ${timeString}`;
+    return `сегодня в ${timeString}`;
   }
 
   if (targetDate.hasSame(now.plus({ days: 1 }), 'day')) {
-    return language === 'en' ? `tomorrow at ${timeString}` : `завтра в ${timeString}`;
+    if (language === 'en') return `tomorrow at ${timeString}`;
+    if (language === 'uk') return `завтра о ${timeString}`;
+    return `завтра в ${timeString}`;
   }
 
   return `${targetDate.toFormat('dd.MM')} ${timeString}`;
@@ -70,9 +83,13 @@ export const formatReminderMessageText = (reminderItem, indexNumberString, langu
     ? (reminderItem.deleteAfterSeconds === null
       ? '(auto-delete: do not delete)'
       : `(auto-delete: in ${reminderItem.deleteAfterSeconds} sec)`)
-    : (reminderItem.deleteAfterSeconds === null
-      ? '(автоудаление: не удаляется)'
-      : `(автоудаление: через ${reminderItem.deleteAfterSeconds} сек)`);
+    : language === 'uk'
+      ? (reminderItem.deleteAfterSeconds === null
+        ? '(автовидалення: не видаляється)'
+        : `(автовидалення: через ${reminderItem.deleteAfterSeconds} сек)`)
+      : (reminderItem.deleteAfterSeconds === null
+        ? '(автоудаление: не удаляется)'
+        : `(автоудаление: через ${reminderItem.deleteAfterSeconds} сек)`);
 
   let displayText = reminderItem.text;
   if (reminderItem.isFavoritePointer) {
@@ -80,11 +97,11 @@ export const formatReminderMessageText = (reminderItem, indexNumberString, langu
   } else if (reminderItem.isRandomPointer) {
     displayText = ui.REMINDER_RANDOM;
   } else if (reminderItem.photoFileId) {
-    const photoPrefix = language === 'en' ? '📷 Photo' : '📷 Фотография';
+    const photoPrefix = language === 'en' ? '📷 Photo' : (language === 'uk' ? '📷 Фотографія' : '📷 Фотография');
     const photoWithCaptionPrefix = language === 'en' ? '📷 Photo' : '📷 Фото';
     displayText = reminderItem.caption ? `${photoWithCaptionPrefix}: «${reminderItem.caption}»` : photoPrefix;
   } else if (reminderItem.videoFileId) {
-    const videoPrefix = language === 'en' ? '🎬 Video' : '🎬 Видео';
+    const videoPrefix = language === 'en' ? '🎬 Video' : (language === 'uk' ? '🎬 Відео' : '🎬 Видео');
     displayText = reminderItem.caption ? `${videoPrefix}: «${reminderItem.caption}»` : videoPrefix;
   }
 
@@ -92,7 +109,7 @@ export const formatReminderMessageText = (reminderItem, indexNumberString, langu
     ? formatNextRunTime(reminderItem.nextRunAt, userTimezone, language)
     : null;
 
-  const nextRunLabel = language === 'en' ? '🕒 Next run' : '🕒 Следующее';
+  const nextRunLabel = language === 'en' ? '🕒 Next run' : (language === 'uk' ? '🕒 Наступне' : '🕒 Следующее');
   const nextRunLine = nextRunString ? `\n<i>${nextRunLabel}: ${nextRunString}</i>` : '';
 
   return `<b>${indexNumberString}.</b> ${status}
@@ -104,10 +121,10 @@ export const formatReminderMessageText = (reminderItem, indexNumberString, langu
 };
 
 export const getReminderMessageKeyboard = (reminderItem, language = 'ru', showBackToList = true) => {
-  const pauseLabel = language === 'en' ? '⏸️ Pause' : '⏸️ Приостановить';
-  const resumeLabel = language === 'en' ? '▶️ Resume' : '▶️ Возобновить';
-  const deleteLabel = language === 'en' ? '🗑 Delete' : '🗑 Удалить';
-  const backToListLabel = language === 'en' ? '⬅️ All reminders' : '⬅️ Ко всем напоминаниям';
+  const pauseLabel = language === 'en' ? '⏸️ Pause' : (language === 'uk' ? '⏸️ Призупинити' : '⏸️ Приостановить');
+  const resumeLabel = language === 'en' ? '▶️ Resume' : (language === 'uk' ? '▶️ Відновити' : '▶️ Возобновить');
+  const deleteLabel = language === 'en' ? '🗑 Delete' : (language === 'uk' ? '🗑 Видалити' : '🗑 Удалить');
+  const backToListLabel = language === 'en' ? '⬅️ All reminders' : (language === 'uk' ? '⬅️ До всіх нагадувань' : '⬅️ Ко всем напоминаниям');
 
   const actionRow = [
     reminderItem.isActive
@@ -313,13 +330,16 @@ export const handleReminderText = async ctx => {
   const isRandomPointerCommand =
     incomingText === UI.ru.REMINDER_RANDOM ||
     incomingText === UI.en.REMINDER_RANDOM ||
+    incomingText === UI.uk.REMINDER_RANDOM ||
     incomingText === UI.REMINDER_RANDOM ||
     incomingText === '🎲 Случайный указатель' ||
-    incomingText === '🎲 Random pointer';
+    incomingText === '🎲 Random pointer' ||
+    incomingText === '🎲 Випадковий вказівник';
 
   const isFavoritePointerCommand =
     incomingText === UI.ru.REMINDER_FAVORITE ||
     incomingText === UI.en.REMINDER_FAVORITE ||
+    incomingText === UI.uk.REMINDER_FAVORITE ||
     incomingText === UI.REMINDER_FAVORITE;
 
   if (isFavoritePointerCommand) {
@@ -419,11 +439,14 @@ const saveLastReminderText = async (ctx, text) => {
   const isSpecialPointerCommand =
     text === UI.ru.REMINDER_RANDOM ||
     text === UI.en.REMINDER_RANDOM ||
+    text === UI.uk.REMINDER_RANDOM ||
     text === UI.REMINDER_RANDOM ||
     text === '🎲 Случайный указатель' ||
     text === '🎲 Random pointer' ||
+    text === '🎲 Випадковий вказівник' ||
     text === UI.ru.REMINDER_FAVORITE ||
     text === UI.en.REMINDER_FAVORITE ||
+    text === UI.uk.REMINDER_FAVORITE ||
     text === UI.REMINDER_FAVORITE;
 
   if (isSpecialPointerCommand) return;

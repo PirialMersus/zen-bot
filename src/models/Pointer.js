@@ -33,6 +33,12 @@ const englishPointerSchema = new mongoose.Schema(pointerSchemaDefinition, {
   collection: 'pointers_en'
 });
 
+const ukrainianPointerSchema = new mongoose.Schema(pointerSchemaDefinition, {
+  timestamps: true,
+  collection: 'pointers_uk'
+});
+
 export const Pointer = mongoose.model('Pointer', russianPointerSchema);
 export const PointerRu = Pointer;
 export const PointerEn = mongoose.model('PointerEn', englishPointerSchema);
+export const PointerUk = mongoose.model('PointerUk', ukrainianPointerSchema);

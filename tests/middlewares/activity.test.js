@@ -119,7 +119,8 @@ describe('Middleware активности и уведомление о ново�
     expect(detectUserLanguage('RU')).toBe('ru');
     expect(detectUserLanguage('ru-RU')).toBe('ru');
     expect(detectUserLanguage('be')).toBe('ru');
-    expect(detectUserLanguage('uk')).toBe('ru');
+    expect(detectUserLanguage('uk')).toBe('uk');
+    expect(detectUserLanguage('uk-UA')).toBe('uk');
     expect(detectUserLanguage('en')).toBe('en');
     expect(detectUserLanguage('en-US')).toBe('en');
     expect(detectUserLanguage('es')).toBe('en');
@@ -151,8 +152,30 @@ describe('Middleware активности и уведомление о ново�
     expect(createdDatabaseUser.language).toBe('en');
   });
 
-  it('должен сохранять ru для нового пользователя с украинской или белорусской локалью', async () => {
-    const ukrainianTelegramUserId = 88223344;
+  it('должен сохранять ru для нового пользователя с белорусской локалью', async () => {
+    const belarusianTelegramUserId = 88223344;
+    const mockContext = createMockContext({
+      userId: belarusianTelegramUserId,
+      from: {
+        id: belarusianTelegramUserId,
+        first_name: 'Алесь',
+        language_code: 'be'
+      }
+    });
+
+    const nextMiddlewareFunction = vi.fn().mockResolvedValue();
+
+    await activityMiddleware(mockContext, nextMiddlewareFunction);
+
+    expect(mockContext.state.userLanguage).toBe('ru');
+
+    const createdDatabaseUser = await User.findOne({ telegramId: belarusianTelegramUserId });
+    expect(createdDatabaseUser).not.toBeNull();
+    expect(createdDatabaseUser.language).toBe('ru');
+  });
+
+  it('должен автоматически сохранять uk для нового пользователя с украинской локалью Telegram', async () => {
+    const ukrainianTelegramUserId = 88223355;
     const mockContext = createMockContext({
       userId: ukrainianTelegramUserId,
       from: {
@@ -166,10 +189,10 @@ describe('Middleware активности и уведомление о ново�
 
     await activityMiddleware(mockContext, nextMiddlewareFunction);
 
-    expect(mockContext.state.userLanguage).toBe('ru');
+    expect(mockContext.state.userLanguage).toBe('uk');
 
     const createdDatabaseUser = await User.findOne({ telegramId: ukrainianTelegramUserId });
     expect(createdDatabaseUser).not.toBeNull();
-    expect(createdDatabaseUser.language).toBe('ru');
+    expect(createdDatabaseUser.language).toBe('uk');
   });
 });

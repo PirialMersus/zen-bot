@@ -1,7 +1,7 @@
 import express from 'express';
 import jwt from 'jsonwebtoken';
 import crypto from 'node:crypto';
-import { Pointer, PointerEn } from '../models/Pointer.js';
+import { Pointer, PointerEn, PointerUk } from '../models/Pointer.js';
 import Reminder from '../models/Reminder.js';
 import User from '../models/User.js';
 
@@ -138,7 +138,9 @@ router.post('/auth/verify', async (req, res) => {
 router.get('/pointers/random', async (req, res) => {
     try {
         const requestedLanguage = req.query.language || req.query.lang || 'ru';
-        const targetPointerModel = requestedLanguage === 'en' ? PointerEn : Pointer;
+        const targetPointerModel = requestedLanguage === 'en'
+            ? PointerEn
+            : (requestedLanguage === 'uk' ? PointerUk : Pointer);
 
         const count = await targetPointerModel.countDocuments({ isActive: true });
         if (!count) {

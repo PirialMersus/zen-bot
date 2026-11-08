@@ -134,7 +134,7 @@ export const startScheduler = bot => {
           let msg;
           try {
             let messageText = r.text;
-            const userLanguage = user?.language === 'en' ? 'en' : 'ru';
+            const userLanguage = ['en', 'uk'].includes(user?.language) ? user.language : 'ru';
 
             if (r.isFavoritePointer) {
               const favoritePointer = await getNextFavoritePointerForUser(Number(r.userId)).catch(() => null);
@@ -156,11 +156,15 @@ export const startScheduler = bot => {
             const footer = deleteAfterSeconds
               ? (userLanguage === 'en'
                 ? `\n\n<i>(auto-delete in ${deleteAfterSeconds} sec)</i>`
-                : `\n\n<i>(автоудаление через ${deleteAfterSeconds} сек)</i>`)
+                : (userLanguage === 'uk'
+                  ? `\n\n<i>(автовидалення через ${deleteAfterSeconds} сек)</i>`
+                  : `\n\n<i>(автоудаление через ${deleteAfterSeconds} сек)</i>`))
               : '';
 
             const useApp = user?.notificationChannel === 'app' && user?.pushTokens?.length > 0;
-            const pushTitle = userLanguage === 'en' ? 'Reminder' : 'Напоминание';
+            const pushTitle = userLanguage === 'en'
+              ? 'Reminder'
+              : (userLanguage === 'uk' ? 'Нагадування' : 'Напоминание');
 
             if (r.photoFileId) {
               const photoCaption = r.caption ? `${r.caption}${footer}` : (footer ? footer.trim() : '');

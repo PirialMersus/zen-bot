@@ -56,11 +56,44 @@ const ENGLISH_UI = {
   TIMEZONE: '🌍 Timezone'
 };
 
+const UKRAINIAN_UI = {
+  POINTER_NEXT: '➡️ Наступний',
+  POINTER_NEXT_FAV: '➡️ Наступний ⭐',
+  POINTER_FAV_MODE_BADGE: (current, total) => total ? `⭐ Обрані (${current} з ${total})` : '⭐ Режим: Обране',
+  POINTER_TO_REMINDER: '🔔 У нагадування',
+  POINTER_RANDOM: '🎲 Випадковий',
+  POINTER_FAVORITE: '⭐ З обраного',
+  POINTER_FAV_ADD: '⭐ До обраного',
+  POINTER_FAV_REMOVE: '❌ З обраного',
+  POINTER_TO_MENU: '⬅️ До меню',
+
+  REMINDER_CREATE: '➕ Створити',
+  REMINDER_MY: '📋 Список',
+  REMINDER_RANDOM: '🎲 Випадковий',
+  REMINDER_FAVORITE: '⭐ З обраного',
+
+  INTERVAL_5: 'Кожні 5 хвилин',
+  INTERVAL_15: 'Кожні 15 хвилин',
+  INTERVAL_60: 'Щогодини',
+  INTERVAL_1440: 'Раз на день',
+
+  CONFIRM_YES: '✅ Так',
+  CONFIRM_NO: '❌ Ні',
+  ADMIN_ACTIVE_USERS: '👥 Користувачі',
+  ADMIN_BROADCAST: '📢 Розсилка',
+  SUPPORT: '🛠 Техпідтримка',
+  TIMEZONE: '🌍 Часовий пояс'
+};
+
 export const UI = {
   ...RUSSIAN_UI,
   ru: RUSSIAN_UI,
-  en: ENGLISH_UI
+  en: ENGLISH_UI,
+  uk: UKRAINIAN_UI
 };
 
-export const getUi = (language = 'ru') =>
-  language === 'en' ? ENGLISH_UI : RUSSIAN_UI;
+export const getUi = (language = 'ru') => {
+  if (language === 'en') return ENGLISH_UI;
+  if (language === 'uk') return UKRAINIAN_UI;
+  return RUSSIAN_UI;
+};

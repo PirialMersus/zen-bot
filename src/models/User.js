@@ -8,7 +8,7 @@ const schema = new mongoose.Schema({
 
   language: {
     type: String,
-    enum: ['ru', 'en'],
+    enum: ['ru', 'en', 'uk'],
     default: 'ru'
   },
 

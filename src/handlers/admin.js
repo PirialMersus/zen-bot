@@ -286,11 +286,11 @@ export const handleAdminGetPointerByNumber = async ctx => {
   }
 
   let targetPointerLanguage = 'ru';
-  const languageModifierMatch = trimmedLowerCasedText.match(/(?:^|\s|_)(en|ru)(?:\s|$)/i);
+  const languageModifierMatch = trimmedLowerCasedText.match(/(?:^|\s|_)(en|ru|uk)(?:\s|$)/i);
   if (languageModifierMatch) {
     targetPointerLanguage = languageModifierMatch[1].toLowerCase();
-  } else if (ctx.state?.userLanguage === 'en') {
-    targetPointerLanguage = 'en';
+  } else if (ctx.state?.userLanguage === 'en' || ctx.state?.userLanguage === 'uk') {
+    targetPointerLanguage = ctx.state.userLanguage;
   }
 
   let requestedPointerNumber = null;
@@ -334,21 +334,21 @@ export const handleAdminSearchPointers = async ctx => {
   const trimmedLowerCasedText = rawIncomingMessageText.trim().toLowerCase();
 
   let targetPointerLanguage = 'ru';
-  const languageModifierMatch = trimmedLowerCasedText.match(/(?:^|\s|_)(en|ru)(?:\s|$)/i);
+  const languageModifierMatch = trimmedLowerCasedText.match(/(?:^|\s|_)(en|ru|uk)(?:\s|$)/i);
   if (languageModifierMatch) {
     targetPointerLanguage = languageModifierMatch[1].toLowerCase();
-  } else if (ctx.state?.userLanguage === 'en') {
-    targetPointerLanguage = 'en';
+  } else if (ctx.state?.userLanguage === 'en' || ctx.state?.userLanguage === 'uk') {
+    targetPointerLanguage = ctx.state.userLanguage;
   }
 
   let extractedSearchPhrase = rawIncomingMessageText
-    .replace(/^\/(?:find|search|f)(?:_(?:en|ru))?/i, '')
-    .replace(/^(?:найти|поиск)(?:\s+указатель|\s+pointer)?/i, '')
+    .replace(/^\/(?:find|search|f)(?:_(?:en|ru|uk))?/i, '')
+    .replace(/^(?:найти|поиск|знайти|пошук)(?:\s+указатель|\s+pointer|\s+вказівник)?/i, '')
     .trim();
 
   extractedSearchPhrase = extractedSearchPhrase
-    .replace(/^(?:en|ru)\s+/i, '')
-    .replace(/\s+(?:en|ru)$/i, '')
+    .replace(/^(?:en|ru|uk)\s+/i, '')
+    .replace(/\s+(?:en|ru|uk)$/i, '')
     .trim();
 
   if (!extractedSearchPhrase) {

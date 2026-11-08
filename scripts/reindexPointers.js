@@ -5,10 +5,13 @@ import { fileURLToPath } from 'url';
 const currentFileDirectoryPath = path.dirname(fileURLToPath(import.meta.url));
 const projectRootDirectoryPath = path.resolve(currentFileDirectoryPath, '..');
 
-const russianPointersFilePath = path.join(projectRootDirectoryPath, 'data', 'pointers.js');
+const russianPointersFilePath = path.join(projectRootDirectoryPath, 'data', 'pointers.ru.js');
 const englishPointersFilePath = path.join(projectRootDirectoryPath, 'data', 'pointers.en.js');
+const ukrainianPointersFilePath = path.join(projectRootDirectoryPath, 'data', 'pointers.uk.js');
 
 const reindexPointersInFile = async targetFilePath => {
+  const fileExists = await fs.access(targetFilePath).then(() => true).catch(() => false);
+  if (!fileExists) return 0;
   const originalFileContent = await fs.readFile(targetFilePath, 'utf-8');
   let sequentialPointerIndex = 1;
 
@@ -26,12 +29,14 @@ const reindexPointersInFile = async targetFilePath => {
 export const executePointersReindexing = async () => {
   const russianPointersCount = await reindexPointersInFile(russianPointersFilePath);
   const englishPointersCount = await reindexPointersInFile(englishPointersFilePath);
+  const ukrainianPointersCount = await reindexPointersInFile(ukrainianPointersFilePath);
 
   console.log(`Успешно перенумеровано:`);
   console.log(`- RU (${russianPointersFilePath}): ${russianPointersCount} указателей`);
   console.log(`- EN (${englishPointersFilePath}): ${englishPointersCount} указателей`);
+  console.log(`- UK (${ukrainianPointersFilePath}): ${ukrainianPointersCount} указателей`);
 
-  return { russianPointersCount, englishPointersCount };
+  return { russianPointersCount, englishPointersCount, ukrainianPointersCount };
 };
 
 if (process.argv[1] === fileURLToPath(import.meta.url)) {

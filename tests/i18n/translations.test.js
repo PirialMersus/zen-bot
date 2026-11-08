@@ -55,21 +55,29 @@ describe('Покрытие всех переводов и целостность
 
     const russianLeafKeys = collectObjectLeafKeys(TEXTS.ru);
     const englishLeafKeys = collectObjectLeafKeys(TEXTS.en);
+    const ukrainianLeafKeys = collectObjectLeafKeys(TEXTS.uk);
 
     expect(englishLeafKeys).toEqual(russianLeafKeys);
+    expect(ukrainianLeafKeys).toEqual(russianLeafKeys);
 
     expect(TEXTS.ru.INTERVALS.OPTIONS.length).toBe(TEXTS.en.INTERVALS.OPTIONS.length);
+    expect(TEXTS.uk.INTERVALS.OPTIONS.length).toBe(TEXTS.ru.INTERVALS.OPTIONS.length);
     expect(Object.keys(TEXTS.ru.INTERVALS.MAP).length).toBe(Object.keys(TEXTS.en.INTERVALS.MAP).length);
+    expect(Object.keys(TEXTS.uk.INTERVALS.MAP).length).toBe(Object.keys(TEXTS.ru.INTERVALS.MAP).length);
   });
 
-  it('должен гарантировать полную симметрию ключей в BUTTONS и UI между ru и en', () => {
+  it('должен гарантировать полную симметрию ключей в BUTTONS и UI между ru, en и uk', () => {
     const russianButtonKeys = Object.keys(BUTTONS.ru).sort();
     const englishButtonKeys = Object.keys(BUTTONS.en).sort();
+    const ukrainianButtonKeys = Object.keys(BUTTONS.uk).sort();
     expect(englishButtonKeys).toEqual(russianButtonKeys);
+    expect(ukrainianButtonKeys).toEqual(russianButtonKeys);
 
     const russianUiKeys = Object.keys(UI.ru).sort();
     const englishUiKeys = Object.keys(UI.en).sort();
+    const ukrainianUiKeys = Object.keys(UI.uk).sort();
     expect(englishUiKeys).toEqual(russianUiKeys);
+    expect(ukrainianUiKeys).toEqual(russianUiKeys);
   });
 
   it('должен гарантировать отсутствие пустых или undefined переводов в словарях', () => {
@@ -87,10 +95,13 @@ describe('Покрытие всех переводов и целостность
 
     verifyNoEmptyValuesInObject(TEXTS.ru);
     verifyNoEmptyValuesInObject(TEXTS.en);
+    verifyNoEmptyValuesInObject(TEXTS.uk);
     verifyNoEmptyValuesInObject(BUTTONS.ru);
     verifyNoEmptyValuesInObject(BUTTONS.en);
+    verifyNoEmptyValuesInObject(BUTTONS.uk);
     verifyNoEmptyValuesInObject(UI.ru);
     verifyNoEmptyValuesInObject(UI.en);
+    verifyNoEmptyValuesInObject(UI.uk);
   });
 
   it('должен возвращать русский словарь по умолчанию при передаче неподдерживаемого языка', () => {
@@ -99,6 +110,30 @@ describe('Покрытие всех переводов и целостность
     expect(getButtons('de')).toBe(BUTTONS.ru);
     expect(getButtons(null)).toBe(BUTTONS.ru);
     expect(getUi('es')).toBe(UI.ru);
+  });
+
+  it('должен возвращать украинские словари при передаче языка uk', () => {
+    expect(getTexts('uk')).toBe(TEXTS.uk);
+    expect(getButtons('uk')).toBe(BUTTONS.uk);
+    expect(getUi('uk')).toBe(UI.uk);
+  });
+
+  it('должен отправлять украиноязычное приветствие в handleStart для пользователя с украинским языком', async () => {
+    const ukrainianUserId = 88771199;
+    await User.create({ telegramId: ukrainianUserId, language: 'uk' });
+
+    const mockContext = createMockContext({ userId: ukrainianUserId });
+    await handleStart(mockContext);
+
+    expect(mockContext.reply).toHaveBeenCalled();
+    const [welcomeText, replyOptions] = mockContext.reply.mock.calls[0];
+    expect(welcomeText).toBe(TEXTS.uk.MENU.START);
+
+    const keyboardButtonsFlattened = replyOptions.reply_markup.keyboard.flat();
+    expect(keyboardButtonsFlattened).toContain(BUTTONS.uk.REMINDERS);
+    expect(keyboardButtonsFlattened).toContain(BUTTONS.uk.POINTER);
+    expect(keyboardButtonsFlattened).toContain(BUTTONS.uk.SETTINGS);
+    expect(keyboardButtonsFlattened).toContain(BUTTONS.uk.SUPPORT);
   });
 
   it('должен отправлять англоязычное приветствие в handleStart для пользователя с английским языком', async () => {

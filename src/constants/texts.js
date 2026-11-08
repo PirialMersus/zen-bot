@@ -132,11 +132,82 @@ If you would like to say thanks for the bot or support the project financially -
   }
 };
 
+const UKRAINIAN_TEXTS = {
+  MENU: {
+    START: `👋 Привіт!
+
+я - бот для вироблення нових звичок
+я нагадуватиму про те, що важливо
+
+🧘‍♀️ випадкова фраза — за кнопкою в будь-який момент
+⏳ власне нагадування — текст, 📷 фото або 🎬 відео з будь-якою частотою
+
+🐈️ Зайди в налаштування та обери свій часовий пояс
+`,
+    MAIN: 'Головне меню',
+    SETTINGS: 'Налаштування:',
+    REMINDERS: 'Керування нагадуваннями 👇'
+  },
+
+  POINTERS: {
+    EMPTY: 'Поки немає вказівників.',
+    FAVORITE_EMPTY: 'У вас поки немає обраних вказівників. Читаючи випадкові вказівники, натискайте «⭐ До обраного», щоб зберегти ті, що сподобалися.',
+    FAVORITE_ADDED: 'Додано до обраного ⭐',
+    FAVORITE_REMOVED: 'Вилучено з обраного',
+    FAVORITE_REMINDER_EMPTY: 'У вас поки немає обраних вказівників. Спочатку додайте вказівники, що сподобалися, до обраного.',
+    FAVORITE_BADGE_INFO: 'Ви переглядаєте своє особисте обране ⭐',
+    FAVORITE_TOAST: (current, total) => total ? `⭐ Обране: ${current} з ${total}` : '⭐ Режим: Обране'
+  },
+
+  REMINDERS: {
+    NONE: 'У тебе немає нагадувань.',
+    CREATED: 'Готово. Нагадування створено.',
+    ASK_TEXT: 'Що приходитиме в нагадуванні?',
+    ASK_INTERVAL: 'Як часто нагадувати:',
+    ASK_INTERVAL_HINT: '⌨️ Можна вибрати кнопкою або ввести кількість хвилин цифрами',
+    ASK_DELETE_AFTER: '🗑 Автовидалення нагадування',
+    ASK_DELETE_AFTER_HINT: '⌨️ Можна вибрати кнопкою або ввести кількість секунд цифрами',
+    MIN_INTERVAL: 'Мінімум — 1 хвилина',
+    INVALID_SECONDS: '⌨️ Введіть кількість секунд цифрами',
+    CONFIRM_STATUS: 'Ви дійсно хочете змінити статус нагадування?'
+  },
+
+  STATUS: {
+    ACTIVE: '🟢 Активно',
+    PAUSED: '⏸️ Пауза'
+  },
+
+  SETTINGS: {
+    LANGUAGE_TITLE: '🌐 Выберите язык / Select language / Оберіть мову:',
+    LANGUAGE_CHANGED: '✅ Мову змінено на Українську',
+    QUIET_STATUS: (enabled, range) =>
+      enabled
+        ? `🔕 Увімкнено (${range})`
+        : `🔔 Вимкнено (${range})`
+  },
+
+  SUPPORT: `Техпідтримка, зворотний зв'язок та побажання:
+👉 @pirial_mersus
+
+Група в Telegram: @dzenline
+
+Якщо захочете подякувати за бота або підтримати проєкт матеріально - напишіть @Streamline6 ❤️`,
+
+  INTERVALS: {
+    OPTIONS: ['10 сек', '30 сек', '1 хв', 'Не видаляти'],
+    MAP: { '10 сек': 10, '30 сек': 30, '1 хв': 60 }
+  }
+};
+
 export const TEXTS = {
   ...RUSSIAN_TEXTS,
   ru: RUSSIAN_TEXTS,
-  en: ENGLISH_TEXTS
+  en: ENGLISH_TEXTS,
+  uk: UKRAINIAN_TEXTS
 };
 
-export const getTexts = (language = 'ru') =>
-  language === 'en' ? ENGLISH_TEXTS : RUSSIAN_TEXTS;
+export const getTexts = (language = 'ru') => {
+  if (language === 'en') return ENGLISH_TEXTS;
+  if (language === 'uk') return UKRAINIAN_TEXTS;
+  return RUSSIAN_TEXTS;
+};

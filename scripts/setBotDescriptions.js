@@ -9,6 +9,7 @@ if (!targetBotToken) {
 
 const englishBotName = 'Zen Pointers | Reminders';
 const russianBotName = 'Указатели ясности | Напоминания';
+const ukrainianBotName = 'Вказівники ясності | Нагадування';
 
 const englishDescription = `This bot is designed to gently bring you back to clarity.
 
@@ -30,8 +31,19 @@ const russianDescription = `Этот бот создан, чтобы мягко 
 
 Нажми «Запустить» прямо сейчас 👇`;
 
+const ukrainianDescription = `Цей бот створений, щоб м'яко повертати тебе у стан ясності.
+
+Що всередині:
+🧘‍♂️ 1000+ вказівників недвоїстості (Нісаргадатта, Рамана Махарші, Пападжі, Толле, Спайра) — у будь-який момент.
+⏳ Розумні нагадування — фрази, фото або відео з будь-якою частотою.
+🌙 Режим «Не турбувати» — мовчить уночі.
+🗑 Автовидалення — чат не захаращується.
+
+Натисни «Розпочати» прямо зараз 👇`;
+
 const englishShortDescription = 'Your pocket satsang. Precise words of masters that bring you back to practice.';
 const russianShortDescription = 'Твой карманный сатсанг. Точные фразы мастеров, возвращающие к практике.';
+const ukrainianShortDescription = 'Твій кишеньковий сатсанг. Точні фрази майстрів, що повертають до практики.';
 
 const executeApiMethod = async (methodName, requestPayload) => {
   const apiEndpointUrl = `https://api.telegram.org/bot${targetBotToken}/${methodName}`;
@@ -55,14 +67,17 @@ const runSetup = async () => {
   await executeApiMethod('setMyName', { name: englishBotName });
   await executeApiMethod('setMyName', { name: englishBotName, language_code: 'en' });
   await executeApiMethod('setMyName', { name: russianBotName, language_code: 'ru' });
+  await executeApiMethod('setMyName', { name: ukrainianBotName, language_code: 'uk' });
 
   await executeApiMethod('setMyDescription', { description: englishDescription });
   await executeApiMethod('setMyDescription', { description: englishDescription, language_code: 'en' });
   await executeApiMethod('setMyDescription', { description: russianDescription, language_code: 'ru' });
+  await executeApiMethod('setMyDescription', { description: ukrainianDescription, language_code: 'uk' });
 
   await executeApiMethod('setMyShortDescription', { short_description: englishShortDescription });
   await executeApiMethod('setMyShortDescription', { short_description: englishShortDescription, language_code: 'en' });
   await executeApiMethod('setMyShortDescription', { short_description: russianShortDescription, language_code: 'ru' });
+  await executeApiMethod('setMyShortDescription', { short_description: ukrainianShortDescription, language_code: 'uk' });
 
   console.log('Descriptions and names updated successfully with English as default!');
 };

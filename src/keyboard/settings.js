@@ -3,7 +3,11 @@ import { getButtons } from '../constants/buttons.js';
 
 export const settingsKeyboard = (enabled, language = 'ru') => {
   const buttons = getButtons(language);
-  const quietHoursScheduleLabel = language === 'en' ? '⏰ Quiet hours schedule' : '⏰ Время тихих часов';
+  const quietHoursScheduleLabel = language === 'en'
+    ? '⏰ Quiet hours schedule'
+    : language === 'uk'
+      ? '⏰ Час тихих годин'
+      : '⏰ Время тихих часов';
 
   return Markup.inlineKeyboard([
     [

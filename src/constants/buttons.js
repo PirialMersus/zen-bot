@@ -22,11 +22,27 @@ const ENGLISH_BUTTONS = {
   LANGUAGE: '🌐 Language'
 };
 
+const UKRAINIAN_BUTTONS = {
+  POINTER: '🧘‍♀️ Вказівники 🧘‍♂️',
+  REMINDERS: '⏳ Нагадування',
+  SUPPORT: '🛠 Техпідтримка',
+  TIMEZONE: '🌍 Часовий пояс',
+  SETTINGS: '⚙️ Налаштування',
+  QUIET_ON: '🔕 Не турбувати вночі',
+  QUIET_OFF: '🔔 Отримувати вночі',
+  BACK: '⬅️ Назад',
+  LANGUAGE: '🌐 Мова'
+};
+
 export const BUTTONS = {
   ...RUSSIAN_BUTTONS,
   ru: RUSSIAN_BUTTONS,
-  en: ENGLISH_BUTTONS
+  en: ENGLISH_BUTTONS,
+  uk: UKRAINIAN_BUTTONS
 };
 
-export const getButtons = (language = 'ru') =>
-  language === 'en' ? ENGLISH_BUTTONS : RUSSIAN_BUTTONS;
+export const getButtons = (language = 'ru') => {
+  if (language === 'en') return ENGLISH_BUTTONS;
+  if (language === 'uk') return UKRAINIAN_BUTTONS;
+  return RUSSIAN_BUTTONS;
+};

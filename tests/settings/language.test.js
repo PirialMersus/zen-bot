@@ -25,6 +25,33 @@ describe('Мультиязычность и переключение языко�
     const buttonTexts = inlineButtons.map(item => item.text);
     expect(buttonTexts).toContain('🇷🇺 Русский');
     expect(buttonTexts).toContain('🇬🇧 English');
+    expect(buttonTexts).toContain('🇺🇦 Українська');
+  });
+
+  it('должен переключать язык на украинский и отправлять подтверждение на украинском языке', async () => {
+    const telegramUserId = 66778811;
+    await User.create({
+      telegramId: telegramUserId,
+      language: 'ru',
+      shuffleQueue: [5, 4, 3, 2, 1],
+      shuffleIndex: 2
+    });
+
+    const mockContext = createMockContext({
+      userId: telegramUserId,
+      callbackData: 'settings:language:set:uk'
+    });
+
+    await handleLanguageSet(mockContext);
+
+    const updatedUser = await User.findOne({ telegramId: telegramUserId });
+    expect(updatedUser.language).toBe('uk');
+    expect(updatedUser.shuffleIndex).toBe(2);
+    expect(updatedUser.shuffleQueue).toEqual([5, 4, 3, 2, 1]);
+
+    expect(mockContext.reply).toHaveBeenCalled();
+    const replyText = mockContext.reply.mock.calls[0][0];
+    expect(replyText).toContain('Мову змінено на Українську');
   });
 
   it('должен переключать язык на английский и сохранять прогресс очереди перемешивания без обнуления', async () => {
@@ -91,6 +118,23 @@ describe('Мультиязычность и переключение языко�
 
     const createdForeignUser = await User.findOne({ telegramId: foreignSpeakerId });
     expect(createdForeignUser.language).toBe('en');
+
+    const ukrainianSpeakerId = 77788899;
+    const ukrainianContext = createMockContext({
+      userId: ukrainianSpeakerId,
+      customUpdate: {
+        message: {
+          from: { id: ukrainianSpeakerId, language_code: 'uk' },
+          text: '/start'
+        }
+      }
+    });
+    ukrainianContext.from.language_code = 'uk';
+
+    await activityMiddleware(ukrainianContext, async () => {});
+
+    const createdUkrainianUser = await User.findOne({ telegramId: ukrainianSpeakerId });
+    expect(createdUkrainianUser.language).toBe('uk');
   });
 
   it('должен выдавать указатели на выбранном языке пользователя', async () => {

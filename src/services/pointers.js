@@ -1,5 +1,5 @@
 import mongoose from 'mongoose';
-import { Pointer, PointerEn } from '../models/Pointer.js';
+import { Pointer, PointerEn, PointerUk } from '../models/Pointer.js';
 import User from '../models/User.js';
 
 const buildShuffledIndexArray = length => {
@@ -13,17 +13,22 @@ const buildShuffledIndexArray = length => {
 
 const resolveEffectiveTagFilter = (tagFilter, userLanguage) => {
   if (!tagFilter) return null;
-  if (userLanguage === 'en' && tagFilter === 'тишина') {
+  if (userLanguage === 'en' && (tagFilter === 'тишина' || tagFilter === 'тиша')) {
     return 'stillness';
   }
-  if (userLanguage === 'ru' && tagFilter === 'stillness') {
+  if (userLanguage === 'ru' && (tagFilter === 'stillness' || tagFilter === 'тиша')) {
     return 'тишина';
+  }
+  if (userLanguage === 'uk' && (tagFilter === 'stillness' || tagFilter === 'тишина')) {
+    return 'тиша';
   }
   return tagFilter;
 };
 
 const selectPointerModelByLanguage = language => {
-  return language === 'en' ? PointerEn : Pointer;
+  if (language === 'en') return PointerEn;
+  if (language === 'uk') return PointerUk;
+  return Pointer;
 };
 
 const escapeRegularExpressionString = unescapedTextString => {
@@ -80,7 +85,7 @@ export const getNextPointerForUser = async (telegramUserId, tagFilter = null) =>
     user = await User.create({ telegramId: telegramUserId });
   }
 
-  const userLanguage = user?.language === 'en' ? 'en' : 'ru';
+  const userLanguage = ['en', 'uk'].includes(user?.language) ? user.language : 'ru';
   const effectiveTagFilter = resolveEffectiveTagFilter(tagFilter, userLanguage);
   const targetPointerModel = selectPointerModelByLanguage(userLanguage);
 
@@ -186,9 +191,9 @@ export const getNextFavoritePointerForUser = async (telegramUserId) => {
     return null;
   }
 
-  const userLanguage = user.language === 'en' ? 'en' : 'ru';
+  const userLanguage = ['en', 'uk'].includes(user?.language) ? user.language : 'ru';
   const targetPointerModel = selectPointerModelByLanguage(userLanguage);
-  const fallbackPointerModel = userLanguage === 'en' ? Pointer : PointerEn;
+  const fallbackPointerModels = [Pointer, PointerEn, PointerUk].filter(model => model !== targetPointerModel);
 
   const validFavorites = [];
   const resolvedPointersMap = new Map();
@@ -199,7 +204,10 @@ export const getNextFavoritePointerForUser = async (telegramUserId) => {
     }
     let doc = await targetPointerModel.findById(item.pointerId);
     if (!doc) {
-      doc = await fallbackPointerModel.findById(item.pointerId);
+      for (const fallbackModel of fallbackPointerModels) {
+        doc = await fallbackModel.findById(item.pointerId);
+        if (doc) break;
+      }
     }
     if (doc && doc.isActive) {
       validFavorites.push(item);

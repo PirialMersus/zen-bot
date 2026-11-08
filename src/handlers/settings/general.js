@@ -18,9 +18,15 @@ export const renderSettings = async (ctx, prefixMessage = '') => {
 
   const quietStatusLabel = userLanguage === 'en'
     ? (quietSettings.enabled ? 'enabled' : 'disabled')
-    : (quietSettings.enabled ? 'включены' : 'выключены');
+    : userLanguage === 'uk'
+      ? (quietSettings.enabled ? 'увімкнено' : 'вимкнено')
+      : (quietSettings.enabled ? 'включены' : 'выключены');
 
-  const languageDisplayName = userLanguage === 'en' ? 'English' : 'Русский';
+  const languageDisplayName = userLanguage === 'en'
+    ? 'English'
+    : userLanguage === 'uk'
+      ? 'Українська'
+      : 'Русский';
 
   let localizedSettingsText = userLanguage === 'en'
     ? `${texts.MENU.SETTINGS}
@@ -33,7 +39,18 @@ ${timezoneValue}
 
 🌐 Language:
 ${languageDisplayName}`
-    : `${texts.MENU.SETTINGS}
+    : userLanguage === 'uk'
+      ? `${texts.MENU.SETTINGS}
+
+🌙 Тихі години: ${quietStatusLabel}
+⏰ ${quietSettings.start}:00–${quietSettings.end}:00
+
+🌍 Часовий пояс:
+${timezoneValue}
+
+🌐 Мова:
+${languageDisplayName}`
+      : `${texts.MENU.SETTINGS}
 
 🌙 Тихие часы: ${quietStatusLabel}
 ⏰ ${quietSettings.start}:00–${quietSettings.end}:00
