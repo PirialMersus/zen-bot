@@ -244,7 +244,7 @@ export const renderReminderStep = async ctx => {
     const suggestedTexts = [
       ...storedTexts.filter(item => !defaultTexts.includes(item)),
       ...defaultTexts
-    ].slice(0, 4);
+    ].slice(0, 2);
 
     const subtitle = userLanguage === 'en'
       ? '✍️ Type text, choose from suggestions or send 📷 photo / 🎬 video'
@@ -498,10 +498,7 @@ const saveLastReminderText = async (ctx, text) => {
     .filter(item => !defaultTexts.includes(item))
     .filter(item => item !== clean);
 
-  const nextUserTexts = [clean, ...userTexts].slice(
-    0,
-    4 - defaultTexts.length
-  );
+  const nextUserTexts = [clean, ...userTexts].slice(0, 2);
 
   user.lastReminderTexts = [
     ...nextUserTexts,

@@ -153,4 +153,33 @@ describe('Создание напоминаний', () => {
     expect(createdReminder).not.toBeNull();
     expect(createdReminder.deleteAfterSeconds).toBeNull();
   });
+
+  it('должен отображать не более двух последних текстов в клавиатуре при создании напоминания', async () => {
+    const telegramUserId = 55667788;
+    await User.create({
+      telegramId: telegramUserId,
+      language: 'ru',
+      lastReminderTexts: [
+        'Пользовательский текст 1',
+        'Пользовательский текст 2',
+        'Пользовательский текст 3',
+        'Пользовательский текст 4'
+      ]
+    });
+
+    const mockContext = createMockContext({
+      userId: telegramUserId
+    });
+
+    await handleCreateReminder(mockContext);
+
+    expect(mockContext.reply).toHaveBeenCalled();
+    const [, replyOptions] = mockContext.reply.mock.calls[0];
+    const keyboardRows = replyOptions.reply_markup.keyboard;
+
+    expect(keyboardRows).toHaveLength(3);
+    expect(keyboardRows[0]).toEqual([UI.ru.REMINDER_RANDOM, UI.ru.REMINDER_FAVORITE]);
+    expect(keyboardRows[1]).toEqual(['Пользовательский текст 1', 'Пользовательский текст 2']);
+    expect(keyboardRows[2]).toEqual(['⬅️ Назад']);
+  });
 });
