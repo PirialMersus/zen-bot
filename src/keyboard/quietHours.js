@@ -20,7 +20,15 @@ export const quietHoursKeyboard = (language = 'ru') => {
         late: '🌌 01:00 – 10:00 (Пізній)',
         custom: '✍️ Вказати свій час'
       }
-      : {
+      : language === 'es'
+        ? {
+          early: '🌅 22:00 – 07:00 (Temprano)',
+          standard: '🌙 23:00 – 08:00 (Estándar)',
+          nightOwl: '🦉 00:00 – 09:00 (Noctámbulo)',
+          late: '🌌 01:00 – 10:00 (Tardío)',
+          custom: '✍️ Horario personalizado'
+        }
+        : {
         early: '🌅 22:00 – 07:00 (Ранний)',
         standard: '🌙 23:00 – 08:00 (Стандартный)',
         nightOwl: '🦉 00:00 – 09:00 (Сова)',

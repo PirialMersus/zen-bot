@@ -34,15 +34,29 @@ const UKRAINIAN_BUTTONS = {
   LANGUAGE: '🌐 Мова'
 };
 
+const SPANISH_BUTTONS = {
+  POINTER: '🧘‍♀️ Punteros 🧘‍♂️',
+  REMINDERS: '⏳ Recordatorios',
+  SUPPORT: '🛠 Soporte',
+  TIMEZONE: '🌍 Zona horaria',
+  SETTINGS: '⚙️ Ajustes',
+  QUIET_ON: '🔕 No molestar de noche',
+  QUIET_OFF: '🔔 Recibir de noche',
+  BACK: '⬅️ Atrás',
+  LANGUAGE: '🌐 Idioma'
+};
+
 export const BUTTONS = {
   ...RUSSIAN_BUTTONS,
   ru: RUSSIAN_BUTTONS,
   en: ENGLISH_BUTTONS,
-  uk: UKRAINIAN_BUTTONS
+  uk: UKRAINIAN_BUTTONS,
+  es: SPANISH_BUTTONS
 };
 
 export const getButtons = (language = 'ru') => {
   if (language === 'en') return ENGLISH_BUTTONS;
   if (language === 'uk') return UKRAINIAN_BUTTONS;
+  if (language === 'es') return SPANISH_BUTTONS;
   return RUSSIAN_BUTTONS;
 };

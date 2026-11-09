@@ -11,6 +11,9 @@ export const detectUserLanguage = userLanguageCode => {
   if (normalizedLanguageCode === 'uk') {
     return 'uk';
   }
+  if (normalizedLanguageCode === 'es') {
+    return 'es';
+  }
   const slavicRussianLanguageCodes = ['ru', 'be'];
   if (slavicRussianLanguageCodes.includes(normalizedLanguageCode)) {
     return 'ru';
@@ -19,13 +22,13 @@ export const detectUserLanguage = userLanguageCode => {
 };
 
 export const resolveUserLanguage = async ctx => {
-  if (['en', 'ru', 'uk'].includes(ctx.state?.userLanguage)) {
+  if (['en', 'ru', 'uk', 'es'].includes(ctx.state?.userLanguage)) {
     return ctx.state.userLanguage;
   }
   const telegramId = ctx.from?.id || ctx.callbackQuery?.from?.id;
   if (telegramId) {
     const existingUser = await User.findOne({ telegramId }).lean().catch(() => null);
-    if (['en', 'ru', 'uk'].includes(existingUser?.language)) {
+    if (['en', 'ru', 'uk', 'es'].includes(existingUser?.language)) {
       ctx.state = ctx.state || {};
       ctx.state.userLanguage = existingUser.language;
       return existingUser.language;
@@ -83,7 +86,7 @@ export const activityMiddleware = async (ctx, next) => {
   const telegramLanguageCode = ctx.from?.language_code || ctx.callbackQuery?.from?.language_code;
   const initialLanguageForNewUser = detectUserLanguage(telegramLanguageCode);
 
-  const effectiveLanguage = ['en', 'ru', 'uk'].includes(existingUserRecord?.language)
+  const effectiveLanguage = ['en', 'ru', 'uk', 'es'].includes(existingUserRecord?.language)
     ? existingUserRecord.language
     : initialLanguageForNewUser;
 

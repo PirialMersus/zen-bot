@@ -30,6 +30,10 @@ const DEFAULT_REMINDER_TEXTS_BY_LANGUAGE = {
   uk: [
     'Не втягуйся 🧘',
     'У цьому тілі нікого немає 🤯'
+  ],
+  es: [
+    'No te involucres 🧘',
+    'No hay nadie en este cuerpo 🤯'
   ]
 };
 
@@ -47,6 +51,11 @@ const formatInterval = (minutes, language = 'ru') => {
     if (minutes === 60) return 'Щогодини ⌛';
     return `Кожні ${minutes} хв ⌛`;
   }
+  if (language === 'es') {
+    if (minutes === 1440) return 'Una vez al día ⌛';
+    if (minutes === 60) return 'Cada hora ⌛';
+    return `Cada ${minutes} min ⌛`;
+  }
   if (minutes === 1440) return 'Раз в день ⌛';
   if (minutes === 60) return 'Каждый час ⌛';
   return `Каждые ${minutes} мин ⌛`;
@@ -62,12 +71,14 @@ export const formatNextRunTime = (nextRunDate, userTimezone = 'Europe/Minsk', la
   if (targetDate.hasSame(now, 'day')) {
     if (language === 'en') return `today at ${timeString}`;
     if (language === 'uk') return `сьогодні о ${timeString}`;
+    if (language === 'es') return `hoy a las ${timeString}`;
     return `сегодня в ${timeString}`;
   }
 
   if (targetDate.hasSame(now.plus({ days: 1 }), 'day')) {
     if (language === 'en') return `tomorrow at ${timeString}`;
     if (language === 'uk') return `завтра о ${timeString}`;
+    if (language === 'es') return `mañana a las ${timeString}`;
     return `завтра в ${timeString}`;
   }
 
@@ -87,9 +98,13 @@ export const formatReminderMessageText = (reminderItem, indexNumberString, langu
       ? (reminderItem.deleteAfterSeconds === null
         ? '(автовидалення: не видаляється)'
         : `(автовидалення: через ${reminderItem.deleteAfterSeconds} сек)`)
-      : (reminderItem.deleteAfterSeconds === null
-        ? '(автоудаление: не удаляется)'
-        : `(автоудаление: через ${reminderItem.deleteAfterSeconds} сек)`);
+      : language === 'es'
+        ? (reminderItem.deleteAfterSeconds === null
+          ? '(autoeliminación: no eliminar)'
+          : `(autoeliminación: en ${reminderItem.deleteAfterSeconds} seg)`)
+        : (reminderItem.deleteAfterSeconds === null
+          ? '(автоудаление: не удаляется)'
+          : `(автоудаление: через ${reminderItem.deleteAfterSeconds} сек)`);
 
   let displayText = reminderItem.text;
   if (reminderItem.isFavoritePointer) {
@@ -97,11 +112,11 @@ export const formatReminderMessageText = (reminderItem, indexNumberString, langu
   } else if (reminderItem.isRandomPointer) {
     displayText = ui.REMINDER_RANDOM;
   } else if (reminderItem.photoFileId) {
-    const photoPrefix = language === 'en' ? '📷 Photo' : (language === 'uk' ? '📷 Фотографія' : '📷 Фотография');
-    const photoWithCaptionPrefix = language === 'en' ? '📷 Photo' : '📷 Фото';
+    const photoPrefix = language === 'en' ? '📷 Photo' : (language === 'uk' ? '📷 Фотографія' : (language === 'es' ? '📷 Foto' : '📷 Фотография'));
+    const photoWithCaptionPrefix = language === 'en' ? '📷 Photo' : (language === 'es' ? '📷 Foto' : '📷 Фото');
     displayText = reminderItem.caption ? `${photoWithCaptionPrefix}: «${reminderItem.caption}»` : photoPrefix;
   } else if (reminderItem.videoFileId) {
-    const videoPrefix = language === 'en' ? '🎬 Video' : (language === 'uk' ? '🎬 Відео' : '🎬 Видео');
+    const videoPrefix = language === 'en' ? '🎬 Video' : (language === 'uk' ? '🎬 Відео' : (language === 'es' ? '🎬 Video' : '🎬 Видео'));
     displayText = reminderItem.caption ? `${videoPrefix}: «${reminderItem.caption}»` : videoPrefix;
   }
 
@@ -109,7 +124,7 @@ export const formatReminderMessageText = (reminderItem, indexNumberString, langu
     ? formatNextRunTime(reminderItem.nextRunAt, userTimezone, language)
     : null;
 
-  const nextRunLabel = language === 'en' ? '🕒 Next run' : (language === 'uk' ? '🕒 Наступне' : '🕒 Следующее');
+  const nextRunLabel = language === 'en' ? '🕒 Next run' : (language === 'uk' ? '🕒 Наступне' : (language === 'es' ? '🕒 Siguiente' : '🕒 Следующее'));
   const nextRunLine = nextRunString ? `\n<i>${nextRunLabel}: ${nextRunString}</i>` : '';
 
   return `<b>${indexNumberString}.</b> ${status}
@@ -121,10 +136,10 @@ export const formatReminderMessageText = (reminderItem, indexNumberString, langu
 };
 
 export const getReminderMessageKeyboard = (reminderItem, language = 'ru', showBackToList = true) => {
-  const pauseLabel = language === 'en' ? '⏸️ Pause' : (language === 'uk' ? '⏸️ Призупинити' : '⏸️ Приостановить');
-  const resumeLabel = language === 'en' ? '▶️ Resume' : (language === 'uk' ? '▶️ Відновити' : '▶️ Возобновить');
-  const deleteLabel = language === 'en' ? '🗑 Delete' : (language === 'uk' ? '🗑 Видалити' : '🗑 Удалить');
-  const backToListLabel = language === 'en' ? '⬅️ All reminders' : (language === 'uk' ? '⬅️ До всіх нагадувань' : '⬅️ Ко всем напоминаниям');
+  const pauseLabel = language === 'en' ? '⏸️ Pause' : (language === 'uk' ? '⏸️ Призупинити' : (language === 'es' ? '⏸️ Pausar' : '⏸️ Приостановить'));
+  const resumeLabel = language === 'en' ? '▶️ Resume' : (language === 'uk' ? '▶️ Відновити' : (language === 'es' ? '▶️ Reanudar' : '▶️ Возобновить'));
+  const deleteLabel = language === 'en' ? '🗑 Delete' : (language === 'uk' ? '🗑 Видалити' : (language === 'es' ? '🗑 Eliminar' : '🗑 Удалить'));
+  const backToListLabel = language === 'en' ? '⬅️ All reminders' : (language === 'uk' ? '⬅️ До всіх нагадувань' : (language === 'es' ? '⬅️ A todos los recordatorios' : '⬅️ Ко всем напоминаниям'));
 
   const actionRow = [
     reminderItem.isActive
@@ -144,10 +159,20 @@ export const getReminderMessageKeyboard = (reminderItem, language = 'ru', showBa
 export const buildRemindersListPayload = (reminders, userLanguage = 'ru', userTimezone = 'Europe/Minsk') => {
   const ui = getUi(userLanguage);
 
-  const headerTitle = userLanguage === 'en' ? '📋 <b>Your reminders:</b>' : '📋 <b>Ваши напоминания:</b>';
+  const headerTitle = userLanguage === 'en'
+    ? '📋 <b>Your reminders:</b>'
+    : userLanguage === 'uk'
+      ? '📋 <b>Ваші нагадування:</b>'
+      : userLanguage === 'es'
+        ? '📋 <b>Tus recordatorios:</b>'
+        : '📋 <b>Ваши напоминания:</b>';
   const hintFooter = userLanguage === 'en'
     ? '<i>Tap a number below to manage a reminder 👇</i>'
-    : '<i>Нажмите на номер ниже для управления напоминанием 👇</i>';
+    : userLanguage === 'uk'
+      ? '<i>Натисніть на номер нижче для керування нагадуванням 👇</i>'
+      : userLanguage === 'es'
+        ? '<i>Toca un número abajo para gestionar el recordatorio 👇</i>'
+        : '<i>Нажмите на номер ниже для управления напоминанием 👇</i>';
 
   const lines = reminders.map((reminderItem, index) => {
     const indexNumber = index + 1;
@@ -159,10 +184,10 @@ export const buildRemindersListPayload = (reminders, userLanguage = 'ru', userTi
     } else if (reminderItem.isRandomPointer) {
       displayText = ui.REMINDER_RANDOM;
     } else if (reminderItem.photoFileId) {
-      const photoPrefix = userLanguage === 'en' ? '📷 Photo' : '📷 Фото';
+      const photoPrefix = userLanguage === 'en' ? '📷 Photo' : (userLanguage === 'es' ? '📷 Foto' : '📷 Фото');
       displayText = reminderItem.caption ? `${photoPrefix}: «${reminderItem.caption}»` : photoPrefix;
     } else if (reminderItem.videoFileId) {
-      const videoPrefix = userLanguage === 'en' ? '🎬 Video' : '🎬 Видео';
+      const videoPrefix = userLanguage === 'en' ? '🎬 Video' : (userLanguage === 'es' ? '🎬 Video' : '🎬 Видео');
       displayText = reminderItem.caption ? `${videoPrefix}: «${reminderItem.caption}»` : videoPrefix;
     }
 
@@ -223,7 +248,11 @@ export const renderReminderStep = async ctx => {
 
     const subtitle = userLanguage === 'en'
       ? '✍️ Type text, choose from suggestions or send 📷 photo / 🎬 video'
-      : '✍️ Введите текст, выберите из предложенных или отправьте 📷 фото / 🎬 видео';
+      : userLanguage === 'uk'
+        ? '✍️ Введіть текст, виберіть із запропонованих або надішліть 📷 фото / 🎬 відео'
+        : userLanguage === 'es'
+          ? '✍️ Escribe el texto, elige una sugerencia o envía 📷 foto / 🎬 video'
+          : '✍️ Введите текст, выберите из предложенных или отправьте 📷 фото / 🎬 видео';
 
     await ctx.reply(
       `${texts.REMINDERS.ASK_TEXT}\n\n${subtitle}`,
@@ -286,8 +315,8 @@ export const handleReminderPhoto = async ctx => {
 
   ctx.session.creatingReminder.photoFileId = largestPhoto.file_id;
   ctx.session.creatingReminder.caption = caption;
-  const photoFallbackText = userLanguage === 'en' ? '📷 Photo' : '📷 Фотография';
-  const photoPrefix = userLanguage === 'en' ? '📷 Photo' : '📷 Фото';
+  const photoFallbackText = userLanguage === 'en' ? '📷 Photo' : (userLanguage === 'es' ? '📷 Foto' : (userLanguage === 'uk' ? '📷 Фотографія' : '📷 Фотография'));
+  const photoPrefix = userLanguage === 'en' ? '📷 Photo' : (userLanguage === 'es' ? '📷 Foto' : '📷 Фото');
   ctx.session.creatingReminder.text = caption ? `${photoPrefix}: ${caption}` : photoFallbackText;
   ctx.session.creatingReminder.isRandomPointer = false;
 
@@ -306,7 +335,7 @@ export const handleReminderVideo = async ctx => {
 
   ctx.session.creatingReminder.videoFileId = video.file_id;
   ctx.session.creatingReminder.caption = caption;
-  const videoPrefix = userLanguage === 'en' ? '🎬 Video' : '🎬 Видео';
+  const videoPrefix = userLanguage === 'en' ? '🎬 Video' : (userLanguage === 'es' ? '🎬 Video' : (userLanguage === 'uk' ? '🎬 Відео' : '🎬 Видео'));
   ctx.session.creatingReminder.text = caption ? `${videoPrefix}: ${caption}` : videoPrefix;
   ctx.session.creatingReminder.isRandomPointer = false;
 
@@ -331,15 +360,18 @@ export const handleReminderText = async ctx => {
     incomingText === UI.ru.REMINDER_RANDOM ||
     incomingText === UI.en.REMINDER_RANDOM ||
     incomingText === UI.uk.REMINDER_RANDOM ||
+    incomingText === UI.es.REMINDER_RANDOM ||
     incomingText === UI.REMINDER_RANDOM ||
     incomingText === '🎲 Случайный указатель' ||
     incomingText === '🎲 Random pointer' ||
-    incomingText === '🎲 Випадковий вказівник';
+    incomingText === '🎲 Випадковий вказівник' ||
+    incomingText === '🎲 Puntero aleatorio';
 
   const isFavoritePointerCommand =
     incomingText === UI.ru.REMINDER_FAVORITE ||
     incomingText === UI.en.REMINDER_FAVORITE ||
     incomingText === UI.uk.REMINDER_FAVORITE ||
+    incomingText === UI.es.REMINDER_FAVORITE ||
     incomingText === UI.REMINDER_FAVORITE;
 
   if (isFavoritePointerCommand) {
@@ -400,10 +432,10 @@ export const handleDeleteAfterPreset = async ctx => {
 
   let secondsValue;
 
-  if (incomingText === '10 сек' || incomingText === '10 sec') secondsValue = 10;
-  if (incomingText === '30 сек' || incomingText === '30 sec') secondsValue = 30;
+  if (incomingText === '10 сек' || incomingText === '10 sec' || incomingText === '10 seg') secondsValue = 10;
+  if (incomingText === '30 сек' || incomingText === '30 sec' || incomingText === '30 seg') secondsValue = 30;
   if (incomingText === '1 мин' || incomingText === '1 min' || incomingText === '1 хв') secondsValue = 60;
-  if (incomingText === 'Не удалять' || incomingText === 'Do not delete' || incomingText === 'Не видаляти') secondsValue = null;
+  if (incomingText === 'Не удалять' || incomingText === 'Do not delete' || incomingText === 'Не видаляти' || incomingText === 'No eliminar') secondsValue = null;
 
   if (secondsValue === undefined) return;
 
@@ -440,13 +472,16 @@ const saveLastReminderText = async (ctx, text) => {
     text === UI.ru.REMINDER_RANDOM ||
     text === UI.en.REMINDER_RANDOM ||
     text === UI.uk.REMINDER_RANDOM ||
+    text === UI.es.REMINDER_RANDOM ||
     text === UI.REMINDER_RANDOM ||
     text === '🎲 Случайный указатель' ||
     text === '🎲 Random pointer' ||
     text === '🎲 Випадковий вказівник' ||
+    text === '🎲 Puntero aleatorio' ||
     text === UI.ru.REMINDER_FAVORITE ||
     text === UI.en.REMINDER_FAVORITE ||
     text === UI.uk.REMINDER_FAVORITE ||
+    text === UI.es.REMINDER_FAVORITE ||
     text === UI.REMINDER_FAVORITE;
 
   if (isSpecialPointerCommand) return;
@@ -506,11 +541,21 @@ const finalizeReminder = async ctx => {
     ? (data.deleteAfterSeconds === null
       ? 'do not delete'
       : `in ${data.deleteAfterSeconds} sec`)
-    : (data.deleteAfterSeconds === null
-      ? 'не удаляется'
-      : `через ${data.deleteAfterSeconds} сек`);
+    : userLanguage === 'uk'
+      ? (data.deleteAfterSeconds === null
+        ? 'не видаляється'
+        : `через ${data.deleteAfterSeconds} сек`)
+      : userLanguage === 'es'
+        ? (data.deleteAfterSeconds === null
+          ? 'no eliminar'
+          : `en ${data.deleteAfterSeconds} seg`)
+        : (data.deleteAfterSeconds === null
+          ? 'не удаляется'
+          : `через ${data.deleteAfterSeconds} сек`);
 
-  const autoDeletePrefix = userLanguage === 'en' ? 'auto-delete' : 'автоудаление';
+  const autoDeletePrefix = userLanguage === 'en'
+    ? 'auto-delete'
+    : (userLanguage === 'uk' ? 'автовидалення' : (userLanguage === 'es' ? 'autoeliminación' : 'автоудаление'));
 
   await ctx.reply(
     `<i>${intervalLabel}</i>
@@ -614,7 +659,9 @@ export const handleViewReminder = async ctx => {
   ]);
 
   if (!reminderItem) {
-    const notFoundMessage = userLanguage === 'en' ? 'Reminder not found' : 'Напоминание не найдено';
+    const notFoundMessage = userLanguage === 'en'
+      ? 'Reminder not found'
+      : (userLanguage === 'uk' ? 'Нагадування не знайдено' : (userLanguage === 'es' ? 'Recordatorio no encontrado' : 'Напоминание не найдено'));
     await ctx.answerCbQuery(notFoundMessage).catch(() => {});
     return handleReminderListCallback(ctx);
   }
@@ -636,7 +683,9 @@ export const handleRequestAction = async (ctx, type) => {
   const reminderIdentifier = ctx.callbackQuery.data.split(':')[1];
   const reminderItem = await Reminder.findById(reminderIdentifier);
 
-  const notFoundMessage = userLanguage === 'en' ? 'Reminder not found' : 'Напоминание не найдено';
+  const notFoundMessage = userLanguage === 'en'
+    ? 'Reminder not found'
+    : (userLanguage === 'uk' ? 'Нагадування не знайдено' : (userLanguage === 'es' ? 'Recordatorio no encontrado' : 'Напоминание не найдено'));
   if (!reminderItem) return ctx.answerCbQuery(notFoundMessage).catch(() => {});
 
   if (type === 'pause' || type === 'resume') {
@@ -659,13 +708,19 @@ export const handleRequestAction = async (ctx, type) => {
       }
     ).catch(() => {});
 
-    const statusChangedAlert = userLanguage === 'en' ? 'Status updated' : 'Статус изменен';
+    const statusChangedAlert = userLanguage === 'en'
+      ? 'Status updated'
+      : (userLanguage === 'uk' ? 'Статус змінено' : (userLanguage === 'es' ? 'Estado actualizado' : 'Статус изменен'));
     return ctx.answerCbQuery(statusChangedAlert).catch(() => {});
   }
 
   if (type === 'delete') {
-    const confirmDeleteButtonLabel = userLanguage === 'en' ? '🗑 Confirm delete' : '🗑 Подтвердить удаление';
-    const cancelDeleteButtonLabel = userLanguage === 'en' ? '❌ Cancel' : '❌ Отмена';
+    const confirmDeleteButtonLabel = userLanguage === 'en'
+      ? '🗑 Confirm delete'
+      : (userLanguage === 'uk' ? '🗑 Підтвердити видалення' : (userLanguage === 'es' ? '🗑 Confirmar eliminación' : '🗑 Подтвердить удаление'));
+    const cancelDeleteButtonLabel = userLanguage === 'en'
+      ? '❌ Cancel'
+      : (userLanguage === 'uk' ? '❌ Скасувати' : (userLanguage === 'es' ? '❌ Cancelar' : '❌ Отмена'));
 
     await ctx.editMessageReplyMarkup(
       Markup.inlineKeyboard([
@@ -713,7 +768,9 @@ export const handleConfirmAction = async ctx => {
 
   if (actionType === 'delete') {
     await Reminder.findByIdAndDelete(reminderIdentifier);
-    const deleteAlertText = userLanguage === 'en' ? 'Reminder deleted' : 'Напоминание удалено';
+    const deleteAlertText = userLanguage === 'en'
+      ? 'Reminder deleted'
+      : (userLanguage === 'uk' ? 'Нагадування видалено' : (userLanguage === 'es' ? 'Recordatorio eliminado' : 'Напоминание удалено'));
     await ctx.answerCbQuery(deleteAlertText).catch(() => {});
     return handleReminderListCallback(ctx);
   }

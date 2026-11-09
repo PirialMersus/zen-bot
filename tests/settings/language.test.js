@@ -5,7 +5,7 @@ import {
   handleSettings
 } from '../../src/handlers/settings/quietHours.js';
 import User from '../../src/models/User.js';
-import { Pointer, PointerEn } from '../../src/models/Pointer.js';
+import { Pointer, PointerEn, PointerEs } from '../../src/models/Pointer.js';
 import { createMockContext } from '../helpers/mockContext.js';
 import { activityMiddleware } from '../../src/middlewares/activity.js';
 import { getNextPointerForUser } from '../../src/services/pointers.js';
@@ -26,6 +26,33 @@ describe('Мультиязычность и переключение языко�
     expect(buttonTexts).toContain('🇷🇺 Русский');
     expect(buttonTexts).toContain('🇬🇧 English');
     expect(buttonTexts).toContain('🇺🇦 Українська');
+    expect(buttonTexts).toContain('🇪🇸 Español');
+  });
+
+  it('должен переключать язык на испанский и отправлять подтверждение на испанском языке', async () => {
+    const telegramUserId = 66778822;
+    await User.create({
+      telegramId: telegramUserId,
+      language: 'ru',
+      shuffleQueue: [5, 4, 3, 2, 1],
+      shuffleIndex: 2
+    });
+
+    const mockContext = createMockContext({
+      userId: telegramUserId,
+      callbackData: 'settings:language:set:es'
+    });
+
+    await handleLanguageSet(mockContext);
+
+    const updatedUser = await User.findOne({ telegramId: telegramUserId });
+    expect(updatedUser.language).toBe('es');
+    expect(updatedUser.shuffleIndex).toBe(2);
+    expect(updatedUser.shuffleQueue).toEqual([5, 4, 3, 2, 1]);
+
+    expect(mockContext.reply).toHaveBeenCalled();
+    const replyText = mockContext.reply.mock.calls[0][0];
+    expect(replyText).toContain('Idioma cambiado a Español');
   });
 
   it('должен переключать язык на украинский и отправлять подтверждение на украинском языке', async () => {
@@ -135,6 +162,23 @@ describe('Мультиязычность и переключение языко�
 
     const createdUkrainianUser = await User.findOne({ telegramId: ukrainianSpeakerId });
     expect(createdUkrainianUser.language).toBe('uk');
+
+    const spanishSpeakerId = 77788811;
+    const spanishContext = createMockContext({
+      userId: spanishSpeakerId,
+      customUpdate: {
+        message: {
+          from: { id: spanishSpeakerId, language_code: 'es' },
+          text: '/start'
+        }
+      }
+    });
+    spanishContext.from.language_code = 'es';
+
+    await activityMiddleware(spanishContext, async () => {});
+
+    const createdSpanishUser = await User.findOne({ telegramId: spanishSpeakerId });
+    expect(createdSpanishUser.language).toBe('es');
   });
 
   it('должен выдавать указатели на выбранном языке пользователя', async () => {
@@ -146,6 +190,7 @@ describe('Мультиязычность и переключение языко�
 
     await Pointer.deleteMany({});
     await PointerEn.deleteMany({});
+    await PointerEs.deleteMany({});
     await Pointer.create({
       text: 'Русский текст указателя',
       source: 'Автор',
@@ -158,6 +203,12 @@ describe('Мультиязычность и переключение языко�
       tags: ['stillness'],
       isActive: true
     });
+    await PointerEs.create({
+      text: 'Texto de puntero en español',
+      source: 'Autor',
+      tags: ['silencio'],
+      isActive: true
+    });
 
     const receivedPointer = await getNextPointerForUser(englishUserId);
     expect(receivedPointer).not.toBeNull();
@@ -166,6 +217,20 @@ describe('Мультиязычность и переключение языко�
     const silencePointer = await getNextPointerForUser(englishUserId, 'тишина');
     expect(silencePointer).not.toBeNull();
     expect(silencePointer.tags).toContain('stillness');
+
+    const spanishUserId = 99887755;
+    await User.create({
+      telegramId: spanishUserId,
+      language: 'es'
+    });
+
+    const receivedSpanishPointer = await getNextPointerForUser(spanishUserId);
+    expect(receivedSpanishPointer).not.toBeNull();
+    expect(receivedSpanishPointer.text).toBe('Texto de puntero en español');
+
+    const silenceSpanishPointer = await getNextPointerForUser(spanishUserId, 'тишина');
+    expect(silenceSpanishPointer).not.toBeNull();
+    expect(silenceSpanishPointer.tags).toContain('silencio');
   });
 
   it('должен сохранять прогресс очереди указателей при переключении языка между русским и английским', async () => {

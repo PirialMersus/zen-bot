@@ -280,16 +280,16 @@ export const handleAdminGetPointerByNumber = async ctx => {
   const rawIncomingMessageText = ctx.message?.text || '';
   const trimmedLowerCasedText = rawIncomingMessageText.trim().toLowerCase();
 
-  const isExplicitPointerCommand = /^(?:\/p(?:ointer)?(?:_(?:en|ru))?|(?:получить\s+)?(?:pointer|указатель))(?:\s+(?:en|ru))?(?:\s+\d+|\s*$)/i.test(trimmedLowerCasedText);
+  const isExplicitPointerCommand = /^(?:\/p(?:ointer)?(?:_(?:en|ru|uk|es))?|(?:получить\s+)?(?:pointer|указатель|вказівник|puntero))(?:\s+(?:en|ru|uk|es))?(?:\s+\d+|\s*$)/i.test(trimmedLowerCasedText);
   if (!isExplicitPointerCommand) {
     return false;
   }
 
   let targetPointerLanguage = 'ru';
-  const languageModifierMatch = trimmedLowerCasedText.match(/(?:^|\s|_)(en|ru|uk)(?:\s|$)/i);
+  const languageModifierMatch = trimmedLowerCasedText.match(/(?:^|\s|_)(en|ru|uk|es)(?:\s|$)/i);
   if (languageModifierMatch) {
     targetPointerLanguage = languageModifierMatch[1].toLowerCase();
-  } else if (ctx.state?.userLanguage === 'en' || ctx.state?.userLanguage === 'uk') {
+  } else if (ctx.state?.userLanguage === 'en' || ctx.state?.userLanguage === 'uk' || ctx.state?.userLanguage === 'es') {
     targetPointerLanguage = ctx.state.userLanguage;
   }
 
@@ -334,21 +334,21 @@ export const handleAdminSearchPointers = async ctx => {
   const trimmedLowerCasedText = rawIncomingMessageText.trim().toLowerCase();
 
   let targetPointerLanguage = 'ru';
-  const languageModifierMatch = trimmedLowerCasedText.match(/(?:^|\s|_)(en|ru|uk)(?:\s|$)/i);
+  const languageModifierMatch = trimmedLowerCasedText.match(/(?:^|\s|_)(en|ru|uk|es)(?:\s|$)/i);
   if (languageModifierMatch) {
     targetPointerLanguage = languageModifierMatch[1].toLowerCase();
-  } else if (ctx.state?.userLanguage === 'en' || ctx.state?.userLanguage === 'uk') {
+  } else if (ctx.state?.userLanguage === 'en' || ctx.state?.userLanguage === 'uk' || ctx.state?.userLanguage === 'es') {
     targetPointerLanguage = ctx.state.userLanguage;
   }
 
   let extractedSearchPhrase = rawIncomingMessageText
-    .replace(/^\/(?:find|search|f)(?:_(?:en|ru|uk))?/i, '')
-    .replace(/^(?:найти|поиск|знайти|пошук)(?:\s+указатель|\s+pointer|\s+вказівник)?/i, '')
+    .replace(/^\/(?:find|search|f)(?:_(?:en|ru|uk|es))?/i, '')
+    .replace(/^(?:найти|поиск|знайти|пошук|buscar)(?:\s+указатель|\s+pointer|\s+вказівник|\s+puntero)?/i, '')
     .trim();
 
   extractedSearchPhrase = extractedSearchPhrase
-    .replace(/^(?:en|ru|uk)\s+/i, '')
-    .replace(/\s+(?:en|ru|uk)$/i, '')
+    .replace(/^(?:en|ru|uk|es)\s+/i, '')
+    .replace(/\s+(?:en|ru|uk|es)$/i, '')
     .trim();
 
   if (!extractedSearchPhrase) {

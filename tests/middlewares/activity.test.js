@@ -121,9 +121,10 @@ describe('Middleware активности и уведомление о ново�
     expect(detectUserLanguage('be')).toBe('ru');
     expect(detectUserLanguage('uk')).toBe('uk');
     expect(detectUserLanguage('uk-UA')).toBe('uk');
+    expect(detectUserLanguage('es')).toBe('es');
+    expect(detectUserLanguage('es-ES')).toBe('es');
     expect(detectUserLanguage('en')).toBe('en');
     expect(detectUserLanguage('en-US')).toBe('en');
-    expect(detectUserLanguage('es')).toBe('en');
     expect(detectUserLanguage('de')).toBe('en');
     expect(detectUserLanguage(undefined)).toBe('ru');
     expect(detectUserLanguage(null)).toBe('ru');
@@ -194,5 +195,27 @@ describe('Middleware активности и уведомление о ново�
     const createdDatabaseUser = await User.findOne({ telegramId: ukrainianTelegramUserId });
     expect(createdDatabaseUser).not.toBeNull();
     expect(createdDatabaseUser.language).toBe('uk');
+  });
+
+  it('должен автоматически сохранять es для нового пользователя с испанской локалью Telegram', async () => {
+    const spanishTelegramUserId = 88223366;
+    const mockContext = createMockContext({
+      userId: spanishTelegramUserId,
+      from: {
+        id: spanishTelegramUserId,
+        first_name: 'Carlos',
+        language_code: 'es'
+      }
+    });
+
+    const nextMiddlewareFunction = vi.fn().mockResolvedValue();
+
+    await activityMiddleware(mockContext, nextMiddlewareFunction);
+
+    expect(mockContext.state.userLanguage).toBe('es');
+
+    const createdDatabaseUser = await User.findOne({ telegramId: spanishTelegramUserId });
+    expect(createdDatabaseUser).not.toBeNull();
+    expect(createdDatabaseUser.language).toBe('es');
   });
 });

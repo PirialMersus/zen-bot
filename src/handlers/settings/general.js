@@ -20,7 +20,9 @@ export const renderSettings = async (ctx, prefixMessage = '') => {
     ? `⚙️ ${texts.MENU.SETTINGS}\n\nTap an option below to customize:`
     : userLanguage === 'uk'
       ? `⚙️ ${texts.MENU.SETTINGS}\n\nОберіть потрібний пункт для зміни:`
-      : `⚙️ ${texts.MENU.SETTINGS}\n\nНажмите на нужный пункт для изменения:`;
+      : userLanguage === 'es'
+        ? `⚙️ ${texts.MENU.SETTINGS}\n\nToca una opción abajo para personalizar:`
+        : `⚙️ ${texts.MENU.SETTINGS}\n\nНажмите на нужный пункт для изменения:`;
 
   let localizedSettingsText = localizedSettingsPrompt;
 

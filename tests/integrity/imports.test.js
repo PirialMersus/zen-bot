@@ -36,7 +36,8 @@ vi.mock('../../src/models/Pointer.js', () => ({
   Pointer: { find: vi.fn(), countDocuments: vi.fn() },
   PointerRu: { find: vi.fn(), countDocuments: vi.fn() },
   PointerEn: { find: vi.fn(), countDocuments: vi.fn() },
-  PointerUk: { find: vi.fn(), countDocuments: vi.fn() }
+  PointerUk: { find: vi.fn(), countDocuments: vi.fn() },
+  PointerEs: { find: vi.fn(), countDocuments: vi.fn() }
 }));
 vi.mock('../../src/models/Activity.js', () => ({ default: { deleteMany: vi.fn() } }));
 

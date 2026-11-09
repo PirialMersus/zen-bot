@@ -83,19 +83,19 @@ bot.action('pointer:to_reminder', handlePointerToReminder);
 bot.action(/^pointer:fav_toggle/, handleToggleFavoritePointer);
 bot.action('pointer:fav_info', handleFavoriteInfo);
 
-bot.hears([BUTTONS.ru.POINTER, BUTTONS.en.POINTER, BUTTONS.uk.POINTER], handlePointersMenu);
-bot.hears([UI.ru.POINTER_RANDOM, UI.en.POINTER_RANDOM, UI.uk.POINTER_RANDOM], handleRandomPointer);
-bot.hears([UI.ru.POINTER_FAVORITE, UI.en.POINTER_FAVORITE, UI.uk.POINTER_FAVORITE], handleFavoritePointer);
-bot.hears([BUTTONS.ru.REMINDERS, BUTTONS.en.REMINDERS, BUTTONS.uk.REMINDERS], handleReminders);
-bot.hears([BUTTONS.ru.SETTINGS, BUTTONS.en.SETTINGS, BUTTONS.uk.SETTINGS], handleSettings);
+bot.hears([BUTTONS.ru.POINTER, BUTTONS.en.POINTER, BUTTONS.uk.POINTER, BUTTONS.es.POINTER], handlePointersMenu);
+bot.hears([UI.ru.POINTER_RANDOM, UI.en.POINTER_RANDOM, UI.uk.POINTER_RANDOM, UI.es.POINTER_RANDOM], handleRandomPointer);
+bot.hears([UI.ru.POINTER_FAVORITE, UI.en.POINTER_FAVORITE, UI.uk.POINTER_FAVORITE, UI.es.POINTER_FAVORITE], handleFavoritePointer);
+bot.hears([BUTTONS.ru.REMINDERS, BUTTONS.en.REMINDERS, BUTTONS.uk.REMINDERS, BUTTONS.es.REMINDERS], handleReminders);
+bot.hears([BUTTONS.ru.SETTINGS, BUTTONS.en.SETTINGS, BUTTONS.uk.SETTINGS, BUTTONS.es.SETTINGS], handleSettings);
 
-bot.hears([UI.ru.REMINDER_CREATE, UI.en.REMINDER_CREATE, UI.uk.REMINDER_CREATE], handleCreateReminder);
-bot.hears([UI.ru.REMINDER_MY, UI.en.REMINDER_MY, UI.uk.REMINDER_MY], handleMyReminders);
+bot.hears([UI.ru.REMINDER_CREATE, UI.en.REMINDER_CREATE, UI.uk.REMINDER_CREATE, UI.es.REMINDER_CREATE], handleCreateReminder);
+bot.hears([UI.ru.REMINDER_MY, UI.en.REMINDER_MY, UI.uk.REMINDER_MY, UI.es.REMINDER_MY], handleMyReminders);
 
-bot.hears([UI.ru.INTERVAL_5, UI.en.INTERVAL_5, UI.uk.INTERVAL_5], ctx => handleIntervalPreset(ctx, 5));
-bot.hears([UI.ru.INTERVAL_15, UI.en.INTERVAL_15, UI.uk.INTERVAL_15], ctx => handleIntervalPreset(ctx, 15));
-bot.hears([UI.ru.INTERVAL_60, UI.en.INTERVAL_60, UI.uk.INTERVAL_60], ctx => handleIntervalPreset(ctx, 60));
-bot.hears([UI.ru.INTERVAL_1440, UI.en.INTERVAL_1440, UI.uk.INTERVAL_1440], ctx => handleIntervalPreset(ctx, 1440));
+bot.hears([UI.ru.INTERVAL_5, UI.en.INTERVAL_5, UI.uk.INTERVAL_5, UI.es.INTERVAL_5], ctx => handleIntervalPreset(ctx, 5));
+bot.hears([UI.ru.INTERVAL_15, UI.en.INTERVAL_15, UI.uk.INTERVAL_15, UI.es.INTERVAL_15], ctx => handleIntervalPreset(ctx, 15));
+bot.hears([UI.ru.INTERVAL_60, UI.en.INTERVAL_60, UI.uk.INTERVAL_60, UI.es.INTERVAL_60], ctx => handleIntervalPreset(ctx, 60));
+bot.hears([UI.ru.INTERVAL_1440, UI.en.INTERVAL_1440, UI.uk.INTERVAL_1440, UI.es.INTERVAL_1440], ctx => handleIntervalPreset(ctx, 1440));
 
 bot.action(/^pause:/, ctx => handleRequestAction(ctx, 'pause'));
 bot.action(/^resume:/, ctx => handleRequestAction(ctx, 'resume'));
@@ -155,22 +155,22 @@ bot.action('reminder:back_to_intervals', async ctx => {
 });
 
 bot.hears([
-  BUTTONS.ru.BACK, BUTTONS.en.BACK, BUTTONS.uk.BACK,
-  UI.ru.POINTER_TO_MENU, UI.en.POINTER_TO_MENU, UI.uk.POINTER_TO_MENU
+  BUTTONS.ru.BACK, BUTTONS.en.BACK, BUTTONS.uk.BACK, BUTTONS.es.BACK,
+  UI.ru.POINTER_TO_MENU, UI.en.POINTER_TO_MENU, UI.uk.POINTER_TO_MENU, UI.es.POINTER_TO_MENU
 ], handleBack);
-bot.hears([UI.ru.POINTER_NEXT, UI.en.POINTER_NEXT, UI.uk.POINTER_NEXT], handleNextPointer);
-bot.hears([UI.ru.POINTER_TO_REMINDER, UI.en.POINTER_TO_REMINDER, UI.uk.POINTER_TO_REMINDER], handlePointerToReminder);
-bot.hears([UI.ru.ADMIN_ACTIVE_USERS, UI.en.ADMIN_ACTIVE_USERS, UI.uk.ADMIN_ACTIVE_USERS], handleAdminActiveUsers);
-bot.hears([UI.ru.ADMIN_BROADCAST, UI.en.ADMIN_BROADCAST, UI.uk.ADMIN_BROADCAST], handleAdminBroadcastStart);
+bot.hears([UI.ru.POINTER_NEXT, UI.en.POINTER_NEXT, UI.uk.POINTER_NEXT, UI.es.POINTER_NEXT], handleNextPointer);
+bot.hears([UI.ru.POINTER_TO_REMINDER, UI.en.POINTER_TO_REMINDER, UI.uk.POINTER_TO_REMINDER, UI.es.POINTER_TO_REMINDER], handlePointerToReminder);
+bot.hears([UI.ru.ADMIN_ACTIVE_USERS, UI.en.ADMIN_ACTIVE_USERS, UI.uk.ADMIN_ACTIVE_USERS, UI.es.ADMIN_ACTIVE_USERS], handleAdminActiveUsers);
+bot.hears([UI.ru.ADMIN_BROADCAST, UI.en.ADMIN_BROADCAST, UI.uk.ADMIN_BROADCAST, UI.es.ADMIN_BROADCAST], handleAdminBroadcastStart);
 
 bot.command(['pointer', 'p'], handleAdminGetPointerByNumber);
-bot.hears(/^(?:получить\s+)?(?:pointer|указатель|вказівник)(?:\s+(?:en|ru|uk))?\s+\d+$/i, handleAdminGetPointerByNumber);
-bot.hears(/^\/p(?:ointer)?(?:_(?:en|ru|uk))?\s+\d+$/i, handleAdminGetPointerByNumber);
+bot.hears(/^(?:получить\s+)?(?:pointer|указатель|вказівник|puntero)(?:\s+(?:en|ru|uk|es))?\s+\d+$/i, handleAdminGetPointerByNumber);
+bot.hears(/^\/p(?:ointer)?(?:_(?:en|ru|uk|es))?\s+\d+$/i, handleAdminGetPointerByNumber);
 
 bot.command(['find', 'search', 'f'], handleAdminSearchPointers);
-bot.hears(/^(?:\/find|\/search|\/f|найти|поиск|знайти|пошук)(?:_(?:en|ru|uk))?(?:\s+.+)?$/i, handleAdminSearchPointers);
+bot.hears(/^(?:\/find|\/search|\/f|найти|поиск|знайти|пошук|buscar)(?:_(?:en|ru|uk|es))?(?:\s+.+)?$/i, handleAdminSearchPointers);
 
-bot.hears([BUTTONS.ru.SUPPORT, BUTTONS.en.SUPPORT, BUTTONS.uk.SUPPORT], async ctx => {
+bot.hears([BUTTONS.ru.SUPPORT, BUTTONS.en.SUPPORT, BUTTONS.uk.SUPPORT, BUTTONS.es.SUPPORT], async ctx => {
   const userLanguage = await resolveUserLanguage(ctx);
   const texts = getTexts(userLanguage);
   await ctx.reply(texts.SUPPORT);
@@ -179,19 +179,21 @@ bot.hears([BUTTONS.ru.SUPPORT, BUTTONS.en.SUPPORT, BUTTONS.uk.SUPPORT], async ct
 const allowedIntervalOptions = [
   ...TEXTS.ru.INTERVALS.OPTIONS,
   ...TEXTS.en.INTERVALS.OPTIONS,
-  ...TEXTS.uk.INTERVALS.OPTIONS
+  ...TEXTS.uk.INTERVALS.OPTIONS,
+  ...TEXTS.es.INTERVALS.OPTIONS
 ];
 
 const combinedIntervalMap = {
   ...TEXTS.ru.INTERVALS.MAP,
   ...TEXTS.en.INTERVALS.MAP,
-  ...TEXTS.uk.INTERVALS.MAP
+  ...TEXTS.uk.INTERVALS.MAP,
+  ...TEXTS.es.INTERVALS.MAP
 };
 
 bot.hears(allowedIntervalOptions, async ctx => {
   const incomingMessageText = ctx.message.text;
 
-  if (incomingMessageText === 'Не удалять' || incomingMessageText === 'Do not delete' || incomingMessageText === 'Не видаляти') {
+  if (incomingMessageText === 'Не удалять' || incomingMessageText === 'Do not delete' || incomingMessageText === 'Не видаляти' || incomingMessageText === 'No eliminar') {
     await handleDeleteAfterPreset(ctx, null);
     return;
   }

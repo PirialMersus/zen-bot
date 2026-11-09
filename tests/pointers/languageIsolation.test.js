@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { Pointer, PointerEn, PointerUk } from '../../src/models/Pointer.js';
+import { Pointer, PointerEn, PointerUk, PointerEs } from '../../src/models/Pointer.js';
 import User from '../../src/models/User.js';
 import { getNextPointerForUser } from '../../src/services/pointers.js';
 import { activityMiddleware, resolveUserLanguage } from '../../src/middlewares/activity.js';
@@ -8,6 +8,7 @@ import { createMockContext } from '../helpers/mockContext.js';
 import russianPointersDataset from '../../data/pointers.ru.js';
 import englishPointersDataset from '../../data/pointers.en.js';
 import ukrainianPointersDataset from '../../data/pointers.uk.js';
+import spanishPointersDataset from '../../data/pointers.es.js';
 
 describe('Изоляция языков и защита от утечки английского контента', () => {
   it('должен отдавать только русские указатели пользователю без языка при наличии активных английских указателей в базе', async () => {
@@ -48,6 +49,20 @@ describe('Изоляция языков и защита от утечки анг
     const receivedPointer = await getNextPointerForUser(ukrainianUserTelegramId);
     expect(receivedPointer).not.toBeNull();
     expect(receivedPointer.text).toContain('Український вказівник');
+  });
+
+  it('должен отдавать испанские указатели пользователю с испанским языком при наличии PointerEs в базе', async () => {
+    const spanishUserTelegramId = 88112288;
+    await User.create({ telegramId: spanishUserTelegramId, language: 'es' });
+
+    await PointerEs.create([
+      { text: 'Puntero español 1', isActive: true, tags: ['silencio'] },
+      { text: 'Puntero español 2', isActive: true, tags: ['silencio'] }
+    ]);
+
+    const receivedPointer = await getNextPointerForUser(spanishUserTelegramId);
+    expect(receivedPointer).not.toBeNull();
+    expect(receivedPointer.text).toContain('Puntero español');
   });
 
   it('должен корректно находить старые русские указатели без поля language', async () => {
@@ -140,7 +155,32 @@ describe('Изоляция языков и защита от утечки анг
       expect(registeredUserRecord.language).toBe('uk');
     }
 
-    const foreignLanguageCodesList = ['en', 'fr', 'de', 'es'];
+    const spanishLanguageCodesList = ['es'];
+    for (const testedTelegramLanguageCode of spanishLanguageCodesList) {
+      startTelegramIdCounter++;
+      const currentTestTelegramId = startTelegramIdCounter;
+
+      const mockContext = createMockContext({
+        userId: currentTestTelegramId,
+        customUpdate: {
+          message: {
+            from: { id: currentTestTelegramId, language_code: testedTelegramLanguageCode },
+            text: '/start'
+          }
+        }
+      });
+      mockContext.from.language_code = testedTelegramLanguageCode;
+
+      await activityMiddleware(mockContext, async () => {});
+
+      expect(mockContext.state.userLanguage).toBe('es');
+
+      const registeredUserRecord = await User.findOne({ telegramId: currentTestTelegramId });
+      expect(registeredUserRecord).not.toBeNull();
+      expect(registeredUserRecord.language).toBe('es');
+    }
+
+    const foreignLanguageCodesList = ['en', 'fr', 'de', 'it'];
     for (const testedTelegramLanguageCode of foreignLanguageCodesList) {
       startTelegramIdCounter++;
       const currentTestTelegramId = startTelegramIdCounter;
@@ -361,5 +401,54 @@ describe('Изоляция языков и защита от утечки анг
     const savedReminderNeverDelete = await Reminder.findOne({ userId: testUserTelegramId, text: 'Тест нагадування 2' });
     expect(savedReminderNeverDelete).not.toBeNull();
     expect(savedReminderNeverDelete.deleteAfterSeconds).toBeNull();
+  });
+
+  it('должен поддерживать испанские опции автоудаления в handleDeleteAfterPreset', async () => {
+    const { handleDeleteAfterPreset, REMINDER_STEP } = await import('../../src/handlers/reminders.js');
+    const Reminder = (await import('../../src/models/Reminder.js')).default;
+
+    const testUserTelegramId = 99887744;
+    const mockContextTenSeconds = createMockContext({
+      userId: testUserTelegramId,
+      text: '10 seg',
+      session: {
+        reminderStep: REMINDER_STEP.AUTO_DELETE,
+        creatingReminder: {
+          text: 'Recordatorio prueba 1',
+          intervalMinutes: 15
+        }
+      }
+    });
+
+    await handleDeleteAfterPreset(mockContextTenSeconds);
+    const savedReminderTenSeconds = await Reminder.findOne({ userId: testUserTelegramId, text: 'Recordatorio prueba 1' });
+    expect(savedReminderTenSeconds).not.toBeNull();
+    expect(savedReminderTenSeconds.deleteAfterSeconds).toBe(10);
+
+    const mockContextNoEliminar = createMockContext({
+      userId: testUserTelegramId,
+      text: 'No eliminar',
+      session: {
+        reminderStep: REMINDER_STEP.AUTO_DELETE,
+        creatingReminder: {
+          text: 'Recordatorio prueba 2',
+          intervalMinutes: 15
+        }
+      }
+    });
+
+    await handleDeleteAfterPreset(mockContextNoEliminar);
+    const savedReminderNoEliminar = await Reminder.findOne({ userId: testUserTelegramId, text: 'Recordatorio prueba 2' });
+    expect(savedReminderNoEliminar).not.toBeNull();
+    expect(savedReminderNoEliminar.deleteAfterSeconds).toBeNull();
+  });
+
+  it('должен иметь идентичный размер испанского датасета и валидные тексты', () => {
+    expect(spanishPointersDataset.length).toBe(russianPointersDataset.length);
+    expect(spanishPointersDataset.length).toBe(englishPointersDataset.length);
+    expect(spanishPointersDataset.length).toBe(ukrainianPointersDataset.length);
+    expect(spanishPointersDataset.length).toBe(1576);
+    expect(spanishPointersDataset[0].text.length).toBeGreaterThan(5);
+    expect(spanishPointersDataset[spanishPointersDataset.length - 1].text.length).toBeGreaterThan(5);
   });
 });

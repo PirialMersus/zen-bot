@@ -85,15 +85,46 @@ const UKRAINIAN_UI = {
   TIMEZONE: '🌍 Часовий пояс'
 };
 
+const SPANISH_UI = {
+  POINTER_NEXT: '➡️ Siguiente',
+  POINTER_NEXT_FAV: '➡️ Siguiente ⭐',
+  POINTER_FAV_MODE_BADGE: (current, total) => total ? `⭐ Favoritos (${current} de ${total})` : '⭐ Modo: Favoritos',
+  POINTER_TO_REMINDER: '🔔 En recordatorio',
+  POINTER_RANDOM: '🎲 Aleatorio',
+  POINTER_FAVORITE: '⭐ De favoritos',
+  POINTER_FAV_ADD: '⭐ A favoritos',
+  POINTER_FAV_REMOVE: '❌ Quitar de favoritos',
+  POINTER_TO_MENU: '⬅️ Al menú',
+
+  REMINDER_CREATE: '➕ Crear',
+  REMINDER_MY: '📋 Lista',
+  REMINDER_RANDOM: '🎲 Aleatorio',
+  REMINDER_FAVORITE: '⭐ De favoritos',
+
+  INTERVAL_5: 'Cada 5 minutos',
+  INTERVAL_15: 'Cada 15 minutos',
+  INTERVAL_60: 'Cada hora',
+  INTERVAL_1440: 'Una vez al día',
+
+  CONFIRM_YES: '✅ Sí',
+  CONFIRM_NO: '❌ No',
+  ADMIN_ACTIVE_USERS: '👥 Usuarios',
+  ADMIN_BROADCAST: '📢 Difusión',
+  SUPPORT: '🛠 Soporte',
+  TIMEZONE: '🌍 Zona horaria'
+};
+
 export const UI = {
   ...RUSSIAN_UI,
   ru: RUSSIAN_UI,
   en: ENGLISH_UI,
-  uk: UKRAINIAN_UI
+  uk: UKRAINIAN_UI,
+  es: SPANISH_UI
 };
 
 export const getUi = (language = 'ru') => {
   if (language === 'en') return ENGLISH_UI;
   if (language === 'uk') return UKRAINIAN_UI;
+  if (language === 'es') return SPANISH_UI;
   return RUSSIAN_UI;
 };

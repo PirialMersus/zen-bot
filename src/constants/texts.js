@@ -178,7 +178,7 @@ const UKRAINIAN_TEXTS = {
   },
 
   SETTINGS: {
-    LANGUAGE_TITLE: '🌐 Выберите язык / Select language / Оберіть мову:',
+    LANGUAGE_TITLE: '🌐 Выберите язык / Select language / Оберіть мову / Elige idioma:',
     LANGUAGE_CHANGED: '✅ Мову змінено на Українську',
     QUIET_STATUS: (enabled, range) =>
       enabled
@@ -199,15 +199,84 @@ const UKRAINIAN_TEXTS = {
   }
 };
 
+const SPANISH_TEXTS = {
+  MENU: {
+    START: `👋 ¡Hola!
+
+Soy un bot para desarrollar nuevos hábitos
+Te recordaré lo que verdaderamente importa
+
+🧘‍♀️ puntero aleatorio — con un botón en cualquier momento
+⏳ recordatorio personalizado — texto, 📷 foto o 🎬 video con cualquier frecuencia
+
+🐈️ Ve a ajustes y elige tu zona horaria
+`,
+    MAIN: 'Menú principal',
+    SETTINGS: 'Ajustes:',
+    REMINDERS: 'Gestión de recordatorios 👇'
+  },
+
+  POINTERS: {
+    EMPTY: 'Aún no hay punteros.',
+    FAVORITE_EMPTY: 'Aún no tienes punteros favoritos. Al leer punteros aleatorios, pulsa «⭐ A favoritos» para guardar los que te gusten.',
+    FAVORITE_ADDED: 'Añadido a favoritos ⭐',
+    FAVORITE_REMOVED: 'Eliminado de favoritos',
+    FAVORITE_REMINDER_EMPTY: 'Aún no tienes punteros favoritos. Primero añade los punteros que te gusten a favoritos.',
+    FAVORITE_BADGE_INFO: 'Estás viendo tus favoritos personales ⭐',
+    FAVORITE_TOAST: (current, total) => total ? `⭐ Favoritos: ${current} de ${total}` : '⭐ Modo: Favoritos'
+  },
+
+  REMINDERS: {
+    NONE: 'No tienes recordatorios.',
+    CREATED: 'Listo. Recordatorio creado.',
+    ASK_TEXT: '¿Qué mensaje llegará en el recordatorio?',
+    ASK_INTERVAL: 'Con qué frecuencia recordar:',
+    ASK_INTERVAL_HINT: '⌨️ Puedes elegir con un botón o escribir la cantidad de minutos en números',
+    ASK_DELETE_AFTER: '🗑 Autoeliminación del recordatorio',
+    ASK_DELETE_AFTER_HINT: '⌨️ Puedes elegir con un botón o escribir la cantidad de segundos en números',
+    MIN_INTERVAL: 'Mínimo — 1 minuto',
+    INVALID_SECONDS: '⌨️ Introduce la cantidad de segundos en números',
+    CONFIRM_STATUS: '¿Seguro que deseas cambiar el estado del recordatorio?'
+  },
+
+  STATUS: {
+    ACTIVE: '🟢 Activo',
+    PAUSED: '⏸️ Pausado'
+  },
+
+  SETTINGS: {
+    LANGUAGE_TITLE: '🌐 Выберите язык / Select language / Оберіть мову / Elige idioma:',
+    LANGUAGE_CHANGED: '✅ Idioma cambiado a Español',
+    QUIET_STATUS: (enabled, range) =>
+      enabled
+        ? `🔕 Activado (${range})`
+        : `🔔 Desactivado (${range})`
+  },
+
+  SUPPORT: `Soporte técnico, comentarios y sugerencias:
+👉 @pirial_mersus
+
+Comunidad en Telegram: @dzenline
+
+Si deseas agradecer por el bot o apoyar el proyecto económicamente - escribe a @Streamline6 ❤️`,
+
+  INTERVALS: {
+    OPTIONS: ['10 seg', '30 seg', '1 min', 'No eliminar'],
+    MAP: { '10 seg': 10, '30 seg': 30, '1 min': 60 }
+  }
+};
+
 export const TEXTS = {
   ...RUSSIAN_TEXTS,
   ru: RUSSIAN_TEXTS,
   en: ENGLISH_TEXTS,
-  uk: UKRAINIAN_TEXTS
+  uk: UKRAINIAN_TEXTS,
+  es: SPANISH_TEXTS
 };
 
 export const getTexts = (language = 'ru') => {
   if (language === 'en') return ENGLISH_TEXTS;
   if (language === 'uk') return UKRAINIAN_TEXTS;
+  if (language === 'es') return SPANISH_TEXTS;
   return RUSSIAN_TEXTS;
 };

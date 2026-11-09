@@ -12,7 +12,9 @@ export const settingsKeyboard = (enabled, language = 'ru', userPreferences = {})
     ? '⏰ Quiet hours'
     : language === 'uk'
       ? '⏰ Час тихих годин'
-      : '⏰ Время тихих часов';
+      : language === 'es'
+        ? '⏰ Horas de silencio'
+        : '⏰ Время тихих часов';
   const quietHoursScheduleLabel = `${quietHoursScheduleBaseText} (${quietHoursFormattedRange})`;
 
   const userTimezoneValue = userPreferences.timezone || 'Europe/Minsk';
@@ -21,7 +23,8 @@ export const settingsKeyboard = (enabled, language = 'ru', userPreferences = {})
   const localizedLanguageNames = {
     ru: '🇷🇺 Русский',
     uk: '🇺🇦 Українська',
-    en: '🇬🇧 English'
+    en: '🇬🇧 English',
+    es: '🇪🇸 Español'
   };
   const activeLanguageName = localizedLanguageNames[language] || localizedLanguageNames.ru;
   const languageButtonLabel = `${buttons.LANGUAGE} (${activeLanguageName})`;

@@ -10,6 +10,7 @@
     "seed:pointers:ru": "node scripts/seedPointers.js",
     "seed:pointers:en": "node scripts/seedPointersEn.js",
     "seed:pointers:uk": "node scripts/seedPointersUk.js",
+    "seed:pointers:es": "node scripts/seedPointersEs.js",
     "reindex:pointers": "node scripts/reindexPointers.js",
     "test": "vitest run --fileParallelism=false",
     "test:watch": "vitest",

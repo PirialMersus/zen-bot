@@ -134,7 +134,7 @@ export const startScheduler = bot => {
           let msg;
           try {
             let messageText = r.text;
-            const userLanguage = ['en', 'uk'].includes(user?.language) ? user.language : 'ru';
+            const userLanguage = ['en', 'uk', 'es'].includes(user?.language) ? user.language : 'ru';
 
             if (r.isFavoritePointer) {
               const favoritePointer = await getNextFavoritePointerForUser(Number(r.userId)).catch(() => null);
@@ -158,18 +158,20 @@ export const startScheduler = bot => {
                 ? `\n\n<i>(auto-delete in ${deleteAfterSeconds} sec)</i>`
                 : (userLanguage === 'uk'
                   ? `\n\n<i>(автовидалення через ${deleteAfterSeconds} сек)</i>`
-                  : `\n\n<i>(автоудаление через ${deleteAfterSeconds} сек)</i>`))
+                  : (userLanguage === 'es'
+                    ? `\n\n<i>(autoeliminación en ${deleteAfterSeconds} seg)</i>`
+                    : `\n\n<i>(автоудаление через ${deleteAfterSeconds} сек)</i>`)))
               : '';
 
             const useApp = user?.notificationChannel === 'app' && user?.pushTokens?.length > 0;
             const pushTitle = userLanguage === 'en'
               ? 'Reminder'
-              : (userLanguage === 'uk' ? 'Нагадування' : 'Напоминание');
+              : (userLanguage === 'uk' ? 'Нагадування' : (userLanguage === 'es' ? 'Recordatorio' : 'Напоминание'));
 
             if (r.photoFileId) {
               const photoCaption = r.caption ? `${r.caption}${footer}` : (footer ? footer.trim() : '');
               if (useApp) {
-                const fallbackCaption = userLanguage === 'en' ? '📷 Photo' : '📷 Фотография';
+                const fallbackCaption = userLanguage === 'en' ? '📷 Photo' : (userLanguage === 'es' ? '📷 Foto' : (userLanguage === 'uk' ? '📷 Фотографія' : '📷 Фотография'));
                 await sendPushNotification(user.pushTokens, r.caption || fallbackCaption, r.soundId, pushTitle);
               } else {
                 msg = await bot.telegram.sendPhoto(
@@ -187,7 +189,7 @@ export const startScheduler = bot => {
             } else if (r.videoFileId) {
               const videoCaption = r.caption ? `${r.caption}${footer}` : (footer ? footer.trim() : '');
               if (useApp) {
-                const fallbackCaption = userLanguage === 'en' ? '🎬 Video' : '🎬 Видео';
+                const fallbackCaption = userLanguage === 'en' ? '🎬 Video' : (userLanguage === 'es' ? '🎬 Video' : (userLanguage === 'uk' ? '🎬 Відео' : '🎬 Видео'));
                 await sendPushNotification(user.pushTokens, r.caption || fallbackCaption, r.soundId, pushTitle);
               } else {
                 msg = await bot.telegram.sendVideo(

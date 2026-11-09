@@ -9,7 +9,9 @@ export const handleTimezoneMenu = async ctx => {
   await ctx.answerCbQuery().catch(() => {});
   await ctx.deleteMessage().catch(() => {});
 
-  const promptText = userLanguage === 'en' ? '🌍 Select region:' : '🌍 Выберите регион:';
+  const promptText = userLanguage === 'en'
+    ? '🌍 Select region:'
+    : (userLanguage === 'uk' ? '🌍 Оберіть регіон:' : (userLanguage === 'es' ? '🌍 Selecciona región:' : '🌍 Выберите регион:'));
 
   await ctx.reply(promptText, getTimezoneRegionsKeyboard(userLanguage));
 };
@@ -21,7 +23,9 @@ export const handleTimezoneRegion = async ctx => {
   await ctx.answerCbQuery().catch(() => {});
   await ctx.deleteMessage().catch(() => {});
 
-  const promptText = userLanguage === 'en' ? '🌍 Select city:' : '🌍 Выберите город:';
+  const promptText = userLanguage === 'en'
+    ? '🌍 Select city:'
+    : (userLanguage === 'uk' ? '🌍 Оберіть місто:' : (userLanguage === 'es' ? '🌍 Selecciona ciudad:' : '🌍 Выберите город:'));
 
   await ctx.reply(promptText, timezoneCitiesKeyboard(regionKey, userLanguage));
 };
@@ -38,7 +42,11 @@ export const handleTimezoneSet = async ctx => {
 
   const confirmationText = userLanguage === 'en'
     ? `✅ Timezone set:\n🌍 ${timezoneValue}`
-    : `✅ Часовой пояс установлен:\n🌍 ${timezoneValue}`;
+    : (userLanguage === 'uk'
+      ? `✅ Часовий пояс встановлено:\n🌍 ${timezoneValue}`
+      : (userLanguage === 'es'
+        ? `✅ Zona horaria establecida:\n🌍 ${timezoneValue}`
+        : `✅ Часовой пояс установлен:\n🌍 ${timezoneValue}`));
 
   await renderSettings(ctx, confirmationText);
 };

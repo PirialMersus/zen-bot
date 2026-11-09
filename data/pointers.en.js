@@ -2275,7 +2275,7 @@ Only pure, effortless non-involvement remains: the transparent space in which th
     number: 261,
     text: `One who is free from attachment neither rejoices when meeting with pleasure nor grieves when faced with pain.
 Such a person's wisdom is firmly established. When they withdraw their senses from sense objects, like a tortoise drawing in its limbs, their awareness becomes steady.`,
-    source: "Bhagavad Gita (Chapter 2)",
+    source: "Bhagavad Gita",
     tags: ["stillness"]
   },
   {
@@ -2389,7 +2389,7 @@ See it all as the wind blowing outside the window.`,
     text: `Attachment to the results of your actions is the main source of your anxiety.
 Do what is required of you right now, wholeheartedly, but put down the burden of worrying about what comes next.
 The future does not belong to you.`,
-    source: "Bhagavad Gita (Chapter 3)",
+    source: "Bhagavad Gita",
     tags: ["stillness"]
   },
   {
@@ -3008,7 +3008,7 @@ It is a free, pure light that does not care where it falls or whom it illuminate
     number: 358,
     text: `Do not think of good and evil; do not choose between the sacred and the ordinary.
 When the mind has not a single foothold in either the subjective or the objective, you find yourself for the first time beyond spatial and mental limitations.`,
-    source: "Master Yunmen (Yunmen Wenyan)",
+    source: "Master Yunmen",
     tags: ["stillness"]
   },
   {
@@ -4689,166 +4689,166 @@ Do not deepen the world's bondage.`,
   {
     number: 620,
     text: `When the breath naturally pauses between inhalation and exhalation, attend to the space of peace that opens in that pause.`,
-    source: "Vijñāna Bhairava Tantra, verse 25",
+    source: "Vijñāna Bhairava Tantra",
     tags: ["stillness"]
   },
   {
     number: 621,
     text: `Contemplate space as though it were filled with subtle circles of light. Keep your attention on space itself, not on thoughts about it.`,
-    source: "Vijñāna Bhairava Tantra, verse 32",
+    source: "Vijñāna Bhairava Tantra",
     tags: ["stillness"]
   },
   {
     number: 622,
     text: `Contemplate empty space, a plain wall, or a motionless object. Observe how attention sinks into contemplation and the mind grows quiet.`,
-    source: "Vijñāna Bhairava Tantra, verse 33",
+    source: "Vijñāna Bhairava Tantra",
     tags: ["stillness"]
   },
   {
     number: 623,
     text: `With your eyes closed, direct attention inward, toward the center of the head. Gradually deepen your concentration without becoming distracted by thoughts that arise.`,
-    source: "Vijñāna Bhairava Tantra, verse 34",
+    source: "Vijñāna Bhairava Tantra",
     tags: ["stillness"]
   },
   {
     number: 624,
     text: `Imagine the central space of your being as the delicate thread of a lotus. Contemplate it as the inner space of awareness.`,
-    source: "Vijñāna Bhairava Tantra, verse 35",
+    source: "Vijñāna Bhairava Tantra",
     tags: ["stillness"]
   },
   {
     number: 625,
     text: `Observe the beginning and ending of any sound. Keep your attention on its arising and disappearing, noticing the silence on either side of the sound.`,
-    source: "Vijñāna Bhairava Tantra, verse 40",
+    source: "Vijñāna Bhairava Tantra",
     tags: ["stillness"]
   },
   {
     number: 626,
     text: `Contemplate the space in every direction within the body.
 Do not limit attention to separate parts of the body; allow it to encompass the inner space as a whole.`,
-    source: "Vijñāna Bhairava Tantra, verse 43",
+    source: "Vijñāna Bhairava Tantra",
     tags: ["stillness"]
   },
   {
     number: 627,
     text: `Imagine that all the substance of the body is permeated by space. Contemplate this continuously until this perception becomes steady.`,
-    source: "Vijñāna Bhairava Tantra, verse 47",
+    source: "Vijñāna Bhairava Tantra",
     tags: ["stillness"]
   },
   {
     number: 628,
     text: `Direct your attention to the space above your head and allow the mind to dissolve into a sense of openness, without holding on to its habitual forms.`,
-    source: "Vijñāna Bhairava Tantra, verse 50",
+    source: "Vijñāna Bhairava Tantra",
     tags: ["stillness"]
   },
   {
     number: 629,
     text: `At any moment, wherever you may be, bring your attention back to the subtle space above your head.
 Notice how the mind gradually grows quiet.`,
-    source: "Vijñāna Bhairava Tantra, verse 51",
+    source: "Vijñāna Bhairava Tantra",
     tags: ["stillness"]
   },
   {
     number: 630,
     text: `Imagine all the familiar forms of the world gradually dissolving. Observe what remains when the mind stops clinging to these forms.`,
-    source: "Vijñāna Bhairava Tantra, verse 53",
+    source: "Vijñāna Bhairava Tantra",
     tags: ["stillness"]
   },
   {
     number: 631,
     text: `When external sensations subside before sleep, but sleep has not yet come, keep a clear awareness of this intermediate state.`,
-    source: "Vijñāna Bhairava Tantra, verse 75",
+    source: "Vijñāna Bhairava Tantra",
     tags: ["stillness"]
   },
   {
     number: 632,
     text: `When intense joy arises, direct your attention not to its cause, but to the experience of joy itself.
 Allow the mind to sink into it.`,
-    source: "Vijñāna Bhairava Tantra, verse 71",
+    source: "Vijñāna Bhairava Tantra",
     tags: ["stillness"]
   },
   {
     number: 633,
     text: `While enjoying pleasant food, notice the feeling of joy and fullness itself. Focus on the experience without losing awareness.`,
-    source: "Vijñāna Bhairava Tantra, verse 72",
+    source: "Vijñāna Bhairava Tantra",
     tags: ["stillness"]
   },
   {
     number: 634,
     text: `When listening to music or singing, give your full attention to the sound.
 Do not drift into unrelated thoughts as attention naturally merges with the sound.`,
-    source: "Vijñāna Bhairava Tantra, verse 73",
+    source: "Vijñāna Bhairava Tantra",
     tags: ["stillness"]
   },
   {
     number: 635,
     text: `When the mind finds satisfaction in an experience, keep your attention on the experience itself. Explore the fullness that arises in this state.`,
-    source: "Vijñāna Bhairava Tantra, verse 74",
+    source: "Vijñāna Bhairava Tantra",
     tags: ["stillness"]
   },
   {
     number: 636,
     text: `Imagine your own nature as the sky: without boundaries and without a definite form. Abide in this contemplation.`,
-    source: "Vijñāna Bhairava Tantra, verse 92",
+    source: "Vijñāna Bhairava Tantra",
     tags: ["stillness"]
   },
   {
     number: 637,
     text: `When a strong desire suddenly arises, notice it immediately.
 Do not suppress it or follow it — watch as it gradually settles.`,
-    source: "Vijñāna Bhairava Tantra, verse 96",
+    source: "Vijñāna Bhairava Tantra",
     tags: ["stillness"]
   },
   {
     number: 638,
     text: `Observe how other people are perceived.
 Investigate the consciousness through which you recognize their presence, without reducing it to the image of a body.`,
-    source: "Vijñāna Bhairava Tantra, verse 107",
+    source: "Vijñāna Bhairava Tantra",
     tags: ["stillness"]
   },
   {
     number: 639,
     text: `Allow the mind to remain without its habitual supports of thoughts and notions.
 Do not create new mental constructions.`,
-    source: "Vijñāna Bhairava Tantra, verse 108",
+    source: "Vijñāna Bhairava Tantra",
     tags: ["stillness"]
   },
   {
     number: 640,
     text: `Notice wherever the mind turns — inward or outward. Explore the possibility of remaining aware in either direction.`,
-    source: "Vijñāna Bhairava Tantra, verse 116",
+    source: "Vijñāna Bhairava Tantra",
     tags: ["stillness"]
   },
   {
     number: 641,
     text: `Do not try to comprehend reality with the mind alone. Contemplate what cannot be fully grasped by thought, what has no familiar form and cannot be defined.
 Remain with it without trying to explain it.`,
-    source: "Vijñāna Bhairava Tantra, verse 127",
+    source: "Vijñāna Bhairava Tantra",
     tags: ["stillness"]
   },
   {
     number: 642,
     text: `Direct your attention to the open space around you. Perceive it as boundless and needing no support, without creating mental boundaries.`,
-    source: "Vijñāna Bhairava Tantra, verse 128",
+    source: "Vijñāna Bhairava Tantra",
     tags: ["stillness"]
   },
   {
     number: 643,
     text: `When a sensation arises that is difficult to define, do not rush to name it. Stay with direct perception.`,
-    source: "Vijñāna Bhairava Tantra, verse 130",
+    source: "Vijñāna Bhairava Tantra",
     tags: ["stillness"]
   },
   {
     number: 644,
     text: `Do not regard pleasure and pain as separate from perception.
 Notice how they arise through the senses, and return to calm presence.`,
-    source: "Vijñāna Bhairava Tantra, verse 136",
+    source: "Vijñāna Bhairava Tantra",
     tags: ["stillness"]
   },
   {
     number: 645,
     text: `Observe how thoughts, life energy, and the idea of your own “I” arise and settle. Explore the state in which these processes dissolve.`,
-    source: "Vijñāna Bhairava Tantra, verse 138",
+    source: "Vijñāna Bhairava Tantra",
     tags: ["stillness"]
   },
   {
@@ -4867,34 +4867,34 @@ Notice how they arise through the senses, and return to calm presence.`,
     number: 648,
     text: `Look at your own reaction without justifying or condemning it.
 See it as it manifests right now.`,
-    source: "Dhammapada, verses 1–2",
+    source: "Dhammapada",
     tags: ["stillness"]
   },
   {
     number: 649,
     text: `Remember how quickly the pleasant changes, and how long the mind tries to hold on to it.
 Look at pleasure without demanding that it continue.`,
-    source: "Dhammapada, verses 277–279",
+    source: "Dhammapada",
     tags: ["stillness"]
   },
   {
     number: 650,
     text: `Do not measure your inner state by how pleasant it feels. Observe the pleasant, the unpleasant, and the neutral with equal attentiveness.`,
-    source: "Dhammapada, verses 83–85",
+    source: "Dhammapada",
     tags: ["stillness"]
   },
   {
     number: 651,
     text: `Do not try to hold on to a special state that once seemed like awakening.
 Investigate the one who wants to make the experience permanent and claim it as their own.`,
-    source: "Ashtavakra Gita, Chapter 15",
+    source: "Ashtavakra Gita",
     tags: ["stillness"]
   },
   {
     number: 652,
     text: `Do not seek freedom only in the disappearance of thoughts.
 Investigate whether you can remain unbound by them even while they continue to arise.`,
-    source: "Ashtavakra Gita, Chapter 18",
+    source: "Ashtavakra Gita",
     tags: ["stillness"]
   },
   {
@@ -4961,45 +4961,45 @@ Notice what captures attention, and ask whether you really need to follow it.`,
     number: 662,
     text: `Notice the transition from waking to drowsiness. Thoughts become less coherent, yet the fact that the state is changing can still be observed.
 Remain attentive without tension.`,
-    source: "Mandukya Upanishad, verses 3–5",
+    source: "Mandukya Upanishad",
     tags: ["stillness"]
   },
   {
     number: 663,
     text: `Look at another person without reducing them to a role in your life. For a moment, set aside your expectations and meet what is actually before you.`,
-    source: "Isha Upanishad, verses 6–7",
+    source: "Isha Upanishad",
     tags: ["stillness"]
   },
   {
     number: 664,
     text: `When the mind seeks a special state, notice the urge to separate ordinary life from something supposedly more spiritual.
 Explore what is happening here, without waiting for an exceptional experience.`,
-    source: "Isha Upanishad, verses 9–11",
+    source: "Isha Upanishad",
     tags: ["stillness"]
   },
   {
     number: 665,
     text: `When attention is completely absorbed by a strong sensory impression, notice not only the impression but also the moment in which distraction disappears.`,
-    source: "Vijñāna Bhairava Tantra, verse 67",
+    source: "Vijñāna Bhairava Tantra",
     tags: ["stillness"]
   },
   {
     number: 666,
     text: `Look at a feeling as it arises without immediately calling it good or bad. Allow it to be noticed before the mind begins building a story around it.`,
-    source: "Vijñāna Bhairava Tantra, verse 96",
+    source: "Vijñāna Bhairava Tantra",
     tags: ["stillness"]
   },
   {
     number: 667,
     text: `When a strong emotion arises, investigate it directly: where is it felt, how does it change, and what thoughts are trying to sustain it?`,
-    source: "Vijñāna Bhairava Tantra, verse 101",
+    source: "Vijñāna Bhairava Tantra",
     tags: ["stillness"]
   },
   {
     number: 668,
     text: `When the mind cannot find its familiar support, do not rush to create a new one.
 Notice the very urge to anchor itself in a definite explanation of what is happening.`,
-    source: "Vijñāna Bhairava Tantra, verse 108",
+    source: "Vijñāna Bhairava Tantra",
     tags: ["stillness"]
   },
   {
@@ -5103,14 +5103,14 @@ Stop searching for an external object and investigate the nature of seeing itsel
     number: 683,
     text: `Compare waking and dreaming. In both states, an entire world appears and seems independent.
 Investigate what makes each of them convincing and real.`,
-    source: "Mandukya Upanishad, verses 3–4",
+    source: "Mandukya Upanishad",
     tags: ["stillness"]
   },
   {
     number: 684,
     text: `Sleep ends, waking continues, and then sleep returns.
 Investigate the changing nature of these states, and do not rush to identify yourself with any one of them.`,
-    source: "Mandukya Upanishad, verses 3–7",
+    source: "Mandukya Upanishad",
     tags: ["stillness"]
   },
   {
@@ -6034,38 +6034,38 @@ Return right now.`,
     number: 829,
     text: `Arise! Awake! The path is difficult, like the edge of a razor.
 Do not walk it half-heartedly.`,
-    source: "Katha Upanishad 1.3.14 (interpretive translation)",
+    source: "Katha Upanishad 1.3.14",
     tags: ["stillness"]
   },
   {
     number: 830,
     text: `The mind is restless and difficult to control. But it can be tamed through constant practice and dispassion.`,
-    source: "Bhagavad Gita 6.35 (interpretive translation)",
+    source: "Bhagavad Gita 6.35",
     tags: ["stillness"]
   },
   {
     number: 831,
     text: `In the seen, only the seen. In the heard, only the heard.
 Do not add anything extra to direct experience.`,
-    source: "Udana 1.10, Bahiya's instruction (interpretive translation)",
+    source: "Udana 1.10, Bahiya's instruction",
     tags: ["stillness"]
   },
   {
     number: 832,
     text: `Walking, know that you are walking. Standing, know that you are standing. Whether speaking or silent, maintain clear awareness.`,
-    source: "Satipatthana Sutta (interpretive translation)",
+    source: "Satipatthana Sutta",
     tags: ["stillness"]
   },
   {
     number: 833,
     text: `If you wish to preserve the path, guard the mind. Without this, the other spiritual disciplines will not hold.`,
-    source: "Shantideva (adaptation)",
+    source: "Shantideva",
     tags: ["stillness"]
   },
   {
     number: 834,
     text: `The mind wanders and is difficult to restrain. The wise guard it as carefully as an archer straightens an arrow.`,
-    source: "Dhammapada 33–36 (interpretive translation)",
+    source: "Dhammapada 33–36",
     tags: ["stillness"]
   },
   {
@@ -6351,7 +6351,7 @@ Enlightenment means you have awakened from the dream entirely.`,
   {
     number: 879,
     text: `Sit down. Shut up. Ask yourself what is true until you know. That is the whole practice. Everything else is postponing the leap.`,
-    source: "Jed McKenna, \"Spiritual Enlightenment: The Damnedest Thing\"",
+    source: "Jed McKenna",
     tags: ["stillness"]
   },
   {
@@ -6522,7 +6522,7 @@ Get rid of it — and be happy.`,
   {
     number: 907,
     text: `Turn inward with the question “Who am I?” — not as a thought, but as an investigation into where the “I” arises from.`,
-    source: "Ramana Maharshi, \"Be As You Are\"",
+    source: "Ramana Maharshi",
     tags: ["stillness"]
   },
   {
@@ -6602,25 +6602,25 @@ Do not remain confined to either the inner or the outer.`,
   {
     number: 920,
     text: `The Buddhas and all living beings are only One Mind. Outside this Mind, there is not a single dharma.`,
-    source: "Huangbo, \"Wan Ling Record\"",
+    source: "Huangbo",
     tags: ["stillness"]
   },
   {
     number: 921,
     text: `No bodies, no minds — this is the way of the Buddhas.`,
-    source: "Huangbo, \"Wan Ling Record\"",
+    source: "Huangbo",
     tags: ["stillness"]
   },
   {
     number: 922,
     text: `If you meet the Buddha, kill the Buddha. If you meet a patriarch, kill the patriarch. Only then will you attain liberation.`,
-    source: "Linji, \"Record of Linji\"",
+    source: "Linji",
     tags: ["stillness"]
   },
   {
     number: 923,
     text: `Originally, there is no Bodhi tree, no stand for the bright mirror. From the beginning, not a single thing exists — where could dust settle?`,
-    source: "Huineng, \"Platform Sutra\"",
+    source: "Huineng",
     tags: ["stillness"]
   },
   {
@@ -6632,7 +6632,7 @@ Do not remain confined to either the inner or the outer.`,
   {
     number: 925,
     text: `There is no me and no you, no seeker, no enlightenment, no disciple, and no guru. There is only this.`,
-    source: "Tony Parsons, \"The Open Secret\"",
+    source: "Tony Parsons",
     tags: ["stillness"]
   },
   {
@@ -6813,7 +6813,7 @@ Do not miss it a second time.`,
   {
     number: 954,
     text: `Keep quiet. Just remain silent.`,
-    source: "Papaji (H. W. L. Poonja)",
+    source: "Papaji",
     tags: ["stillness"]
   },
   {
@@ -6843,13 +6843,13 @@ Do not miss it a second time.`,
   {
     number: 959,
     text: `Silence is above all worldly prudence.`,
-    source: "Saint Ignatius (Brianchaninov)",
+    source: "Ignatius Brianchaninov",
     tags: ["stillness"]
   },
   {
     number: 960,
     text: `Show me your original face — the one you had before your father and mother were born.`,
-    source: "Zuiku (Dialogue of Bodhidharma and Huike)",
+    source: "Zuiku",
     tags: ["stillness"]
   },
   {
@@ -7029,13 +7029,13 @@ When you know for yourselves that these things lead to benefit and peace, then a
   {
     number: 989,
     text: `You can't stop the waves, but you can learn to surf. It is the same with the mind: do not fight it — learn to balance on it.`,
-    source: "Jon Kabat-Zinn, \"Wherever You Go, There You Are\"",
+    source: "Jon Kabat-Zinn",
     tags: ["stillness"]
   },
   {
     number: 990,
     text: `You were never born and you will never die. What was born is the body. You are that which watches the body — and it knows neither birth nor death.`,
-    source: "Papaji (H. W. L. Poonja), \"Nothing Ever Happened\"",
+    source: "Papaji",
     tags: ["stillness"]
   },
   {
@@ -7047,7 +7047,7 @@ When you know for yourselves that these things lead to benefit and peace, then a
   {
     number: 992,
     text: `Consciousness does not know about things. It knows only itself. Everything you have ever known is consciousness knowing itself.`,
-    source: "Rupert Spira, \"Presence\"",
+    source: "Rupert Spira",
     tags: ["stillness"]
   },
   {
@@ -7073,7 +7073,7 @@ Stop even for a moment — and you will see that you have never been searching f
   {
     number: 996,
     text: `All problems of the mind arise when it looks outward. Turn it inward, toward the one who thinks — and the problems dissolve along with the one to whom they belonged.`,
-    source: "Ramana Maharshi, \"Talks with Sri Ramana Maharshi\"",
+    source: "Ramana Maharshi",
     tags: ["stillness"]
   },
   {
@@ -7086,7 +7086,7 @@ Stop even for a moment — and you will see that you have never been searching f
     number: 998,
     text: `To gain everything, consent to lose everything. Going into God does not mean walking toward light, but into a dark night where light is no longer needed.
 Nothing, nothing, nothing. Even in heaven.`,
-    source: "John of the Cross, \"Ascent of Mount Carmel\"",
+    source: "John of the Cross",
     tags: ["stillness"]
   },
   {
@@ -7338,13 +7338,13 @@ Find the one who sees this — and everything else will tell its own story.`,
   {
     number: 1038,
     text: `All is mere representation. There is neither seer nor seen — there is only representation itself. Realize this, and the world collapses like a line of words.`,
-    source: "Vasubandhu, \"Twenty Verses on Consciousness Only\"",
+    source: "Vasubandhu",
     tags: ["stillness"]
   },
   {
     number: 1039,
     text: `The pacification of all concepts, the cessation of all fabrications: neither arising nor ceasing — this is suchness, this is nirvana.`,
-    source: "Nagarjuna, \"Mulamadhyamakakarika\" 25.24",
+    source: "Nagarjuna",
     tags: ["stillness"]
   },
   {
@@ -7370,7 +7370,7 @@ Whoever rests within is beyond danger.`,
     number: 1043,
     text: `Attention is the rarest and purest form of love. True prayer is not words, but attention.
 Look so long until the seer vanishes into the looking.`,
-    source: "Simone Weil, \"Gravity and Grace\"",
+    source: "Simone Weil",
     tags: ["stillness"]
   },
   {
@@ -9403,7 +9403,7 @@ Notice the absolute impossibility of it.`,
   {
     number: 1367,
     text: `Practice and enlightenment are one.`,
-    source: "Dogen (interpretive translation)",
+    source: "Dogen",
     tags: ["stillness"]
   },
   {
@@ -9415,7 +9415,7 @@ Notice the absolute impossibility of it.`,
   {
     number: 1369,
     text: `All beings are by nature Buddhas, just as ice is by nature water. Apart from water, there is no ice.`,
-    source: "Hakuin (interpretive translation)",
+    source: "Hakuin",
     tags: ["stillness"]
   },
   {
@@ -9469,13 +9469,13 @@ Notice the absolute impossibility of it.`,
   {
     number: 1378,
     text: `Practice becomes firmly grounded when it is attended to for a long time, without interruption, and with devotion.`,
-    source: "Yoga Sutras of Patanjali, 1.14",
+    source: "Yoga Sutras of Patanjali",
     tags: ["stillness"]
   },
   {
     number: 1379,
     text: `The fluctuations of the mind are stilled through practice and non-attachment.`,
-    source: "Yoga Sutras of Patanjali, 1.12",
+    source: "Yoga Sutras of Patanjali",
     tags: ["stillness"]
   },
   {
@@ -9511,7 +9511,7 @@ Notice the absolute impossibility of it.`,
   {
     number: 1385,
     text: `The mind turned outward gives rise to thoughts and objects. The mind turned inward becomes the Self.`,
-    source: "Ramana Maharshi (interpretive translation)",
+    source: "Ramana Maharshi",
     tags: ["stillness"]
   },
   {
@@ -9523,7 +9523,7 @@ Notice the absolute impossibility of it.`,
   {
     number: 1387,
     text: `So rare is such an auspicious life. If one does not seize it now, when will it come again?`,
-    source: "Shantideva (interpretive translation)",
+    source: "Shantideva",
     tags: ["stillness"]
   },
   {
@@ -9571,7 +9571,7 @@ Notice the absolute impossibility of it.`,
   {
     number: 1395,
     text: `We are what we repeatedly do. Excellence, then, is not an act, but a habit.`,
-    source: "Will Durant, on Aristotle",
+    source: "Will Durant",
     tags: ["stillness"]
   },
   {
@@ -9583,13 +9583,13 @@ Notice the absolute impossibility of it.`,
   {
     number: 1397,
     text: `Dive deep, O mind, dive deep.`,
-    source: "Ramakrishna (interpretive translation)",
+    source: "Ramakrishna",
     tags: ["stillness"]
   },
   {
     number: 1398,
     text: `Irrigators guide the water; fletchers shape the arrow; carpenters fashion the wood; the wise tame themselves.`,
-    source: "Dhammapada, 80 (interpretive translation)",
+    source: "Dhammapada, 80",
     tags: ["stillness"]
   },
   {
@@ -9625,7 +9625,7 @@ Notice the absolute impossibility of it.`,
   {
     number: 1404,
     text: `Pain that has not yet come is avoidable.`,
-    source: "Yoga Sutras of Patanjali, 2.16",
+    source: "Yoga Sutras of Patanjali",
     tags: ["wisdom"]
   },
   {
@@ -10052,6 +10052,695 @@ The choice does not come once a day, but every single second.
 Choose right now.`,
     source: null,
     tags: ["stillness"]
+  },
+  {
+    number: 1462,
+    text: "Apply the rope and snake analogy: when confronted with fear or panic, do not fight them emotionally, but coolly investigate their cause.",
+    source: "Sri Shankaracharya",
+    tags: ["practice"]
+  },
+  {
+    number: 1463,
+    text: "Practice rigorous calmness (shama): resolutely halt the mind's attempts to chase after external objects and cling to them.",
+    source: "Sri Shankaracharya",
+    tags: ["practice"]
+  },
+  {
+    number: 1464,
+    text: "Establish strict self-restraint (dama): master the outer sense organs, never letting them hijack attention automatically.",
+    source: "Sri Shankaracharya",
+    tags: ["practice"]
+  },
+  {
+    number: 1465,
+    text: "Practice uparati: completely cut off the mind's involvement in worldly tendencies and habitual mental rumination.",
+    source: "Sri Shankaracharya",
+    tags: ["practice"]
+  },
+  {
+    number: 1466,
+    text: "Cultivate endurance (titiksha): withstand all blows of duality (pain, discomfort, judgments) without internal hysteria or entanglement.",
+    source: "Sri Shankaracharya",
+    tags: ["practice"]
+  },
+  {
+    number: 1467,
+    text: "Maintain concentration (samadhana): fix the focus of attention on the changeless foundation of perception, cutting off extraneous thoughts.",
+    source: "Sri Shankaracharya",
+    tags: ["practice"]
+  },
+  {
+    number: 1468,
+    text: "Abandon the expectation of the fruits of your actions: perform what is necessary mechanically or with discipline, without feeding the mind with hopes of reward.",
+    source: "Sri Shankaracharya",
+    tags: ["practice"]
+  },
+  {
+    number: 1469,
+    text: "Seek contact only with those who are truly free from illusion and rooted in stillness, so that your own concepts may be shattered.",
+    source: "Sri Shankaracharya",
+    tags: ["practice"]
+  },
+  {
+    number: 1470,
+    text: "Every time the mind demands new agitation or entertainment, strike at this impulse with the question: «Who demands this right now?»",
+    source: "Sri Shankaracharya",
+    tags: ["practice"]
+  },
+  {
+    number: 1471,
+    text: "Test anyone with whom you go deep into practice for absolute freedom from hidden vices, self-interest, and attachments.",
+    source: "Sri Shankaracharya",
+    tags: ["practice"]
+  },
+  {
+    number: 1472,
+    text: "Make the unrelenting yearning for liberation your highest priority, displacing all secondary restlessness with it.",
+    source: "Sri Shankaracharya",
+    tags: ["practice"]
+  },
+  {
+    number: 1473,
+    text: "Scrutinize every intention: does it lead toward awareness, or plunge you into the slumber of samsara.",
+    source: "Sri Shankaracharya",
+    tags: ["practice"]
+  },
+  {
+    number: 1474,
+    text: "Stop making excuses for the mind's inertia; apply a conscious effort of will to return attention to its starting point.",
+    source: "Sri Shankaracharya",
+    tags: ["practice"]
+  },
+  {
+    number: 1475,
+    text: "Track the moments when the mind clings to the judgments and opinions of others, and instantly dissolve these projections.",
+    source: "Sri Shankaracharya",
+    tags: ["practice"]
+  },
+  {
+    number: 1476,
+    text: "Use every life obstacle as a training ground for developing resilience and mental equanimity.",
+    source: "Sri Shankaracharya",
+    tags: ["practice"]
+  },
+  {
+    number: 1477,
+    text: "Do not let emotional surges and everyday triggers pull your focus away from the observer state.",
+    source: "Sri Shankaracharya",
+    tags: ["practice"]
+  },
+  {
+    number: 1478,
+    text: "Regularly examine your motives for hidden self-interest, vanity, and the craving for approval.",
+    source: "Sri Shankaracharya",
+    tags: ["practice"]
+  },
+  {
+    number: 1479,
+    text: "Relinquish the habit of mentally rehashing past conflicts or projecting future fears.",
+    source: "Sri Shankaracharya",
+    tags: ["practice"]
+  },
+  {
+    number: 1480,
+    text: "Hold attention on the pure perception of «I am» before any mental concepts adhere to it.",
+    source: "Sri Shankaracharya",
+    tags: ["practice"]
+  },
+  {
+    number: 1481,
+    text: "Practice the austerity of attention: forbid yourself from consuming hollow informational noise and meaningless conversations.",
+    source: "Sri Shankaracharya",
+    tags: ["practice"]
+  },
+  {
+    number: 1482,
+    text: "Investigate the root of any fear or anxiety: locate that specific subject to whom they supposedly belong.",
+    source: "Sri Shankaracharya",
+    tags: ["practice"]
+  },
+  {
+    number: 1483,
+    text: "Suppress the mind's attempts to justify its laziness, weakness, or procrastination with pseudo-spiritual reasoning.",
+    source: "Sri Shankaracharya",
+    tags: ["practice"]
+  },
+  {
+    number: 1484,
+    text: "Practice absolute honesty with yourself regarding your true attachments and vulnerabilities.",
+    source: "Sri Shankaracharya",
+    tags: ["practice"]
+  },
+  {
+    number: 1485,
+    text: "Whenever the sense of «I am the doer» arises, shift focus to the fact that everything happens spontaneously within the space of consciousness.",
+    source: "Sri Shankaracharya",
+    tags: ["practice"]
+  },
+  {
+    number: 1486,
+    text: "Pinpoint the still gap between thoughts and expand that interval until it becomes a permanent background.",
+    source: "Sri Shankaracharya",
+    tags: ["practice"]
+  },
+  {
+    number: 1487,
+    text: "Stop waiting for suitable conditions to practice; use every daily disruption and stress as an immediate catalyst for awakening attention.",
+    source: "Sri Shankaracharya",
+    tags: ["practice"]
+  },
+  {
+    number: 1488,
+    text: "Catch the exact moment a mental concept of self emerges, and dissolve it before it crystallizes into a story.",
+    source: "Sri Shankaracharya",
+    tags: ["practice"]
+  },
+  {
+    number: 1489,
+    text: "Set a strict ban on justifying your weaknesses with tiredness, circumstances, or external factors.",
+    source: "Sri Shankaracharya",
+    tags: ["practice"]
+  },
+  {
+    number: 1490,
+    text: "Redirect attention from evaluating what is happening to the one who is currently rendering that evaluation.",
+    source: "Sri Shankaracharya",
+    tags: ["practice"]
+  },
+  {
+    number: 1491,
+    text: "Cut short any inclination of the mind to drift into fantasies about the future or regrets over the past — return focus to the single point of here.",
+    source: "Sri Shankaracharya",
+    tags: ["practice"]
+  },
+  {
+    number: 1492,
+    text: "Use the method of disidentification: for every internal movement (pain, fear, desire), silently note: «This is observed, but this is not me.»",
+    source: "Sri Shankaracharya",
+    tags: ["practice"]
+  },
+  {
+    number: 1493,
+    text: "Eliminate the habit of arguing and proving yourself right: every argument feeds the illusion of a separate ego.",
+    source: "Sri Shankaracharya",
+    tags: ["practice"]
+  },
+  {
+    number: 1494,
+    text: "Control the impulses of body and speech: engage in no automated actions without a preceding conscious intention.",
+    source: "Sri Shankaracharya",
+    tags: ["practice"]
+  },
+  {
+    number: 1495,
+    text: "Turn routine actions into a practice of presence, completely erasing the divide between «meditation» and «life.»",
+    source: "Sri Shankaracharya",
+    tags: ["practice"]
+  },
+  {
+    number: 1496,
+    text: "Wash away any display of mental pride with the question: «By whom was this knowledge acquired, and to whom does it belong?»",
+    source: "Sri Shankaracharya",
+    tags: ["practice"]
+  },
+  {
+    number: 1497,
+    text: "Sever the need for approval and praise: dependence on external validation instantly plunges the mind back into bondage.",
+    source: "Sri Shankaracharya",
+    tags: ["practice"]
+  },
+  {
+    number: 1498,
+    text: "Keep attention on the source of sounds, thoughts, and images, refusing to let them draw you into narratives.",
+    source: "Sri Shankaracharya",
+    tags: ["practice"]
+  },
+  {
+    number: 1499,
+    text: "Quench internal dialogue in its infancy: the moment inner speech begins, cut it short with an act of will.",
+    source: "Sri Shankaracharya",
+    tags: ["practice"]
+  },
+  {
+    number: 1500,
+    text: "Refuse to seek comfort in concepts; if a crisis arises, go straight into its epicenter without the mind's protective barriers.",
+    source: "Sri Shankaracharya",
+    tags: ["practice"]
+  },
+  {
+    number: 1501,
+    text: "Reset all achievements and spiritual experiences to zero: everything that can be remembered or recorded is an object, not you.",
+    source: "Sri Shankaracharya",
+    tags: ["practice"]
+  },
+  {
+    number: 1502,
+    text: "Halt the inner monologue the very moment it sparks, returning focus to the absolute stillness of the mind.",
+    source: "Sri Shankaracharya",
+    tags: ["stillness"]
+  },
+  {
+    number: 1503,
+    text: "Stop searching for answers in external sources and words; immerse yourself in the silent space that precedes every thought.",
+    source: "Sri Shankaracharya",
+    tags: ["stillness"]
+  },
+  {
+    number: 1504,
+    text: "Notice not the sounds or images themselves, but that immutable stillness against which they arise and disappear.",
+    source: "Sri Shankaracharya",
+    tags: ["stillness"]
+  },
+  {
+    number: 1505,
+    text: "Sustain attention in the intervals between in-breath and out-breath, between one thought and the next — true peace reveals itself there.",
+    source: "Sri Shankaracharya",
+    tags: ["stillness"]
+  },
+  {
+    number: 1506,
+    text: "Allow the world's turmoil to shatter against your inner equanimity, permitting no external factor to disturb the silence.",
+    source: "Sri Shankaracharya",
+    tags: ["stillness"]
+  },
+  {
+    number: 1507,
+    text: "Relinquish the urge to defend your concepts: in silence, there is no one who needs to be right or wrong.",
+    source: "Sri Shankaracharya",
+    tags: ["stillness"]
+  },
+  {
+    number: 1508,
+    text: "Direct attention to the root of any experience before the mind has time to label or evaluate it.",
+    source: "Sri Shankaracharya",
+    tags: ["stillness"]
+  },
+  {
+    number: 1509,
+    text: "Make silence of mind not a pause between activities, but the enduring foundation from which all movement originates.",
+    source: "Sri Shankaracharya",
+    tags: ["stillness"]
+  },
+  {
+    number: 1510,
+    text: "Dissolve the boundaries between inner and outer perception, merging them into the singular space of silent presence.",
+    source: "Sri Shankaracharya",
+    tags: ["stillness"]
+  },
+  {
+    number: 1511,
+    text: "When a wave of fear or desire rises, do not combat it; submerge it into the silent ocean of pure awareness.",
+    source: "Sri Shankaracharya",
+    tags: ["stillness"]
+  },
+  {
+    number: 1512,
+    text: "Renounce the pursuit of new impressions and knowledge — everything essential is already present in the depths of absolute stillness.",
+    source: "Sri Shankaracharya",
+    tags: ["stillness"]
+  },
+  {
+    number: 1513,
+    text: "Watch thoughts come and go, remaining a motionless and uninvolved observer.",
+    source: "Sri Shankaracharya",
+    tags: ["stillness"]
+  },
+  {
+    number: 1514,
+    text: "Cast off all mental masks and roles, revealing the pure silence that remains beyond them.",
+    source: "Sri Shankaracharya",
+    tags: ["stillness"]
+  },
+  {
+    number: 1515,
+    text: "Cease clinging to emotional states; they come and go, while the stillness in which they are reflected remains changeless.",
+    source: "Sri Shankaracharya",
+    tags: ["stillness"]
+  },
+  {
+    number: 1516,
+    text: "Abide in total rest right now, without deferring liberation to later or fabricating concepts about it.",
+    source: "Sri Shankaracharya",
+    tags: ["stillness"]
+  },
+  {
+    number: 1517,
+    text: "Halt all attempts of the mind to construct logical chains about what enlightenment is — return to the direct experience of stillness.",
+    source: "Sri Shankaracharya",
+    tags: ["stillness"]
+  },
+  {
+    number: 1518,
+    text: "End the internal struggle with the noise of the world; genuine stillness is discovered not outside, but in the immediate cessation of resistance.",
+    source: "Sri Shankaracharya",
+    tags: ["stillness"]
+  },
+  {
+    number: 1519,
+    text: "Notice that point of peace that is invariably present at the very center of any chaos or turbulent activity.",
+    source: "Sri Shankaracharya",
+    tags: ["stillness"]
+  },
+  {
+    number: 1520,
+    text: "Drop the burden of accumulated memories and projections, sinking into the pure, resonant space of the wordless «now.»",
+    source: "Sri Shankaracharya",
+    tags: ["stillness"]
+  },
+  {
+    number: 1521,
+    text: "Abandon seeking external validation for your spiritual state — the sole criterion is the depth of peace.",
+    source: "Sri Shankaracharya",
+    tags: ["stillness"]
+  },
+  {
+    number: 1522,
+    text: "Watch how any emotion dissolves in the space of consciousness when deprived of nourishment from internal dialogue.",
+    source: "Sri Shankaracharya",
+    tags: ["stillness"]
+  },
+  {
+    number: 1523,
+    text: "Break the mind's habit of grasping at definitions and concepts; dwell in the pristine field of ineffable presence.",
+    source: "Sri Shankaracharya",
+    tags: ["stillness"]
+  },
+  {
+    number: 1524,
+    text: "Allow every inhalation and exhalation to bring you back from mental wanderings into the immutable silence of your inner center.",
+    source: "Sri Shankaracharya",
+    tags: ["stillness"]
+  },
+  {
+    number: 1525,
+    text: "Relinquish the roles of both doer and observer: dissolve into that absolute silence where division into subject and object does not exist.",
+    source: "Sri Shankaracharya",
+    tags: ["stillness"]
+  },
+  {
+    number: 1526,
+    text: "Extinguish any flashes of irritation or anxiety the instant they touch the screen of the mind, returning to peace.",
+    source: "Sri Shankaracharya",
+    tags: ["stillness"]
+  },
+  {
+    number: 1527,
+    text: "Stop fleeing from voidness: what the mind perceives as frightening emptiness is, in truth, the wellspring of absolute fullness and stillness.",
+    source: "Sri Shankaracharya",
+    tags: ["stillness"]
+  },
+  {
+    number: 1528,
+    text: "Direct attention not to what unfolds in the visual field, but to that stillness which accommodates everything that occurs.",
+    source: "Sri Shankaracharya",
+    tags: ["stillness"]
+  },
+  {
+    number: 1529,
+    text: "Erase every trace of self-importance and pride in the restorative waters of total silence.",
+    source: "Sri Shankaracharya",
+    tags: ["stillness"]
+  },
+  {
+    number: 1530,
+    text: "Give up anticipating future fruits of practice; genuine silence is accessible solely in this very second.",
+    source: "Sri Shankaracharya",
+    tags: ["stillness"]
+  },
+  {
+    number: 1531,
+    text: "Abide in pure stillness that requires no confirmations, words, or justifications from the mind.",
+    source: "Sri Shankaracharya",
+    tags: ["stillness"]
+  },
+  {
+    number: 1532,
+    text: "Stop clinging to mental constructs of time and space; plunge into the absolute «now,» where there is no movement whatsoever.",
+    source: "Sri Shankaracharya",
+    tags: ["stillness"]
+  },
+  {
+    number: 1533,
+    text: "Cut off any mind-made excuses that mask laziness or inaction with complex theories — stay in pure, resonant alertness.",
+    source: "Sri Shankaracharya",
+    tags: ["stillness"]
+  },
+  {
+    number: 1534,
+    text: "Notice the moments when attention is drawn into the drama of external events, and with an act of will, return it to the motionless center.",
+    source: "Sri Shankaracharya",
+    tags: ["stillness"]
+  },
+  {
+    number: 1535,
+    text: "Discard the craving to appear enlightened or wise; burn all falsehood and masks in the fire of total silence.",
+    source: "Sri Shankaracharya",
+    tags: ["stillness"]
+  },
+  {
+    number: 1536,
+    text: "Focus on the source from which every new impulse is born, without letting it unfold into an obsessive thought.",
+    source: "Sri Shankaracharya",
+    tags: ["stillness"]
+  },
+  {
+    number: 1537,
+    text: "Arrest the mind's habit of evaluating occurrences as good or bad — remain in the neutral expanse of pure perception.",
+    source: "Sri Shankaracharya",
+    tags: ["stillness"]
+  },
+  {
+    number: 1538,
+    text: "Use external pressure and stress not as an excuse to complain, but as a direct tool for testing the depth of your silence.",
+    source: "Sri Shankaracharya",
+    tags: ["stillness"]
+  },
+  {
+    number: 1539,
+    text: "Shed the burden of others' expectations and evaluations; for the silent space, authorities and foreign opinions do not exist.",
+    source: "Sri Shankaracharya",
+    tags: ["stillness"]
+  },
+  {
+    number: 1540,
+    text: "Anchor attention on the still background of consciousness, even when the most intense activity unfolds in view.",
+    source: "Sri Shankaracharya",
+    tags: ["stillness"]
+  },
+  {
+    number: 1541,
+    text: "Drop the habit of mentally tallying your spiritual achievements or failures — reset the entire story to zero every second.",
+    source: "Sri Shankaracharya",
+    tags: ["stillness"]
+  },
+  {
+    number: 1542,
+    text: "Stop searching for salvation or refuge in outer things; everything necessary for enduring peace is already present within.",
+    source: "Sri Shankaracharya",
+    tags: ["stillness"]
+  },
+  {
+    number: 1543,
+    text: "Watch how every mental problem dissolves if you cease feeding it with attention and dialogue.",
+    source: "Sri Shankaracharya",
+    tags: ["stillness"]
+  },
+  {
+    number: 1544,
+    text: "Wash away any remnants of self-importance and egoic control in the life-giving flow of all-encompassing silence.",
+    source: "Sri Shankaracharya",
+    tags: ["stillness"]
+  },
+  {
+    number: 1545,
+    text: "Do not attempt to hold or freeze states of peace — that which is true requires no artificial defense.",
+    source: "Sri Shankaracharya",
+    tags: ["stillness"]
+  },
+  {
+    number: 1546,
+    text: "Abide in absolute stillness right now, leaving the mind no loophole to slip into doubts and concepts.",
+    source: "Sri Shankaracharya",
+    tags: ["stillness"]
+  },
+  {
+    number: 1547,
+    text: "Check any attempt of the mind to rate its own practice — the evaluating mind already operates outside of stillness.",
+    source: "Sri Shankaracharya",
+    tags: ["stillness"]
+  },
+  {
+    number: 1548,
+    text: "Stop clinging to memories of past insights; only that silence resonating right in this moment is real.",
+    source: "Sri Shankaracharya",
+    tags: ["stillness"]
+  },
+  {
+    number: 1549,
+    text: "Notice the moment the focus of attention begins to scatter over trifles, and with a willful impulse, bring it back into monolithic peace.",
+    source: "Sri Shankaracharya",
+    tags: ["stillness"]
+  },
+  {
+    number: 1550,
+    text: "Relinquish the need to seek kindred spirits or external validation — true silence is utterly self-sufficient.",
+    source: "Sri Shankaracharya",
+    tags: ["stillness"]
+  },
+  {
+    number: 1551,
+    text: "Direct attention to the very emergence point of a thought and watch it vanish instantly, before taking form.",
+    source: "Sri Shankaracharya",
+    tags: ["stillness"]
+  },
+  {
+    number: 1552,
+    text: "Cut short the mind's attempts to construct salvific concepts when facing hardship — meet them with naked attention.",
+    source: "Sri Shankaracharya",
+    tags: ["stillness"]
+  },
+  {
+    number: 1553,
+    text: "Drop the tension of warring with the world: peace arrives not when the world alters, but when your resistance ends.",
+    source: "Sri Shankaracharya",
+    tags: ["stillness"]
+  },
+  {
+    number: 1554,
+    text: "Maintain vigilance in the intervals between actions, never letting the mind slide into dull numbness or torpor.",
+    source: "Sri Shankaracharya",
+    tags: ["stillness"]
+  },
+  {
+    number: 1555,
+    text: "Give up the habit of mentally commenting on what you see or hear — leave only pure, resonant awareness.",
+    source: "Sri Shankaracharya",
+    tags: ["stillness"]
+  },
+  {
+    number: 1556,
+    text: "Stop running from loneliness: what appears as loneliness to the ego is, in truth, the fullness of silent space.",
+    source: "Sri Shankaracharya",
+    tags: ["stillness"]
+  },
+  {
+    number: 1557,
+    text: "Observe how all pain or discomfort loses its edge once you stop labeling them as «mine» and fighting them.",
+    source: "Sri Shankaracharya",
+    tags: ["stillness"]
+  },
+  {
+    number: 1558,
+    text: "Erase every trace of mental conceit and «knowing» the very instant they try to claim ground.",
+    source: "Sri Shankaracharya",
+    tags: ["stillness"]
+  },
+  {
+    number: 1559,
+    text: "Relinquish the anticipation of monumental epiphanies; stillness is unobtrusive, it simply is — here, now, and always.",
+    source: "Sri Shankaracharya",
+    tags: ["stillness"]
+  },
+  {
+    number: 1560,
+    text: "Abide at the zero point of reference, where there is neither past experience nor future goals, only pure alertness.",
+    source: "Sri Shankaracharya",
+    tags: ["stillness"]
+  },
+  {
+    number: 1561,
+    text: "Leave the mind to its illusions and fuss, while you remain that unmoved expanse that was never born and never dies.",
+    source: "Sri Shankaracharya",
+    tags: ["stillness"]
+  },
+  {
+    number: 1562,
+    text: "Abandon the hope that time or outer circumstances will one day prepare you for awakening.",
+    source: "Sri Shankaracharya",
+    tags: ["stillness"]
+  },
+  {
+    number: 1563,
+    text: "Stop looking for a teacher outside: the true Guru is that silent vigilance which discovers the seeker themselves.",
+    source: "Sri Shankaracharya",
+    tags: ["stillness"]
+  },
+  {
+    number: 1564,
+    text: "Notice every time the mind attempts to cling to the status of a «disciple» or «seeker,» and shed that disguise.",
+    source: "Sri Shankaracharya",
+    tags: ["stillness"]
+  },
+  {
+    number: 1565,
+    text: "Abandon the belief that your efforts can create reality — reality is discovered only upon the collapse of all effort.",
+    source: "Sri Shankaracharya",
+    tags: ["stillness"]
+  },
+  {
+    number: 1566,
+    text: "Discern the root of illusion: all suffering lasts precisely as long as you believe in the reality of your separate character.",
+    source: "Sri Shankaracharya",
+    tags: ["stillness"]
+  },
+  {
+    number: 1567,
+    text: "Stop using concepts of non-duality as mental armor to shield your vulnerable ego.",
+    source: "Sri Shankaracharya",
+    tags: ["stillness"]
+  },
+  {
+    number: 1568,
+    text: "Focus on the absolute permanence of the background: all events supersede each other, but the background of perception remains untouched.",
+    source: "Sri Shankaracharya",
+    tags: ["stillness"]
+  },
+  {
+    number: 1569,
+    text: "Drop the habit of shifting responsibility for your inner slumber onto others, the system, or living conditions.",
+    source: "Sri Shankaracharya",
+    tags: ["stillness"]
+  },
+  {
+    number: 1570,
+    text: "Abandon the mental habit of bargaining with the present moment, attempting to negotiate more comfortable conditions for existence.",
+    source: "Sri Shankaracharya",
+    tags: ["stillness"]
+  },
+  {
+    number: 1571,
+    text: "Suppress any urge of the mind to construct an elaborate philosophical story around its crisis or dead end.",
+    source: "Sri Shankaracharya",
+    tags: ["stillness"]
+  },
+  {
+    number: 1572,
+    text: "Hold attention in the utter simplicity of perception: what is seen is merely seen, what is heard is merely heard, without binding to an «I.»",
+    source: "Sri Shankaracharya",
+    tags: ["stillness"]
+  },
+  {
+    number: 1573,
+    text: "Renounce the need to derive emotional nourishment or approval from your insights and spiritual states.",
+    source: "Sri Shankaracharya",
+    tags: ["stillness"]
+  },
+  {
+    number: 1574,
+    text: "Notice the mechanics of the mind constantly attempting to claim authorship over life, and strip it of that right.",
+    source: "Sri Shankaracharya",
+    tags: ["stillness"]
+  },
+  {
+    number: 1575,
+    text: "Dwell in total transparency: let both thoughts and events pass through you, leaving behind no personal scars.",
+    source: "Sri Shankaracharya",
+    tags: ["stillness"]
+  },
+  {
+    number: 1576,
+    text: "Leave all seeking outside: that which seeks freedom is that very freedom itself, having forgotten itself in a fleeting moment of dream.",
+    source: "Sri Shankaracharya",
+    tags: ["stillness"]
   }
 ];
-

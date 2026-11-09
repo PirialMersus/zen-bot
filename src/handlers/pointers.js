@@ -26,7 +26,7 @@ export const buildPointerInlineKeyboard = (arg1 = 'ru', isFavorite = false, poin
   let targetMode = mode;
   let targetFavoriteInfo = favoriteInfo;
 
-  if (typeof arg1 === 'string' && (arg1 === 'ru' || arg1 === 'en' || arg1 === 'uk')) {
+  if (typeof arg1 === 'string' && (arg1 === 'ru' || arg1 === 'en' || arg1 === 'uk' || arg1 === 'es')) {
     language = arg1;
   } else if (typeof arg1 === 'object' || (typeof arg1 === 'string' && arg1)) {
     targetPointerId = String(arg1);
@@ -67,7 +67,7 @@ export const handlePointersMenu = async ctx => {
   const userLanguage = await resolveUserLanguage(ctx);
   const label = userLanguage === 'en'
     ? '🧘 Pointers'
-    : (userLanguage === 'uk' ? '🧘 Вказівники' : '🧘 Указатели');
+    : (userLanguage === 'uk' ? '🧘 Вказівники' : (userLanguage === 'es' ? '🧘 Punteros' : '🧘 Указатели'));
   await ctx.reply(label, getPointersMenuKeyboard(userLanguage));
   await handlePointer(ctx);
 };

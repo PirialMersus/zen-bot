@@ -1,5 +1,5 @@
 import mongoose from 'mongoose';
-import { Pointer, PointerEn, PointerUk } from '../models/Pointer.js';
+import { Pointer, PointerEn, PointerUk, PointerEs } from '../models/Pointer.js';
 import User from '../models/User.js';
 
 const buildShuffledIndexArray = length => {
@@ -13,14 +13,17 @@ const buildShuffledIndexArray = length => {
 
 const resolveEffectiveTagFilter = (tagFilter, userLanguage) => {
   if (!tagFilter) return null;
-  if (userLanguage === 'en' && (tagFilter === 'тишина' || tagFilter === 'тиша')) {
+  if (userLanguage === 'en' && (tagFilter === 'тишина' || tagFilter === 'тиша' || tagFilter === 'silencio')) {
     return 'stillness';
   }
-  if (userLanguage === 'ru' && (tagFilter === 'stillness' || tagFilter === 'тиша')) {
+  if (userLanguage === 'ru' && (tagFilter === 'stillness' || tagFilter === 'тиша' || tagFilter === 'silencio')) {
     return 'тишина';
   }
-  if (userLanguage === 'uk' && (tagFilter === 'stillness' || tagFilter === 'тишина')) {
+  if (userLanguage === 'uk' && (tagFilter === 'stillness' || tagFilter === 'тишина' || tagFilter === 'silencio')) {
     return 'тиша';
+  }
+  if (userLanguage === 'es' && (tagFilter === 'stillness' || tagFilter === 'тишина' || tagFilter === 'тиша')) {
+    return 'silencio';
   }
   return tagFilter;
 };
@@ -28,6 +31,7 @@ const resolveEffectiveTagFilter = (tagFilter, userLanguage) => {
 const selectPointerModelByLanguage = language => {
   if (language === 'en') return PointerEn;
   if (language === 'uk') return PointerUk;
+  if (language === 'es') return PointerEs;
   return Pointer;
 };
 
@@ -92,7 +96,7 @@ export const getNextPointerForUser = async (telegramUserId, tagFilter = null) =>
     user = await User.create({ telegramId: telegramUserId });
   }
 
-  const userLanguage = ['en', 'uk'].includes(user?.language) ? user.language : 'ru';
+  const userLanguage = ['en', 'uk', 'es'].includes(user?.language) ? user.language : 'ru';
   let effectiveTagFilter = resolveEffectiveTagFilter(tagFilter, userLanguage);
   let targetPointerModel = selectPointerModelByLanguage(userLanguage);
 
@@ -211,9 +215,9 @@ export const getNextFavoritePointerForUser = async (telegramUserId) => {
     return null;
   }
 
-  const userLanguage = ['en', 'uk'].includes(user?.language) ? user.language : 'ru';
+  const userLanguage = ['en', 'uk', 'es'].includes(user?.language) ? user.language : 'ru';
   const targetPointerModel = selectPointerModelByLanguage(userLanguage);
-  const fallbackPointerModels = [Pointer, PointerEn, PointerUk].filter(model => model !== targetPointerModel);
+  const fallbackPointerModels = [Pointer, PointerEn, PointerUk, PointerEs].filter(model => model !== targetPointerModel);
 
   const validFavorites = [];
   const resolvedPointersMap = new Map();
