@@ -4,7 +4,13 @@ import User from '../models/User.js';
 import { logError } from '../utils/logger.js';
 import { cleanupUser } from './cleanupUser.js';
 import { isQuietNow, getQuietEndDate } from './quietHours.js';
-import { getNextPointerForUser, getNextFavoritePointerForUser } from '../services/pointers.js';
+import {
+  getNextPointerForUser,
+  getNextFavoritePointerForUser,
+  isPointerInFavorites
+} from '../services/pointers.js';
+import { buildReminderPointerInlineKeyboard } from '../keyboard/pointers.js';
+import { registerDeletionTimer } from './deletionTimers.js';
 
 const TICK_MS = 60 * 1000;
 const CREATOR_ID = Number(process.env.CREATOR_ID);
@@ -22,6 +28,20 @@ const calcNextRun = (from, minutes) =>
   new Date(from.getTime() + minutes * 60 * 1000);
 
 let lastCleanupDay = null;
+let cachedBotUsername = process.env.BOT_USERNAME || '';
+
+const getBotUsername = async bot => {
+  if (cachedBotUsername) return cachedBotUsername;
+  if (bot?.botInfo?.username) {
+    cachedBotUsername = bot.botInfo.username;
+    return cachedBotUsername;
+  }
+  try {
+    const me = await bot.telegram.getMe();
+    cachedBotUsername = me?.username || '';
+  } catch {}
+  return cachedBotUsername;
+};
 
 const sendPushNotification = async (pushTokens, text, soundId, title = 'Напоминание') => {
   const messages = pushTokens
@@ -134,11 +154,13 @@ export const startScheduler = bot => {
           let msg;
           try {
             let messageText = r.text;
+            let currentPointer = null;
             const userLanguage = ['en', 'uk', 'es'].includes(user?.language) ? user.language : 'ru';
 
             if (r.isFavoritePointer) {
               const favoritePointer = await getNextFavoritePointerForUser(Number(r.userId)).catch(() => null);
               if (favoritePointer) {
+                currentPointer = favoritePointer;
                 messageText = favoritePointer.source
                   ? `${favoritePointer.text}\n\n— ${favoritePointer.source}`
                   : favoritePointer.text;
@@ -146,14 +168,16 @@ export const startScheduler = bot => {
             } else if (r.isRandomPointer) {
               const pointer = await getNextPointerForUser(Number(r.userId), 'тишина').catch(() => null);
               if (pointer) {
+                currentPointer = pointer;
                 messageText = pointer.source
                   ? `${pointer.text}\n\n— ${pointer.source}`
                   : pointer.text;
               }
             }
 
+            const isPointerMessage = Boolean(currentPointer);
             const deleteAfterSeconds = getDeleteAfterSeconds(r);
-            const footer = deleteAfterSeconds
+            const footer = (deleteAfterSeconds && !isPointerMessage)
               ? (userLanguage === 'en'
                 ? `\n\n<i>(auto-delete in ${deleteAfterSeconds} sec)</i>`
                 : (userLanguage === 'uk'
@@ -208,16 +232,39 @@ export const startScheduler = bot => {
               if (useApp) {
                 await sendPushNotification(user.pushTokens, messageText, r.soundId, pushTitle);
               } else {
-                msg = await bot.telegram.sendMessage(
-                  r.chatId,
-                  messageText + footer,
-                  { parse_mode: 'HTML' }
-                );
+                if (isPointerMessage) {
+                  const isFavorite = await isPointerInFavorites(r.userId, currentPointer._id);
+                  const reminderKeyboard = buildReminderPointerInlineKeyboard({
+                    pointerId: currentPointer._id,
+                    isFavorite,
+                    deleteAfterSeconds,
+                    showKeepButton: Boolean(deleteAfterSeconds),
+                    language: userLanguage
+                  });
 
-                if (deleteAfterSeconds && msg) {
-                  setTimeout(() => {
-                    bot.telegram.deleteMessage(r.chatId, msg.message_id).catch(() => { });
-                  }, deleteAfterSeconds * 1000);
+                  msg = await bot.telegram.sendMessage(
+                    r.chatId,
+                    messageText,
+                    { parse_mode: 'HTML', ...(reminderKeyboard || {}) }
+                  );
+
+                  if (deleteAfterSeconds && msg) {
+                    registerDeletionTimer(r.chatId, msg.message_id, deleteAfterSeconds, async () => {
+                      await bot.telegram.deleteMessage(r.chatId, msg.message_id).catch(() => {});
+                    });
+                  }
+                } else {
+                  msg = await bot.telegram.sendMessage(
+                    r.chatId,
+                    messageText + footer,
+                    { parse_mode: 'HTML' }
+                  );
+
+                  if (deleteAfterSeconds && msg) {
+                    setTimeout(() => {
+                      bot.telegram.deleteMessage(r.chatId, msg.message_id).catch(() => { });
+                    }, deleteAfterSeconds * 1000);
+                  }
                 }
               }
             }

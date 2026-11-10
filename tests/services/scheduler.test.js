@@ -203,4 +203,26 @@ describe('Рандомные напоминания — фильтр по тег
     expect(secondPointer.tags).toContain('тишина');
     expect(firstPointer.text).not.toBe(secondPointer.text);
   });
+
+  it('не должен добавлять футер автоудаления в текст сообщения указателя', () => {
+    const pointer = {
+      text: 'Внимательность — это ключ',
+      source: 'Будда'
+    };
+    const deleteAfterSeconds = 30;
+    const isPointerMessage = true;
+
+    const formattedPointerText = pointer.source
+      ? `${pointer.text}\n\n— ${pointer.source}`
+      : pointer.text;
+
+    const footer = (deleteAfterSeconds && !isPointerMessage)
+      ? `\n\n<i>(автоудаление через ${deleteAfterSeconds} сек)</i>`
+      : '';
+
+    const finalMessageText = formattedPointerText + footer;
+
+    expect(finalMessageText).not.toContain('автоудаление');
+    expect(finalMessageText).toBe('Внимательность — это ключ\n\n— Будда');
+  });
 });

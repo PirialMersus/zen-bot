@@ -7,7 +7,16 @@ import {
   countUserFavoritePointers
 } from '../services/pointers.js';
 import { getIntervalKeyboard } from '../keyboard/intervals.js';
-import { getPointersMenuKeyboard, buildPointerInlineKeyboard as createPointerInlineKeyboard } from '../keyboard/pointers.js';
+import {
+  getPointersMenuKeyboard,
+  buildPointerInlineKeyboard as createPointerInlineKeyboard,
+  buildReminderPointerInlineKeyboard
+} from '../keyboard/pointers.js';
+import {
+  cancelDeletionTimer,
+  hasDeletionTimer,
+  getDeletionTimer
+} from '../services/deletionTimers.js';
 import { getTexts } from '../constants/texts.js';
 import { getUi } from '../constants/ui.js';
 import { resolveUserLanguage } from '../middlewares/activity.js';
@@ -215,6 +224,24 @@ export const handleToggleFavoritePointer = async ctx => {
   const answerNotice = isFavorite ? texts.POINTERS.FAVORITE_ADDED : texts.POINTERS.FAVORITE_REMOVED;
   await ctx.answerCbQuery(answerNotice).catch(() => {});
 
+  if (modeFromCallback === 'reminder') {
+    const targetChatId = ctx.chat?.id || ctx.callbackQuery?.message?.chat?.id;
+    const targetMessageId = ctx.callbackQuery?.message?.message_id;
+    const isTimerActive = hasDeletionTimer(targetChatId, targetMessageId);
+    const timerInfo = getDeletionTimer(targetChatId, targetMessageId);
+
+    const reminderKeyboard = buildReminderPointerInlineKeyboard({
+      pointerId: targetPointerId,
+      isFavorite,
+      deleteAfterSeconds: timerInfo?.deleteAfterSeconds || null,
+      showKeepButton: isTimerActive,
+      language: userLanguage
+    });
+
+    await ctx.editMessageReplyMarkup(reminderKeyboard?.reply_markup).catch(() => {});
+    return;
+  }
+
   let favoriteInfo = null;
   if (modeFromCallback === 'favorite') {
     favoriteInfo = {
@@ -232,6 +259,19 @@ export const handleToggleFavoritePointer = async ctx => {
   );
 
   await ctx.editMessageReplyMarkup(updatedKeyboard.reply_markup).catch(() => {});
+};
+
+export const handleKeepPointer = async ctx => {
+  const targetChatId = ctx.chat?.id || ctx.callbackQuery?.message?.chat?.id;
+  const targetMessageId = ctx.callbackQuery?.message?.message_id;
+
+  cancelDeletionTimer(targetChatId, targetMessageId);
+
+  const userLanguage = await resolveUserLanguage(ctx);
+  const ui = getUi(userLanguage);
+
+  await ctx.editMessageReplyMarkup().catch(() => {});
+  await ctx.answerCbQuery(ui.POINTER_KEEP_TOAST).catch(() => {});
 };
 
 export const handlePointerToReminder = async ctx => {

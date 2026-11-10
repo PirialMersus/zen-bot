@@ -25,7 +25,8 @@ import {
   handleFavoritePointer,
   handleFavoriteInfo,
   handleToggleFavoritePointer,
-  handlePointerToReminder
+  handlePointerToReminder,
+  handleKeepPointer
 } from './handlers/pointers.js';
 import {
   handleConfirmAction,
@@ -82,6 +83,7 @@ bot.action(/^pointer:next/, handleNextPointer);
 bot.action('pointer:to_reminder', handlePointerToReminder);
 bot.action(/^pointer:fav_toggle/, handleToggleFavoritePointer);
 bot.action('pointer:fav_info', handleFavoriteInfo);
+bot.action(/^pointer:keep/, handleKeepPointer);
 
 bot.hears([BUTTONS.ru.POINTER, BUTTONS.en.POINTER, BUTTONS.uk.POINTER, BUTTONS.es.POINTER], handlePointersMenu);
 bot.hears([UI.ru.POINTER_RANDOM, UI.en.POINTER_RANDOM, UI.uk.POINTER_RANDOM, UI.es.POINTER_RANDOM], handleRandomPointer);
