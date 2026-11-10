@@ -51,8 +51,6 @@ export const buildPointerInlineKeyboard = (pointerId, isFavorite = false, mode =
 export const buildReminderPointerInlineKeyboard = ({
   pointerId,
   isFavorite = false,
-  deleteAfterSeconds = null,
-  showKeepButton = false,
   language = 'ru'
 }) => {
   const ui = getUi(language);
@@ -62,16 +60,6 @@ export const buildReminderPointerInlineKeyboard = ({
   if (shouldShowFavoriteAddButton) {
     firstRow.push(
       Markup.button.callback(ui.POINTER_FAV_ADD, `pointer:fav_toggle:${pointerId}:reminder`)
-    );
-  }
-
-  if (showKeepButton && deleteAfterSeconds) {
-    const keepButtonLabel = shouldShowFavoriteAddButton
-      ? ui.POINTER_KEEP_BUTTON(deleteAfterSeconds)
-      : (ui.POINTER_KEEP_FULL_BUTTON ? ui.POINTER_KEEP_FULL_BUTTON(deleteAfterSeconds) : ui.POINTER_KEEP_BUTTON(deleteAfterSeconds));
-
-    firstRow.push(
-      Markup.button.callback(keepButtonLabel, `pointer:keep:${pointerId}`)
     );
   }
 

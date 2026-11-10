@@ -227,14 +227,14 @@ export const handleToggleFavoritePointer = async ctx => {
   if (modeFromCallback === 'reminder') {
     const targetChatId = ctx.chat?.id || ctx.callbackQuery?.message?.chat?.id;
     const targetMessageId = ctx.callbackQuery?.message?.message_id;
-    const isTimerActive = hasDeletionTimer(targetChatId, targetMessageId);
-    const timerInfo = getDeletionTimer(targetChatId, targetMessageId);
+
+    if (isFavorite && hasDeletionTimer(targetChatId, targetMessageId)) {
+      cancelDeletionTimer(targetChatId, targetMessageId);
+    }
 
     const reminderKeyboard = buildReminderPointerInlineKeyboard({
       pointerId: targetPointerId,
       isFavorite,
-      deleteAfterSeconds: timerInfo?.deleteAfterSeconds || null,
-      showKeepButton: isTimerActive,
       language: userLanguage
     });
 

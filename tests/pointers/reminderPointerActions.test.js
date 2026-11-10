@@ -30,12 +30,10 @@ describe('Указатели в напоминаниях и управление
     vi.useRealTimers();
   });
 
-  it('должен формировать inline-клавиатуру для напоминания с кнопкой В избранное и кнопкой отмены удаления', () => {
+  it('должен формировать inline-клавиатуру для напоминания только с кнопкой В избранное', () => {
     const keyboard = buildReminderPointerInlineKeyboard({
       pointerId: '60c72b2f9b1d8b2bad000001',
       isFavorite: false,
-      deleteAfterSeconds: 30,
-      showKeepButton: true,
       language: 'ru'
     });
 
@@ -43,36 +41,18 @@ describe('Указатели в напоминаниях и управление
     expect(replyMarkup.inline_keyboard.length).toBe(1);
 
     const firstRow = replyMarkup.inline_keyboard[0];
-    expect(firstRow.length).toBe(2);
+    expect(firstRow.length).toBe(1);
     expect(firstRow[0].text).toBe(UI.ru.POINTER_FAV_ADD);
     expect(firstRow[0].callback_data).toBe('pointer:fav_toggle:60c72b2f9b1d8b2bad000001:reminder');
-
-    expect(firstRow[1].text).toBe(UI.ru.POINTER_KEEP_BUTTON(30));
-    expect(firstRow[1].callback_data).toBe('pointer:keep:60c72b2f9b1d8b2bad000001');
   });
 
-  it('должен возвращать null для указателя в избранном без таймера и показывать кнопку Оставить в чате при активном таймере', () => {
-    const keyboardWithoutTimer = buildReminderPointerInlineKeyboard({
+  it('должен возвращать null для указателя, который уже находится в избранном', () => {
+    const keyboardInFavorites = buildReminderPointerInlineKeyboard({
       pointerId: '60c72b2f9b1d8b2bad000002',
       isFavorite: true,
-      deleteAfterSeconds: null,
-      showKeepButton: false,
       language: 'en'
     });
-    expect(keyboardWithoutTimer).toBeNull();
-
-    const keyboardWithTimer = buildReminderPointerInlineKeyboard({
-      pointerId: '60c72b2f9b1d8b2bad000002',
-      isFavorite: true,
-      deleteAfterSeconds: 30,
-      showKeepButton: true,
-      language: 'en'
-    });
-    expect(keyboardWithTimer).not.toBeNull();
-    const replyMarkup = keyboardWithTimer.reply_markup;
-    expect(replyMarkup.inline_keyboard.length).toBe(1);
-    expect(replyMarkup.inline_keyboard[0].length).toBe(1);
-    expect(replyMarkup.inline_keyboard[0][0].text).toBe(UI.en.POINTER_KEEP_FULL_BUTTON(30));
+    expect(keyboardInFavorites).toBeNull();
   });
 
   it('должен корректно регистрировать и отменять таймер автоудаления в deletionTimers', async () => {
@@ -141,7 +121,7 @@ describe('Указатели в напоминаниях и управление
     expect(mockCtx.editMessageReplyMarkup).toHaveBeenCalledWith();
   });
 
-  it('должен переключать статус избранного при нажатии В избранное в режиме reminder с сохранением таймера', async () => {
+  it('должен добавлять в избранное и автоматически отменять таймер автоудаления в режиме reminder', async () => {
     const testUserId = 8881002;
     await User.create({ telegramId: testUserId, language: 'ru', favoritePointers: [] });
 
@@ -154,6 +134,7 @@ describe('Указатели в напоминаниях и управление
     const testMessageId = 502;
 
     registerDeletionTimer(testChatId, testMessageId, 30, vi.fn());
+    expect(hasDeletionTimer(testChatId, testMessageId)).toBe(true);
 
     const mockCtxAdd = createMockContext({
       userId: testUserId,
@@ -172,12 +153,8 @@ describe('Указатели в напоминаниях и управление
     await handleToggleFavoritePointer(mockCtxAdd);
 
     expect(mockCtxAdd.answerCbQuery).toHaveBeenCalledWith(TEXTS.ru.POINTERS.FAVORITE_ADDED);
-    expect(mockCtxAdd.editMessageReplyMarkup).toHaveBeenCalled();
-
-    const keyboardAfterAdd = mockCtxAdd.editMessageReplyMarkup.mock.calls[0][0];
-    expect(keyboardAfterAdd.inline_keyboard.length).toBe(1);
-    expect(keyboardAfterAdd.inline_keyboard[0].length).toBe(1);
-    expect(keyboardAfterAdd.inline_keyboard[0][0].text).toBe(UI.ru.POINTER_KEEP_FULL_BUTTON(30));
+    expect(hasDeletionTimer(testChatId, testMessageId)).toBe(false);
+    expect(mockCtxAdd.editMessageReplyMarkup).toHaveBeenCalledWith(undefined);
   });
 
   it('должен удалять клавиатуру при добавлении в избранное в режиме reminder, если таймер уже был отменен', async () => {
