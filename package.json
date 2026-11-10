@@ -12,6 +12,8 @@
     "seed:pointers:uk": "node scripts/seedPointersUk.js",
     "seed:pointers:es": "node scripts/seedPointersEs.js",
     "reindex:pointers": "node scripts/reindexPointers.js",
+    "sync:pointers": "node scripts/syncAllPointers.js",
+    "pointer:remove": "node scripts/removePointer.js",
     "test": "vitest run --fileParallelism=false",
     "test:watch": "vitest",
     "prepare": "husky || true"
