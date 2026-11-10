@@ -713,8 +713,8 @@ export const handleRequestAction = async (ctx, type) => {
 
   if (type === 'delete') {
     const confirmDeleteButtonLabel = userLanguage === 'en'
-      ? '🗑 Confirm delete'
-      : (userLanguage === 'uk' ? '🗑 Підтвердити видалення' : (userLanguage === 'es' ? '🗑 Confirmar eliminación' : '🗑 Подтвердить удаление'));
+      ? '🗑 Confirm'
+      : (userLanguage === 'uk' ? '🗑 Підтвердити' : (userLanguage === 'es' ? '🗑 Confirmar' : '🗑 Подтвердить'));
     const cancelDeleteButtonLabel = userLanguage === 'en'
       ? '❌ Cancel'
       : (userLanguage === 'uk' ? '❌ Скасувати' : (userLanguage === 'es' ? '❌ Cancelar' : '❌ Отмена'));

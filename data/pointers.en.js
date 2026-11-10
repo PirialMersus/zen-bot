@@ -3735,7 +3735,7 @@ Notice how it feels, how it changes, and what makes it seem so convincing.`,
   },
   {
     number: 467,
-    text: `” every second. Sometimes it is enough to see how a thought, a sensation, and an action arise without a prior inner commentary.`,
+    text: `You do not need to ask "who am I?" every second. Sometimes it is enough to see how a thought, a sensation, and an action arise without a prior inner commentary.`,
     source: null,
     tags: ["stillness"]
   },
@@ -6861,7 +6861,7 @@ Practice will finish you.`,
   },
   {
     number: 962,
-    text: `" is already a state. Who is asking it?`,
+    text: `The question "how is my state?" is already a state. Who is asking it?`,
     source: null,
     tags: ["stillness"]
   },
@@ -7724,7 +7724,7 @@ Don't turn another impulse into another wasted minute.`,
   },
   {
     number: 1098,
-    text: `" Identify the real need. What are you trying to escape from?`,
+    text: `Before distracting or entertaining yourself, ask: "What exactly am I looking for right now?" Don't settle for the answer "rest." Identify the real need. What are you trying to escape from?`,
     source: null,
     tags: ["silence"]
   },
@@ -8000,7 +8000,7 @@ One honest day. That may be enough to see what your life was before it.`,
   },
   {
     number: 1139,
-    text: `" all over again. Only the question will weigh more heavily.`,
+    text: `You ask yourself: "Why am I doing this?" Because a year from now, you will either thank yourself for this day or ask "why?" all over again. Only the question will weigh more heavily.`,
     source: null,
     tags: ["silence"]
   },

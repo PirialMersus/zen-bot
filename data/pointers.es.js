@@ -3735,7 +3735,7 @@ Nota cómo se siente, cómo cambia y qué lo hace parecer tan convincente.`,
   },
   {
     number: 467,
-    text: `” a cada segundo. A veces es suficiente ver cómo un pensamiento, una sensación y una acción surgen sin un comentario interior previo.`,
+    text: `No necesitas preguntar "¿quién soy yo?" a cada segundo. A veces es suficiente ver cómo un pensamiento, una sensación y una acción surgen sin un comentario interior previo.`,
     source: null,
     tags: ["silencio"]
   },
@@ -4027,7 +4027,7 @@ Emerge del piloto automático.`,
   },
   {
     number: 512,
-    text: `Cuando llegue la ansiedad, pregunta: “¿A quién pertenece?” Empieza a buscar al dueño, y solo encontrarás silencio.`,
+    text: `Cuando llegue la ansiedad, pregunta: “¿A quién pertenece?” Empieza a buscar al dueño, и solo encontrarás silencio.`,
     source: null,
     tags: ["silencio"]
   },
@@ -6861,7 +6861,7 @@ La práctica acabará contigo.`,
   },
   {
     number: 962,
-    text: `" ya es un estado. ¿Quién lo está preguntando?`,
+    text: `La pregunta "¿cómo está mi estado?" ya es un estado. ¿Quién lo está preguntando?`,
     source: null,
     tags: ["silencio"]
   },
@@ -7724,7 +7724,7 @@ No conviertas otro impulso en otro minuto perdido.`,
   },
   {
     number: 1098,
-    text: `" Identifica la necesidad real. ¿De qué estás intentando escapar?`,
+    text: `Antes de distraerte o entretenerte, pregúntate: "¿Qué estoy buscando exactamente ahora?" No te conformes con la respuesta "descanso". Identifica la necesidad real. ¿De qué estás intentando escapar?`,
     source: null,
     tags: ["silencio"]
   },
@@ -8000,7 +8000,7 @@ Un día honesto. Eso puede ser suficiente para ver lo que era tu vida antes de e
   },
   {
     number: 1139,
-    text: `" una vez más. Solo que la pregunta pesará más.`,
+    text: `Te preguntas: "¿Para qué me sirve esto?" Porque dentro de un año o te agradecerás por este día, o volverás a preguntar "¿por qué?" una vez más. Solo que la pregunta pesará más.`,
     source: null,
     tags: ["silencio"]
   },

@@ -341,7 +341,7 @@ describe('Покрытие всех переводов и целостность
     expect(deleteActionContext.editMessageReplyMarkup).toHaveBeenCalled();
     const deleteMarkupArgument = deleteActionContext.editMessageReplyMarkup.mock.calls[0][0];
     const deleteConfirmButtons = deleteMarkupArgument.inline_keyboard.flat().map(buttonItem => buttonItem.text);
-    expect(deleteConfirmButtons).toContain('🗑 Confirm delete');
+    expect(deleteConfirmButtons).toContain('🗑 Confirm');
     expect(deleteConfirmButtons).toContain('❌ Cancel');
   });
 
@@ -722,7 +722,7 @@ describe('Покрытие всех переводов и целостность
     expect(deleteActionContext.editMessageReplyMarkup).toHaveBeenCalled();
     const deleteMarkupArgument = deleteActionContext.editMessageReplyMarkup.mock.calls[0][0];
     const deleteConfirmButtons = deleteMarkupArgument.inline_keyboard.flat().map(buttonItem => buttonItem.text);
-    expect(deleteConfirmButtons).toContain('🗑 Confirmar eliminación');
+    expect(deleteConfirmButtons).toContain('🗑 Confirmar');
     expect(deleteConfirmButtons).toContain('❌ Cancelar');
   });
 
