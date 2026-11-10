@@ -51,21 +51,28 @@ export const buildPointerInlineKeyboard = (pointerId, isFavorite = false, mode =
 export const buildReminderPointerInlineKeyboard = ({
   pointerId,
   isFavorite = false,
+  deleteAfterSeconds = null,
   language = 'ru'
 }) => {
   const ui = getUi(language);
-  const firstRow = [];
+  const rows = [];
+
+  if (deleteAfterSeconds) {
+    rows.push([
+      Markup.button.callback(ui.POINTER_EXPIRE_BADGE(deleteAfterSeconds), 'pointer:expire_info')
+    ]);
+  }
 
   const shouldShowFavoriteAddButton = !isFavorite && Boolean(pointerId);
   if (shouldShowFavoriteAddButton) {
-    firstRow.push(
+    rows.push([
       Markup.button.callback(ui.POINTER_FAV_ADD, `pointer:fav_toggle:${pointerId}:reminder`)
-    );
+    ]);
   }
 
-  if (firstRow.length === 0) {
+  if (rows.length === 0) {
     return null;
   }
 
-  return Markup.inlineKeyboard([firstRow]);
+  return Markup.inlineKeyboard(rows);
 };

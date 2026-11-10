@@ -8,7 +8,8 @@ import {
 } from '../../src/keyboard/pointers.js';
 import {
   handleKeepPointer,
-  handleToggleFavoritePointer
+  handleToggleFavoritePointer,
+  handleExpireInfo
 } from '../../src/handlers/pointers.js';
 import {
   registerDeletionTimer,
@@ -30,29 +31,70 @@ describe('Указатели в напоминаниях и управление
     vi.useRealTimers();
   });
 
-  it('должен формировать inline-клавиатуру для напоминания только с кнопкой В избранное', () => {
+  it('должен формировать inline-клавиатуру для напоминания с бейджем автоудаления и кнопкой В избранное', () => {
     const keyboard = buildReminderPointerInlineKeyboard({
       pointerId: '60c72b2f9b1d8b2bad000001',
       isFavorite: false,
+      deleteAfterSeconds: 30,
+      language: 'ru'
+    });
+
+    const replyMarkup = keyboard.reply_markup;
+    expect(replyMarkup.inline_keyboard.length).toBe(2);
+
+    const badgeRow = replyMarkup.inline_keyboard[0];
+    expect(badgeRow.length).toBe(1);
+    expect(badgeRow[0].text).toBe(UI.ru.POINTER_EXPIRE_BADGE(30));
+    expect(badgeRow[0].callback_data).toBe('pointer:expire_info');
+
+    const favRow = replyMarkup.inline_keyboard[1];
+    expect(favRow.length).toBe(1);
+    expect(favRow[0].text).toBe(UI.ru.POINTER_FAV_ADD);
+    expect(favRow[0].callback_data).toBe('pointer:fav_toggle:60c72b2f9b1d8b2bad000001:reminder');
+  });
+
+  it('должен формировать клавиатуру только с кнопкой В избранное, если автоудаление не настроено', () => {
+    const keyboard = buildReminderPointerInlineKeyboard({
+      pointerId: '60c72b2f9b1d8b2bad000001',
+      isFavorite: false,
+      deleteAfterSeconds: null,
       language: 'ru'
     });
 
     const replyMarkup = keyboard.reply_markup;
     expect(replyMarkup.inline_keyboard.length).toBe(1);
-
-    const firstRow = replyMarkup.inline_keyboard[0];
-    expect(firstRow.length).toBe(1);
-    expect(firstRow[0].text).toBe(UI.ru.POINTER_FAV_ADD);
-    expect(firstRow[0].callback_data).toBe('pointer:fav_toggle:60c72b2f9b1d8b2bad000001:reminder');
+    expect(replyMarkup.inline_keyboard[0][0].text).toBe(UI.ru.POINTER_FAV_ADD);
   });
 
-  it('должен возвращать null для указателя, который уже находится в избранном', () => {
+  it('должен возвращать null для указателя в избранном без автоудаления', () => {
     const keyboardInFavorites = buildReminderPointerInlineKeyboard({
       pointerId: '60c72b2f9b1d8b2bad000002',
       isFavorite: true,
+      deleteAfterSeconds: null,
       language: 'en'
     });
     expect(keyboardInFavorites).toBeNull();
+  });
+
+  it('должен показывать информационный тост при нажатии на бейдж автоудаления', async () => {
+    const testUserId = 8881004;
+    await User.create({ telegramId: testUserId, language: 'ru' });
+
+    const mockCtx = createMockContext({
+      userId: testUserId,
+      chatId: testUserId,
+      callbackQuery: {
+        id: 'cb_query_expire',
+        data: 'pointer:expire_info'
+      }
+    });
+
+    await handleExpireInfo(mockCtx);
+
+    expect(mockCtx.answerCbQuery).toHaveBeenCalledWith(
+      TEXTS.ru.POINTERS.EXPIRE_BADGE_INFO,
+      { show_alert: false }
+    );
   });
 
   it('должен корректно регистрировать и отменять таймер автоудаления в deletionTimers', async () => {

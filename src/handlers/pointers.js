@@ -135,6 +135,12 @@ export const handleFavoriteInfo = async ctx => {
   await ctx.answerCbQuery(texts.POINTERS.FAVORITE_BADGE_INFO, { show_alert: false }).catch(() => {});
 };
 
+export const handleExpireInfo = async ctx => {
+  const userLanguage = await resolveUserLanguage(ctx);
+  const texts = getTexts(userLanguage);
+  await ctx.answerCbQuery(texts.POINTERS.EXPIRE_BADGE_INFO, { show_alert: false }).catch(() => {});
+};
+
 export const handleNextPointer = async ctx => {
   const isCallbackQueryEvent = Boolean(ctx.callbackQuery);
 
@@ -235,6 +241,7 @@ export const handleToggleFavoritePointer = async ctx => {
     const reminderKeyboard = buildReminderPointerInlineKeyboard({
       pointerId: targetPointerId,
       isFavorite,
+      deleteAfterSeconds: null,
       language: userLanguage
     });
 

@@ -237,6 +237,7 @@ export const startScheduler = bot => {
                   const reminderKeyboard = buildReminderPointerInlineKeyboard({
                     pointerId: currentPointer._id,
                     isFavorite,
+                    deleteAfterSeconds,
                     language: userLanguage
                   });
 

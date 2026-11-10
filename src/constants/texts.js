@@ -22,6 +22,7 @@ const RUSSIAN_TEXTS = {
     FAVORITE_REMOVED: 'Удалено из избранного',
     FAVORITE_REMINDER_EMPTY: 'У вас пока нет избранных указателей. Сначала добавьте понравившиеся указатели в избранное.',
     FAVORITE_BADGE_INFO: 'Вы просматриваете своё личное избранное ⭐',
+    EXPIRE_BADGE_INFO: '⏳ Это сообщение автоматически исчезнет. Нажмите «⭐ В избранное», чтобы сохранить его.',
     FAVORITE_TOAST: (current, total) => total ? `⭐ Избранное: ${current} из ${total}` : '⭐ Режим: Избранное'
   },
 
@@ -89,6 +90,7 @@ I will remind you about what truly matters
     FAVORITE_REMOVED: 'Removed from favorites',
     FAVORITE_REMINDER_EMPTY: 'You have no favorite pointers yet. First add pointers to your favorites.',
     FAVORITE_BADGE_INFO: 'You are browsing your personal favorites ⭐',
+    EXPIRE_BADGE_INFO: '⏳ This message will disappear automatically. Click "⭐ To favorites" to save it.',
     FAVORITE_TOAST: (current, total) => total ? `⭐ Favorites: ${current} of ${total}` : '⭐ Mode: Favorites'
   },
 
@@ -156,6 +158,7 @@ const UKRAINIAN_TEXTS = {
     FAVORITE_REMOVED: 'Вилучено з обраного',
     FAVORITE_REMINDER_EMPTY: 'У вас поки немає обраних вказівників. Спочатку додайте вказівники, що сподобалися, до обраного.',
     FAVORITE_BADGE_INFO: 'Ви переглядаєте своє особисте обране ⭐',
+    EXPIRE_BADGE_INFO: '⏳ Це повідомлення автоматично зникне. Натисніть «⭐ До обраного», щоб зберегти його.',
     FAVORITE_TOAST: (current, total) => total ? `⭐ Обране: ${current} з ${total}` : '⭐ Режим: Обране'
   },
 
@@ -223,6 +226,7 @@ Te recordaré lo que verdaderamente importa
     FAVORITE_REMOVED: 'Eliminado de favoritos',
     FAVORITE_REMINDER_EMPTY: 'Aún no tienes punteros favoritos. Primero añade los punteros que te gusten a favoritos.',
     FAVORITE_BADGE_INFO: 'Estás viendo tus favoritos personales ⭐',
+    EXPIRE_BADGE_INFO: '⏳ Este mensaje desaparecerá automáticamente. Haz clic en "⭐ A favoritos" para guardarlo.',
     FAVORITE_TOAST: (current, total) => total ? `⭐ Favoritos: ${current} de ${total}` : '⭐ Modo: Favoritos'
   },
 
