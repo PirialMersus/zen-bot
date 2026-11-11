@@ -1,5 +1,6 @@
 import { Markup } from 'telegraf';
 import { getButtons } from '../constants/buttons.js';
+import { DEFAULT_TIMEZONE } from '../constants/timezones.js';
 
 export const settingsKeyboard = (enabled, language = 'ru', userPreferences = {}) => {
   const buttons = getButtons(language);
@@ -17,7 +18,7 @@ export const settingsKeyboard = (enabled, language = 'ru', userPreferences = {})
         : '⏰ Время тихих часов';
   const quietHoursScheduleLabel = `${quietHoursScheduleBaseText} (${quietHoursFormattedRange})`;
 
-  const userTimezoneValue = userPreferences.timezone || 'Europe/Minsk';
+  const userTimezoneValue = userPreferences.timezone || DEFAULT_TIMEZONE;
   const timezoneButtonLabel = `${buttons.TIMEZONE} (${userTimezoneValue})`;
 
   const localizedLanguageNames = {

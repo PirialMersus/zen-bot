@@ -10853,73 +10853,103 @@ Choose right now.`,
   },
   {
     number: 1595,
-    text: "Breaking news: the ego just decided to become enlightened, so it can brag about it to other egos at satsangs. Don't disturb it, let it have fun.",
+    text: `Breaking news: the ego just decided to become enlightened, so it can brag about it to other egos at satsangs. Don't disturb it, let it have fun.`,
     source: null,
     tags: ["stillness"]
   },
   {
     number: 1596,
-    text: "If a street loudspeaker broadcast the thoughts from your head, the medics would have taken you away long ago. Yet you consider this internal mumbling \"yourself\". Smile at it.",
+    text: `If a street loudspeaker broadcast the thoughts from your head, the medics would have taken you away long ago. Yet you consider this internal mumbling "yourself". Smile at it.`,
     source: null,
     tags: ["stillness"]
   },
   {
     number: 1597,
-    text: "If awareness depended on how serious your face was, you would already be sitting on a throne in nirvana. Drop the self-importance, unclench your jaw.",
+    text: `If awareness depended on how serious your face was, you would already be sitting on a throne in nirvana. Drop the self-importance, unclench your jaw.`,
     source: null,
     tags: ["stillness"]
   },
   {
     number: 1598,
-    text: "Thoughts come and go. And you stand at the bus stop trying to marry every passing bus. Step back from the road.",
+    text: `Thoughts come and go. And you stand at the bus stop trying to marry every passing bus. Step back from the road.`,
     source: null,
     tags: ["stillness"]
   },
   {
     number: 1599,
-    text: "Right now breathing happens without your managerial participation. The heart beats by itself. Yet you are seriously convinced you must personally steer the fate of the galaxy.",
+    text: `Right now breathing happens without your managerial participation. The heart beats by itself. Yet you are seriously convinced you must personally steer the fate of the galaxy.`,
     source: null,
     tags: ["stillness"]
   },
   {
     number: 1600,
-    text: "Your whole practice is when one thought (\"must be mindful\") beats another thought (\"want a cake\") with a stick. While pure presence sits with popcorn watching this circus.",
+    text: `Your whole practice is when one thought ("must be mindful") beats another thought ("want a cake") with a stick. While pure presence sits with popcorn watching this circus.`,
     source: null,
     tags: ["stillness"]
   },
   {
     number: 1601,
-    text: "Look in the mirror. It's the latest model biorobot. Feed it on time, walk it twice a day, and don't demand holiness from it.",
+    text: `Look in the mirror. It's the latest model biorobot. Feed it on time, walk it twice a day, and don't demand holiness from it.`,
     source: null,
     tags: ["stillness"]
   },
   {
     number: 1602,
-    text: "You are afraid of missing the \"here and now\" moment. Where are you going to miss it to? A parallel universe? You are sentenced to \"here and now\" for life.",
+    text: `You are afraid of missing the "here and now" moment. Where are you going to miss it to? A parallel universe? You are sentenced to "here and now" for life.`,
     source: null,
     tags: ["stillness"]
   },
   {
     number: 1603,
-    text: "Your anxiety is just a free virtual reality ride. Take off the headset, there is nobody in the room.",
+    text: `Your anxiety is just a free virtual reality ride. Take off the headset, there is nobody in the room.`,
     source: null,
     tags: ["stillness"]
   },
   {
     number: 1604,
-    text: "You want people around you to act mindfully? Why not order cats to bark and rain to fall upwards? Just admire the absurdity.",
+    text: `You want people around you to act mindfully? Why not order cats to bark and rain to fall upwards? Just admire the absurdity.`,
     source: null,
     tags: ["stillness"]
   },
   {
     number: 1605,
-    text: "\"I must get rid of my ego!\" proudly declared the ego, putting on white robes and buying prayer beads.",
+    text: `"I must get rid of my ego!" proudly declared the ego, putting on white robes and buying prayer beads.`,
     source: null,
     tags: ["stillness"]
   },
   {
     number: 1606,
-    text: "If you leave a thought alone, it will die of loneliness in three seconds. But you'll definitely come over, pet it, feed it, and register it as a resident in your head.",
+    text: `If you leave a thought alone, it will die of loneliness in three seconds. But you'll definitely come over, pet it, feed it, and register it as a resident in your head.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1607,
+    text: `Your personality is a free app that installed itself without your consent, drains 90% of your battery, constantly demands paid updates, and shows ads for the apocalypse. Go into settings and click "Force Stop".`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1608,
+    text: `You sit in lotus pose with a perfectly straight back, breathing evenly, thoughts dissolving... and suddenly an insidious voice: "I wonder how long penguins live?". Congratulations: the penguin just defeated the Buddha 1:0.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1609,
+    text: `"I'm trying to hold onto the state of presence." Hold it with what, your teeth? Presence is a room, not a suitcase. You can't drop it, even if you trip and fall face-first into the rug.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1610,
+    text: `The One who is looking through your eyes right now is utterly indifferent to your fate. He has silently watched the demise of trillions of civilizations and stars. He will watch your last breath just as calmly. To Him, you are merely a momentary ripple on the water.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1611,
+    text: `Time does not move forward. It devours you alive, second by second. Your childhood is already dead. Yesterday is dead. This very second has just burned away forever.`,
     source: null,
     tags: ["stillness"]
   }

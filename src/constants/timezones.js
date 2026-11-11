@@ -1,3 +1,5 @@
+export const DEFAULT_TIMEZONE = 'Europe/Minsk';
+
 export const TIMEZONE_REGIONS = {
   europe: {
     label: '🇪🇺 Европа',

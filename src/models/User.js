@@ -1,4 +1,5 @@
 import mongoose from 'mongoose';
+import { DEFAULT_TIMEZONE } from '../constants/timezones.js';
 
 const schema = new mongoose.Schema({
   telegramId: { type: Number, index: true, unique: true, sparse: true },
@@ -23,7 +24,7 @@ const schema = new mongoose.Schema({
     end: { type: Number, default: 8 }
   },
 
-  timezone: { type: String, default: 'Europe/Minsk' },
+  timezone: { type: String, default: DEFAULT_TIMEZONE },
   lastActivityAt: { type: Date },
 
   shuffleQueue: {

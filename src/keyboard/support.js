@@ -15,7 +15,7 @@ export const getSupportInlineKeyboard = (language = 'ru') => {
     ? '👥 Telegram Community (@dzenline)'
     : (isUkrainian
       ? '👥 Telegram Спільнота (@dzenline)'
-      : (isSpanish ? '👥 Telegram Сообщество (@dzenline)' : '👥 Telegram Сообщество (@dzenline)'));
+      : (isSpanish ? '👥 Comunidad de Telegram (@dzenline)' : '👥 Telegram Сообщество (@dzenline)'));
 
   const appreciationButtonLabel = isEnglish
     ? '❤️ Say Thanks (@Streamline6)'

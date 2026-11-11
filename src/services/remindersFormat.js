@@ -2,6 +2,7 @@ import { Markup } from 'telegraf';
 import { DateTime } from 'luxon';
 import { getTexts } from '../constants/texts.js';
 import { getUi } from '../constants/ui.js';
+import { DEFAULT_TIMEZONE } from '../constants/timezones.js';
 import { previewText } from '../utils/text.js';
 
 const REMINDERS_FORMAT_LOCALIZATIONS = {
@@ -21,8 +22,8 @@ const REMINDERS_FORMAT_LOCALIZATIONS = {
     resume: '▶️ Возобновить',
     delete: '🗑 Удалить',
     backToList: '⬅️ Ко всем напоминаниям',
-    headerTitle: '📋 <b>Ваши напоминания:</b>',
-    hintFooter: '<i>Нажмите на номер ниже для управления напоминанием 👇</i>'
+    headerTitle: '📋 <b>Твои напоминания:</b>',
+    hintFooter: '<i>Нажми на номер ниже для управления напоминанием 👇</i>'
   },
   en: {
     intervalDay: 'Once a day ⌛',
@@ -59,8 +60,8 @@ const REMINDERS_FORMAT_LOCALIZATIONS = {
     resume: '▶️ Відновити',
     delete: '🗑 Видалити',
     backToList: '⬅️ До всіх нагадувань',
-    headerTitle: '📋 <b>Ваші нагадування:</b>',
-    hintFooter: '<i>Натисніть на номер нижче для керування нагадуванням 👇</i>'
+    headerTitle: '📋 <b>Твої нагадування:</b>',
+    hintFooter: '<i>Натисни на номер нижче для керування нагадуванням 👇</i>'
   },
   es: {
     intervalDay: 'Una vez al día ⌛',
@@ -93,7 +94,7 @@ export const formatInterval = (minutes, language = 'ru') => {
   return formatLocalization.intervalMinutes(minutes);
 };
 
-export const formatNextRunTime = (nextRunDate, userTimezone = 'Europe/Minsk', language = 'ru') => {
+export const formatNextRunTime = (nextRunDate, userTimezone = DEFAULT_TIMEZONE, language = 'ru') => {
   if (!nextRunDate) return '';
 
   const formatLocalization = resolveFormatLocalization(language);
@@ -112,7 +113,7 @@ export const formatNextRunTime = (nextRunDate, userTimezone = 'Europe/Minsk', la
   return `${targetDate.toFormat('dd.MM')} ${timeString}`;
 };
 
-export const formatReminderMessageText = (reminderItem, indexNumberString, language = 'ru', userTimezone = 'Europe/Minsk') => {
+export const formatReminderMessageText = (reminderItem, indexNumberString, language = 'ru', userTimezone = DEFAULT_TIMEZONE) => {
   const texts = getTexts(language);
   const ui = getUi(language);
   const formatLocalization = resolveFormatLocalization(language);
@@ -169,7 +170,7 @@ export const getReminderMessageKeyboard = (reminderItem, language = 'ru', showBa
   return Markup.inlineKeyboard(rows);
 };
 
-export const buildRemindersListPayload = (reminders, userLanguage = 'ru', userTimezone = 'Europe/Minsk') => {
+export const buildRemindersListPayload = (reminders, userLanguage = 'ru', userTimezone = DEFAULT_TIMEZONE) => {
   const texts = getTexts(userLanguage);
   const ui = getUi(userLanguage);
   const formatLocalization = resolveFormatLocalization(userLanguage);

@@ -32,7 +32,20 @@ const ALLOWED_REMINDER_UPDATE_FIELDS = [
 
 const authRateLimitMap = new Map();
 
+const cleanExpiredRateLimitEntries = () => {
+  const currentTimestamp = Date.now();
+  for (const [rateLimitKey, rateLimitRecord] of authRateLimitMap.entries()) {
+    if (currentTimestamp > rateLimitRecord.resetTimestamp) {
+      authRateLimitMap.delete(rateLimitKey);
+    }
+  }
+};
+
 const isRequestWithinRateLimit = (rateLimitKey, maximumRequestsAllowed = 10, timeWindowMilliseconds = 60 * 1000) => {
+  if (authRateLimitMap.size > 500) {
+    cleanExpiredRateLimitEntries();
+  }
+
   const currentTimestamp = Date.now();
   const existingRateLimitRecord = authRateLimitMap.get(rateLimitKey);
 
@@ -84,6 +97,10 @@ router.post('/auth/request', async (req, res) => {
 
     if (!telegramId) {
       return res.status(400).json({ message: 'telegramId обязателен' });
+    }
+
+    if (!isRequestWithinRateLimit(`auth_request_tg:${telegramId}`, 3, 10 * 60 * 1000)) {
+      return res.status(429).json({ message: 'Слишком много запросов кода для этого аккаунта. Пожалуйста, подожди 10 минут.' });
     }
 
     const user = await User.findOne({ telegramId });
@@ -138,28 +155,6 @@ router.post('/auth/verify', async (req, res) => {
 
     if (!code) {
       return res.status(400).json({ message: 'Код обязателен' });
-    }
-
-    const isDevelopmentOrTestEnvironment = process.env.NODE_ENV === 'development' || process.env.NODE_ENV === 'test';
-    if (isDevelopmentOrTestEnvironment && code.toUpperCase() === 'DEV-123' && process.env.NODE_ENV !== 'production') {
-      const developmentCreatorTelegramId = process.env.CREATOR_ID ? Number(process.env.CREATOR_ID) : 791785172;
-      const devUser = await User.findOne({ telegramId: developmentCreatorTelegramId });
-      if (devUser) {
-        const token = jwt.sign(
-          { telegramId: devUser.telegramId, id: devUser._id },
-          getResolvedJwtSecret(),
-          { expiresIn: '30d' }
-        );
-        return res.json({
-          token,
-          user: {
-            _id: devUser._id,
-            telegramId: devUser.telegramId,
-            timezone: devUser.timezone,
-            quietHours: devUser.quietHours
-          }
-        });
-      }
     }
 
     const user = await User.findOne({

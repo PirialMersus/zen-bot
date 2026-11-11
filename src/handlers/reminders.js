@@ -4,6 +4,7 @@ import Reminder from '../models/Reminder.js';
 import User from '../models/User.js';
 import { getTexts, isDoNotDeleteText, COMBINED_AUTO_DELETE_MAP } from '../constants/texts.js';
 import { getUi, UI } from '../constants/ui.js';
+import { DEFAULT_TIMEZONE } from '../constants/timezones.js';
 import { getRemindersKeyboard } from '../keyboard/reminders.js';
 import { reminderTextKeyboard } from '../keyboard/reminderText.js';
 import { getIntervalKeyboard } from '../keyboard/intervals.js';
@@ -420,7 +421,7 @@ export const handleMyReminders = async ctx => {
     return;
   }
 
-  const userTimezone = user?.timezone || 'Europe/Minsk';
+  const userTimezone = user?.timezone || DEFAULT_TIMEZONE;
 
   if (reminders.length === 1) {
     const singleReminder = reminders[0];
@@ -460,7 +461,7 @@ export const handleReminderListCallback = async ctx => {
     return;
   }
 
-  const userTimezone = user?.timezone || 'Europe/Minsk';
+  const userTimezone = user?.timezone || DEFAULT_TIMEZONE;
   const { text, keyboard } = buildRemindersListPayload(reminders, userLanguage, userTimezone);
 
   await ctx.editMessageText(text, {
@@ -495,7 +496,7 @@ export const handleViewReminder = async ctx => {
   }
 
   const indexNumber = allUserReminders.findIndex(item => String(item._id) === String(reminderItem._id)) + 1;
-  const userTimezone = user?.timezone || 'Europe/Minsk';
+  const userTimezone = user?.timezone || DEFAULT_TIMEZONE;
 
   await ctx.editMessageText(
     formatReminderMessageText(reminderItem, indexNumber > 0 ? String(indexNumber) : '1', userLanguage, userTimezone),
@@ -526,7 +527,7 @@ export const handleRequestAction = async (ctx, type) => {
     ]);
 
     const indexNumber = allUserReminders.findIndex(item => String(item._id) === String(reminderItem._id)) + 1;
-    const userTimezone = user?.timezone || 'Europe/Minsk';
+    const userTimezone = user?.timezone || DEFAULT_TIMEZONE;
 
     await ctx.editMessageText(
       formatReminderMessageText(reminderItem, indexNumber > 0 ? String(indexNumber) : '1', userLanguage, userTimezone),
@@ -585,7 +586,7 @@ export const handleConfirmAction = async ctx => {
 
     if (reminderItem) {
       const indexNumber = allUserReminders.findIndex(item => String(item._id) === String(reminderItem._id)) + 1;
-      const userTimezone = user?.timezone || 'Europe/Minsk';
+      const userTimezone = user?.timezone || DEFAULT_TIMEZONE;
 
       await ctx.editMessageReplyMarkup(
         getReminderMessageKeyboard(reminderItem, userLanguage, true).reply_markup

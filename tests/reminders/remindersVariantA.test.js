@@ -35,7 +35,7 @@ describe('Управление напоминаниями (Вариант А)', 
 
     expect(mockContext.reply).toHaveBeenCalledTimes(1);
     const [replyText, replyOptions] = mockContext.reply.mock.calls[0];
-    expect(replyText).toContain('Ваши напоминания');
+    expect(replyText).toContain('Твои напоминания');
     expect(replyText).toContain('Напоминание А');
     expect(replyText).toContain('Напоминание Б');
 
