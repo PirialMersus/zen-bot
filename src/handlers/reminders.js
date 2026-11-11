@@ -2,7 +2,7 @@ import { Markup } from 'telegraf';
 import { DateTime } from 'luxon';
 import Reminder from '../models/Reminder.js';
 import User from '../models/User.js';
-import { getTexts } from '../constants/texts.js';
+import { getTexts, isDoNotDeleteText, COMBINED_AUTO_DELETE_MAP } from '../constants/texts.js';
 import { getUi, UI } from '../constants/ui.js';
 import { getRemindersKeyboard } from '../keyboard/reminders.js';
 import { reminderTextKeyboard } from '../keyboard/reminderText.js';
@@ -11,6 +11,23 @@ import { getDeleteAfterKeyboard } from '../keyboard/deleteAfter.js';
 import { mainKeyboard } from '../keyboard/main.js';
 import { resolveUserLanguage } from '../middlewares/activity.js';
 import { countUserFavoritePointers } from '../services/pointers.js';
+import { previewText } from '../utils/text.js';
+import {
+  formatInterval,
+  formatNextRunTime,
+  formatReminderMessageText,
+  getReminderMessageKeyboard,
+  buildRemindersListPayload
+} from '../services/remindersFormat.js';
+
+export {
+  previewText,
+  formatInterval,
+  formatNextRunTime,
+  formatReminderMessageText,
+  getReminderMessageKeyboard,
+  buildRemindersListPayload
+};
 
 export const REMINDER_STEP = {
   TEXT: 'TEXT',
@@ -39,193 +56,6 @@ const DEFAULT_REMINDER_TEXTS_BY_LANGUAGE = {
 
 const normalizeText = text =>
   text.replace(/^«|»$/g, '').trim();
-
-const formatInterval = (minutes, language = 'ru') => {
-  if (language === 'en') {
-    if (minutes === 1440) return 'Once a day ⌛';
-    if (minutes === 60) return 'Every hour ⌛';
-    return `Every ${minutes} min ⌛`;
-  }
-  if (language === 'uk') {
-    if (minutes === 1440) return 'Раз на день ⌛';
-    if (minutes === 60) return 'Щогодини ⌛';
-    return `Кожні ${minutes} хв ⌛`;
-  }
-  if (language === 'es') {
-    if (minutes === 1440) return 'Una vez al día ⌛';
-    if (minutes === 60) return 'Cada hora ⌛';
-    return `Cada ${minutes} min ⌛`;
-  }
-  if (minutes === 1440) return 'Раз в день ⌛';
-  if (minutes === 60) return 'Каждый час ⌛';
-  return `Каждые ${minutes} мин ⌛`;
-};
-
-export const formatNextRunTime = (nextRunDate, userTimezone = 'Europe/Minsk', language = 'ru') => {
-  if (!nextRunDate) return '';
-
-  const targetDate = DateTime.fromJSDate(nextRunDate).setZone(userTimezone);
-  const now = DateTime.now().setZone(userTimezone);
-  const timeString = targetDate.toFormat('HH:mm');
-
-  if (targetDate.hasSame(now, 'day')) {
-    if (language === 'en') return `today at ${timeString}`;
-    if (language === 'uk') return `сьогодні о ${timeString}`;
-    if (language === 'es') return `hoy a las ${timeString}`;
-    return `сегодня в ${timeString}`;
-  }
-
-  if (targetDate.hasSame(now.plus({ days: 1 }), 'day')) {
-    if (language === 'en') return `tomorrow at ${timeString}`;
-    if (language === 'uk') return `завтра о ${timeString}`;
-    if (language === 'es') return `mañana a las ${timeString}`;
-    return `завтра в ${timeString}`;
-  }
-
-  return `${targetDate.toFormat('dd.MM')} ${timeString}`;
-};
-
-export const formatReminderMessageText = (reminderItem, indexNumberString, language = 'ru', userTimezone = 'Europe/Minsk') => {
-  const texts = getTexts(language);
-  const ui = getUi(language);
-  const status = reminderItem.isActive ? texts.STATUS.ACTIVE : texts.STATUS.PAUSED;
-
-  const autoDeleteLabel = language === 'en'
-    ? (reminderItem.deleteAfterSeconds === null
-      ? '(auto-delete: do not delete)'
-      : `(auto-delete: in ${reminderItem.deleteAfterSeconds} sec)`)
-    : language === 'uk'
-      ? (reminderItem.deleteAfterSeconds === null
-        ? '(автовидалення: не видаляється)'
-        : `(автовидалення: через ${reminderItem.deleteAfterSeconds} сек)`)
-      : language === 'es'
-        ? (reminderItem.deleteAfterSeconds === null
-          ? '(autoeliminación: no eliminar)'
-          : `(autoeliminación: en ${reminderItem.deleteAfterSeconds} seg)`)
-        : (reminderItem.deleteAfterSeconds === null
-          ? '(автоудаление: не удаляется)'
-          : `(автоудаление: через ${reminderItem.deleteAfterSeconds} сек)`);
-
-  let displayText = reminderItem.text;
-  if (reminderItem.isFavoritePointer) {
-    displayText = ui.REMINDER_FAVORITE;
-  } else if (reminderItem.isRandomPointer) {
-    displayText = ui.REMINDER_RANDOM;
-  } else if (reminderItem.photoFileId) {
-    const photoPrefix = language === 'en' ? '📷 Photo' : (language === 'uk' ? '📷 Фотографія' : (language === 'es' ? '📷 Foto' : '📷 Фотография'));
-    const photoWithCaptionPrefix = language === 'en' ? '📷 Photo' : (language === 'es' ? '📷 Foto' : '📷 Фото');
-    displayText = reminderItem.caption ? `${photoWithCaptionPrefix}: «${reminderItem.caption}»` : photoPrefix;
-  } else if (reminderItem.videoFileId) {
-    const videoPrefix = language === 'en' ? '🎬 Video' : (language === 'uk' ? '🎬 Відео' : (language === 'es' ? '🎬 Video' : '🎬 Видео'));
-    displayText = reminderItem.caption ? `${videoPrefix}: «${reminderItem.caption}»` : videoPrefix;
-  }
-
-  const nextRunString = reminderItem.isActive && reminderItem.nextRunAt
-    ? formatNextRunTime(reminderItem.nextRunAt, userTimezone, language)
-    : null;
-
-  const nextRunLabel = language === 'en' ? '🕒 Next run' : (language === 'uk' ? '🕒 Наступне' : (language === 'es' ? '🕒 Siguiente' : '🕒 Следующее'));
-  const nextRunLine = nextRunString ? `\n<i>${nextRunLabel}: ${nextRunString}</i>` : '';
-
-  return `<b>${indexNumberString}.</b> ${status}
-
-<i>${formatInterval(reminderItem.intervalMinutes, language)}</i>
-<i>${autoDeleteLabel}</i>${nextRunLine}
-
-«${displayText}»`;
-};
-
-export const getReminderMessageKeyboard = (reminderItem, language = 'ru', showBackToList = true) => {
-  const pauseLabel = language === 'en' ? '⏸️ Pause' : (language === 'uk' ? '⏸️ Призупинити' : (language === 'es' ? '⏸️ Pausar' : '⏸️ Приостановить'));
-  const resumeLabel = language === 'en' ? '▶️ Resume' : (language === 'uk' ? '▶️ Відновити' : (language === 'es' ? '▶️ Reanudar' : '▶️ Возобновить'));
-  const deleteLabel = language === 'en' ? '🗑 Delete' : (language === 'uk' ? '🗑 Видалити' : (language === 'es' ? '🗑 Eliminar' : '🗑 Удалить'));
-  const backToListLabel = language === 'en' ? '⬅️ All reminders' : (language === 'uk' ? '⬅️ До всіх нагадувань' : (language === 'es' ? '⬅️ A todos los recordatorios' : '⬅️ Ко всем напоминаниям'));
-
-  const actionRow = [
-    reminderItem.isActive
-      ? Markup.button.callback(pauseLabel, `pause:${reminderItem.id}`)
-      : Markup.button.callback(resumeLabel, `resume:${reminderItem.id}`),
-    Markup.button.callback(deleteLabel, `delete:${reminderItem.id}`)
-  ];
-
-  const rows = [actionRow];
-  if (showBackToList) {
-    rows.push([Markup.button.callback(backToListLabel, 'reminder:list')]);
-  }
-
-  return Markup.inlineKeyboard(rows);
-};
-
-export const buildRemindersListPayload = (reminders, userLanguage = 'ru', userTimezone = 'Europe/Minsk') => {
-  const ui = getUi(userLanguage);
-
-  const headerTitle = userLanguage === 'en'
-    ? '📋 <b>Your reminders:</b>'
-    : userLanguage === 'uk'
-      ? '📋 <b>Ваші нагадування:</b>'
-      : userLanguage === 'es'
-        ? '📋 <b>Tus recordatorios:</b>'
-        : '📋 <b>Ваши напоминания:</b>';
-  const hintFooter = userLanguage === 'en'
-    ? '<i>Tap a number below to manage a reminder 👇</i>'
-    : userLanguage === 'uk'
-      ? '<i>Натисніть на номер нижче для керування нагадуванням 👇</i>'
-      : userLanguage === 'es'
-        ? '<i>Toca un número abajo para gestionar el recordatorio 👇</i>'
-        : '<i>Нажмите на номер ниже для управления напоминанием 👇</i>';
-
-  const lines = reminders.map((reminderItem, index) => {
-    const indexNumber = index + 1;
-    const statusIcon = reminderItem.isActive ? '🟢' : '⏸️';
-
-    let displayText = reminderItem.text;
-    if (reminderItem.isFavoritePointer) {
-      displayText = ui.REMINDER_FAVORITE;
-    } else if (reminderItem.isRandomPointer) {
-      displayText = ui.REMINDER_RANDOM;
-    } else if (reminderItem.photoFileId) {
-      const photoPrefix = userLanguage === 'en' ? '📷 Photo' : (userLanguage === 'es' ? '📷 Foto' : '📷 Фото');
-      displayText = reminderItem.caption ? `${photoPrefix}: «${reminderItem.caption}»` : photoPrefix;
-    } else if (reminderItem.videoFileId) {
-      const videoPrefix = userLanguage === 'en' ? '🎬 Video' : (userLanguage === 'es' ? '🎬 Video' : '🎬 Видео');
-      displayText = reminderItem.caption ? `${videoPrefix}: «${reminderItem.caption}»` : videoPrefix;
-    }
-
-    const shortText = previewText(displayText);
-    const intervalLabel = formatInterval(reminderItem.intervalMinutes, userLanguage);
-
-    const nextRunTime = reminderItem.isActive && reminderItem.nextRunAt
-      ? formatNextRunTime(reminderItem.nextRunAt, userTimezone, userLanguage)
-      : null;
-
-    const nextRunSuffix = nextRunTime ? ` • 🕒 ${nextRunTime}` : '';
-
-    return `<b>${indexNumber}.</b> ${statusIcon} «${shortText}»\n   <i>${intervalLabel}${nextRunSuffix}</i>`;
-  });
-
-  const fullText = `${headerTitle}\n\n${lines.join('\n\n')}\n\n${hintFooter}`;
-
-  const buttons = reminders.map((reminderItem, index) => {
-    const label = String(index + 1);
-    return Markup.button.callback(label, `reminder:view:${reminderItem.id}`);
-  });
-
-  const keyboardRows = [];
-  const chunkSize = 5;
-  for (let i = 0; i < buttons.length; i += chunkSize) {
-    keyboardRows.push(buttons.slice(i, i + chunkSize));
-  }
-
-  return {
-    text: fullText,
-    keyboard: Markup.inlineKeyboard(keyboardRows)
-  };
-};
-
-export const previewText = text => {
-  if (!text) return '';
-  return text.length > 40 ? `${text.slice(0, 40)}…` : text;
-};
 
 export const renderReminderStep = async ctx => {
   const step = ctx.session.reminderStep;
@@ -432,10 +262,11 @@ export const handleDeleteAfterPreset = async ctx => {
 
   let secondsValue;
 
-  if (incomingText === '10 сек' || incomingText === '10 sec' || incomingText === '10 seg') secondsValue = 10;
-  if (incomingText === '30 сек' || incomingText === '30 sec' || incomingText === '30 seg') secondsValue = 30;
-  if (incomingText === '1 мин' || incomingText === '1 min' || incomingText === '1 хв') secondsValue = 60;
-  if (incomingText === 'Не удалять' || incomingText === 'Do not delete' || incomingText === 'Не видаляти' || incomingText === 'No eliminar') secondsValue = null;
+  if (isDoNotDeleteText(incomingText)) {
+    secondsValue = null;
+  } else if (COMBINED_AUTO_DELETE_MAP[incomingText] !== undefined) {
+    secondsValue = COMBINED_AUTO_DELETE_MAP[incomingText];
+  }
 
   if (secondsValue === undefined) return;
 

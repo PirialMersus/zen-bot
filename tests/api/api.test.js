@@ -29,6 +29,27 @@ describe('API безопасность и мультиязычность ука�
     }
   });
 
+  it('должен генерировать код авторизации и не возвращать его в ответе API', async () => {
+    const testTelegramId = 44556677;
+    await User.create({ telegramId: testTelegramId });
+
+    const authRequestHttpResponse = await fetch(`${serverBaseUrl}/api/auth/request`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ telegramId: testTelegramId })
+    });
+
+    const responseJsonBody = await authRequestHttpResponse.json();
+
+    expect(authRequestHttpResponse.status).toBe(200);
+    expect(responseJsonBody.message).toBe('Код отправлен в Telegram');
+    expect(responseJsonBody.code).toBeUndefined();
+
+    const updatedUser = await User.findOne({ telegramId: testTelegramId });
+    expect(updatedUser.authCode).toBeDefined();
+    expect(updatedUser.authCode).toMatch(/^[A-Z0-9]{3}-[A-Z0-9]{3}$/);
+  });
+
   it('должен блокировать DEV-123 код верификации в production окружении', async () => {
     const originalEnvironment = process.env.NODE_ENV;
     process.env.NODE_ENV = 'production';

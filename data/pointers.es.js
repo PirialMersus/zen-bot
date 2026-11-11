@@ -10850,5 +10850,77 @@ Elige ahora mismo.`,
     text: "El trabajo de este momento es la atención, el darse cuenta, la presencia.",
     source: "Toni Packer",
     tags: ["silencio"]
+  },
+  {
+    number: 1595,
+    text: "Noticia de última hora: el ego acaba de decidir iluminarse para luego presumir de ello ante otros egos en los satsangs. No lo molestes, déjalo que se divierta.",
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1596,
+    text: "Si un altavoz en la calle transmitiera los pensamientos de tu cabeza, hace tiempo que te habrían llevado los enfermeros. Pero tú consideras este murmullo interno \"tú mismo\". Sonríele.",
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1597,
+    text: "Si la conciencia dependiera de lo seria que es tu cara, ya estarías sentado en un trono en el nirvana. Suelta la importancia, afloja la mandíbula.",
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1598,
+    text: "Los pensamientos vienen y van. Y tú estás parado en la parada intentando casarte con cada autobús que pasa. Apártate de la calzada.",
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1599,
+    text: "Ahora mismo la respiración ocurre sin tu participación directiva. El corazón late por sí solo. Pero estás seriamente convencido de que debes dirigir personalmente el destino de la galaxia.",
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1600,
+    text: "Toda tu práctica consiste en que un pensamiento (\"debo ser consciente\") golpea con un palo a otro (\"quiero un pastel\"). Mientras tanto, la pura presencia se sienta con palomitas a ver este circo.",
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1601,
+    text: "Mírate al espejo. Es un biorrobot de última generación. Aliméntalo a tiempo, paséalo dos veces al día y no le exijas santidad.",
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1602,
+    text: "Tienes miedo de perderte el momento \"aquí y ahora\". ¿Adónde te lo vas a perder? ¿A un universo paralelo? Estás condenado al \"aquí y ahora\" de por vida.",
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1603,
+    text: "Tu ansiedad es solo una atracción gratuita de realidad virtual. Quítate el casco, no hay nadie en la habitación.",
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1604,
+    text: "¿Quieres que la gente a tu alrededor actúe con conciencia? ¿Por qué no les ordenas a los gatos que ladren y a la lluvia que caiga hacia arriba? Contempla el absurdo.",
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1605,
+    text: "«¡Debo deshacerme de mi ego!», declaró orgulloso el ego mientras se ponía ropas blancas y compraba un rosario.",
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1606,
+    text: "Si no tocas un pensamiento, morirá de soledad en tres segundos. Pero seguro que te acercas, lo acaricias, le das de comer y lo empadronas en tu cabeza.",
+    source: null,
+    tags: ["silencio"]
   }
 ];

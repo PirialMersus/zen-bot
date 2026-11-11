@@ -2,11 +2,11 @@ const RUSSIAN_TEXTS = {
   MENU: {
     START: `👋 Привет!
 
-я - бот для выработки новых привычек
-я буду напоминать о том, что важно
+Я — бот для осознанности и выработки привычек.
+Буду напоминать о том, что важно.
 
-🧘‍♀️ случайная фраза — по кнопке в любой момент
-⏳ своё напоминание — текст, 📷 фото или 🎬 видео с любой частотой
+🧘‍♀️ «Указатели» — короткие карточки осознанности по кнопке в любой момент
+⏳ Своё напоминание — текст, 📷 фото или 🎬 видео с любой частотой
 
 🐈️ Зайди в настройки и выбери свой часовой пояс
 `,
@@ -17,12 +17,12 @@ const RUSSIAN_TEXTS = {
 
   POINTERS: {
     EMPTY: 'Пока нет указателей.',
-    FAVORITE_EMPTY: 'У вас пока нет избранных указателей. Читая случайные указатели, нажимайте «⭐ В избранное», чтобы сохранить понравившиеся.',
+    FAVORITE_EMPTY: 'У тебя пока нет избранных указателей. Читая случайные указатели, нажимай «⭐ В избранное», чтобы сохранить понравившиеся.',
     FAVORITE_ADDED: 'Добавлено в избранное ⭐',
     FAVORITE_REMOVED: 'Удалено из избранного',
-    FAVORITE_REMINDER_EMPTY: 'У вас пока нет избранных указателей. Сначала добавьте понравившиеся указатели в избранное.',
-    FAVORITE_BADGE_INFO: 'Вы просматриваете своё личное избранное ⭐',
-    EXPIRE_BADGE_INFO: '⏳ Это сообщение автоматически исчезнет. Нажмите «⭐ В избранное», чтобы сохранить его.',
+    FAVORITE_REMINDER_EMPTY: 'У тебя пока нет избранных указателей. Сначала добавь понравившиеся указатели в избранное.',
+    FAVORITE_BADGE_INFO: 'Ты просматриваешь своё личное избранное ⭐',
+    EXPIRE_BADGE_INFO: '⏳ Это сообщение автоматически исчезнет. Нажми «⭐ В избранное», чтобы сохранить его.',
     FAVORITE_TOAST: (current, total) => total ? `⭐ Избранное: ${current} из ${total}` : '⭐ Режим: Избранное'
   },
 
@@ -35,8 +35,8 @@ const RUSSIAN_TEXTS = {
     ASK_DELETE_AFTER: '🗑 Автоудаление напоминания',
     ASK_DELETE_AFTER_HINT: '⌨️ Можно выбрать кнопкой или ввести количество секунд цифрами',
     MIN_INTERVAL: 'Минимум — 1 минута',
-    INVALID_SECONDS: '⌨️ Введите количество секунд цифрами',
-    CONFIRM_STATUS: 'Вы точно хотите изменить статус напоминания?'
+    INVALID_SECONDS: '⌨️ Введи количество секунд цифрами',
+    CONFIRM_STATUS: 'Ты точно хочешь изменить статус напоминания?'
   },
 
   STATUS: {
@@ -58,7 +58,7 @@ const RUSSIAN_TEXTS = {
 
 Группа в Telegram: @dzenline
 
-Если захотите поблагодарить за бота или поддержать проект материально - напишите @Streamline6 ❤️`,
+Если захочешь поблагодарить за бота или поддержать проект материально — напиши @Streamline6 ❤️`,
 
   INTERVALS: {
     OPTIONS: ['10 сек', '30 сек', '1 мин', 'Не удалять'],
@@ -70,11 +70,11 @@ const ENGLISH_TEXTS = {
   MENU: {
     START: `👋 Hello!
 
-I am a bot for building new habits
-I will remind you about what truly matters
+I am a bot for mindfulness and building habits.
+I will remind you about what truly matters.
 
-🧘‍♀️ random pointer — anytime at the click of a button
-⏳ custom reminder — text, 📷 photo, or 🎬 video at any frequency
+🧘‍♀️ "Pointers" — short mindfulness cards anytime at the click of a button
+⏳ Custom reminder — text, 📷 photo, or 🎬 video at any frequency
 
 🐈️ Go to settings and choose your timezone
 `,
@@ -138,11 +138,11 @@ const UKRAINIAN_TEXTS = {
   MENU: {
     START: `👋 Привіт!
 
-я - бот для вироблення нових звичок
-я нагадуватиму про те, що важливо
+Я — бот для усвідомленості та вироблення звичок.
+Я нагадуватиму про те, що важливо.
 
-🧘‍♀️ випадкова фраза — за кнопкою в будь-який момент
-⏳ власне нагадування — текст, 📷 фото або 🎬 відео з будь-якою частотою
+🧘‍♀️ «Вказівники» — короткі картки усвідомленості за кнопкою в будь-який момент
+⏳ Власне нагадування — текст, 📷 фото або 🎬 відео з будь-якою частотою
 
 🐈️ Зайди в налаштування та обери свій часовий пояс
 `,
@@ -153,12 +153,12 @@ const UKRAINIAN_TEXTS = {
 
   POINTERS: {
     EMPTY: 'Поки немає вказівників.',
-    FAVORITE_EMPTY: 'У вас поки немає обраних вказівників. Читаючи випадкові вказівники, натискайте «⭐ До обраного», щоб зберегти ті, що сподобалися.',
+    FAVORITE_EMPTY: 'У тебе поки немає обраних вказівників. Читаючи випадкові вказівники, натискай «⭐ До обраного», щоб зберегти ті, що сподобалися.',
     FAVORITE_ADDED: 'Додано до обраного ⭐',
     FAVORITE_REMOVED: 'Вилучено з обраного',
-    FAVORITE_REMINDER_EMPTY: 'У вас поки немає обраних вказівників. Спочатку додайте вказівники, що сподобалися, до обраного.',
-    FAVORITE_BADGE_INFO: 'Ви переглядаєте своє особисте обране ⭐',
-    EXPIRE_BADGE_INFO: '⏳ Це повідомлення автоматично зникне. Натисніть «⭐ До обраного», щоб зберегти його.',
+    FAVORITE_REMINDER_EMPTY: 'У тебе поки немає обраних вказівників. Спочатку додай вказівники, що сподобалися, до обраного.',
+    FAVORITE_BADGE_INFO: 'Ти переглядаєш своє особисте обране ⭐',
+    EXPIRE_BADGE_INFO: '⏳ Це повідомлення автоматично зникне. Натисни «⭐ До обраного», щоб зберегти його.',
     FAVORITE_TOAST: (current, total) => total ? `⭐ Обране: ${current} з ${total}` : '⭐ Режим: Обране'
   },
 
@@ -171,8 +171,8 @@ const UKRAINIAN_TEXTS = {
     ASK_DELETE_AFTER: '🗑 Автовидалення нагадування',
     ASK_DELETE_AFTER_HINT: '⌨️ Можна вибрати кнопкою або ввести кількість секунд цифрами',
     MIN_INTERVAL: 'Мінімум — 1 хвилина',
-    INVALID_SECONDS: '⌨️ Введіть кількість секунд цифрами',
-    CONFIRM_STATUS: 'Ви дійсно хочете змінити статус нагадування?'
+    INVALID_SECONDS: '⌨️ Введи кількість секунд цифрами',
+    CONFIRM_STATUS: 'Ти дійсно хочеш змінити статус нагадування?'
   },
 
   STATUS: {
@@ -194,7 +194,7 @@ const UKRAINIAN_TEXTS = {
 
 Група в Telegram: @dzenline
 
-Якщо захочете подякувати за бота або підтримати проєкт матеріально - напишіть @Streamline6 ❤️`,
+Якщо захочеш подякувати за бота або підтримати проєкт матеріально — напиши @Streamline6 ❤️`,
 
   INTERVALS: {
     OPTIONS: ['10 сек', '30 сек', '1 хв', 'Не видаляти'],
@@ -206,11 +206,11 @@ const SPANISH_TEXTS = {
   MENU: {
     START: `👋 ¡Hola!
 
-Soy un bot para desarrollar nuevos hábitos
-Te recordaré lo que verdaderamente importa
+Soy un bot para la atención plena y el desarrollo de hábitos.
+Te recordaré lo que verdaderamente importa.
 
-🧘‍♀️ puntero aleatorio — con un botón en cualquier momento
-⏳ recordatorio personalizado — texto, 📷 foto o 🎬 video con cualquier frecuencia
+🧘‍♀️ «Punteros» — tarjetas cortas de atención plena con un botón en cualquier momento
+⏳ Recordatorio personalizado — texto, 📷 foto o 🎬 video con cualquier frecuencia
 
 🐈️ Ve a ajustes y elige tu zona horaria
 `,
@@ -283,4 +283,21 @@ export const getTexts = (language = 'ru') => {
   if (language === 'uk') return UKRAINIAN_TEXTS;
   if (language === 'es') return SPANISH_TEXTS;
   return RUSSIAN_TEXTS;
+};
+
+export const DO_NOT_DELETE_TEXTS = [
+  RUSSIAN_TEXTS.INTERVALS.OPTIONS[3],
+  ENGLISH_TEXTS.INTERVALS.OPTIONS[3],
+  UKRAINIAN_TEXTS.INTERVALS.OPTIONS[3],
+  SPANISH_TEXTS.INTERVALS.OPTIONS[3]
+];
+
+export const isDoNotDeleteText = textValue =>
+  DO_NOT_DELETE_TEXTS.includes(typeof textValue === 'string' ? textValue.trim() : '');
+
+export const COMBINED_AUTO_DELETE_MAP = {
+  ...RUSSIAN_TEXTS.INTERVALS.MAP,
+  ...ENGLISH_TEXTS.INTERVALS.MAP,
+  ...UKRAINIAN_TEXTS.INTERVALS.MAP,
+  ...SPANISH_TEXTS.INTERVALS.MAP
 };

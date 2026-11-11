@@ -4,7 +4,16 @@ import apiRouter from './api/index.js';
 
 const app = express();
 
-app.use(cors());
+const configuredAllowedOrigins = process.env.ALLOWED_ORIGINS;
+const resolvedCorsOptions = configuredAllowedOrigins
+  ? {
+      origin: configuredAllowedOrigins.split(',').map(allowedOriginItem => allowedOriginItem.trim()),
+      methods: ['GET', 'POST', 'PATCH', 'PUT', 'DELETE', 'OPTIONS'],
+      credentials: true
+    }
+  : {};
+
+app.use(cors(resolvedCorsOptions));
 app.use(express.json());
 
 app.get('/', (req, res) => {

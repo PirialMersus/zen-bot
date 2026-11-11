@@ -20,10 +20,8 @@ import {
 import { getTexts } from '../constants/texts.js';
 import { getUi } from '../constants/ui.js';
 import { resolveUserLanguage } from '../middlewares/activity.js';
+import { previewText } from '../utils/text.js';
 import { handleReminderText, REMINDER_STEP } from './reminders.js';
-
-const previewText = text =>
-  text.length > 60 ? text.slice(0, 57) + '…' : text;
 
 export const formatPointerText = pointer =>
   pointer?.source ? `${pointer.text}\n\n— ${pointer.source}` : (pointer?.text || '');

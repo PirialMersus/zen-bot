@@ -1,5 +1,6 @@
 import Activity from '../models/Activity.js';
 import User from '../models/User.js';
+import { escapeHtml } from '../utils/escapeHtml.js';
 
 const defaultFallbackLanguage = 'ru';
 
@@ -55,10 +56,10 @@ const notifyAdministratorAboutNewUser = async (ctx, telegramId) => {
   const alertMessageText = [
     '👤 <b>Новый пользователь в боте!</b>',
     '',
-    `Имя: <b>${userFullName}</b>`,
-    `Аккаунт: ${usernameString}`,
-    `ID: <code>${telegramId}</code>`,
-    `Язык: <code>${userLanguageCode}</code>`
+    `Имя: <b>${escapeHtml(userFullName)}</b>`,
+    `Аккаунт: ${escapeHtml(usernameString)}`,
+    `ID: <code>${escapeHtml(telegramId)}</code>`,
+    `Язык: <code>${escapeHtml(userLanguageCode)}</code>`
   ].join('\n');
 
   if (ctx.telegram?.sendMessage) {

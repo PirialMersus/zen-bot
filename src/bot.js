@@ -1,6 +1,6 @@
 import { Telegraf, session } from 'telegraf';
 import { BUTTONS } from './constants/buttons.js';
-import { TEXTS, getTexts } from './constants/texts.js';
+import { TEXTS, getTexts, isDoNotDeleteText, COMBINED_AUTO_DELETE_MAP } from './constants/texts.js';
 import { UI } from './constants/ui.js';
 import {
   handleAdminActiveUsers,
@@ -60,6 +60,7 @@ import {
 } from './handlers/settings/index.js';
 import { getIntervalKeyboard } from './keyboard/intervals.js';
 import { mainKeyboard } from './keyboard/main.js';
+import { getSupportInlineKeyboard } from './keyboard/support.js';
 import { activityMiddleware, resolveUserLanguage } from './middlewares/activity.js';
 
 export const bot = new Telegraf(process.env.BOT_TOKEN);
@@ -177,7 +178,7 @@ bot.hears(/^(?:\/find|\/search|\/f|найти|поиск|знайти|пошук
 bot.hears([BUTTONS.ru.SUPPORT, BUTTONS.en.SUPPORT, BUTTONS.uk.SUPPORT, BUTTONS.es.SUPPORT], async ctx => {
   const userLanguage = await resolveUserLanguage(ctx);
   const texts = getTexts(userLanguage);
-  await ctx.reply(texts.SUPPORT);
+  await ctx.reply(texts.SUPPORT, getSupportInlineKeyboard(userLanguage));
 });
 
 const allowedIntervalOptions = [
@@ -187,22 +188,15 @@ const allowedIntervalOptions = [
   ...TEXTS.es.INTERVALS.OPTIONS
 ];
 
-const combinedIntervalMap = {
-  ...TEXTS.ru.INTERVALS.MAP,
-  ...TEXTS.en.INTERVALS.MAP,
-  ...TEXTS.uk.INTERVALS.MAP,
-  ...TEXTS.es.INTERVALS.MAP
-};
-
 bot.hears(allowedIntervalOptions, async ctx => {
   const incomingMessageText = ctx.message.text;
 
-  if (incomingMessageText === 'Не удалять' || incomingMessageText === 'Do not delete' || incomingMessageText === 'Не видаляти' || incomingMessageText === 'No eliminar') {
+  if (isDoNotDeleteText(incomingMessageText)) {
     await handleDeleteAfterPreset(ctx, null);
     return;
   }
 
-  await handleDeleteAfterPreset(ctx, combinedIntervalMap[incomingMessageText]);
+  await handleDeleteAfterPreset(ctx, COMBINED_AUTO_DELETE_MAP[incomingMessageText]);
 });
 
 bot.on('photo', async ctx => {

@@ -10,7 +10,6 @@ const RUSSIAN_UI = {
   POINTER_SHARE: '📤 Переслать',
   POINTER_EXPIRE_BADGE: seconds => `⏳ Исчезнет через ${seconds} сек`,
   POINTER_KEEP_BUTTON: seconds => `⏳ Не удалять (${seconds}с)`,
-  POINTER_KEEP_FULL_BUTTON: seconds => `⏳ Не удалять (${seconds}с)`,
   POINTER_KEEP_TOAST: '⏳ Автоудаление отменено',
   POINTER_TO_MENU: '⬅️ В меню',
 
@@ -44,7 +43,6 @@ const ENGLISH_UI = {
   POINTER_SHARE: '📤 Forward',
   POINTER_EXPIRE_BADGE: seconds => `⏳ Disappears in ${seconds}s`,
   POINTER_KEEP_BUTTON: seconds => `⏳ Do not delete (${seconds}s)`,
-  POINTER_KEEP_FULL_BUTTON: seconds => `⏳ Do not delete (${seconds}s)`,
   POINTER_KEEP_TOAST: '⏳ Auto-delete cancelled',
   POINTER_TO_MENU: '⬅️ To menu',
 
@@ -78,7 +76,6 @@ const UKRAINIAN_UI = {
   POINTER_SHARE: '📤 Переслати',
   POINTER_EXPIRE_BADGE: seconds => `⏳ Зникне через ${seconds} сек`,
   POINTER_KEEP_BUTTON: seconds => `⏳ Не видаляти (${seconds}с)`,
-  POINTER_KEEP_FULL_BUTTON: seconds => `⏳ Не видаляти (${seconds}с)`,
   POINTER_KEEP_TOAST: '⏳ Автовидалення скасовано',
   POINTER_TO_MENU: '⬅️ До меню',
 
@@ -112,7 +109,6 @@ const SPANISH_UI = {
   POINTER_SHARE: '📤 Reenviar',
   POINTER_EXPIRE_BADGE: seconds => `⏳ Desaparece en ${seconds}s`,
   POINTER_KEEP_BUTTON: seconds => `⏳ No eliminar (${seconds}s)`,
-  POINTER_KEEP_FULL_BUTTON: seconds => `⏳ No eliminar (${seconds}s)`,
   POINTER_KEEP_TOAST: '⏳ Autoeliminación cancelada',
   POINTER_TO_MENU: '⬅️ Al menú',
 

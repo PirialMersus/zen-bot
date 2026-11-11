@@ -10850,5 +10850,77 @@ Choose right now.`,
     text: "The work of this moment is attentiveness, awareness, presence.",
     source: "Toni Packer",
     tags: ["stillness"]
+  },
+  {
+    number: 1595,
+    text: "Breaking news: the ego just decided to become enlightened, so it can brag about it to other egos at satsangs. Don't disturb it, let it have fun.",
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1596,
+    text: "If a street loudspeaker broadcast the thoughts from your head, the medics would have taken you away long ago. Yet you consider this internal mumbling \"yourself\". Smile at it.",
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1597,
+    text: "If awareness depended on how serious your face was, you would already be sitting on a throne in nirvana. Drop the self-importance, unclench your jaw.",
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1598,
+    text: "Thoughts come and go. And you stand at the bus stop trying to marry every passing bus. Step back from the road.",
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1599,
+    text: "Right now breathing happens without your managerial participation. The heart beats by itself. Yet you are seriously convinced you must personally steer the fate of the galaxy.",
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1600,
+    text: "Your whole practice is when one thought (\"must be mindful\") beats another thought (\"want a cake\") with a stick. While pure presence sits with popcorn watching this circus.",
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1601,
+    text: "Look in the mirror. It's the latest model biorobot. Feed it on time, walk it twice a day, and don't demand holiness from it.",
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1602,
+    text: "You are afraid of missing the \"here and now\" moment. Where are you going to miss it to? A parallel universe? You are sentenced to \"here and now\" for life.",
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1603,
+    text: "Your anxiety is just a free virtual reality ride. Take off the headset, there is nobody in the room.",
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1604,
+    text: "You want people around you to act mindfully? Why not order cats to bark and rain to fall upwards? Just admire the absurdity.",
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1605,
+    text: "\"I must get rid of my ego!\" proudly declared the ego, putting on white robes and buying prayer beads.",
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1606,
+    text: "If you leave a thought alone, it will die of loneliness in three seconds. But you'll definitely come over, pet it, feed it, and register it as a resident in your head.",
+    source: null,
+    tags: ["stillness"]
   }
 ];

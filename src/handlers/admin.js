@@ -3,6 +3,7 @@ import { BUTTONS } from '../constants/buttons.js';
 import { UI, getUi } from '../constants/ui.js';
 import Reminder from '../models/Reminder.js';
 import User from '../models/User.js';
+import { escapeHtml } from '../utils/escapeHtml.js';
 import {
   getPointerByNumber,
   findPointersByText,
@@ -29,11 +30,13 @@ export const handleAdminActiveUsers = async ctx => {
 
   const [
     usersWithActiveReminders,
+    usersWithFavoritePointersCount,
     activeUsersPastDayCount,
     activeUsersPastWeekCount,
     totalUsersCount
   ] = await Promise.all([
     Reminder.distinct('userId', { isActive: true }),
+    User.countDocuments({ 'favoritePointers.0': { $exists: true } }),
     User.countDocuments({ lastActivityAt: { $gte: oneDayAgoDate } }),
     User.countDocuments({ lastActivityAt: { $gte: sevenDaysAgoDate } }),
     User.countDocuments()
@@ -45,6 +48,7 @@ export const handleAdminActiveUsers = async ctx => {
     '👥 <b>Статистика пользователей</b>',
     '',
     `• С активными напоминаниями: <b>${activeRemindersUsersCount}</b>`,
+    `• С избранным: <b>${usersWithFavoritePointersCount}</b>`,
     `• Активность за 24 часа: <b>${activeUsersPastDayCount}</b>`,
     `• Активность за 7 дней: <b>${activeUsersPastWeekCount}</b>`,
     `• Всего пользователей: <b>${totalUsersCount}</b>`
@@ -249,8 +253,8 @@ export const handleFeedbackMessage = async ctx => {
   const adminNotificationHeader = [
     '📬 <b>Новый ответ на рассылку!</b>',
     '',
-    `От: <b>${senderFullName}</b> (${senderUsernameString})`,
-    `ID: <code>${senderTelegramIdentifier}</code>`
+    `От: <b>${escapeHtml(senderFullName)}</b> (${escapeHtml(senderUsernameString)})`,
+    `ID: <code>${escapeHtml(senderTelegramIdentifier)}</code>`
   ].join('\n');
 
   const administratorTelegramIdentifier = process.env.CREATOR_ID;
@@ -268,7 +272,7 @@ export const handleFeedbackMessage = async ctx => {
   ctx.session.feedbackAwaiting = false;
 
   await ctx.reply(
-    '✅ Ваше сообщение передано администратору. Большое спасибо за обратную связь!'
+    '✅ Твоё сообщение передано администратору. Большое спасибо за обратную связь!'
   );
 
   return true;
