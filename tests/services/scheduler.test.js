@@ -108,7 +108,7 @@ describe('Планировщик и тихие часы (Scheduler & Quiet Hours
     });
 
     expect(readyReminders.length).toBe(1);
-    expect(readyReminders[0].userId).toBe('1001');
+    expect(readyReminders[0].userId).toBe(1001);
   });
 
   it('должен сдвигать короткое напоминание в тихие часы на свой интервал', () => {

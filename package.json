@@ -16,6 +16,8 @@
     "pointer:remove": "node scripts/removePointer.js",
     "test": "vitest run --fileParallelism=false",
     "test:watch": "vitest",
+    "lint": "eslint src tests",
+    "format": "prettier --write \"src/**/*.js\" \"tests/**/*.js\"",
     "prepare": "husky || true"
   },
   "keywords": [],
@@ -32,9 +34,11 @@
     "telegraf": "^4.16.3"
   },
   "devDependencies": {
+    "eslint": "^9.39.5",
     "husky": "^9.1.7",
     "mongodb-memory-server": "^11.2.0",
     "nodemon": "^3.1.11",
+    "prettier": "^3.10.0",
     "vitest": "^3.2.7"
   }
 }

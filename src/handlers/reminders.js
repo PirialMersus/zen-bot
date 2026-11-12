@@ -1,5 +1,6 @@
 import { Markup } from 'telegraf';
 import { DateTime } from 'luxon';
+import { calculateDailyNextRun } from '../services/scheduler.js';
 import Reminder from '../models/Reminder.js';
 import User from '../models/User.js';
 import { getTexts, isDoNotDeleteText, COMBINED_AUTO_DELETE_MAP } from '../constants/texts.js';
@@ -153,6 +154,7 @@ export const handleReminderPhoto = async ctx => {
 
   ctx.session.reminderStep = REMINDER_STEP.INTERVAL;
   await renderReminderStep(ctx);
+  return true;
 };
 
 export const handleReminderVideo = async ctx => {
@@ -172,10 +174,11 @@ export const handleReminderVideo = async ctx => {
 
   ctx.session.reminderStep = REMINDER_STEP.INTERVAL;
   await renderReminderStep(ctx);
+  return true;
 };
 
 export const handleReminderText = async ctx => {
-  if (ctx.session?.reminderStep !== REMINDER_STEP.TEXT) return;
+  if (ctx.session?.reminderStep !== REMINDER_STEP.TEXT) return false;
 
   let incomingText = ctx.message.text;
 
@@ -228,6 +231,7 @@ export const handleReminderText = async ctx => {
 
   ctx.session.reminderStep = REMINDER_STEP.INTERVAL;
   await renderReminderStep(ctx);
+  return true;
 };
 
 export const handleIntervalPreset = async (ctx, minutes) => {
@@ -241,7 +245,23 @@ export const handleIntervalPreset = async (ctx, minutes) => {
 export const handleIntervalInput = async ctx => {
   if (ctx.session?.reminderStep !== REMINDER_STEP.INTERVAL) return false;
 
-  const minutes = Number(ctx.message.text);
+  const rawText = ctx.message.text ? ctx.message.text.trim() : '';
+  const timeFormatMatch = rawText.match(/^([01]?\d|2[0-3]):([0-5]\d)$/);
+
+  if (timeFormatMatch) {
+    const hours = timeFormatMatch[1].padStart(2, '0');
+    const minutes = timeFormatMatch[2].padStart(2, '0');
+    const targetTime = `${hours}:${minutes}`;
+
+    ctx.session.creatingReminder.type = 'daily';
+    ctx.session.creatingReminder.targetTime = targetTime;
+    ctx.session.creatingReminder.intervalMinutes = 1440;
+    ctx.session.reminderStep = REMINDER_STEP.AUTO_DELETE;
+    await renderReminderStep(ctx);
+    return true;
+  }
+
+  const minutes = Number(rawText);
   const userLanguage = await resolveUserLanguage(ctx);
   const texts = getTexts(userLanguage);
 
@@ -250,6 +270,8 @@ export const handleIntervalInput = async ctx => {
     return true;
   }
 
+  ctx.session.creatingReminder.type = 'interval';
+  ctx.session.creatingReminder.targetTime = null;
   ctx.session.creatingReminder.intervalMinutes = minutes;
   ctx.session.reminderStep = REMINDER_STEP.AUTO_DELETE;
   await renderReminderStep(ctx);
@@ -347,10 +369,21 @@ const finalizeReminder = async ctx => {
   const userLanguage = await resolveUserLanguage(ctx);
   const texts = getTexts(userLanguage);
 
+  let nextRunDate;
+  if (data.type === 'daily' && data.targetTime) {
+    const user = await User.findOne({ telegramId: ctx.from.id });
+    const userTimezone = user?.timezone || DEFAULT_TIMEZONE;
+    nextRunDate = calculateDailyNextRun(data.targetTime, userTimezone, now);
+  } else {
+    nextRunDate = new Date(now.getTime() + data.intervalMinutes * 60 * 1000);
+  }
+
   await Reminder.create({
-    userId: String(ctx.from.id),
+    userId: ctx.from.id,
     chatId: ctx.chat.id,
     text: cleanText,
+    type: data.type || 'interval',
+    targetTime: data.targetTime || null,
     photoFileId: data.photoFileId || null,
     videoFileId: data.videoFileId || null,
     caption: data.caption || null,
@@ -359,12 +392,10 @@ const finalizeReminder = async ctx => {
     isActive: true,
     isRandomPointer: Boolean(data.isRandomPointer),
     isFavoritePointer: Boolean(data.isFavoritePointer),
-    nextRunAt: new Date(
-      now.getTime() + data.intervalMinutes * 60 * 1000
-    )
+    nextRunAt: nextRunDate
   });
 
-  const intervalLabel = formatInterval(data.intervalMinutes, userLanguage);
+  const intervalLabel = formatInterval(data, userLanguage);
 
   const deleteAfterLabel = userLanguage === 'en'
     ? (data.deleteAfterSeconds === null
@@ -412,7 +443,7 @@ export const handleMyReminders = async ctx => {
   const texts = getTexts(userLanguage);
 
   const [reminders, user] = await Promise.all([
-    Reminder.find({ userId: String(ctx.from.id) }).sort({ createdAt: 1 }),
+    Reminder.find({ userId: ctx.from.id }).sort({ createdAt: 1 }),
     User.findOne({ telegramId: ctx.from.id })
   ]);
 
@@ -450,7 +481,7 @@ export const handleReminderListCallback = async ctx => {
   await ctx.answerCbQuery().catch(() => {});
 
   const [reminders, user] = await Promise.all([
-    Reminder.find({ userId: String(ctx.from.id) }).sort({ createdAt: 1 }),
+    Reminder.find({ userId: ctx.from.id }).sort({ createdAt: 1 }),
     User.findOne({ telegramId: ctx.from.id })
   ]);
 
@@ -483,7 +514,7 @@ export const handleViewReminder = async ctx => {
 
   const [reminderItem, allUserReminders, user] = await Promise.all([
     Reminder.findById(reminderId),
-    Reminder.find({ userId: String(ctx.from.id) }).sort({ createdAt: 1 }),
+    Reminder.find({ userId: ctx.from.id }).sort({ createdAt: 1 }),
     User.findOne({ telegramId: ctx.from.id })
   ]);
 
@@ -522,7 +553,7 @@ export const handleRequestAction = async (ctx, type) => {
     await reminderItem.save();
 
     const [allUserReminders, user] = await Promise.all([
-      Reminder.find({ userId: String(ctx.from.id) }).sort({ createdAt: 1 }),
+      Reminder.find({ userId: ctx.from.id }).sort({ createdAt: 1 }),
       User.findOne({ telegramId: ctx.from.id })
     ]);
 
@@ -580,7 +611,7 @@ export const handleConfirmAction = async ctx => {
     await ctx.answerCbQuery().catch(() => {});
     const [reminderItem, allUserReminders, user] = await Promise.all([
       Reminder.findById(reminderIdentifier),
-      Reminder.find({ userId: String(ctx.from.id) }).sort({ createdAt: 1 }),
+      Reminder.find({ userId: ctx.from.id }).sort({ createdAt: 1 }),
       User.findOne({ telegramId: ctx.from.id })
     ]);
 

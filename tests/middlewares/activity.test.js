@@ -1,5 +1,5 @@
 import { beforeEach, describe, expect, it, vi } from 'vitest';
-import { activityMiddleware, detectUserLanguage } from '../../src/middlewares/activity.js';
+import { activityMiddleware, detectUserLanguage, clearUserCache } from '../../src/middlewares/activity.js';
 import User from '../../src/models/User.js';
 import { createMockContext } from '../helpers/mockContext.js';
 
@@ -7,6 +7,7 @@ describe('Middleware активности и уведомление о ново�
   const administratorTelegramIdentifier = '791785172';
 
   beforeEach(() => {
+    clearUserCache();
     process.env.CREATOR_ID = administratorTelegramIdentifier;
   });
 

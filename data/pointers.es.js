@@ -10952,5 +10952,56 @@ Elige ahora mismo.`,
     text: `El tiempo no avanza. Te devora vivo, segundo a segundo. Tu infancia ya está muerta. El día de ayer está muerto. Este mismo segundo acaba de consumirse para siempre.`,
     source: null,
     tags: ["silencio"]
+  },
+  {
+    number: 1612,
+    text: `A la mente le encanta hacer la pregunta: «¿Quién soy yo?».
+Prueba a hacerle una contrapregunta: «¿Y quién eres tú para interrogarme?».
+Quizá la conversación se vuelva más interesante.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1613,
+    text: `Decidiste convertirte en el testigo.
+Ahora estás sentado esperando a que empiece algo digno de observación.
+Observa esa espera.
+La función ya ha comenzado, querido espectador.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1614,
+    text: `Si tu meditación no viene acompañada del discreto grito
+del demonio interior que acaba de entender
+que lo han despedido sin indemnización,
+simplemente estabas durmiendo.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1615,
+    text: `Deja de buscar la iluminación en la esterilla de yoga.
+Suele esconderse allí donde maldices con más fuerza
+a la cremallera atascada de la chaqueta.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1616,
+    text: `Llegas tarde otra vez a la cita contigo mismo.
+No te preocupes, él tampoco llega nunca a tiempo.
+En realidad, nunca llega.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1617,
+    text: `Por la mañana. La alarma suena a todo volumen.
+Primer pensamiento: «¿Quién soy yo?».
+Segundo: «¿Dónde está el café?».
+El segundo suele ganar y es notablemente más productivo.`,
+    source: null,
+    tags: ["silencio"]
   }
 ];

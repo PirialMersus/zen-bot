@@ -163,7 +163,7 @@ export const handleQuietToggle = async ctx => {
     if (quietEndDate > currentMoment) {
       await Reminder.updateMany(
         {
-          userId: String(ctx.from.id),
+          userId: ctx.from.id,
           isActive: true,
           nextRunAt: { $gt: currentMoment, $lte: quietEndDate }
         },

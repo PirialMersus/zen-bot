@@ -228,7 +228,7 @@ router.get('/pointers/random', async (req, res) => {
 router.get('/reminders', authMiddleware, async (req, res) => {
   try {
     const reminders = await Reminder.find({
-      userId: String(req.user.telegramId)
+      userId: req.user.telegramId
     }).sort({ createdAt: -1 });
 
     res.json(reminders);
@@ -248,7 +248,7 @@ router.post('/reminders', authMiddleware, async (req, res) => {
 
     const now = new Date();
     const reminder = await Reminder.create({
-      userId: String(req.user.telegramId),
+      userId: req.user.telegramId,
       chatId: req.user.telegramId,
       text,
       intervalMinutes,
@@ -284,7 +284,7 @@ router.patch('/reminders/:id', authMiddleware, async (req, res) => {
     }
 
     const reminder = await Reminder.findOneAndUpdate(
-      { _id: id, userId: String(req.user.telegramId) },
+      { _id: id, userId: req.user.telegramId },
       { $set: sanitizedUpdates },
       { new: true }
     );
@@ -305,7 +305,7 @@ router.delete('/reminders/:id', authMiddleware, async (req, res) => {
     const { id } = req.params;
     const reminder = await Reminder.findOneAndDelete({
       _id: id,
-      userId: String(req.user.telegramId)
+      userId: req.user.telegramId
     });
 
     if (!reminder) {

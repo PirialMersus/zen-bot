@@ -2,7 +2,7 @@ import User from '../../models/User.js';
 import { languageSelectionKeyboard } from '../../keyboard/language.js';
 import { mainKeyboard } from '../../keyboard/main.js';
 import { getTexts } from '../../constants/texts.js';
-import { resolveUserLanguage } from '../../middlewares/activity.js';
+import { resolveUserLanguage, invalidateUserCache } from '../../middlewares/activity.js';
 
 export const handleLanguageMenu = async ctx => {
   const userLanguage = await resolveUserLanguage(ctx);
@@ -32,6 +32,7 @@ export const handleLanguageSet = async ctx => {
 
   ctx.state = ctx.state || {};
   ctx.state.userLanguage = selectedLanguage;
+  invalidateUserCache(ctx.from.id);
 
   await ctx.answerCbQuery().catch(() => {});
 

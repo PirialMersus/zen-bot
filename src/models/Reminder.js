@@ -1,7 +1,7 @@
 import mongoose from 'mongoose';
 
 const schema = new mongoose.Schema({
-  userId: { type: String, index: true },
+  userId: { type: Number, index: true },
   chatId: { type: Number, index: true },
   text: String,
   photoFileId: { type: String, default: null },
@@ -18,7 +18,13 @@ const schema = new mongoose.Schema({
   soundId: { type: String, default: 'default' },
 
   isRandomPointer: { type: Boolean, default: false },
-  isFavoritePointer: { type: Boolean, default: false }
+  isFavoritePointer: { type: Boolean, default: false },
+
+  lockedAt: { type: Date, default: null },
+
+  type: { type: String, enum: ['interval', 'daily'], default: 'interval' },
+  targetTime: { type: String, default: null },
+  daysOfWeek: { type: [Number], default: [] }
 });
 
 schema.index({ isActive: 1, nextRunAt: 1 });

@@ -6,7 +6,7 @@ export const cleanupUser = async telegramId => {
   const id = Number(telegramId);
   await Promise.allSettled([
     User.deleteOne({ telegramId: id }),
-    Reminder.deleteMany({ userId: String(id) }),
+    Reminder.deleteMany({ userId: id }),
     Activity.deleteMany({ telegramId: id })
   ]);
 };

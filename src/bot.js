@@ -1,7 +1,7 @@
 import { Telegraf, session } from 'telegraf';
-import { BUTTONS } from './constants/buttons.js';
+import { BUTTONS, getButtonVariants } from './constants/buttons.js';
 import { TEXTS, getTexts, isDoNotDeleteText, COMBINED_AUTO_DELETE_MAP } from './constants/texts.js';
-import { UI } from './constants/ui.js';
+import { UI, getUiVariants } from './constants/ui.js';
 import {
   handleAdminActiveUsers,
   handleAdminBroadcastCancel,
@@ -17,6 +17,7 @@ import {
 import { handleGetAuthCode } from './handlers/auth.js';
 import { handleBack } from './handlers/back.js';
 import { handleStart } from './handlers/menu.js';
+import { handleUnknownMessage } from './handlers/fallback.js';
 import {
   handleNextPointer,
   handlePointer,
@@ -88,19 +89,19 @@ bot.action('pointer:fav_info', handleFavoriteInfo);
 bot.action('pointer:expire_info', handleExpireInfo);
 bot.action(/^pointer:keep/, handleKeepPointer);
 
-bot.hears([BUTTONS.ru.POINTER, BUTTONS.en.POINTER, BUTTONS.uk.POINTER, BUTTONS.es.POINTER], handlePointersMenu);
-bot.hears([UI.ru.POINTER_RANDOM, UI.en.POINTER_RANDOM, UI.uk.POINTER_RANDOM, UI.es.POINTER_RANDOM], handleRandomPointer);
-bot.hears([UI.ru.POINTER_FAVORITE, UI.en.POINTER_FAVORITE, UI.uk.POINTER_FAVORITE, UI.es.POINTER_FAVORITE], handleFavoritePointer);
-bot.hears([BUTTONS.ru.REMINDERS, BUTTONS.en.REMINDERS, BUTTONS.uk.REMINDERS, BUTTONS.es.REMINDERS], handleReminders);
-bot.hears([BUTTONS.ru.SETTINGS, BUTTONS.en.SETTINGS, BUTTONS.uk.SETTINGS, BUTTONS.es.SETTINGS], handleSettings);
+bot.hears(getButtonVariants('POINTER'), handlePointersMenu);
+bot.hears(getUiVariants('POINTER_RANDOM'), handleRandomPointer);
+bot.hears(getUiVariants('POINTER_FAVORITE'), handleFavoritePointer);
+bot.hears(getButtonVariants('REMINDERS'), handleReminders);
+bot.hears(getButtonVariants('SETTINGS'), handleSettings);
 
-bot.hears([UI.ru.REMINDER_CREATE, UI.en.REMINDER_CREATE, UI.uk.REMINDER_CREATE, UI.es.REMINDER_CREATE], handleCreateReminder);
-bot.hears([UI.ru.REMINDER_MY, UI.en.REMINDER_MY, UI.uk.REMINDER_MY, UI.es.REMINDER_MY], handleMyReminders);
+bot.hears(getUiVariants('REMINDER_CREATE'), handleCreateReminder);
+bot.hears(getUiVariants('REMINDER_MY'), handleMyReminders);
 
-bot.hears([UI.ru.INTERVAL_5, UI.en.INTERVAL_5, UI.uk.INTERVAL_5, UI.es.INTERVAL_5], ctx => handleIntervalPreset(ctx, 5));
-bot.hears([UI.ru.INTERVAL_15, UI.en.INTERVAL_15, UI.uk.INTERVAL_15, UI.es.INTERVAL_15], ctx => handleIntervalPreset(ctx, 15));
-bot.hears([UI.ru.INTERVAL_60, UI.en.INTERVAL_60, UI.uk.INTERVAL_60, UI.es.INTERVAL_60], ctx => handleIntervalPreset(ctx, 60));
-bot.hears([UI.ru.INTERVAL_1440, UI.en.INTERVAL_1440, UI.uk.INTERVAL_1440, UI.es.INTERVAL_1440], ctx => handleIntervalPreset(ctx, 1440));
+bot.hears(getUiVariants('INTERVAL_5'), ctx => handleIntervalPreset(ctx, 5));
+bot.hears(getUiVariants('INTERVAL_15'), ctx => handleIntervalPreset(ctx, 15));
+bot.hears(getUiVariants('INTERVAL_60'), ctx => handleIntervalPreset(ctx, 60));
+bot.hears(getUiVariants('INTERVAL_1440'), ctx => handleIntervalPreset(ctx, 1440));
 
 bot.action(/^pause:/, ctx => handleRequestAction(ctx, 'pause'));
 bot.action(/^resume:/, ctx => handleRequestAction(ctx, 'resume'));
@@ -160,13 +161,13 @@ bot.action('reminder:back_to_intervals', async ctx => {
 });
 
 bot.hears([
-  BUTTONS.ru.BACK, BUTTONS.en.BACK, BUTTONS.uk.BACK, BUTTONS.es.BACK,
-  UI.ru.POINTER_TO_MENU, UI.en.POINTER_TO_MENU, UI.uk.POINTER_TO_MENU, UI.es.POINTER_TO_MENU
+  ...getButtonVariants('BACK'),
+  ...getUiVariants('POINTER_TO_MENU')
 ], handleBack);
-bot.hears([UI.ru.POINTER_NEXT, UI.en.POINTER_NEXT, UI.uk.POINTER_NEXT, UI.es.POINTER_NEXT], handleNextPointer);
-bot.hears([UI.ru.POINTER_TO_REMINDER, UI.en.POINTER_TO_REMINDER, UI.uk.POINTER_TO_REMINDER, UI.es.POINTER_TO_REMINDER], handlePointerToReminder);
-bot.hears([UI.ru.ADMIN_ACTIVE_USERS, UI.en.ADMIN_ACTIVE_USERS, UI.uk.ADMIN_ACTIVE_USERS, UI.es.ADMIN_ACTIVE_USERS], handleAdminActiveUsers);
-bot.hears([UI.ru.ADMIN_BROADCAST, UI.en.ADMIN_BROADCAST, UI.uk.ADMIN_BROADCAST, UI.es.ADMIN_BROADCAST], handleAdminBroadcastStart);
+bot.hears(getUiVariants('POINTER_NEXT'), handleNextPointer);
+bot.hears(getUiVariants('POINTER_TO_REMINDER'), handlePointerToReminder);
+bot.hears(getUiVariants('ADMIN_ACTIVE_USERS'), handleAdminActiveUsers);
+bot.hears(getUiVariants('ADMIN_BROADCAST'), handleAdminBroadcastStart);
 
 bot.command(['pointer', 'p'], handleAdminGetPointerByNumber);
 bot.hears(/^(?:получить\s+)?(?:pointer|указатель|вказівник|puntero)(?:\s+(?:en|ru|uk|es))?\s+\d+$/i, handleAdminGetPointerByNumber);
@@ -175,7 +176,7 @@ bot.hears(/^\/p(?:ointer)?(?:_(?:en|ru|uk|es))?\s+\d+$/i, handleAdminGetPointerB
 bot.command(['find', 'search', 'f'], handleAdminSearchPointers);
 bot.hears(/^(?:\/find|\/search|\/f|найти|поиск|знайти|пошук|buscar)(?:_(?:en|ru|uk|es))?(?:\s+.+)?$/i, handleAdminSearchPointers);
 
-bot.hears([BUTTONS.ru.SUPPORT, BUTTONS.en.SUPPORT, BUTTONS.uk.SUPPORT, BUTTONS.es.SUPPORT], async ctx => {
+bot.hears(getButtonVariants('SUPPORT'), async ctx => {
   const userLanguage = await resolveUserLanguage(ctx);
   const texts = getTexts(userLanguage);
   await ctx.reply(texts.SUPPORT, getSupportInlineKeyboard(userLanguage));
@@ -211,9 +212,10 @@ bot.on(['video', 'video_note'], async ctx => {
   await handleReminderVideo(ctx);
 });
 
-bot.on(['voice', 'audio', 'document'], async ctx => {
+bot.on(['voice', 'audio', 'document', 'sticker'], async ctx => {
   if (await handleFeedbackMessage(ctx)) return;
   if (await handleAdminBroadcastMessage(ctx)) return;
+  await handleUnknownMessage(ctx);
 });
 
 bot.on('text', async ctx => {
@@ -223,5 +225,8 @@ bot.on('text', async ctx => {
   if (await handleDeleteAfterInput(ctx)) return;
   if (await handleIntervalInput(ctx)) return;
   if (await handleAdminGetPointerByNumber(ctx)) return;
-  await handleReminderText(ctx);
+  const wasHandled = await handleReminderText(ctx);
+  if (!wasHandled) {
+    await handleUnknownMessage(ctx);
+  }
 });

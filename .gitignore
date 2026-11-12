@@ -3,5 +3,5 @@ node_modules
 .env.*
 npm-debug.log
 .DS_Store
-.idea/vcs.xml
+.idea/
 .cache

@@ -10952,5 +10952,56 @@ Choose right now.`,
     text: `Time does not move forward. It devours you alive, second by second. Your childhood is already dead. Yesterday is dead. This very second has just burned away forever.`,
     source: null,
     tags: ["stillness"]
+  },
+  {
+    number: 1612,
+    text: `The mind loves to ask the question: "Who am I?"
+Try asking it in return: "And who are you to interrogate me?"
+Perhaps the conversation will get more interesting.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1613,
+    text: `You decided to become the witness.
+Now you're sitting and waiting for something worthy of observation to begin.
+Look at this expectation.
+The play has already started, dear spectator.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1614,
+    text: `If your meditation isn't accompanied by the quiet screaming
+of the inner demon who just realized
+he's been fired without severance pay,
+you were just sleeping.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1615,
+    text: `Stop looking for enlightenment on a yoga mat.
+It usually hides where you curse the loudest
+at a stuck jacket zipper.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1616,
+    text: `You're late for a meeting with yourself again.
+Don't worry, he never arrives on time either.
+In fact, he never arrives at all.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1617,
+    text: `Morning. The alarm is blaring.
+First thought: "Who am I?".
+Second: "Where is the coffee?".
+The second usually wins and is noticeably more productive.`,
+    source: null,
+    tags: ["stillness"]
   }
 ];

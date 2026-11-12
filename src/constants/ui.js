@@ -144,3 +144,10 @@ export const getUi = (language = 'ru') => {
   if (language === 'es') return SPANISH_UI;
   return RUSSIAN_UI;
 };
+
+export const getUiVariants = uiKey => [
+  UI.ru[uiKey],
+  UI.en[uiKey],
+  UI.uk[uiKey],
+  UI.es[uiKey]
+].filter(Boolean);

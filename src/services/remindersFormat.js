@@ -87,8 +87,18 @@ const REMINDERS_FORMAT_LOCALIZATIONS = {
 const resolveFormatLocalization = language =>
   REMINDERS_FORMAT_LOCALIZATIONS[language] || REMINDERS_FORMAT_LOCALIZATIONS.ru;
 
-export const formatInterval = (minutes, language = 'ru') => {
+export const formatInterval = (reminderOrMinutes, language = 'ru') => {
   const formatLocalization = resolveFormatLocalization(language);
+  if (typeof reminderOrMinutes === 'object' && reminderOrMinutes?.type === 'daily' && reminderOrMinutes?.targetTime) {
+    const dailyLabels = {
+      ru: `Каждый день в ${reminderOrMinutes.targetTime} ⌛`,
+      en: `Every day at ${reminderOrMinutes.targetTime} ⌛`,
+      uk: `Щодня о ${reminderOrMinutes.targetTime} ⌛`,
+      es: `Todos los días a las ${reminderOrMinutes.targetTime} ⌛`
+    };
+    return dailyLabels[language] || dailyLabels.ru;
+  }
+  const minutes = typeof reminderOrMinutes === 'object' ? reminderOrMinutes.intervalMinutes : reminderOrMinutes;
   if (minutes === 1440) return formatLocalization.intervalDay;
   if (minutes === 60) return formatLocalization.intervalHour;
   return formatLocalization.intervalMinutes(minutes);
@@ -146,7 +156,7 @@ export const formatReminderMessageText = (reminderItem, indexNumberString, langu
 
   return `<b>${indexNumberString}.</b> ${status}
 
-<i>${formatInterval(reminderItem.intervalMinutes, language)}</i>
+<i>${formatInterval(reminderItem, language)}</i>
 <i>${autoDeleteLabel}</i>${nextRunLine}
 
 «${displayText}»`;
@@ -202,7 +212,7 @@ export const buildRemindersListPayload = (reminders, userLanguage = 'ru', userTi
     }
 
     const shortText = previewText(displayText);
-    const intervalLabel = formatInterval(reminderItem.intervalMinutes, userLanguage);
+    const intervalLabel = formatInterval(reminderItem, userLanguage);
 
     const nextRunTime = reminderItem.isActive && reminderItem.nextRunAt
       ? formatNextRunTime(reminderItem.nextRunAt, userTimezone, userLanguage)
