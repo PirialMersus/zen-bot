@@ -11003,5 +11003,181 @@ Second: "Where is the coffee?".
 The second usually wins and is noticeably more productive.`,
     source: null,
     tags: ["stillness"]
+  },
+  {
+    number: 1618,
+    text: `Terrible news: death cannot be cured by yogurt, a nutritionist, or a morning ritual. 
+Good news: the fear of death is cured if you look at who exactly is afraid. 
+Bad news: you will actually have to look.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1619,
+    text: `Airplane instructions: put on your own mask first when cabin pressure drops. 
+Pressure has been dropping since the moment of your birth. 
+The mask is called "stillness".`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1620,
+    text: `If you were told the date of your death a year in advance, you would discard half your tasks. 
+The date is known, just not to you. 
+Throw them away right now.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1621,
+    text: `Advertisement: 
+"Immortality! Only for those who have ceased to be someone. Call right now." 
+Phone number: stillness. 
+Price: you.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1622,
+    text: `You already did not exist once: before birth. 
+Billions of years. 
+You did not suffer and you were not bored. 
+So what exactly is frightening about returning?`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1623,
+    text: `A year after you are gone, you will be remembered less often than a forgotten password. 
+Only stillness will turn out to be immortal, but for some reason, you are not friends with it.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1624,
+    text: `The one who is afraid right now will die. 
+The one who is watching the fear will not. 
+Think about which of them you have spent the last thirty years on.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1625,
+    text: `The fear of death is an alarm clock, and you keep hitting "snooze". The final ring with no "snooze" button does exist after all.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1626,
+    text: `Your precious "I" is merely mold on the mirror of perception that imagined itself the master of the house. 
+Wiping it away takes one second of genuine sobriety.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1627,
+    text: `You fear the unknown more than death. 
+Even though the unknown is the only living reality, while your "known" is nothing but memories and patterns.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1628,
+    text: `You seek teachers who will stroke you the right way, because a real teacher will cauterize your ego with a red-hot iron.
+And you are mortally unprepared for that.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1629,
+    text: `Are you in pain? Excellent. 
+Pain is the only alarm clock capable of piercing through the thick shell of your daily sleep. 
+Be glad you are still being struck.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1630,
+    text: `You think you are thinking? Thoughts are thinking you. 
+You are simply a screen displaying someone else's nonsense as a news ticker, while you sit and weep over the subtitles.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1631,
+    text: `Not a single one of your successes will matter when your heart takes its final beat. 
+The only thing that carries weight is whether you woke up or dropped dead still asleep.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1632,
+    text: `No techniques will help until a genuine nausea with your own hypocrisy and autopilot life has ripened within you.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1633,
+    text: `Do you know why you are so drawn to snacking, scrolling feeds, or chatting? 
+Because if you fall quiet for even a single minute, the chilling horror of your own insignificance will leap out at you from around the corner of stillness.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1634,
+    text: `Your fears are cardboard monsters in a funhouse. 
+The most shameful part is not that you fear them, but that you paint them yourself, illuminate them with a flashlight yourself, and faint before them yourself.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1635,
+    text: `You look like someone standing neck-deep in filth who refuses to climb out because "it's already warm and familiar here, while up there the wind blows and it's unclear how to live at all."`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1636,
+    text: `If your mind were an employee at your company, you would have fired him for cause on the very first day for sabotage, stealing energy, and constant lying. 
+Yet for some reason, you made him the CEO.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1637,
+    text: `The mind whispers: "Let's sleep five more minutes in illusions." 
+Yeah, on the Titanic and before every stroke, people also thought they had plenty of time to spare.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1638,
+    text: `If after such words you are merely "intrigued" — prepare the soil. 
+Curiosity is a corpse's hobby. Fear, shame, and the count of heartbeats bring you to the floor. 
+Curiosity sinks you into an armchair and turns on the next video.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1639,
+    text: `It wasn't harshness that finished you. 
+It was softness. 
+A blanket. A "gentle approach". 
+A voice that pets lies on the head. 
+Harshness is simply the truth refusing to apologize for the fact that you are rotting on schedule.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1640,
+    text: `You are afraid of losing yourself. 
+But let's be honest: what exactly are you cherishing so much? 
+A stream of thoughts that never asks for permission. 
+A mood that shifts without your participation. 
+A body that ages on its own schedule. 
+The story of a person whom you reconstruct from memories every morning. 
+It seems you are guarding not a treasure, but a very expensive habit.`,
+    source: null,
+    tags: ["stillness"]
   }
 ];

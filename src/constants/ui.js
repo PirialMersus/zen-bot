@@ -9,8 +9,8 @@ const RUSSIAN_UI = {
   POINTER_FAV_REMOVE: '✖️ Из избранного',
   POINTER_SHARE: '📤 Переслать',
   POINTER_EXPIRE_BADGE: seconds => `⏳ Исчезнет через ${seconds} сек`,
-  POINTER_KEEP_BUTTON: seconds => `⏳ Не удалять (${seconds}с)`,
-  POINTER_KEEP_TOAST: '⏳ Автоудаление отменено',
+  POINTER_KEEP_BUTTON: seconds => `⏳ Оставить (${seconds}с)`,
+  POINTER_KEEP_TOAST: 'Сохранено в чате 🕊',
   POINTER_TO_MENU: '⬅️ В меню',
 
   REMINDER_CREATE: '➕ Создать',
@@ -42,8 +42,8 @@ const ENGLISH_UI = {
   POINTER_FAV_REMOVE: '✖️ Remove from favorites',
   POINTER_SHARE: '📤 Forward',
   POINTER_EXPIRE_BADGE: seconds => `⏳ Disappears in ${seconds}s`,
-  POINTER_KEEP_BUTTON: seconds => `⏳ Do not delete (${seconds}s)`,
-  POINTER_KEEP_TOAST: '⏳ Auto-delete cancelled',
+  POINTER_KEEP_BUTTON: seconds => `⏳ Keep (${seconds}s)`,
+  POINTER_KEEP_TOAST: 'Saved in chat 🕊',
   POINTER_TO_MENU: '⬅️ To menu',
 
   REMINDER_CREATE: '➕ Create',
@@ -75,8 +75,8 @@ const UKRAINIAN_UI = {
   POINTER_FAV_REMOVE: '✖️ З обраного',
   POINTER_SHARE: '📤 Переслати',
   POINTER_EXPIRE_BADGE: seconds => `⏳ Зникне через ${seconds} сек`,
-  POINTER_KEEP_BUTTON: seconds => `⏳ Не видаляти (${seconds}с)`,
-  POINTER_KEEP_TOAST: '⏳ Автовидалення скасовано',
+  POINTER_KEEP_BUTTON: seconds => `⏳ Залишити (${seconds}с)`,
+  POINTER_KEEP_TOAST: 'Збережено в чаті 🕊',
   POINTER_TO_MENU: '⬅️ До меню',
 
   REMINDER_CREATE: '➕ Створити',
@@ -108,8 +108,8 @@ const SPANISH_UI = {
   POINTER_FAV_REMOVE: '✖️ Quitar de favoritos',
   POINTER_SHARE: '📤 Reenviar',
   POINTER_EXPIRE_BADGE: seconds => `⏳ Desaparece en ${seconds}s`,
-  POINTER_KEEP_BUTTON: seconds => `⏳ No eliminar (${seconds}s)`,
-  POINTER_KEEP_TOAST: '⏳ Autoeliminación cancelada',
+  POINTER_KEEP_BUTTON: seconds => `⏳ Guardar (${seconds}s)`,
+  POINTER_KEEP_TOAST: 'Guardado en el chat 🕊',
   POINTER_TO_MENU: '⬅️ Al menú',
 
   REMINDER_CREATE: '➕ Crear',

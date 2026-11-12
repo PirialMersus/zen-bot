@@ -11003,5 +11003,181 @@ Segundo: «¿Dónde está el café?».
 El segundo suele ganar y es notablemente más productivo.`,
     source: null,
     tags: ["silencio"]
+  },
+  {
+    number: 1618,
+    text: `Una terrible noticia: la muerte no se cura con yogur, ni con un nutricionista, ni con un ritual matutino. 
+Una buena: el miedo a la muerte se cura si miras quién es exactamente el que teme. 
+Una mala: tendrás que mirar.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1619,
+    text: `Instrucciones del avión: en caso de despresurización, colóquese primero la mascarilla usted mismo. 
+La presión cae desde el momento del nacimiento. 
+La mascarilla se llama «silencio».`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1620,
+    text: `Si te dijeran la fecha de tu muerte con un año de antelación, tirarías la mitad de tus asuntos. 
+La fecha se sabe, simplemente no tú. 
+Desechalos ya mismo.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1621,
+    text: `Anuncio: 
+«¡Inmortalidad! Solo para aquellos que han dejado de ser alguien. Llame ahora mismo». 
+Número de teléfono: silencio. 
+Precio: tú.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1622,
+    text: `Ya no exististe una vez: antes de nacer. 
+Miles de millones de años. 
+No sufrías ni te aburrías. 
+¿Qué es exactamente lo que asusta de volver?`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1623,
+    text: `Un año después de ti, te recordarán con menos frecuencia que una contraseña olvidada. 
+Solo el silencio resultará ser inmortal, pero por alguna razón no eres amigo suyo.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1624,
+    text: `El que tiene miedo ahora morirá. 
+El que observa el miedo, no. 
+Piensa en cuál de ellos has pasado los últimos treinta años.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1625,
+    text: `El miedo a la muerte es un despertador, y tú no dejas de pulsar «posponer». La última llamada sin botón de «posponer» sí existe después de todo.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1626,
+    text: `Tu precioso «Yo» no es más que moho en el espejo de la percepción que se creyó el dueño de la casa. 
+Limpiarlo es cuestión de un segundo de sobriedad sincera.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1627,
+    text: `Temes a lo desconocido más que a la muerte. 
+Aunque lo desconocido es la única realidad viva, y tu «conocido» son solo recuerdos y patrones.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1628,
+    text: `Buscas maestros que te acaricien a favor del pelo, porque un verdadero maestro quemará tu ego con hierro al rojo vivo.
+Y para eso estás mortalmente desprevenido.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1629,
+    text: `¿Te duele? Excelente. 
+El dolor es el único despertador capaz de romper la gruesa cáscara de tu sueño cotidiano. 
+Alégrate de que aún te golpeen.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1630,
+    text: `¿Crees que estás pensando? Los pensamientos te están pensando a ti. 
+Eres simplemente una pantalla por la que pasa el desvarío de otro como teletipo, mientras te sientas a llorar por los subtítulos.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1631,
+    text: `Ninguno de tus éxitos tendrá la menor importancia cuando tu corazón dé su último latido. 
+Lo único que cuenta es si despertaste o moriste en el sueño.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1632,
+    text: `Ninguna técnica servirá hasta que madure en ti la náusea por tu propia hipocresía y por vivir en piloto automático.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1633,
+    text: `¿Sabes por qué te apetece tanto comer, hacer scroll en las redes o chatear? 
+Porque basta con que te calles durante un minuto para que, a la vuelta del silencio, te asalte el frío terror de tu propia insignificancia.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1634,
+    text: `Tus miedos son monstruos de cartón en un laberinto de espejos. 
+Lo más vergonzoso no es que les temas, sino que tú mismo los pintas, tú mismo los alumbras con una linterna y tú mismo te desmayas.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1635,
+    text: `Te pareces a alguien con la mierda hasta el cuello que se niega a salir porque «aquí ya está calentito y es familiar, mientras que arriba sopla el viento y no se sabe cómo vivir».`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1636,
+    text: `Si tu mente fuera un empleado de tu empresa, la habrías despedido procedente el primer día por sabotaje, robo de energía y mentiras constantes. 
+Pero por alguna razón la nombraste directora general.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1637,
+    text: `La mente susurra: «Durmamos cinco minutitos más en ilusiones». 
+Claro, en el Titanic y antes de cada derrame cerebral la gente también creía tener una eternidad por delante.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1638,
+    text: `Si tras estas palabras solo sientes «curiosidad», ve preparando la tierra. 
+La curiosidad es el pasatiempo de un cadáver. El miedo, la vergüenza y la cuenta de los latidos te tiran al suelo. 
+La curiosidad te sienta en un sillón y enciende el siguiente vídeo.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1639,
+    text: `No te destrozó la dureza. 
+Te destrozó la suavidad. 
+Una manta. El «enfoque cuidadoso». 
+Una voz que acaricia la mentira en la cabeza. 
+La dureza es cuando la verdad no se disculpa de que te estés pudriendo según lo previsto.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1640,
+    text: `Temes perderte a ti mismo. 
+Pero seamos sinceros: ¿qué es exactamente lo que proteges tanto? 
+Un flujo de pensamientos que no pide permiso. 
+Un estado de ánimo que cambia sin tu intervención. 
+Un cuerpo que envejece según su propio calendario. 
+La historia de una persona a la que cada mañana reconstruyes a partir de recuerdos. 
+Parece que no estás custodiando un tesoro, sino un hábito sumamente caro.`,
+    source: null,
+    tags: ["silencio"]
   }
 ];

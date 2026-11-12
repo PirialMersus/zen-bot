@@ -31,7 +31,7 @@ describe('Указатели в напоминаниях и управление
     vi.useRealTimers();
   });
 
-  it('должен формировать inline-клавиатуру для напоминания с бейджем автоудаления и кнопкой В избранное', () => {
+  it('должен формировать компактную inline-клавиатуру в одну строку с кнопкой Оставить и В избранное', () => {
     const keyboard = buildReminderPointerInlineKeyboard({
       pointerId: '60c72b2f9b1d8b2bad000001',
       isFavorite: false,
@@ -40,17 +40,15 @@ describe('Указатели в напоминаниях и управление
     });
 
     const replyMarkup = keyboard.reply_markup;
-    expect(replyMarkup.inline_keyboard.length).toBe(2);
+    expect(replyMarkup.inline_keyboard.length).toBe(1);
 
-    const badgeRow = replyMarkup.inline_keyboard[0];
-    expect(badgeRow.length).toBe(1);
-    expect(badgeRow[0].text).toBe(UI.ru.POINTER_EXPIRE_BADGE(30));
-    expect(badgeRow[0].callback_data).toBe('pointer:expire_info');
+    const actionRow = replyMarkup.inline_keyboard[0];
+    expect(actionRow.length).toBe(2);
+    expect(actionRow[0].text).toBe(UI.ru.POINTER_KEEP_BUTTON(30));
+    expect(actionRow[0].callback_data).toBe('pointer:keep:60c72b2f9b1d8b2bad000001');
 
-    const favRow = replyMarkup.inline_keyboard[1];
-    expect(favRow.length).toBe(1);
-    expect(favRow[0].text).toBe(UI.ru.POINTER_FAV_ADD);
-    expect(favRow[0].callback_data).toBe('pointer:fav_toggle:60c72b2f9b1d8b2bad000001:reminder');
+    expect(actionRow[1].text).toBe(UI.ru.POINTER_FAV_ADD);
+    expect(actionRow[1].callback_data).toBe('pointer:fav_toggle:60c72b2f9b1d8b2bad000001:reminder');
   });
 
   it('должен формировать клавиатуру только с кнопкой В избранное, если автоудаление не настроено', () => {

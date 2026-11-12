@@ -55,24 +55,24 @@ export const buildReminderPointerInlineKeyboard = ({
   language = 'ru'
 }) => {
   const ui = getUi(language);
-  const rows = [];
+  const actionRow = [];
 
   if (deleteAfterSeconds) {
-    rows.push([
-      Markup.button.callback(ui.POINTER_EXPIRE_BADGE(deleteAfterSeconds), 'pointer:expire_info')
-    ]);
+    actionRow.push(
+      Markup.button.callback(ui.POINTER_KEEP_BUTTON(deleteAfterSeconds), `pointer:keep:${pointerId || ''}`)
+    );
   }
 
   const shouldShowFavoriteAddButton = !isFavorite && Boolean(pointerId);
   if (shouldShowFavoriteAddButton) {
-    rows.push([
+    actionRow.push(
       Markup.button.callback(ui.POINTER_FAV_ADD, `pointer:fav_toggle:${pointerId}:reminder`)
-    ]);
+    );
   }
 
-  if (rows.length === 0) {
+  if (actionRow.length === 0) {
     return null;
   }
 
-  return Markup.inlineKeyboard(rows);
+  return Markup.inlineKeyboard([actionRow]);
 };
