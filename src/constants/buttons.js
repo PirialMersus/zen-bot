@@ -7,7 +7,8 @@ const RUSSIAN_BUTTONS = {
   QUIET_ON: '🔕 Не беспокоить ночью',
   QUIET_OFF: '🔔 Получать ночью',
   BACK: '⬅️ Назад',
-  LANGUAGE: '🌐 Язык'
+  LANGUAGE: '🌐 Язык',
+  QUIET_HOURS_SCHEDULE: '⏰ Время тихих часов'
 };
 
 const ENGLISH_BUTTONS = {
@@ -19,7 +20,8 @@ const ENGLISH_BUTTONS = {
   QUIET_ON: '🔕 Do not disturb at night',
   QUIET_OFF: '🔔 Receive at night',
   BACK: '⬅️ Back',
-  LANGUAGE: '🌐 Language'
+  LANGUAGE: '🌐 Language',
+  QUIET_HOURS_SCHEDULE: '⏰ Quiet hours'
 };
 
 const UKRAINIAN_BUTTONS = {
@@ -31,7 +33,8 @@ const UKRAINIAN_BUTTONS = {
   QUIET_ON: '🔕 Не турбувати вночі',
   QUIET_OFF: '🔔 Отримувати вночі',
   BACK: '⬅️ Назад',
-  LANGUAGE: '🌐 Мова'
+  LANGUAGE: '🌐 Мова',
+  QUIET_HOURS_SCHEDULE: '⏰ Час тихих годин'
 };
 
 const SPANISH_BUTTONS = {
@@ -43,7 +46,8 @@ const SPANISH_BUTTONS = {
   QUIET_ON: '🔕 No molestar de noche',
   QUIET_OFF: '🔔 Recibir de noche',
   BACK: '⬅️ Atrás',
-  LANGUAGE: '🌐 Idioma'
+  LANGUAGE: '🌐 Idioma',
+  QUIET_HOURS_SCHEDULE: '⏰ Horas de silencio'
 };
 
 export const BUTTONS = {

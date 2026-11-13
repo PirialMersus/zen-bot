@@ -4,6 +4,10 @@ import User from '../models/User.js';
 
 export const handleGetAuthCode = async (ctx) => {
   try {
+    if (ctx.callbackQuery) {
+      await ctx.answerCbQuery().catch(() => {});
+    }
+
     const user = await User.findOne({ telegramId: ctx.from.id });
 
     if (!user) {

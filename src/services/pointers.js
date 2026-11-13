@@ -124,16 +124,23 @@ export const getNextPointerForUser = async (telegramUserId, tagFilter = null) =>
 
   if (!totalActiveCount) return null;
 
-  const previousQueueLength = user.shuffleQueue.length;
-  let currentQueue = [...user.shuffleQueue];
-  let currentIndex = user.shuffleIndex;
+  const queueFieldName = effectiveTagFilter ? 'tagShuffleQueue' : 'shuffleQueue';
+  const indexFieldName = effectiveTagFilter ? 'tagShuffleIndex' : 'shuffleIndex';
 
+  const userQueue = user[queueFieldName] || [];
+  const previousQueueLength = userQueue.length;
+  let currentQueue = [...userQueue];
+  let currentIndex = user[indexFieldName] || 0;
+
+  let queueNeedsRebuild = false;
   if (previousQueueLength === 0 || previousQueueLength !== totalActiveCount) {
     currentQueue = buildShuffledIndexArray(totalActiveCount);
     currentIndex = 0;
+    queueNeedsRebuild = true;
   } else if (currentIndex >= currentQueue.length) {
     currentQueue = buildShuffledIndexArray(totalActiveCount);
     currentIndex = 0;
+    queueNeedsRebuild = true;
   }
 
   const pointerPositionIndex = currentQueue[currentIndex];
@@ -147,7 +154,7 @@ export const getNextPointerForUser = async (telegramUserId, tagFilter = null) =>
     const freshQueue = buildShuffledIndexArray(totalActiveCount);
     await User.updateOne(
       { telegramId: telegramUserId },
-      { shuffleQueue: freshQueue, shuffleIndex: 0 }
+      { [queueFieldName]: freshQueue, [indexFieldName]: 0 }
     );
     const [fallbackPointer] = await targetPointerModel.find(activePointersQuery)
       .sort({ number: 1, _id: 1 })
@@ -158,10 +165,17 @@ export const getNextPointerForUser = async (telegramUserId, tagFilter = null) =>
   const nextIndex = currentIndex + 1 >= currentQueue.length ? 0 : currentIndex + 1;
   const nextQueue = nextIndex === 0 ? buildShuffledIndexArray(totalActiveCount) : currentQueue;
 
-  await User.updateOne(
-    { telegramId: telegramUserId },
-    { shuffleQueue: nextQueue, shuffleIndex: nextIndex }
-  );
+  if (queueNeedsRebuild || nextIndex === 0) {
+    await User.updateOne(
+      { telegramId: telegramUserId },
+      { [queueFieldName]: nextQueue, [indexFieldName]: nextIndex }
+    );
+  } else {
+    await User.updateOne(
+      { telegramId: telegramUserId },
+      { [indexFieldName]: nextIndex }
+    );
+  }
 
   return pointer;
 };
@@ -215,27 +229,28 @@ export const getNextFavoritePointerForUser = async (telegramUserId) => {
     return null;
   }
 
-  const userLanguage = ['en', 'uk', 'es'].includes(user?.language) ? user.language : 'ru';
-  const targetPointerModel = selectPointerModelByLanguage(userLanguage);
-  const fallbackPointerModels = [Pointer, PointerEn, PointerUk, PointerEs].filter(model => model !== targetPointerModel);
+  const validObjectIds = user.favoritePointers
+    .map(item => item?.pointerId)
+    .filter(id => id && mongoose.Types.ObjectId.isValid(id));
+
+  const allModels = [Pointer, PointerEn, PointerUk, PointerEs];
+  const queryPromises = allModels.map(model =>
+    model.find({ _id: { $in: validObjectIds }, isActive: true }).lean()
+  );
+  const queryResults = await Promise.all(queryPromises);
+
+  const resolvedPointersMap = new Map();
+  for (const modelPointers of queryResults) {
+    for (const doc of modelPointers) {
+      resolvedPointersMap.set(String(doc._id), doc);
+    }
+  }
 
   const validFavorites = [];
-  const resolvedPointersMap = new Map();
-
   for (const item of user.favoritePointers) {
-    if (!item?.pointerId || !mongoose.Types.ObjectId.isValid(item.pointerId)) {
-      continue;
-    }
-    let doc = await targetPointerModel.findById(item.pointerId);
-    if (!doc) {
-      for (const fallbackModel of fallbackPointerModels) {
-        doc = await fallbackModel.findById(item.pointerId);
-        if (doc) break;
-      }
-    }
-    if (doc && doc.isActive) {
+    const doc = resolvedPointersMap.get(String(item?.pointerId));
+    if (doc) {
       validFavorites.push(item);
-      resolvedPointersMap.set(String(doc._id), doc);
     }
   }
 

@@ -5,6 +5,7 @@ import { resolveUserLanguage } from '../middlewares/activity.js';
 
 export const handleBack = async ctx => {
   ctx.session ??= {};
+  ctx.session.isSettingCustomQuietHours = null;
 
   const step = ctx.session.reminderStep;
   const userLanguage = await resolveUserLanguage(ctx);

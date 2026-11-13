@@ -4,6 +4,8 @@ import apiRouter from './api/index.js';
 
 const app = express();
 
+app.set('trust proxy', 1);
+
 const configuredAllowedOrigins = process.env.ALLOWED_ORIGINS;
 const resolvedCorsOptions = configuredAllowedOrigins
   ? {
@@ -34,9 +36,19 @@ export const validateServerEnvironment = () => {
   }
 };
 
+let runningHttpServer = null;
+
 export const startServer = () => {
   validateServerEnvironment();
-  app.listen(PORT, () => {
+  runningHttpServer = app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
   });
+  return runningHttpServer;
+};
+
+export const stopServer = async () => {
+  if (runningHttpServer) {
+    await new Promise(resolveClose => runningHttpServer.close(resolveClose));
+    runningHttpServer = null;
+  }
 };

@@ -1,6 +1,7 @@
 import express from 'express';
 import jwt from 'jsonwebtoken';
 import crypto from 'node:crypto';
+import { IANAZone } from 'luxon';
 import { bot } from '../bot.js';
 import { Pointer, PointerEn, PointerUk, PointerEs } from '../models/Pointer.js';
 import Reminder from '../models/Reminder.js';
@@ -80,8 +81,11 @@ const authMiddleware = async (req, res, next) => {
     }
 
     req.user = user;
+    const currentActivityDate = new Date();
+    user.lastActivityAt = currentActivityDate;
+    User.updateOne({ _id: user._id }, { $set: { lastActivityAt: currentActivityDate } }).catch(() => {});
     next();
-  } catch (error) {
+  } catch {
     res.status(401).json({ message: 'Недействительный токен' });
   }
 };
@@ -95,15 +99,16 @@ router.post('/auth/request', async (req, res) => {
 
     const { telegramId } = req.body;
 
-    if (!telegramId) {
-      return res.status(400).json({ message: 'telegramId обязателен' });
+    const telegramIdNumber = Number(telegramId);
+    if (!Number.isSafeInteger(telegramIdNumber) || telegramIdNumber <= 0) {
+      return res.status(400).json({ message: 'telegramId обязателен и должен быть положительным числом' });
     }
 
-    if (!isRequestWithinRateLimit(`auth_request_tg:${telegramId}`, 3, 10 * 60 * 1000)) {
+    if (!isRequestWithinRateLimit(`auth_request_tg:${telegramIdNumber}`, 3, 10 * 60 * 1000)) {
       return res.status(429).json({ message: 'Слишком много запросов кода для этого аккаунта. Пожалуйста, подожди 10 минут.' });
     }
 
-    const user = await User.findOne({ telegramId });
+    const user = await User.findOne({ telegramId: telegramIdNumber });
     if (!user) {
       return res.status(404).json({ message: 'Пользователь не найден. Сначала запусти бота.' });
     }
@@ -126,10 +131,10 @@ router.post('/auth/request', async (req, res) => {
 
     if (bot?.telegram?.sendMessage) {
       try {
-        await bot.telegram.sendMessage(telegramId, authNotificationMessageText, { parse_mode: 'HTML' });
+        await bot.telegram.sendMessage(telegramIdNumber, authNotificationMessageText, { parse_mode: 'HTML' });
       } catch (telegramSendError) {
         if (process.env.NODE_ENV !== 'test') {
-          logError(telegramSendError, { telegramId, context: 'API_AUTH_REQUEST_TELEGRAM_SEND' });
+          logError(telegramSendError, { telegramId: telegramIdNumber, context: 'API_AUTH_REQUEST_TELEGRAM_SEND' });
           return res.status(500).json({ message: 'Не удалось отправить код в Telegram. Убедись, что бот запущен.' });
         }
       }
@@ -242,8 +247,27 @@ router.post('/reminders', authMiddleware, async (req, res) => {
   try {
     const { text, intervalMinutes, deleteAfterSeconds, soundId, isRandomPointer, isFavoritePointer } = req.body;
 
-    if (!text || !intervalMinutes) {
-      return res.status(400).json({ message: 'text и intervalMinutes обязательны' });
+    if (!text || typeof text !== 'string' || text.trim().length === 0) {
+      return res.status(400).json({ message: 'text обязателен и не должен быть пустым' });
+    }
+
+    if (text.length > 4096) {
+      return res.status(400).json({ message: 'text не должен превышать 4096 символов' });
+    }
+
+    const parsedInterval = Number(intervalMinutes);
+    if (!Number.isInteger(parsedInterval) || parsedInterval < 1) {
+      return res.status(400).json({ message: 'intervalMinutes должен быть положительным целым числом' });
+    }
+
+    let parsedDeleteAfter = 10;
+    if (deleteAfterSeconds !== undefined && deleteAfterSeconds !== null) {
+      parsedDeleteAfter = Number(deleteAfterSeconds);
+      if (!Number.isInteger(parsedDeleteAfter) || parsedDeleteAfter < 1 || parsedDeleteAfter > 86400) {
+        return res.status(400).json({ message: 'deleteAfterSeconds должен быть числом от 1 до 86400' });
+      }
+    } else if (deleteAfterSeconds === null) {
+      parsedDeleteAfter = null;
     }
 
     const now = new Date();
@@ -251,13 +275,13 @@ router.post('/reminders', authMiddleware, async (req, res) => {
       userId: req.user.telegramId,
       chatId: req.user.telegramId,
       text,
-      intervalMinutes,
-      deleteAfterSeconds: deleteAfterSeconds ?? 10,
+      intervalMinutes: parsedInterval,
+      deleteAfterSeconds: parsedDeleteAfter,
       soundId: soundId || 'default',
       isActive: true,
       isRandomPointer: Boolean(isRandomPointer),
       isFavoritePointer: Boolean(isFavoritePointer),
-      nextRunAt: new Date(now.getTime() + intervalMinutes * 60 * 1000)
+      nextRunAt: new Date(now.getTime() + parsedInterval * 60 * 1000)
     });
 
     res.status(201).json(reminder);
@@ -271,6 +295,28 @@ router.patch('/reminders/:id', authMiddleware, async (req, res) => {
   try {
     const { id } = req.params;
     const incomingUpdates = req.body || {};
+
+    if (incomingUpdates.intervalMinutes !== undefined) {
+      const parsedInterval = Number(incomingUpdates.intervalMinutes);
+      if (!Number.isInteger(parsedInterval) || parsedInterval < 1) {
+        return res.status(400).json({ message: 'intervalMinutes должен быть положительным целым числом' });
+      }
+      incomingUpdates.intervalMinutes = parsedInterval;
+    }
+
+    if (incomingUpdates.text !== undefined) {
+      if (typeof incomingUpdates.text !== 'string' || incomingUpdates.text.trim().length === 0 || incomingUpdates.text.length > 4096) {
+        return res.status(400).json({ message: 'text должен быть непустой строкой длиной до 4096 символов' });
+      }
+    }
+
+    if (incomingUpdates.deleteAfterSeconds !== undefined && incomingUpdates.deleteAfterSeconds !== null) {
+      const parsedDeleteAfter = Number(incomingUpdates.deleteAfterSeconds);
+      if (!Number.isInteger(parsedDeleteAfter) || parsedDeleteAfter < 1 || parsedDeleteAfter > 86400) {
+        return res.status(400).json({ message: 'deleteAfterSeconds должен быть числом от 1 до 86400' });
+      }
+      incomingUpdates.deleteAfterSeconds = parsedDeleteAfter;
+    }
 
     const sanitizedUpdates = {};
     for (const allowedField of ALLOWED_REMINDER_UPDATE_FIELDS) {
@@ -338,8 +384,33 @@ router.patch('/user/settings', authMiddleware, async (req, res) => {
   try {
     const { timezone, quietHours } = req.body;
 
-    if (timezone) req.user.timezone = timezone;
-    if (quietHours) req.user.quietHours = quietHours;
+    if (timezone !== undefined) {
+      if (typeof timezone !== 'string' || !IANAZone.isValidZone(timezone)) {
+        return res.status(400).json({ message: 'Некорректный часовой пояс IANA' });
+      }
+      req.user.timezone = timezone;
+    }
+
+    if (quietHours !== undefined) {
+      if (
+        typeof quietHours !== 'object' ||
+        quietHours === null ||
+        typeof quietHours.start !== 'number' ||
+        typeof quietHours.end !== 'number' ||
+        quietHours.start < 0 ||
+        quietHours.start > 23 ||
+        quietHours.end < 0 ||
+        quietHours.end > 23 ||
+        quietHours.start === quietHours.end
+      ) {
+        return res.status(400).json({ message: 'Некорректные параметры тихих часов' });
+      }
+      req.user.quietHours = {
+        enabled: quietHours.enabled !== undefined ? Boolean(quietHours.enabled) : req.user.quietHours.enabled,
+        start: quietHours.start,
+        end: quietHours.end
+      };
+    }
 
     await req.user.save();
 

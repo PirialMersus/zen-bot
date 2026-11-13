@@ -23,8 +23,7 @@ const schema = new mongoose.Schema({
   lockedAt: { type: Date, default: null },
 
   type: { type: String, enum: ['interval', 'daily'], default: 'interval' },
-  targetTime: { type: String, default: null },
-  daysOfWeek: { type: [Number], default: [] }
+  targetTime: { type: String, default: null }
 });
 
 schema.index({ isActive: 1, nextRunAt: 1 });

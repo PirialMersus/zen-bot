@@ -11179,5 +11179,111 @@ La historia de una persona a la que cada mañana reconstruyes a partir de recuer
 Parece que no estás custodiando un tesoro, sino un hábito sumamente caro.`,
     source: null,
     tags: ["silencio"]
+  },
+  {
+    number: 1641,
+    text: `El reloj cuenta el pulso, los pasos, las fases del sueño y el nivel de estrés.
+Lo único que no cuenta es cuántas horas hoy no estuviste aquí.
+Nadie cuenta eso. Por eso permaneces tranquilo.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1642,
+    text: `El algoritmo sabe a qué hora te acuestas, de qué te avergüenzas y qué miras cuando nadie te ve.
+Ya tiene preparados para ti otros cuarenta años de la misma porquería.
+Es el único que no se ha enterado de que planeabas despertar.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1643,
+    text: `Ya te desconectaron la conciencia bajo anestesia. No estabas allí, y no pasó nada. No extrañaste nada, no entraste en pánico, no pediste volver.
+El ensayo salió perfecto.
+¿Quién tiembla ahora entonces? Encuentra a ese.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1644,
+    text: `Tu último pensamiento no será sobre Dios ni sobre el amor. Será sobre una factura sin pagar o una pestaña abierta.
+Observa en qué está ocupada tu mente ahora mismo.
+Es el borrador de tu muerte.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1645,
+    text: `Vives en el cuerpo como en un departamento alquilado: no reparas nada, sacas los muebles, no conoces al dueño.
+El dueño vendrá al vencer el plazo. Sin aviso y sin prórroga.
+Conócelo antes de que termine el mes.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1646,
+    text: `Si tienes cuarenta años, te quedan unos dos mil sábados por delante.
+Detrás de ti, la misma cantidad. Recuerda al menos uno. Si no puedes, es porque pasaron en tu cabeza, no en la vida.
+El próximo irá al mismo sitio si vuelves a pasarlo en pensamientos.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1647,
+    text: `Después de ti vendrá alguien y en veinte minutos arreglará el grifo que postergaste durante ocho años.
+Tu vida es una lista de pendientes para otras personas.
+Excepto por una sola cosa. Esa nadie la hará por ti.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1648,
+    text: `Cada noche mueres. Cada mañana reconstruyes meticulosamente a la misma persona a partir de los rencores y planes de ayer, y a eso lo llamas «despertar».
+Eso no es inmortalidad. Es el hábito más obstinado del universo.
+Prueba una mañana a no recomponerte.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1649,
+    text: `No somos lo que llega ni lo que se va. Solo existe el darse cuenta de lo que viene y se va. Lo que parece haber llegado o partido no es más que una ilusión.`,
+    source: "Nisargadatta Maharaj",
+    tags: ["silencio"]
+  },
+  {
+    number: 1650,
+    text: `El «Yo» precede tanto a la consciencia como a la inconsciencia. Existo como quien es consciente de estos estados, que van y vienen.`,
+    source: "Nisargadatta Maharaj",
+    tags: ["silencio"]
+  },
+  {
+    number: 1651,
+    text: `El amor no es una palabra ni una etiqueta. El amor es nuestra consciencia, que es lo que más apreciamos por encima de todo. Nuestra consciencia misma es amor.`,
+    source: "Nisargadatta Maharaj",
+    tags: ["silencio"]
+  },
+  {
+    number: 1652,
+    text: `Ante todo, amas ser. Tu amor a ser es el gran anhelo, la gran sed, la gran esperanza y la esencia misma de Brahman.`,
+    source: "Nisargadatta Maharaj",
+    tags: ["silencio"]
+  },
+  {
+    number: 1653,
+    text: `El miedo a la muerte es una simple ficción. Cuando el prana abandona el cuerpo, solo sufre la mente identificada con el cuerpo.`,
+    source: "Nisargadatta Maharaj",
+    tags: ["silencio"]
+  },
+  {
+    number: 1654,
+    text: `Todas las experiencias de felicidad, desdicha y la muerte misma no son más que un juego de conceptos. Despréndete del concepto «yo soy el cuerpo» y disfruta del triunfo de la libertad ya en esta misma vida.`,
+    source: "Nisargadatta Maharaj",
+    tags: ["silencio"]
+  },
+  {
+    number: 1655,
+    text: `No puedes ver más allá de lo que crees ser. Si te consideras un cuerpo, percibirás la verdad únicamente como ser humano y nada más.`,
+    source: "Nisargadatta Maharaj",
+    tags: ["silencio"]
   }
 ];

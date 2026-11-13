@@ -83,8 +83,17 @@ const acquireReminderExecutionLock = async (reminderId, now) => {
   );
 };
 
+let schedulerIntervalIdentifier = null;
+
+export const stopScheduler = () => {
+  if (schedulerIntervalIdentifier) {
+    clearInterval(schedulerIntervalIdentifier);
+    schedulerIntervalIdentifier = null;
+  }
+};
+
 export const startScheduler = bot => {
-  setInterval(async () => {
+  schedulerIntervalIdentifier = setInterval(async () => {
     if (isSchedulerTickProcessing) {
       logError(new Error('Scheduler tick skipped: previous tick is still in progress'), {
         scope: 'schedulerTickOverlap'

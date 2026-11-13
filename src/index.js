@@ -1,8 +1,8 @@
 import 'dotenv/config';
-import { connectDB } from './storage/db.js';
+import { connectDB, disconnectDB } from './storage/db.js';
 import { bot } from './bot.js';
-import { startScheduler } from './services/scheduler.js';
-import { startServer } from './server.js';
+import { startScheduler, stopScheduler } from './services/scheduler.js';
+import { startServer, stopServer } from './server.js';
 
 process.on('unhandledRejection', err => {
   console.error('UNHANDLED_REJECTION', err);
@@ -37,9 +37,14 @@ const startBotWithAutoRestart = async () => {
   }
 };
 
-const handleTerminationSignal = signalName => {
+const handleTerminationSignal = async signalName => {
+  if (isBotTerminating) return;
   isBotTerminating = true;
   bot.stop(signalName);
+  stopScheduler();
+  await stopServer();
+  await disconnectDB();
+  process.exit(0);
 };
 
 process.once('SIGINT', () => handleTerminationSignal('SIGINT'));

@@ -12,3 +12,7 @@ export const connectDB = async () => {
   );
   console.log('Mongo connected');
 };
+
+export const disconnectDB = async () => {
+  await mongoose.disconnect();
+};

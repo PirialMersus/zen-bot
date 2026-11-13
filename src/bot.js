@@ -1,7 +1,7 @@
 import { Telegraf, session } from 'telegraf';
-import { BUTTONS, getButtonVariants } from './constants/buttons.js';
+import { getButtonVariants } from './constants/buttons.js';
 import { TEXTS, getTexts, isDoNotDeleteText, COMBINED_AUTO_DELETE_MAP } from './constants/texts.js';
-import { UI, getUiVariants } from './constants/ui.js';
+import { getUiVariants } from './constants/ui.js';
 import {
   handleAdminActiveUsers,
   handleAdminBroadcastCancel,
@@ -20,7 +20,6 @@ import { handleStart } from './handlers/menu.js';
 import { handleUnknownMessage } from './handlers/fallback.js';
 import {
   handleNextPointer,
-  handlePointer,
   handlePointersMenu,
   handleRandomPointer,
   handleFavoritePointer,

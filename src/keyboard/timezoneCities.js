@@ -3,10 +3,15 @@ import { DateTime } from 'luxon';
 import { TIMEZONE_REGIONS } from '../constants/timezones.js';
 import { getButtons } from '../constants/buttons.js';
 
+const extractCityName = timezoneIdentifier => {
+  const segments = timezoneIdentifier.split('/');
+  return segments[segments.length - 1].replace(/_/g, ' ');
+};
+
 const formatCityTimezoneLabel = timezoneString => {
   const dateTimeInstance = DateTime.now().setZone(timezoneString);
   const timezoneOffsetString = dateTimeInstance.toFormat('ZZ');
-  const cityName = timezoneString.split('/')[1].replace('_', ' ');
+  const cityName = extractCityName(timezoneString);
   return `${cityName} (UTC${timezoneOffsetString})`;
 };
 
@@ -15,8 +20,8 @@ export const timezoneCitiesKeyboard = (regionKey, language = 'ru') => {
   const selectedRegion = TIMEZONE_REGIONS[regionKey];
 
   const sortedTimezoneList = [...selectedRegion.zones].sort((timezoneFirst, timezoneSecond) => {
-    const cityFirst = timezoneFirst.split('/')[1].replace('_', ' ');
-    const citySecond = timezoneSecond.split('/')[1].replace('_', ' ');
+    const cityFirst = extractCityName(timezoneFirst);
+    const citySecond = extractCityName(timezoneSecond);
     return cityFirst.localeCompare(citySecond);
   });
 

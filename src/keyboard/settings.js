@@ -9,13 +9,7 @@ export const settingsKeyboard = (enabled, language = 'ru', userPreferences = {})
   const endHourFormatted = String(userPreferences.quietHours?.end ?? 8).padStart(2, '0');
   const quietHoursFormattedRange = `${startHourFormatted}:00–${endHourFormatted}:00`;
 
-  const quietHoursScheduleBaseText = language === 'en'
-    ? '⏰ Quiet hours'
-    : language === 'uk'
-      ? '⏰ Час тихих годин'
-      : language === 'es'
-        ? '⏰ Horas de silencio'
-        : '⏰ Время тихих часов';
+  const quietHoursScheduleBaseText = buttons.QUIET_HOURS_SCHEDULE;
   const quietHoursScheduleLabel = `${quietHoursScheduleBaseText} (${quietHoursFormattedRange})`;
 
   const userTimezoneValue = userPreferences.timezone || DEFAULT_TIMEZONE;

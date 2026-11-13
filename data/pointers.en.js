@@ -11179,5 +11179,111 @@ The story of a person whom you reconstruct from memories every morning.
 It seems you are guarding not a treasure, but a very expensive habit.`,
     source: null,
     tags: ["stillness"]
+  },
+  {
+    number: 1641,
+    text: `The watch counts your pulse, steps, sleep phases, and stress levels.
+The only thing it doesn't count is how many hours today you weren't here.
+No one counts that. That is why you remain calm.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1642,
+    text: `The algorithm knows what time you go to bed, what you feel ashamed of, and what you watch when nobody is looking.
+It has already prepared another forty years of the exact same crap for you.
+It's the only one unaware that you were intending to wake up.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1643,
+    text: `Your consciousness has already been switched off under anesthesia. You weren't there — and nothing bad happened. You didn't miss anything, didn't panic, didn't ask to be brought back.
+The rehearsal went perfectly.
+So who is trembling right now? Find that one.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1644,
+    text: `Your last thought won't be about God or love. It will be about an unpaid bill or an unclosed browser tab.
+Look at what the mind is busy with right now.
+This is the rough draft of your death.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1645,
+    text: `You live in your body like in a rented apartment: repairing nothing, dragging out furniture, unacquainted with the landlord.
+The landlord will arrive when the lease expires. Without warning, and without extension.
+Meet him before the month is out.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1646,
+    text: `If you are forty, you have about two thousand Saturdays ahead.
+Just as many behind you. Recall at least one. If you can't, it's because they happened in your head, not in life.
+The next one will go the same way if you spend it in thoughts again.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1647,
+    text: `After you are gone, someone will come along and in twenty minutes fix the faucet you put off for eight years.
+Your life is a to-do list for other people.
+Except for one thing. No one will ever do that one for you.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1648,
+    text: `Every night you die. Every morning you carefully assemble the exact same person from yesterday's grievances and plans — and call it "waking up."
+That isn't immortality. That is the most stubborn habit in the universe.
+Try not assembling yourself in the morning.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1649,
+    text: `We are neither what arrives nor what departs. There is only the awareness of what comes and goes. Whatever appears to come or go is merely an illusion.`,
+    source: "Nisargadatta Maharaj",
+    tags: ["stillness"]
+  },
+  {
+    number: 1650,
+    text: `The "I" precedes both awareness and un-awareness. I exist as the one aware of these states, which come and go.`,
+    source: "Nisargadatta Maharaj",
+    tags: ["stillness"]
+  },
+  {
+    number: 1651,
+    text: `Love is neither a word nor a label. Love is our consciousness, which we cherish more than anything else. Our consciousness itself is love.`,
+    source: "Nisargadatta Maharaj",
+    tags: ["stillness"]
+  },
+  {
+    number: 1652,
+    text: `First and foremost, you love to be. Your love of being is the supreme desire, the great thirst, the great hope, and the very essence of Brahman.`,
+    source: "Nisargadatta Maharaj",
+    tags: ["stillness"]
+  },
+  {
+    number: 1653,
+    text: `The fear of death is pure fiction. When prana departs the body, only the mind identified with the body suffers.`,
+    source: "Nisargadatta Maharaj",
+    tags: ["stillness"]
+  },
+  {
+    number: 1654,
+    text: `All experiences of happiness, misery, and death itself are merely a play of concepts. Abandon the concept "I am the body" and savor the triumph of freedom in this very lifetime.`,
+    source: "Nisargadatta Maharaj",
+    tags: ["stillness"]
+  },
+  {
+    number: 1655,
+    text: `You cannot see beyond what you take yourself to be. If you consider yourself a body, you will perceive the truth only as a human being and nothing more.`,
+    source: "Nisargadatta Maharaj",
+    tags: ["stillness"]
   }
 ];

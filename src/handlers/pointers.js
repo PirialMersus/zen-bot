@@ -1,4 +1,3 @@
-import { Markup } from 'telegraf';
 import {
   getNextPointerForUser,
   getNextFavoritePointerForUser,
@@ -14,8 +13,7 @@ import {
 } from '../keyboard/pointers.js';
 import {
   cancelDeletionTimer,
-  hasDeletionTimer,
-  getDeletionTimer
+  hasDeletionTimer
 } from '../services/deletionTimers.js';
 import { getTexts } from '../constants/texts.js';
 import { getUi } from '../constants/ui.js';
@@ -71,11 +69,10 @@ export const handlePointersMenu = async ctx => {
   ctx.session ??= {};
   ctx.session.reminderStep = null;
   ctx.session.creatingReminder = null;
+  ctx.session.isSettingCustomQuietHours = null;
   const userLanguage = await resolveUserLanguage(ctx);
-  const label = userLanguage === 'en'
-    ? '🧘 Pointers'
-    : (userLanguage === 'uk' ? '🧘 Вказівники' : (userLanguage === 'es' ? '🧘 Punteros' : '🧘 Указатели'));
-  await ctx.reply(label, getPointersMenuKeyboard(userLanguage));
+  const texts = getTexts(userLanguage);
+  await ctx.reply(texts.POINTERS.MENU_LABEL, getPointersMenuKeyboard(userLanguage));
   await handlePointer(ctx);
 };
 
@@ -290,6 +287,7 @@ export const handlePointerToReminder = async ctx => {
   const userLanguage = await resolveUserLanguage(ctx);
   const texts = getTexts(userLanguage);
 
+  ctx.session ??= {};
   ctx.session.creatingReminder = {
     text,
     fromPointer: true

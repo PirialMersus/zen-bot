@@ -17,13 +17,7 @@ export const renderSettings = async (ctx, prefixMessage = '') => {
   const quietSettings = user.quietHours;
   const timezoneValue = user.timezone || DEFAULT_TIMEZONE;
 
-  const localizedSettingsPrompt = userLanguage === 'en'
-    ? `⚙️ ${texts.MENU.SETTINGS}\n\nTap an option below to customize:`
-    : userLanguage === 'uk'
-      ? `⚙️ ${texts.MENU.SETTINGS}\n\nОбери потрібний пункт для зміни:`
-      : userLanguage === 'es'
-        ? `⚙️ ${texts.MENU.SETTINGS}\n\nToca una opción abajo para personalizar:`
-        : `⚙️ ${texts.MENU.SETTINGS}\n\nНажми на нужный пункт для изменения:`;
+  const localizedSettingsPrompt = `⚙️ ${texts.MENU.SETTINGS}\n\n${texts.SETTINGS.CUSTOMIZE_PROMPT}`;
 
   let localizedSettingsText = localizedSettingsPrompt;
 
@@ -49,5 +43,6 @@ export const handleSettings = async ctx => {
   ctx.session ??= {};
   ctx.session.reminderStep = null;
   ctx.session.creatingReminder = null;
+  ctx.session.isSettingCustomQuietHours = null;
   await renderSettings(ctx);
 };

@@ -1,6 +1,6 @@
 import { Markup } from 'telegraf';
 import { BUTTONS } from '../constants/buttons.js';
-import { UI, getUi } from '../constants/ui.js';
+import { UI } from '../constants/ui.js';
 import Reminder from '../models/Reminder.js';
 import User from '../models/User.js';
 import { escapeHtml } from '../utils/escapeHtml.js';
@@ -10,7 +10,6 @@ import {
   countPointersByText,
   isPointerInFavorites
 } from '../services/pointers.js';
-import { resolveUserLanguage } from '../middlewares/activity.js';
 import { buildPointerInlineKeyboard, formatPointerText } from './pointers.js';
 
 const collectAllButtonValues = buttonObject =>
@@ -278,8 +277,13 @@ export const handleFeedbackMessage = async ctx => {
   return true;
 };
 
-export const handleAdminGetPointerByNumber = async ctx => {
-  if (String(ctx.from?.id) !== process.env.CREATOR_ID) return false;
+export const handleAdminGetPointerByNumber = async (ctx, next) => {
+  if (String(ctx.from?.id) !== process.env.CREATOR_ID) {
+    if (typeof next === 'function') {
+      return next();
+    }
+    return false;
+  }
 
   const rawIncomingMessageText = ctx.message?.text || '';
   const trimmedLowerCasedText = rawIncomingMessageText.trim().toLowerCase();
@@ -331,8 +335,13 @@ export const handleAdminGetPointerByNumber = async ctx => {
   return true;
 };
 
-export const handleAdminSearchPointers = async ctx => {
-  if (String(ctx.from?.id) !== process.env.CREATOR_ID) return false;
+export const handleAdminSearchPointers = async (ctx, next) => {
+  if (String(ctx.from?.id) !== process.env.CREATOR_ID) {
+    if (typeof next === 'function') {
+      return next();
+    }
+    return false;
+  }
 
   const rawIncomingMessageText = ctx.message?.text || '';
   const trimmedLowerCasedText = rawIncomingMessageText.trim().toLowerCase();

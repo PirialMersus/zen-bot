@@ -4,6 +4,7 @@ import { getTexts } from '../constants/texts.js';
 import { getUi } from '../constants/ui.js';
 import { DEFAULT_TIMEZONE } from '../constants/timezones.js';
 import { previewText } from '../utils/text.js';
+import { escapeHtml } from '../utils/escapeHtml.js';
 
 const REMINDERS_FORMAT_LOCALIZATIONS = {
   ru: {
@@ -87,6 +88,13 @@ const REMINDERS_FORMAT_LOCALIZATIONS = {
 const resolveFormatLocalization = language =>
   REMINDERS_FORMAT_LOCALIZATIONS[language] || REMINDERS_FORMAT_LOCALIZATIONS.ru;
 
+export const formatAutoDelete = (deleteAfterSeconds, language = 'ru') => {
+  const formatLocalization = resolveFormatLocalization(language);
+  return deleteAfterSeconds === null
+    ? formatLocalization.autoDeleteNever
+    : formatLocalization.autoDeleteSeconds(deleteAfterSeconds);
+};
+
 export const formatInterval = (reminderOrMinutes, language = 'ru') => {
   const formatLocalization = resolveFormatLocalization(language);
   if (typeof reminderOrMinutes === 'object' && reminderOrMinutes?.type === 'daily' && reminderOrMinutes?.targetTime) {
@@ -159,7 +167,7 @@ export const formatReminderMessageText = (reminderItem, indexNumberString, langu
 <i>${formatInterval(reminderItem, language)}</i>
 <i>${autoDeleteLabel}</i>${nextRunLine}
 
-«${displayText}»`;
+«${escapeHtml(displayText)}»`;
 };
 
 export const getReminderMessageKeyboard = (reminderItem, language = 'ru', showBackToList = true) => {
@@ -220,7 +228,7 @@ export const buildRemindersListPayload = (reminders, userLanguage = 'ru', userTi
 
     const nextRunSuffix = nextRunTime ? ` • 🕒 ${nextRunTime}` : '';
 
-    return `<b>${indexNumber}.</b> ${statusIcon} «${shortText}»\n   <i>${intervalLabel}${nextRunSuffix}</i>`;
+    return `<b>${indexNumber}.</b> ${statusIcon} «${escapeHtml(shortText)}»\n   <i>${intervalLabel}${nextRunSuffix}</i>`;
   });
 
   const fullText = `${formatLocalization.headerTitle}\n\n${lines.join('\n\n')}\n\n${formatLocalization.hintFooter}`;

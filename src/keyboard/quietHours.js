@@ -1,40 +1,11 @@
 import { Markup } from 'telegraf';
 import { getButtons } from '../constants/buttons.js';
+import { getTexts } from '../constants/texts.js';
 
 export const quietHoursKeyboard = (language = 'ru') => {
   const buttons = getButtons(language);
-
-  const presetLabels = language === 'en'
-    ? {
-      early: '🌅 22:00 – 07:00 (Early)',
-      standard: '🌙 23:00 – 08:00 (Standard)',
-      nightOwl: '🦉 00:00 – 09:00 (Night Owl)',
-      late: '🌌 01:00 – 10:00 (Late)',
-      custom: '✍️ Custom schedule'
-    }
-    : language === 'uk'
-      ? {
-        early: '🌅 22:00 – 07:00 (Ранній)',
-        standard: '🌙 23:00 – 08:00 (Стандартний)',
-        nightOwl: '🦉 00:00 – 09:00 (Нічна сова)',
-        late: '🌌 01:00 – 10:00 (Пізній)',
-        custom: '✍️ Вказати свій час'
-      }
-      : language === 'es'
-        ? {
-          early: '🌅 22:00 – 07:00 (Temprano)',
-          standard: '🌙 23:00 – 08:00 (Estándar)',
-          nightOwl: '🦉 00:00 – 09:00 (Noctámbulo)',
-          late: '🌌 01:00 – 10:00 (Tardío)',
-          custom: '✍️ Horario personalizado'
-        }
-        : {
-        early: '🌅 22:00 – 07:00 (Ранний)',
-        standard: '🌙 23:00 – 08:00 (Стандартный)',
-        nightOwl: '🦉 00:00 – 09:00 (Сова)',
-        late: '🌌 01:00 – 10:00 (Поздний)',
-        custom: '✍️ Задать своё время'
-      };
+  const texts = getTexts(language);
+  const presetLabels = texts.SETTINGS.QUIET_PRESETS;
 
   return Markup.inlineKeyboard([
     [Markup.button.callback(presetLabels.early, 'settings:quiet_hours:preset:22:7')],

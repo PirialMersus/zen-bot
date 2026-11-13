@@ -3,6 +3,7 @@ import { logError } from '../utils/logger.js';
 import { isPointerInFavorites } from './pointers.js';
 import { buildReminderPointerInlineKeyboard } from '../keyboard/pointers.js';
 import { registerDeletionTimer } from './deletionTimers.js';
+import { escapeHtml } from '../utils/escapeHtml.js';
 
 const IS_DEV = process.env.NODE_ENV === 'development';
 const CREATOR_ID = Number(process.env.CREATOR_ID);
@@ -116,7 +117,7 @@ export const deliverReminder = async ({
   const pushTitle = getPushTitle(userLanguage);
 
   if (reminder.photoFileId) {
-    const photoCaption = reminder.caption ? `${reminder.caption}${footer}` : (footer ? footer.trim() : '');
+    const photoCaption = reminder.caption ? `${escapeHtml(reminder.caption)}${footer}` : (footer ? footer.trim() : '');
     if (useApp) {
       const fallbackCaption = getMediaFallbackCaption('photo', userLanguage);
       await sendPushNotification(user.pushTokens, reminder.caption || fallbackCaption, reminder.soundId, pushTitle);
@@ -132,7 +133,7 @@ export const deliverReminder = async ({
   }
 
   if (reminder.videoFileId) {
-    const videoCaption = reminder.caption ? `${reminder.caption}${footer}` : (footer ? footer.trim() : '');
+    const videoCaption = reminder.caption ? `${escapeHtml(reminder.caption)}${footer}` : (footer ? footer.trim() : '');
     if (useApp) {
       const fallbackCaption = getMediaFallbackCaption('video', userLanguage);
       await sendPushNotification(user.pushTokens, reminder.caption || fallbackCaption, reminder.soundId, pushTitle);
@@ -163,7 +164,7 @@ export const deliverReminder = async ({
 
     const sentMessage = await bot.telegram.sendMessage(
       reminder.chatId,
-      messageText,
+      escapeHtml(messageText),
       { parse_mode: 'HTML', ...(reminderKeyboard || {}) }
     );
 
@@ -177,7 +178,7 @@ export const deliverReminder = async ({
 
   const sentMessage = await bot.telegram.sendMessage(
     reminder.chatId,
-    messageText + footer,
+    escapeHtml(messageText) + footer,
     { parse_mode: 'HTML' }
   );
 
