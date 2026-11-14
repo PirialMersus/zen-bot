@@ -1,6 +1,6 @@
-import crypto from 'node:crypto';
 import { Markup } from 'telegraf';
 import User from '../models/User.js';
+import { generateAuthCode } from '../utils/auth.js';
 
 export const handleGetAuthCode = async (ctx) => {
   try {
@@ -15,8 +15,7 @@ export const handleGetAuthCode = async (ctx) => {
       return;
     }
 
-    const code = crypto.randomBytes(3).toString('hex').toUpperCase();
-    const formattedCode = `${code.slice(0, 3)}-${code.slice(3, 6)}`;
+    const formattedCode = generateAuthCode();
 
     user.authCode = formattedCode;
     user.authCodeExpiresAt = new Date(Date.now() + 10 * 60 * 1000);

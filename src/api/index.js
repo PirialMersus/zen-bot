@@ -1,13 +1,13 @@
 import express from 'express';
 import mongoose from 'mongoose';
 import jwt from 'jsonwebtoken';
-import crypto from 'node:crypto';
 import { IANAZone } from 'luxon';
 import { bot } from '../bot.js';
 import { Pointer, PointerEn, PointerUk, PointerEs } from '../models/Pointer.js';
 import Reminder from '../models/Reminder.js';
 import User from '../models/User.js';
 import { logError } from '../utils/logger.js';
+import { generateAuthCode } from '../utils/auth.js';
 import {
   MAX_REMINDERS_PER_USER,
   MAX_REMINDER_INTERVAL_MINUTES,
@@ -119,8 +119,7 @@ router.post('/auth/request', async (req, res) => {
       return res.status(404).json({ message: 'Пользователь не найден. Сначала запусти бота.' });
     }
 
-    const code = crypto.randomBytes(3).toString('hex').toUpperCase();
-    const formattedCode = `${code.slice(0, 3)}-${code.slice(3, 6)}`;
+    const formattedCode = generateAuthCode();
 
     user.authCode = formattedCode;
     user.authCodeExpiresAt = new Date(Date.now() + 10 * 60 * 1000);
@@ -164,8 +163,8 @@ router.post('/auth/verify', async (req, res) => {
 
     const { code } = req.body;
 
-    if (!code) {
-      return res.status(400).json({ message: 'Код обязателен' });
+    if (!code || typeof code !== 'string' || !code.trim()) {
+      return res.status(400).json({ message: 'Код обязателен и должен быть непустой строкой' });
     }
 
     const user = await User.findOne({

@@ -6,6 +6,8 @@ import User from '../../src/models/User.js';
 import Reminder from '../../src/models/Reminder.js';
 import { Pointer, PointerEn } from '../../src/models/Pointer.js';
 import { validateServerEnvironment } from '../../src/server.js';
+import { generateAuthCode } from '../../src/utils/auth.js';
+import { validateApplicationEnvironment } from '../../src/utils/env.js';
 
 describe('API безопасность и мультиязычность указателей', () => {
   let serverInstance;
@@ -64,6 +66,39 @@ describe('API безопасность и мультиязычность ука�
 
     expect(verificationHttpResponse.status).toBe(401);
     expect(responseJsonBody.message).toBe('Неверный или истёкший код');
+  });
+
+  it('должен возвращать статус 400 при передаче не-строкового или пустого кода', async () => {
+    const verificationHttpResponse = await fetch(`${serverBaseUrl}/api/auth/verify`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ code: 123456 })
+    });
+
+    const responseJsonBody = await verificationHttpResponse.json();
+
+    expect(verificationHttpResponse.status).toBe(400);
+    expect(responseJsonBody.message).toBe('Код обязателен и должен быть непустой строкой');
+  });
+
+  it('должен генерировать код авторизации в формате XXX-XXX', () => {
+    const generatedAuthCode = generateAuthCode();
+    expect(generatedAuthCode).toMatch(/^[A-Z0-9]{3}-[A-Z0-9]{3}$/);
+  });
+
+  it('должен проверять наличие BOT_TOKEN и MONGO_URI при валидации окружения', () => {
+    const originalBotToken = process.env.BOT_TOKEN;
+    const originalMongoUri = process.env.MONGO_URI;
+
+    delete process.env.BOT_TOKEN;
+    expect(() => validateApplicationEnvironment()).toThrow('Критическая ошибка конфигурации: переменная BOT_TOKEN обязательна');
+
+    process.env.BOT_TOKEN = 'mock-bot-token';
+    delete process.env.MONGO_URI;
+    expect(() => validateApplicationEnvironment()).toThrow('Критическая ошибка конфигурации: переменная MONGO_URI обязательна');
+
+    process.env.BOT_TOKEN = originalBotToken;
+    process.env.MONGO_URI = originalMongoUri;
   });
 
   it('должен успешно авторизовать пользователя по валидному authCode и выдать JWT токен', async () => {

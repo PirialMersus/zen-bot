@@ -3,6 +3,7 @@ import { connectDB, disconnectDB } from './storage/db.js';
 import { bot, registerBotCommands } from './bot.js';
 import { startScheduler, stopScheduler } from './services/scheduler.js';
 import { startServer, stopServer } from './server.js';
+import { validateApplicationEnvironment } from './utils/env.js';
 
 process.on('unhandledRejection', err => {
   console.error('UNHANDLED_REJECTION', err);
@@ -11,6 +12,8 @@ process.on('unhandledRejection', err => {
 process.on('uncaughtException', err => {
   console.error('UNCAUGHT_EXCEPTION', err);
 });
+
+validateApplicationEnvironment();
 
 await connectDB();
 

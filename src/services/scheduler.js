@@ -126,7 +126,10 @@ export const startScheduler = bot => {
       })
         .sort({ nextRunAt: 1 })
         .lean(false)
-        .catch(() => []);
+        .catch(findRemindersError => {
+          logError(findRemindersError, { scope: 'schedulerFindDueReminders' });
+          return [];
+        });
 
       if (!reminders.length) return;
 
@@ -139,7 +142,10 @@ export const startScheduler = bot => {
 
           let targetUser = usersCache.get(reminderItem.userId);
           if (!targetUser) {
-            targetUser = await User.findOne({ telegramId: reminderItem.userId }).catch(() => null);
+            targetUser = await User.findOne({ telegramId: reminderItem.userId }).catch(findUserError => {
+              logError(findUserError, { scope: 'schedulerFindUser', userId: reminderItem.userId });
+              return null;
+            });
             usersCache.set(reminderItem.userId, targetUser);
           }
 
@@ -169,7 +175,10 @@ export const startScheduler = bot => {
           let currentPointer = null;
 
           if (reminderItem.isFavoritePointer) {
-            const favoritePointer = await getNextFavoritePointerForUser(reminderItem.userId).catch(() => null);
+            const favoritePointer = await getNextFavoritePointerForUser(reminderItem.userId).catch(findFavoriteError => {
+              logError(findFavoriteError, { scope: 'schedulerFindFavoritePointer', userId: reminderItem.userId });
+              return null;
+            });
             if (favoritePointer) {
               currentPointer = favoritePointer;
               messageText = favoritePointer.source
@@ -178,7 +187,10 @@ export const startScheduler = bot => {
             }
           } else if (reminderItem.isRandomPointer) {
             const tagForLanguage = getPointerTagForLanguage(userLanguage);
-            const pointer = await getNextPointerForUser(reminderItem.userId, tagForLanguage).catch(() => null);
+            const pointer = await getNextPointerForUser(reminderItem.userId, tagForLanguage).catch(findPointerError => {
+              logError(findPointerError, { scope: 'schedulerFindPointer', userId: reminderItem.userId });
+              return null;
+            });
             if (pointer) {
               currentPointer = pointer;
               messageText = pointer.source
