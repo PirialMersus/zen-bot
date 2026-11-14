@@ -11,6 +11,7 @@ import { mainKeyboard } from '../../keyboard/main.js';
 import { resolveUserLanguage } from '../../middlewares/activity.js';
 import { countUserFavoritePointers } from '../../services/pointers.js';
 import { previewText } from '../../utils/text.js';
+import { escapeHtml } from '../../utils/escapeHtml.js';
 import { formatInterval, formatAutoDelete } from '../../services/remindersFormat.js';
 
 export const REMINDER_STEP = {
@@ -71,7 +72,7 @@ export const renderReminderStep = async ctx => {
     await ctx.reply(
       `<i>${texts.REMINDERS.ASK_INTERVAL}</i>
 
-«${previewText(data.text)}»
+«${escapeHtml(previewText(data.text))}»
 
 <i>${texts.REMINDERS.ASK_INTERVAL_HINT}</i>`,
       { parse_mode: 'HTML', ...getIntervalKeyboard(userLanguage) }
@@ -83,7 +84,7 @@ export const renderReminderStep = async ctx => {
     await ctx.reply(
       `<i>${texts.REMINDERS.ASK_DELETE_AFTER}</i>
 
-«${previewText(data.text)}»
+«${escapeHtml(previewText(data.text))}»
 
 <i>${texts.REMINDERS.ASK_DELETE_AFTER_HINT}</i>`,
       { parse_mode: 'HTML', ...getDeleteAfterKeyboard(userLanguage) }
@@ -213,6 +214,8 @@ export const handleReminderText = async ctx => {
 export const handleIntervalPreset = async (ctx, minutes) => {
   if (ctx.session?.reminderStep !== REMINDER_STEP.INTERVAL) return;
 
+  ctx.session.creatingReminder.type = 'interval';
+  ctx.session.creatingReminder.targetTime = null;
   ctx.session.creatingReminder.intervalMinutes = minutes;
   ctx.session.reminderStep = REMINDER_STEP.AUTO_DELETE;
   await renderReminderStep(ctx);
@@ -379,7 +382,7 @@ export const finalizeReminder = async ctx => {
     `<i>${intervalLabel}</i>
 <i>${autoDeleteLabel}</i>
 
-«${cleanText}»`,
+«${escapeHtml(cleanText)}»`,
     { parse_mode: 'HTML' }
   );
 

@@ -1,4 +1,5 @@
 import express from 'express';
+import mongoose from 'mongoose';
 import jwt from 'jsonwebtoken';
 import crypto from 'node:crypto';
 import { IANAZone } from 'luxon';
@@ -294,6 +295,10 @@ router.post('/reminders', authMiddleware, async (req, res) => {
 router.patch('/reminders/:id', authMiddleware, async (req, res) => {
   try {
     const { id } = req.params;
+    if (!mongoose.isValidObjectId(id)) {
+      return res.status(400).json({ message: 'Некорректный id напоминания' });
+    }
+
     const incomingUpdates = req.body || {};
 
     if (incomingUpdates.intervalMinutes !== undefined) {
@@ -318,11 +323,27 @@ router.patch('/reminders/:id', authMiddleware, async (req, res) => {
       incomingUpdates.deleteAfterSeconds = parsedDeleteAfter;
     }
 
+    if (incomingUpdates.isActive !== undefined && typeof incomingUpdates.isActive !== 'boolean') {
+      return res.status(400).json({ message: 'isActive должен быть булевым значением' });
+    }
+
+    if (incomingUpdates.isRandomPointer !== undefined && typeof incomingUpdates.isRandomPointer !== 'boolean') {
+      return res.status(400).json({ message: 'isRandomPointer должен быть булевым значением' });
+    }
+
+    if (incomingUpdates.isFavoritePointer !== undefined && typeof incomingUpdates.isFavoritePointer !== 'boolean') {
+      return res.status(400).json({ message: 'isFavoritePointer должен быть булевым значением' });
+    }
+
     const sanitizedUpdates = {};
     for (const allowedField of ALLOWED_REMINDER_UPDATE_FIELDS) {
       if (incomingUpdates[allowedField] !== undefined) {
         sanitizedUpdates[allowedField] = incomingUpdates[allowedField];
       }
+    }
+
+    if (incomingUpdates.intervalMinutes !== undefined) {
+      sanitizedUpdates.nextRunAt = new Date(Date.now() + incomingUpdates.intervalMinutes * 60 * 1000);
     }
 
     if (Object.keys(sanitizedUpdates).length === 0) {
@@ -349,6 +370,10 @@ router.patch('/reminders/:id', authMiddleware, async (req, res) => {
 router.delete('/reminders/:id', authMiddleware, async (req, res) => {
   try {
     const { id } = req.params;
+    if (!mongoose.isValidObjectId(id)) {
+      return res.status(400).json({ message: 'Некорректный id напоминания' });
+    }
+
     const reminder = await Reminder.findOneAndDelete({
       _id: id,
       userId: req.user.telegramId

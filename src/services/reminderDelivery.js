@@ -202,6 +202,8 @@ export const handleDeliveryError = async ({ error, reminder }) => {
 
   if (errorCode === 400) {
     reminder.isActive = false;
-    await reminder.save().catch(() => {});
+    await reminder.save().catch(databaseSaveError => {
+      logError(databaseSaveError, { scope: 'reminderDeliveryDeactivateSave', reminderId: reminder._id });
+    });
   }
 };

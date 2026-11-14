@@ -37,7 +37,8 @@ export const TIMEZONE_REGIONS = {
       'Europe/Tallinn',
 
       'Europe/Minsk',
-      'Europe/Moscow'
+      'Europe/Moscow',
+      'Europe/Istanbul'
     ]
   },
 
@@ -64,6 +65,7 @@ export const TIMEZONE_REGIONS = {
   asia: {
     label: '🌏 Азия',
     zones: [
+      'Asia/Jerusalem',
       'Asia/Dubai',
       'Asia/Tehran',
 
@@ -94,6 +96,17 @@ export const TIMEZONE_REGIONS = {
 
       'Asia/Tokyo',
       'Asia/Seoul'
+    ]
+  },
+
+  africa: {
+    label: '🌍 Африка',
+    zones: [
+      'Africa/Cairo',
+      'Africa/Johannesburg',
+      'Africa/Nairobi',
+      'Africa/Casablanca',
+      'Africa/Lagos'
     ]
   },
 

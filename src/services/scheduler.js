@@ -60,7 +60,16 @@ const performInactiveUsersCleanup = async now => {
     ).lean();
 
     for (const inactiveUser of inactiveUsers) {
-      await cleanupUser(inactiveUser.telegramId).catch(() => {});
+      const activeRemindersCount = await Reminder.countDocuments({
+        userId: inactiveUser.telegramId,
+        isActive: true
+      });
+      if (activeRemindersCount > 0) {
+        continue;
+      }
+      await cleanupUser(inactiveUser.telegramId).catch(cleanupError => {
+        logError(cleanupError, { scope: 'inactiveUserCleanup', telegramId: inactiveUser.telegramId });
+      });
     }
   } catch (error) {
     logError(error, { scope: 'inactiveUserCleanup' });
@@ -140,7 +149,9 @@ export const startScheduler = bot => {
             const nextScheduledDate = nextRunByInterval < quietEndDate ? nextRunByInterval : quietEndDate;
 
             reminderItem.nextRunAt = nextScheduledDate;
-            await reminderItem.save().catch(() => {});
+            await reminderItem.save().catch(databaseSaveError => {
+              logError(databaseSaveError, { scope: 'schedulerQuietHoursSave', reminderId: reminderItem._id });
+            });
             continue;
           }
 
@@ -188,7 +199,9 @@ export const startScheduler = bot => {
           } catch (deliveryError) {
             await handleDeliveryError({ error: deliveryError, reminder: reminderItem });
             reminderItem.lockedAt = null;
-            await reminderItem.save().catch(() => {});
+            await reminderItem.save().catch(databaseSaveError => {
+              logError(databaseSaveError, { scope: 'schedulerUnlockAfterDeliveryErrorSave', reminderId: reminderItem._id });
+            });
             continue;
           }
 
@@ -202,7 +215,9 @@ export const startScheduler = bot => {
             reminderItem.nextRunAt = calcNextRun(now, reminderItem.intervalMinutes);
           }
           reminderItem.lockedAt = null;
-          await reminderItem.save().catch(() => {});
+          await reminderItem.save().catch(databaseSaveError => {
+            logError(databaseSaveError, { scope: 'schedulerNextRunSave', reminderId: reminderItem._id });
+          });
         } catch (itemError) {
           logError(itemError, { scope: 'reminderItem', reminderId: reminderItem._id });
         }

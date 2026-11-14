@@ -4,6 +4,7 @@ import { UI } from '../constants/ui.js';
 import Reminder from '../models/Reminder.js';
 import User from '../models/User.js';
 import { escapeHtml } from '../utils/escapeHtml.js';
+import { isAdministratorContext } from '../utils/admin.js';
 import {
   getPointerByNumber,
   findPointersByText,
@@ -21,7 +22,7 @@ const allKnownNavigationButtons = [
 ];
 
 export const handleAdminActiveUsers = async ctx => {
-  if (String(ctx.from?.id) !== process.env.CREATOR_ID) return;
+  if (!isAdministratorContext(ctx)) return;
 
   const millisecondsInOneDay = 24 * 60 * 60 * 1000;
   const oneDayAgoDate = new Date(Date.now() - millisecondsInOneDay);
@@ -57,7 +58,7 @@ export const handleAdminActiveUsers = async ctx => {
 };
 
 export const handleAdminBroadcastStart = async ctx => {
-  if (String(ctx.from?.id) !== process.env.CREATOR_ID) return;
+  if (!isAdministratorContext(ctx)) return;
 
   ctx.session ??= {};
   ctx.session.adminBroadcastStep = 'AWAITING_MESSAGE';
@@ -81,7 +82,7 @@ export const handleAdminBroadcastStart = async ctx => {
 };
 
 export const handleAdminBroadcastCancel = async ctx => {
-  if (String(ctx.from?.id) !== process.env.CREATOR_ID) return;
+  if (!isAdministratorContext(ctx)) return;
 
   await ctx.answerCbQuery().catch(() => {});
 
@@ -95,7 +96,7 @@ export const handleAdminBroadcastCancel = async ctx => {
 };
 
 export const handleAdminBroadcastMessage = async ctx => {
-  if (String(ctx.from?.id) !== process.env.CREATOR_ID) return false;
+  if (!isAdministratorContext(ctx)) return false;
   if (ctx.session?.adminBroadcastStep !== 'AWAITING_MESSAGE') return false;
 
   const incomingText = ctx.message?.text;
@@ -137,7 +138,7 @@ export const handleAdminBroadcastMessage = async ctx => {
 };
 
 export const handleAdminBroadcastConfirm = async ctx => {
-  if (String(ctx.from?.id) !== process.env.CREATOR_ID) return;
+  if (!isAdministratorContext(ctx)) return;
   if (ctx.session?.adminBroadcastStep !== 'AWAITING_CONFIRMATION') {
     await ctx.answerCbQuery('Рассылка не ожидает подтверждения').catch(() => {});
     return;
@@ -182,8 +183,13 @@ export const handleAdminBroadcastConfirm = async ctx => {
         }
       );
       successfulDeliveriesCount++;
-    } catch {
+    } catch (deliveryError) {
       failedDeliveriesCount++;
+      const errorCode = deliveryError?.response?.error_code || deliveryError?.code;
+      if (errorCode === 429) {
+        const retryAfterSeconds = deliveryError?.response?.parameters?.retry_after || 1;
+        await new Promise(resolveRetry => setTimeout(resolveRetry, retryAfterSeconds * 1000));
+      }
     }
 
     await new Promise(resolveTimer => setTimeout(resolveTimer, 40));
@@ -278,7 +284,7 @@ export const handleFeedbackMessage = async ctx => {
 };
 
 export const handleAdminGetPointerByNumber = async (ctx, next) => {
-  if (String(ctx.from?.id) !== process.env.CREATOR_ID) {
+  if (!isAdministratorContext(ctx)) {
     if (typeof next === 'function') {
       return next();
     }
@@ -336,7 +342,7 @@ export const handleAdminGetPointerByNumber = async (ctx, next) => {
 };
 
 export const handleAdminSearchPointers = async (ctx, next) => {
-  if (String(ctx.from?.id) !== process.env.CREATOR_ID) {
+  if (!isAdministratorContext(ctx)) {
     if (typeof next === 'function') {
       return next();
     }

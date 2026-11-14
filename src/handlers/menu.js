@@ -21,3 +21,9 @@ export const handleStart = async ctx => {
 
   await ctx.reply(texts.MENU.START, mainKeyboard(ctx, userLanguage));
 };
+
+export const handleHelp = async ctx => {
+  const userLanguage = await resolveUserLanguage(ctx);
+  const texts = getTexts(userLanguage);
+  await ctx.reply(texts.MENU.HELP, mainKeyboard(ctx, userLanguage));
+};

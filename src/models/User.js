@@ -57,7 +57,7 @@ const schema = new mongoose.Schema({
     default: 0
   },
 
-  authCode: { type: String },
+  authCode: { type: String, index: true },
   authCodeExpiresAt: { type: Date },
   pushTokens: [{ type: String }],
 
@@ -67,5 +67,7 @@ const schema = new mongoose.Schema({
     default: 'telegram'
   }
 }, { timestamps: true });
+
+schema.index({ authCode: 1, authCodeExpiresAt: 1 });
 
 export default mongoose.model('User', schema);

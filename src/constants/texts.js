@@ -12,7 +12,14 @@ const RUSSIAN_TEXTS = {
 `,
     MAIN: 'Главное меню',
     SETTINGS: 'Настройки:',
-    REMINDERS: 'Управление напоминаниями 👇'
+    REMINDERS: 'Управление напоминаниями 👇',
+    HELP: `📖 Справка по боту:
+
+🧘‍♀️ «Указатели» — карточки осознанности
+⏳ «Напоминания» — создание и управление напоминаниями
+⚙️ «Настройки» — часовой пояс, тихие часы и язык
+
+💡 Чтобы создать напоминание, нажми «⏳ Напоминания» ➡️ «➕ Создать». Можно указать интервал в минутах или точное время (например, 09:00).`
   },
 
   POINTERS: {
@@ -31,9 +38,9 @@ const RUSSIAN_TEXTS = {
     NONE: 'У тебя нет напоминаний.',
     CREATED: 'Готово. Напоминание создано.',
     ASK_TEXT: 'Что будет приходить в напоминании?',
-    ASK_TEXT_SUBTITLE: '✍️ Введите текст, выберите из предложенных или отправьте 📷 фото / 🎬 видео',
+    ASK_TEXT_SUBTITLE: '✍️ Введи текст, выбери из предложенных или отправь 📷 фото / 🎬 видео',
     ASK_INTERVAL: 'Как часто напоминать:',
-    ASK_INTERVAL_HINT: '⌨️ Можно выбрать кнопкой или ввести количество минут цифрами',
+    ASK_INTERVAL_HINT: '⌨️ Можно выбрать кнопкой или ввести количество минут цифрами (или время, например 09:00)',
     ASK_DELETE_AFTER: '🗑 Автоудаление напоминания',
     ASK_DELETE_AFTER_HINT: '⌨️ Можно выбрать кнопкой или ввести количество секунд цифрами',
     MIN_INTERVAL: 'Минимум — 1 минута',
@@ -66,7 +73,7 @@ const RUSSIAN_TEXTS = {
     TIMEZONE_SET: tz => `✅ Часовой пояс установлен:\n🌍 ${tz}`,
     QUIET_MENU_PROMPT: '🔕 <b>Расписание тихих часов</b>\n\nВ этот период напоминания не будут приходить.',
     QUIET_SET_PRESET: (start, end) => `✅ Часы тишины установлены: <b>${start}:00–${end}:00</b>`,
-    QUIET_CUSTOM_PROMPT: '✍️ Введите часы тишины в формате <code>НАЧАЛО-КОНЕЦ</code> (например, <code>23-8</code> или <code>22:00-07:00</code>):',
+    QUIET_CUSTOM_PROMPT: '✍️ Введи часы тишины в формате <code>НАЧАЛО-КОНЕЦ</code> (например, <code>23-8</code> или <code>22:00-07:00</code>):',
     QUIET_CUSTOM_ERROR: '⚠️ Пожалуйста, укажите часы в формате <code>23-8</code> или <code>22:00-07:00</code>:',
     QUIET_RANGE_ERROR: '⚠️ Часы должны быть от 0 до 23 и не совпадать:',
     QUIET_CUSTOM_SUCCESS: (start, end) => `✅ Часы тишины установлены: <b>${start}:00 - ${end}:00</b>`,
@@ -114,7 +121,14 @@ I will remind you about what truly matters.
 `,
     MAIN: 'Main menu',
     SETTINGS: 'Settings:',
-    REMINDERS: 'Manage reminders 👇'
+    REMINDERS: 'Manage reminders 👇',
+    HELP: `📖 Bot help:
+
+🧘‍♀️ "Pointers" — mindfulness cards
+⏳ "Reminders" — create and manage reminders
+⚙️ "Settings" — timezone, quiet hours, and language
+
+💡 To create a reminder, press "⏳ Reminders" ➡️ "➕ Create". You can set interval in minutes or exact daily time (e.g., 09:00).`
   },
 
   POINTERS: {
@@ -135,7 +149,7 @@ I will remind you about what truly matters.
     ASK_TEXT: 'What should the reminder say?',
     ASK_TEXT_SUBTITLE: '✍️ Type text, choose from suggestions or send 📷 photo / 🎬 video',
     ASK_INTERVAL: 'How often to remind:',
-    ASK_INTERVAL_HINT: '⌨️ You can select with a button or type the number of minutes',
+    ASK_INTERVAL_HINT: '⌨️ You can select with a button, enter minutes or time (e.g., 09:00)',
     ASK_DELETE_AFTER: '🗑 Auto-delete reminder',
     ASK_DELETE_AFTER_HINT: '⌨️ You can select with a button or type the number of seconds',
     MIN_INTERVAL: 'Minimum — 1 minute',
@@ -216,7 +230,14 @@ const UKRAINIAN_TEXTS = {
 `,
     MAIN: 'Головне меню',
     SETTINGS: 'Налаштування:',
-    REMINDERS: 'Керування нагадуваннями 👇'
+    REMINDERS: 'Керування нагадуваннями 👇',
+    HELP: `📖 Довідка по боту:
+
+🧘‍♀️ «Вказівники» — картки усвідомленості
+⏳ «Нагадування» — створення та керування нагадуваннями
+⚙️ «Налаштування» — часовий пояс, тихі години та мова
+
+💡 Щоб створити нагадування, натисни «⏳ Нагадування» ➡️ «➕ Створити». Можна вказати інтервал у хвилинах або точний час (наприклад, 09:00).`
   },
 
   POINTERS: {
@@ -237,7 +258,7 @@ const UKRAINIAN_TEXTS = {
     ASK_TEXT: 'Що приходитиме в нагадуванні?',
     ASK_TEXT_SUBTITLE: '✍️ Введіть текст, виберіть із запропонованих або надішліть 📷 фото / 🎬 відео',
     ASK_INTERVAL: 'Як часто нагадувати:',
-    ASK_INTERVAL_HINT: '⌨️ Можна вибрати кнопкою або ввести кількість хвилин цифрами',
+    ASK_INTERVAL_HINT: '⌨️ Можна вибрати кнопкою, ввести кількість хвилин або час (наприклад, 09:00)',
     ASK_DELETE_AFTER: '🗑 Автовидалення нагадування',
     ASK_DELETE_AFTER_HINT: '⌨️ Можна вибрати кнопкою або ввести кількість секунд цифрами',
     MIN_INTERVAL: 'Мінімум — 1 хвилина',
@@ -318,7 +339,14 @@ Te recordaré lo que verdaderamente importa.
 `,
     MAIN: 'Menú principal',
     SETTINGS: 'Ajustes:',
-    REMINDERS: 'Gestión de recordatorios 👇'
+    REMINDERS: 'Gestión de recordatorios 👇',
+    HELP: `📖 Ayuda del bot:
+
+🧘‍♀️ «Punteros» — tarjetas de atención plena
+⏳ «Recordatorios» — crear y gestionar recordatorios
+⚙️ «Ajustes» — zona horaria, horas de silencio e idioma
+
+💡 Para crear un recordatorio, presiona «⏳ Recordatorios» ➡️ «➕ Crear». Puedes indicar el intervalo en minutos o la hora exacta (por ejemplo, 09:00).`
   },
 
   POINTERS: {
@@ -339,7 +367,7 @@ Te recordaré lo que verdaderamente importa.
     ASK_TEXT: '¿Qué mensaje llegará en el recordatorio?',
     ASK_TEXT_SUBTITLE: '✍️ Escribe el texto, elige una sugerencia o envía 📷 foto / 🎬 video',
     ASK_INTERVAL: 'Con qué frecuencia recordar:',
-    ASK_INTERVAL_HINT: '⌨️ Puedes elegir con un botón o escribir la cantidad de minutos en números',
+    ASK_INTERVAL_HINT: '⌨️ Puedes elegir con un botón, escribir minutos o una hora (por ejemplo, 09:00)',
     ASK_DELETE_AFTER: '🗑 Autoeliminación del recordatorio',
     ASK_DELETE_AFTER_HINT: '⌨️ Puedes elegir con un botón o escribir la cantidad de segundos en números',
     MIN_INTERVAL: 'Mínimo — 1 minuto',

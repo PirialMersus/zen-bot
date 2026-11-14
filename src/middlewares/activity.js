@@ -1,6 +1,7 @@
 import Activity from '../models/Activity.js';
 import User from '../models/User.js';
 import { escapeHtml } from '../utils/escapeHtml.js';
+import { isAdministratorUser } from '../utils/admin.js';
 
 const defaultFallbackLanguage = 'ru';
 const userCache = new Map();
@@ -65,7 +66,7 @@ export const resolveUserLanguage = async ctx => {
 const notifyAdministratorAboutNewUser = async (ctx, telegramId) => {
   const administratorTelegramIdentifier = process.env.CREATOR_ID;
   if (!administratorTelegramIdentifier) return;
-  if (String(telegramId) === String(administratorTelegramIdentifier)) return;
+  if (isAdministratorUser(telegramId)) return;
 
   const userFirstName = ctx.from?.first_name || '';
   const userLastName = ctx.from?.last_name || '';

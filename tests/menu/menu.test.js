@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { TEXTS } from '../../src/constants/texts.js';
 import { handleBack } from '../../src/handlers/back.js';
-import { handleStart } from '../../src/handlers/menu.js';
+import { handleStart, handleHelp } from '../../src/handlers/menu.js';
 import { REMINDER_STEP } from '../../src/handlers/reminders.js';
 import { createMockContext } from '../helpers/mockContext.js';
 
@@ -13,6 +13,15 @@ describe('Главное меню и навигация', () => {
 
     expect(mockContext.reply).toHaveBeenCalledTimes(1);
     expect(mockContext.reply.mock.calls[0][0]).toBe(TEXTS.MENU.START);
+  });
+
+  it('должен отправлять справочное сообщение при вызове handleHelp', async () => {
+    const mockContext = createMockContext();
+
+    await handleHelp(mockContext);
+
+    expect(mockContext.reply).toHaveBeenCalledTimes(1);
+    expect(mockContext.reply.mock.calls[0][0]).toBe(TEXTS.MENU.HELP);
   });
 
   it('должен возвращать в главное меню при нажатии Назад без активного шага', async () => {

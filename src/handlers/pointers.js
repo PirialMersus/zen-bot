@@ -19,6 +19,7 @@ import { getTexts } from '../constants/texts.js';
 import { getUi } from '../constants/ui.js';
 import { resolveUserLanguage } from '../middlewares/activity.js';
 import { previewText } from '../utils/text.js';
+import { escapeHtml } from '../utils/escapeHtml.js';
 import { handleReminderText, REMINDER_STEP } from './reminders.js';
 
 export const formatPointerText = pointer =>
@@ -300,7 +301,7 @@ export const handlePointerToReminder = async ctx => {
   await ctx.reply(
     `<i>${texts.REMINDERS.ASK_INTERVAL}</i>
 
-«${preview}»
+«${escapeHtml(preview)}»
 
 <i>${texts.REMINDERS.ASK_INTERVAL_HINT}</i>`,
     { parse_mode: 'HTML', ...getIntervalKeyboard(userLanguage) }

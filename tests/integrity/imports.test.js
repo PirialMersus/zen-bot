@@ -75,6 +75,7 @@ describe('Целостность импортов модулей (Integrity Chec
   it('должен успешно импортировать хендлер меню', async () => {
     const module = await import('../../src/handlers/menu.js');
     expect(typeof module.handleStart).toBe('function');
+    expect(typeof module.handleHelp).toBe('function');
   });
 
   it('должен успешно импортировать хендлер напоминаний', async () => {

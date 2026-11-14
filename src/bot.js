@@ -16,7 +16,7 @@ import {
 } from './handlers/admin.js';
 import { handleGetAuthCode } from './handlers/auth.js';
 import { handleBack } from './handlers/back.js';
-import { handleStart } from './handlers/menu.js';
+import { handleStart, handleHelp } from './handlers/menu.js';
 import { handleUnknownMessage } from './handlers/fallback.js';
 import {
   handleNextPointer,
@@ -58,7 +58,6 @@ import {
   handleLanguageMenu,
   handleLanguageSet
 } from './handlers/settings/index.js';
-import { getIntervalKeyboard } from './keyboard/intervals.js';
 import { mainKeyboard } from './keyboard/main.js';
 import { getSupportInlineKeyboard } from './keyboard/support.js';
 import { activityMiddleware, resolveUserLanguage } from './middlewares/activity.js';
@@ -77,6 +76,7 @@ bot.catch((err, ctx) => {
 });
 
 bot.start(handleStart);
+bot.help(handleHelp);
 
 bot.command('getcode', handleGetAuthCode);
 bot.action('get_auth_code', handleGetAuthCode);
@@ -137,26 +137,6 @@ bot.action('settings:back', async ctx => {
   await ctx.answerCbQuery().catch(() => { });
   await ctx.deleteMessage().catch(() => { });
   await ctx.reply(texts.MENU.MAIN, mainKeyboard(ctx, userLanguage)).catch(() => { });
-});
-
-bot.action('reminder:back_to_intervals', async ctx => {
-  ctx.session ??= {};
-  ctx.session.reminderStep = 'INTERVAL';
-
-  await ctx.answerCbQuery().catch(() => { });
-  await ctx.deleteMessage().catch(() => { });
-
-  const preview = ctx.session?.creatingReminder?.text
-    ? `\n\n«${ctx.session.creatingReminder.text.slice(0, 40)}»`
-    : '';
-
-  const userLanguage = await resolveUserLanguage(ctx);
-  const texts = getTexts(userLanguage);
-
-  await ctx.reply(
-    `${texts.REMINDERS.ASK_INTERVAL}${preview}\n\n${texts.REMINDERS.ASK_INTERVAL_HINT}`,
-    getIntervalKeyboard(userLanguage)
-  );
 });
 
 bot.hears([
