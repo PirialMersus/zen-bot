@@ -13,6 +13,11 @@ import { countUserFavoritePointers } from '../../services/pointers.js';
 import { previewText } from '../../utils/text.js';
 import { escapeHtml } from '../../utils/escapeHtml.js';
 import { formatInterval, formatAutoDelete } from '../../services/remindersFormat.js';
+import {
+  MAX_REMINDERS_PER_USER,
+  MAX_REMINDER_INTERVAL_MINUTES,
+  MIN_REMINDER_INTERVAL_MINUTES
+} from '../../constants/limits.js';
 
 export const REMINDER_STEP = {
   TEXT: 'TEXT',
@@ -93,6 +98,14 @@ export const renderReminderStep = async ctx => {
 };
 
 export const handleCreateReminder = async ctx => {
+  const existingRemindersCount = await Reminder.countDocuments({ userId: ctx.from.id });
+  if (existingRemindersCount >= MAX_REMINDERS_PER_USER) {
+    const userLanguage = await resolveUserLanguage(ctx);
+    const texts = getTexts(userLanguage);
+    await ctx.reply(texts.REMINDERS.LIMIT_REACHED);
+    return;
+  }
+
   ctx.session ??= {};
   ctx.session.isSettingCustomQuietHours = null;
   ctx.session.creatingReminder = {
@@ -244,8 +257,13 @@ export const handleIntervalInput = async ctx => {
   const userLanguage = await resolveUserLanguage(ctx);
   const texts = getTexts(userLanguage);
 
-  if (!Number.isInteger(minutes) || minutes < 1) {
+  if (!Number.isInteger(minutes) || minutes < MIN_REMINDER_INTERVAL_MINUTES) {
     await ctx.reply(texts.REMINDERS.MIN_INTERVAL);
+    return true;
+  }
+
+  if (minutes > MAX_REMINDER_INTERVAL_MINUTES) {
+    await ctx.reply(texts.REMINDERS.MAX_INTERVAL);
     return true;
   }
 

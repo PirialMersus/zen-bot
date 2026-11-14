@@ -85,6 +85,18 @@ export const registerBotCommands = async targetBot => {
       { command: 'start', description: 'Запустить бота / Главное меню' },
       { command: 'help', description: 'Справка и возможности' }
     ]);
+    await targetBot.telegram.setMyCommands([
+      { command: 'start', description: 'Start the bot / Main menu' },
+      { command: 'help', description: 'Help and features' }
+    ], { language_code: 'en' });
+    await targetBot.telegram.setMyCommands([
+      { command: 'start', description: 'Запустити бота / Головне меню' },
+      { command: 'help', description: 'Довідка та можливості' }
+    ], { language_code: 'uk' });
+    await targetBot.telegram.setMyCommands([
+      { command: 'start', description: 'Iniciar el bot / Menú principal' },
+      { command: 'help', description: 'Ayuda y características' }
+    ], { language_code: 'es' });
   } catch (commandRegistrationError) {
     console.error('SET_COMMANDS_ERROR', commandRegistrationError?.message || commandRegistrationError);
   }

@@ -1,7 +1,8 @@
-import { describe, expect, it } from 'vitest';
+import { describe, expect, it, vi } from 'vitest';
 import { TEXTS } from '../../src/constants/texts.js';
 import { handleBack } from '../../src/handlers/back.js';
 import { handleStart, handleHelp } from '../../src/handlers/menu.js';
+import { registerBotCommands } from '../../src/bot.js';
 import { REMINDER_STEP } from '../../src/handlers/reminders.js';
 import { createMockContext } from '../helpers/mockContext.js';
 
@@ -77,5 +78,33 @@ describe('Главное меню и навигация', () => {
     expect(mockContext.session.creatingReminder).toBeNull();
     expect(mockContext.reply).toHaveBeenCalledTimes(1);
     expect(mockContext.reply.mock.calls[0][0]).toBe(TEXTS.MENU.MAIN);
+  });
+
+  it('должен регистрировать команды Telegram для всех поддерживаемых языков', async () => {
+    const mockBot = {
+      telegram: {
+        setMyCommands: vi.fn().mockResolvedValue(true)
+      }
+    };
+
+    await registerBotCommands(mockBot);
+
+    expect(mockBot.telegram.setMyCommands).toHaveBeenCalledTimes(4);
+    expect(mockBot.telegram.setMyCommands).toHaveBeenNthCalledWith(1, [
+      { command: 'start', description: 'Запустить бота / Главное меню' },
+      { command: 'help', description: 'Справка и возможности' }
+    ]);
+    expect(mockBot.telegram.setMyCommands).toHaveBeenNthCalledWith(2, [
+      { command: 'start', description: 'Start the bot / Main menu' },
+      { command: 'help', description: 'Help and features' }
+    ], { language_code: 'en' });
+    expect(mockBot.telegram.setMyCommands).toHaveBeenNthCalledWith(3, [
+      { command: 'start', description: 'Запустити бота / Головне меню' },
+      { command: 'help', description: 'Довідка та можливості' }
+    ], { language_code: 'uk' });
+    expect(mockBot.telegram.setMyCommands).toHaveBeenNthCalledWith(4, [
+      { command: 'start', description: 'Iniciar el bot / Menú principal' },
+      { command: 'help', description: 'Ayuda y características' }
+    ], { language_code: 'es' });
   });
 });

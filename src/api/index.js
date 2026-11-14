@@ -8,6 +8,11 @@ import { Pointer, PointerEn, PointerUk, PointerEs } from '../models/Pointer.js';
 import Reminder from '../models/Reminder.js';
 import User from '../models/User.js';
 import { logError } from '../utils/logger.js';
+import {
+  MAX_REMINDERS_PER_USER,
+  MAX_REMINDER_INTERVAL_MINUTES,
+  MIN_REMINDER_INTERVAL_MINUTES
+} from '../constants/limits.js';
 
 const router = express.Router();
 
@@ -257,13 +262,13 @@ router.post('/reminders', authMiddleware, async (req, res) => {
     }
 
     const existingRemindersCount = await Reminder.countDocuments({ userId: req.user.telegramId });
-    if (existingRemindersCount >= 100) {
-      return res.status(400).json({ message: 'Достигнут лимит напоминаний (максимум 100)' });
+    if (existingRemindersCount >= MAX_REMINDERS_PER_USER) {
+      return res.status(400).json({ message: `Достигнут лимит напоминаний (максимум ${MAX_REMINDERS_PER_USER})` });
     }
 
     const parsedInterval = Number(intervalMinutes);
-    if (!Number.isInteger(parsedInterval) || parsedInterval < 1 || parsedInterval > 525600) {
-      return res.status(400).json({ message: 'intervalMinutes должен быть положительным целым числом не более 525600' });
+    if (!Number.isInteger(parsedInterval) || parsedInterval < MIN_REMINDER_INTERVAL_MINUTES || parsedInterval > MAX_REMINDER_INTERVAL_MINUTES) {
+      return res.status(400).json({ message: `intervalMinutes должен быть положительным целым числом не более ${MAX_REMINDER_INTERVAL_MINUTES}` });
     }
 
     let parsedDeleteAfter = 10;
@@ -308,8 +313,8 @@ router.patch('/reminders/:id', authMiddleware, async (req, res) => {
 
     if (incomingUpdates.intervalMinutes !== undefined) {
       const parsedInterval = Number(incomingUpdates.intervalMinutes);
-      if (!Number.isInteger(parsedInterval) || parsedInterval < 1 || parsedInterval > 525600) {
-        return res.status(400).json({ message: 'intervalMinutes должен быть положительным целым числом не более 525600' });
+      if (!Number.isInteger(parsedInterval) || parsedInterval < MIN_REMINDER_INTERVAL_MINUTES || parsedInterval > MAX_REMINDER_INTERVAL_MINUTES) {
+        return res.status(400).json({ message: `intervalMinutes должен быть положительным целым числом не более ${MAX_REMINDER_INTERVAL_MINUTES}` });
       }
       incomingUpdates.intervalMinutes = parsedInterval;
     }

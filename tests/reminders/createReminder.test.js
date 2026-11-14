@@ -12,6 +12,7 @@ import {
 import Reminder from '../../src/models/Reminder.js';
 import User from '../../src/models/User.js';
 import { createMockContext } from '../helpers/mockContext.js';
+import { MAX_REMINDERS_PER_USER, MAX_REMINDER_INTERVAL_MINUTES } from '../../src/constants/limits.js';
 
 describe('Создание напоминаний', () => {
   it('должен инициализировать сессию и переводить на шаг ввода текста', async () => {
@@ -225,5 +226,47 @@ describe('Создание напоминаний', () => {
     expect(mockContext.session.creatingReminder.targetTime).toBeNull();
     expect(mockContext.session.creatingReminder.intervalMinutes).toBe(5);
     expect(mockContext.session.reminderStep).toBe(REMINDER_STEP.AUTO_DELETE);
+  });
+
+  it('должен блокировать создание напоминания при достижении лимита 100 напоминаний', async () => {
+    const testUserId = 778899;
+    await Reminder.deleteMany({ userId: testUserId });
+
+    const reminderDocumentsArray = Array.from({ length: MAX_REMINDERS_PER_USER }).map((_, reminderIndex) => ({
+      userId: testUserId,
+      chatId: testUserId,
+      text: `Напоминание ${reminderIndex}`,
+      intervalMinutes: 10,
+      nextRunAt: new Date()
+    }));
+    await Reminder.insertMany(reminderDocumentsArray);
+
+    const mockContext = createMockContext({
+      from: { id: testUserId, language_code: 'ru' }
+    });
+
+    await handleCreateReminder(mockContext);
+
+    expect(mockContext.reply).toHaveBeenCalledWith(TEXTS.ru.REMINDERS.LIMIT_REACHED);
+    expect(mockContext.session.reminderStep).toBeUndefined();
+
+    await Reminder.deleteMany({ userId: testUserId });
+  });
+
+  it('должен отклонять интервал более 525600 минут при ручном вводе', async () => {
+    const mockContext = createMockContext({
+      session: {
+        reminderStep: REMINDER_STEP.INTERVAL,
+        creatingReminder: { text: 'Лимит интервала' }
+      },
+      text: `${MAX_REMINDER_INTERVAL_MINUTES + 1}`,
+      from: { id: 12345, language_code: 'ru' }
+    });
+
+    const isProcessed = await handleIntervalInput(mockContext);
+
+    expect(isProcessed).toBe(true);
+    expect(mockContext.reply).toHaveBeenCalledWith(TEXTS.ru.REMINDERS.MAX_INTERVAL);
+    expect(mockContext.session.reminderStep).toBe(REMINDER_STEP.INTERVAL);
   });
 });

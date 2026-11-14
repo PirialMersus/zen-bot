@@ -191,7 +191,9 @@ export const handleAdminBroadcastConfirm = async ctx => {
       } catch (deliveryError) {
         const errorCode = deliveryError?.response?.error_code || deliveryError?.code;
         if (errorCode === 403) {
-          await cleanupUser(recipientUser.telegramId).catch(() => {});
+          await cleanupUser(recipientUser.telegramId).catch(cleanupError => {
+            console.error('BROADCAST_CLEANUP_USER_ERROR', cleanupError?.message || cleanupError);
+          });
           break;
         }
         if (errorCode === 429 && deliveryAttempt === 0) {

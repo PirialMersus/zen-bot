@@ -197,7 +197,9 @@ export const handleDeliveryError = async ({ error, reminder }) => {
   });
 
   if (errorCode === 403) {
-    await cleanupUser(reminder.userId).catch(() => {});
+    await cleanupUser(reminder.userId).catch(cleanupError => {
+      logError(cleanupError, { context: 'DELIVERY_CLEANUP_USER_ERROR', userId: reminder.userId });
+    });
   }
 
   if (errorCode === 400) {
