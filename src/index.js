@@ -1,6 +1,6 @@
 import 'dotenv/config';
 import { connectDB, disconnectDB } from './storage/db.js';
-import { bot } from './bot.js';
+import { bot, registerBotCommands } from './bot.js';
 import { startScheduler, stopScheduler } from './services/scheduler.js';
 import { startServer, stopServer } from './server.js';
 
@@ -24,6 +24,7 @@ const startBotWithAutoRestart = async () => {
 
   while (!isBotTerminating) {
     try {
+      await registerBotCommands(bot);
       await bot.launch();
       break;
     } catch (launchError) {

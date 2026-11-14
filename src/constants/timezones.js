@@ -2,6 +2,12 @@ export const DEFAULT_TIMEZONE = 'Europe/Minsk';
 
 export const TIMEZONE_REGIONS = {
   europe: {
+    labels: {
+      ru: '🇪🇺 Европа',
+      en: '🇪🇺 Europe',
+      uk: '🇪🇺 Європа',
+      es: '🇪🇺 Europa'
+    },
     label: '🇪🇺 Европа',
     zones: [
       'Europe/London',
@@ -43,6 +49,12 @@ export const TIMEZONE_REGIONS = {
   },
 
   america: {
+    labels: {
+      ru: '🇺🇸 Америка',
+      en: '🇺🇸 America',
+      uk: '🇺🇸 Америка',
+      es: '🇺🇸 América'
+    },
     label: '🇺🇸 Америка',
     zones: [
       'America/New_York',
@@ -63,6 +75,12 @@ export const TIMEZONE_REGIONS = {
   },
 
   asia: {
+    labels: {
+      ru: '🌏 Азия',
+      en: '🌏 Asia',
+      uk: '🌏 Азія',
+      es: '🌏 Asia'
+    },
     label: '🌏 Азия',
     zones: [
       'Asia/Jerusalem',
@@ -100,6 +118,12 @@ export const TIMEZONE_REGIONS = {
   },
 
   africa: {
+    labels: {
+      ru: '🌍 Африка',
+      en: '🌍 Africa',
+      uk: '🌍 Африка',
+      es: '🌍 África'
+    },
     label: '🌍 Африка',
     zones: [
       'Africa/Cairo',
@@ -111,6 +135,12 @@ export const TIMEZONE_REGIONS = {
   },
 
   australia: {
+    labels: {
+      ru: '🇦🇺 Австралия',
+      en: '🇦🇺 Australia',
+      uk: '🇦🇺 Австралія',
+      es: '🇦🇺 Australia'
+    },
     label: '🇦🇺 Австралия',
     zones: [
       'Australia/Perth',

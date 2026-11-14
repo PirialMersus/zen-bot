@@ -5,6 +5,7 @@ import Reminder from '../models/Reminder.js';
 import User from '../models/User.js';
 import { escapeHtml } from '../utils/escapeHtml.js';
 import { isAdministratorContext } from '../utils/admin.js';
+import { cleanupUser } from '../services/cleanupUser.js';
 import {
   getPointerByNumber,
   findPointersByText,
@@ -173,23 +174,36 @@ export const handleAdminBroadcastConfirm = async ctx => {
   ]);
 
   for (const recipientUser of allTelegramUsers) {
-    try {
-      await ctx.telegram.copyMessage(
-        recipientUser.telegramId,
-        sourceChatIdentifier,
-        sourceMessageIdentifier,
-        {
-          reply_markup: feedbackInlineKeyboard.reply_markup
+    let wasMessageDelivered = false;
+    for (let deliveryAttempt = 0; deliveryAttempt < 2; deliveryAttempt += 1) {
+      try {
+        await ctx.telegram.copyMessage(
+          recipientUser.telegramId,
+          sourceChatIdentifier,
+          sourceMessageIdentifier,
+          {
+            reply_markup: feedbackInlineKeyboard.reply_markup
+          }
+        );
+        successfulDeliveriesCount++;
+        wasMessageDelivered = true;
+        break;
+      } catch (deliveryError) {
+        const errorCode = deliveryError?.response?.error_code || deliveryError?.code;
+        if (errorCode === 403) {
+          await cleanupUser(recipientUser.telegramId).catch(() => {});
+          break;
         }
-      );
-      successfulDeliveriesCount++;
-    } catch (deliveryError) {
-      failedDeliveriesCount++;
-      const errorCode = deliveryError?.response?.error_code || deliveryError?.code;
-      if (errorCode === 429) {
-        const retryAfterSeconds = deliveryError?.response?.parameters?.retry_after || 1;
-        await new Promise(resolveRetry => setTimeout(resolveRetry, retryAfterSeconds * 1000));
+        if (errorCode === 429 && deliveryAttempt === 0) {
+          const retryAfterSeconds = deliveryError?.response?.parameters?.retry_after || 1;
+          await new Promise(resolveRetry => setTimeout(resolveRetry, retryAfterSeconds * 1000));
+          continue;
+        }
+        break;
       }
+    }
+    if (!wasMessageDelivered) {
+      failedDeliveriesCount++;
     }
 
     await new Promise(resolveTimer => setTimeout(resolveTimer, 40));

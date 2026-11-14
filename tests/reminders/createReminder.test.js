@@ -3,7 +3,6 @@ import { TEXTS } from '../../src/constants/texts.js';
 import { UI } from '../../src/constants/ui.js';
 import {
   handleCreateReminder,
-  handleDeleteAfterInput,
   handleDeleteAfterPreset,
   handleIntervalInput,
   handleIntervalPreset,
@@ -181,5 +180,50 @@ describe('Создание напоминаний', () => {
     expect(keyboardRows[0]).toEqual([UI.ru.REMINDER_RANDOM, UI.ru.REMINDER_FAVORITE]);
     expect(keyboardRows[1]).toEqual(['Пользовательский текст 1', 'Пользовательский текст 2']);
     expect(keyboardRows[2]).toEqual(['⬅️ Назад']);
+  });
+
+  it('должен корректно экранировать HTML спецсимволы в тексте напоминания', async () => {
+    const rawTextWithSpecialChars = 'Люблю <3 & медитацию <tags>';
+    const mockContext = createMockContext({
+      session: {
+        reminderStep: REMINDER_STEP.TEXT,
+        creatingReminder: { deleteAfterSeconds: 10 }
+      },
+      text: rawTextWithSpecialChars
+    });
+
+    await handleReminderText(mockContext);
+
+    expect(mockContext.session.reminderStep).toBe(REMINDER_STEP.INTERVAL);
+    expect(mockContext.reply).toHaveBeenCalled();
+    const [stepMessageText] = mockContext.reply.mock.calls[0];
+    expect(stepMessageText).toContain('&lt;3 &amp; медитацию &lt;tags&gt;');
+  });
+
+  it('должен сбрасывать type daily и targetTime при возврате Назад и выборе пресета интервала', async () => {
+    const mockContext = createMockContext({
+      session: {
+        reminderStep: REMINDER_STEP.INTERVAL,
+        creatingReminder: {
+          text: 'Тест ежедневного',
+          deleteAfterSeconds: 10
+        }
+      },
+      text: '09:00'
+    });
+
+    await handleIntervalInput(mockContext);
+    expect(mockContext.session.creatingReminder.type).toBe('daily');
+    expect(mockContext.session.creatingReminder.targetTime).toBe('09:00');
+    expect(mockContext.session.reminderStep).toBe(REMINDER_STEP.AUTO_DELETE);
+
+    mockContext.session.reminderStep = REMINDER_STEP.INTERVAL;
+
+    await handleIntervalPreset(mockContext, 5);
+
+    expect(mockContext.session.creatingReminder.type).toBe('interval');
+    expect(mockContext.session.creatingReminder.targetTime).toBeNull();
+    expect(mockContext.session.creatingReminder.intervalMinutes).toBe(5);
+    expect(mockContext.session.reminderStep).toBe(REMINDER_STEP.AUTO_DELETE);
   });
 });

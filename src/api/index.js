@@ -256,9 +256,14 @@ router.post('/reminders', authMiddleware, async (req, res) => {
       return res.status(400).json({ message: 'text не должен превышать 4096 символов' });
     }
 
+    const existingRemindersCount = await Reminder.countDocuments({ userId: req.user.telegramId });
+    if (existingRemindersCount >= 100) {
+      return res.status(400).json({ message: 'Достигнут лимит напоминаний (максимум 100)' });
+    }
+
     const parsedInterval = Number(intervalMinutes);
-    if (!Number.isInteger(parsedInterval) || parsedInterval < 1) {
-      return res.status(400).json({ message: 'intervalMinutes должен быть положительным целым числом' });
+    if (!Number.isInteger(parsedInterval) || parsedInterval < 1 || parsedInterval > 525600) {
+      return res.status(400).json({ message: 'intervalMinutes должен быть положительным целым числом не более 525600' });
     }
 
     let parsedDeleteAfter = 10;
@@ -303,8 +308,8 @@ router.patch('/reminders/:id', authMiddleware, async (req, res) => {
 
     if (incomingUpdates.intervalMinutes !== undefined) {
       const parsedInterval = Number(incomingUpdates.intervalMinutes);
-      if (!Number.isInteger(parsedInterval) || parsedInterval < 1) {
-        return res.status(400).json({ message: 'intervalMinutes должен быть положительным целым числом' });
+      if (!Number.isInteger(parsedInterval) || parsedInterval < 1 || parsedInterval > 525600) {
+        return res.status(400).json({ message: 'intervalMinutes должен быть положительным целым числом не более 525600' });
       }
       incomingUpdates.intervalMinutes = parsedInterval;
     }

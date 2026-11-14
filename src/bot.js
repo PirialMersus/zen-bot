@@ -78,6 +78,18 @@ bot.catch((err, ctx) => {
 bot.start(handleStart);
 bot.help(handleHelp);
 
+export const registerBotCommands = async targetBot => {
+  if (!targetBot?.telegram?.setMyCommands) return;
+  try {
+    await targetBot.telegram.setMyCommands([
+      { command: 'start', description: 'Запустить бота / Главное меню' },
+      { command: 'help', description: 'Справка и возможности' }
+    ]);
+  } catch (commandRegistrationError) {
+    console.error('SET_COMMANDS_ERROR', commandRegistrationError?.message || commandRegistrationError);
+  }
+};
+
 bot.command('getcode', handleGetAuthCode);
 bot.action('get_auth_code', handleGetAuthCode);
 

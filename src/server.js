@@ -13,7 +13,9 @@ const resolvedCorsOptions = configuredAllowedOrigins
       methods: ['GET', 'POST', 'PATCH', 'PUT', 'DELETE', 'OPTIONS'],
       credentials: true
     }
-  : {};
+  : {
+      origin: process.env.NODE_ENV === 'production' ? false : true
+    };
 
 app.use(cors(resolvedCorsOptions));
 app.use(express.json());
@@ -33,6 +35,9 @@ const PORT = process.env.PORT || 3000;
 export const validateServerEnvironment = () => {
   if (!process.env.JWT_SECRET && process.env.NODE_ENV === 'production') {
     throw new Error('Критическая ошибка конфигурации: переменная JWT_SECRET обязательна в production окружении');
+  }
+  if (process.env.JWT_SECRET && process.env.JWT_SECRET.length < 32 && process.env.NODE_ENV === 'production') {
+    throw new Error('Критическая ошибка конфигурации: переменная JWT_SECRET должна содержать минимум 32 символа');
   }
 };
 

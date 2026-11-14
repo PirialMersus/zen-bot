@@ -127,6 +127,19 @@ describe('API безопасность и мультиязычность ука�
     process.env.JWT_SECRET = originalSecret;
   });
 
+  it('должен выбрасывать ошибку валидации при длине JWT_SECRET менее 32 символов в production', () => {
+    const originalEnvironment = process.env.NODE_ENV;
+    const originalSecret = process.env.JWT_SECRET;
+
+    process.env.NODE_ENV = 'production';
+    process.env.JWT_SECRET = 'short-secret-less-than-32-chars';
+
+    expect(() => validateServerEnvironment()).toThrow('Критическая ошибка конфигурации: переменная JWT_SECRET должна содержать минимум 32 символа');
+
+    process.env.NODE_ENV = originalEnvironment;
+    process.env.JWT_SECRET = originalSecret;
+  });
+
   it('должен отдавать случайный английский указатель при передаче language=en', async () => {
     await Pointer.deleteMany({});
     await PointerEn.deleteMany({});
