@@ -131,6 +131,26 @@ export const formatNextRunTime = (nextRunDate, userTimezone = DEFAULT_TIMEZONE, 
   return `${targetDate.toFormat('dd.MM')} ${timeString}`;
 };
 
+export const resolveReminderDisplayText = (reminderItem, formatLocalization, ui) => {
+  if (reminderItem.isFavoritePointer) {
+    return ui.REMINDER_FAVORITE;
+  }
+  if (reminderItem.isRandomPointer) {
+    return ui.REMINDER_RANDOM;
+  }
+  if (reminderItem.photoFileId) {
+    return reminderItem.caption
+      ? `${formatLocalization.photoWithCaption}: «${reminderItem.caption}»`
+      : formatLocalization.photo;
+  }
+  if (reminderItem.videoFileId) {
+    return reminderItem.caption
+      ? `${formatLocalization.video}: «${reminderItem.caption}»`
+      : formatLocalization.video;
+  }
+  return reminderItem.text;
+};
+
 export const formatReminderMessageText = (reminderItem, indexNumberString, language = 'ru', userTimezone = DEFAULT_TIMEZONE) => {
   const texts = getTexts(language);
   const ui = getUi(language);
@@ -141,20 +161,7 @@ export const formatReminderMessageText = (reminderItem, indexNumberString, langu
     ? formatLocalization.autoDeleteNever
     : formatLocalization.autoDeleteSeconds(reminderItem.deleteAfterSeconds);
 
-  let displayText = reminderItem.text;
-  if (reminderItem.isFavoritePointer) {
-    displayText = ui.REMINDER_FAVORITE;
-  } else if (reminderItem.isRandomPointer) {
-    displayText = ui.REMINDER_RANDOM;
-  } else if (reminderItem.photoFileId) {
-    displayText = reminderItem.caption
-      ? `${formatLocalization.photoWithCaption}: «${reminderItem.caption}»`
-      : formatLocalization.photo;
-  } else if (reminderItem.videoFileId) {
-    displayText = reminderItem.caption
-      ? `${formatLocalization.video}: «${reminderItem.caption}»`
-      : formatLocalization.video;
-  }
+  const displayText = resolveReminderDisplayText(reminderItem, formatLocalization, ui);
 
   const nextRunString = reminderItem.isActive && reminderItem.nextRunAt
     ? formatNextRunTime(reminderItem.nextRunAt, userTimezone, language)
@@ -203,21 +210,7 @@ export const buildRemindersListPayload = (reminders, userLanguage = 'ru', userTi
   const lines = reminders.map((reminderItem, index) => {
     const indexNumber = index + 1;
     const statusIcon = reminderItem.isActive ? '🟢' : '⏸️';
-
-    let displayText = reminderItem.text;
-    if (reminderItem.isFavoritePointer) {
-      displayText = ui.REMINDER_FAVORITE;
-    } else if (reminderItem.isRandomPointer) {
-      displayText = ui.REMINDER_RANDOM;
-    } else if (reminderItem.photoFileId) {
-      displayText = reminderItem.caption
-        ? `${formatLocalization.photoWithCaption}: «${reminderItem.caption}»`
-        : formatLocalization.photo;
-    } else if (reminderItem.videoFileId) {
-      displayText = reminderItem.caption
-        ? `${formatLocalization.video}: «${reminderItem.caption}»`
-        : formatLocalization.video;
-    }
+    const displayText = resolveReminderDisplayText(reminderItem, formatLocalization, ui);
 
     const shortText = previewText(displayText);
     const intervalLabel = formatInterval(reminderItem, userLanguage);

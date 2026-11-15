@@ -6,6 +6,7 @@ import {
   countUserFavoritePointers
 } from '../services/pointers.js';
 import { getIntervalKeyboard } from '../keyboard/intervals.js';
+import { mainKeyboard } from '../keyboard/main.js';
 import {
   getPointersMenuKeyboard,
   buildPointerInlineKeyboard as createPointerInlineKeyboard,
@@ -306,4 +307,14 @@ export const handlePointerToReminder = async ctx => {
 <i>${texts.REMINDERS.ASK_INTERVAL_HINT}</i>`,
     { parse_mode: 'HTML', ...getIntervalKeyboard(userLanguage) }
   );
+};
+
+export const handlePointerToMenu = async ctx => {
+  if (ctx.callbackQuery) {
+    await ctx.answerCbQuery().catch(() => {});
+    await ctx.deleteMessage().catch(() => {});
+  }
+  const userLanguage = await resolveUserLanguage(ctx);
+  const texts = getTexts(userLanguage);
+  await ctx.reply(texts.MENU.MAIN, mainKeyboard(ctx, userLanguage));
 };

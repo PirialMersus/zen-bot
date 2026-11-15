@@ -1,40 +1,43 @@
 import { Markup } from 'telegraf';
 import User from '../models/User.js';
 import { generateAuthCode } from '../utils/auth.js';
+import { getTexts } from '../constants/texts.js';
+import { resolveUserLanguage } from '../middlewares/activity.js';
+import { logError } from '../utils/logger.js';
 
 export const handleGetAuthCode = async (ctx) => {
+  const userLanguage = await resolveUserLanguage(ctx);
+  const localizedTexts = getTexts(userLanguage);
+
   try {
     if (ctx.callbackQuery) {
       await ctx.answerCbQuery().catch(() => {});
     }
 
-    const user = await User.findOne({ telegramId: ctx.from.id });
+    const userRecord = await User.findOne({ telegramId: ctx.from.id });
 
-    if (!user) {
-      await ctx.reply('❌ Ошибка: пользователь не найден');
+    if (!userRecord) {
+      await ctx.reply(localizedTexts.AUTH.USER_NOT_FOUND);
       return;
     }
 
-    const formattedCode = generateAuthCode();
+    const generatedAuthenticationCode = generateAuthCode();
 
-    user.authCode = formattedCode;
-    user.authCodeExpiresAt = new Date(Date.now() + 10 * 60 * 1000);
-    await user.save();
+    userRecord.authCode = generatedAuthenticationCode;
+    userRecord.authCodeExpiresAt = new Date(Date.now() + 10 * 60 * 1000);
+    await userRecord.save();
 
     await ctx.reply(
-      `🔐 Твой код для входа в приложение:\n\n` +
-      `<code>${formattedCode}</code>\n\n` +
-      `⏱ Код действителен 10 минут.\n` +
-      `Введи его в приложении для авторизации.`,
+      localizedTexts.AUTH.CODE_MESSAGE(generatedAuthenticationCode),
       {
         parse_mode: 'HTML',
         ...Markup.inlineKeyboard([
-          [Markup.button.callback('🔄 Получить новый код', 'get_auth_code')]
+          [Markup.button.callback(localizedTexts.AUTH.GET_NEW_CODE_BUTTON, 'get_auth_code')]
         ])
       }
     );
-  } catch (error) {
-    console.error('GET_AUTH_CODE_ERROR', error);
-    await ctx.reply('❌ Произошла ошибка. Попробуй позже.');
+  } catch (caughtError) {
+    logError(caughtError, { context: 'HANDLE_GET_AUTH_CODE', telegramId: ctx.from?.id });
+    await ctx.reply(localizedTexts.AUTH.GENERIC_ERROR);
   }
 };

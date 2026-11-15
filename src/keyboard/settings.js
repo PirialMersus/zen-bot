@@ -13,7 +13,10 @@ export const settingsKeyboard = (enabled, language = 'ru', userPreferences = {})
   const quietHoursScheduleLabel = `${quietHoursScheduleBaseText} (${quietHoursFormattedRange})`;
 
   const userTimezoneValue = userPreferences.timezone || DEFAULT_TIMEZONE;
-  const timezoneButtonLabel = `${buttons.TIMEZONE} (${userTimezoneValue})`;
+  const timezoneCityDisplayName = userTimezoneValue.includes('/')
+    ? userTimezoneValue.split('/').pop().replace(/_/g, ' ')
+    : userTimezoneValue;
+  const timezoneButtonLabel = `${buttons.TIMEZONE} (${timezoneCityDisplayName})`;
 
   const localizedLanguageNames = {
     ru: '🇷🇺 Русский',

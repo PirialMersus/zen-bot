@@ -1,6 +1,7 @@
 import mongoose from 'mongoose';
 import { Pointer, PointerEn, PointerUk, PointerEs } from '../models/Pointer.js';
 import User from '../models/User.js';
+import { SUPPORTED_LANGUAGES, DEFAULT_LANGUAGE } from '../constants/languages.js';
 
 const buildShuffledIndexArray = length => {
   const indexArray = Array.from({ length }, (_, i) => i);
@@ -96,7 +97,7 @@ export const getNextPointerForUser = async (telegramUserId, tagFilter = null) =>
     user = await User.create({ telegramId: telegramUserId });
   }
 
-  const userLanguage = ['en', 'uk', 'es'].includes(user?.language) ? user.language : 'ru';
+  const userLanguage = SUPPORTED_LANGUAGES.includes(user?.language) ? user.language : DEFAULT_LANGUAGE;
   let effectiveTagFilter = resolveEffectiveTagFilter(tagFilter, userLanguage);
   let targetPointerModel = selectPointerModelByLanguage(userLanguage);
 

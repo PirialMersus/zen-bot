@@ -18,6 +18,30 @@ import {
   MAX_REMINDER_INTERVAL_MINUTES,
   MIN_REMINDER_INTERVAL_MINUTES
 } from '../../constants/limits.js';
+import { allKnownNavigationButtons } from '../../utils/navigation.js';
+
+const RANDOM_POINTER_COMMANDS = new Set([
+  UI.ru.REMINDER_RANDOM,
+  UI.en.REMINDER_RANDOM,
+  UI.uk.REMINDER_RANDOM,
+  UI.es.REMINDER_RANDOM,
+  '🎲 Случайный указатель',
+  '🎲 Random pointer',
+  '🎲 Випадковий вказівник',
+  '🎲 Puntero aleatorio'
+]);
+
+const FAVORITE_POINTER_COMMANDS = new Set([
+  UI.ru.REMINDER_FAVORITE,
+  UI.en.REMINDER_FAVORITE,
+  UI.uk.REMINDER_FAVORITE,
+  UI.es.REMINDER_FAVORITE
+]);
+
+const isRandomPointerCommandText = commandText => RANDOM_POINTER_COMMANDS.has(commandText);
+const isFavoritePointerCommandText = commandText => FAVORITE_POINTER_COMMANDS.has(commandText);
+const isSpecialPointerCommandText = commandText =>
+  isRandomPointerCommandText(commandText) || isFavoritePointerCommandText(commandText);
 
 export const REMINDER_STEP = {
   TEXT: 'TEXT',
@@ -164,8 +188,13 @@ export const handleReminderText = async ctx => {
   if (ctx.session?.reminderStep !== REMINDER_STEP.TEXT) return false;
 
   let incomingText = ctx.message.text;
+  if (!incomingText || typeof incomingText !== 'string') return false;
 
-  if (incomingText && incomingText.length > 4000) {
+  if (incomingText.startsWith('/')) {
+    return false;
+  }
+
+  if (incomingText.length > 4000) {
     const userLanguage = await resolveUserLanguage(ctx);
     const texts = getTexts(userLanguage);
     await ctx.reply(texts.REMINDERS.TEXT_TOO_LONG);
@@ -180,23 +209,12 @@ export const handleReminderText = async ctx => {
     if (fullMatch) incomingText = fullMatch;
   }
 
-  const isRandomPointerCommand =
-    incomingText === UI.ru.REMINDER_RANDOM ||
-    incomingText === UI.en.REMINDER_RANDOM ||
-    incomingText === UI.uk.REMINDER_RANDOM ||
-    incomingText === UI.es.REMINDER_RANDOM ||
-    incomingText === UI.REMINDER_RANDOM ||
-    incomingText === '🎲 Случайный указатель' ||
-    incomingText === '🎲 Random pointer' ||
-    incomingText === '🎲 Випадковий вказівник' ||
-    incomingText === '🎲 Puntero aleatorio';
+  const isRandomPointerCommand = isRandomPointerCommandText(incomingText);
+  const isFavoritePointerCommand = isFavoritePointerCommandText(incomingText);
 
-  const isFavoritePointerCommand =
-    incomingText === UI.ru.REMINDER_FAVORITE ||
-    incomingText === UI.en.REMINDER_FAVORITE ||
-    incomingText === UI.uk.REMINDER_FAVORITE ||
-    incomingText === UI.es.REMINDER_FAVORITE ||
-    incomingText === UI.REMINDER_FAVORITE;
+  if (!isRandomPointerCommand && !isFavoritePointerCommand && allKnownNavigationButtons.includes(incomingText)) {
+    return false;
+  }
 
   if (isFavoritePointerCommand) {
     const favoriteCount = await countUserFavoritePointers(ctx.from.id);
@@ -320,23 +338,7 @@ export const saveLastReminderText = async (ctx, text) => {
   const user = await User.findOne({ telegramId: ctx.from.id });
   if (!user) return;
 
-  const isSpecialPointerCommand =
-    text === UI.ru.REMINDER_RANDOM ||
-    text === UI.en.REMINDER_RANDOM ||
-    text === UI.uk.REMINDER_RANDOM ||
-    text === UI.es.REMINDER_RANDOM ||
-    text === UI.REMINDER_RANDOM ||
-    text === '🎲 Случайный указатель' ||
-    text === '🎲 Random pointer' ||
-    text === '🎲 Випадковий вказівник' ||
-    text === '🎲 Puntero aleatorio' ||
-    text === UI.ru.REMINDER_FAVORITE ||
-    text === UI.en.REMINDER_FAVORITE ||
-    text === UI.uk.REMINDER_FAVORITE ||
-    text === UI.es.REMINDER_FAVORITE ||
-    text === UI.REMINDER_FAVORITE;
-
-  if (isSpecialPointerCommand) return;
+  if (isSpecialPointerCommandText(text)) return;
 
   const clean = normalizeText(text);
   const userLanguage = user.language || 'ru';

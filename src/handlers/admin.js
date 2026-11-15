@@ -1,6 +1,4 @@
 import { Markup } from 'telegraf';
-import { BUTTONS } from '../constants/buttons.js';
-import { UI } from '../constants/ui.js';
 import Reminder from '../models/Reminder.js';
 import User from '../models/User.js';
 import { escapeHtml } from '../utils/escapeHtml.js';
@@ -13,14 +11,9 @@ import {
   isPointerInFavorites
 } from '../services/pointers.js';
 import { buildPointerInlineKeyboard, formatPointerText } from './pointers.js';
-
-const collectAllButtonValues = buttonObject =>
-  Object.values(buttonObject).flatMap(item => (typeof item === 'object' && item !== null ? Object.values(item) : [item]));
-
-const allKnownNavigationButtons = [
-  ...collectAllButtonValues(BUTTONS),
-  ...collectAllButtonValues(UI)
-];
+import { allKnownNavigationButtons } from '../utils/navigation.js';
+import { getTexts } from '../constants/texts.js';
+import { resolveUserLanguage } from '../middlewares/activity.js';
 
 export const handleAdminActiveUsers = async ctx => {
   if (!isAdministratorContext(ctx)) return;
@@ -292,9 +285,10 @@ export const handleFeedbackMessage = async ctx => {
 
   ctx.session.feedbackAwaiting = false;
 
-  await ctx.reply(
-    '✅ Твоё сообщение передано администратору. Большое спасибо за обратную связь!'
-  );
+  const userLanguage = await resolveUserLanguage(ctx);
+  const texts = getTexts(userLanguage);
+
+  await ctx.reply(texts.FEEDBACK_SUCCESS);
 
   return true;
 };

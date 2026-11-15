@@ -27,6 +27,7 @@ import {
   handleExpireInfo,
   handleToggleFavoritePointer,
   handlePointerToReminder,
+  handlePointerToMenu,
   handleKeepPointer
 } from './handlers/pointers.js';
 import {
@@ -109,6 +110,7 @@ bot.action(/^pointer:next/, handleNextPointer);
 bot.action('pointer:to_reminder', handlePointerToReminder);
 bot.action(/^pointer:fav_toggle/, handleToggleFavoritePointer);
 bot.action('pointer:fav_info', handleFavoriteInfo);
+bot.action('pointer:to_menu', handlePointerToMenu);
 bot.action('pointer:expire_info', handleExpireInfo);
 bot.action(/^pointer:keep/, handleKeepPointer);
 

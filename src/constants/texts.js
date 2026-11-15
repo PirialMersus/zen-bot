@@ -67,7 +67,7 @@ const RUSSIAN_TEXTS = {
   },
 
   SETTINGS: {
-    LANGUAGE_TITLE: '🌐 Выберите язык / Select language:',
+    LANGUAGE_TITLE: '🌐 Выберите язык / Select language / Оберіть мову / Elige idioma:',
     LANGUAGE_CHANGED: '✅ Язык изменён на Русский',
     CUSTOMIZE_PROMPT: 'Нажми на нужный пункт для изменения:',
     TIMEZONE_REGION_PROMPT: '🌍 Выберите регион:',
@@ -102,6 +102,15 @@ const RUSSIAN_TEXTS = {
   SUPPORT_DIRECT: '💬 Поддержка (@pirial_mersus)',
   SUPPORT_COMMUNITY: '👥 Telegram Сообщество (@dzenline)',
   SUPPORT_THANKS: '❤️ Сказать спасибо (@Streamline6)',
+
+  AUTH: {
+    USER_NOT_FOUND: '❌ Ошибка: пользователь не найден',
+    CODE_MESSAGE: code => `🔐 Твой код для входа в приложение:\n\n<code>${code}</code>\n\n⏱ Код действителен 10 минут.\nВведи его в приложении для авторизации.`,
+    GET_NEW_CODE_BUTTON: '🔄 Получить новый код',
+    GENERIC_ERROR: '❌ Произошла ошибка. Попробуй позже.'
+  },
+
+  FEEDBACK_SUCCESS: '✅ Твоё сообщение передано администратору. Большое спасибо за обратную связь!',
 
   INTERVALS: {
     OPTIONS: ['10 сек', '30 сек', '1 мин', 'Не удалять'],
@@ -178,7 +187,7 @@ I will remind you about what truly matters.
   },
 
   SETTINGS: {
-    LANGUAGE_TITLE: '🌐 Выберите язык / Select language:',
+    LANGUAGE_TITLE: '🌐 Выберите язык / Select language / Оберіть мову / Elige idioma:',
     LANGUAGE_CHANGED: '✅ Language switched to English',
     CUSTOMIZE_PROMPT: 'Tap an option below to customize:',
     TIMEZONE_REGION_PROMPT: '🌍 Select region:',
@@ -213,6 +222,15 @@ If you would like to say thanks for the bot or support the project financially -
   SUPPORT_DIRECT: '💬 Support (@pirial_mersus)',
   SUPPORT_COMMUNITY: '👥 Telegram Community (@dzenline)',
   SUPPORT_THANKS: '❤️ Say Thanks (@Streamline6)',
+
+  AUTH: {
+    USER_NOT_FOUND: '❌ Error: user not found',
+    CODE_MESSAGE: code => `🔐 Your code to sign in to the app:\n\n<code>${code}</code>\n\n⏱ The code is valid for 10 minutes.\nEnter it in the app to sign in.`,
+    GET_NEW_CODE_BUTTON: '🔄 Get new code',
+    GENERIC_ERROR: '❌ An error occurred. Please try again later.'
+  },
+
+  FEEDBACK_SUCCESS: '✅ Your message has been forwarded to the administrator. Thank you for your feedback!',
 
   INTERVALS: {
     OPTIONS: ['10 sec', '30 sec', '1 min', 'Do not delete'],
@@ -325,6 +343,15 @@ const UKRAINIAN_TEXTS = {
   SUPPORT_COMMUNITY: '👥 Telegram Спільнота (@dzenline)',
   SUPPORT_THANKS: '❤️ Подякувати (@Streamline6)',
 
+  AUTH: {
+    USER_NOT_FOUND: '❌ Помилка: користувача не знайдено',
+    CODE_MESSAGE: code => `🔐 Твій код для входу в застосунок:\n\n<code>${code}</code>\n\n⏱ Код діє 10 хвилин.\nВведи його в застосунку для авторизації.`,
+    GET_NEW_CODE_BUTTON: '🔄 Отримати новий код',
+    GENERIC_ERROR: '❌ Сталася помилка. Спробуй пізніше.'
+  },
+
+  FEEDBACK_SUCCESS: '✅ Твоє повідомлення передано адміністратору. Щиро дякуємо за зворотний зв’язок!',
+
   INTERVALS: {
     OPTIONS: ['10 сек', '30 сек', '1 хв', 'Не видаляти'],
     MAP: { '10 сек': 10, '30 сек': 30, '1 хв': 60 }
@@ -435,6 +462,15 @@ Si deseas agradecer por el bot o apoyar el proyecto económicamente - escribe a 
   SUPPORT_DIRECT: '💬 Soporte (@pirial_mersus)',
   SUPPORT_COMMUNITY: '👥 Comunidad de Telegram (@dzenline)',
   SUPPORT_THANKS: '❤️ Dar gracias (@Streamline6)',
+
+  AUTH: {
+    USER_NOT_FOUND: '❌ Error: usuario no encontrado',
+    CODE_MESSAGE: code => `🔐 Tu código para iniciar sesión en la aplicación:\n\n<code>${code}</code>\n\n⏱ El código es válido durante 10 minutos.\nIntrodúcelo en la aplicación para iniciar sesión.`,
+    GET_NEW_CODE_BUTTON: '🔄 Obtener nuevo código',
+    GENERIC_ERROR: '❌ Ocurrió un error. Inténtalo más tarde.'
+  },
+
+  FEEDBACK_SUCCESS: '✅ Tu mensaje ha sido enviado al administrador. ¡Muchas gracias por tus comentarios!',
 
   INTERVALS: {
     OPTIONS: ['10 seg', '30 seg', '1 min', 'No eliminar'],

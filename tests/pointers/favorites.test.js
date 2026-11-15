@@ -333,12 +333,12 @@ describe('Избранные указатели', () => {
     expect(badgeRow[0].callback_data).toBe('pointer:fav_info');
 
     const actionRow = inlineKeyboardRows[1];
-    expect(actionRow[1].text).toBe(UI.ru.POINTER_NEXT_FAV);
-    expect(actionRow[1].callback_data).toBe('pointer:next:favorite');
+    expect(actionRow[1].text).toBe(UI.ru.POINTER_FAV_REMOVE);
+    expect(actionRow[1].callback_data).toContain('favorite');
 
-    const toggleRow = inlineKeyboardRows[2];
-    expect(toggleRow[0].text).toBe(UI.ru.POINTER_FAV_REMOVE);
-    expect(toggleRow[0].callback_data).toContain('favorite');
+    const navigationRow = inlineKeyboardRows[2];
+    expect(navigationRow[1].text).toBe(UI.ru.POINTER_NEXT_FAV);
+    expect(navigationRow[1].callback_data).toBe('pointer:next:favorite');
 
     const infoContext = createMockContext({ userId, callbackData: 'pointer:fav_info' });
     await handleFavoriteInfo(infoContext);
@@ -362,7 +362,7 @@ describe('Избранные указатели', () => {
 
     const editedRows = editedOptions.reply_markup.inline_keyboard;
     expect(editedRows[0][0].text).toBe(UI.ru.POINTER_FAV_MODE_BADGE(2, 2));
-    expect(editedRows[1][1].text).toBe(UI.ru.POINTER_NEXT_FAV);
+    expect(editedRows[2][1].text).toBe(UI.ru.POINTER_NEXT_FAV);
   });
 
   it('должен отображать стандартную клавиатуру без бейджа в режиме случайных указателей', async () => {

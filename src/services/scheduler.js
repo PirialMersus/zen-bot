@@ -3,6 +3,7 @@ import { DateTime } from 'luxon';
 import Reminder from '../models/Reminder.js';
 import User from '../models/User.js';
 import { DEFAULT_TIMEZONE } from '../constants/timezones.js';
+import { SUPPORTED_LANGUAGES, DEFAULT_LANGUAGE } from '../constants/languages.js';
 import { logError } from '../utils/logger.js';
 import { cleanupUser } from './cleanupUser.js';
 import { isQuietNow, getQuietEndDate } from './quietHours.js';
@@ -170,7 +171,7 @@ export const startScheduler = bot => {
             continue;
           }
 
-          const userLanguage = ['en', 'uk', 'es'].includes(targetUser?.language) ? targetUser.language : 'ru';
+          const userLanguage = SUPPORTED_LANGUAGES.includes(targetUser?.language) ? targetUser.language : DEFAULT_LANGUAGE;
           let messageText = reminderItem.text;
           let currentPointer = null;
 

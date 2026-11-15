@@ -1,5 +1,6 @@
 import mongoose from 'mongoose';
 import { DEFAULT_TIMEZONE } from '../constants/timezones.js';
+import { SUPPORTED_LANGUAGES, DEFAULT_LANGUAGE } from '../constants/languages.js';
 
 const schema = new mongoose.Schema({
   telegramId: { type: Number, index: true, unique: true, sparse: true },
@@ -9,8 +10,8 @@ const schema = new mongoose.Schema({
 
   language: {
     type: String,
-    enum: ['ru', 'en', 'uk', 'es'],
-    default: 'ru'
+    enum: SUPPORTED_LANGUAGES,
+    default: DEFAULT_LANGUAGE
   },
 
   lastReminderTexts: {

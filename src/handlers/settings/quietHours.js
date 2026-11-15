@@ -1,11 +1,10 @@
 import User from '../../models/User.js';
 import Reminder from '../../models/Reminder.js';
-import { BUTTONS } from '../../constants/buttons.js';
-import { UI } from '../../constants/ui.js';
 import { getTexts } from '../../constants/texts.js';
 import { getQuietEndDate } from '../../services/quietHours.js';
 import { quietHoursKeyboard } from '../../keyboard/quietHours.js';
 import { resolveUserLanguage } from '../../middlewares/activity.js';
+import { allKnownNavigationButtons } from '../../utils/navigation.js';
 import { renderSettings, handleSettings } from './general.js';
 import { handleTimezoneMenu, handleTimezoneRegion, handleTimezoneSet } from './timezone.js';
 import { handleLanguageMenu, handleLanguageSet } from './language.js';
@@ -64,14 +63,6 @@ export const handleQuietHoursCustomPrompt = async ctx => {
 
   await ctx.reply(texts.SETTINGS.QUIET_CUSTOM_PROMPT, { parse_mode: 'HTML' });
 };
-
-const collectAllButtonValues = buttonObject =>
-  Object.values(buttonObject).flatMap(item => (typeof item === 'object' && item !== null ? Object.values(item) : [item]));
-
-const allKnownNavigationButtons = [
-  ...collectAllButtonValues(BUTTONS),
-  ...collectAllButtonValues(UI)
-];
 
 export const handleQuietHoursCustomInput = async ctx => {
   if (!ctx.session?.isSettingCustomQuietHours) return false;
