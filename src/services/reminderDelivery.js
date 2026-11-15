@@ -2,6 +2,7 @@ import { cleanupUser } from './cleanupUser.js';
 import { logError } from '../utils/logger.js';
 import { isPointerInFavorites } from './pointers.js';
 import { buildReminderPointerInlineKeyboard } from '../keyboard/pointers.js';
+import { buildAutoDeleteKeepKeyboard } from '../keyboard/reminders.js';
 import { registerDeletionTimer } from './deletionTimers.js';
 import { escapeHtml } from '../utils/escapeHtml.js';
 
@@ -94,9 +95,9 @@ export const sendPushNotification = async (pushTokens, text, soundId, title = 'Ð
 
 const scheduleMessageDeletion = (bot, chatId, messageId, deleteAfterSeconds) => {
   if (!deleteAfterSeconds || !messageId) return;
-  setTimeout(() => {
-    bot.telegram.deleteMessage(chatId, messageId).catch(() => {});
-  }, deleteAfterSeconds * 1000);
+  registerDeletionTimer(chatId, messageId, deleteAfterSeconds, async () => {
+    await bot.telegram.deleteMessage(chatId, messageId).catch(() => {});
+  });
 };
 
 export const deliverReminder = async ({
@@ -122,10 +123,16 @@ export const deliverReminder = async ({
       const fallbackCaption = getMediaFallbackCaption('photo', userLanguage);
       await sendPushNotification(user.pushTokens, reminder.caption || fallbackCaption, reminder.soundId, pushTitle);
     } else {
+      const keepKeyboard = deleteAfterSeconds
+        ? buildAutoDeleteKeepKeyboard(deleteAfterSeconds, userLanguage)
+        : null;
       const sentMessage = await bot.telegram.sendPhoto(
         reminder.chatId,
         reminder.photoFileId,
-        photoCaption ? { caption: photoCaption, parse_mode: 'HTML' } : {}
+        {
+          ...(photoCaption ? { caption: photoCaption, parse_mode: 'HTML' } : {}),
+          ...(keepKeyboard || {})
+        }
       );
       scheduleMessageDeletion(bot, reminder.chatId, sentMessage?.message_id, deleteAfterSeconds);
     }
@@ -138,10 +145,16 @@ export const deliverReminder = async ({
       const fallbackCaption = getMediaFallbackCaption('video', userLanguage);
       await sendPushNotification(user.pushTokens, reminder.caption || fallbackCaption, reminder.soundId, pushTitle);
     } else {
+      const keepKeyboard = deleteAfterSeconds
+        ? buildAutoDeleteKeepKeyboard(deleteAfterSeconds, userLanguage)
+        : null;
       const sentMessage = await bot.telegram.sendVideo(
         reminder.chatId,
         reminder.videoFileId,
-        videoCaption ? { caption: videoCaption, parse_mode: 'HTML' } : {}
+        {
+          ...(videoCaption ? { caption: videoCaption, parse_mode: 'HTML' } : {}),
+          ...(keepKeyboard || {})
+        }
       );
       scheduleMessageDeletion(bot, reminder.chatId, sentMessage?.message_id, deleteAfterSeconds);
     }
@@ -168,18 +181,21 @@ export const deliverReminder = async ({
       { parse_mode: 'HTML', ...(reminderKeyboard || {}) }
     );
 
-    if (deleteAfterSeconds && sentMessage) {
-      registerDeletionTimer(reminder.chatId, sentMessage.message_id, deleteAfterSeconds, async () => {
-        await bot.telegram.deleteMessage(reminder.chatId, sentMessage.message_id).catch(() => {});
-      });
-    }
+    scheduleMessageDeletion(bot, reminder.chatId, sentMessage?.message_id, deleteAfterSeconds);
     return;
   }
+
+  const keepKeyboard = deleteAfterSeconds
+    ? buildAutoDeleteKeepKeyboard(deleteAfterSeconds, userLanguage)
+    : null;
 
   const sentMessage = await bot.telegram.sendMessage(
     reminder.chatId,
     escapeHtml(messageText) + footer,
-    { parse_mode: 'HTML' }
+    {
+      parse_mode: 'HTML',
+      ...(keepKeyboard || {})
+    }
   );
 
   scheduleMessageDeletion(bot, reminder.chatId, sentMessage?.message_id, deleteAfterSeconds);

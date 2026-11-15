@@ -3,8 +3,10 @@ import { calculateDailyNextRun, calcNextRun } from '../../services/scheduler.js'
 import Reminder from '../../models/Reminder.js';
 import User from '../../models/User.js';
 import { getTexts } from '../../constants/texts.js';
+import { getUi } from '../../constants/ui.js';
 import { DEFAULT_TIMEZONE } from '../../constants/timezones.js';
 import { resolveUserLanguage } from '../../middlewares/activity.js';
+import { cancelDeletionTimer } from '../../services/deletionTimers.js';
 import {
   formatReminderMessageText,
   getReminderMessageKeyboard,
@@ -160,4 +162,17 @@ export const handleConfirmAction = async ctx => {
     await ctx.answerCbQuery(texts.REMINDERS.DELETED).catch(() => {});
     return handleReminderListCallback(ctx);
   }
+};
+
+export const handleKeepReminder = async ctx => {
+  const targetChatId = ctx.chat?.id || ctx.callbackQuery?.message?.chat?.id;
+  const targetMessageId = ctx.callbackQuery?.message?.message_id;
+
+  cancelDeletionTimer(targetChatId, targetMessageId);
+
+  const userLanguage = await resolveUserLanguage(ctx);
+  const ui = getUi(userLanguage);
+
+  await ctx.editMessageReplyMarkup().catch(() => {});
+  await ctx.answerCbQuery(ui.POINTER_KEEP_TOAST).catch(() => {});
 };

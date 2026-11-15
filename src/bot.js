@@ -44,7 +44,8 @@ import {
   handleReminders,
   handleRequestAction,
   handleViewReminder,
-  handleReminderListCallback
+  handleReminderListCallback,
+  handleKeepReminder
 } from './handlers/reminders.js';
 import {
   handleQuietToggle,
@@ -113,6 +114,7 @@ bot.action('pointer:fav_info', handleFavoriteInfo);
 bot.action('pointer:to_menu', handlePointerToMenu);
 bot.action('pointer:expire_info', handleExpireInfo);
 bot.action(/^pointer:keep/, handleKeepPointer);
+bot.action(/^reminder:keep/, handleKeepReminder);
 
 bot.hears(getButtonVariants('POINTER'), handlePointersMenu);
 bot.hears(getUiVariants('POINTER_RANDOM'), handleRandomPointer);

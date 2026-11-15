@@ -13,8 +13,6 @@ import {
   handleMyReminders,
   handleReminderText,
   handleRequestAction,
-  handleConfirmAction,
-  handleViewReminder,
   REMINDER_STEP
 } from '../../src/handlers/reminders.js';
 import {
@@ -22,7 +20,6 @@ import {
   handleTimezoneMenu,
   handleTimezoneRegion,
   handleTimezoneSet,
-  handleLanguageMenu,
   handleLanguageSet
 } from '../../src/handlers/settings/quietHours.js';
 import {
@@ -90,7 +87,7 @@ describe('Покрытие всех переводов и целостность
 
   it('должен гарантировать отсутствие пустых или undefined переводов в словарях', () => {
     const verifyNoEmptyValuesInObject = inspectedObject => {
-      for (const [dictionaryKey, dictionaryValue] of Object.entries(inspectedObject)) {
+      for (const [, dictionaryValue] of Object.entries(inspectedObject)) {
         expect(dictionaryValue).not.toBeUndefined();
         expect(dictionaryValue).not.toBeNull();
         if (typeof dictionaryValue === 'string') {

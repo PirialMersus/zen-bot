@@ -1,16 +1,12 @@
 import { describe, expect, it } from 'vitest';
 import { TEXTS } from '../../src/constants/texts.js';
 import { UI } from '../../src/constants/ui.js';
-import { BUTTONS } from '../../src/constants/buttons.js';
 import {
   handleFavoriteInfo,
   handleFavoritePointer,
   handleNextPointer,
   handlePointer,
-  handlePointerToReminder,
-  handlePointersMenu,
-  handleRandomPointer,
-  handleToggleFavoritePointer
+  handlePointerToReminder
 } from '../../src/handlers/pointers.js';
 import {
   handleBack
@@ -22,7 +18,6 @@ import {
 import {
   handleReminderText,
   handleIntervalPreset,
-  handleDeleteAfterPreset,
   formatReminderMessageText,
   buildRemindersListPayload,
   REMINDER_STEP
@@ -98,10 +93,10 @@ describe('Всестороннее тестирование функционал
     const testUserId = 77702;
     process.env.CREATOR_ID = String(testUserId);
 
-    const pRandom = await Pointer.create({ text: 'Указатель из рандома', isActive: true });
+    await Pointer.create({ text: 'Указатель из рандома', isActive: true });
     const pFav = await Pointer.create({ text: 'Указатель из избранного', isActive: true });
-    const pSearch = await Pointer.create({ text: 'Указатель найденный по поиску', isActive: true });
-    const pByNumber = await Pointer.create({ number: 55, text: 'Указатель по номеру 55', isActive: true });
+    await Pointer.create({ text: 'Указатель найденный по поиску', isActive: true });
+    await Pointer.create({ number: 55, text: 'Указатель по номеру 55', isActive: true });
 
     await toggleFavoritePointer(testUserId, pFav._id);
 

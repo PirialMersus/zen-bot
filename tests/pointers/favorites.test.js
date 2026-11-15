@@ -10,8 +10,7 @@ import {
   handleToggleFavoritePointer
 } from '../../src/handlers/pointers.js';
 import {
-  handleAdminSearchPointers,
-  handleAdminGetPointerByNumber
+  handleAdminSearchPointers
 } from '../../src/handlers/admin.js';
 import {
   handleReminderText,

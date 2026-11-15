@@ -24,7 +24,8 @@ const REMINDERS_FORMAT_LOCALIZATIONS = {
     delete: '🗑 Удалить',
     backToList: '⬅️ Ко всем напоминаниям',
     headerTitle: '📋 <b>Твои напоминания:</b>',
-    hintFooter: '<i>Нажми на номер ниже для управления напоминанием 👇</i>'
+    hintFooter: '<i>Нажми на номер ниже для управления напоминанием 👇</i>',
+    moreReminders: count => `… и ещё ${count} напоминаний`
   },
   en: {
     intervalDay: 'Once a day ⌛',
@@ -43,7 +44,8 @@ const REMINDERS_FORMAT_LOCALIZATIONS = {
     delete: '🗑 Delete',
     backToList: '⬅️ All reminders',
     headerTitle: '📋 <b>Your reminders:</b>',
-    hintFooter: '<i>Tap a number below to manage a reminder 👇</i>'
+    hintFooter: '<i>Tap a number below to manage a reminder 👇</i>',
+    moreReminders: count => `… and ${count} more reminders`
   },
   uk: {
     intervalDay: 'Раз на день ⌛',
@@ -62,7 +64,8 @@ const REMINDERS_FORMAT_LOCALIZATIONS = {
     delete: '🗑 Видалити',
     backToList: '⬅️ До всіх нагадувань',
     headerTitle: '📋 <b>Твої нагадування:</b>',
-    hintFooter: '<i>Натисни на номер нижче для керування нагадуванням 👇</i>'
+    hintFooter: '<i>Натисни на номер нижче для керування нагадуванням 👇</i>',
+    moreReminders: count => `… та ще ${count} нагадувань`
   },
   es: {
     intervalDay: 'Una vez al día ⌛',
@@ -81,7 +84,8 @@ const REMINDERS_FORMAT_LOCALIZATIONS = {
     delete: '🗑 Eliminar',
     backToList: '⬅️ A todos los recordatorios',
     headerTitle: '📋 <b>Tus recordatorios:</b>',
-    hintFooter: '<i>Toca un número abajo para gestionar el recordatorio 👇</i>'
+    hintFooter: '<i>Toca un número abajo para gestionar el recordatorio 👇</i>',
+    moreReminders: count => `… y ${count} recordatorios más`
   }
 };
 
@@ -207,7 +211,12 @@ export const buildRemindersListPayload = (reminders, userLanguage = 'ru', userTi
     };
   }
 
-  const lines = reminders.map((reminderItem, index) => {
+  const maxSafeMessageLength = 3800;
+  const renderedLines = [];
+  let remainingHiddenCount = 0;
+
+  for (let index = 0; index < reminders.length; index++) {
+    const reminderItem = reminders[index];
     const indexNumber = index + 1;
     const statusIcon = reminderItem.isActive ? '🟢' : '⏸️';
     const displayText = resolveReminderDisplayText(reminderItem, formatLocalization, ui);
@@ -220,11 +229,32 @@ export const buildRemindersListPayload = (reminders, userLanguage = 'ru', userTi
       : null;
 
     const nextRunSuffix = nextRunTime ? ` • 🕒 ${nextRunTime}` : '';
+    const currentLine = `<b>${indexNumber}.</b> ${statusIcon} «${escapeHtml(shortText)}»\n   <i>${intervalLabel}${nextRunSuffix}</i>`;
 
-    return `<b>${indexNumber}.</b> ${statusIcon} «${escapeHtml(shortText)}»\n   <i>${intervalLabel}${nextRunSuffix}</i>`;
-  });
+    const remainingIfTruncated = reminders.length - (index + 1);
+    const potentialOverflowNotice = remainingIfTruncated > 0
+      ? `\n\n<i>${formatLocalization.moreReminders(remainingIfTruncated)}</i>`
+      : '';
 
-  const fullText = `${formatLocalization.headerTitle}\n\n${lines.join('\n\n')}\n\n${formatLocalization.hintFooter}`;
+    const projectedFullLength =
+      formatLocalization.headerTitle.length + 2 +
+      [...renderedLines, currentLine].join('\n\n').length +
+      potentialOverflowNotice.length + 2 +
+      formatLocalization.hintFooter.length;
+
+    if (projectedFullLength > maxSafeMessageLength && renderedLines.length > 0) {
+      remainingHiddenCount = reminders.length - index;
+      break;
+    }
+
+    renderedLines.push(currentLine);
+  }
+
+  const overflowNoticeSection = remainingHiddenCount > 0
+    ? `\n\n<i>${formatLocalization.moreReminders(remainingHiddenCount)}</i>`
+    : '';
+
+  const fullText = `${formatLocalization.headerTitle}\n\n${renderedLines.join('\n\n')}${overflowNoticeSection}\n\n${formatLocalization.hintFooter}`;
 
   const buttons = reminders.map((reminderItem, index) => {
     const label = String(index + 1);

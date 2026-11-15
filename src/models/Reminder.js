@@ -27,5 +27,6 @@ const schema = new mongoose.Schema({
 });
 
 schema.index({ isActive: 1, nextRunAt: 1 });
+schema.index({ userId: 1, createdAt: 1 });
 
 export default mongoose.model('Reminder', schema);

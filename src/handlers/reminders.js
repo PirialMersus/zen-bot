@@ -41,7 +41,8 @@ export {
   handleReminderListCallback,
   handleViewReminder,
   handleRequestAction,
-  handleConfirmAction
+  handleConfirmAction,
+  handleKeepReminder
 } from './reminders/actions.js';
 
 export const handleReminders = async ctx => {

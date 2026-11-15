@@ -1,5 +1,5 @@
 import { describe, expect, it, vi, beforeEach, afterEach } from 'vitest';
-import { Pointer, PointerEn } from '../../src/models/Pointer.js';
+import { Pointer } from '../../src/models/Pointer.js';
 import User from '../../src/models/User.js';
 import { UI } from '../../src/constants/ui.js';
 import { TEXTS } from '../../src/constants/texts.js';

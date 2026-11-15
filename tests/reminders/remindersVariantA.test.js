@@ -3,7 +3,6 @@ import {
   handleConfirmAction,
   handleMyReminders,
   handleReminderListCallback,
-  handleRequestAction,
   handleViewReminder
 } from '../../src/handlers/reminders.js';
 import Reminder from '../../src/models/Reminder.js';
@@ -118,5 +117,31 @@ describe('Управление напоминаниями (Вариант А)', 
     await handleConfirmAction(mockContext);
 
     expect(mockContext.editMessageReplyMarkup).toHaveBeenCalledTimes(1);
+  });
+
+  it('должен безопасно усекать текст списка при превышении лимита длины сообщения и не ронять Telegram API', async () => {
+    const telegramUserId = 66778815;
+    await User.create({ telegramId: telegramUserId, timezone: 'Europe/Minsk' });
+
+    const bulkReminders = [];
+    for (let index = 1; index <= 60; index++) {
+      bulkReminders.push({
+        userId: telegramUserId,
+        chatId: telegramUserId,
+        text: `Напоминание с очень длинным подробным текстом номер ${index} для проверки безопасной границы лимита сообщения в четыре тысячи символов`,
+        intervalMinutes: 10 + index,
+        isActive: true
+      });
+    }
+    await Reminder.insertMany(bulkReminders);
+
+    const mockContext = createMockContext({ userId: telegramUserId });
+    await handleMyReminders(mockContext);
+
+    expect(mockContext.reply).toHaveBeenCalledTimes(1);
+    const [replyText, replyOptions] = mockContext.reply.mock.calls[0];
+    expect(replyText.length).toBeLessThanOrEqual(3900);
+    expect(replyText).toContain('… и ещё');
+    expect(replyOptions.reply_markup.inline_keyboard.flat().length).toBe(60);
   });
 });

@@ -7,6 +7,13 @@ import {
 } from '../../src/services/reminderDelivery.js';
 import Reminder from '../../src/models/Reminder.js';
 import * as cleanupUserModule from '../../src/services/cleanupUser.js';
+import {
+  hasDeletionTimer,
+  clearAllDeletionTimers
+} from '../../src/services/deletionTimers.js';
+import { handleKeepReminder } from '../../src/handlers/reminders.js';
+import { createMockContext } from '../helpers/mockContext.js';
+import { UI } from '../../src/constants/ui.js';
 
 describe('Сервис доставки напоминаний (reminderDelivery)', () => {
   let mockBot;
@@ -213,5 +220,131 @@ describe('Сервис доставки напоминаний (reminderDelivery
 
     expect(cleanupSpy).toHaveBeenCalledWith(999888);
     cleanupSpy.mockRestore();
+  });
+
+  it('должен прикреплять инлайн-кнопку Оставить и регистрировать таймер автоудаления для текстового напоминания', async () => {
+    clearAllDeletionTimers();
+    const reminder = {
+      _id: 'reminderTextAutoDelete',
+      chatId: 54321,
+      userId: 54321,
+      text: 'Время сделать перерыв',
+      deleteAfterSeconds: 20
+    };
+
+    await deliverReminder({
+      bot: mockBot,
+      reminder,
+      user: null,
+      userLanguage: 'ru',
+      currentPointer: null,
+      messageText: reminder.text
+    });
+
+    expect(mockBot.telegram.sendMessage).toHaveBeenCalledTimes(1);
+    const [, , options] = mockBot.telegram.sendMessage.mock.calls[0];
+    expect(options.reply_markup).toBeDefined();
+    expect(options.reply_markup.inline_keyboard[0][0].text).toBe(UI.ru.POINTER_KEEP_BUTTON(20));
+    expect(options.reply_markup.inline_keyboard[0][0].callback_data).toBe('reminder:keep');
+    expect(hasDeletionTimer(54321, 101)).toBe(true);
+  });
+
+  it('должен прикреплять инлайн-кнопку Оставить и регистрировать таймер автоудаления для фото и видео напоминаний', async () => {
+    clearAllDeletionTimers();
+    const photoReminder = {
+      _id: 'photoReminderAutoDelete',
+      chatId: 998877,
+      userId: 998877,
+      photoFileId: 'photo_file_999',
+      caption: 'Закат',
+      deleteAfterSeconds: 15
+    };
+
+    await deliverReminder({
+      bot: mockBot,
+      reminder: photoReminder,
+      user: null,
+      userLanguage: 'ru',
+      currentPointer: null,
+      messageText: 'Фото'
+    });
+
+    expect(mockBot.telegram.sendPhoto).toHaveBeenCalledTimes(1);
+    const [, , photoOptions] = mockBot.telegram.sendPhoto.mock.calls[0];
+    expect(photoOptions.reply_markup).toBeDefined();
+    expect(photoOptions.reply_markup.inline_keyboard[0][0].text).toBe(UI.ru.POINTER_KEEP_BUTTON(15));
+    expect(photoOptions.reply_markup.inline_keyboard[0][0].callback_data).toBe('reminder:keep');
+    expect(hasDeletionTimer(998877, 102)).toBe(true);
+
+    const videoReminder = {
+      _id: 'videoReminderAutoDelete',
+      chatId: 887766,
+      userId: 887766,
+      videoFileId: 'video_file_999',
+      caption: 'Медитация',
+      deleteAfterSeconds: 25
+    };
+
+    await deliverReminder({
+      bot: mockBot,
+      reminder: videoReminder,
+      user: null,
+      userLanguage: 'ru',
+      currentPointer: null,
+      messageText: 'Видео'
+    });
+
+    expect(mockBot.telegram.sendVideo).toHaveBeenCalledTimes(1);
+    const [, , videoOptions] = mockBot.telegram.sendVideo.mock.calls[0];
+    expect(videoOptions.reply_markup).toBeDefined();
+    expect(videoOptions.reply_markup.inline_keyboard[0][0].text).toBe(UI.ru.POINTER_KEEP_BUTTON(25));
+    expect(videoOptions.reply_markup.inline_keyboard[0][0].callback_data).toBe('reminder:keep');
+    expect(hasDeletionTimer(887766, 103)).toBe(true);
+  });
+
+  it('должен отменять автоудаление обычного напоминания при вызове handleKeepReminder', async () => {
+    clearAllDeletionTimers();
+    const testChatId = 771122;
+    const testMessageId = 555;
+
+    const reminder = {
+      _id: 'reminderToKeep',
+      chatId: testChatId,
+      userId: testChatId,
+      text: 'Важная заметка',
+      deleteAfterSeconds: 30
+    };
+
+    mockBot.telegram.sendMessage.mockResolvedValueOnce({ message_id: testMessageId });
+
+    await deliverReminder({
+      bot: mockBot,
+      reminder,
+      user: null,
+      userLanguage: 'ru',
+      currentPointer: null,
+      messageText: reminder.text
+    });
+
+    expect(hasDeletionTimer(testChatId, testMessageId)).toBe(true);
+
+    const mockContext = createMockContext({
+      userId: testChatId,
+      chatId: testChatId,
+      callbackQuery: {
+        id: 'callback_keep_reminder',
+        data: 'reminder:keep',
+        message: {
+          message_id: testMessageId,
+          chat: { id: testChatId }
+        }
+      }
+    });
+
+    await handleKeepReminder(mockContext);
+
+    expect(hasDeletionTimer(testChatId, testMessageId)).toBe(false);
+    expect(mockContext.editMessageReplyMarkup).toHaveBeenCalledWith();
+    expect(mockContext.answerCbQuery).toHaveBeenCalledWith(UI.ru.POINTER_KEEP_TOAST);
   });
 });

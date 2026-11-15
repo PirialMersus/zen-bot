@@ -1,8 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import {
   handleLanguageMenu,
-  handleLanguageSet,
-  handleSettings
+  handleLanguageSet
 } from '../../src/handlers/settings/quietHours.js';
 import User from '../../src/models/User.js';
 import { Pointer, PointerEn, PointerEs } from '../../src/models/Pointer.js';

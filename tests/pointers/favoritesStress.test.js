@@ -1,5 +1,4 @@
 import { describe, expect, it } from 'vitest';
-import mongoose from 'mongoose';
 import { TEXTS } from '../../src/constants/texts.js';
 import { UI } from '../../src/constants/ui.js';
 import {
@@ -19,7 +18,7 @@ import {
   handleDeleteAfterPreset,
   REMINDER_STEP
 } from '../../src/handlers/reminders.js';
-import { Pointer, PointerEn } from '../../src/models/Pointer.js';
+import { Pointer } from '../../src/models/Pointer.js';
 import Reminder from '../../src/models/Reminder.js';
 import User from '../../src/models/User.js';
 import {

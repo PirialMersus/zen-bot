@@ -12,4 +12,12 @@ export const getRemindersKeyboard = (language = 'ru') => {
   ]).resize();
 };
 
+export const buildAutoDeleteKeepKeyboard = (deleteAfterSeconds, language = 'ru') => {
+  if (!deleteAfterSeconds) return null;
+  const ui = getUi(language);
+  return Markup.inlineKeyboard([
+    [Markup.button.callback(ui.POINTER_KEEP_BUTTON(deleteAfterSeconds), 'reminder:keep')]
+  ]);
+};
+
 export const remindersKeyboard = getRemindersKeyboard('ru');
