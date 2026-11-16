@@ -14,7 +14,7 @@ import {
   handleFeedbackStart
 } from './handlers/admin.js';
 import { handleGetAuthCode } from './handlers/auth.js';
-import { handleBack } from './handlers/back.js';
+import { handleBack, handleCancel } from './handlers/back.js';
 import { handleStart, handleHelp } from './handlers/menu.js';
 import { handleUnknownMessage, handleFallbackCreateReminder } from './handlers/fallback.js';
 import {
@@ -90,13 +90,15 @@ export const registerBotCommands = async (targetBot) => {
     await targetBot.telegram.setMyCommands([
       { command: 'start', description: 'Запустить бота / Главное меню' },
       { command: 'help', description: 'Справка и возможности' },
-      { command: 'f', description: 'Поиск указателей по автору или фразе' }
+      { command: 'f', description: 'Поиск указателей по автору или фразе' },
+      { command: 'cancel', description: 'Отмена текущего действия' }
     ]);
     await targetBot.telegram.setMyCommands(
       [
         { command: 'start', description: 'Start the bot / Main menu' },
         { command: 'help', description: 'Help and features' },
-        { command: 'f', description: 'Search pointers by author or phrase' }
+        { command: 'f', description: 'Search pointers by author or phrase' },
+        { command: 'cancel', description: 'Cancel current action' }
       ],
       { language_code: 'en' }
     );
@@ -104,7 +106,8 @@ export const registerBotCommands = async (targetBot) => {
       [
         { command: 'start', description: 'Запустити бота / Головне меню' },
         { command: 'help', description: 'Довідка та можливості' },
-        { command: 'f', description: 'Пошук вказівників за автором або фразою' }
+        { command: 'f', description: 'Пошук вказівників за автором або фразою' },
+        { command: 'cancel', description: 'Скасувати поточну дію' }
       ],
       { language_code: 'uk' }
     );
@@ -112,7 +115,8 @@ export const registerBotCommands = async (targetBot) => {
       [
         { command: 'start', description: 'Iniciar el bot / Menú principal' },
         { command: 'help', description: 'Ayuda y características' },
-        { command: 'f', description: 'Buscar punteros por autor o frase' }
+        { command: 'f', description: 'Buscar punteros por autor o frase' },
+        { command: 'cancel', description: 'Cancelar acción actual' }
       ],
       { language_code: 'es' }
     );
@@ -188,7 +192,9 @@ bot.action('settings:back', async (ctx) => {
   await ctx.reply(texts.MENU.MAIN, mainKeyboard(ctx, userLanguage)).catch(suppressExpectedError);
 });
 
+bot.command('cancel', handleCancel);
 bot.hears([...getButtonVariants('BACK'), ...getUiVariants('POINTER_TO_MENU')], handleBack);
+bot.hears(getButtonVariants('CANCEL'), handleCancel);
 bot.hears(getUiVariants('POINTER_NEXT'), handleNextPointer);
 bot.hears(getUiVariants('POINTER_TO_REMINDER'), handlePointerToReminder);
 bot.hears(getUiVariants('ADMIN_ACTIVE_USERS'), handleAdminActiveUsers);

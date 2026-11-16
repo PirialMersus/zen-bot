@@ -55,15 +55,13 @@ router.post('/request', async (req, res) => {
           parse_mode: 'HTML'
         });
       } catch (telegramSendError) {
-        if (process.env.NODE_ENV !== 'test') {
-          logError(telegramSendError, {
-            telegramId: telegramIdNumber,
-            context: 'API_AUTH_REQUEST_TELEGRAM_SEND'
-          });
-          return res
-            .status(500)
-            .json({ message: 'Не удалось отправить код в Telegram. Убедись, что бот запущен.' });
-        }
+        logError(telegramSendError, {
+          telegramId: telegramIdNumber,
+          context: 'API_AUTH_REQUEST_TELEGRAM_SEND'
+        });
+        return res
+          .status(500)
+          .json({ message: 'Не удалось отправить код в Telegram. Убедись, что бот запущен.' });
       }
     }
 

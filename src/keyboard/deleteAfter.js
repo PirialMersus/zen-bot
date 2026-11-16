@@ -10,7 +10,7 @@ export const getDeleteAfterKeyboard = (language = 'ru') => {
   return Markup.keyboard([
     [options[0], options[1]],
     [options[2], options[3]],
-    [buttons.BACK]
+    [buttons.BACK, buttons.CANCEL]
   ]).resize();
 };
 

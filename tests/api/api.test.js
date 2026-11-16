@@ -1,4 +1,4 @@
-import { afterAll, beforeAll, describe, expect, it } from 'vitest';
+import { afterAll, beforeAll, describe, expect, it, vi } from 'vitest';
 import http from 'http';
 import express from 'express';
 import apiRouter from '../../src/api/index.js';
@@ -8,12 +8,17 @@ import { Pointer, PointerEn } from '../../src/models/Pointer.js';
 import { validateServerEnvironment } from '../../src/server.js';
 import { generateAuthCode } from '../../src/utils/auth.js';
 import { validateApplicationEnvironment } from '../../src/utils/env.js';
+import { bot } from '../../src/bot.js';
 
 describe('API безопасность и мультиязычность указателей', () => {
   let serverInstance;
   let serverBaseUrl;
 
   beforeAll(async () => {
+    if (bot?.telegram) {
+      vi.spyOn(bot.telegram, 'sendMessage').mockResolvedValue(true);
+    }
+
     const expressApp = express();
     expressApp.use(express.json());
     expressApp.use('/api', apiRouter);
@@ -177,7 +182,7 @@ describe('API безопасность и мультиязычность ука�
     delete process.env.JWT_SECRET;
 
     expect(() => validateServerEnvironment()).toThrow(
-      'Критическая ошибка конфигурации: переменная JWT_SECRET обязательна в production окружении'
+      'Критическая ошибка конфигурации: переменная JWT_SECRET обязательна'
     );
 
     process.env.NODE_ENV = originalEnvironment;

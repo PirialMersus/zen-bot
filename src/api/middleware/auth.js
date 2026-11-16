@@ -4,13 +4,19 @@ import { getResolvedJwtSecret } from '../utils/jwt.js';
 import { logError } from '../../utils/logger.js';
 
 export const authMiddleware = async (req, res, next) => {
-  try {
-    const token = req.headers.authorization?.replace('Bearer ', '');
-    if (!token) {
-      return res.status(401).json({ message: 'Токен не предоставлен' });
-    }
+  const token = req.headers.authorization?.replace('Bearer ', '');
+  if (!token) {
+    return res.status(401).json({ message: 'Токен не предоставлен' });
+  }
 
-    const decoded = jwt.verify(token, getResolvedJwtSecret());
+  let decoded;
+  try {
+    decoded = jwt.verify(token, getResolvedJwtSecret());
+  } catch {
+    return res.status(401).json({ message: 'Недействительный токен' });
+  }
+
+  try {
     const user = await User.findOne({ telegramId: decoded.telegramId });
 
     if (!user) {
@@ -26,7 +32,8 @@ export const authMiddleware = async (req, res, next) => {
       }
     );
     next();
-  } catch {
-    res.status(401).json({ message: 'Недействительный токен' });
+  } catch (databaseError) {
+    logError(databaseError, { context: 'AUTH_MIDDLEWARE_DB_ERROR' });
+    return res.status(500).json({ message: 'Ошибка сервера' });
   }
 };

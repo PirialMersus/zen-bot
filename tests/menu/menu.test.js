@@ -145,14 +145,16 @@ describe('Главное меню и навигация', () => {
     expect(mockBot.telegram.setMyCommands).toHaveBeenNthCalledWith(1, [
       { command: 'start', description: 'Запустить бота / Главное меню' },
       { command: 'help', description: 'Справка и возможности' },
-      { command: 'f', description: 'Поиск указателей по автору или фразе' }
+      { command: 'f', description: 'Поиск указателей по автору или фразе' },
+      { command: 'cancel', description: 'Отмена текущего действия' }
     ]);
     expect(mockBot.telegram.setMyCommands).toHaveBeenNthCalledWith(
       2,
       [
         { command: 'start', description: 'Start the bot / Main menu' },
         { command: 'help', description: 'Help and features' },
-        { command: 'f', description: 'Search pointers by author or phrase' }
+        { command: 'f', description: 'Search pointers by author or phrase' },
+        { command: 'cancel', description: 'Cancel current action' }
       ],
       { language_code: 'en' }
     );
@@ -161,7 +163,8 @@ describe('Главное меню и навигация', () => {
       [
         { command: 'start', description: 'Запустити бота / Головне меню' },
         { command: 'help', description: 'Довідка та можливості' },
-        { command: 'f', description: 'Пошук вказівників за автором або фразою' }
+        { command: 'f', description: 'Пошук вказівників за автором або фразою' },
+        { command: 'cancel', description: 'Скасувати поточну дію' }
       ],
       { language_code: 'uk' }
     );
@@ -170,7 +173,8 @@ describe('Главное меню и навигация', () => {
       [
         { command: 'start', description: 'Iniciar el bot / Menú principal' },
         { command: 'help', description: 'Ayuda y características' },
-        { command: 'f', description: 'Buscar punteros por autor o frase' }
+        { command: 'f', description: 'Buscar punteros por autor o frase' },
+        { command: 'cancel', description: 'Cancelar acción actual' }
       ],
       { language_code: 'es' }
     );

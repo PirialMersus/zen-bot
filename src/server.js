@@ -1,6 +1,7 @@
 import cors from 'cors';
 import express from 'express';
 import apiRouter from './api/index.js';
+import { validateApplicationEnvironment } from './utils/env.js';
 
 const app = express();
 
@@ -35,20 +36,7 @@ app.use('/api', apiRouter);
 const PORT = process.env.PORT || 3000;
 
 export const validateServerEnvironment = () => {
-  if (!process.env.JWT_SECRET && process.env.NODE_ENV === 'production') {
-    throw new Error(
-      'Критическая ошибка конфигурации: переменная JWT_SECRET обязательна в production окружении'
-    );
-  }
-  if (
-    process.env.JWT_SECRET &&
-    process.env.JWT_SECRET.length < 32 &&
-    process.env.NODE_ENV === 'production'
-  ) {
-    throw new Error(
-      'Критическая ошибка конфигурации: переменная JWT_SECRET должна содержать минимум 32 символа'
-    );
-  }
+  validateApplicationEnvironment();
 };
 
 let runningHttpServer = null;

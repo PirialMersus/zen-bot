@@ -34,3 +34,16 @@ export const handleBack = async (ctx) => {
     await ctx.reply(texts.MENU.MAIN, mainKeyboard(ctx, userLanguage));
   }
 };
+
+export const handleCancel = async (ctx) => {
+  ctx.session ??= {};
+  ctx.session.isSettingCustomQuietHours = null;
+  ctx.session.creatingReminder = null;
+  ctx.session.reminderStep = null;
+  ctx.session.feedbackAwaiting = false;
+  ctx.session.adminBroadcastStep = null;
+
+  const userLanguage = await resolveUserLanguage(ctx);
+  const texts = getTexts(userLanguage);
+  await ctx.reply(texts.MENU.MAIN, mainKeyboard(ctx, userLanguage));
+};

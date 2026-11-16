@@ -11,4 +11,9 @@ export const validateApplicationEnvironment = () => {
   if (!process.env.JWT_SECRET) {
     throw new Error('Критическая ошибка конфигурации: переменная JWT_SECRET обязательна');
   }
+  if (process.env.JWT_SECRET.length < 32 && process.env.NODE_ENV === 'production') {
+    throw new Error(
+      'Критическая ошибка конфигурации: переменная JWT_SECRET должна содержать минимум 32 символа'
+    );
+  }
 };

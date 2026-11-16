@@ -9,7 +9,7 @@ export const getIntervalKeyboard = (language = 'ru') => {
   return Markup.keyboard([
     [ui.INTERVAL_5, ui.INTERVAL_15],
     [ui.INTERVAL_60, ui.INTERVAL_1440],
-    [buttons.BACK]
+    [buttons.BACK, buttons.CANCEL]
   ]).resize();
 };
 

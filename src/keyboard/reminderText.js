@@ -16,7 +16,7 @@ export const reminderTextKeyboard = (texts, language = 'ru') => {
     rows.push(uniqueTexts.slice(index, index + 2));
   }
 
-  rows.push([buttons.BACK]);
+  rows.push([buttons.BACK, buttons.CANCEL]);
 
   return Markup.keyboard(rows).resize();
 };

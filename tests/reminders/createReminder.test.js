@@ -183,7 +183,7 @@ describe('Создание напоминаний', () => {
     expect(keyboardRows).toHaveLength(3);
     expect(keyboardRows[0]).toEqual([UI.ru.REMINDER_RANDOM, UI.ru.REMINDER_FAVORITE]);
     expect(keyboardRows[1]).toEqual(['Пользовательский текст 1', 'Пользовательский текст 2']);
-    expect(keyboardRows[2]).toEqual(['⬅️ Назад']);
+    expect(keyboardRows[2]).toEqual(['⬅️ Назад', '❌ Отмена']);
   });
 
   it('должен корректно экранировать HTML спецсимволы в тексте напоминания', async () => {
