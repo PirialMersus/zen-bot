@@ -11,6 +11,13 @@ const performGracefulShutdown = async (terminationReason, exitCode = 0) => {
   if (isBotTerminating) return;
   isBotTerminating = true;
 
+  const forcedShutdownTimeoutMilliseconds = 10000;
+  const forcedTerminationTimer = setTimeout(() => {
+    console.error('FORCED_SHUTDOWN_TIMEOUT_EXCEEDED');
+    process.exit(exitCode || 1);
+  }, forcedShutdownTimeoutMilliseconds);
+  forcedTerminationTimer.unref();
+
   try {
     bot.stop(terminationReason);
   } catch (stopBotError) {
@@ -35,6 +42,7 @@ const performGracefulShutdown = async (terminationReason, exitCode = 0) => {
     console.error('ERROR_DISCONNECTING_DB', disconnectDbError);
   }
 
+  clearTimeout(forcedTerminationTimer);
   process.exit(exitCode);
 };
 

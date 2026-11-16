@@ -30,11 +30,9 @@ router.post('/request', async (req, res) => {
     }
 
     if (!isRequestWithinRateLimit(`auth_request_tg:${telegramIdNumber}`, 3, 10 * 60 * 1000)) {
-      return res
-        .status(429)
-        .json({
-          message: 'Слишком много запросов кода для этого аккаунта. Пожалуйста, подожди 10 минут.'
-        });
+      return res.status(429).json({
+        message: 'Слишком много запросов кода для этого аккаунта. Пожалуйста, подожди 10 минут.'
+      });
     }
 
     const user = await User.findOne({ telegramId: telegramIdNumber });
@@ -105,12 +103,10 @@ router.post('/verify', async (req, res) => {
         return res.status(400).json({ message: 'telegramId должен быть положительным числом' });
       }
       if (!isRequestWithinRateLimit(`auth_verify_tg:${telegramIdNumber}`, 5, 5 * 60 * 1000)) {
-        return res
-          .status(429)
-          .json({
-            message:
-              'Слишком много попыток ввода кода для этого аккаунта. Пожалуйста, подожди 5 минут.'
-          });
+        return res.status(429).json({
+          message:
+            'Слишком много попыток ввода кода для этого аккаунта. Пожалуйста, подожди 5 минут.'
+        });
       }
       verificationQuery.telegramId = telegramIdNumber;
     }

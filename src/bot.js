@@ -66,6 +66,7 @@ import { mainKeyboard } from './keyboard/main.js';
 import { getSupportInlineKeyboard } from './keyboard/support.js';
 import { activityMiddleware, resolveUserLanguage } from './middlewares/activity.js';
 import { createMongoSessionStore } from './storage/sessionStore.js';
+import { suppressExpectedError } from './utils/logger.js';
 
 export const bot = new Telegraf(process.env.BOT_TOKEN);
 
@@ -182,9 +183,9 @@ bot.action('settings:quiet_toggle', handleQuietToggle);
 bot.action('settings:back', async (ctx) => {
   const userLanguage = await resolveUserLanguage(ctx);
   const texts = getTexts(userLanguage);
-  await ctx.answerCbQuery().catch(() => {});
-  await ctx.deleteMessage().catch(() => {});
-  await ctx.reply(texts.MENU.MAIN, mainKeyboard(ctx, userLanguage)).catch(() => {});
+  await ctx.answerCbQuery().catch(suppressExpectedError);
+  await ctx.deleteMessage().catch(suppressExpectedError);
+  await ctx.reply(texts.MENU.MAIN, mainKeyboard(ctx, userLanguage)).catch(suppressExpectedError);
 });
 
 bot.hears([...getButtonVariants('BACK'), ...getUiVariants('POINTER_TO_MENU')], handleBack);

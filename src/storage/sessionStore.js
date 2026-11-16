@@ -1,5 +1,6 @@
 import mongoose from 'mongoose';
 import Session from '../models/Session.js';
+import { logError } from '../utils/logger.js';
 
 export class MongoSessionStore {
   constructor() {
@@ -18,7 +19,8 @@ export class MongoSessionStore {
     try {
       const persistedSessionRecord = await Session.findOne({ key: sessionKey }).lean();
       return persistedSessionRecord?.data;
-    } catch {
+    } catch (databaseError) {
+      logError(databaseError, { context: 'SESSION_STORE_GET', sessionKey });
       return this.memoryFallbackStore.get(sessionKey);
     }
   }
@@ -41,7 +43,8 @@ export class MongoSessionStore {
         },
         { upsert: true }
       );
-    } catch {
+    } catch (databaseError) {
+      logError(databaseError, { context: 'SESSION_STORE_SET', sessionKey });
       return;
     }
   }
@@ -55,7 +58,8 @@ export class MongoSessionStore {
 
     try {
       await Session.deleteOne({ key: sessionKey });
-    } catch {
+    } catch (databaseError) {
+      logError(databaseError, { context: 'SESSION_STORE_DELETE', sessionKey });
       return;
     }
   }

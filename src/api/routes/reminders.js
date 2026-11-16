@@ -67,14 +67,12 @@ router.post('/', authMiddleware, async (req, res) => {
       parsedInterval < MIN_REMINDER_INTERVAL_MINUTES ||
       parsedInterval > MAX_REMINDER_INTERVAL_MINUTES
     ) {
-      return res
-        .status(400)
-        .json({
-          message: `intervalMinutes должен быть положительным целым числом не более ${MAX_REMINDER_INTERVAL_MINUTES}`
-        });
+      return res.status(400).json({
+        message: `intervalMinutes должен быть положительным целым числом не более ${MAX_REMINDER_INTERVAL_MINUTES}`
+      });
     }
 
-    let parsedDeleteAfter = 10;
+    let parsedDeleteAfter = null;
     if (deleteAfterSeconds !== undefined && deleteAfterSeconds !== null) {
       parsedDeleteAfter = Number(deleteAfterSeconds);
       if (
@@ -86,8 +84,6 @@ router.post('/', authMiddleware, async (req, res) => {
           .status(400)
           .json({ message: 'deleteAfterSeconds должен быть числом от 1 до 86400' });
       }
-    } else if (deleteAfterSeconds === null) {
-      parsedDeleteAfter = null;
     }
 
     const now = new Date();
@@ -127,11 +123,9 @@ router.patch('/:id', authMiddleware, async (req, res) => {
         parsedInterval < MIN_REMINDER_INTERVAL_MINUTES ||
         parsedInterval > MAX_REMINDER_INTERVAL_MINUTES
       ) {
-        return res
-          .status(400)
-          .json({
-            message: `intervalMinutes должен быть положительным целым числом не более ${MAX_REMINDER_INTERVAL_MINUTES}`
-          });
+        return res.status(400).json({
+          message: `intervalMinutes должен быть положительным целым числом не более ${MAX_REMINDER_INTERVAL_MINUTES}`
+        });
       }
       incomingUpdates.intervalMinutes = parsedInterval;
     }
