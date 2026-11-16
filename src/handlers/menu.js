@@ -6,6 +6,28 @@ import { resolveUserLanguage } from '../middlewares/activity.js';
 import User from '../models/User.js';
 import { DEFAULT_TIMEZONE } from '../constants/timezones.js';
 
+const getLocalizedQuietDisabledText = (language = 'ru') => {
+  const quietDisabledTranslations = {
+    ru: 'выключены',
+    en: 'disabled',
+    uk: 'вимкнені',
+    es: 'desactivadas'
+  };
+  return quietDisabledTranslations[language] || quietDisabledTranslations.ru;
+};
+
+const formatQuietHoursSchedule = (quietHoursSettings, userLanguage = 'ru') => {
+  if (!quietHoursSettings) {
+    return '23:00–08:00';
+  }
+  if (quietHoursSettings.enabled === false) {
+    return getLocalizedQuietDisabledText(userLanguage);
+  }
+  const startHourFormatted = String(quietHoursSettings.start ?? 23).padStart(2, '0');
+  const endHourFormatted = String(quietHoursSettings.end ?? 8).padStart(2, '0');
+  return `${startHourFormatted}:00–${endHourFormatted}:00`;
+};
+
 export const handleStart = async ctx => {
   ctx.session ??= {};
   ctx.session.reminderStep = null;
@@ -26,11 +48,15 @@ export const handleStart = async ctx => {
 
   const telegramUserIdentifier = ctx.from?.id;
   let currentUserTimezone = DEFAULT_TIMEZONE;
+  let formattedQuietHoursSchedule = '23:00–08:00';
 
   if (telegramUserIdentifier) {
     const existingUserData = await User.findOne({ telegramId: telegramUserIdentifier }).lean().catch(() => null);
     if (existingUserData?.timezone) {
       currentUserTimezone = existingUserData.timezone;
+    }
+    if (existingUserData?.quietHours) {
+      formattedQuietHoursSchedule = formatQuietHoursSchedule(existingUserData.quietHours, userLanguage);
     }
   }
 
@@ -39,7 +65,7 @@ export const handleStart = async ctx => {
   ]);
 
   await ctx.reply(
-    texts.MENU.ONBOARDING_TIMEZONE_PROMPT(currentUserTimezone),
+    texts.MENU.ONBOARDING_TIMEZONE_PROMPT(currentUserTimezone, formattedQuietHoursSchedule),
     {
       parse_mode: 'HTML',
       ...timezoneOnboardingKeyboard

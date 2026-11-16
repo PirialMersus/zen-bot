@@ -7,9 +7,6 @@ const RUSSIAN_TEXTS = {
 
 🧘‍♀️ «Указатели» — мудрые цитаты и практические подсказки для возвращения внимания в настоящий момент (недвойственность, дзен)
 ⏳ Своё напоминание — текст, 📷 фото или 🎬 видео с любой частотой
-
-🌍 Часовой пояс по умолчанию: Europe/Minsk (тихие часы 23:00–08:00).
-Если ты в другом регионе — смени его в ⚙️ «Настройки» ➡️ «🌍 Часовой пояс».
 `,
     MAIN: 'Главное меню',
     SETTINGS: 'Настройки:',
@@ -21,7 +18,7 @@ const RUSSIAN_TEXTS = {
 ⚙️ «Настройки» — часовой пояс, тихие часы и язык
 
 💡 Чтобы создать напоминание, нажми «⏳ Напоминания» ➡️ «➕ Создать». Можно указать интервал в минутах или точное время (например, 09:00).`,
-    ONBOARDING_TIMEZONE_PROMPT: timezone => `🌍 Твой часовой пояс: <b>${timezone}</b>\nТихие часы (23:00–08:00) рассчитываются по нему.\n\nЕсли ты в другом регионе — выбери свой город ниже 👇`,
+    ONBOARDING_TIMEZONE_PROMPT: (timezone, quietHoursText = '23:00–08:00') => `🌍 Твой часовой пояс: <b>${timezone}</b>\nТихие часы: <b>${quietHoursText}</b> (рассчитываются по нему).\n\nЕсли ты в другом регионе — выбери свой город ниже 👇`,
     ONBOARDING_TIMEZONE_BUTTON: '🌍 Выбрать часовой пояс'
   },
 
@@ -156,9 +153,6 @@ I will remind you about what truly matters.
 
 🧘‍♀️ "Pointers" — wise quotes and practical clues to return your attention to the present moment (non-duality, Zen)
 ⏳ Custom reminder — text, 📷 photo, or 🎬 video at any frequency
-
-🌍 Default timezone: Europe/Minsk (quiet hours 23:00–08:00).
-If you are in another region, change it in ⚙️ "Settings" ➡️ "🌍 Timezone".
 `,
     MAIN: 'Main menu',
     SETTINGS: 'Settings:',
@@ -170,7 +164,7 @@ If you are in another region, change it in ⚙️ "Settings" ➡️ "🌍 Timezo
 ⚙️ "Settings" — timezone, quiet hours, and language
 
 💡 To create a reminder, press "⏳ Reminders" ➡️ "➕ Create". You can set interval in minutes or exact daily time (e.g., 09:00).`,
-    ONBOARDING_TIMEZONE_PROMPT: timezone => `🌍 Your timezone: <b>${timezone}</b>\nQuiet hours (23:00–08:00) are calculated based on it.\n\nIf you are in another region, choose your city below 👇`,
+    ONBOARDING_TIMEZONE_PROMPT: (timezone, quietHoursText = '23:00–08:00') => `🌍 Your timezone: <b>${timezone}</b>\nQuiet hours: <b>${quietHoursText}</b> (calculated based on it).\n\nIf you are in another region, choose your city below 👇`,
     ONBOARDING_TIMEZONE_BUTTON: '🌍 Choose timezone'
   },
 
@@ -305,9 +299,6 @@ const UKRAINIAN_TEXTS = {
 
 🧘‍♀️ «Вказівники» — мудрі цитати та практичні підказки для повернення уваги в теперішній момент (недвоїстість, дзен)
 ⏳ Власне нагадування — текст, 📷 фото або 🎬 відео з будь-якою частотою
-
-🌍 Часовий пояс за замовчуванням: Europe/Minsk (тихі години 23:00–08:00).
-Якщо ти в іншому регіоні — зміни його в ⚙️ «Налаштування» ➡️ «🌍 Часовий пояс».
 `,
     MAIN: 'Головне меню',
     SETTINGS: 'Налаштування:',
@@ -319,7 +310,7 @@ const UKRAINIAN_TEXTS = {
 ⚙️ «Налаштування» — часовий пояс, тихі години та мова
 
 💡 Щоб створити нагадування, натисни «⏳ Нагадування» ➡️ «➕ Створити». Можна вказати інтервал у хвилинах або точний час (наприклад, 09:00).`,
-    ONBOARDING_TIMEZONE_PROMPT: timezone => `🌍 Твій часовий пояс: <b>${timezone}</b>\nТихі години (23:00–08:00) розраховуються за ним.\n\nЯкщо ти в іншому регіоні — обери своє місто нижче 👇`,
+    ONBOARDING_TIMEZONE_PROMPT: (timezone, quietHoursText = '23:00–08:00') => `🌍 Твій часовий пояс: <b>${timezone}</b>\nТихі години: <b>${quietHoursText}</b> (розраховуються за ним).\n\nЯкщо ти в іншому регіоні — обери своє місто нижче 👇`,
     ONBOARDING_TIMEZONE_BUTTON: '🌍 Обрати часовий пояс'
   },
 
@@ -454,9 +445,6 @@ Te recordaré lo que verdaderamente importa.
 
 🧘‍♀️ «Punteros» — citas sabias y pistas prácticas para devolver tu atención al momento presente (no-dualidad, Zen)
 ⏳ Recordatorio personalizado — texto, 📷 foto o 🎬 video con cualquier frecuencia
-
-🌍 Zona horaria por defecto: Europe/Minsk (horas de silencio 23:00–08:00).
-Si estás en otra región, cámbiala en ⚙️ «Ajustes» ➡️ «🌍 Zona horaria».
 `,
     MAIN: 'Menú principal',
     SETTINGS: 'Ajustes:',
@@ -468,7 +456,7 @@ Si estás en otra región, cámbiala en ⚙️ «Ajustes» ➡️ «🌍 Zona ho
 ⚙️ «Ajustes» — zona horaria, horas de silencio e idioma
 
 💡 Para crear un recordatorio, presiona «⏳ Recordatorios» ➡️ «➕ Crear». Puedes indicar el intervalo en minutos o la hora exacta (por ejemplo, 09:00).`,
-    ONBOARDING_TIMEZONE_PROMPT: timezone => `🌍 Tu zona horaria: <b>${timezone}</b>\nLas horas de silencio (23:00–08:00) se calculan en base a ella.\n\nSi estás en otra región, elige tu ciudad abajo 👇`,
+    ONBOARDING_TIMEZONE_PROMPT: (timezone, quietHoursText = '23:00–08:00') => `🌍 Tu zona horaria: <b>${timezone}</b>\nHoras de silencio: <b>${quietHoursText}</b> (calculadas en base a ella).\n\nSi estás en otra región, elige tu ciudad abajo 👇`,
     ONBOARDING_TIMEZONE_BUTTON: '🌍 Elegir zona horaria'
   },
 
