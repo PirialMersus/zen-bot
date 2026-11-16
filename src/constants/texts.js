@@ -35,7 +35,7 @@ const RUSSIAN_TEXTS = {
   },
 
   SEARCH: {
-    HINT: '⚠️ Укажите текст для поиска или автора.\nПример: /f Будда или /f [отрывок указателя]',
+    HINT: '🔍 Введите текст для поиска, отрывок указателя или имя автора.\nУкажите текст для поиска или автора — бот найдет совпадения.\nПример: /f Будда или /f [отрывок указателя]',
     NOT_FOUND: (query, lang) => `❌ Указатели с текстом «${query}» (${lang.toUpperCase()}) не найдены.`,
     PAGINATION_STATUS: (total, shown) => `ℹ️ Найдено всего: ${total}. Показаны: 1–${shown}`,
     MORE_BUTTON: remaining => `Показать ещё (${remaining}) ➡️`,
@@ -164,7 +164,7 @@ I will remind you about what truly matters.
   },
 
   SEARCH: {
-    HINT: '⚠️ Specify search text or author.\nExample: /f Buddha or /f [pointer excerpt]',
+    HINT: '🔍 Enter text, pointer excerpt or author name to search.\nSpecify search text or author, and the bot will find matches.\nExample: /f Buddha or /f [pointer excerpt]',
     NOT_FOUND: (query, lang) => `❌ Pointers matching «${query}» (${lang.toUpperCase()}) not found.`,
     PAGINATION_STATUS: (total, shown) => `ℹ️ Total found: ${total}. Shown: 1–${shown}`,
     MORE_BUTTON: remaining => `Show more (${remaining}) ➡️`,
@@ -293,7 +293,7 @@ const UKRAINIAN_TEXTS = {
   },
 
   SEARCH: {
-    HINT: '⚠️ Вкажіть текст для пошуку або автора.\nПриклад: /f Будда або /f [уривок вказівника]',
+    HINT: '🔍 Введіть текст для пошуку, уривок вказівника або ім\'я автора.\nВкажіть текст для пошуку або автора — бот знайде збіги.\nПриклад: /f Будда або /f [уривок вказівника]',
     NOT_FOUND: (query, lang) => `❌ Вказівники за запитом «${query}» (${lang.toUpperCase()}) не знайдені.`,
     PAGINATION_STATUS: (total, shown) => `ℹ️ Всього знайдено: ${total}. Показано: 1–${shown}`,
     MORE_BUTTON: remaining => `Показати ще (${remaining}) ➡️`,
@@ -422,7 +422,7 @@ Te recordaré lo que verdaderamente importa.
   },
 
   SEARCH: {
-    HINT: '⚠️ Indique el texto para buscar o el autor.\nEjemplo: /f Buda o /f [fragmento del puntero]',
+    HINT: '🔍 Introduce el texto de búsqueda, fragmento del puntero o nombre del autor.\nIndique el texto para buscar o el autor y el bot encontrará coincidencias.\nEjemplo: /f Buda o /f [fragmento del puntero]',
     NOT_FOUND: (query, lang) => `❌ No se encontraron punteros para «${query}» (${lang.toUpperCase()}).`,
     PAGINATION_STATUS: (total, shown) => `ℹ️ Total encontrados: ${total}. Mostrados: 1–${shown}`,
     MORE_BUTTON: remaining => `Mostrar más (quedan ${remaining}) ➡️`,

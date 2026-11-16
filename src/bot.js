@@ -29,7 +29,8 @@ import {
   handlePointerToMenu,
   handleKeepPointer,
   handleSearchPointers,
-  handleSearchMorePointers
+  handleSearchMorePointers,
+  handleSearchQueryInput
 } from './handlers/pointers.js';
 import {
   handleConfirmAction,
@@ -238,6 +239,7 @@ bot.on('text', async ctx => {
   if (await handleDeleteAfterInput(ctx)) return;
   if (await handleIntervalInput(ctx)) return;
   if (await handleAdminGetPointerByNumber(ctx)) return;
+  if (await handleSearchQueryInput(ctx)) return;
   const wasHandled = await handleReminderText(ctx);
   if (!wasHandled) {
     await handleUnknownMessage(ctx);

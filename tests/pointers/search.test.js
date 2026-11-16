@@ -2,7 +2,8 @@ import { describe, expect, it } from 'vitest';
 import { Pointer, PointerEn } from '../../src/models/Pointer.js';
 import {
   handleSearchPointers,
-  handleSearchMorePointers
+  handleSearchMorePointers,
+  handleSearchQueryInput
 } from '../../src/handlers/pointers.js';
 import { createMockContext } from '../helpers/mockContext.js';
 import { findPointersByText, countPointersByText } from '../../src/services/pointers.js';
@@ -163,5 +164,62 @@ describe('Публичный поиск указателей по команде
     const replyText = englishUserContext.reply.mock.calls[0][0];
     expect(replyText).toContain('Silence is the greatest revelation');
     expect(replyText).toContain('Lao Tzu');
+  });
+
+  it('должен переводить в режим ожидания и выполнять поиск по следующему текстовому сообщению', async () => {
+    await Pointer.create({
+      number: 401,
+      text: 'Дыхание растворяется в бесконечности',
+      source: 'Пападжи',
+      isActive: true
+    });
+
+    const initialUserId = 99887766;
+    const initialContext = createMockContext({
+      userId: initialUserId,
+      text: '/f'
+    });
+
+    const initialResult = await handleSearchPointers(initialContext);
+    expect(initialResult).toBe(true);
+    expect(initialContext.session.isWaitingForSearchQuery).toBe(true);
+
+    const followUpContext = createMockContext({
+      userId: initialUserId,
+      text: 'Пападжи',
+      session: { ...initialContext.session }
+    });
+
+    const followUpResult = await handleSearchQueryInput(followUpContext);
+    expect(followUpResult).toBe(true);
+    expect(followUpContext.session.isWaitingForSearchQuery).toBe(false);
+    expect(followUpContext.reply).toHaveBeenCalled();
+
+    const resultMessage = followUpContext.reply.mock.calls[0][0];
+    expect(resultMessage).toContain('Дыхание растворяется в бесконечности');
+    expect(resultMessage).toContain('Пападжи');
+  });
+
+  it('должен сбрасывать режим ожидания поиска при вводе команды или навигационной кнопки', async () => {
+    const testUserId = 77665544;
+    const commandContext = createMockContext({
+      userId: testUserId,
+      text: '/start',
+      session: { isWaitingForSearchQuery: true }
+    });
+
+    const commandResult = await handleSearchQueryInput(commandContext);
+    expect(commandResult).toBe(false);
+    expect(commandContext.session.isWaitingForSearchQuery).toBe(false);
+
+    const buttonContext = createMockContext({
+      userId: testUserId,
+      text: '⚙️ Настройки',
+      session: { isWaitingForSearchQuery: true }
+    });
+
+    const buttonResult = await handleSearchQueryInput(buttonContext);
+    expect(buttonResult).toBe(false);
+    expect(buttonContext.session.isWaitingForSearchQuery).toBe(false);
   });
 });
