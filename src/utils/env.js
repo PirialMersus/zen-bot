@@ -5,4 +5,7 @@ export const validateApplicationEnvironment = () => {
   if (!process.env.MONGO_URI) {
     throw new Error('Критическая ошибка конфигурации: переменная MONGO_URI обязательна');
   }
+  if (!process.env.CREATOR_ID) {
+    throw new Error('Критическая ошибка конфигурации: переменная CREATOR_ID обязательна');
+  }
 };

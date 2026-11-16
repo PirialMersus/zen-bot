@@ -5,13 +5,51 @@ import { startScheduler, stopScheduler } from './services/scheduler.js';
 import { startServer, stopServer } from './server.js';
 import { validateApplicationEnvironment } from './utils/env.js';
 
-process.on('unhandledRejection', err => {
+let isBotTerminating = false;
+
+const performGracefulShutdown = async (terminationReason, exitCode = 0) => {
+  if (isBotTerminating) return;
+  isBotTerminating = true;
+
+  try {
+    bot.stop(terminationReason);
+  } catch (stopBotError) {
+    console.error('ERROR_STOPPING_BOT', stopBotError);
+  }
+
+  try {
+    stopScheduler();
+  } catch (stopSchedulerError) {
+    console.error('ERROR_STOPPING_SCHEDULER', stopSchedulerError);
+  }
+
+  try {
+    await stopServer();
+  } catch (stopServerError) {
+    console.error('ERROR_STOPPING_SERVER', stopServerError);
+  }
+
+  try {
+    await disconnectDB();
+  } catch (disconnectDbError) {
+    console.error('ERROR_DISCONNECTING_DB', disconnectDbError);
+  }
+
+  process.exit(exitCode);
+};
+
+process.on('unhandledRejection', async err => {
   console.error('UNHANDLED_REJECTION', err);
+  await performGracefulShutdown('UNHANDLED_REJECTION', 1);
 });
 
-process.on('uncaughtException', err => {
+process.on('uncaughtException', async err => {
   console.error('UNCAUGHT_EXCEPTION', err);
+  await performGracefulShutdown('UNCAUGHT_EXCEPTION', 1);
 });
+
+process.once('SIGINT', () => performGracefulShutdown('SIGINT', 0));
+process.once('SIGTERM', () => performGracefulShutdown('SIGTERM', 0));
 
 validateApplicationEnvironment();
 
@@ -19,8 +57,6 @@ await connectDB();
 
 startScheduler(bot);
 startServer();
-
-let isBotTerminating = false;
 
 const startBotWithAutoRestart = async () => {
   const retryDelayMilliseconds = 5000;
@@ -40,18 +76,5 @@ const startBotWithAutoRestart = async () => {
     }
   }
 };
-
-const handleTerminationSignal = async signalName => {
-  if (isBotTerminating) return;
-  isBotTerminating = true;
-  bot.stop(signalName);
-  stopScheduler();
-  await stopServer();
-  await disconnectDB();
-  process.exit(0);
-};
-
-process.once('SIGINT', () => handleTerminationSignal('SIGINT'));
-process.once('SIGTERM', () => handleTerminationSignal('SIGTERM'));
 
 await startBotWithAutoRestart();

@@ -7,13 +7,15 @@ import { REMINDER_STEP } from '../../src/handlers/reminders.js';
 import { createMockContext } from '../helpers/mockContext.js';
 
 describe('Главное меню и навигация', () => {
-  it('должен отправлять приветственное сообщение при вызове handleStart без параметров', async () => {
+  it('должен отправлять приветственное сообщение и карточку онбординга часового пояса при вызове handleStart без параметров', async () => {
     const mockContext = createMockContext();
 
     await handleStart(mockContext);
 
-    expect(mockContext.reply).toHaveBeenCalledTimes(1);
+    expect(mockContext.reply).toHaveBeenCalledTimes(2);
     expect(mockContext.reply.mock.calls[0][0]).toBe(TEXTS.MENU.START);
+    expect(mockContext.reply.mock.calls[1][0]).toContain('Europe/Minsk');
+    expect(mockContext.reply.mock.calls[1][1].reply_markup.inline_keyboard[0][0].callback_data).toBe('settings:timezone');
   });
 
   it('должен отправлять справочное сообщение при вызове handleHelp', async () => {

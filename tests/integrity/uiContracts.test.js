@@ -112,12 +112,12 @@ describe('Контракты пользовательского интерфей
   });
 
   describe('Контракт главного меню и навигации (Main Menu UI)', () => {
-    it('handleStart должен отправлять постоянную нижнюю клавиатуру главного меню', async () => {
+    it('handleStart должен отправлять постоянную нижнюю клавиатуру главного меню и онбординг часового пояса', async () => {
       const mockContext = createMockContext({ userId: 2001 });
 
       await handleStart(mockContext);
 
-      expect(mockContext.reply).toHaveBeenCalledTimes(1);
+      expect(mockContext.reply).toHaveBeenCalledTimes(2);
       const [, keyboardOptions] = mockContext.reply.mock.calls[0];
 
       expect(keyboardOptions.reply_markup).toBeDefined();
@@ -128,6 +128,11 @@ describe('Контракты пользовательского интерфей
       expect(mainButtons).toContain(BUTTONS.ru.REMINDERS);
       expect(mainButtons).toContain(BUTTONS.ru.SETTINGS);
       expect(mainButtons).toContain(BUTTONS.ru.SUPPORT);
+
+      const [onboardingText, onboardingOptions] = mockContext.reply.mock.calls[1];
+      expect(onboardingText).toContain('Europe/Minsk');
+      expect(onboardingOptions.reply_markup.inline_keyboard).toBeDefined();
+      expect(onboardingOptions.reply_markup.inline_keyboard[0][0].callback_data).toBe('settings:timezone');
     });
 
     it('handleBack без активного шага должен возвращать в главное меню с сохранением главной клавиатуры', async () => {
@@ -283,7 +288,7 @@ describe('Контракты пользовательского интерфей
   });
 
   describe('Контракт Fallback на неизвестный ввод (Unknown Message UI Safety)', () => {
-    it('handleUnknownMessage обязан восстанавливать пользователю главное меню с нижней клавиатурой', async () => {
+    it('handleUnknownMessage обязан восстанавливать пользователю главное меню с нижней клавиатурой и предлагать создание напоминания', async () => {
       const fallbackContext = createMockContext({
         userId: 5001,
         message: { text: 'случайный неизвестный текст' }
@@ -291,7 +296,7 @@ describe('Контракты пользовательского интерфей
 
       await handleUnknownMessage(fallbackContext);
 
-      expect(fallbackContext.reply).toHaveBeenCalledTimes(1);
+      expect(fallbackContext.reply).toHaveBeenCalledTimes(2);
       const [responseText, responseOptions] = fallbackContext.reply.mock.calls[0];
 
       expect(responseText).toContain('Я не понял это сообщение');
@@ -303,6 +308,11 @@ describe('Контракты пользовательского интерфей
       expect(restoredButtons).toContain(BUTTONS.ru.REMINDERS);
       expect(restoredButtons).toContain(BUTTONS.ru.SETTINGS);
       expect(restoredButtons).toContain(BUTTONS.ru.SUPPORT);
+
+      const [offerText, offerOptions] = fallbackContext.reply.mock.calls[1];
+      expect(offerText).toContain('Хочешь создать напоминание');
+      expect(offerOptions.reply_markup.inline_keyboard).toBeDefined();
+      expect(offerOptions.reply_markup.inline_keyboard[0][0].callback_data).toBe('fallback:create_reminder');
     });
   });
 });

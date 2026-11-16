@@ -16,7 +16,7 @@ import {
 import { handleGetAuthCode } from './handlers/auth.js';
 import { handleBack } from './handlers/back.js';
 import { handleStart, handleHelp } from './handlers/menu.js';
-import { handleUnknownMessage } from './handlers/fallback.js';
+import { handleUnknownMessage, handleFallbackCreateReminder } from './handlers/fallback.js';
 import {
   handleNextPointer,
   handlePointersMenu,
@@ -113,6 +113,7 @@ export const registerBotCommands = async targetBot => {
 bot.command('getcode', handleGetAuthCode);
 bot.action('get_auth_code', handleGetAuthCode);
 
+bot.action('fallback:create_reminder', handleFallbackCreateReminder);
 bot.action(/^pointer:next/, handleNextPointer);
 bot.action('pointer:to_reminder', handlePointerToReminder);
 bot.action(/^pointer:fav_toggle/, handleToggleFavoritePointer);

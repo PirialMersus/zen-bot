@@ -86,9 +86,10 @@ describe('API безопасность и мультиязычность ука�
     expect(generatedAuthCode).toMatch(/^[A-Z0-9]{3}-[A-Z0-9]{3}$/);
   });
 
-  it('должен проверять наличие BOT_TOKEN и MONGO_URI при валидации окружения', () => {
+  it('должен проверять наличие BOT_TOKEN, MONGO_URI и CREATOR_ID при валидации окружения', () => {
     const originalBotToken = process.env.BOT_TOKEN;
     const originalMongoUri = process.env.MONGO_URI;
+    const originalCreatorId = process.env.CREATOR_ID;
 
     delete process.env.BOT_TOKEN;
     expect(() => validateApplicationEnvironment()).toThrow('Критическая ошибка конфигурации: переменная BOT_TOKEN обязательна');
@@ -97,8 +98,13 @@ describe('API безопасность и мультиязычность ука�
     delete process.env.MONGO_URI;
     expect(() => validateApplicationEnvironment()).toThrow('Критическая ошибка конфигурации: переменная MONGO_URI обязательна');
 
+    process.env.MONGO_URI = 'mock-mongo-uri';
+    delete process.env.CREATOR_ID;
+    expect(() => validateApplicationEnvironment()).toThrow('Критическая ошибка конфигурации: переменная CREATOR_ID обязательна');
+
     process.env.BOT_TOKEN = originalBotToken;
     process.env.MONGO_URI = originalMongoUri;
+    process.env.CREATOR_ID = originalCreatorId;
   });
 
   it('должен успешно авторизовать пользователя по валидному authCode и выдать JWT токен', async () => {

@@ -2,7 +2,7 @@ import { calculateDailyNextRun } from '../../services/scheduler.js';
 import Reminder from '../../models/Reminder.js';
 import User from '../../models/User.js';
 import { getTexts, isDoNotDeleteText, COMBINED_AUTO_DELETE_MAP } from '../../constants/texts.js';
-import { UI } from '../../constants/ui.js';
+import { getUiVariants } from '../../constants/ui.js';
 import { DEFAULT_TIMEZONE } from '../../constants/timezones.js';
 import { reminderTextKeyboard } from '../../keyboard/reminderText.js';
 import { getIntervalKeyboard } from '../../keyboard/intervals.js';
@@ -20,23 +20,9 @@ import {
 } from '../../constants/limits.js';
 import { allKnownNavigationButtons } from '../../utils/navigation.js';
 
-const RANDOM_POINTER_COMMANDS = new Set([
-  UI.ru.REMINDER_RANDOM,
-  UI.en.REMINDER_RANDOM,
-  UI.uk.REMINDER_RANDOM,
-  UI.es.REMINDER_RANDOM,
-  '🎲 Случайный указатель',
-  '🎲 Random pointer',
-  '🎲 Випадковий вказівник',
-  '🎲 Puntero aleatorio'
-]);
+const RANDOM_POINTER_COMMANDS = new Set(getUiVariants('REMINDER_RANDOM'));
 
-const FAVORITE_POINTER_COMMANDS = new Set([
-  UI.ru.REMINDER_FAVORITE,
-  UI.en.REMINDER_FAVORITE,
-  UI.uk.REMINDER_FAVORITE,
-  UI.es.REMINDER_FAVORITE
-]);
+const FAVORITE_POINTER_COMMANDS = new Set(getUiVariants('REMINDER_FAVORITE'));
 
 const isRandomPointerCommandText = commandText => RANDOM_POINTER_COMMANDS.has(commandText);
 const isFavoritePointerCommandText = commandText => FAVORITE_POINTER_COMMANDS.has(commandText);

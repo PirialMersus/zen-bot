@@ -6,8 +6,6 @@ import { isAdministratorContext } from '../utils/admin.js';
 import { cleanupUser } from '../services/cleanupUser.js';
 import {
   getPointerByNumber,
-  findPointersByText,
-  countPointersByText,
   isPointerInFavorites
 } from '../services/pointers.js';
 import {
@@ -82,6 +80,9 @@ export const handleAdminBroadcastStart = async ctx => {
 export const handleAdminBroadcastCancel = async ctx => {
   if (!isAdministratorContext(ctx)) return;
 
+  const userLanguage = await resolveUserLanguage(ctx);
+  const texts = getTexts(userLanguage);
+
   await ctx.answerCbQuery().catch(() => {});
 
   if (ctx.session) {
@@ -90,7 +91,7 @@ export const handleAdminBroadcastCancel = async ctx => {
     ctx.session.broadcastSourceMessageId = null;
   }
 
-  await ctx.editMessageText('❌ Создание рассылки отменено.').catch(() => {});
+  await ctx.editMessageText(texts.ADMIN.CANCEL_BROADCAST).catch(() => {});
 };
 
 export const handleAdminBroadcastMessage = async ctx => {
@@ -137,8 +138,11 @@ export const handleAdminBroadcastMessage = async ctx => {
 
 export const handleAdminBroadcastConfirm = async ctx => {
   if (!isAdministratorContext(ctx)) return;
+  const userLanguage = await resolveUserLanguage(ctx);
+  const texts = getTexts(userLanguage);
+
   if (ctx.session?.adminBroadcastStep !== 'AWAITING_CONFIRMATION') {
-    await ctx.answerCbQuery('Рассылка не ожидает подтверждения').catch(() => {});
+    await ctx.answerCbQuery(texts.ADMIN.BROADCAST_NOT_PENDING).catch(() => {});
     return;
   }
 
@@ -146,12 +150,12 @@ export const handleAdminBroadcastConfirm = async ctx => {
   const sourceMessageIdentifier = ctx.session.broadcastSourceMessageId;
 
   if (!sourceChatIdentifier || !sourceMessageIdentifier) {
-    await ctx.answerCbQuery('Исходное сообщение не найдено').catch(() => {});
+    await ctx.answerCbQuery(texts.ADMIN.SOURCE_MESSAGE_NOT_FOUND).catch(() => {});
     return;
   }
 
-  await ctx.answerCbQuery('Запуск рассылки...').catch(() => {});
-  await ctx.editMessageText('🚀 Рассылка началась. По завершении придет отчет.').catch(() => {});
+  await ctx.answerCbQuery(texts.ADMIN.BROADCAST_STARTING).catch(() => {});
+  await ctx.editMessageText(texts.ADMIN.BROADCAST_STARTED).catch(() => {});
 
   ctx.session.adminBroadcastStep = null;
   ctx.session.broadcastSourceChatId = null;
@@ -240,13 +244,16 @@ export const handleFeedbackStart = async ctx => {
 };
 
 export const handleFeedbackCancel = async ctx => {
+  const userLanguage = await resolveUserLanguage(ctx);
+  const texts = getTexts(userLanguage);
+
   await ctx.answerCbQuery().catch(() => {});
 
   if (ctx.session) {
     ctx.session.feedbackAwaiting = false;
   }
 
-  await ctx.editMessageText('Отправка ответа отменена.').catch(() => {});
+  await ctx.editMessageText(texts.ADMIN.REPLY_CANCELLED).catch(() => {});
 };
 
 export const handleFeedbackMessage = async ctx => {
@@ -327,15 +334,18 @@ export const handleAdminGetPointerByNumber = async (ctx, next) => {
     requestedPointerNumber = parseInt(numberDigitsMatch[0], 10);
   }
 
+  const userLanguage = await resolveUserLanguage(ctx);
+  const texts = getTexts(userLanguage);
+
   if (!requestedPointerNumber) {
-    await ctx.reply('⚠️ Укажите номер указателя. Пример: /p 42 или получить pointer 42');
+    await ctx.reply(texts.ADMIN.SPECIFY_POINTER_NUMBER);
     return true;
   }
 
   const foundPointerRecord = await getPointerByNumber(requestedPointerNumber, targetPointerLanguage);
 
   if (!foundPointerRecord) {
-    await ctx.reply(`❌ Указатель #${requestedPointerNumber} (${targetPointerLanguage.toUpperCase()}) не найден в базе.`);
+    await ctx.reply(texts.ADMIN.POINTER_NOT_FOUND(requestedPointerNumber, targetPointerLanguage));
     return true;
   }
 
@@ -349,7 +359,12 @@ export const handleAdminGetPointerByNumber = async (ctx, next) => {
 
   await ctx.reply(
     formattedPointerMessage,
-    buildPointerInlineKeyboard(targetPointerLanguage, isFavorite, foundPointerRecord._id, 'random')
+    buildPointerInlineKeyboard({
+      pointerId: foundPointerRecord._id,
+      isFavorite,
+      mode: 'random',
+      language: targetPointerLanguage
+    })
   );
 
   return true;

@@ -5,21 +5,24 @@ const RUSSIAN_TEXTS = {
 Я — бот для осознанности и выработки привычек.
 Буду напоминать о том, что важно.
 
-🧘‍♀️ «Указатели» — короткие карточки осознанности по кнопке в любой момент
+🧘‍♀️ «Указатели» — мудрые цитаты и практические подсказки для возвращения внимания в настоящий момент (недвойственность, дзен)
 ⏳ Своё напоминание — текст, 📷 фото или 🎬 видео с любой частотой
 
-🐈️ Зайди в настройки и выбери свой часовой пояс
+🌍 Часовой пояс по умолчанию: Europe/Minsk (тихие часы 23:00–08:00).
+Если ты в другом регионе — смени его в ⚙️ «Настройки» ➡️ «🌍 Часовой пояс».
 `,
     MAIN: 'Главное меню',
     SETTINGS: 'Настройки:',
     REMINDERS: 'Управление напоминаниями 👇',
     HELP: `📖 Справка по боту:
 
-🧘‍♀️ «Указатели» — карточки осознанности
-⏳ «Напоминания» — создание и управление напоминаниями
+🧘‍♀️ «Указатели» — мудрые мысли, цитаты и подсказки для возвращения внимания в настоящий момент (недвойственность, дзен, осознанность)
+⏳ «Напоминания» — создание и управление напоминаниями (текст, фото, видео)
 ⚙️ «Настройки» — часовой пояс, тихие часы и язык
 
-💡 Чтобы создать напоминание, нажми «⏳ Напоминания» ➡️ «➕ Создать». Можно указать интервал в минутах или точное время (например, 09:00).`
+💡 Чтобы создать напоминание, нажми «⏳ Напоминания» ➡️ «➕ Создать». Можно указать интервал в минутах или точное время (например, 09:00).`,
+    ONBOARDING_TIMEZONE_PROMPT: timezone => `🌍 Твой часовой пояс: <b>${timezone}</b>\nТихие часы (23:00–08:00) рассчитываются по нему.\n\nЕсли ты в другом регионе — выбери свой город ниже 👇`,
+    ONBOARDING_TIMEZONE_BUTTON: '🌍 Выбрать часовой пояс'
   },
 
   POINTERS: {
@@ -119,6 +122,23 @@ const RUSSIAN_TEXTS = {
     GENERIC_ERROR: '❌ Произошла ошибка. Попробуй позже.'
   },
 
+  FALLBACK: {
+    UNKNOWN_MESSAGE: 'Я не понял это сообщение. Пожалуйста, воспользуйся меню ниже 👇',
+    OFFER_CREATE_REMINDER: '💡 Хочешь создать напоминание из этого текста?',
+    BUTTON_CREATE_REMINDER: '➕ Создать напоминание с этим текстом'
+  },
+
+  ADMIN: {
+    CANCEL_BROADCAST: '❌ Создание рассылки отменено.',
+    BROADCAST_NOT_PENDING: 'Рассылка не ожидает подтверждения',
+    SOURCE_MESSAGE_NOT_FOUND: 'Исходное сообщение не найдено',
+    BROADCAST_STARTING: 'Запуск рассылки...',
+    BROADCAST_STARTED: '🚀 Рассылка началась. По завершении придет отчет.',
+    REPLY_CANCELLED: 'Отправка ответа отменена.',
+    SPECIFY_POINTER_NUMBER: '⚠️ Укажите номер указателя. Пример: /p 42 или получить pointer 42',
+    POINTER_NOT_FOUND: (number, lang) => `❌ Указатель #${number} (${lang.toUpperCase()}) не найден в базе.`
+  },
+
   FEEDBACK_SUCCESS: '✅ Твоё сообщение передано администратору. Большое спасибо за обратную связь!',
 
   INTERVALS: {
@@ -134,21 +154,24 @@ const ENGLISH_TEXTS = {
 I am a bot for mindfulness and building habits.
 I will remind you about what truly matters.
 
-🧘‍♀️ "Pointers" — short mindfulness cards anytime at the click of a button
+🧘‍♀️ "Pointers" — wise quotes and practical clues to return your attention to the present moment (non-duality, Zen)
 ⏳ Custom reminder — text, 📷 photo, or 🎬 video at any frequency
 
-🐈️ Go to settings and choose your timezone
+🌍 Default timezone: Europe/Minsk (quiet hours 23:00–08:00).
+If you are in another region, change it in ⚙️ "Settings" ➡️ "🌍 Timezone".
 `,
     MAIN: 'Main menu',
     SETTINGS: 'Settings:',
     REMINDERS: 'Manage reminders 👇',
     HELP: `📖 Bot help:
 
-🧘‍♀️ "Pointers" — mindfulness cards
-⏳ "Reminders" — create and manage reminders
+🧘‍♀️ "Pointers" — wise thoughts, quotes, and clues to return attention to the present moment (non-duality, Zen, mindfulness)
+⏳ "Reminders" — create and manage reminders (text, photo, video)
 ⚙️ "Settings" — timezone, quiet hours, and language
 
-💡 To create a reminder, press "⏳ Reminders" ➡️ "➕ Create". You can set interval in minutes or exact daily time (e.g., 09:00).`
+💡 To create a reminder, press "⏳ Reminders" ➡️ "➕ Create". You can set interval in minutes or exact daily time (e.g., 09:00).`,
+    ONBOARDING_TIMEZONE_PROMPT: timezone => `🌍 Your timezone: <b>${timezone}</b>\nQuiet hours (23:00–08:00) are calculated based on it.\n\nIf you are in another region, choose your city below 👇`,
+    ONBOARDING_TIMEZONE_BUTTON: '🌍 Choose timezone'
   },
 
   POINTERS: {
@@ -248,6 +271,23 @@ If you would like to say thanks for the bot or support the project financially -
     GENERIC_ERROR: '❌ An error occurred. Please try again later.'
   },
 
+  FALLBACK: {
+    UNKNOWN_MESSAGE: "I didn't understand that message. Please use the menu below 👇",
+    OFFER_CREATE_REMINDER: '💡 Would you like to create a reminder from this text?',
+    BUTTON_CREATE_REMINDER: '➕ Create reminder with this text'
+  },
+
+  ADMIN: {
+    CANCEL_BROADCAST: '❌ Создание рассылки отменено.',
+    BROADCAST_NOT_PENDING: 'Рассылка не ожидает подтверждения',
+    SOURCE_MESSAGE_NOT_FOUND: 'Исходное сообщение не найдено',
+    BROADCAST_STARTING: 'Запуск рассылки...',
+    BROADCAST_STARTED: '🚀 Рассылка началась. По завершении придет отчет.',
+    REPLY_CANCELLED: 'Отправка ответа отменена.',
+    SPECIFY_POINTER_NUMBER: '⚠️ Укажите номер указателя. Пример: /p 42 или получить pointer 42',
+    POINTER_NOT_FOUND: (number, lang) => `❌ Указатель #${number} (${lang.toUpperCase()}) не найден в базе.`
+  },
+
   FEEDBACK_SUCCESS: '✅ Your message has been forwarded to the administrator. Thank you for your feedback!',
 
   INTERVALS: {
@@ -263,21 +303,24 @@ const UKRAINIAN_TEXTS = {
 Я — бот для усвідомленості та вироблення звичок.
 Я нагадуватиму про те, що важливо.
 
-🧘‍♀️ «Вказівники» — короткі картки усвідомленості за кнопкою в будь-який момент
+🧘‍♀️ «Вказівники» — мудрі цитати та практичні підказки для повернення уваги в теперішній момент (недвоїстість, дзен)
 ⏳ Власне нагадування — текст, 📷 фото або 🎬 відео з будь-якою частотою
 
-🐈️ Зайди в налаштування та обери свій часовий пояс
+🌍 Часовий пояс за замовчуванням: Europe/Minsk (тихі години 23:00–08:00).
+Якщо ти в іншому регіоні — зміни його в ⚙️ «Налаштування» ➡️ «🌍 Часовий пояс».
 `,
     MAIN: 'Головне меню',
     SETTINGS: 'Налаштування:',
     REMINDERS: 'Керування нагадуваннями 👇',
     HELP: `📖 Довідка по боту:
 
-🧘‍♀️ «Вказівники» — картки усвідомленості
-⏳ «Нагадування» — створення та керування нагадуваннями
+🧘‍♀️ «Вказівники» — мудрі думки, цитати та підказки для повернення уваги в теперішній момент (недвоїстість, дзен, усвідомленість)
+⏳ «Нагадування» — створення та керування нагадуваннями (текст, фото, відео)
 ⚙️ «Налаштування» — часовий пояс, тихі години та мова
 
-💡 Щоб створити нагадування, натисни «⏳ Нагадування» ➡️ «➕ Створити». Можна вказати інтервал у хвилинах або точний час (наприклад, 09:00).`
+💡 Щоб створити нагадування, натисни «⏳ Нагадування» ➡️ «➕ Створити». Можна вказати інтервал у хвилинах або точний час (наприклад, 09:00).`,
+    ONBOARDING_TIMEZONE_PROMPT: timezone => `🌍 Твій часовий пояс: <b>${timezone}</b>\nТихі години (23:00–08:00) розраховуються за ним.\n\nЯкщо ти в іншому регіоні — обери своє місто нижче 👇`,
+    ONBOARDING_TIMEZONE_BUTTON: '🌍 Обрати часовий пояс'
   },
 
   POINTERS: {
@@ -377,6 +420,23 @@ const UKRAINIAN_TEXTS = {
     GENERIC_ERROR: '❌ Сталася помилка. Спробуй пізніше.'
   },
 
+  FALLBACK: {
+    UNKNOWN_MESSAGE: 'Я не зрозумів це повідомлення. Будь ласка, скористайся меню нижче 👇',
+    OFFER_CREATE_REMINDER: '💡 Бажаєш створити нагадування з цього тексту?',
+    BUTTON_CREATE_REMINDER: '➕ Створити нагадування з цим текстом'
+  },
+
+  ADMIN: {
+    CANCEL_BROADCAST: '❌ Створення розсилки скасовано.',
+    BROADCAST_NOT_PENDING: 'Розсилка не очікує підтвердження',
+    SOURCE_MESSAGE_NOT_FOUND: 'Вихідне повідомлення не знайдено',
+    BROADCAST_STARTING: 'Запуск розсилки...',
+    BROADCAST_STARTED: '🚀 Розсилка розпочалася. Після завершення надійде звіт.',
+    REPLY_CANCELLED: 'Надсилання відповіді скасовано.',
+    SPECIFY_POINTER_NUMBER: '⚠️ Вкажіть номер вказівника. Приклад: /p 42 або отримати pointer 42',
+    POINTER_NOT_FOUND: (number, lang) => `❌ Вказівник #${number} (${lang.toUpperCase()}) не знайдено в базі.`
+  },
+
   FEEDBACK_SUCCESS: '✅ Твоє повідомлення передано адміністратору. Щиро дякуємо за зворотний зв’язок!',
 
   INTERVALS: {
@@ -392,21 +452,24 @@ const SPANISH_TEXTS = {
 Soy un bot para la atención plena y el desarrollo de hábitos.
 Te recordaré lo que verdaderamente importa.
 
-🧘‍♀️ «Punteros» — tarjetas cortas de atención plena con un botón en cualquier momento
+🧘‍♀️ «Punteros» — citas sabias y pistas prácticas para devolver tu atención al momento presente (no-dualidad, Zen)
 ⏳ Recordatorio personalizado — texto, 📷 foto o 🎬 video con cualquier frecuencia
 
-🐈️ Ve a ajustes y elige tu zona horaria
+🌍 Zona horaria por defecto: Europe/Minsk (horas de silencio 23:00–08:00).
+Si estás en otra región, cámbiala en ⚙️ «Ajustes» ➡️ «🌍 Zona horaria».
 `,
     MAIN: 'Menú principal',
     SETTINGS: 'Ajustes:',
     REMINDERS: 'Gestión de recordatorios 👇',
     HELP: `📖 Ayuda del bot:
 
-🧘‍♀️ «Punteros» — tarjetas de atención plena
-⏳ «Recordatorios» — crear y gestionar recordatorios
+🧘‍♀️ «Punteros» — pensamientos sabios, citas y pistas para devolver la atención al momento presente (no-dualidad, Zen, atención plena)
+⏳ «Recordatorios» — crear y gestionar recordatorios (texto, foto, video)
 ⚙️ «Ajustes» — zona horaria, horas de silencio e idioma
 
-💡 Para crear un recordatorio, presiona «⏳ Recordatorios» ➡️ «➕ Crear». Puedes indicar el intervalo en minutos o la hora exacta (por ejemplo, 09:00).`
+💡 Para crear un recordatorio, presiona «⏳ Recordatorios» ➡️ «➕ Crear». Puedes indicar el intervalo en minutos o la hora exacta (por ejemplo, 09:00).`,
+    ONBOARDING_TIMEZONE_PROMPT: timezone => `🌍 Tu zona horaria: <b>${timezone}</b>\nLas horas de silencio (23:00–08:00) se calculan en base a ella.\n\nSi estás en otra región, elige tu ciudad abajo 👇`,
+    ONBOARDING_TIMEZONE_BUTTON: '🌍 Elegir zona horaria'
   },
 
   POINTERS: {
@@ -504,6 +567,23 @@ Si deseas agradecer por el bot o apoyar el proyecto económicamente - escribe a 
     CODE_MESSAGE: code => `🔐 Tu código para iniciar sesión en la aplicación:\n\n<code>${code}</code>\n\n⏱ El código es válido durante 10 minutos.\nIntrodúcelo en la aplicación para iniciar sesión.`,
     GET_NEW_CODE_BUTTON: '🔄 Obtener nuevo código',
     GENERIC_ERROR: '❌ Ocurrió un error. Inténtalo más tarde.'
+  },
+
+  FALLBACK: {
+    UNKNOWN_MESSAGE: 'No entendí este mensaje. Por favor, utiliza el menú de abajo 👇',
+    OFFER_CREATE_REMINDER: '💡 ¿Quieres crear un recordatorio a partir de este texto?',
+    BUTTON_CREATE_REMINDER: '➕ Crear recordatorio con este texto'
+  },
+
+  ADMIN: {
+    CANCEL_BROADCAST: '❌ Creación de difusión cancelada.',
+    BROADCAST_NOT_PENDING: 'La difusión no está esperando confirmación',
+    SOURCE_MESSAGE_NOT_FOUND: 'Mensaje de origen no encontrado',
+    BROADCAST_STARTING: 'Iniciando difusión...',
+    BROADCAST_STARTED: '🚀 La difusión ha comenzado. Al finalizar llegará un informe.',
+    REPLY_CANCELLED: 'Envío de respuesta cancelado.',
+    SPECIFY_POINTER_NUMBER: '⚠️ Indica el número de puntero. Ejemplo: /p 42 o get pointer 42',
+    POINTER_NOT_FOUND: (number, lang) => `❌ Puntero #${number} (${lang.toUpperCase()}) no encontrado en la base.`
   },
 
   FEEDBACK_SUCCESS: '✅ Tu mensaje ha sido enviado al administrador. ¡Muchas gracias por tus comentarios!',

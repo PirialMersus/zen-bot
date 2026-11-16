@@ -1,14 +1,52 @@
+import { Markup } from 'telegraf';
 import { mainKeyboard } from '../keyboard/main.js';
 import { resolveUserLanguage } from '../middlewares/activity.js';
+import { getTexts } from '../constants/texts.js';
+import { REMINDER_STEP } from './reminders.js';
+import { renderReminderStep } from './reminders/create.js';
 
 export const handleUnknownMessage = async ctx => {
   const userLanguage = await resolveUserLanguage(ctx);
-  const fallbackMessages = {
-    ru: 'Я не понял это сообщение. Пожалуйста, воспользуйся меню ниже 👇',
-    en: "I didn't understand that message. Please use the menu below 👇",
-    uk: 'Я не зрозумів це повідомлення. Будь ласка, скористайся меню нижче 👇',
-    es: 'No entendí este mensaje. Por favor, utiliza el menú de abajo 👇'
+  const texts = getTexts(userLanguage);
+  const incomingMessageText = ctx.message?.text;
+
+  ctx.session ??= {};
+
+  await ctx.reply(texts.FALLBACK.UNKNOWN_MESSAGE, mainKeyboard(ctx, userLanguage)).catch(() => {});
+
+  if (incomingMessageText && typeof incomingMessageText === 'string' && !incomingMessageText.startsWith('/')) {
+    ctx.session.pendingFallbackReminderText = incomingMessageText;
+    const inlineActionKeyboard = Markup.inlineKeyboard([
+      [Markup.button.callback(texts.FALLBACK.BUTTON_CREATE_REMINDER, 'fallback:create_reminder')]
+    ]);
+    await ctx.reply(texts.FALLBACK.OFFER_CREATE_REMINDER, inlineActionKeyboard).catch(() => {});
+  }
+};
+
+export const handleFallbackCreateReminder = async ctx => {
+  await ctx.answerCbQuery().catch(() => {});
+
+  const pendingReminderText = ctx.session?.pendingFallbackReminderText;
+
+  ctx.session ??= {};
+  ctx.session.isSettingCustomQuietHours = null;
+
+  if (!pendingReminderText) {
+    ctx.session.creatingReminder = {
+      deleteAfterSeconds: 10
+    };
+    ctx.session.reminderStep = REMINDER_STEP.TEXT;
+    await renderReminderStep(ctx);
+    return;
+  }
+
+  ctx.session.creatingReminder = {
+    deleteAfterSeconds: 10,
+    text: pendingReminderText,
+    isRandomPointer: false
   };
-  const responseText = fallbackMessages[userLanguage] || fallbackMessages.ru;
-  await ctx.reply(responseText, mainKeyboard(ctx, userLanguage)).catch(() => {});
+  ctx.session.reminderStep = REMINDER_STEP.INTERVAL;
+  ctx.session.pendingFallbackReminderText = null;
+
+  await renderReminderStep(ctx);
 };

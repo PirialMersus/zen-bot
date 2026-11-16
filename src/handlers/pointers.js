@@ -12,7 +12,7 @@ import { getIntervalKeyboard } from '../keyboard/intervals.js';
 import { mainKeyboard } from '../keyboard/main.js';
 import {
   getPointersMenuKeyboard,
-  buildPointerInlineKeyboard as createPointerInlineKeyboard,
+  buildPointerInlineKeyboard,
   buildReminderPointerInlineKeyboard
 } from '../keyboard/pointers.js';
 import {
@@ -27,24 +27,10 @@ import { escapeHtml } from '../utils/escapeHtml.js';
 import { isNavigationButton } from '../utils/navigation.js';
 import { handleReminderText, REMINDER_STEP } from './reminders.js';
 
+export { buildPointerInlineKeyboard };
+
 export const formatPointerText = pointer =>
   pointer?.source ? `${pointer.text}\n\n— ${pointer.source}` : (pointer?.text || '');
-
-export const buildPointerInlineKeyboard = (arg1 = 'ru', isFavorite = false, pointerId = null, mode = 'random', favoriteInfo = null) => {
-  let language = 'ru';
-  let targetPointerId = pointerId;
-  let targetIsFavorite = isFavorite;
-  let targetMode = mode;
-  let targetFavoriteInfo = favoriteInfo;
-
-  if (typeof arg1 === 'string' && (arg1 === 'ru' || arg1 === 'en' || arg1 === 'uk' || arg1 === 'es')) {
-    language = arg1;
-  } else if (typeof arg1 === 'object' || (typeof arg1 === 'string' && arg1)) {
-    targetPointerId = String(arg1);
-  }
-
-  return createPointerInlineKeyboard(targetPointerId, targetIsFavorite, targetMode, language, targetFavoriteInfo);
-};
 
 export const handlePointer = async ctx => {
   const userLanguage = await resolveUserLanguage(ctx);
@@ -67,7 +53,12 @@ export const handlePointer = async ctx => {
 
   await ctx.reply(
     formattedText,
-    buildPointerInlineKeyboard(userLanguage, isFavorite, pointer._id, 'random')
+    buildPointerInlineKeyboard({
+      pointerId: pointer._id,
+      isFavorite,
+      mode: 'random',
+      language: userLanguage
+    })
   );
 };
 
@@ -126,7 +117,13 @@ export const handleFavoritePointer = async ctx => {
 
   await ctx.reply(
     formattedText,
-    buildPointerInlineKeyboard(userLanguage, true, pointer._id, 'favorite', favoriteInfo)
+    buildPointerInlineKeyboard({
+      pointerId: pointer._id,
+      isFavorite: true,
+      mode: 'favorite',
+      language: userLanguage,
+      favoriteInfo
+    })
   );
 };
 
@@ -202,12 +199,24 @@ export const handleNextPointer = async ctx => {
   if (isCallbackQueryEvent) {
     await ctx.editMessageText(
       formattedText,
-      buildPointerInlineKeyboard(userLanguage, isFavorite, pointer._id, currentMode, favoriteInfo)
+      buildPointerInlineKeyboard({
+        pointerId: pointer._id,
+        isFavorite,
+        mode: currentMode,
+        language: userLanguage,
+        favoriteInfo
+      })
     ).catch(() => {});
   } else {
     await ctx.reply(
       formattedText,
-      buildPointerInlineKeyboard(userLanguage, isFavorite, pointer._id, currentMode, favoriteInfo)
+      buildPointerInlineKeyboard({
+        pointerId: pointer._id,
+        isFavorite,
+        mode: currentMode,
+        language: userLanguage,
+        favoriteInfo
+      })
     );
   }
 };
@@ -258,13 +267,13 @@ export const handleToggleFavoritePointer = async ctx => {
     };
   }
 
-  const updatedKeyboard = buildPointerInlineKeyboard(
-    userLanguage,
+  const updatedKeyboard = buildPointerInlineKeyboard({
+    pointerId: targetPointerId,
     isFavorite,
-    targetPointerId,
-    modeFromCallback,
+    mode: modeFromCallback,
+    language: userLanguage,
     favoriteInfo
-  );
+  });
 
   await ctx.editMessageReplyMarkup(updatedKeyboard.reply_markup).catch(() => {});
 };
@@ -348,7 +357,12 @@ export const executePointersSearch = async (ctx, searchPhrase, targetLanguage) =
 
     await ctx.reply(
       formattedPointerMessage,
-      buildPointerInlineKeyboard(targetLanguage, isFavorite, singlePointerRecord._id, 'random')
+      buildPointerInlineKeyboard({
+        pointerId: singlePointerRecord._id,
+        isFavorite,
+        mode: 'random',
+        language: targetLanguage
+      })
     );
   }
 
@@ -464,7 +478,12 @@ export const handleSearchMorePointers = async ctx => {
 
     await ctx.reply(
       formattedPointerMessage,
-      buildPointerInlineKeyboard(searchState.language, isFavorite, singlePointerRecord._id, 'random')
+      buildPointerInlineKeyboard({
+        pointerId: singlePointerRecord._id,
+        isFavorite,
+        mode: 'random',
+        language: searchState.language
+      })
     );
   }
 

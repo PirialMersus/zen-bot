@@ -12,7 +12,13 @@ export const getPointersMenuKeyboard = (language = 'ru') => {
   ]).resize();
 };
 
-export const buildPointerInlineKeyboard = (pointerId, isFavorite = false, mode = 'random', language = 'ru', favoriteInfo = null) => {
+export const buildPointerInlineKeyboard = ({
+  pointerId,
+  isFavorite = false,
+  mode = 'random',
+  language = 'ru',
+  favoriteInfo = null
+}) => {
   const ui = getUi(language);
   const favoriteButtonText = isFavorite ? ui.POINTER_FAV_REMOVE : ui.POINTER_FAV_ADD;
 
