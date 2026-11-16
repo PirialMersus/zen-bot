@@ -9,7 +9,6 @@ import {
   handleAdminBroadcastMessage,
   handleAdminBroadcastStart,
   handleAdminGetPointerByNumber,
-  handleAdminSearchPointers,
   handleFeedbackCancel,
   handleFeedbackMessage,
   handleFeedbackStart
@@ -28,7 +27,9 @@ import {
   handleToggleFavoritePointer,
   handlePointerToReminder,
   handlePointerToMenu,
-  handleKeepPointer
+  handleKeepPointer,
+  handleSearchPointers,
+  handleSearchMorePointers
 } from './handlers/pointers.js';
 import {
   handleConfirmAction,
@@ -85,19 +86,23 @@ export const registerBotCommands = async targetBot => {
   try {
     await targetBot.telegram.setMyCommands([
       { command: 'start', description: 'Запустить бота / Главное меню' },
-      { command: 'help', description: 'Справка и возможности' }
+      { command: 'help', description: 'Справка и возможности' },
+      { command: 'f', description: 'Поиск указателей по автору или фразе' }
     ]);
     await targetBot.telegram.setMyCommands([
       { command: 'start', description: 'Start the bot / Main menu' },
-      { command: 'help', description: 'Help and features' }
+      { command: 'help', description: 'Help and features' },
+      { command: 'f', description: 'Search pointers by author or phrase' }
     ], { language_code: 'en' });
     await targetBot.telegram.setMyCommands([
       { command: 'start', description: 'Запустити бота / Головне меню' },
-      { command: 'help', description: 'Довідка та можливості' }
+      { command: 'help', description: 'Довідка та можливості' },
+      { command: 'f', description: 'Пошук вказівників за автором або фразою' }
     ], { language_code: 'uk' });
     await targetBot.telegram.setMyCommands([
       { command: 'start', description: 'Iniciar el bot / Menú principal' },
-      { command: 'help', description: 'Ayuda y características' }
+      { command: 'help', description: 'Ayuda y características' },
+      { command: 'f', description: 'Buscar punteros por autor o frase' }
     ], { language_code: 'es' });
   } catch (commandRegistrationError) {
     console.error('SET_COMMANDS_ERROR', commandRegistrationError?.message || commandRegistrationError);
@@ -180,8 +185,9 @@ bot.command(['pointer', 'p'], handleAdminGetPointerByNumber);
 bot.hears(/^(?:получить\s+)?(?:pointer|указатель|вказівник|puntero)(?:\s+(?:en|ru|uk|es))?\s+\d+$/i, handleAdminGetPointerByNumber);
 bot.hears(/^\/p(?:ointer)?(?:_(?:en|ru|uk|es))?\s+\d+$/i, handleAdminGetPointerByNumber);
 
-bot.command(['find', 'search', 'f'], handleAdminSearchPointers);
-bot.hears(/^(?:\/find|\/search|\/f|найти|поиск|знайти|пошук|buscar)(?:_(?:en|ru|uk|es))?(?:\s+.+)?$/i, handleAdminSearchPointers);
+bot.command('f', handleSearchPointers);
+bot.hears(/^\/f(?:_(?:en|ru|uk|es))?(?:\s+.*)?$/i, handleSearchPointers);
+bot.action('search:more', handleSearchMorePointers);
 
 bot.hears(getButtonVariants('SUPPORT'), async ctx => {
   const userLanguage = await resolveUserLanguage(ctx);

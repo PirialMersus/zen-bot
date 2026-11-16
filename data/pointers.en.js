@@ -6351,7 +6351,7 @@ See the false as false — and the war is over.`,
   },
   {
     number: 879,
-    text: `There is no true self. Truth and selfhood exclude one another.`,
+    text: `There is no "higher self." Where there is Truth, there is no "you."`,
     source: "Jed McKenna",
     tags: ["stillness"]
   },
@@ -6756,7 +6756,7 @@ Do not accept it as payment.`,
   },
   {
     number: 945,
-    text: `If "practice ruins relationships," look at who you were building in their place before you practiced.`,
+    text: `If it seems that practice ruins relationships, know this: it is not the relationship that is falling apart, but the falseness it was built upon.`,
     source: null,
     tags: ["stillness"]
   },
@@ -11284,6 +11284,1144 @@ Try not assembling yourself in the morning.`,
     number: 1655,
     text: `You cannot see beyond what you take yourself to be. If you consider yourself a body, you will perceive the truth only as a human being and nothing more.`,
     source: "Nisargadatta Maharaj",
+    tags: ["stillness"]
+  },
+  {
+    number: 1656,
+    text: `Practice is not a morning ritual; it is every single damn second.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1657,
+    text: `Do you know why a monkey cannot pull its hand out of the jar? Because it will not let go of the nut. Your "spiritual progress", your "insights", your "deep meditation yesterday" — that is the nut. Unclench your fist, idiot.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1658,
+    text: `You are going to die. Not someday in the abstract. Specifically you. Possibly soon. And the only thing you will take with you is the degree of your awareness. Everything else will rot with the meat. So what the hell are you waiting for?`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1659,
+    text: `Master Bankei once said to a monk complaining of an uncontrollable temper: "Show me this temper right now." The monk replied: "Right now I don't have it." Bankei said: "Then it is not yours. If it were yours, you could present it at any moment."`,
+    source: "Bankei Yotaku",
+    tags: ["stillness"]
+  },
+  {
+    number: 1660,
+    text: `Every day is another day you could have awakened and did not. How many more such days are you willing to squander?`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1661,
+    text: `You do not need more books. You do not need more quotes. You need to sit down and stop fidgeting. Right now. Instead of reading this text.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1662,
+    text: `Astronauts who have seen Earth from space describe the exact same phenomenon: the instant disappearance of all borders, nationalities, and dogmas. You do not need a rocket. Just step back from your thoughts by that same distance.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1663,
+    text: `Neuroscience has proven: a decision is made by the brain 6 to 10 seconds before you "consciously decide". You literally learn about your own choice from the news. And after that, you seriously consider yourself the author of your life?`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1664,
+    text: `Marathon runners say: the hardest part of the race is putting on your shoes and walking out the door. Practice is the exact same. The hardest part is sitting down. Stillness takes care of the rest.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1665,
+    text: `You don't practice because there is "no time"? You have the exact same number of hours in a day as Ramana Maharshi, the Buddha, and every master who ever lived. The difference is not in time. The difference is in priority.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1666,
+    text: `A chick does not decide when to hatch. The shell cracks when it has grown enough. But if the chick stops pecking from within, it suffocates. Practice is your beak. Keep pecking.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1667,
+    text: `A samurai came to Master Hakuin and asked: "Does hell exist?" Hakuin asked: "Who are you?" — "A samurai." — "You? A samurai? You look like a beggar!" The samurai flushed with rage and drew his sword. Hakuin whispered: "Here open the gates of hell." The samurai paused and realized. "And here open the gates of heaven."`,
+    source: "Hakuin Ekaku",
+    tags: ["stillness"]
+  },
+  {
+    number: 1668,
+    text: `Awareness is the only currency that never depreciates. Everything else — money, health, youth — will be stripped from you. Awareness is the only thing that can never be taken away.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1669,
+    text: `People who survive near-death experiences recount the exact same reality: utter peace, total absence of fear, and absolute lucidity. Guess what? You do not have to die to experience it. It is enough to die as a persona. Right now.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1670,
+    text: `In Vietnamese prisons, prisoners of war who meditated emerged healthier than when they entered. No food, no freedom, no hope — but with practice. You have food, freedom, and hope. What excuse do you have left?`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1671,
+    text: `If you were told that in one week you would go blind, you would spend those seven days completely differently. But you do not know what you will lose tomorrow. Maybe sight. Maybe mind. Maybe life. Open your eyes now — while they can still see.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1672,
+    text: `Master Ikkyu wrote for a family who asked for an auspicious blessing: "Grandfather dies. Father dies. Son dies." The family was enraged. Ikkyu replied: "If your son died before his father, that would be true grief. I wished for you the supreme natural order." Death is not a tragedy. The tragedy is living a life without ever waking up.`,
+    source: "Ikkyu Sojun",
+    tags: ["stillness"]
+  },
+  {
+    number: 1673,
+    text: `You are not alone in your ignorance. Eight billion people right now are sleeping with open eyes. The question is: do you want to remain one of them, or one of the few who resolved to wake up?`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1674,
+    text: `A moth flying into a flame is convinced it is heading toward the light. Your mind rushing toward another "insight" is convinced of the same. The outcome is identical — both get burned and continue circling.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1675,
+    text: `A dog chases its own tail and is genuinely baffled that it cannot catch it. You chase your "authentic self" and are baffled by the exact same thing. Stand still — and the tail stops running. It was never separate.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1676,
+    text: `Do you know what you and an inmate have in common? You are both in a cell. The only difference is that the inmate knows he is in prison.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1677,
+    text: `The Buddha sat under a tree for 6 years. Jesus spent 40 days in the desert. And you cannot sit in stillness for 20 minutes? Seriously?`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1678,
+    text: `Ancient warriors considered themselves already dead before heading into battle. That made them invincible. Consider yourself already dead — and you will have nothing left to lose. When there is nothing to lose, nothing can interfere with practice.`,
+    source: "Yamamoto Tsunetomo, Hagakure",
+    tags: ["stillness"]
+  },
+  {
+    number: 1679,
+    text: `The average person spends 27 years asleep and another 40 dreaming while awake. In total: roughly 4 years of genuine, conscious life out of 80. Are you certain you want to leave those statistics untouched?`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1680,
+    text: `A fish does not realize it lives in water until it is dragged onto the shore. You do not realize you live in mind until practice grabs you by the collar. And yes, the shore will hurt. But only for the first few seconds.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1681,
+    text: `There are two types of pain: the pain of discipline and the pain of regret. The first weighs ounces. The second weighs tons. Choose.`,
+    source: "Jim Rohn",
+    tags: ["stillness"]
+  },
+  {
+    number: 1682,
+    text: `Your meditation is 20 minutes. Your trance of thoughts is 15 hours and 40 minutes. And you wonder why the mind dominates? That is like working out once a week and expecting to overpower a muscle that flexes non-stop.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1683,
+    text: `Corpses do not meditate. While you are alive — practice. When you are dead, it will be too late to regret every wasted morning.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1684,
+    text: `Abu Yazid al-Bistami said: "For thirty years I sought God, only to discover at the end that the sought and the seeker were one and the same." Thirty years. You do not have that long. Stop putting it off.`,
+    source: "Abu Yazid al-Bistami",
+    tags: ["stillness"]
+  },
+  {
+    number: 1685,
+    text: `Master Nanquan sliced a cat in two so his disciples would cease arguing over trifles and look at the bare fact. Life does the exact same thing to you every day — slicing your plans, dreams, and expectations. Isn't it time to face the fact instead of weeping over the wreckage?`,
+    source: "Nanquan Puyuan",
+    tags: ["stillness"]
+  },
+  {
+    number: 1686,
+    text: `Albert Einstein: "Insanity is doing the same thing over and over again and expecting different results." Every day you think the exact same thoughts and expect one of them to set you free. That is the definition of madness.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1687,
+    text: `An inmate in solitary confinement, stripped of every diversion, is forced to confront himself. That is why so many emerge transformed. You do not need prison — just put away your phone for 24 hours. The effect will be comparable.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1688,
+    text: `At the peak of orgasm, the mind halts for a fraction of a second. That is why it feels like bliss — not because of flesh, but because of the instant suspension of thought. Meditation is that exact same bliss, minus the need to undress. And it lasts as long as you can rest in stillness.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1689,
+    text: `Once Joshu asked Nansen: "What is the Way?" Nansen replied: "Ordinary mind is the Way." — "How do I approach it?" — "If you try to approach it, you veer away from it." Stop striving. You are already here.`,
+    source: "Nansen",
+    tags: ["stillness"]
+  },
+  {
+    number: 1690,
+    text: `In medieval monasteries, monks slept in coffins to wake each morning with a single thought: "I have been granted one more day." You do not need a coffin. Just remember: this morning was never guaranteed to come.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1691,
+    text: `You fear stillness far more than chaos. Because chaos gives the mind employment. In stillness, it is forced to see that it is unemployed. And that is far more terrifying than any crisis.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1692,
+    text: `Viktor Frankl, who survived Auschwitz, wrote: "Between stimulus and response there is a space. In that space is our freedom." That space is precisely what practice cultivates. Frankl found it in hell. Your circumstances are considerably better.`,
+    source: "Viktor Frankl",
+    tags: ["stillness"]
+  },
+  {
+    number: 1693,
+    text: `If you think practice is hard, try not practicing. Try living 40 years on autopilot and then realizing on your deathbed that you slept through your entire life. Now that is truly hard.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1694,
+    text: `Tibetan monks retreat into pitch darkness for 49 consecutive days. You cannot endure 5 minutes without thoughts. Not because you are weaker — but because you haven't even started training. Begin.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1695,
+    text: `Practice is not an escape from life. It is the only way to finally step into it. Everything you called life before was merely reading the menu while the meal grew cold.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1696,
+    text: `Roman commanders hired a slave to stand behind them in triumphant processions and whisper: "Memento mori — remember you are mortal." Where is your whisper?`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1697,
+    text: `A butcher came to Master Bankei and said: "My trade is killing; I cannot practice." Bankei replied: "The Unborn Mind is present when you slaughter meat and when you pray. It does not depend on what the hands do." Practice requires no special conditions. Conditions are the mind's excuse.`,
+    source: "Bankei Yotaku",
+    tags: ["stillness"]
+  },
+  {
+    number: 1698,
+    text: `A hyena laughs. But that does not mean it is joyful. You "practice". But that does not mean you are practicing. Check: are you resting in silence, or is an emergency committee of 47 voices holding a meeting in your skull?`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1699,
+    text: `Epictetus, a former slave, was freer than any emperor. Because he liberated himself from the only true shackles — his own automatic reactions. You are a slave not to external circumstances, but to your knee-jerk reactions to them.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1700,
+    text: `Are you waiting for the right moment to practice? The right moment is the exact instant you catch yourself procrastinating. That is, right now.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1701,
+    text: `In battle, soldiers describe moments of supreme lucidity: time slows, mind falls silent, every detail turns crystalline. Why? Because death is beside them, and the mind has no leisure to chatter. You do not need a war — you only need to truly acknowledge your mortality.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1702,
+    text: `Master Gutei raised a single finger whenever questioned. When his servant boy began mimicking the gesture, Gutei severed the boy's finger. The boy screamed and fled. Gutei called out to him. The boy turned — Gutei raised his finger. In that instant, the boy awakened. Sometimes a shock is required to silence the mind. Practice is that voluntary shock.`,
+    source: "Gutei",
+    tags: ["stillness"]
+  },
+  {
+    number: 1703,
+    text: `Do you know what an addict does when uncomfortable? Takes a hit. Do you know what your mind does when uncomfortable? Produces a thought. The only difference is the substance. The addiction is identical.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1704,
+    text: `An athlete trains daily, even when they don't want to. Especially when they don't want to. Awareness practice is athletics of the spirit. "I don't feel like it" is the sound the mind makes when the training is actually working.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1705,
+    text: `Pharaohs erected pyramids to endure forever. They are dust. The pyramids remain. You construct a career, a reputation, a "legacy". You will die too. They will crumble too. What remains? Only that which was never constructed.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1706,
+    text: `If every minute of unconsciousness deducted $1,000 from your bank account, you would become the most awake being on the planet within twenty-four hours. Yet you lose something far more precious than wealth — your life. And somehow, that fails to motivate you.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1707,
+    text: `Shoko Muramoto described Zen training: monks were roused at 3 AM, and drowsiness during zazen was met with a strike of the kyosaku stick on the shoulders. Not out of cruelty, but out of compassion — because the slumber of the mind is far more devastating than any blow.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1708,
+    text: `You act like someone standing knee-deep in diamonds complaining of poverty because they refuse to bend down and gather them. Awareness is that bend. Just lean down.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1709,
+    text: `The mind is a GPS navigator that perpetually recalculates the route and never arrives at the destination. Switch off the navigator. You are already home.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1710,
+    text: `There is an ancient Sufi parable: a fish asks a wise elder, "Where is this ocean everyone speaks of?" You are that fish. Awareness is the ocean you are already swimming in while asking foolish questions.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1711,
+    text: `You do not visit a dentist only when the tooth has already fallen out. Practice is dental hygiene for the mind. Do not wait for your psyche to rot before brushing.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1712,
+    text: `Rainer Maria Rilke wrote: "If your everyday life seems poor, do not blame it; blame yourself; admit to yourself that you are not enough of a poet to call forth its riches." If your practice feels dry, you have not plunged deep enough. Dive.`,
+    source: "Rainer Maria Rilke",
+    tags: ["stillness"]
+  },
+  {
+    number: 1713,
+    text: `David Goggins ran 100 miles with broken bones in his feet. Not for a trophy. But to prove the mind lies whenever it whispers "I can't". Your mind says "I can't practice". It lies with that identical conviction.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1714,
+    text: `A thorough spring cleaning is needed not for your apartment, but for your mind. Yet instead of throwing out the mental trash, you spend decades filing it neatly onto shelves and calling it "inner work".`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1715,
+    text: `A Zen master placed a glass of muddy water before his student: "Do not stir it; simply wait." An hour later, the water was clear. The master said: "The mind works the same way. Leave it alone, and it settles on its own. But every ten seconds you dip a spoon in and wonder why it stays murky."`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1716,
+    text: `When you are told "practice every day", the mind hears hard labor. When you are told "scroll social media every day", the mind hears pleasure. Both consume identical time. One leads to liberation, the other to servitude. Guess which one you choose more often.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1717,
+    text: `Einstein spent hours simply staring at the ceiling. Newton grasped gravity sitting under a tree. Mendeleev saw the periodic table in a dream. The greatest breakthroughs occur when the mind falls silent. You never grant it a single second of silence and still expect breakthroughs. Seriously?`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1718,
+    text: `Death is not a future event. It is a process unfolding right now. Every second, cells in your body perish. You are literally dying and being reborn each instant. You are already dead and already alive. What are you terrified of?`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1719,
+    text: `Gandhi did not become Gandhi overnight. But every single day of his was practice. Mandela spent 27 years in a cell and emerged without bitterness. Not because he was a saint, but because he practiced. Every. Single. Day. And you?`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1720,
+    text: `If you trained your body with the fierce intensity you train your mind to think automatically, you would be an Olympic champion. The problem is not lack of effort. The problem is direction.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1721,
+    text: `A disciple once complained to Ramakrishna: "Master, I cannot meditate." Ramakrishna grabbed the man's head and plunged it into water, holding it until the disciple was gasping for life. Releasing him, he asked: "What did you desire beneath the water?" — "Air!" — "When you crave God as desperately as you craved air, you will never need to ask how to meditate."`,
+    source: "Ramakrishna",
+    tags: ["stillness"]
+  },
+  {
+    number: 1722,
+    text: `A firefighter does not read manuals in the middle of an inferno. He acts because he trained. When life sets your world ablaze — and it will — it will be too late to open a book on meditation. Train right now.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1723,
+    text: `You feel as though you are "in process". That you are "on the path". That "everything is unfolding as it should". This is the sweetest trap: the illusion of progress. Check honestly — what changed over the past year? If the answer is "nothing", you are standing still and calling it a path.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1724,
+    text: `Master Shido Bunan said: "Die while alive, die completely. Then do whatever you wish — everything will be right." Not a poetic metaphor. A literal instruction. Let the persona die. Everything else is mere cosmetic renovation of your prison.`,
+    source: "Shido Bunan",
+    tags: ["stillness"]
+  },
+  {
+    number: 1725,
+    text: `A diamond and a lump of coal share identical composition: carbon. The only difference is pressure and time. Practice is pressure. Time is your discipline. Without them, you remain coal daydreaming of brilliance.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1726,
+    text: `Benjamin Franklin asked himself each evening: "What good have I done today?" Ask yourself a different question: "For how many minutes of this day was I truly awake?" An honest answer can mark the birth of something real.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1727,
+    text: `They say enlightenment is understanding the cosmic punchline. The joke is this: your entire life you searched for the key to a door that was never locked.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1728,
+    text: `Master Yunmen once stated: "Every day is a good day." Not out of sunny optimism. But because a day stripped of mental labeling contains no category for "bad".`,
+    source: "Master Yunmen",
+    tags: ["stillness"]
+  },
+  {
+    number: 1729,
+    text: `Does the idea of sitting in stillness for 30 minutes terrify you? You will spend eternity in silence when you die. Doesn't it make sense to get acquainted with it beforehand?`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1730,
+    text: `Genghis Khan told his warriors before every battle: "If you are afraid, do not advance. If you advance, do not be afraid." You stepped onto the path of practice. Stop trembling and see it through to the end.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1731,
+    text: `When you postpone practice for "later", you wager on the assumption that "later" will arrive. That is the riskiest bet in existence. Ask any dead man.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1732,
+    text: `This entire universe is a VR headset you forgot to take off. Practice is the precise instant you notice the strap behind your head.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1733,
+    text: `Nietzsche said: "He who has a why to live can bear almost any how." You have a why to practice: the sole chance to know who you are before this body collapses. Any "how" after that is child's play.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1734,
+    text: `Bamboo grows underground for four years, unseen. In its fifth year, it shoots up 25 meters in six weeks. Your practice may feel barren for years. But the roots are spreading. Do not uproot the sapling simply because you see no blossoms yet.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1735,
+    text: `The most effective method to silence the mind is loading the body with strenuous physical labor. Chop wood, run 10 km, push out 100 reps. The mind is a parasite feeding on physical lethargy. Move, and it shuts up.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1736,
+    text: `Master Keizan wrote: "Do not say you lack time for practice. When walking, walk as Buddha. When sitting, sit as Buddha. When eating, eat as Buddha. All of life is practice." If you are not practicing, you are simply not alive.`,
+    source: "Keizan Jokin",
+    tags: ["stillness"]
+  },
+  {
+    number: 1737,
+    text: `A monk complained: "Thoughts disturb me." The master replied: "Disturb whom? Strip thoughts of their owner — and they turn into homeless drifters that pass by and vanish."`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1738,
+    text: `Every thought you believe is a loan at 1,000 percent interest. You borrow and borrow, then wonder why you are emotionally bankrupt. Stop taking loans from your own mind.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1739,
+    text: `The Phoenix burns to ash in order to rise. You need not believe in myths — just look at your own existence. Every moment of total surrender, when you let everything shatter, is the exact fire from which lucidity is born.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1740,
+    text: `There is a Native American saying: "Inside you are two wolves — one fear, one love. Which one wins?" — "The one you feed." Every minute of practice feeds awareness. Every minute of drifting feeds autopilot. Which one did you feed today?`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1741,
+    text: `In 100 years, not a single person currently alive on this planet will remain. Not one. Everyone will be new. Yet here you sit, agonized over an internet comment. Zoom out, friend. Zoom out and practice.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1742,
+    text: `Stop.
+Do not scroll any further.
+You will scroll past this text just like yesterday's, and nothing will change.
+Lock your screen and be aware.
+Before the mind invents a "later".`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1743,
+    text: `How many days have you lived inside this mind, without ever looking to see who is sitting there?`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1744,
+    text: `Do not promise yourself an hour.
+Promise two minutes.
+If you cannot bear even that, the issue is not time, nor fatigue.
+Then you finally know what you are dealing with.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1745,
+    text: `Boredom on the cushion is not a sign that you are doing something wrong.
+It is the first time today that nothing and no one is entertaining you.
+Stay with it.
+Beneath it lies the very thing you run from all day long.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1746,
+    text: `You already know how to lose track of time for hours when you are interested.
+That means you do have attention.
+The only question is who you give it to.
+Practice is the only place where you give it back to yourself.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1747,
+    text: `Texts like this give a rush, pleasant as a sip of strong liquor.
+In a minute it will wear off.
+Practice begins where the rush ends and you keep going anyway.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1748,
+    text: `If everything inside is resisting, excellent: there is something alive in there.
+It is not the stillness that resists, but the one afraid of losing control.
+Let it resist.
+And observe.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1749,
+    text: `You are tired.
+You are busy.
+You are not in the mood.
+All of this is true, and none of this prevents you from breathing.
+Breathe.
+And now, while breathing, sit down.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1750,
+    text: `Mind precedes all mental states.
+Mind is chief, all is created by the mind.
+Speak and act with a pure mind, and happiness will follow you like a shadow that never leaves.`,
+    source: "Dhammapada, 1–2",
+    tags: ["stillness"]
+  },
+  {
+    number: 1751,
+    text: `At dawn, when you have trouble getting out of bed, keep this thought ready: "I am rising to do the work of a human being."
+Or was I made to lie under the blankets and keep warm?`,
+    source: "Marcus Aurelius, Meditations, V.1",
+    tags: ["stillness"]
+  },
+  {
+    number: 1752,
+    text: `Let us deprive death of its strangeness; let us frequent it, let us get used to it.
+Let us have nothing so often in mind as death.`,
+    source: "Michel de Montaigne, Essays, I.20",
+    tags: ["stillness"]
+  },
+  {
+    number: 1753,
+    text: `Do not listen with your ears, listen with your mind.
+No, not with your mind, listen with your spirit.
+The ear is only able to hear, the mind only to comprehend, but the spirit is empty and ready to receive all things.
+The Way gathers only in emptiness.
+This emptiness is the fasting of the mind.`,
+    source: "Zhuangzi, ch. 4",
+    tags: ["stillness"]
+  },
+  {
+    number: 1754,
+    text: `Better is a single day in the life of one who is earnest and resolute than a hundred years lived by someone lazy and sluggish.`,
+    source: "Dhammapada, 112",
+    tags: ["stillness"]
+  },
+  {
+    number: 1755,
+    text: `The day is short, the work is vast, the workers are lazy, the reward is great, and the Master is pressing.
+It is not your duty to finish the work, but neither are you free to abandon it.`,
+    source: "Rabbi Tarfon",
+    tags: ["stillness"]
+  },
+  {
+    number: 1756,
+    text: `Hundreds of flowers in spring, the moon in autumn, a cool breeze in summer, snow in winter.
+If your mind is not burdened by needless things, this is the finest season of your life.`,
+    source: "Wumen Huikai",
+    tags: ["stillness"]
+  },
+  {
+    number: 1757,
+    text: `A person consists of desire.
+As is their desire, so is their will; as is their will, so is their deed.
+Whatever you do, that you become.`,
+    source: "Brihadaranyaka Upanishad, IV.4.5",
+    tags: ["stillness"]
+  },
+  {
+    number: 1758,
+    text: `When morning comes, consider that you may not live until evening.
+When evening arrives, do not dare promise yourself the morning.
+Be always prepared, and live so that death never finds you unprepared.`,
+    source: "Thomas à Kempis",
+    tags: ["stillness"]
+  },
+  {
+    number: 1759,
+    text: `Do not seek it from others, or you will stray further from yourself.
+Today I walk alone, and meet it everywhere.
+It is me, yet I am no longer it.`,
+    source: "Dongshan Liangjie",
+    tags: ["stillness"]
+  },
+  {
+    number: 1760,
+    text: `Acquire a peaceful spirit, and thousands around you will be saved.`,
+    source: "Seraphim of Sarov",
+    tags: ["stillness"]
+  },
+  {
+    number: 1761,
+    text: `How much longer will you delay demanding the best of yourself?
+You have received the principles and agreed with them.
+What kind of teacher are you waiting for, to hand over your own improvement to them?
+If you are careless and keep postponing intention after intention, deadline after deadline, you will not notice that you have lived and died an ordinary person.
+Resolve to live as a mature person right now.`,
+    source: "Epictetus",
+    tags: ["stillness"]
+  },
+  {
+    number: 1762,
+    text: `Take a step back and turn the light inward.
+Body and mind will fall away naturally, and your original face will manifest.`,
+    source: "Dogen, Fukan Zazengi",
+    tags: ["stillness"]
+  },
+  {
+    number: 1763,
+    text: `The time of business does not with me differ from the time of prayer.
+In the noise and clatter of my kitchen, while several persons are calling upon me at once, I possess God in as great tranquility as if I were upon my knees at the altar.`,
+    source: "Brother Lawrence",
+    tags: ["stillness"]
+  },
+  {
+    number: 1764,
+    text: `Fear of death drove me to the mountains.
+Meditating again and again on the uncertainty of the hour of death, I captured the stronghold of the unborn and undying.
+Now I am free from all fear of death.`,
+    source: "Milarepa",
+    tags: ["stillness"]
+  },
+  {
+    number: 1765,
+    text: `Dig within.
+Within is the wellspring of good, and it will always bubble up if you keep digging.`,
+    source: "Marcus Aurelius",
+    tags: ["stillness"]
+  },
+  {
+    number: 1766,
+    text: `You yourself are your own master; who else could the master be?
+With oneself well-tamed, one attains a master that is hard to find.`,
+    source: "Dhammapada, 160",
+    tags: ["stillness"]
+  },
+  {
+    number: 1767,
+    text: `Love silence above all things, for it brings a fruit that words cannot describe.
+At first we force ourselves to be silent.
+And then from silence something is born that draws us into itself.`,
+    source: "Isaac of Nineveh",
+    tags: ["stillness"]
+  },
+  {
+    number: 1768,
+    text: `Where would you find enough leather to cover the entire earth?
+Yet with leather soles on your feet, the whole earth is covered.
+Likewise, the external world cannot be subdued.
+Subdue your own mind, and what need is there to subdue anything else?`,
+    source: "Shantideva, Bodhicharyavatara, V.13–14",
+    tags: ["stillness"]
+  },
+  {
+    number: 1769,
+    text: `In order to arrive at what you do not know, you must go by a way which you do not know.`,
+    source: "St. John of the Cross, The Ascent of Mount Carmel",
+    tags: ["stillness"]
+  },
+  {
+    number: 1770,
+    text: `The trap exists to catch fish; once the fish is caught, the trap is forgotten.
+Words exist to catch meaning; once the meaning is caught, the words are forgotten.
+Where can I find someone who has forgotten words, so I may have a word with them?`,
+    source: "Zhuangzi, ch. 26",
+    tags: ["stillness"]
+  },
+  {
+    number: 1771,
+    text: `People look for retreats for themselves — in the country, by the sea, in the mountains.
+Yet you can at any moment retire into yourself.
+There is no place more quiet and peaceful than one's own soul.`,
+    source: "Marcus Aurelius, Meditations, IV.3",
+    tags: ["stillness"]
+  },
+  {
+    number: 1772,
+    text: `Where do you search for Me?
+I am right beside you.
+Not in a temple, nor in a mosque, not on Kailash, nor in the Kaaba.
+If you are a true seeker, you will see Me at once, in a single moment.
+Kabir says: God is the breath of all breath.`,
+    source: "Kabir",
+    tags: ["stillness"]
+  },
+  {
+    number: 1773,
+    text: `Do not look for a master in this body.
+Breathing happens, the heart beats,
+sensations arise.
+Find the one who you think
+owns all of this.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1774,
+    text: `Dedicate your whole life to practice.
+Do not leave awakening
+for your spare time.
+Let every conversation, every step,
+and every silence become a place
+of recognizing your true nature.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1775,
+    text: `Do not become anyone.
+Neither a person, nor a seeker,
+nor an observer,
+nor one who has already understood everything.
+Leave all becoming behind.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1776,
+    text: `Remove the word "mine"
+from every experience.
+Do not claim breath, thought,
+feeling, or action.
+Leave what happens as belonging to no one.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1777,
+    text: `Give to practice not just a few hours
+a day, but the very habit
+of postponing it.
+Do not wait for the right state.
+Begin right in this very moment.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1778,
+    text: `Do not look for the one who is aware.
+Let go of the very thought
+of an observer and remain
+in the simple fact of awareness.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1779,
+    text: `Do not continue the thought of yourself.
+As soon as it arises,
+do not add the next one to it.
+See what remains
+without this story.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1780,
+    text: `Strip away all definitions from yourself,
+one by one.
+Not this, not this.
+Do not settle on a new name
+for what remains.`,
+    source: "Brihadaranyaka Upanishad",
+    tags: ["stillness"]
+  },
+  {
+    number: 1781,
+    text: `Do not make a separate person
+out of the body.
+Look directly: the body is felt,
+it moves and breathes,
+but where inside it is
+a separate owner?`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1782,
+    text: `Leave the mind without a task.
+There is no need to arrive anywhere,
+to obtain anything, or to hold onto anything.
+Abide without the goal of reaching
+a special state.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1783,
+    text: `Do not replace the Unborn
+with a new thought, a new state,
+or a new image of yourself.
+Abide in the original mind,
+adding nothing to it.`,
+    source: "Bankei Yotaku",
+    tags: ["stillness"]
+  },
+  {
+    number: 1784,
+    text: `Stop saying "I" internally.
+Do not suppress the word —
+simply do not repeat it after
+every thought
+and every sensation.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1785,
+    text: `Do not enter into what is happening
+as a separate participant.
+Do not withdraw from it
+as a detached witness.
+Leave only the happening itself.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1786,
+    text: `Inside this body of five aggregates
+there is a true person
+of no rank or title.
+Recognize them not by an image,
+but directly.`,
+    source: "Master Linji (Linji Yixuan)",
+    tags: ["stillness"]
+  },
+  {
+    number: 1787,
+    text: `Do not wait for the mind to settle down.
+Stop waiting.
+Even a restless mind already arises
+in that which needs no stillness.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1788,
+    text: `Do not cling to the sense of "I am."
+Notice it as well.
+Do not turn even the subtlest
+feeling of presence into yourself.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1789,
+    text: `Stop being the center of your story.
+Let events happen,
+people speak, the body act —
+without the need to attach everything
+to a separate "I."`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1790,
+    text: `Do not turn non-involvement
+into detachment from life.
+Be fully in the action,
+without creating inside
+a separate owner of the action.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1791,
+    text: `See how first a thought arises,
+and then "I thought"
+is added to it.
+Do not miss this moment of appropriation.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1792,
+    text: `Do not rebuild yourself anew
+out of memories.
+The past comes right now as a thought.
+Do not become that thought.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1793,
+    text: `Look at each feeling
+before calling it yours.
+Do not claim the experience —
+let it fully appear
+and pass away.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1794,
+    text: `Do not become even the one
+who "does nothing."
+Let even this final role
+disappear.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1795,
+    text: `Practice right now,
+without promising yourself to start tomorrow.
+The next moment does not belong to you.
+This one is already open.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1796,
+    text: `Everyone is so afraid of becoming a nobody in this life
+that they end up becoming just anybody.`,
+    source: "Papaji",
+    tags: ["stillness"]
+  },
+  {
+    number: 1797,
+    text: `If you want to discover the truth,
+you must disappear.`,
+    source: "Papaji",
+    tags: ["stillness"]
+  },
+  {
+    number: 1798,
+    text: `Upon close examination you will see that there is no "I"
+and that this universe disappears, dissolving into emptiness.
+Nothing has ever arisen in consciousness — this is the ultimate truth.`,
+    source: "Papaji",
+    tags: ["stillness"]
+  },
+  {
+    number: 1799,
+    text: `To suffer, you need a mind and a past.
+To be free, you need nothing.`,
+    source: "Papaji",
+    tags: ["stillness"]
+  },
+  {
+    number: 1800,
+    text: `Discover that unchanging essence in which all changes take place.
+How can we do this? By exclusion: exclude everything that changes.`,
+    source: "Papaji",
+    tags: ["stillness"]
+  },
+  {
+    number: 1801,
+    text: `Sit quietly for a while and look. Everything you see,
+everything you can perceive, imagine, or feel
+can be excluded, and what remains is what you cannot exclude.
+That is abiding, existence, consciousness, bliss, and freedom.
+This can be done in an instant or it can take many ages.`,
+    source: "Papaji",
+    tags: ["stillness"]
+  },
+  {
+    number: 1802,
+    text: `Find a little time, just a single moment, to see who you really are.
+Find time for your true self. You never had time for your true self:
+for a million years you have used your head, now at least find time
+for your true heart.`,
+    source: "Papaji",
+    tags: ["stillness"]
+  },
+  {
+    number: 1803,
+    text: `When you do not allow thoughts to arise, you return to emptiness, to consciousness.
+When a thought arises, the world arises. A single thought is already a world,
+and this world is only your projection, not separate from you,
+for you are the only thing that is.
+Just as your eyes, your ears, and your hands do not exist apart from you,
+so is the world: all beings, birds, flowers, rocks — all of this is you, your very self.
+If you understand this once, where could suffering come from?
+Suffering is always something else; only then can you suffer.
+When your total being is, and this total being is empty,
+then there can be no trouble at all.
+Understanding this, you are already who you are. This is your own nature, you are that.
+You are already your own nature; you do not need to attain or acquire it.`,
+    source: "Papaji",
+    tags: ["stillness"]
+  },
+  {
+    number: 1804,
+    text: `Between two clouds there is a gap, and in that gap the blue sky is visible.
+Slow down and look into the gaps. Yes, look into the gaps and pay more attention
+to them, rather than to the clouds: where one thought has gone and the next has not yet arisen,
+there is consciousness, this freedom, your true place, your own home.`,
+    source: "Papaji",
+    tags: ["stillness"]
+  },
+  {
+    number: 1805,
+    text: `Life is not a chain of events that occur around you in time and space.
+Life is a chain of your inner states that you create for yourself,
+passing judgment on the events in which you find yourself.`,
+    source: "Papaji",
+    tags: ["stillness"]
+  },
+  {
+    number: 1806,
+    text: `The best thing you can do is to remain silent and let no one disturb you.
+Abide in the peace of silence and love, that is enough. Do not interfere with the action of all these waves:
+suffer when suffering arises, and be happy when happiness comes,
+but inside remain always empty.`,
+    source: "Papaji",
+    tags: ["stillness"]
+  },
+  {
+    number: 1807,
+    text: `If there is peace within you, you will find peace with other people as well.
+If your mind is agitated, you will discover turmoil everywhere.
+Therefore find peace within yourself, and you will see how it begins to reflect
+in everything that surrounds you. You are that peace, you are that joy.
+To discover it — where else do you hope to find peace, if not in yourself?`,
+    source: "Papaji",
+    tags: ["stillness"]
+  },
+  {
+    number: 1808,
+    text: `Do not cause pain to anyone by word or action,
+for it will return to you tenfold.`,
+    source: "Papaji",
+    tags: ["stillness"]
+  },
+  {
+    number: 1809,
+    text: `Only those who are close to freedom need guidance;
+those who are in darkness and those who are already in the light do not need it.`,
+    source: "Papaji",
+    tags: ["stillness"]
+  },
+  {
+    number: 1810,
+    text: `We live in this world because we have not finished our work: to know ourselves.
+Know your "I", and you will know the whole universe. People are unhappy because
+they do not know who they are; if you know your "I",
+you will have no need to reach out for God.`,
+    source: "Papaji",
+    tags: ["stillness"]
+  },
+  {
+    number: 1811,
+    text: `The present moment is freedom. Gaze into this present moment; it is freedom itself.
+Are you always looking at moments of the past? When did you ever give the present moment a chance to reveal itself?
+You never gave it such an opportunity. You have always identified only with the past.
+What is happening with you right now has never occupied your thoughts,
+and yet that very thing is the present moment. Look into it, and then you will see your true face.`,
+    source: "Papaji",
+    tags: ["stillness"]
+  },
+  {
+    number: 1812,
+    text: `What passes away is not eternal. Every form that was born must pass away,
+but the underlying essence has no form and never leaves.
+If you attach yourself to form, you make a great mistake.`,
+    source: "Papaji",
     tags: ["stillness"]
   }
 ];

@@ -7,7 +7,7 @@ import {
 } from '../../src/handlers/pointers.js';
 import { REMINDER_STEP } from '../../src/handlers/reminders.js';
 import { Pointer } from '../../src/models/Pointer.js';
-import { getNextPointerForUser } from '../../src/services/pointers.js';
+import { getNextPointerForUser, toggleFavoritePointer } from '../../src/services/pointers.js';
 import { createMockContext } from '../helpers/mockContext.js';
 
 describe('Указатели (Pointers)', () => {
@@ -123,5 +123,110 @@ describe('getNextPointerForUser — фильтрация по тегу тиши�
 
     expect(pointerWithFilter.tags).toContain('тишина');
     expect(pointerWithoutFilter).not.toBeNull();
+  });
+});
+
+describe('getNextPointerForUser — показ избранного в конце круга', () => {
+  it('должен выдавать указатели из избранного в конце круга, а затем начинать новый круг', async () => {
+    const userId = 888101;
+    const pointerOne = await Pointer.create({ text: 'Первый указатель', isActive: true });
+    const pointerTwo = await Pointer.create({ text: 'Второй указатель', isActive: true });
+    const pointerThree = await Pointer.create({ text: 'Третий указатель', isActive: true });
+
+    await toggleFavoritePointer(userId, pointerOne._id);
+
+    const firstRoundPointers = [
+      await getNextPointerForUser(userId),
+      await getNextPointerForUser(userId),
+      await getNextPointerForUser(userId)
+    ];
+
+    const firstRoundTexts = firstRoundPointers.map(item => item.text);
+    expect(firstRoundTexts).toHaveLength(3);
+    expect(firstRoundTexts).toContain('Первый указатель');
+    expect(firstRoundTexts).toContain('Второй указатель');
+    expect(firstRoundTexts).toContain('Третий указатель');
+
+    const finalePointer = await getNextPointerForUser(userId);
+    expect(String(finalePointer._id)).toBe(String(pointerOne._id));
+    expect(finalePointer.text).toBe('Первый указатель');
+
+    const secondRoundPointers = [
+      await getNextPointerForUser(userId),
+      await getNextPointerForUser(userId),
+      await getNextPointerForUser(userId)
+    ];
+    const secondRoundTexts = secondRoundPointers.map(item => item.text);
+    expect(secondRoundTexts).toContain('Первый указатель');
+    expect(secondRoundTexts).toContain('Второй указатель');
+    expect(secondRoundTexts).toContain('Третий указатель');
+
+    const secondFinalePointer = await getNextPointerForUser(userId);
+    expect(String(secondFinalePointer._id)).toBe(String(pointerOne._id));
+  });
+
+  it('должен проходить по нескольким указателям из избранного в конце круга', async () => {
+    const userId = 888102;
+    const pointerAlpha = await Pointer.create({ text: 'Альфа', isActive: true });
+    const pointerBeta = await Pointer.create({ text: 'Бета', isActive: true });
+
+    await toggleFavoritePointer(userId, pointerAlpha._id);
+    await toggleFavoritePointer(userId, pointerBeta._id);
+
+    const mainRoundPointers = [
+      await getNextPointerForUser(userId),
+      await getNextPointerForUser(userId)
+    ];
+    expect(mainRoundPointers.map(p => p.text).sort()).toEqual(['Альфа', 'Бета']);
+
+    const finalePointers = [
+      await getNextPointerForUser(userId),
+      await getNextPointerForUser(userId)
+    ];
+    const finaleTexts = finalePointers.map(p => p.text).sort();
+    expect(finaleTexts).toEqual(['Альфа', 'Бета']);
+
+    const newRoundFirstPointer = await getNextPointerForUser(userId);
+    expect(['Альфа', 'Бета']).toContain(newRoundFirstPointer.text);
+  });
+
+  it('должен сразу переходить к новому кругу, если у пользователя нет избранного', async () => {
+    const userId = 888103;
+    await Pointer.create({ text: 'Один', isActive: true });
+    await Pointer.create({ text: 'Два', isActive: true });
+
+    const firstRound = [
+      await getNextPointerForUser(userId),
+      await getNextPointerForUser(userId)
+    ];
+    expect(firstRound.map(p => p.text).sort()).toEqual(['Два', 'Один']);
+
+    const secondRoundFirst = await getNextPointerForUser(userId);
+    expect(['Два', 'Один']).toContain(secondRoundFirst.text);
+  });
+
+  it('должен учитывать фильтр по тегам для финала избранного', async () => {
+    const userId = 888104;
+    const silenceFavorite = await Pointer.create({ text: 'Тишина любимая', tags: ['тишина'], isActive: true });
+    const otherFavorite = await Pointer.create({ text: 'Обычная любимая', tags: ['другое'], isActive: true });
+    const silenceRegular = await Pointer.create({ text: 'Тишина обычная', tags: ['тишина'], isActive: true });
+
+    await toggleFavoritePointer(userId, silenceFavorite._id);
+    await toggleFavoritePointer(userId, otherFavorite._id);
+
+    const mainTaggedRound = [
+      await getNextPointerForUser(userId, 'тишина'),
+      await getNextPointerForUser(userId, 'тишина')
+    ];
+    const mainTaggedTexts = mainTaggedRound.map(p => p.text);
+    expect(mainTaggedTexts).toContain('Тишина любимая');
+    expect(mainTaggedTexts).toContain('Тишина обычная');
+    expect(mainTaggedTexts).not.toContain('Обычная любимая');
+
+    const finaleTaggedPointer = await getNextPointerForUser(userId, 'тишина');
+    expect(finaleTaggedPointer.text).toBe('Тишина любимая');
+
+    const newTaggedRoundPointer = await getNextPointerForUser(userId, 'тишина');
+    expect(['Тишина любимая', 'Тишина обычная']).toContain(newTaggedRoundPointer.text);
   });
 });

@@ -6351,7 +6351,7 @@ Ve lo falso como falso — y la guerra habrá terminado.`,
   },
   {
     number: 879,
-    text: `No hay un yo verdadero. La verdad y la yoidad se excluyen mutuamente.`,
+    text: `No existe ningún "yo superior". Donde está la Verdad, no hay ningún "tú".`,
     source: "Jed McKenna",
     tags: ["silencio"]
   },
@@ -6756,7 +6756,7 @@ No la aceptes como pago.`,
   },
   {
     number: 945,
-    text: `Si "la práctica arruina las relaciones", mira a quién estabas construyendo en su lugar antes de practicar.`,
+    text: `Si parece que la práctica arruina las relaciones, debes saber esto: no se destruyen las relaciones, se destruye la falsedad sobre la que estaban construidas.`,
     source: null,
     tags: ["silencio"]
   },
@@ -11284,6 +11284,1144 @@ Prueba una mañana a no recomponerte.`,
     number: 1655,
     text: `No puedes ver más allá de lo que crees ser. Si te consideras un cuerpo, percibirás la verdad únicamente como ser humano y nada más.`,
     source: "Nisargadatta Maharaj",
+    tags: ["silencio"]
+  },
+  {
+    number: 1656,
+    text: `La práctica no es un ritual matutino; es cada maldito segundo.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1657,
+    text: `¿Sabes por qué el mono no puede sacar la mano del frasco? Porque no suelta la nuez. Tu «progreso espiritual», tus «revelaciones», tu «meditación profunda de ayer»... esa es la nuez. Abre el puño, idiota.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1658,
+    text: `Vas a morir. No algún día en abstracto. Tú, en concreto. Muy probablemente pronto. Y lo único que te llevarás contigo será el grado de tu consciencia. Todo lo demás se pudrirá junto con la carne. ¿A qué demonios estás esperando?`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1659,
+    text: `El maestro Bankei le dijo una vez a un monje que se quejaba de su mal genio: «Muéstrame ese genio ahora mismo». El monje respondió: «Ahora mismo no lo tengo». Bankei concluyó: «Entonces no es tuyo. Si lo fuera, podrías exhibirlo en cualquier instante».`,
+    source: "Bankei Yōtaku",
+    tags: ["silencio"]
+  },
+  {
+    number: 1660,
+    text: `Cada día es otro día en el que pudiste despertar y no lo hiciste. ¿Cuántos días más estás dispuesto a despilfarrar?`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1661,
+    text: `No necesitas más libros. No necesitas más citas. Necesitas sentarte y dejar de moverte. Ahora mismo. En lugar de leer este texto.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1662,
+    text: `Los astronautas que contemplaron la Tierra desde el espacio describen el mismo fenómeno: la desaparición instantánea de fronteras, nacionalidades y dogmas. No necesitas un cohete. Basta con alejarte de tus pensamientos a esa misma distancia.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1663,
+    text: `La neurociencia ha demostrado: el cerebro toma una decisión entre 6 y 10 segundos antes de que tú «decidas conscientemente». Literalmente te enteras de tu propia elección como quien lee las noticias. Y después de eso, ¿te consideras seriamente el autor de tu vida?`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1664,
+    text: `Los maratonistas dicen: la parte más difícil de la carrera es ponerse las zapatillas y salir por la puerta. Con la práctica ocurre exactamente lo mismo. Lo más difícil es sentarse. El silencio se encarga del resto.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1665,
+    text: `¿No practicas porque «no tienes tiempo»? Tienes exactamente las mismas horas al día que Ramana Maharshi, el Buda y cada maestro que haya existido. La diferencia no está en el tiempo. La diferencia está en la prioridad.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1666,
+    text: `El polluelo no decide cuándo romper el cascarón. Se quiebra cuando ha crecido lo suficiente. Pero si deja de picotear desde dentro, se asfixia. La práctica es tu pico. No dejes de picotear.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1667,
+    text: `Un samurái acudió al maestro Hakuin y le preguntó: «¿Existe el infierno?». Hakuin replicó: «¿Quién eres tú?». —«Un samurái». —«¿Tú? ¿Un samurái? ¡Si pareces un mendigo!». El samurái enrojeció de furia y desenvainó la espada. Hakuin susurró: «Aquí se abren las puertas del infierno». El samurái se detuvo y comprendió. «Y aquí se abren las puertas del cielo».`,
+    source: "Hakuin Ekaku",
+    tags: ["silencio"]
+  },
+  {
+    number: 1668,
+    text: `La consciencia es la única moneda que jamás se devalúa. Todo lo demás —el dinero, la salud, la juventud— te será arrebatado. La consciencia es lo único que nadie puede quitarte.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1669,
+    text: `Las personas que sobreviven a una experiencia cercana a la muerte relatan lo mismo: paz absoluta, ausencia total de miedo y una claridad cristalina. ¿Sabes qué? No necesitas morir físicamente para vivirlo. Basta con morir como personaje. Ahora mismo.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1670,
+    text: `En las prisiones de Vietnam, los prisioneros de guerra que meditaban salían más sanos que cuando entraron. Sin comida, sin libertad, sin esperanza... pero con práctica. Tú tienes comida, libertad y esperanza. ¿Qué excusa te queda?`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1671,
+    text: `Si te dijeran que dentro de una semana te quedarás ciego, vivirías esos siete días de un modo totalmente distinto. Pero no sabes qué perderás mañana. Quizás la vista. Quizás la razón. Quizás la vida. Abre los ojos ahora, mientras aún pueden ver.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1672,
+    text: `El maestro Ikkyū escribió para una familia que pedía una bendición próspera: «El abuelo muere. El padre muere. El hijo muere». La familia montó en cólera. Ikkyū respondió: «Si tu hijo muriera antes que el padre, eso sería auténtica desgracia. Os he deseado el orden supremo de la naturaleza». La muerte no es una tragedia. La tragedia es vivir una vida entera sin despertar jamás.`,
+    source: "Ikkyū Sōjun",
+    tags: ["silencio"]
+  },
+  {
+    number: 1673,
+    text: `No estás solo en tu ignorancia. Ocho mil millones de seres duermen ahora mismo con los ojos abiertos. La pregunta es: ¿quieres seguir siendo uno de ellos o uno de los pocos que resolvieron despertar?`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1674,
+    text: `El insecto que vuela hacia la llama está convencido de dirigirse a la luz. Tu mente cuando corre tras otra «revelación» está convencida de lo mismo. El resultado es idéntico: ambos se queman y siguen dando vueltas.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1675,
+    text: `El perro persigue su propia cola y se sorprende genuinamente de no atraparla. Tú persigues a tu «verdadero yo» y te asombras de lo mismo. Detente, y la cola dejará de huir. Jamás estuvo separada.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1676,
+    text: `¿Sabes qué tienes en común con un recluso? Ambos estáis entre rejas. La única diferencia es que el recluso sabe que está en prisión.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1677,
+    text: `Buda se sentó 6 años bajo un árbol. Jesús pasó 40 días en el desierto. ¿Y tú no puedes permanecer 20 minutos en silencio? ¿En serio?`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1678,
+    text: `Los guerreros antiguos se consideraban ya muertos antes de entrar en combate. Eso los hacía invencibles. Considérate ya muerto, y no tendrás nada que perder. Sin nada que perder, nada puede obstaculizar la práctica.`,
+    source: "Yamamoto Tsunetomo, «Hagakure»",
+    tags: ["silencio"]
+  },
+  {
+    number: 1679,
+    text: `El ser humano promedio pasa 27 años durmiendo y otros 40 soñando despierto. En total: apenas 4 años de vida real y consciente de 80. ¿Estás seguro de querer dejar esa estadística intacta?`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1680,
+    text: `El pez no sabe que vive en el agua hasta que lo arrojan a la orilla. Tú no sabes que vives en la mente hasta que la práctica te arrastra del cuello. Y sí, en la orilla dolerá. Pero solo durante los primeros segundos.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1681,
+    text: `Existen dos tipos de dolor: el dolor de la disciplina y el dolor del remordimiento. El primero pesa gramos. El segundo, toneladas. Elige.`,
+    source: "Jim Rohn",
+    tags: ["silencio"]
+  },
+  {
+    number: 1682,
+    text: `Tu meditación dura 20 minutos. Tu trance mental, 15 horas y 40 minutos. ¿Y te asombra que la mente venza? Es como entrenar un músculo una vez por semana y pretender que supere a otro que se ejercita sin descanso.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1683,
+    text: `Los cadáveres no meditan. Mientras vivas, practica. Cuando mueras, será tarde para lamentar cada mañana echada a perder.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1684,
+    text: `Abu Yazid al-Bistami declaró: «Durante treinta años busqué a Dios, para descubrir al final que lo buscado y el buscador eran lo mismo». Treinta años. Tú no tienes tanto tiempo. Deja de posponerlo.`,
+    source: "Abu Yazid al-Bistami",
+    tags: ["silencio"]
+  },
+  {
+    number: 1685,
+    text: `El maestro Nanquan cortó un gato por la mitad para que sus discípulos dejaran de discutir nimiedades y encararan el hecho desnudo. La vida te hace lo mismo a diario: cercena tus planes, sueños y expectativas. ¿No es hora de mirar el hecho en vez de llorar sobre los restos?`,
+    source: "Nanquan Puyuan",
+    tags: ["silencio"]
+  },
+  {
+    number: 1686,
+    text: `Albert Einstein: «La locura es hacer lo mismo una y otra vez esperando resultados distintos». Piensas los mismos pensamientos a diario esperando que uno de ellos te libere. Eso es la locura misma.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1687,
+    text: `Un preso en celda de aislamiento, privado de cualquier distracción, se ve forzado a encontrarse consigo mismo. Por eso tantos salen transformados. No necesitas una cárcel: basta con apagar el móvil 24 horas. El efecto será semejante.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1688,
+    text: `En el clímax del orgasmo, la mente se detiene por una fracción de segundo. Por eso se experimenta como dicha suprema: no por la carne, sino por la pausa instantánea del pensamiento. La meditación es ese mismo gozo, sin necesidad de desnudarse. Y dura tanto como seas capaz de reposar en silencio.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1689,
+    text: `En cierta ocasión Jōshū preguntó a Nansen: «¿Qué es el Camino?». Nansen respondió: «La mente ordinaria es el Camino». —«¿Cómo me aproximo a él?». —«Si intentas aproximarte, te desvías». Deja de correr. Ya estás aquí.`,
+    source: "Nansen",
+    tags: ["silencio"]
+  },
+  {
+    number: 1690,
+    text: `En los monasterios medievales, los monjes dormían en ataúdes para despertar cada día con un único pensamiento: «Me han regalado otro día». No necesitas un ataúd. Basta con recordar: esta mañana bien pudo no amanecer jamás.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1691,
+    text: `Temes al silencio mucho más que al caos. Porque el caos le da empleo a la mente. En silencio, se ve obligada a reconocerse en el paro. Y eso asusta más que cualquier crisis.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1692,
+    text: `Viktor Frankl, superviviente de Auschwitz, escribió: «Entre el estímulo y la respuesta hay un espacio. En ese espacio reside nuestra libertad». Ese espacio es exactamente lo que la práctica entrena. Frankl lo halló en el infierno. Tus condiciones son notablemente mejores.`,
+    source: "Viktor Frankl",
+    tags: ["silencio"]
+  },
+  {
+    number: 1693,
+    text: `Si crees que la práctica es difícil, prueba no practicar. Prueba vivir 40 años en piloto automático y darte cuenta en tu lecho de muerte de que te pasaste la vida durmiendo. Eso sí que es difícil.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1694,
+    text: `Los monjes tibetanos se recluyen en oscuridad total durante 49 días consecutivos. Tú no aguantas 5 minutos sin pensamientos. No porque seas más débil, sino porque ni siquiera has empezado a entrenar. Empieza.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1695,
+    text: `La práctica no es una huida de la vida. Es el único camino para entrar por fin en ella. Todo lo que hasta ahora llamabas vida no era más que leer la carta mientras la comida se enfriaba.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1696,
+    text: `Los generales romanos contrataban a un siervo para que permaneciera tras ellos en el desfile triunfal susurrándoles al oído: «Memento mori: recuerda que eres mortal». ¿Dónde está tu susurro?`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1697,
+    text: `Un carnicero acudió al maestro Bankei y dijo: «Mi oficio es matar; no puedo practicar». Bankei contestó: «La Mente No-Nacida está presente tanto si descuartizas carne como si rezas. No depende de lo que hagan tus manos». La práctica no precisa condiciones especiales. Las condiciones son la coartada de la mente.`,
+    source: "Bankei Yōtaku",
+    tags: ["silencio"]
+  },
+  {
+    number: 1698,
+    text: `La hiena ríe. Pero eso no significa que sea feliz. Tú «practicas». Pero eso no significa que estés practicando. Comprueba: ¿reposas en silencio o hay un comité de 47 voces sesionando en tu cráneo?`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1699,
+    text: `Epicteto, antiguo esclavo, era más libre que cualquier emperador. Porque se liberó de las únicas cadenas reales: sus propias reacciones. No eres esclavo de las circunstancias, sino de tus respuestas automáticas ante ellas.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1700,
+    text: `¿Esperas el momento idóneo para practicar? El momento idóneo es el instante exacto en que te sorprendes postergando. Es decir, ahora mismo.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1701,
+    text: `En el combate, los soldados relatan instantes de claridad extrema: el tiempo se frena, la mente calla, cada detalle es lúcido. ¿Por qué? Porque la muerte está al lado y la mente no tiene ocio para parlotear. No necesitas una guerra; solo asumir de verdad tu mortalidad.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1702,
+    text: `El maestro Gutei levantaba un dedo ante cualquier pregunta. Cuando su joven criado comenzó a imitar el gesto, Gutei le cercenó el dedo. El criado huyó chillando. Gutei le gritó; el muchacho se giró y Gutei alzó el dedo. En ese instante, el joven despertó. A veces se precisa una conmoción para acallar la mente. La práctica es esa conmoción voluntaria.`,
+    source: "Gutei",
+    tags: ["silencio"]
+  },
+  {
+    number: 1703,
+    text: `¿Sabes qué hace un adicto ante el malestar? Se droga. ¿Sabes qué hace tu mente ante la incomodidad? Produce un pensamiento. La única diferencia radica en la sustancia. La dependencia es idéntica.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1704,
+    text: `Un atleta entrena a diario, incluso cuando no le apetece. Sobre todo cuando no le apetece. La práctica de la consciencia es el atletismo del espíritu. «No tengo ganas» es el ruido que emite la mente cuando el entrenamiento por fin funciona.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1705,
+    text: `Los faraones erigieron pirámides para pervivir eternamente. Ellos son ceniza. Las pirámides siguen ahí. Tú construyes una carrera, una reputación, un «legado». Tú también morirás. Eso también caerá. ¿Qué permanece? Solo lo que jamás fue edificado.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1706,
+    text: `Si por cada minuto de inconsciencia te cobraran 1.000 dólares, serías el ser más despierto del planeta en 24 horas. Sin embargo, pierdes algo infinitamente más valioso que el dinero: tu vida. Y por alguna razón, eso no te motiva.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1707,
+    text: `Shōkō Muramoto describía el rigor zen: a los monjes los despertaban a las 3 de la madrugada, y el adormecimiento en zazen se corregía con el bastón kyosaku sobre los hombros. No por crueldad, sino por compasión: el sueño de la mente es más atroz que cualquier golpe.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1708,
+    text: `Actúas como alguien que está sumergido hasta las rodillas en diamantes y se queja de pobreza porque le da pereza agacharse. La consciencia es agacharse. Simplemente inclínate.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1709,
+    text: `La mente es un GPS que recalcula la ruta sin cesar y nunca llega a destino. Apaga el navegador. Ya estás en casa.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1710,
+    text: `Cuenta una antigua parábola sufí: un pez pregunta a un anciano sabio: «¿Dónde está ese océano del que todos hablan?». Tú eres ese pez. La consciencia es el océano en el que ya nadas mientras formulas preguntas absurdas.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1711,
+    text: `¿Acaso vas al dentista solo cuando el diente ya se ha caído? La práctica es la higiene de la mente. No esperes a que la psique se pudra para empezar a limpiarla.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1712,
+    text: `Rainer Maria Rilke escribió: «Si su vida cotidiana le parece pobre, no la culpe a ella; cúlpese a usted mismo; confiésese que no es lo bastante poeta para suscitar sus riquezas». Si tu práctica te parece árida, no has profundizado lo suficiente. Sumérgete.`,
+    source: "Rainer Maria Rilke",
+    tags: ["silencio"]
+  },
+  {
+    number: 1713,
+    text: `David Goggins corrió 160 km con fracturas en los huesos de los pies. No por una medalla. Sino para demostrar que la mente miente cuando dice «no puedo». Tu mente afirma «no puedo practicar». Miente con idéntica convicción.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1714,
+    text: `Una limpieza a fondo la necesita tu mente, no tu casa. Pero en lugar de tirar la basura de los pensamientos, llevas décadas ordenándola en estanterías y llamándola «trabajo interior».`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1715,
+    text: `Un maestro zen colocó un vaso de agua turbia ante su discípulo: «No lo muevas; solo espera». Al cabo de una hora, el agua estaba cristalina. El maestro dijo: «La mente funciona igual. Déjala en paz y se asentará sola. Pero tú metes una cuchara cada diez segundos y te preguntas por qué sigue turbia».`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1716,
+    text: `Cuando te dicen «practica a diario», la mente oye condena. Cuando te dicen «mira el móvil a diario», la mente oye placer. Ambas actividades consumen el mismo tiempo. Una conduce a la libertad, la otra a la esclavitud. Adivina cuál eliges más a menudo.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1717,
+    text: `Einstein pasaba horas mirando al techo. Newton descubrió la gravedad sentado bajo un árbol. Mendeléyev vio la tabla periódica en sueños. Los mayores hallazgos ocurren cuando la mente calla. Tú no le concedes un segundo de tregua y pretendes que haga descubrimientos. ¿En serio?`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1718,
+    text: `La muerte no es un suceso del futuro. Es un proceso que ocurre ahora mismo. Cada segundo mueren células de tu cuerpo. Literalmente mueres y renaces a cada instante. Ya estás muerto y ya estás vivo. ¿De qué tienes miedo?`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1719,
+    text: `Gandhi no se convirtió en Gandhi en un día. Pero cada uno de sus días fue práctica. Mandela pasó 27 años entre rejas y salió sin amargura. No por santidad, sino porque practicó. Cada. Bendito. Día. ¿Y tú?`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1720,
+    text: `Si entrenaras el cuerpo con la misma ferocidad con que entrenas a la mente a pensar automáticamente, serías campeón olímpico. El problema no es la falta de empeño. El problema es la dirección.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1721,
+    text: `Un discípulo se lamentó ante Ramakrishna: «Maestro, no puedo meditar». Ramakrishna le agarró la cabeza y la sumergió bajo el agua hasta que el hombre se asfixiaba. Al soltarlo, le preguntó: «¿Qué anhelabas bajo el agua?». —«¡Aire!». —«Cuando anheles a Dios con la misma desesperación con que anhelabas el aire, no tendrás que preguntar cómo meditar».`,
+    source: "Ramakrishna",
+    tags: ["silencio"]
+  },
+  {
+    number: 1722,
+    text: `Un bombero no lee manuales en mitad de las llamas. Actúa porque se entrenó. Cuando la vida prenda fuego a tu mundo —y lo hará—, será tarde para abrir un libro de meditación. Entrena ahora mismo.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1723,
+    text: `Crees estar «en proceso». Que estás «en el camino». Que «todo va como debe». Es la trampa más seductora: la ilusión de avanzar. Comprueba con franqueza: ¿qué ha cambiado en el último año? Si la respuesta es «nada», estás estancado y lo llamas camino.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1724,
+    text: `El maestro Shido Bunan dijo: «Muere mientras vivas, muere por completo. Luego haz lo que quieras: todo estará bien». No es una metáfora poética. Es una instrucción literal. Deja que el personaje muera. Todo lo demás es reforma cosmética de tu cárcel.`,
+    source: "Shido Bunan",
+    tags: ["silencio"]
+  },
+  {
+    number: 1725,
+    text: `Un diamante y un trozo de carbón comparten idéntica composición: carbono. La única diferencia radica en la presión y el tiempo. La práctica es la presión. El tiempo es tu disciplina. Sin ellos, seguirás siendo carbón soñando con brillar.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1726,
+    text: `Benjamin Franklin se preguntaba cada noche: «¿Qué bien he hecho hoy?». Hazte otra pregunta: «¿Cuántos minutos del día he estado verdaderamente despierto?». Una respuesta honesta puede ser el inicio de algo real.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1727,
+    text: `Dicen que el despertar es comprender la broma cósmica. La gracia es esta: te pasaste la vida entera buscando la llave de una puerta que jamás estuvo cerrada con cerrojo.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1728,
+    text: `El maestro Yunmen proclamó: «Cada día es un buen día». No por optimismo ciego. Sino porque un día libre de etiquetas conceptuales carece por completo de la categoría de «malo».`,
+    source: "Maestro Yunmen",
+    tags: ["silencio"]
+  },
+  {
+    number: 1729,
+    text: `¿Te aterra la idea de permanecer 30 minutos en silencio? Pasarás una eternidad en silencio cuando mueras. ¿No tiene sentido familiarizarse de antemano?`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1730,
+    text: `Gengis Kan decía a sus guerreros antes de cada batalla: «Si tenéis miedo, no salgáis. Si salís, no tengáis miedo». Has salido al camino de la práctica. Deja de temblar y llega hasta el final.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1731,
+    text: `Cuando pospones la práctica para «más tarde», apuestas a que ese «más tarde» llegará. Es la apuesta más temeraria de la existencia. Pregúntale a cualquier difunto.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1732,
+    text: `Todo este universo es un visor de realidad virtual que olvidaste quitarte. La práctica es el instante preciso en que notas la correa tras la nuca.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1733,
+    text: `Nietzsche dijo: «Quien tiene un porqué para vivir puede soportar casi cualquier cómo». Tú tienes un porqué para practicar: la única oportunidad de saber quién eres antes de que este cuerpo se desintegre. Cualquier «cómo» posterior es juego de niños.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1734,
+    text: `El bambú crece bajo tierra durante cuatro años sin que nadie lo vea. En el quinto año, brota 25 metros en seis semanas. Tu práctica puede parecer estéril durante años. Pero las raíces se expanden. No arranques el brote solo porque aún no ves las flores.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1735,
+    text: `La manera más eficaz de acallar la mente es cargar el cuerpo con trabajo físico pesado. Corta leña, corre 10 km, haz 100 flexiones. La mente es un parásito que se nutre de la inactividad corporal. Muévete y callará.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1736,
+    text: `El maestro Keizan escribió: «No digas que no tienes tiempo para la práctica. Cuando camines, camina como Buda. Cuando te sientes, siéntate como Buda. Cuando comas, come como Buda. Toda la vida es práctica». Si no practicas, sencillamente no estás vivo.`,
+    source: "Keizan Jōkin",
+    tags: ["silencio"]
+  },
+  {
+    number: 1737,
+    text: `Un monje se lamentaba: «Los pensamientos me estorban». El maestro respondió: «¿A quién estorban? Despoja a los pensamientos de su dueño, y se convertirán en vagabundos errantes que pasan de largo y se esfuman».`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1738,
+    text: `Cada pensamiento al que das crédito es un préstamo al 1.000 por ciento de interés. Pides y pides, y luego te extrañas de estar en bancarrota emocional. Deja de pedir créditos a tu propia mente.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1739,
+    text: `El Fénix arde hasta las cenizas para renacer. No hace falta creer en leyendas: basta con mirar tu propia vida. Cada instante de rendición total, cuando dejas que todo se derrumbe, es el fuego exacto del que brota la lucidez.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1740,
+    text: `Hay un proverbio indígena: «Dentro de ti habitan dos lobos: uno es el miedo, el otro el amor. ¿Cuál vencerá? —Aquel al que alimentes». Cada minuto de práctica alimenta la consciencia. Cada minuto de deriva alimenta el piloto automático. ¿A cuál alimentaste hoy?`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1741,
+    text: `Dentro de 100 años no quedará en este planeta ni una sola de las personas que hoy lo habitan. Ni una sola. Todos serán nuevos. Y aquí estás tú, atormentándote por un comentario en internet. Cambia de escala, amigo. Cambia de escala y practica.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1742,
+    text: `Alto.
+No sigas desplazándote.
+Pasarás de largo este texto igual que el de ayer, y todo seguirá igual.
+Bloquea la pantalla y toma consciencia.
+Antes de que la mente invente un «después».`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1743,
+    text: `¿Cuántos días llevas viviendo dentro de esta mente, sin haber mirado jamás quién está sentado allí?`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1744,
+    text: `No te prometas una hora.
+Prométete dos minutos.
+Si no puedes soportar ni siquiera eso, no es cuestión de tiempo ni de cansancio.
+Entonces por fin sabrás a qué te estás enfrentando.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1745,
+    text: `El aburrimiento en el cojín no es señal de que estés haciendo algo mal.
+Es el primer momento del día en que nada ni nadie te está entreteniendo.
+Quédate con él.
+Debajo de él yace aquello de lo que huyes durante todo el día.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1746,
+    text: `Ya sabes pasar horas sin notar el tiempo cuando algo te interesa.
+Eso significa que sí tienes atención.
+La única pregunta es a quién se la estás entregando.
+La práctica es el único lugar donde te la devuelves a ti mismo.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1747,
+    text: `Textos como este dan un impulso agradable, como un trago de licor fuerte.
+En un minuto se disipará.
+La práctica empieza donde el impulso termina y tú sigues haciéndolo de todos modos.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1748,
+    text: `Si todo por dentro se resiste, excelente: hay algo vivo allí.
+No es el silencio lo que se resiste, sino quien teme perder el control.
+Deja que se resista.
+Y observa.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1749,
+    text: `Estás cansado.
+Estás ocupado.
+No tienes ganas.
+Todo eso es verdad, y nada de eso te impide respirar.
+Respira.
+Y ahora, mientras respiras, siéntate.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1750,
+    text: `La mente es la precursora de todos los estados.
+La mente es lo principal, todo está creado por la mente.
+Habla y actúa con mente pura, y la felicidad te seguirá como una sombra que nunca se aparta.`,
+    source: "Dhammapada, 1–2",
+    tags: ["silencio"]
+  },
+  {
+    number: 1751,
+    text: `Al amanecer, cuando te cueste levantarte, ten presente este pensamiento: «Me levanto para la labor de un ser humano».
+¿O acaso nací para acurrucarme bajo las mantas en el calor?`,
+    source: "Marco Aurelio, Meditaciones, V.1",
+    tags: ["silencio"]
+  },
+  {
+    number: 1752,
+    text: `Despojemos a la muerte de su extrañeza: frecuentémosla, acostumbrémonos a ella.
+No tengamos nada tan a menudo en la mente como la muerte.`,
+    source: "Michel de Montaigne, Ensayos, I.20",
+    tags: ["silencio"]
+  },
+  {
+    number: 1753,
+    text: `No escuches con los oídos, escucha con la mente.
+No, con la mente no: escucha con el espíritu.
+El oído solo es capaz de oír, la mente solo de comprender, pero el espíritu está vacío y listo para acogerlo todo.
+El Camino solo se reúne en el vacío.
+Ese vacío es el ayuno de la mente.`,
+    source: "Zhuangzi, cap. 4",
+    tags: ["silencio"]
+  },
+  {
+    number: 1754,
+    text: `Mejor es un solo día en la vida de quien es perseverante y resuelto que cien años vividos por alguien perezoso y pasivo.`,
+    source: "Dhammapada, 112",
+    tags: ["silencio"]
+  },
+  {
+    number: 1755,
+    text: `El día es corto, la labor inmensa, los obreros perezosos, la recompensa grande y el Amo apremia.
+No te corresponde a ti terminar el trabajo, pero tampoco eres libre de desentenderte de él.`,
+    source: "Rabí Tarfón",
+    tags: ["silencio"]
+  },
+  {
+    number: 1756,
+    text: `En primavera, cientos de flores; en otoño, la luna; en verano, una brisa fresca; en invierno, la nieve.
+Si tu mente no está cargada de cosas vanas, esta es la mejor estación de tu vida.`,
+    source: "Wumen Huikai",
+    tags: ["silencio"]
+  },
+  {
+    number: 1757,
+    text: `Una persona está hecha de deseo.
+Cual es su deseo, tal es su voluntad; cual es su voluntad, tal es su acción.
+Lo que haces, en eso te conviertes.`,
+    source: "Brihadaranyaka Upanishad, IV.4.5",
+    tags: ["silencio"]
+  },
+  {
+    number: 1758,
+    text: `Por la mañana, piensa que no llegarás a la noche.
+Llegada la noche, no te atrevas a prometerte la mañana.
+Permanece siempre preparado y vive de modo que la muerte nunca te halle desprevenido.`,
+    source: "Tomás de Kempis",
+    tags: ["silencio"]
+  },
+  {
+    number: 1759,
+    text: `No lo busques en otros, o te alejarás aún más de ti mismo.
+Hoy camino solo y lo encuentro en todas partes.
+Él es yo, pero yo ya no soy él.`,
+    source: "Dongshan Liangjie",
+    tags: ["silencio"]
+  },
+  {
+    number: 1760,
+    text: `Adquiere un espíritu de paz, y miles a tu alrededor se salvarán.`,
+    source: "Serafín de Sarov",
+    tags: ["silencio"]
+  },
+  {
+    number: 1761,
+    text: `¿Cuánto más vas a posponer el exigir lo mejor de ti mismo?
+Has recibido las enseñanzas y has estado de acuerdo con ellas.
+¿A qué maestro estás esperando para encomendarle tu propia mejora?
+Si eres negligente y vas postergando intención tras intención, plazo tras plazo, no te darás cuenta de que habrás vivido y muerto como un hombre común.
+Decídete a vivir como una persona madura ahora mismo.`,
+    source: "Epicteto",
+    tags: ["silencio"]
+  },
+  {
+    number: 1762,
+    text: `Da un paso atrás y vuelve la luz hacia adentro.
+El cuerpo y la mente se desprenderán por sí solos, y se manifestará tu rostro original.`,
+    source: "Dogen, Fukan Zazengi",
+    tags: ["silencio"]
+  },
+  {
+    number: 1763,
+    text: `Para mí, el tiempo de los quehaceres no difiere del tiempo de la oración.
+En medio del ruido y el ajetreo de mi cocina, mientras varias personas me llaman a la vez, poseo a Dios con la misma tranquilidad que si estuviera de rodillas ante el altar.`,
+    source: "Hermano Lorenzo",
+    tags: ["silencio"]
+  },
+  {
+    number: 1764,
+    text: `El miedo a la muerte me llevó a las montañas.
+Meditando una y otra vez sobre la incertidumbre de la hora de la muerte, alcancé la fortaleza de lo que nunca nace y nunca muere.
+Ahora soy libre del miedo a la muerte.`,
+    source: "Milarepa",
+    tags: ["silencio"]
+  },
+  {
+    number: 1765,
+    text: `Cava en tu interior.
+Dentro está la fuente del bien, y siempre puede brotar si sigues cavando.`,
+    source: "Marco Aurelio",
+    tags: ["silencio"]
+  },
+  {
+    number: 1766,
+    text: `Uno mismo es su propio dueño; ¿quién más podría serlo?
+Con un dominio cabal de uno mismo, se obtiene un señor difícil de encontrar.`,
+    source: "Dhammapada, 160",
+    tags: ["silencio"]
+  },
+  {
+    number: 1767,
+    text: `Ama el silencio por encima de todo, porque produce un fruto que las palabras no pueden expresar.
+Al principio nos obligamos a callar.
+Y luego, del silencio nace algo que nos atrae hacia él por sí mismo.`,
+    source: "Isaac el Sirio",
+    tags: ["silencio"]
+  },
+  {
+    number: 1768,
+    text: `¿Dónde encontrar tanto cuero como para cubrir toda la tierra?
+Sin embargo, con unas suelas de cuero en los pies, toda la tierra queda cubierta.
+Del mismo modo, es imposible domar el mundo exterior.
+Doma tu propia mente, ¿y qué necesidad habrá entonces de domar nada más?`,
+    source: "Shantideva, Bodhicharyavatara, V.13–14",
+    tags: ["silencio"]
+  },
+  {
+    number: 1769,
+    text: `Para venir a lo que no sabes, has de ir por donde no sabes.`,
+    source: "San Juan de la Cruz, Subida del Monte Carmelo",
+    tags: ["silencio"]
+  },
+  {
+    number: 1770,
+    text: `La trampa sirve para atrapar peces; una vez atrapado el pez, se olvida la trampa.
+Las palabras sirven para atrapar el sentido; una vez captado el sentido, se olvidan las palabras.
+¿Dónde encontrar a un ser humano que haya olvidado las palabras para poder hablar con él?`,
+    source: "Zhuangzi, cap. 26",
+    tags: ["silencio"]
+  },
+  {
+    number: 1771,
+    text: `La gente busca retiros para sí — en el campo, junto al mar, en la montaña.
+Pero tú puedes retirarte a ti mismo en cualquier momento.
+No hay lugar más tranquilo y sereno que la propia alma.`,
+    source: "Marco Aurelio, Meditaciones, IV.3",
+    tags: ["silencio"]
+  },
+  {
+    number: 1772,
+    text: `¿Dónde me buscas?
+Estoy a tu lado.
+Ni en el templo ni en la mezquita, ni en Kailash ni en la Kaaba.
+Si eres un verdadero buscador, me verás de inmediato, en un solo instante.
+Kabir dice: Dios es el aliento de todo aliento.`,
+    source: "Kabir",
+    tags: ["silencio"]
+  },
+  {
+    number: 1773,
+    text: `No busques un dueño en este cuerpo.
+La respiración ocurre, el corazón late,
+las sensaciones surgen.
+Encuentra a quien crees
+que es dueño de todo esto.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1774,
+    text: `Dedica toda tu vida a la práctica.
+No dejes el despertar
+para el tiempo libre.
+Que cada conversación, cada paso
+y cada silencio se conviertan en el lugar
+donde reconozcas tu verdadera naturaleza.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1775,
+    text: `No te conviertas en nadie.
+Ni en una persona, ni en un buscador,
+ni en un observador,
+ni en alguien que ya lo ha entendido todo.
+Abandona todo llegar a ser.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1776,
+    text: `Elimina la palabra "mío"
+de cada experiencia.
+No te apropies de la respiración, el pensamiento,
+el sentimiento o la acción.
+Deja lo que sucede como algo de nadie.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1777,
+    text: `Entrega a la práctica no solo unas pocas horas
+al día, sino el hábito mismo
+de posponerla.
+No esperes el estado adecuado.
+Comienza justo en este instante.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1778,
+    text: `No busques a quien es consciente.
+Suelta el pensamiento mismo
+de un observador y quédate
+en el simple hecho de ser consciente.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1779,
+    text: `No continúes el pensamiento sobre ti mismo.
+Tan pronto como surja,
+no le añadas el siguiente.
+Mira qué queda
+sin esta historia.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1780,
+    text: `Despójate de todas las definiciones
+una por una.
+Ni esto, ni esto.
+No te detengas en un nuevo nombre
+para lo que queda.`,
+    source: "Brihadaranyaka Upanishad",
+    tags: ["silencio"]
+  },
+  {
+    number: 1781,
+    text: `No hagas del cuerpo
+una persona separada.
+Mira directamente: el cuerpo se siente,
+se mueve y respira,
+pero ¿dónde dentro de él se encuentra
+un dueño separado?`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1782,
+    text: `Deja la mente sin una tarea.
+No necesitas llegar a ninguna parte,
+obtener nada ni retener nada.
+Permanece sin el objetivo de alcanzar
+un estado especial.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1783,
+    text: `No sustituyas lo No Nacido
+por un nuevo pensamiento, un nuevo estado
+o una nueva imagen de ti mismo.
+Permanece en la mente original,
+sin añadirle nada.`,
+    source: "Bankei Yōtaku",
+    tags: ["silencio"]
+  },
+  {
+    number: 1784,
+    text: `Deja de decir internamente "yo".
+No reprimas esta palabra;
+simplemente no la repitas detrás
+de cada pensamiento
+y cada sensación.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1785,
+    text: `No entres en lo que sucede
+como un participante separado.
+No salgas de ello
+como un testigo distante.
+Deja solo el suceder mismo.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1786,
+    text: `Dentro de este cuerpo de cinco agregados
+hay una persona verdadera
+sin rango ni título.
+Reconócela no por una imagen,
+sino directamente.`,
+    source: "Master Linji (Linji Yixuan)",
+    tags: ["silencio"]
+  },
+  {
+    number: 1787,
+    text: `No esperes a que la mente se calme.
+Deja de esperar.
+Incluso una mente inquieta ya surge
+en aquello que no necesita quietud.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1788,
+    text: `No te aferres a la sensación de "yo soy".
+Nótala también.
+No conviertas ni el más sutil
+sentimiento de presencia en ti mismo.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1789,
+    text: `Deja de ser el centro de tu historia.
+Deja que los acontecimientos sucedan,
+que la gente hable, que el cuerpo actúe,
+sin necesidad de atarlo todo
+a un "yo" separado.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1790,
+    text: `No conviertas la no implicación
+en distanciamiento de la vida.
+Sé plenamente la acción,
+pero no crees dentro
+un dueño separado de la acción.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1791,
+    text: `Observa cómo primero surge un pensamiento,
+y luego se le añade
+"yo lo pensé".
+No te pierdas este instante de apropiación.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1792,
+    text: `No te reconstruyas de nuevo
+a partir de recuerdos.
+El pasado llega ahora como un pensamiento.
+No te conviertas en ese pensamiento.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1793,
+    text: `Mira cada sentimiento
+antes de llamarlo tuyo.
+No te apropies de la experiencia:
+déjala manifestarse por completo
+y pasar.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1794,
+    text: `No te conviertas ni siquiera en aquel
+que "no hace nada".
+Deja que desaparezca también
+este último papel.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1795,
+    text: `Practica ahora,
+sin prometerte empezar mañana.
+El siguiente instante no te pertenece.
+Este ya está abierto.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1796,
+    text: `Todos tienen tanto miedo de no ser nadie en esta vida
+que terminan convirtiéndose en cualquiera.`,
+    source: "Papaji",
+    tags: ["silencio"]
+  },
+  {
+    number: 1797,
+    text: `Si quieres descubrir la verdad,
+debes desaparecer.`,
+    source: "Papaji",
+    tags: ["silencio"]
+  },
+  {
+    number: 1798,
+    text: `Examinándolo de cerca, verás que no hay ningún "yo"
+y que este universo desaparece, disolviéndose en el vacío.
+Nunca ha surgido nada en la conciencia: esta es la verdad última.`,
+    source: "Papaji",
+    tags: ["silencio"]
+  },
+  {
+    number: 1799,
+    text: `Para sufrir, necesitas la mente y el pasado.
+Para ser libre, no necesitas nada.`,
+    source: "Papaji",
+    tags: ["silencio"]
+  },
+  {
+    number: 1800,
+    text: `Descubre aquello inmutable en lo que tienen lugar todos los cambios.
+¿Cómo podemos hacerlo? Por exclusión: excluye todo lo que cambia.`,
+    source: "Papaji",
+    tags: ["silencio"]
+  },
+  {
+    number: 1801,
+    text: `Siéntate en silencio durante un rato y observa. Todo lo que ves,
+todo lo que puedes percibir, imaginar o sentir
+puede ser excluido, y quedará lo que no puedas excluir.
+Eso es el residir constante, la existencia, la conciencia, la dicha y la libertad.
+Esto puede hacerse en un instante o puede llevar muchas eras.`,
+    source: "Papaji",
+    tags: ["silencio"]
+  },
+  {
+    number: 1802,
+    text: `Encuentra un poco de tiempo, solo un instante, para ver quién eres realmente.
+Encuentra tiempo para tu verdadero ser. Nunca tuviste tiempo para tu verdadero ser:
+durante un millón de años usaste tu cabeza, ahora al menos encuentra tiempo
+para tu verdadero corazón.`,
+    source: "Papaji",
+    tags: ["silencio"]
+  },
+  {
+    number: 1803,
+    text: `Cuando no permites que surjan pensamientos, regresas al vacío, a la conciencia.
+Cuando surge un pensamiento, surge el mundo. Un solo pensamiento ya es un mundo,
+y este mundo es solo tu proyección, que no está separada de ti,
+pues tú eres lo único que hay.
+Así como tus ojos, tus oídos y tus manos no existen separados de ti,
+así es el mundo: todos los seres, pájaros, flores, rocas, todo esto eres tú, tu propio ser.
+Si comprendes esto alguna vez, ¿de dónde podría venir el sufrimiento?
+El sufrimiento es siempre algo más; solo entonces puedes sufrir.
+Cuando tu ser total existe y este ser total está vacío,
+entonces no puede haber ningún problema.
+Al comprender esto, ya eres quien eres. Esta es tu propia naturaleza, tú eres eso.
+Ya eres tu propia naturaleza; no necesitas alcanzarla ni adquirirla.`,
+    source: "Papaji",
+    tags: ["silencio"]
+  },
+  {
+    number: 1804,
+    text: `Entre dos nubes hay un espacio, y en ese espacio se divisa el cielo azul.
+Ve más despacio y mira en los espacios. Sí, mira en los espacios y presta más atención
+a ellos que a las nubes: donde un pensamiento se ha ido y el siguiente aún no ha surgido,
+allí está la conciencia, esta libertad, tu verdadero lugar, tu propio hogar.`,
+    source: "Papaji",
+    tags: ["silencio"]
+  },
+  {
+    number: 1805,
+    text: `La vida no es una cadena de acontecimientos que suceden a tu alrededor en el tiempo y el espacio.
+La vida es una cadena de tus estados internos que tú mismo te creas,
+juzgando los acontecimientos en los que te encuentras.`,
+    source: "Papaji",
+    tags: ["silencio"]
+  },
+  {
+    number: 1806,
+    text: `Lo mejor que puedes hacer es permanecer en silencio y no permitir que nadie te perturbe.
+Permanece en la paz del silencio y del amor, es suficiente. No interfieras con la acción de todas estas olas:
+sufre cuando surja el sufrimiento y sé feliz cuando llegue la felicidad,
+pero por dentro permanece siempre vacío.`,
+    source: "Papaji",
+    tags: ["silencio"]
+  },
+  {
+    number: 1807,
+    text: `Si hay paz dentro de ti, encontrarás la paz también con los demás.
+Si tu mente está agitada, descubrirás confusión en todas partes.
+Por tanto, encuentra la paz dentro de ti mismo y verás cómo comienza a reflejarse
+en todo lo que te rodea. Tú eres esa paz, tú eres esa alegría.
+Descubrirla: ¿dónde más deseas encontrar la paz, si no es en ti mismo?`,
+    source: "Papaji",
+    tags: ["silencio"]
+  },
+  {
+    number: 1808,
+    text: `No causes dolor a nadie con palabras ni con acciones,
+porque volverá a ti con una fuerza multiplicada por diez.`,
+    source: "Papaji",
+    tags: ["silencio"]
+  },
+  {
+    number: 1809,
+    text: `Solo aquellos que están cerca de la libertad necesitan guía;
+quienes están en la oscuridad y quienes ya están en la luz no la necesitan.`,
+    source: "Papaji",
+    tags: ["silencio"]
+  },
+  {
+    number: 1810,
+    text: `Vivimos en este mundo porque no hemos completado nuestro trabajo: conocernos a nosotros mismos.
+Conoce tu "yo" y conocerás el universo entero. Las personas son infelices porque
+no saben quiénes son; si conoces tu "yo",
+no tendrás necesidad de aspirar a Dios.`,
+    source: "Papaji",
+    tags: ["silencio"]
+  },
+  {
+    number: 1811,
+    text: `El momento presente es la libertad. Mira este momento presente: es la libertad misma.
+¿Acaso siempre estás mirando hacia momentos del pasado? ¿Cuándo le diste al momento presente la oportunidad de manifestarse?
+Nunca le diste esa oportunidad. Siempre te relacionaste únicamente con el pasado.
+Lo que te sucede directamente ahora nunca ocupó tus pensamientos,
+y precisamente eso es el momento presente. Míralo detenidamente y entonces verás tu verdadero rostro.`,
+    source: "Papaji",
+    tags: ["silencio"]
+  },
+  {
+    number: 1812,
+    text: `Lo que se va no es eterno. Toda forma que nació debe partir,
+pero la esencia subyacente no tiene forma y nunca se va.
+Si te apegas a la forma, cometes un gran error.`,
+    source: "Papaji",
     tags: ["silencio"]
   }
 ];

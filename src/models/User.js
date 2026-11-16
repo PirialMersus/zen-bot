@@ -44,6 +44,22 @@ const schema = new mongoose.Schema({
     type: Number,
     default: 0
   },
+  shuffleFavoriteQueue: {
+    type: [mongoose.Schema.Types.ObjectId],
+    default: []
+  },
+  shuffleFavoriteIndex: {
+    type: Number,
+    default: 0
+  },
+  tagShuffleFavoriteQueue: {
+    type: [mongoose.Schema.Types.ObjectId],
+    default: []
+  },
+  tagShuffleFavoriteIndex: {
+    type: Number,
+    default: 0
+  },
 
   favoritePointers: [{
     pointerId: { type: mongoose.Schema.Types.ObjectId, index: true },

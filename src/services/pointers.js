@@ -48,12 +48,15 @@ const buildTextSearchCriteria = rawSearchQuery => {
 
   const escapedSearchPattern = escapeRegularExpressionString(normalizedSearchQuery);
   return {
-    text: { $regex: escapedSearchPattern, $options: 'i' },
-    isActive: true
+    isActive: true,
+    $or: [
+      { text: { $regex: escapedSearchPattern, $options: 'i' } },
+      { source: { $regex: escapedSearchPattern, $options: 'i' } }
+    ]
   };
 };
 
-export const findPointersByText = async (rawSearchQuery, language = 'ru', maximumRecordsLimit = 10) => {
+export const findPointersByText = async (rawSearchQuery, language = 'ru', maximumRecordsLimit = 10, skipRecordsCount = 0) => {
   const searchCriteria = buildTextSearchCriteria(rawSearchQuery);
   if (!searchCriteria) {
     return [];
@@ -63,6 +66,7 @@ export const findPointersByText = async (rawSearchQuery, language = 'ru', maximu
   return await targetPointerModel
     .find(searchCriteria)
     .sort({ number: 1 })
+    .skip(skipRecordsCount)
     .limit(maximumRecordsLimit);
 };
 
@@ -127,6 +131,78 @@ export const getNextPointerForUser = async (telegramUserId, tagFilter = null) =>
 
   const queueFieldName = effectiveTagFilter ? 'tagShuffleQueue' : 'shuffleQueue';
   const indexFieldName = effectiveTagFilter ? 'tagShuffleIndex' : 'shuffleIndex';
+  const favoriteQueueFieldName = effectiveTagFilter ? 'tagShuffleFavoriteQueue' : 'shuffleFavoriteQueue';
+  const favoriteIndexFieldName = effectiveTagFilter ? 'tagShuffleFavoriteIndex' : 'shuffleFavoriteIndex';
+
+  const existingFavoriteQueue = user[favoriteQueueFieldName] || [];
+  let existingFavoriteIndex = user[favoriteIndexFieldName] || 0;
+
+  if (existingFavoriteQueue.length > 0) {
+    const validUserFavoriteIdStrings = new Set(
+      (user.favoritePointers || []).map(item => String(item?.pointerId))
+    );
+
+    while (existingFavoriteIndex < existingFavoriteQueue.length) {
+      const candidatePointerId = existingFavoriteQueue[existingFavoriteIndex];
+      const isStillInUserFavorites = validUserFavoriteIdStrings.has(String(candidatePointerId));
+
+      if (isStillInUserFavorites) {
+        let favoritePointerDocument = await targetPointerModel.findOne({
+          _id: candidatePointerId,
+          isActive: true,
+          ...(effectiveTagFilter ? { tags: effectiveTagFilter } : {})
+        });
+
+        if (!favoritePointerDocument && targetPointerModel !== Pointer) {
+          const totalCollectionCount = await targetPointerModel.countDocuments({});
+          if (totalCollectionCount === 0) {
+            favoritePointerDocument = await Pointer.findOne({
+              _id: candidatePointerId,
+              isActive: true,
+              ...(effectiveTagFilter ? { tags: effectiveTagFilter } : {})
+            });
+          }
+        }
+
+        if (favoritePointerDocument) {
+          const nextFavoriteIndex = existingFavoriteIndex + 1;
+          const isFinaleFinished = nextFavoriteIndex >= existingFavoriteQueue.length;
+
+          if (isFinaleFinished) {
+            const freshQueue = buildShuffledIndexArray(totalActiveCount);
+            await User.updateOne(
+              { telegramId: telegramUserId },
+              {
+                [favoriteQueueFieldName]: [],
+                [favoriteIndexFieldName]: 0,
+                [queueFieldName]: freshQueue,
+                [indexFieldName]: 0
+              }
+            );
+          } else {
+            await User.updateOne(
+              { telegramId: telegramUserId },
+              {
+                [favoriteIndexFieldName]: nextFavoriteIndex
+              }
+            );
+          }
+
+          return favoritePointerDocument;
+        }
+      }
+
+      existingFavoriteIndex++;
+    }
+
+    await User.updateOne(
+      { telegramId: telegramUserId },
+      {
+        [favoriteQueueFieldName]: [],
+        [favoriteIndexFieldName]: 0
+      }
+    );
+  }
 
   const userQueue = user[queueFieldName] || [];
   const previousQueueLength = userQueue.length;
@@ -163,19 +239,72 @@ export const getNextPointerForUser = async (telegramUserId, tagFilter = null) =>
     return fallbackPointer || null;
   }
 
-  const nextIndex = currentIndex + 1 >= currentQueue.length ? 0 : currentIndex + 1;
-  const nextQueue = nextIndex === 0 ? buildShuffledIndexArray(totalActiveCount) : currentQueue;
+  const isEndOfMainQueue = currentIndex + 1 >= currentQueue.length;
 
-  if (queueNeedsRebuild || nextIndex === 0) {
-    await User.updateOne(
-      { telegramId: telegramUserId },
-      { [queueFieldName]: nextQueue, [indexFieldName]: nextIndex }
-    );
+  if (isEndOfMainQueue) {
+    const validObjectIds = (user.favoritePointers || [])
+      .map(item => item?.pointerId)
+      .filter(id => id && mongoose.Types.ObjectId.isValid(id));
+
+    let eligibleFavoriteDocuments = [];
+    if (validObjectIds.length > 0) {
+      eligibleFavoriteDocuments = await targetPointerModel.find({
+        _id: { $in: validObjectIds },
+        isActive: true,
+        ...(effectiveTagFilter ? { tags: effectiveTagFilter } : {})
+      }).select('_id').lean();
+
+      if (eligibleFavoriteDocuments.length === 0 && targetPointerModel !== Pointer) {
+        const totalCollectionCount = await targetPointerModel.countDocuments({});
+        if (totalCollectionCount === 0) {
+          eligibleFavoriteDocuments = await Pointer.find({
+            _id: { $in: validObjectIds },
+            isActive: true,
+            ...(effectiveTagFilter ? { tags: effectiveTagFilter } : {})
+          }).select('_id').lean();
+        }
+      }
+    }
+
+    if (eligibleFavoriteDocuments.length > 0) {
+      const eligibleFavoriteIds = eligibleFavoriteDocuments.map(doc => doc._id);
+      const shuffledFavoriteIndices = buildShuffledIndexArray(eligibleFavoriteIds.length);
+      const shuffledFavoriteIds = shuffledFavoriteIndices.map(shuffledIndex => eligibleFavoriteIds[shuffledIndex]);
+
+      await User.updateOne(
+        { telegramId: telegramUserId },
+        {
+          [favoriteQueueFieldName]: shuffledFavoriteIds,
+          [favoriteIndexFieldName]: 0,
+          [queueFieldName]: currentQueue,
+          [indexFieldName]: currentIndex + 1
+        }
+      );
+    } else {
+      const nextQueue = buildShuffledIndexArray(totalActiveCount);
+      await User.updateOne(
+        { telegramId: telegramUserId },
+        {
+          [favoriteQueueFieldName]: [],
+          [favoriteIndexFieldName]: 0,
+          [queueFieldName]: nextQueue,
+          [indexFieldName]: 0
+        }
+      );
+    }
   } else {
-    await User.updateOne(
-      { telegramId: telegramUserId },
-      { [indexFieldName]: nextIndex }
-    );
+    const nextIndex = currentIndex + 1;
+    if (queueNeedsRebuild) {
+      await User.updateOne(
+        { telegramId: telegramUserId },
+        { [queueFieldName]: currentQueue, [indexFieldName]: nextIndex }
+      );
+    } else {
+      await User.updateOne(
+        { telegramId: telegramUserId },
+        { [indexFieldName]: nextIndex }
+      );
+    }
   }
 
   return pointer;
@@ -212,6 +341,12 @@ export const toggleFavoritePointer = async (telegramUserId, pointerId) => {
     );
     user.favoriteQueue = [];
     user.favoriteIndex = 0;
+    user.shuffleFavoriteQueue = (user.shuffleFavoriteQueue || []).filter(
+      id => String(id) !== String(pointerId)
+    );
+    user.tagShuffleFavoriteQueue = (user.tagShuffleFavoriteQueue || []).filter(
+      id => String(id) !== String(pointerId)
+    );
     isFavoriteNow = false;
   } else {
     user.favoritePointers.push({ pointerId });

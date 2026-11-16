@@ -140,11 +140,11 @@ describe('Поиск указателей администратором', () =>
     const executionResult = await handleAdminSearchPointers(mockAdminContext);
 
     expect(executionResult).toBe(true);
-    expect(mockAdminContext.reply).toHaveBeenCalledTimes(11);
+    expect(mockAdminContext.reply).toHaveBeenCalledTimes(6);
 
-    const infoReplyMessage = mockAdminContext.reply.mock.calls[10][0];
+    const infoReplyMessage = mockAdminContext.reply.mock.calls[5][0];
     expect(infoReplyMessage).toContain('Найдено всего: 12');
-    expect(infoReplyMessage).toContain('Показаны первые 10');
+    expect(infoReplyMessage).toContain('Показаны: 1–5');
   });
 
   it('должен требовать указать текст для поиска если передана пустая команда', async () => {

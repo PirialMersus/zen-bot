@@ -92,19 +92,23 @@ describe('Главное меню и навигация', () => {
     expect(mockBot.telegram.setMyCommands).toHaveBeenCalledTimes(4);
     expect(mockBot.telegram.setMyCommands).toHaveBeenNthCalledWith(1, [
       { command: 'start', description: 'Запустить бота / Главное меню' },
-      { command: 'help', description: 'Справка и возможности' }
+      { command: 'help', description: 'Справка и возможности' },
+      { command: 'f', description: 'Поиск указателей по автору или фразе' }
     ]);
     expect(mockBot.telegram.setMyCommands).toHaveBeenNthCalledWith(2, [
       { command: 'start', description: 'Start the bot / Main menu' },
-      { command: 'help', description: 'Help and features' }
+      { command: 'help', description: 'Help and features' },
+      { command: 'f', description: 'Search pointers by author or phrase' }
     ], { language_code: 'en' });
     expect(mockBot.telegram.setMyCommands).toHaveBeenNthCalledWith(3, [
       { command: 'start', description: 'Запустити бота / Головне меню' },
-      { command: 'help', description: 'Довідка та можливості' }
+      { command: 'help', description: 'Довідка та можливості' },
+      { command: 'f', description: 'Пошук вказівників за автором або фразою' }
     ], { language_code: 'uk' });
     expect(mockBot.telegram.setMyCommands).toHaveBeenNthCalledWith(4, [
       { command: 'start', description: 'Iniciar el bot / Menú principal' },
-      { command: 'help', description: 'Ayuda y características' }
+      { command: 'help', description: 'Ayuda y características' },
+      { command: 'f', description: 'Buscar punteros por autor o frase' }
     ], { language_code: 'es' });
   });
 });

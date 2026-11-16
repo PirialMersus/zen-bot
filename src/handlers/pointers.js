@@ -1,9 +1,12 @@
+import { Markup } from 'telegraf';
 import {
   getNextPointerForUser,
   getNextFavoritePointerForUser,
   isPointerInFavorites,
   toggleFavoritePointer,
-  countUserFavoritePointers
+  countUserFavoritePointers,
+  findPointersByText,
+  countPointersByText
 } from '../services/pointers.js';
 import { getIntervalKeyboard } from '../keyboard/intervals.js';
 import { mainKeyboard } from '../keyboard/main.js';
@@ -317,4 +320,133 @@ export const handlePointerToMenu = async ctx => {
   const userLanguage = await resolveUserLanguage(ctx);
   const texts = getTexts(userLanguage);
   await ctx.reply(texts.MENU.MAIN, mainKeyboard(ctx, userLanguage));
+};
+
+export const handleSearchPointers = async ctx => {
+  const rawIncomingMessageText = ctx.message?.text || '';
+  const trimmedLowerCasedText = rawIncomingMessageText.trim().toLowerCase();
+
+  let targetPointerLanguage = await resolveUserLanguage(ctx);
+  const languageModifierMatch = trimmedLowerCasedText.match(/(?:^|\s|_)(en|ru|uk|es)(?:\s|$)/i);
+  if (languageModifierMatch) {
+    targetPointerLanguage = languageModifierMatch[1].toLowerCase();
+  }
+
+  let extractedSearchPhrase = rawIncomingMessageText
+    .replace(/^\/(?:find|search|f)(?:_(?:en|ru|uk|es))?(?:\s+|$)/i, '')
+    .trim();
+
+  extractedSearchPhrase = extractedSearchPhrase
+    .replace(/^(?:en|ru|uk|es)\s+/i, '')
+    .replace(/\s+(?:en|ru|uk|es)$/i, '')
+    .trim();
+
+  const texts = getTexts(targetPointerLanguage);
+
+  if (!extractedSearchPhrase) {
+    await ctx.reply(texts.SEARCH.HINT);
+    return true;
+  }
+
+  const portionSizeLimit = 5;
+  const [totalFoundCount, foundPointersList] = await Promise.all([
+    countPointersByText(extractedSearchPhrase, targetPointerLanguage),
+    findPointersByText(extractedSearchPhrase, targetPointerLanguage, portionSizeLimit, 0)
+  ]);
+
+  if (totalFoundCount === 0 || foundPointersList.length === 0) {
+    await ctx.reply(texts.SEARCH.NOT_FOUND(extractedSearchPhrase, targetPointerLanguage));
+    return true;
+  }
+
+  ctx.session ??= {};
+
+  for (const singlePointerRecord of foundPointersList) {
+    const formattedPointerMessage = formatPointerText(singlePointerRecord);
+    ctx.session.lastPointerText = singlePointerRecord.text;
+    ctx.session.lastPointerId = String(singlePointerRecord._id);
+
+    const isFavorite = await isPointerInFavorites(ctx.from?.id, singlePointerRecord._id);
+
+    await ctx.reply(
+      formattedPointerMessage,
+      buildPointerInlineKeyboard(targetPointerLanguage, isFavorite, singlePointerRecord._id, 'random')
+    );
+  }
+
+  if (totalFoundCount > foundPointersList.length) {
+    const remainingCount = totalFoundCount - foundPointersList.length;
+    ctx.session.searchState = {
+      query: extractedSearchPhrase,
+      language: targetPointerLanguage,
+      offset: foundPointersList.length,
+      total: totalFoundCount
+    };
+
+    await ctx.reply(
+      texts.SEARCH.PAGINATION_STATUS(totalFoundCount, foundPointersList.length),
+      Markup.inlineKeyboard([
+        [Markup.button.callback(texts.SEARCH.MORE_BUTTON(remainingCount), 'search:more')]
+      ])
+    );
+  }
+
+  return true;
+};
+
+export const handleSearchMorePointers = async ctx => {
+  const searchState = ctx.session?.searchState;
+  const userLanguage = await resolveUserLanguage(ctx);
+  const texts = getTexts(searchState?.language || userLanguage);
+
+  if (!searchState || !searchState.query) {
+    await ctx.answerCbQuery(texts.SEARCH.EXPIRED_SESSION, { show_alert: true }).catch(() => {});
+    return;
+  }
+
+  await ctx.answerCbQuery().catch(() => {});
+
+  const portionSizeLimit = 5;
+  const nextPointers = await findPointersByText(
+    searchState.query,
+    searchState.language,
+    portionSizeLimit,
+    searchState.offset
+  );
+
+  if (nextPointers.length === 0) {
+    await ctx.editMessageText(texts.SEARCH.ALL_SHOWN(searchState.total)).catch(() => {});
+    delete ctx.session.searchState;
+    return;
+  }
+
+  await ctx.editMessageReplyMarkup().catch(() => {});
+
+  for (const singlePointerRecord of nextPointers) {
+    const formattedPointerMessage = formatPointerText(singlePointerRecord);
+    ctx.session.lastPointerText = singlePointerRecord.text;
+    ctx.session.lastPointerId = String(singlePointerRecord._id);
+
+    const isFavorite = await isPointerInFavorites(ctx.from?.id, singlePointerRecord._id);
+
+    await ctx.reply(
+      formattedPointerMessage,
+      buildPointerInlineKeyboard(searchState.language, isFavorite, singlePointerRecord._id, 'random')
+    );
+  }
+
+  searchState.offset += nextPointers.length;
+
+  if (searchState.offset < searchState.total) {
+    const remainingCount = searchState.total - searchState.offset;
+    await ctx.reply(
+      texts.SEARCH.PAGINATION_STATUS(searchState.total, searchState.offset),
+      Markup.inlineKeyboard([
+        [Markup.button.callback(texts.SEARCH.MORE_BUTTON(remainingCount), 'search:more')]
+      ])
+    );
+  } else {
+    await ctx.reply(texts.SEARCH.ALL_SHOWN(searchState.total));
+    delete ctx.session.searchState;
+  }
 };

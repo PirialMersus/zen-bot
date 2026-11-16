@@ -34,6 +34,15 @@ const RUSSIAN_TEXTS = {
     FAVORITE_TOAST: (current, total) => total ? `⭐ Избранное: ${current} из ${total}` : '⭐ Режим: Избранное'
   },
 
+  SEARCH: {
+    HINT: '⚠️ Укажите текст для поиска или автора.\nПример: /f Будда или /f [отрывок указателя]',
+    NOT_FOUND: (query, lang) => `❌ Указатели с текстом «${query}» (${lang.toUpperCase()}) не найдены.`,
+    PAGINATION_STATUS: (total, shown) => `ℹ️ Найдено всего: ${total}. Показаны: 1–${shown}`,
+    MORE_BUTTON: remaining => `Показать ещё (${remaining}) ➡️`,
+    ALL_SHOWN: total => `✅ Показаны все найденные указатели (${total}).`,
+    EXPIRED_SESSION: 'Поисковая сессия устарела. Отправьте /f заново.'
+  },
+
   REMINDERS: {
     NONE: 'У тебя нет напоминаний.',
     CREATED: 'Готово. Напоминание создано.',
@@ -152,6 +161,15 @@ I will remind you about what truly matters.
     FAVORITE_BADGE_INFO: 'You are browsing your personal favorites ⭐',
     EXPIRE_BADGE_INFO: '⏳ This message will disappear automatically. Click "⭐ To favorites" to save it.',
     FAVORITE_TOAST: (current, total) => total ? `⭐ Favorites: ${current} of ${total}` : '⭐ Mode: Favorites'
+  },
+
+  SEARCH: {
+    HINT: '⚠️ Specify search text or author.\nExample: /f Buddha or /f [pointer excerpt]',
+    NOT_FOUND: (query, lang) => `❌ Pointers matching «${query}» (${lang.toUpperCase()}) not found.`,
+    PAGINATION_STATUS: (total, shown) => `ℹ️ Total found: ${total}. Shown: 1–${shown}`,
+    MORE_BUTTON: remaining => `Show more (${remaining}) ➡️`,
+    ALL_SHOWN: total => `✅ All found pointers shown (${total}).`,
+    EXPIRED_SESSION: 'Search session expired. Send /f again.'
   },
 
   REMINDERS: {
@@ -274,6 +292,15 @@ const UKRAINIAN_TEXTS = {
     FAVORITE_TOAST: (current, total) => total ? `⭐ Обране: ${current} з ${total}` : '⭐ Режим: Обране'
   },
 
+  SEARCH: {
+    HINT: '⚠️ Вкажіть текст для пошуку або автора.\nПриклад: /f Будда або /f [уривок вказівника]',
+    NOT_FOUND: (query, lang) => `❌ Вказівники за запитом «${query}» (${lang.toUpperCase()}) не знайдені.`,
+    PAGINATION_STATUS: (total, shown) => `ℹ️ Всього знайдено: ${total}. Показано: 1–${shown}`,
+    MORE_BUTTON: remaining => `Показати ще (${remaining}) ➡️`,
+    ALL_SHOWN: total => `✅ Показано всі знайдені вказівники (${total}).`,
+    EXPIRED_SESSION: 'Пошукова сесія застаріла. Надішліть /f знову.'
+  },
+
   REMINDERS: {
     NONE: 'У тебе немає нагадувань.',
     CREATED: 'Готово. Нагадування створено.',
@@ -392,6 +419,15 @@ Te recordaré lo que verdaderamente importa.
     FAVORITE_BADGE_INFO: 'Estás viendo tus favoritos personales ⭐',
     EXPIRE_BADGE_INFO: '⏳ Este mensaje desaparecerá automáticamente. Haz clic en "⭐ A favoritos" para guardarlo.',
     FAVORITE_TOAST: (current, total) => total ? `⭐ Favoritos: ${current} de ${total}` : '⭐ Modo: Favoritos'
+  },
+
+  SEARCH: {
+    HINT: '⚠️ Indique el texto para buscar o el autor.\nEjemplo: /f Buda o /f [fragmento del puntero]',
+    NOT_FOUND: (query, lang) => `❌ No se encontraron punteros para «${query}» (${lang.toUpperCase()}).`,
+    PAGINATION_STATUS: (total, shown) => `ℹ️ Total encontrados: ${total}. Mostrados: 1–${shown}`,
+    MORE_BUTTON: remaining => `Mostrar más (quedan ${remaining}) ➡️`,
+    ALL_SHOWN: total => `✅ Se han mostrado todos los punteros encontrados (${total}).`,
+    EXPIRED_SESSION: 'La sesión de búsqueda ha caducado. Envía /f de nuevo.'
   },
 
   REMINDERS: {

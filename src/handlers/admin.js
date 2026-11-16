@@ -10,7 +10,11 @@ import {
   countPointersByText,
   isPointerInFavorites
 } from '../services/pointers.js';
-import { buildPointerInlineKeyboard, formatPointerText } from './pointers.js';
+import {
+  buildPointerInlineKeyboard,
+  formatPointerText,
+  handleSearchPointers
+} from './pointers.js';
 import { allKnownNavigationButtons } from '../utils/navigation.js';
 import { getTexts } from '../constants/texts.js';
 import { resolveUserLanguage } from '../middlewares/activity.js';
@@ -359,63 +363,5 @@ export const handleAdminSearchPointers = async (ctx, next) => {
     return false;
   }
 
-  const rawIncomingMessageText = ctx.message?.text || '';
-  const trimmedLowerCasedText = rawIncomingMessageText.trim().toLowerCase();
-
-  let targetPointerLanguage = 'ru';
-  const languageModifierMatch = trimmedLowerCasedText.match(/(?:^|\s|_)(en|ru|uk|es)(?:\s|$)/i);
-  if (languageModifierMatch) {
-    targetPointerLanguage = languageModifierMatch[1].toLowerCase();
-  } else if (ctx.state?.userLanguage === 'en' || ctx.state?.userLanguage === 'uk' || ctx.state?.userLanguage === 'es') {
-    targetPointerLanguage = ctx.state.userLanguage;
-  }
-
-  let extractedSearchPhrase = rawIncomingMessageText
-    .replace(/^\/(?:find|search|f)(?:_(?:en|ru|uk|es))?/i, '')
-    .replace(/^(?:найти|поиск|знайти|пошук|buscar)(?:\s+указатель|\s+pointer|\s+вказівник|\s+puntero)?/i, '')
-    .trim();
-
-  extractedSearchPhrase = extractedSearchPhrase
-    .replace(/^(?:en|ru|uk|es)\s+/i, '')
-    .replace(/\s+(?:en|ru|uk|es)$/i, '')
-    .trim();
-
-  if (!extractedSearchPhrase) {
-    await ctx.reply('⚠️ Укажите текст для поиска. Пример: /find тишина или /find en stillness');
-    return true;
-  }
-
-  const maximumReturnedPointersCount = 10;
-  const [totalFoundCount, foundPointersList] = await Promise.all([
-    countPointersByText(extractedSearchPhrase, targetPointerLanguage),
-    findPointersByText(extractedSearchPhrase, targetPointerLanguage, maximumReturnedPointersCount)
-  ]);
-
-  if (totalFoundCount === 0 || foundPointersList.length === 0) {
-    await ctx.reply(`❌ Указатели с текстом «${extractedSearchPhrase}» (${targetPointerLanguage.toUpperCase()}) не найдены.`);
-    return true;
-  }
-
-  ctx.session ??= {};
-
-  for (const singlePointerRecord of foundPointersList) {
-    const formattedPointerMessage = formatPointerText(singlePointerRecord);
-    ctx.session.lastPointerText = singlePointerRecord.text;
-    ctx.session.lastPointerId = String(singlePointerRecord._id);
-
-    const isFavorite = await isPointerInFavorites(ctx.from?.id, singlePointerRecord._id);
-
-    await ctx.reply(
-      formattedPointerMessage,
-      buildPointerInlineKeyboard(targetPointerLanguage, isFavorite, singlePointerRecord._id, 'random')
-    );
-  }
-
-  if (totalFoundCount > foundPointersList.length) {
-    await ctx.reply(
-      `ℹ️ Найдено всего: ${totalFoundCount}. Показаны первые ${foundPointersList.length}. Уточните поисковую фразу для более точного совпадения.`
-    );
-  }
-
-  return true;
+  return handleSearchPointers(ctx);
 };
