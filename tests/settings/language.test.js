@@ -1,8 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import {
-  handleLanguageMenu,
-  handleLanguageSet
-} from '../../src/handlers/settings/quietHours.js';
+import { handleLanguageMenu, handleLanguageSet } from '../../src/handlers/settings/quietHours.js';
 import User from '../../src/models/User.js';
 import { Pointer, PointerEn, PointerEs } from '../../src/models/Pointer.js';
 import { createMockContext } from '../helpers/mockContext.js';
@@ -21,7 +18,7 @@ describe('Мультиязычность и переключение языко�
     expect(replyText).toContain('Выберите язык');
 
     const inlineButtons = replyKeyboard.reply_markup.inline_keyboard.flat();
-    const buttonTexts = inlineButtons.map(item => item.text);
+    const buttonTexts = inlineButtons.map((item) => item.text);
     expect(buttonTexts).toContain('🇷🇺 Русский');
     expect(buttonTexts).toContain('🇬🇧 English');
     expect(buttonTexts).toContain('🇺🇦 Українська');
@@ -269,7 +266,9 @@ describe('Мультиязычность и переключение языко�
     });
     await handleLanguageSet(switchLanguageContext);
 
-    const userStateAfterLanguageSwitch = await User.findOne({ telegramId: switchingLanguageUserId });
+    const userStateAfterLanguageSwitch = await User.findOne({
+      telegramId: switchingLanguageUserId
+    });
     expect(userStateAfterLanguageSwitch.language).toBe('en');
     expect(userStateAfterLanguageSwitch.shuffleIndex).toBe(1);
     expect(userStateAfterLanguageSwitch.shuffleQueue).toEqual([0, 1, 2]);

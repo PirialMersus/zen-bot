@@ -30,11 +30,14 @@ describe('Скрипт перенумерации указателей', () => {
 
     const originalContent = await fs.readFile(testPointersFilePath, 'utf-8');
     let nextIndex = 1;
-    const reindexedContent = originalContent.replace(/(^\s*number:\s*)\d+/gm, (_, leadingPrefix) => {
-      const replacementText = `${leadingPrefix}${nextIndex}`;
-      nextIndex += 1;
-      return replacementText;
-    });
+    const reindexedContent = originalContent.replace(
+      /(^\s*number:\s*)\d+/gm,
+      (_, leadingPrefix) => {
+        const replacementText = `${leadingPrefix}${nextIndex}`;
+        nextIndex += 1;
+        return replacementText;
+      }
+    );
 
     await fs.writeFile(testPointersFilePath, reindexedContent, 'utf-8');
 

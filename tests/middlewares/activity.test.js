@@ -1,5 +1,9 @@
 import { beforeEach, describe, expect, it, vi } from 'vitest';
-import { activityMiddleware, detectUserLanguage, clearUserCache } from '../../src/middlewares/activity.js';
+import {
+  activityMiddleware,
+  detectUserLanguage,
+  clearUserCache
+} from '../../src/middlewares/activity.js';
 import User from '../../src/models/User.js';
 import { createMockContext } from '../helpers/mockContext.js';
 
@@ -31,7 +35,8 @@ describe('Middleware активности и уведомление о ново�
     expect(nextMiddlewareFunction).toHaveBeenCalledTimes(1);
     expect(mockContext.telegram.sendMessage).toHaveBeenCalledTimes(1);
 
-    const [notifiedAdminId, sentNotificationText, sentNotificationOptions] = mockContext.telegram.sendMessage.mock.calls[0];
+    const [notifiedAdminId, sentNotificationText, sentNotificationOptions] =
+      mockContext.telegram.sendMessage.mock.calls[0];
     expect(String(notifiedAdminId)).toBe(administratorTelegramIdentifier);
     expect(sentNotificationText).toContain('Новый пользователь в боте!');
     expect(sentNotificationText).toContain('Иван Иванов');

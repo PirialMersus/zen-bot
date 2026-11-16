@@ -1,6 +1,7 @@
 import jwt from 'jsonwebtoken';
 import User from '../../models/User.js';
 import { getResolvedJwtSecret } from '../utils/jwt.js';
+import { logError } from '../../utils/logger.js';
 
 export const authMiddleware = async (req, res, next) => {
   try {
@@ -19,7 +20,11 @@ export const authMiddleware = async (req, res, next) => {
     req.user = user;
     const currentActivityDate = new Date();
     user.lastActivityAt = currentActivityDate;
-    User.updateOne({ _id: user._id }, { $set: { lastActivityAt: currentActivityDate } }).catch(() => {});
+    User.updateOne({ _id: user._id }, { $set: { lastActivityAt: currentActivityDate } }).catch(
+      (error) => {
+        logError(error, { context: 'API_USER_ACTIVITY_UPDATE' });
+      }
+    );
     next();
   } catch {
     res.status(401).json({ message: 'Недействительный токен' });

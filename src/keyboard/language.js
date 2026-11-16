@@ -13,8 +13,6 @@ export const languageSelectionKeyboard = (language = 'ru') => {
       Markup.button.callback('🇺🇦 Українська', 'settings:language:set:uk'),
       Markup.button.callback('🇪🇸 Español', 'settings:language:set:es')
     ],
-    [
-      Markup.button.callback(buttons.BACK, 'settings:language:back')
-    ]
+    [Markup.button.callback(buttons.BACK, 'settings:language:back')]
   ]);
 };

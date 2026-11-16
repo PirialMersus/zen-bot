@@ -7,11 +7,14 @@ const router = express.Router();
 router.get('/random', async (req, res) => {
   try {
     const requestedLanguage = req.query.language || req.query.lang || 'ru';
-    let targetPointerModel = requestedLanguage === 'en'
-      ? PointerEn
-      : (requestedLanguage === 'uk'
-        ? PointerUk
-        : (requestedLanguage === 'es' ? PointerEs : Pointer));
+    let targetPointerModel =
+      requestedLanguage === 'en'
+        ? PointerEn
+        : requestedLanguage === 'uk'
+          ? PointerUk
+          : requestedLanguage === 'es'
+            ? PointerEs
+            : Pointer;
 
     let count = await targetPointerModel.countDocuments({ isActive: true });
     if (!count && targetPointerModel !== Pointer) {
@@ -26,7 +29,8 @@ router.get('/random', async (req, res) => {
     }
 
     const randomPositionIndex = Math.floor(Math.random() * count);
-    const [pointer] = await targetPointerModel.find({ isActive: true })
+    const [pointer] = await targetPointerModel
+      .find({ isActive: true })
       .sort({ number: 1, _id: 1 })
       .skip(randomPositionIndex)
       .limit(1);

@@ -8,6 +8,7 @@ import { allKnownNavigationButtons } from '../../utils/navigation.js';
 import { renderSettings, handleSettings } from './general.js';
 import { handleTimezoneMenu, handleTimezoneRegion, handleTimezoneSet } from './timezone.js';
 import { handleLanguageMenu, handleLanguageSet } from './language.js';
+import { suppressExpectedError } from '../../utils/logger.js';
 
 export {
   renderSettings,
@@ -19,11 +20,11 @@ export {
   handleLanguageSet
 };
 
-export const handleQuietHoursMenu = async ctx => {
+export const handleQuietHoursMenu = async (ctx) => {
   const userLanguage = await resolveUserLanguage(ctx);
   const texts = getTexts(userLanguage);
-  await ctx.answerCbQuery().catch(() => {});
-  await ctx.deleteMessage().catch(() => {});
+  await ctx.answerCbQuery().catch(suppressExpectedError);
+  await ctx.deleteMessage().catch(suppressExpectedError);
 
   await ctx.reply(texts.SETTINGS.QUIET_MENU_PROMPT, {
     parse_mode: 'HTML',
@@ -31,7 +32,7 @@ export const handleQuietHoursMenu = async ctx => {
   });
 };
 
-export const handleQuietHoursSetPreset = async ctx => {
+export const handleQuietHoursSetPreset = async (ctx) => {
   const userLanguage = await resolveUserLanguage(ctx);
   const texts = getTexts(userLanguage);
   const callbackSegments = ctx.callbackQuery.data.split(':');
@@ -52,11 +53,11 @@ export const handleQuietHoursSetPreset = async ctx => {
   await renderSettings(ctx, confirmationText);
 };
 
-export const handleQuietHoursCustomPrompt = async ctx => {
+export const handleQuietHoursCustomPrompt = async (ctx) => {
   const userLanguage = await resolveUserLanguage(ctx);
   const texts = getTexts(userLanguage);
-  await ctx.answerCbQuery().catch(() => {});
-  await ctx.deleteMessage().catch(() => {});
+  await ctx.answerCbQuery().catch(suppressExpectedError);
+  await ctx.deleteMessage().catch(suppressExpectedError);
 
   ctx.session ??= {};
   ctx.session.isSettingCustomQuietHours = true;
@@ -64,7 +65,7 @@ export const handleQuietHoursCustomPrompt = async ctx => {
   await ctx.reply(texts.SETTINGS.QUIET_CUSTOM_PROMPT, { parse_mode: 'HTML' });
 };
 
-export const handleQuietHoursCustomInput = async ctx => {
+export const handleQuietHoursCustomInput = async (ctx) => {
   if (!ctx.session?.isSettingCustomQuietHours) return false;
 
   const rawInputText = ctx.message?.text?.trim() || '';
@@ -108,7 +109,7 @@ export const handleQuietHoursCustomInput = async ctx => {
   return true;
 };
 
-export const handleQuietToggle = async ctx => {
+export const handleQuietToggle = async (ctx) => {
   const user = await User.findOne({ telegramId: ctx.from.id });
   const nextQuietState = !user?.quietHours?.enabled;
 

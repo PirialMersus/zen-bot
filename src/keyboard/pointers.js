@@ -6,10 +6,7 @@ export const getPointersMenuKeyboard = (language = 'ru') => {
   const buttons = getButtons(language);
   const ui = getUi(language);
 
-  return Markup.keyboard([
-    [ui.POINTER_RANDOM, ui.POINTER_FAVORITE],
-    [buttons.BACK]
-  ]).resize();
+  return Markup.keyboard([[ui.POINTER_RANDOM, ui.POINTER_FAVORITE], [buttons.BACK]]).resize();
 };
 
 export const buildPointerInlineKeyboard = ({
@@ -30,9 +27,7 @@ export const buildPointerInlineKeyboard = ({
     const nextFavText = ui.POINTER_NEXT_FAV;
 
     return Markup.inlineKeyboard([
-      [
-        Markup.button.callback(badgeText, 'pointer:fav_info')
-      ],
+      [Markup.button.callback(badgeText, 'pointer:fav_info')],
       [
         Markup.button.callback(ui.POINTER_TO_REMINDER, 'pointer:to_reminder'),
         Markup.button.callback(favoriteButtonText, `pointer:fav_toggle:${pointerId}:favorite`)
@@ -67,7 +62,10 @@ export const buildReminderPointerInlineKeyboard = ({
 
   if (deleteAfterSeconds) {
     actionRow.push(
-      Markup.button.callback(ui.POINTER_KEEP_BUTTON(deleteAfterSeconds), `pointer:keep:${pointerId || ''}`)
+      Markup.button.callback(
+        ui.POINTER_KEEP_BUTTON(deleteAfterSeconds),
+        `pointer:keep:${pointerId || ''}`
+      )
     );
   }
 

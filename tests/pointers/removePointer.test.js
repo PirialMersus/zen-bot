@@ -39,11 +39,14 @@ describe('Скрипт удаления указателя', () => {
 
     const contentWithoutDeletedPointer = originalContent.replace(pointerBlockRegex, '');
     let sequentialIndex = 1;
-    const reindexedContent = contentWithoutDeletedPointer.replace(/(^\s*number:\s*)\d+/gm, (_, leadingPrefix) => {
-      const replacementText = `${leadingPrefix}${sequentialIndex}`;
-      sequentialIndex += 1;
-      return replacementText;
-    });
+    const reindexedContent = contentWithoutDeletedPointer.replace(
+      /(^\s*number:\s*)\d+/gm,
+      (_, leadingPrefix) => {
+        const replacementText = `${leadingPrefix}${sequentialIndex}`;
+        sequentialIndex += 1;
+        return replacementText;
+      }
+    );
 
     await fs.writeFile(testFilePath, reindexedContent, 'utf-8');
 

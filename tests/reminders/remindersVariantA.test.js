@@ -39,8 +39,8 @@ describe('Управление напоминаниями (Вариант А)', 
     expect(replyText).toContain('Напоминание Б');
 
     const inlineButtons = replyOptions.reply_markup.inline_keyboard.flat();
-    expect(inlineButtons.some(button => button.text === '1')).toBe(true);
-    expect(inlineButtons.some(button => button.text === '2')).toBe(true);
+    expect(inlineButtons.some((button) => button.text === '1')).toBe(true);
+    expect(inlineButtons.some((button) => button.text === '2')).toBe(true);
   });
 
   it('должен открывать детальную карточку конкретного напоминания по клику на номер', async () => {
@@ -67,7 +67,7 @@ describe('Управление напоминаниями (Вариант А)', 
     expect(editedText).toContain('Детальное напоминание');
     expect(editedText).toContain('Каждые 30 мин ⌛');
 
-    const buttons = editedOptions.reply_markup.inline_keyboard.flat().map(button => button.text);
+    const buttons = editedOptions.reply_markup.inline_keyboard.flat().map((button) => button.text);
     expect(buttons).toContain('⏸️ Приостановить');
     expect(buttons).toContain('🗑 Удалить');
     expect(buttons).toContain('⬅️ Ко всем напоминаниям');

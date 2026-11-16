@@ -17,7 +17,9 @@ describe('Главное меню и навигация', () => {
     expect(mockContext.reply.mock.calls[0][0]).toBe(TEXTS.MENU.START);
     expect(mockContext.reply.mock.calls[1][0]).toContain('Europe/Minsk');
     expect(mockContext.reply.mock.calls[1][0]).toContain('23:00–08:00');
-    expect(mockContext.reply.mock.calls[1][1].reply_markup.inline_keyboard[0][0].callback_data).toBe('settings:timezone');
+    expect(
+      mockContext.reply.mock.calls[1][1].reply_markup.inline_keyboard[0][0].callback_data
+    ).toBe('settings:timezone');
   });
 
   it('должен отображать кастомный часовой пояс и кастомные тихие часы в карточке онбординга', async () => {
@@ -145,20 +147,32 @@ describe('Главное меню и навигация', () => {
       { command: 'help', description: 'Справка и возможности' },
       { command: 'f', description: 'Поиск указателей по автору или фразе' }
     ]);
-    expect(mockBot.telegram.setMyCommands).toHaveBeenNthCalledWith(2, [
-      { command: 'start', description: 'Start the bot / Main menu' },
-      { command: 'help', description: 'Help and features' },
-      { command: 'f', description: 'Search pointers by author or phrase' }
-    ], { language_code: 'en' });
-    expect(mockBot.telegram.setMyCommands).toHaveBeenNthCalledWith(3, [
-      { command: 'start', description: 'Запустити бота / Головне меню' },
-      { command: 'help', description: 'Довідка та можливості' },
-      { command: 'f', description: 'Пошук вказівників за автором або фразою' }
-    ], { language_code: 'uk' });
-    expect(mockBot.telegram.setMyCommands).toHaveBeenNthCalledWith(4, [
-      { command: 'start', description: 'Iniciar el bot / Menú principal' },
-      { command: 'help', description: 'Ayuda y características' },
-      { command: 'f', description: 'Buscar punteros por autor o frase' }
-    ], { language_code: 'es' });
+    expect(mockBot.telegram.setMyCommands).toHaveBeenNthCalledWith(
+      2,
+      [
+        { command: 'start', description: 'Start the bot / Main menu' },
+        { command: 'help', description: 'Help and features' },
+        { command: 'f', description: 'Search pointers by author or phrase' }
+      ],
+      { language_code: 'en' }
+    );
+    expect(mockBot.telegram.setMyCommands).toHaveBeenNthCalledWith(
+      3,
+      [
+        { command: 'start', description: 'Запустити бота / Головне меню' },
+        { command: 'help', description: 'Довідка та можливості' },
+        { command: 'f', description: 'Пошук вказівників за автором або фразою' }
+      ],
+      { language_code: 'uk' }
+    );
+    expect(mockBot.telegram.setMyCommands).toHaveBeenNthCalledWith(
+      4,
+      [
+        { command: 'start', description: 'Iniciar el bot / Menú principal' },
+        { command: 'help', description: 'Ayuda y características' },
+        { command: 'f', description: 'Buscar punteros por autor o frase' }
+      ],
+      { language_code: 'es' }
+    );
   });
 });

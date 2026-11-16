@@ -1,4 +1,4 @@
-export const escapeHtml = stringValue => {
+export const escapeHtml = (stringValue) => {
   return String(stringValue ?? '')
     .replaceAll('&', '&amp;')
     .replaceAll('<', '&lt;')

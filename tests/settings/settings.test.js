@@ -20,9 +20,11 @@ describe('Настройки пользователя (Settings)', () => {
     expect(mockContext.reply).toHaveBeenCalled();
     const [replyMessage, replyOptions] = mockContext.reply.mock.calls[0];
     expect(replyMessage).toContain('Настройки');
-    const buttonTexts = replyOptions.reply_markup.inline_keyboard.flat().map(button => button.text);
-    expect(buttonTexts.some(text => text.includes('тихих часов'))).toBe(true);
-    expect(buttonTexts.some(text => text.includes('Часовой пояс'))).toBe(true);
+    const buttonTexts = replyOptions.reply_markup.inline_keyboard
+      .flat()
+      .map((button) => button.text);
+    expect(buttonTexts.some((text) => text.includes('тихих часов'))).toBe(true);
+    expect(buttonTexts.some((text) => text.includes('Часовой пояс'))).toBe(true);
   });
 
   it('должен переключать флаг тихих часов', async () => {
@@ -96,10 +98,7 @@ describe('Настройки пользователя (Settings)', () => {
 
     await handleTimezoneMenu(mockContext);
 
-    expect(mockContext.reply).toHaveBeenCalledWith(
-      '🌍 Выберите регион:',
-      expect.anything()
-    );
+    expect(mockContext.reply).toHaveBeenCalledWith('🌍 Выберите регион:', expect.anything());
   });
 
   it('должен отображать список городов для выбранного региона', async () => {
@@ -109,10 +108,7 @@ describe('Настройки пользователя (Settings)', () => {
 
     await handleTimezoneRegion(mockContext);
 
-    expect(mockContext.reply).toHaveBeenCalledWith(
-      '🌍 Выберите город:',
-      expect.anything()
-    );
+    expect(mockContext.reply).toHaveBeenCalledWith('🌍 Выберите город:', expect.anything());
   });
 
   it('должен сохранять выбранный часовой пояс в профиль пользователя', async () => {

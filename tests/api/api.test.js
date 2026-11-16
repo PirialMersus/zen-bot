@@ -19,7 +19,7 @@ describe('API безопасность и мультиязычность ука�
     expressApp.use('/api', apiRouter);
 
     serverInstance = http.createServer(expressApp);
-    await new Promise(resolveListening => {
+    await new Promise((resolveListening) => {
       serverInstance.listen(0, '127.0.0.1', resolveListening);
     });
     const serverPort = serverInstance.address().port;
@@ -28,7 +28,7 @@ describe('API безопасность и мультиязычность ука�
 
   afterAll(async () => {
     if (serverInstance) {
-      await new Promise(resolveClosing => serverInstance.close(resolveClosing));
+      await new Promise((resolveClosing) => serverInstance.close(resolveClosing));
     }
   });
 
@@ -50,7 +50,7 @@ describe('API безопасность и мультиязычность ука�
 
     const updatedUser = await User.findOne({ telegramId: testTelegramId });
     expect(updatedUser.authCode).toBeDefined();
-    expect(updatedUser.authCode).toMatch(/^[A-Z0-9]{3}-[A-Z0-9]{3}$/);
+    expect(updatedUser.authCode).toMatch(/^[A-Z0-9]{4}-[A-Z0-9]{4}$/);
   });
 
   it('должен блокировать DEV-123 и любые недействительные коды верификации', async () => {
@@ -81,30 +81,44 @@ describe('API безопасность и мультиязычность ука�
     expect(responseJsonBody.message).toBe('Код обязателен и должен быть непустой строкой');
   });
 
-  it('должен генерировать код авторизации в формате XXX-XXX', () => {
+  it('должен генерировать код авторизации в формате XXXX-XXXX', () => {
     const generatedAuthCode = generateAuthCode();
-    expect(generatedAuthCode).toMatch(/^[A-Z0-9]{3}-[A-Z0-9]{3}$/);
+    expect(generatedAuthCode).toMatch(/^[A-Z0-9]{4}-[A-Z0-9]{4}$/);
   });
 
-  it('должен проверять наличие BOT_TOKEN, MONGO_URI и CREATOR_ID при валидации окружения', () => {
+  it('должен проверять наличие BOT_TOKEN, MONGO_URI, CREATOR_ID и JWT_SECRET при валидации окружения', () => {
     const originalBotToken = process.env.BOT_TOKEN;
     const originalMongoUri = process.env.MONGO_URI;
     const originalCreatorId = process.env.CREATOR_ID;
+    const originalJwtSecret = process.env.JWT_SECRET;
 
     delete process.env.BOT_TOKEN;
-    expect(() => validateApplicationEnvironment()).toThrow('Критическая ошибка конфигурации: переменная BOT_TOKEN обязательна');
+    expect(() => validateApplicationEnvironment()).toThrow(
+      'Критическая ошибка конфигурации: переменная BOT_TOKEN обязательна'
+    );
 
     process.env.BOT_TOKEN = 'mock-bot-token';
     delete process.env.MONGO_URI;
-    expect(() => validateApplicationEnvironment()).toThrow('Критическая ошибка конфигурации: переменная MONGO_URI обязательна');
+    expect(() => validateApplicationEnvironment()).toThrow(
+      'Критическая ошибка конфигурации: переменная MONGO_URI обязательна'
+    );
 
     process.env.MONGO_URI = 'mock-mongo-uri';
     delete process.env.CREATOR_ID;
-    expect(() => validateApplicationEnvironment()).toThrow('Критическая ошибка конфигурации: переменная CREATOR_ID обязательна');
+    expect(() => validateApplicationEnvironment()).toThrow(
+      'Критическая ошибка конфигурации: переменная CREATOR_ID обязательна'
+    );
+
+    process.env.CREATOR_ID = 'mock-creator-id';
+    delete process.env.JWT_SECRET;
+    expect(() => validateApplicationEnvironment()).toThrow(
+      'Критическая ошибка конфигурации: переменная JWT_SECRET обязательна'
+    );
 
     process.env.BOT_TOKEN = originalBotToken;
     process.env.MONGO_URI = originalMongoUri;
     process.env.CREATOR_ID = originalCreatorId;
+    process.env.JWT_SECRET = originalJwtSecret;
   });
 
   it('должен успешно авторизовать пользователя по валидному authCode и выдать JWT токен', async () => {
@@ -162,7 +176,9 @@ describe('API безопасность и мультиязычность ука�
     process.env.NODE_ENV = 'production';
     delete process.env.JWT_SECRET;
 
-    expect(() => validateServerEnvironment()).toThrow('Критическая ошибка конфигурации: переменная JWT_SECRET обязательна в production окружении');
+    expect(() => validateServerEnvironment()).toThrow(
+      'Критическая ошибка конфигурации: переменная JWT_SECRET обязательна в production окружении'
+    );
 
     process.env.NODE_ENV = originalEnvironment;
     process.env.JWT_SECRET = originalSecret;
@@ -175,7 +191,9 @@ describe('API безопасность и мультиязычность ука�
     process.env.NODE_ENV = 'production';
     process.env.JWT_SECRET = 'short-secret-less-than-32-chars';
 
-    expect(() => validateServerEnvironment()).toThrow('Критическая ошибка конфигурации: переменная JWT_SECRET должна содержать минимум 32 символа');
+    expect(() => validateServerEnvironment()).toThrow(
+      'Критическая ошибка конфигурации: переменная JWT_SECRET должна содержать минимум 32 символа'
+    );
 
     process.env.NODE_ENV = originalEnvironment;
     process.env.JWT_SECRET = originalSecret;

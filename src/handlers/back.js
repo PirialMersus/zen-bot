@@ -3,7 +3,7 @@ import { getTexts } from '../constants/texts.js';
 import { REMINDER_STEP, renderReminderStep } from './reminders.js';
 import { resolveUserLanguage } from '../middlewares/activity.js';
 
-export const handleBack = async ctx => {
+export const handleBack = async (ctx) => {
   ctx.session ??= {};
   ctx.session.isSettingCustomQuietHours = null;
 

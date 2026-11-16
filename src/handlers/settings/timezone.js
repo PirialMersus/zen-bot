@@ -4,28 +4,32 @@ import { getTimezoneRegionsKeyboard } from '../../keyboard/timezoneRegions.js';
 import { timezoneCitiesKeyboard } from '../../keyboard/timezoneCities.js';
 import { resolveUserLanguage } from '../../middlewares/activity.js';
 import { renderSettings } from './general.js';
+import { suppressExpectedError } from '../../utils/logger.js';
 
-export const handleTimezoneMenu = async ctx => {
+export const handleTimezoneMenu = async (ctx) => {
   const userLanguage = await resolveUserLanguage(ctx);
   const texts = getTexts(userLanguage);
-  await ctx.answerCbQuery().catch(() => {});
-  await ctx.deleteMessage().catch(() => {});
+  await ctx.answerCbQuery().catch(suppressExpectedError);
+  await ctx.deleteMessage().catch(suppressExpectedError);
 
   await ctx.reply(texts.SETTINGS.TIMEZONE_REGION_PROMPT, getTimezoneRegionsKeyboard(userLanguage));
 };
 
-export const handleTimezoneRegion = async ctx => {
+export const handleTimezoneRegion = async (ctx) => {
   const userLanguage = await resolveUserLanguage(ctx);
   const texts = getTexts(userLanguage);
   const regionKey = ctx.callbackQuery.data.split(':').pop();
 
-  await ctx.answerCbQuery().catch(() => {});
-  await ctx.deleteMessage().catch(() => {});
+  await ctx.answerCbQuery().catch(suppressExpectedError);
+  await ctx.deleteMessage().catch(suppressExpectedError);
 
-  await ctx.reply(texts.SETTINGS.TIMEZONE_CITY_PROMPT(regionKey), timezoneCitiesKeyboard(regionKey, userLanguage));
+  await ctx.reply(
+    texts.SETTINGS.TIMEZONE_CITY_PROMPT(regionKey),
+    timezoneCitiesKeyboard(regionKey, userLanguage)
+  );
 };
 
-export const handleTimezoneSet = async ctx => {
+export const handleTimezoneSet = async (ctx) => {
   const userLanguage = await resolveUserLanguage(ctx);
   const texts = getTexts(userLanguage);
   const timezoneValue = ctx.callbackQuery.data.split(':').pop();

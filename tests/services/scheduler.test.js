@@ -145,7 +145,11 @@ describe('Планировщик и тихие часы (Scheduler & Quiet Hours
 describe('Рандомные напоминания — фильтр по тегу тишина', () => {
   it('должен возвращать только указатели с тегом тишина для рандомного напоминания', async () => {
     await Pointer.create({ text: 'Тишина для напоминания', tags: ['тишина'], isActive: true });
-    await Pointer.create({ text: 'Практика — не для напоминания', tags: ['практика'], isActive: true });
+    await Pointer.create({
+      text: 'Практика — не для напоминания',
+      tags: ['практика'],
+      isActive: true
+    });
     await Pointer.create({ text: 'Без тега — не для напоминания', tags: [], isActive: true });
 
     const telegramUserId = 55500001;
@@ -181,7 +185,9 @@ describe('Рандомные напоминания — фильтр по тег
     const pointer = await getNextPointerForUser(telegramUserId, 'тишина');
 
     const actualMessageText = pointer
-      ? (pointer.source ? `${pointer.text}\n\n— ${pointer.source}` : pointer.text)
+      ? pointer.source
+        ? `${pointer.text}\n\n— ${pointer.source}`
+        : pointer.text
       : fixedReminderText;
 
     expect(actualMessageText).toBe(fixedReminderText);
@@ -216,9 +222,10 @@ describe('Рандомные напоминания — фильтр по тег
       ? `${pointer.text}\n\n— ${pointer.source}`
       : pointer.text;
 
-    const footer = (deleteAfterSeconds && !isPointerMessage)
-      ? `\n\n<i>(автоудаление через ${deleteAfterSeconds} сек)</i>`
-      : '';
+    const footer =
+      deleteAfterSeconds && !isPointerMessage
+        ? `\n\n<i>(автоудаление через ${deleteAfterSeconds} сек)</i>`
+        : '';
 
     const finalMessageText = formattedPointerText + footer;
 

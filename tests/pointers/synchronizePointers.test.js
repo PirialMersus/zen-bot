@@ -47,7 +47,9 @@ describe('Безопасная синхронизация указателей',
 
     const refetchedFirstPointerDocument = await Pointer.findOne({ text: 'Первый указатель' });
     const refetchedThirdPointerDocument = await Pointer.findOne({ text: 'Третий указатель' });
-    const refetchedDuplicatePointerDocument = await Pointer.findOne({ text: 'Второй указатель (дубликат)' });
+    const refetchedDuplicatePointerDocument = await Pointer.findOne({
+      text: 'Второй указатель (дубликат)'
+    });
 
     expect(String(refetchedFirstPointerDocument._id)).toBe(originalFirstPointerObjectIdString);
     expect(String(refetchedThirdPointerDocument._id)).toBe(originalThirdPointerObjectIdString);
@@ -67,12 +69,12 @@ describe('Безопасная синхронизация указателей',
   it('должна добавлять новые указатели в конец без сброса существующих', async () => {
     await Pointer.deleteMany({});
 
-    const initialDataset = [
-      { number: 1, text: 'Существующий указатель', source: null, tags: [] }
-    ];
+    const initialDataset = [{ number: 1, text: 'Существующий указатель', source: null, tags: [] }];
 
     await synchronizePointerCollection(Pointer, initialDataset, 'ru');
-    const existingPointerBeforeExpansion = await Pointer.findOne({ text: 'Существующий указатель' });
+    const existingPointerBeforeExpansion = await Pointer.findOne({
+      text: 'Существующий указатель'
+    });
     const existingPointerIdString = String(existingPointerBeforeExpansion._id);
 
     const expandedDataset = [

@@ -10,11 +10,11 @@ const REMINDERS_FORMAT_LOCALIZATIONS = {
   ru: {
     intervalDay: 'Раз в день ⌛',
     intervalHour: 'Каждый час ⌛',
-    intervalMinutes: minutes => `Каждые ${minutes} мин ⌛`,
-    todayAt: time => `сегодня в ${time}`,
-    tomorrowAt: time => `завтра в ${time}`,
+    intervalMinutes: (minutes) => `Каждые ${minutes} мин ⌛`,
+    todayAt: (time) => `сегодня в ${time}`,
+    tomorrowAt: (time) => `завтра в ${time}`,
     autoDeleteNever: '(автоудаление: не удаляется)',
-    autoDeleteSeconds: seconds => `(автоудаление: через ${seconds} сек)`,
+    autoDeleteSeconds: (seconds) => `(автоудаление: через ${seconds} сек)`,
     photo: '📷 Фотография',
     photoWithCaption: '📷 Фото',
     video: '🎬 Видео',
@@ -25,16 +25,16 @@ const REMINDERS_FORMAT_LOCALIZATIONS = {
     backToList: '⬅️ Ко всем напоминаниям',
     headerTitle: '📋 <b>Твои напоминания:</b>',
     hintFooter: '<i>Нажми на номер ниже для управления напоминанием 👇</i>',
-    moreReminders: count => `… и ещё ${count} напоминаний`
+    moreReminders: (count) => `… и ещё ${count} напоминаний`
   },
   en: {
     intervalDay: 'Once a day ⌛',
     intervalHour: 'Every hour ⌛',
-    intervalMinutes: minutes => `Every ${minutes} min ⌛`,
-    todayAt: time => `today at ${time}`,
-    tomorrowAt: time => `tomorrow at ${time}`,
+    intervalMinutes: (minutes) => `Every ${minutes} min ⌛`,
+    todayAt: (time) => `today at ${time}`,
+    tomorrowAt: (time) => `tomorrow at ${time}`,
     autoDeleteNever: '(auto-delete: do not delete)',
-    autoDeleteSeconds: seconds => `(auto-delete: in ${seconds} sec)`,
+    autoDeleteSeconds: (seconds) => `(auto-delete: in ${seconds} sec)`,
     photo: '📷 Photo',
     photoWithCaption: '📷 Photo',
     video: '🎬 Video',
@@ -45,16 +45,16 @@ const REMINDERS_FORMAT_LOCALIZATIONS = {
     backToList: '⬅️ All reminders',
     headerTitle: '📋 <b>Your reminders:</b>',
     hintFooter: '<i>Tap a number below to manage a reminder 👇</i>',
-    moreReminders: count => `… and ${count} more reminders`
+    moreReminders: (count) => `… and ${count} more reminders`
   },
   uk: {
     intervalDay: 'Раз на день ⌛',
     intervalHour: 'Щогодини ⌛',
-    intervalMinutes: minutes => `Кожні ${minutes} хв ⌛`,
-    todayAt: time => `сьогодні о ${time}`,
-    tomorrowAt: time => `завтра о ${time}`,
+    intervalMinutes: (minutes) => `Кожні ${minutes} хв ⌛`,
+    todayAt: (time) => `сьогодні о ${time}`,
+    tomorrowAt: (time) => `завтра о ${time}`,
     autoDeleteNever: '(автовидалення: не видаляється)',
-    autoDeleteSeconds: seconds => `(автовидалення: через ${seconds} сек)`,
+    autoDeleteSeconds: (seconds) => `(автовидалення: через ${seconds} сек)`,
     photo: '📷 Фотографія',
     photoWithCaption: '📷 Фото',
     video: '🎬 Відео',
@@ -65,16 +65,16 @@ const REMINDERS_FORMAT_LOCALIZATIONS = {
     backToList: '⬅️ До всіх нагадувань',
     headerTitle: '📋 <b>Твої нагадування:</b>',
     hintFooter: '<i>Натисни на номер нижче для керування нагадуванням 👇</i>',
-    moreReminders: count => `… та ще ${count} нагадувань`
+    moreReminders: (count) => `… та ще ${count} нагадувань`
   },
   es: {
     intervalDay: 'Una vez al día ⌛',
     intervalHour: 'Cada hora ⌛',
-    intervalMinutes: minutes => `Cada ${minutes} min ⌛`,
-    todayAt: time => `hoy a las ${time}`,
-    tomorrowAt: time => `mañana a las ${time}`,
+    intervalMinutes: (minutes) => `Cada ${minutes} min ⌛`,
+    todayAt: (time) => `hoy a las ${time}`,
+    tomorrowAt: (time) => `mañana a las ${time}`,
     autoDeleteNever: '(autoeliminación: no eliminar)',
-    autoDeleteSeconds: seconds => `(autoeliminación: en ${seconds} seg)`,
+    autoDeleteSeconds: (seconds) => `(autoeliminación: en ${seconds} seg)`,
     photo: '📷 Foto',
     photoWithCaption: '📷 Foto',
     video: '🎬 Video',
@@ -85,11 +85,11 @@ const REMINDERS_FORMAT_LOCALIZATIONS = {
     backToList: '⬅️ A todos los recordatorios',
     headerTitle: '📋 <b>Tus recordatorios:</b>',
     hintFooter: '<i>Toca un número abajo para gestionar el recordatorio 👇</i>',
-    moreReminders: count => `… y ${count} recordatorios más`
+    moreReminders: (count) => `… y ${count} recordatorios más`
   }
 };
 
-const resolveFormatLocalization = language =>
+const resolveFormatLocalization = (language) =>
   REMINDERS_FORMAT_LOCALIZATIONS[language] || REMINDERS_FORMAT_LOCALIZATIONS.ru;
 
 export const formatAutoDelete = (deleteAfterSeconds, language = 'ru') => {
@@ -101,7 +101,11 @@ export const formatAutoDelete = (deleteAfterSeconds, language = 'ru') => {
 
 export const formatInterval = (reminderOrMinutes, language = 'ru') => {
   const formatLocalization = resolveFormatLocalization(language);
-  if (typeof reminderOrMinutes === 'object' && reminderOrMinutes?.type === 'daily' && reminderOrMinutes?.targetTime) {
+  if (
+    typeof reminderOrMinutes === 'object' &&
+    reminderOrMinutes?.type === 'daily' &&
+    reminderOrMinutes?.targetTime
+  ) {
     const dailyLabels = {
       ru: `Каждый день в ${reminderOrMinutes.targetTime} ⌛`,
       en: `Every day at ${reminderOrMinutes.targetTime} ⌛`,
@@ -110,13 +114,18 @@ export const formatInterval = (reminderOrMinutes, language = 'ru') => {
     };
     return dailyLabels[language] || dailyLabels.ru;
   }
-  const minutes = typeof reminderOrMinutes === 'object' ? reminderOrMinutes.intervalMinutes : reminderOrMinutes;
+  const minutes =
+    typeof reminderOrMinutes === 'object' ? reminderOrMinutes.intervalMinutes : reminderOrMinutes;
   if (minutes === 1440) return formatLocalization.intervalDay;
   if (minutes === 60) return formatLocalization.intervalHour;
   return formatLocalization.intervalMinutes(minutes);
 };
 
-export const formatNextRunTime = (nextRunDate, userTimezone = DEFAULT_TIMEZONE, language = 'ru') => {
+export const formatNextRunTime = (
+  nextRunDate,
+  userTimezone = DEFAULT_TIMEZONE,
+  language = 'ru'
+) => {
   if (!nextRunDate) return '';
 
   const formatLocalization = resolveFormatLocalization(language);
@@ -155,23 +164,32 @@ export const resolveReminderDisplayText = (reminderItem, formatLocalization, ui)
   return reminderItem.text;
 };
 
-export const formatReminderMessageText = (reminderItem, indexNumberString, language = 'ru', userTimezone = DEFAULT_TIMEZONE) => {
+export const formatReminderMessageText = (
+  reminderItem,
+  indexNumberString,
+  language = 'ru',
+  userTimezone = DEFAULT_TIMEZONE
+) => {
   const texts = getTexts(language);
   const ui = getUi(language);
   const formatLocalization = resolveFormatLocalization(language);
   const status = reminderItem.isActive ? texts.STATUS.ACTIVE : texts.STATUS.PAUSED;
 
-  const autoDeleteLabel = reminderItem.deleteAfterSeconds === null
-    ? formatLocalization.autoDeleteNever
-    : formatLocalization.autoDeleteSeconds(reminderItem.deleteAfterSeconds);
+  const autoDeleteLabel =
+    reminderItem.deleteAfterSeconds === null
+      ? formatLocalization.autoDeleteNever
+      : formatLocalization.autoDeleteSeconds(reminderItem.deleteAfterSeconds);
 
   const displayText = resolveReminderDisplayText(reminderItem, formatLocalization, ui);
 
-  const nextRunString = reminderItem.isActive && reminderItem.nextRunAt
-    ? formatNextRunTime(reminderItem.nextRunAt, userTimezone, language)
-    : null;
+  const nextRunString =
+    reminderItem.isActive && reminderItem.nextRunAt
+      ? formatNextRunTime(reminderItem.nextRunAt, userTimezone, language)
+      : null;
 
-  const nextRunLine = nextRunString ? `\n<i>${formatLocalization.nextRun}: ${nextRunString}</i>` : '';
+  const nextRunLine = nextRunString
+    ? `\n<i>${formatLocalization.nextRun}: ${nextRunString}</i>`
+    : '';
 
   return `<b>${indexNumberString}.</b> ${status}
 
@@ -181,7 +199,11 @@ export const formatReminderMessageText = (reminderItem, indexNumberString, langu
 «${escapeHtml(displayText)}»`;
 };
 
-export const getReminderMessageKeyboard = (reminderItem, language = 'ru', showBackToList = true) => {
+export const getReminderMessageKeyboard = (
+  reminderItem,
+  language = 'ru',
+  showBackToList = true
+) => {
   const formatLocalization = resolveFormatLocalization(language);
 
   const actionRow = [
@@ -199,7 +221,11 @@ export const getReminderMessageKeyboard = (reminderItem, language = 'ru', showBa
   return Markup.inlineKeyboard(rows);
 };
 
-export const buildRemindersListPayload = (reminders, userLanguage = 'ru', userTimezone = DEFAULT_TIMEZONE) => {
+export const buildRemindersListPayload = (
+  reminders,
+  userLanguage = 'ru',
+  userTimezone = DEFAULT_TIMEZONE
+) => {
   const texts = getTexts(userLanguage);
   const ui = getUi(userLanguage);
   const formatLocalization = resolveFormatLocalization(userLanguage);
@@ -224,22 +250,26 @@ export const buildRemindersListPayload = (reminders, userLanguage = 'ru', userTi
     const shortText = previewText(displayText);
     const intervalLabel = formatInterval(reminderItem, userLanguage);
 
-    const nextRunTime = reminderItem.isActive && reminderItem.nextRunAt
-      ? formatNextRunTime(reminderItem.nextRunAt, userTimezone, userLanguage)
-      : null;
+    const nextRunTime =
+      reminderItem.isActive && reminderItem.nextRunAt
+        ? formatNextRunTime(reminderItem.nextRunAt, userTimezone, userLanguage)
+        : null;
 
     const nextRunSuffix = nextRunTime ? ` • 🕒 ${nextRunTime}` : '';
     const currentLine = `<b>${indexNumber}.</b> ${statusIcon} «${escapeHtml(shortText)}»\n   <i>${intervalLabel}${nextRunSuffix}</i>`;
 
     const remainingIfTruncated = reminders.length - (index + 1);
-    const potentialOverflowNotice = remainingIfTruncated > 0
-      ? `\n\n<i>${formatLocalization.moreReminders(remainingIfTruncated)}</i>`
-      : '';
+    const potentialOverflowNotice =
+      remainingIfTruncated > 0
+        ? `\n\n<i>${formatLocalization.moreReminders(remainingIfTruncated)}</i>`
+        : '';
 
     const projectedFullLength =
-      formatLocalization.headerTitle.length + 2 +
+      formatLocalization.headerTitle.length +
+      2 +
       [...renderedLines, currentLine].join('\n\n').length +
-      potentialOverflowNotice.length + 2 +
+      potentialOverflowNotice.length +
+      2 +
       formatLocalization.hintFooter.length;
 
     if (projectedFullLength > maxSafeMessageLength && renderedLines.length > 0) {
@@ -250,9 +280,10 @@ export const buildRemindersListPayload = (reminders, userLanguage = 'ru', userTi
     renderedLines.push(currentLine);
   }
 
-  const overflowNoticeSection = remainingHiddenCount > 0
-    ? `\n\n<i>${formatLocalization.moreReminders(remainingHiddenCount)}</i>`
-    : '';
+  const overflowNoticeSection =
+    remainingHiddenCount > 0
+      ? `\n\n<i>${formatLocalization.moreReminders(remainingHiddenCount)}</i>`
+      : '';
 
   const fullText = `${formatLocalization.headerTitle}\n\n${renderedLines.join('\n\n')}${overflowNoticeSection}\n\n${formatLocalization.hintFooter}`;
 

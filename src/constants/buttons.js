@@ -65,9 +65,10 @@ export const getButtons = (language = 'ru') => {
   return RUSSIAN_BUTTONS;
 };
 
-export const getButtonVariants = buttonKey => [
-  BUTTONS.ru[buttonKey],
-  BUTTONS.en[buttonKey],
-  BUTTONS.uk[buttonKey],
-  BUTTONS.es[buttonKey]
-].filter(Boolean);
+export const getButtonVariants = (buttonKey) =>
+  [
+    BUTTONS.ru[buttonKey],
+    BUTTONS.en[buttonKey],
+    BUTTONS.uk[buttonKey],
+    BUTTONS.es[buttonKey]
+  ].filter(Boolean);

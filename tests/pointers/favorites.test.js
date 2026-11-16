@@ -9,9 +9,7 @@ import {
   handleRandomPointer,
   handleToggleFavoritePointer
 } from '../../src/handlers/pointers.js';
-import {
-  handleAdminSearchPointers
-} from '../../src/handlers/admin.js';
+import { handleAdminSearchPointers } from '../../src/handlers/admin.js';
 import {
   handleReminderText,
   formatReminderMessageText,
@@ -63,7 +61,9 @@ describe('Избранные указатели', () => {
     await handlePointer(mockContextNotFavorite);
 
     const [, optionsNotFav] = mockContextNotFavorite.reply.mock.calls[0];
-    const buttonsNotFav = optionsNotFav.reply_markup.inline_keyboard.flat().map(button => button.text);
+    const buttonsNotFav = optionsNotFav.reply_markup.inline_keyboard
+      .flat()
+      .map((button) => button.text);
     expect(buttonsNotFav).toContain(UI.ru.POINTER_FAV_ADD);
 
     await toggleFavoritePointer(userId, pointer._id);
@@ -72,7 +72,7 @@ describe('Избранные указатели', () => {
     await handlePointer(mockContextFavorite);
 
     const [, optionsFav] = mockContextFavorite.reply.mock.calls[0];
-    const buttonsFav = optionsFav.reply_markup.inline_keyboard.flat().map(button => button.text);
+    const buttonsFav = optionsFav.reply_markup.inline_keyboard.flat().map((button) => button.text);
     expect(buttonsFav).toContain(UI.ru.POINTER_FAV_REMOVE);
   });
 
@@ -133,7 +133,7 @@ describe('Избранные указатели', () => {
     const [replyText, replyOptions] = favContext.reply.mock.calls[0];
     expect(replyText).toContain('Избранное напоминание о тишине');
 
-    const buttons = replyOptions.reply_markup.inline_keyboard.flat().map(button => button.text);
+    const buttons = replyOptions.reply_markup.inline_keyboard.flat().map((button) => button.text);
     expect(buttons).toContain(UI.ru.POINTER_FAV_REMOVE);
   });
 
@@ -213,7 +213,9 @@ describe('Избранные указатели', () => {
     const [, replyOptions] = searchContext.reply.mock.calls[0];
     const inlineButtons = replyOptions.reply_markup.inline_keyboard.flat();
 
-    const favButton = inlineButtons.find(button => button.callback_data?.startsWith('pointer:fav_toggle'));
+    const favButton = inlineButtons.find((button) =>
+      button.callback_data?.startsWith('pointer:fav_toggle')
+    );
     expect(favButton).toBeDefined();
     expect(favButton.text).toBe(UI.ru.POINTER_FAV_ADD);
     expect(favButton.callback_data).toBe(`pointer:fav_toggle:${pointerOne._id}:random`);
@@ -236,7 +238,9 @@ describe('Избранные указатели', () => {
     await handleAdminSearchPointers(secondSearchContext);
     const [, secondReplyOptions] = secondSearchContext.reply.mock.calls[0];
     const secondInlineButtons = secondReplyOptions.reply_markup.inline_keyboard.flat();
-    const secondFavButton = secondInlineButtons.find(button => button.callback_data?.startsWith('pointer:fav_toggle'));
+    const secondFavButton = secondInlineButtons.find((button) =>
+      button.callback_data?.startsWith('pointer:fav_toggle')
+    );
 
     expect(secondFavButton.text).toBe(UI.ru.POINTER_FAV_REMOVE);
   });
@@ -269,14 +273,22 @@ describe('Избранные указатели', () => {
     const firstMsgOptions = searchContext.reply.mock.calls[0][1];
     const secondMsgOptions = searchContext.reply.mock.calls[1][1];
 
-    const firstFavBtn = firstMsgOptions.reply_markup.inline_keyboard.flat().find(b => b.callback_data?.includes(String(first._id)));
-    const secondFavBtn = secondMsgOptions.reply_markup.inline_keyboard.flat().find(b => b.callback_data?.includes(String(second._id)));
+    const firstFavBtn = firstMsgOptions.reply_markup.inline_keyboard
+      .flat()
+      .find((b) => b.callback_data?.includes(String(first._id)));
+    const secondFavBtn = secondMsgOptions.reply_markup.inline_keyboard
+      .flat()
+      .find((b) => b.callback_data?.includes(String(second._id)));
 
     expect(firstFavBtn).toBeDefined();
     expect(secondFavBtn).toBeDefined();
 
-    await handleToggleFavoritePointer(createMockContext({ userId: adminId, callbackData: firstFavBtn.callback_data }));
-    await handleToggleFavoritePointer(createMockContext({ userId: adminId, callbackData: secondFavBtn.callback_data }));
+    await handleToggleFavoritePointer(
+      createMockContext({ userId: adminId, callbackData: firstFavBtn.callback_data })
+    );
+    await handleToggleFavoritePointer(
+      createMockContext({ userId: adminId, callbackData: secondFavBtn.callback_data })
+    );
 
     const isFirstFav = await isPointerInFavorites(adminId, first._id);
     const isSecondFav = await isPointerInFavorites(adminId, second._id);
@@ -341,7 +353,9 @@ describe('Избранные указатели', () => {
 
     const infoContext = createMockContext({ userId, callbackData: 'pointer:fav_info' });
     await handleFavoriteInfo(infoContext);
-    expect(infoContext.answerCbQuery).toHaveBeenCalledWith(TEXTS.ru.POINTERS.FAVORITE_BADGE_INFO, { show_alert: false });
+    expect(infoContext.answerCbQuery).toHaveBeenCalledWith(TEXTS.ru.POINTERS.FAVORITE_BADGE_INFO, {
+      show_alert: false
+    });
 
     const nextFavoriteContext = createMockContext({
       userId,
@@ -353,7 +367,9 @@ describe('Избранные указатели', () => {
     });
     await handleNextPointer(nextFavoriteContext);
 
-    expect(nextFavoriteContext.answerCbQuery).toHaveBeenCalledWith(TEXTS.ru.POINTERS.FAVORITE_TOAST(2, 2));
+    expect(nextFavoriteContext.answerCbQuery).toHaveBeenCalledWith(
+      TEXTS.ru.POINTERS.FAVORITE_TOAST(2, 2)
+    );
     expect(nextFavoriteContext.editMessageText).toHaveBeenCalled();
     const [editedText, editedOptions] = nextFavoriteContext.editMessageText.mock.calls[0];
     expect(editedText).not.toContain('Избранное');
@@ -382,10 +398,10 @@ describe('Избранные указатели', () => {
     expect(inlineKeyboardRows).toHaveLength(2);
 
     const allButtons = inlineKeyboardRows.flat();
-    const hasBadgeButton = allButtons.some(button => button.callback_data === 'pointer:fav_info');
+    const hasBadgeButton = allButtons.some((button) => button.callback_data === 'pointer:fav_info');
     expect(hasBadgeButton).toBe(false);
 
-    const nextButton = allButtons.find(button => button.callback_data === 'pointer:next:random');
+    const nextButton = allButtons.find((button) => button.callback_data === 'pointer:next:random');
     expect(nextButton).toBeDefined();
     expect(nextButton.text).toBe(UI.ru.POINTER_NEXT);
   });

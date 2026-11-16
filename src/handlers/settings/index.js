@@ -1,7 +1,4 @@
-export {
-  handleSettings,
-  renderSettings
-} from './general.js';
+export { handleSettings, renderSettings } from './general.js';
 
 export {
   handleQuietToggle,
@@ -11,13 +8,6 @@ export {
   handleQuietHoursCustomInput
 } from './quietHours.js';
 
-export {
-  handleTimezoneMenu,
-  handleTimezoneRegion,
-  handleTimezoneSet
-} from './timezone.js';
+export { handleTimezoneMenu, handleTimezoneRegion, handleTimezoneSet } from './timezone.js';
 
-export {
-  handleLanguageMenu,
-  handleLanguageSet
-} from './language.js';
+export { handleLanguageMenu, handleLanguageSet } from './language.js';

@@ -18,28 +18,34 @@ const RUSSIAN_TEXTS = {
 ⚙️ «Настройки» — часовой пояс, тихие часы и язык
 
 💡 Чтобы создать напоминание, нажми «⏳ Напоминания» ➡️ «➕ Создать». Можно указать интервал в минутах или точное время (например, 09:00).`,
-    ONBOARDING_TIMEZONE_PROMPT: (timezone, quietHoursText = '23:00–08:00') => `🌍 Твой часовой пояс: <b>${timezone}</b>\nТихие часы: <b>${quietHoursText}</b> (рассчитываются по нему).\n\nЕсли ты в другом регионе — выбери свой город ниже 👇`,
+    ONBOARDING_TIMEZONE_PROMPT: (timezone, quietHoursText = '23:00–08:00') =>
+      `🌍 Твой часовой пояс: <b>${timezone}</b>\nТихие часы: <b>${quietHoursText}</b> (рассчитываются по нему).\n\nЕсли ты в другом регионе — выбери свой город ниже 👇`,
     ONBOARDING_TIMEZONE_BUTTON: '🌍 Выбрать часовой пояс'
   },
 
   POINTERS: {
     MENU_LABEL: '🧘 Указатели',
     EMPTY: 'Пока нет указателей.',
-    FAVORITE_EMPTY: 'У тебя пока нет избранных указателей. Читая случайные указатели, нажимай «⭐ В избранное», чтобы сохранить понравившиеся.',
+    FAVORITE_EMPTY:
+      'У тебя пока нет избранных указателей. Читая случайные указатели, нажимай «⭐ В избранное», чтобы сохранить понравившиеся.',
     FAVORITE_ADDED: 'Добавлено в избранное ⭐',
     FAVORITE_REMOVED: 'Удалено из избранного',
-    FAVORITE_REMINDER_EMPTY: 'У тебя пока нет избранных указателей. Сначала добавь понравившиеся указатели в избранное.',
+    FAVORITE_REMINDER_EMPTY:
+      'У тебя пока нет избранных указателей. Сначала добавь понравившиеся указатели в избранное.',
     FAVORITE_BADGE_INFO: 'Ты просматриваешь своё личное избранное ⭐',
-    EXPIRE_BADGE_INFO: '⏳ Это сообщение автоматически исчезнет. Нажми «⭐ В избранное», чтобы сохранить его.',
-    FAVORITE_TOAST: (current, total) => total ? `⭐ Избранное: ${current} из ${total}` : '⭐ Режим: Избранное'
+    EXPIRE_BADGE_INFO:
+      '⏳ Это сообщение автоматически исчезнет. Нажми «⭐ В избранное», чтобы сохранить его.',
+    FAVORITE_TOAST: (current, total) =>
+      total ? `⭐ Избранное: ${current} из ${total}` : '⭐ Режим: Избранное'
   },
 
   SEARCH: {
     HINT: '🔍 Введите текст для поиска, отрывок указателя или имя автора.\nУкажите текст для поиска или автора — бот найдет совпадения.\nПример: /f Будда или /f [отрывок указателя]',
-    NOT_FOUND: (query, lang) => `❌ Указатели с текстом «${query}» (${lang.toUpperCase()}) не найдены.`,
+    NOT_FOUND: (query, lang) =>
+      `❌ Указатели с текстом «${query}» (${lang.toUpperCase()}) не найдены.`,
     PAGINATION_STATUS: (total, shown) => `ℹ️ Найдено всего: ${total}. Показаны: 1–${shown}`,
-    MORE_BUTTON: remaining => `Показать ещё (${remaining}) ➡️`,
-    ALL_SHOWN: total => `✅ Показаны все найденные указатели (${total}).`,
+    MORE_BUTTON: (remaining) => `Показать ещё (${remaining}) ➡️`,
+    ALL_SHOWN: (total) => `✅ Показаны все найденные указатели (${total}).`,
     EXPIRED_SESSION: 'Поисковая сессия устарела. Отправьте /f заново.'
   },
 
@@ -49,12 +55,14 @@ const RUSSIAN_TEXTS = {
     ASK_TEXT: 'Что будет приходить в напоминании?',
     ASK_TEXT_SUBTITLE: '✍️ Введи текст, выбери из предложенных или отправь 📷 фото / 🎬 видео',
     ASK_INTERVAL: 'Как часто напоминать:',
-    ASK_INTERVAL_HINT: '⌨️ Можно выбрать кнопкой или ввести количество минут цифрами (или время, например 09:00)',
+    ASK_INTERVAL_HINT:
+      '⌨️ Можно выбрать кнопкой или ввести количество минут цифрами (или время, например 09:00)',
     ASK_DELETE_AFTER: '🗑 Автоудаление напоминания',
     ASK_DELETE_AFTER_HINT: '⌨️ Можно выбрать кнопкой или ввести количество секунд цифрами',
     MIN_INTERVAL: 'Минимум — 1 минута',
     MAX_INTERVAL: '⚠️ Максимальный интервал — 525 600 минут (1 год). Введи меньшее число минут.',
-    LIMIT_REACHED: '⚠️ Достигнут лимит напоминаний (максимум 100). Удали неактуальные, чтобы создать новое.',
+    LIMIT_REACHED:
+      '⚠️ Достигнут лимит напоминаний (максимум 100). Удали неактуальные, чтобы создать новое.',
     INVALID_SECONDS: '⌨️ Введи количество секунд цифрами',
     CONFIRM_STATUS: 'Ты точно хочешь изменить статус напоминания?',
     NOT_FOUND: 'Напоминание не найдено',
@@ -81,13 +89,17 @@ const RUSSIAN_TEXTS = {
     CUSTOMIZE_PROMPT: 'Нажми на нужный пункт для изменения:',
     TIMEZONE_REGION_PROMPT: '🌍 Выберите регион:',
     TIMEZONE_CITY_PROMPT: () => `🌍 Выберите город:`,
-    TIMEZONE_SET: tz => `✅ Часовой пояс установлен:\n🌍 ${tz}`,
-    QUIET_MENU_PROMPT: '🔕 <b>Расписание тихих часов</b>\n\nВ этот период напоминания не будут приходить.',
+    TIMEZONE_SET: (tz) => `✅ Часовой пояс установлен:\n🌍 ${tz}`,
+    QUIET_MENU_PROMPT:
+      '🔕 <b>Расписание тихих часов</b>\n\nВ этот период напоминания не будут приходить.',
     QUIET_SET_PRESET: (start, end) => `✅ Часы тишины установлены: <b>${start}:00–${end}:00</b>`,
-    QUIET_CUSTOM_PROMPT: '✍️ Введи часы тишины в формате <code>НАЧАЛО-КОНЕЦ</code> (например, <code>23-8</code> или <code>22:00-07:00</code>):',
-    QUIET_CUSTOM_ERROR: '⚠️ Пожалуйста, укажите часы в формате <code>23-8</code> или <code>22:00-07:00</code>:',
+    QUIET_CUSTOM_PROMPT:
+      '✍️ Введи часы тишины в формате <code>НАЧАЛО-КОНЕЦ</code> (например, <code>23-8</code> или <code>22:00-07:00</code>):',
+    QUIET_CUSTOM_ERROR:
+      '⚠️ Пожалуйста, укажите часы в формате <code>23-8</code> или <code>22:00-07:00</code>:',
     QUIET_RANGE_ERROR: '⚠️ Часы должны быть от 0 до 23 и не совпадать:',
-    QUIET_CUSTOM_SUCCESS: (start, end) => `✅ Часы тишины установлены: <b>${start}:00 - ${end}:00</b>`,
+    QUIET_CUSTOM_SUCCESS: (start, end) =>
+      `✅ Часы тишины установлены: <b>${start}:00 - ${end}:00</b>`,
     QUIET_PRESETS: {
       early: '🌅 22:00 – 07:00 (Ранний)',
       standard: '🌙 23:00 – 08:00 (Стандартный)',
@@ -96,9 +108,7 @@ const RUSSIAN_TEXTS = {
       custom: '✍️ Задать своё время'
     },
     QUIET_STATUS: (enabled, range) =>
-      enabled
-        ? `🔕 Включены (${range})`
-        : `🔔 Выключены (${range})`
+      enabled ? `🔕 Включены (${range})` : `🔔 Выключены (${range})`
   },
 
   SUPPORT: `Техподдержка, обратная связь и пожелания:
@@ -114,7 +124,8 @@ const RUSSIAN_TEXTS = {
 
   AUTH: {
     USER_NOT_FOUND: '❌ Ошибка: пользователь не найден',
-    CODE_MESSAGE: code => `🔐 Твой код для входа в приложение:\n\n<code>${code}</code>\n\n⏱ Код действителен 10 минут.\nВведи его в приложении для авторизации.`,
+    CODE_MESSAGE: (code) =>
+      `🔐 Твой код для входа в приложение:\n\n<code>${code}</code>\n\n⏱ Код действителен 10 минут.\nВведи его в приложении для авторизации.`,
     GET_NEW_CODE_BUTTON: '🔄 Получить новый код',
     GENERIC_ERROR: '❌ Произошла ошибка. Попробуй позже.'
   },
@@ -133,7 +144,8 @@ const RUSSIAN_TEXTS = {
     BROADCAST_STARTED: '🚀 Рассылка началась. По завершении придет отчет.',
     REPLY_CANCELLED: 'Отправка ответа отменена.',
     SPECIFY_POINTER_NUMBER: '⚠️ Укажите номер указателя. Пример: /p 42 или получить pointer 42',
-    POINTER_NOT_FOUND: (number, lang) => `❌ Указатель #${number} (${lang.toUpperCase()}) не найден в базе.`
+    POINTER_NOT_FOUND: (number, lang) =>
+      `❌ Указатель #${number} (${lang.toUpperCase()}) не найден в базе.`
   },
 
   FEEDBACK_SUCCESS: '✅ Твоё сообщение передано администратору. Большое спасибо за обратную связь!',
@@ -164,28 +176,34 @@ I will remind you about what truly matters.
 ⚙️ "Settings" — timezone, quiet hours, and language
 
 💡 To create a reminder, press "⏳ Reminders" ➡️ "➕ Create". You can set interval in minutes or exact daily time (e.g., 09:00).`,
-    ONBOARDING_TIMEZONE_PROMPT: (timezone, quietHoursText = '23:00–08:00') => `🌍 Your timezone: <b>${timezone}</b>\nQuiet hours: <b>${quietHoursText}</b> (calculated based on it).\n\nIf you are in another region, choose your city below 👇`,
+    ONBOARDING_TIMEZONE_PROMPT: (timezone, quietHoursText = '23:00–08:00') =>
+      `🌍 Your timezone: <b>${timezone}</b>\nQuiet hours: <b>${quietHoursText}</b> (calculated based on it).\n\nIf you are in another region, choose your city below 👇`,
     ONBOARDING_TIMEZONE_BUTTON: '🌍 Choose timezone'
   },
 
   POINTERS: {
     MENU_LABEL: '🧘 Pointers',
     EMPTY: 'No pointers yet.',
-    FAVORITE_EMPTY: 'You have no favorite pointers yet. While reading pointers, click "⭐ To favorites" to save them.',
+    FAVORITE_EMPTY:
+      'You have no favorite pointers yet. While reading pointers, click "⭐ To favorites" to save them.',
     FAVORITE_ADDED: 'Added to favorites ⭐',
     FAVORITE_REMOVED: 'Removed from favorites',
-    FAVORITE_REMINDER_EMPTY: 'You have no favorite pointers yet. First add pointers to your favorites.',
+    FAVORITE_REMINDER_EMPTY:
+      'You have no favorite pointers yet. First add pointers to your favorites.',
     FAVORITE_BADGE_INFO: 'You are browsing your personal favorites ⭐',
-    EXPIRE_BADGE_INFO: '⏳ This message will disappear automatically. Click "⭐ To favorites" to save it.',
-    FAVORITE_TOAST: (current, total) => total ? `⭐ Favorites: ${current} of ${total}` : '⭐ Mode: Favorites'
+    EXPIRE_BADGE_INFO:
+      '⏳ This message will disappear automatically. Click "⭐ To favorites" to save it.',
+    FAVORITE_TOAST: (current, total) =>
+      total ? `⭐ Favorites: ${current} of ${total}` : '⭐ Mode: Favorites'
   },
 
   SEARCH: {
     HINT: '🔍 Enter text, pointer excerpt or author name to search.\nSpecify search text or author, and the bot will find matches.\nExample: /f Buddha or /f [pointer excerpt]',
-    NOT_FOUND: (query, lang) => `❌ Pointers matching «${query}» (${lang.toUpperCase()}) not found.`,
+    NOT_FOUND: (query, lang) =>
+      `❌ Pointers matching «${query}» (${lang.toUpperCase()}) not found.`,
     PAGINATION_STATUS: (total, shown) => `ℹ️ Total found: ${total}. Shown: 1–${shown}`,
-    MORE_BUTTON: remaining => `Show more (${remaining}) ➡️`,
-    ALL_SHOWN: total => `✅ All found pointers shown (${total}).`,
+    MORE_BUTTON: (remaining) => `Show more (${remaining}) ➡️`,
+    ALL_SHOWN: (total) => `✅ All found pointers shown (${total}).`,
     EXPIRED_SESSION: 'Search session expired. Send /f again.'
   },
 
@@ -199,7 +217,8 @@ I will remind you about what truly matters.
     ASK_DELETE_AFTER: '🗑 Auto-delete reminder',
     ASK_DELETE_AFTER_HINT: '⌨️ You can select with a button or type the number of seconds',
     MIN_INTERVAL: 'Minimum — 1 minute',
-    MAX_INTERVAL: '⚠️ Maximum interval is 525,600 minutes (1 year). Enter a smaller number of minutes.',
+    MAX_INTERVAL:
+      '⚠️ Maximum interval is 525,600 minutes (1 year). Enter a smaller number of minutes.',
     LIMIT_REACHED: '⚠️ Reminder limit reached (maximum 100). Delete old ones to create a new one.',
     INVALID_SECONDS: '⌨️ Enter the number of seconds as digits',
     CONFIRM_STATUS: 'Are you sure you want to change the reminder status?',
@@ -227,13 +246,16 @@ I will remind you about what truly matters.
     CUSTOMIZE_PROMPT: 'Tap an option below to customize:',
     TIMEZONE_REGION_PROMPT: '🌍 Select region:',
     TIMEZONE_CITY_PROMPT: () => `🌍 Select city:`,
-    TIMEZONE_SET: tz => `✅ Timezone set:\n🌍 ${tz}`,
+    TIMEZONE_SET: (tz) => `✅ Timezone set:\n🌍 ${tz}`,
     QUIET_MENU_PROMPT: '🔕 <b>Quiet hours</b>\n\nDuring this period, reminders will not be sent.',
     QUIET_SET_PRESET: (start, end) => `✅ Quiet hours set: <b>${start}:00–${end}:00</b>`,
-    QUIET_CUSTOM_PROMPT: '✍️ Enter quiet hours as <code>START-END</code> (e.g. <code>23-8</code> or <code>22:00-07:00</code>):',
-    QUIET_CUSTOM_ERROR: '⚠️ Please specify hours in format <code>23-8</code> or <code>22:00-07:00</code>:',
+    QUIET_CUSTOM_PROMPT:
+      '✍️ Enter quiet hours as <code>START-END</code> (e.g. <code>23-8</code> or <code>22:00-07:00</code>):',
+    QUIET_CUSTOM_ERROR:
+      '⚠️ Please specify hours in format <code>23-8</code> or <code>22:00-07:00</code>:',
     QUIET_RANGE_ERROR: '⚠️ Hours must be between 0 and 23 and must not match:',
-    QUIET_CUSTOM_SUCCESS: (start, end) => `✅ Custom quiet hours set: <b>${start}:00 - ${end}:00</b>`,
+    QUIET_CUSTOM_SUCCESS: (start, end) =>
+      `✅ Custom quiet hours set: <b>${start}:00 - ${end}:00</b>`,
     QUIET_PRESETS: {
       early: '🌅 22:00 – 07:00 (Early)',
       standard: '🌙 23:00 – 08:00 (Standard)',
@@ -241,10 +263,7 @@ I will remind you about what truly matters.
       late: '🌌 01:00 – 10:00 (Late)',
       custom: '✍️ Custom schedule'
     },
-    QUIET_STATUS: (enabled, range) =>
-      enabled
-        ? `🔕 Enabled (${range})`
-        : `🔔 Disabled (${range})`
+    QUIET_STATUS: (enabled, range) => (enabled ? `🔕 Enabled (${range})` : `🔔 Disabled (${range})`)
   },
 
   SUPPORT: `Support, feedback & suggestions:
@@ -260,7 +279,8 @@ If you would like to say thanks for the bot or support the project financially -
 
   AUTH: {
     USER_NOT_FOUND: '❌ Error: user not found',
-    CODE_MESSAGE: code => `🔐 Your code to sign in to the app:\n\n<code>${code}</code>\n\n⏱ The code is valid for 10 minutes.\nEnter it in the app to sign in.`,
+    CODE_MESSAGE: (code) =>
+      `🔐 Your code to sign in to the app:\n\n<code>${code}</code>\n\n⏱ The code is valid for 10 minutes.\nEnter it in the app to sign in.`,
     GET_NEW_CODE_BUTTON: '🔄 Get new code',
     GENERIC_ERROR: '❌ An error occurred. Please try again later.'
   },
@@ -279,10 +299,12 @@ If you would like to say thanks for the bot or support the project financially -
     BROADCAST_STARTED: '🚀 Рассылка началась. По завершении придет отчет.',
     REPLY_CANCELLED: 'Отправка ответа отменена.',
     SPECIFY_POINTER_NUMBER: '⚠️ Укажите номер указателя. Пример: /p 42 или получить pointer 42',
-    POINTER_NOT_FOUND: (number, lang) => `❌ Указатель #${number} (${lang.toUpperCase()}) не найден в базе.`
+    POINTER_NOT_FOUND: (number, lang) =>
+      `❌ Указатель #${number} (${lang.toUpperCase()}) не найден в базе.`
   },
 
-  FEEDBACK_SUCCESS: '✅ Your message has been forwarded to the administrator. Thank you for your feedback!',
+  FEEDBACK_SUCCESS:
+    '✅ Your message has been forwarded to the administrator. Thank you for your feedback!',
 
   INTERVALS: {
     OPTIONS: ['10 sec', '30 sec', '1 min', 'Do not delete'],
@@ -310,28 +332,34 @@ const UKRAINIAN_TEXTS = {
 ⚙️ «Налаштування» — часовий пояс, тихі години та мова
 
 💡 Щоб створити нагадування, натисни «⏳ Нагадування» ➡️ «➕ Створити». Можна вказати інтервал у хвилинах або точний час (наприклад, 09:00).`,
-    ONBOARDING_TIMEZONE_PROMPT: (timezone, quietHoursText = '23:00–08:00') => `🌍 Твій часовий пояс: <b>${timezone}</b>\nТихі години: <b>${quietHoursText}</b> (розраховуються за ним).\n\nЯкщо ти в іншому регіоні — обери своє місто нижче 👇`,
+    ONBOARDING_TIMEZONE_PROMPT: (timezone, quietHoursText = '23:00–08:00') =>
+      `🌍 Твій часовий пояс: <b>${timezone}</b>\nТихі години: <b>${quietHoursText}</b> (розраховуються за ним).\n\nЯкщо ти в іншому регіоні — обери своє місто нижче 👇`,
     ONBOARDING_TIMEZONE_BUTTON: '🌍 Обрати часовий пояс'
   },
 
   POINTERS: {
     MENU_LABEL: '🧘 Вказівники',
     EMPTY: 'Поки немає вказівників.',
-    FAVORITE_EMPTY: 'У тебе поки немає обраних вказівників. Читаючи випадкові вказівники, натискай «⭐ До обраного», щоб зберегти ті, що сподобалися.',
+    FAVORITE_EMPTY:
+      'У тебе поки немає обраних вказівників. Читаючи випадкові вказівники, натискай «⭐ До обраного», щоб зберегти ті, що сподобалися.',
     FAVORITE_ADDED: 'Додано до обраного ⭐',
     FAVORITE_REMOVED: 'Вилучено з обраного',
-    FAVORITE_REMINDER_EMPTY: 'У тебе поки немає обраних вказівників. Спочатку додай вказівники, що сподобалися, до обраного.',
+    FAVORITE_REMINDER_EMPTY:
+      'У тебе поки немає обраних вказівників. Спочатку додай вказівники, що сподобалися, до обраного.',
     FAVORITE_BADGE_INFO: 'Ти переглядаєш своє особисте обране ⭐',
-    EXPIRE_BADGE_INFO: '⏳ Це повідомлення автоматично зникне. Натисни «⭐ До обраного», щоб зберегти його.',
-    FAVORITE_TOAST: (current, total) => total ? `⭐ Обране: ${current} з ${total}` : '⭐ Режим: Обране'
+    EXPIRE_BADGE_INFO:
+      '⏳ Це повідомлення автоматично зникне. Натисни «⭐ До обраного», щоб зберегти його.',
+    FAVORITE_TOAST: (current, total) =>
+      total ? `⭐ Обране: ${current} з ${total}` : '⭐ Режим: Обране'
   },
 
   SEARCH: {
-    HINT: '🔍 Введіть текст для пошуку, уривок вказівника або ім\'я автора.\nВкажіть текст для пошуку або автора — бот знайде збіги.\nПриклад: /f Будда або /f [уривок вказівника]',
-    NOT_FOUND: (query, lang) => `❌ Вказівники за запитом «${query}» (${lang.toUpperCase()}) не знайдені.`,
+    HINT: "🔍 Введіть текст для пошуку, уривок вказівника або ім'я автора.\nВкажіть текст для пошуку або автора — бот знайде збіги.\nПриклад: /f Будда або /f [уривок вказівника]",
+    NOT_FOUND: (query, lang) =>
+      `❌ Вказівники за запитом «${query}» (${lang.toUpperCase()}) не знайдені.`,
     PAGINATION_STATUS: (total, shown) => `ℹ️ Всього знайдено: ${total}. Показано: 1–${shown}`,
-    MORE_BUTTON: remaining => `Показати ще (${remaining}) ➡️`,
-    ALL_SHOWN: total => `✅ Показано всі знайдені вказівники (${total}).`,
+    MORE_BUTTON: (remaining) => `Показати ще (${remaining}) ➡️`,
+    ALL_SHOWN: (total) => `✅ Показано всі знайдені вказівники (${total}).`,
     EXPIRED_SESSION: 'Пошукова сесія застаріла. Надішліть /f знову.'
   },
 
@@ -341,12 +369,15 @@ const UKRAINIAN_TEXTS = {
     ASK_TEXT: 'Що приходитиме в нагадуванні?',
     ASK_TEXT_SUBTITLE: '✍️ Введи текст, обери із запропонованих або надішли 📷 фото / 🎬 відео',
     ASK_INTERVAL: 'Як часто нагадувати:',
-    ASK_INTERVAL_HINT: '⌨️ Можна вибрати кнопкою, ввести кількість хвилин або час (наприклад, 09:00)',
+    ASK_INTERVAL_HINT:
+      '⌨️ Можна вибрати кнопкою, ввести кількість хвилин або час (наприклад, 09:00)',
     ASK_DELETE_AFTER: '🗑 Автовидалення нагадування',
     ASK_DELETE_AFTER_HINT: '⌨️ Можна вибрати кнопкою або ввести кількість секунд цифрами',
     MIN_INTERVAL: 'Мінімум — 1 хвилина',
-    MAX_INTERVAL: '⚠️ Максимальний інтервал — 525 600 хвилин (1 рік). Введи меншу кількість хвилин.',
-    LIMIT_REACHED: '⚠️ Досягнуто ліміт нагадувань (максимум 100). Видали неактуальні, щоб створити нове.',
+    MAX_INTERVAL:
+      '⚠️ Максимальний інтервал — 525 600 хвилин (1 рік). Введи меншу кількість хвилин.',
+    LIMIT_REACHED:
+      '⚠️ Досягнуто ліміт нагадувань (максимум 100). Видали неактуальні, щоб створити нове.',
     INVALID_SECONDS: '⌨️ Введи кількість секунд цифрами',
     CONFIRM_STATUS: 'Ти дійсно хочеш змінити статус нагадування?',
     NOT_FOUND: 'Нагадування не знайдено',
@@ -373,13 +404,16 @@ const UKRAINIAN_TEXTS = {
     CUSTOMIZE_PROMPT: 'Обери потрібний пункт для зміни:',
     TIMEZONE_REGION_PROMPT: '🌍 Оберіть регіон:',
     TIMEZONE_CITY_PROMPT: () => `🌍 Оберіть місто:`,
-    TIMEZONE_SET: tz => `✅ Часовий пояс встановлено:\n🌍 ${tz}`,
+    TIMEZONE_SET: (tz) => `✅ Часовий пояс встановлено:\n🌍 ${tz}`,
     QUIET_MENU_PROMPT: '🔕 <b>Години тиші</b>\n\nУ цей період нагадування не приходитимуть.',
     QUIET_SET_PRESET: (start, end) => `✅ Години тиші встановлено: <b>${start}:00–${end}:00</b>`,
-    QUIET_CUSTOM_PROMPT: '✍️ Введи години тиші у форматі <code>ПОЧАТОК-КІНЕЦЬ</code> (наприклад, <code>23-8</code> або <code>22:00-07:00</code>):',
-    QUIET_CUSTOM_ERROR: '⚠️ Будь ласка, вкажи години у форматі <code>23-8</code> або <code>22:00-07:00</code>:',
+    QUIET_CUSTOM_PROMPT:
+      '✍️ Введи години тиші у форматі <code>ПОЧАТОК-КІНЕЦЬ</code> (наприклад, <code>23-8</code> або <code>22:00-07:00</code>):',
+    QUIET_CUSTOM_ERROR:
+      '⚠️ Будь ласка, вкажи години у форматі <code>23-8</code> або <code>22:00-07:00</code>:',
     QUIET_RANGE_ERROR: '⚠️ Години мають бути від 0 до 23 і не збігатися:',
-    QUIET_CUSTOM_SUCCESS: (start, end) => `✅ Години тиші встановлено: <b>${start}:00 - ${end}:00</b>`,
+    QUIET_CUSTOM_SUCCESS: (start, end) =>
+      `✅ Години тиші встановлено: <b>${start}:00 - ${end}:00</b>`,
     QUIET_PRESETS: {
       early: '🌅 22:00 – 07:00 (Ранній)',
       standard: '🌙 23:00 – 08:00 (Стандартний)',
@@ -388,9 +422,7 @@ const UKRAINIAN_TEXTS = {
       custom: '✍️ Вказати свій час'
     },
     QUIET_STATUS: (enabled, range) =>
-      enabled
-        ? `🔕 Увімкнено (${range})`
-        : `🔔 Вимкнено (${range})`
+      enabled ? `🔕 Увімкнено (${range})` : `🔔 Вимкнено (${range})`
   },
 
   SUPPORT: `Техпідтримка, зворотний зв'язок та побажання:
@@ -406,7 +438,8 @@ const UKRAINIAN_TEXTS = {
 
   AUTH: {
     USER_NOT_FOUND: '❌ Помилка: користувача не знайдено',
-    CODE_MESSAGE: code => `🔐 Твій код для входу в застосунок:\n\n<code>${code}</code>\n\n⏱ Код діє 10 хвилин.\nВведи його в застосунку для авторизації.`,
+    CODE_MESSAGE: (code) =>
+      `🔐 Твій код для входу в застосунок:\n\n<code>${code}</code>\n\n⏱ Код діє 10 хвилин.\nВведи його в застосунку для авторизації.`,
     GET_NEW_CODE_BUTTON: '🔄 Отримати новий код',
     GENERIC_ERROR: '❌ Сталася помилка. Спробуй пізніше.'
   },
@@ -425,10 +458,12 @@ const UKRAINIAN_TEXTS = {
     BROADCAST_STARTED: '🚀 Розсилка розпочалася. Після завершення надійде звіт.',
     REPLY_CANCELLED: 'Надсилання відповіді скасовано.',
     SPECIFY_POINTER_NUMBER: '⚠️ Вкажіть номер вказівника. Приклад: /p 42 або отримати pointer 42',
-    POINTER_NOT_FOUND: (number, lang) => `❌ Вказівник #${number} (${lang.toUpperCase()}) не знайдено в базі.`
+    POINTER_NOT_FOUND: (number, lang) =>
+      `❌ Вказівник #${number} (${lang.toUpperCase()}) не знайдено в базі.`
   },
 
-  FEEDBACK_SUCCESS: '✅ Твоє повідомлення передано адміністратору. Щиро дякуємо за зворотний зв’язок!',
+  FEEDBACK_SUCCESS:
+    '✅ Твоє повідомлення передано адміністратору. Щиро дякуємо за зворотний зв’язок!',
 
   INTERVALS: {
     OPTIONS: ['10 сек', '30 сек', '1 хв', 'Не видаляти'],
@@ -456,28 +491,34 @@ Te recordaré lo que verdaderamente importa.
 ⚙️ «Ajustes» — zona horaria, horas de silencio e idioma
 
 💡 Para crear un recordatorio, presiona «⏳ Recordatorios» ➡️ «➕ Crear». Puedes indicar el intervalo en minutos o la hora exacta (por ejemplo, 09:00).`,
-    ONBOARDING_TIMEZONE_PROMPT: (timezone, quietHoursText = '23:00–08:00') => `🌍 Tu zona horaria: <b>${timezone}</b>\nHoras de silencio: <b>${quietHoursText}</b> (calculadas en base a ella).\n\nSi estás en otra región, elige tu ciudad abajo 👇`,
+    ONBOARDING_TIMEZONE_PROMPT: (timezone, quietHoursText = '23:00–08:00') =>
+      `🌍 Tu zona horaria: <b>${timezone}</b>\nHoras de silencio: <b>${quietHoursText}</b> (calculadas en base a ella).\n\nSi estás en otra región, elige tu ciudad abajo 👇`,
     ONBOARDING_TIMEZONE_BUTTON: '🌍 Elegir zona horaria'
   },
 
   POINTERS: {
     MENU_LABEL: '🧘 Punteros',
     EMPTY: 'Aún no hay punteros.',
-    FAVORITE_EMPTY: 'Aún no tienes punteros favoritos. Al leer punteros aleatorios, pulsa «⭐ A favoritos» para guardar los que te gusten.',
+    FAVORITE_EMPTY:
+      'Aún no tienes punteros favoritos. Al leer punteros aleatorios, pulsa «⭐ A favoritos» para guardar los que te gusten.',
     FAVORITE_ADDED: 'Añadido a favoritos ⭐',
     FAVORITE_REMOVED: 'Eliminado de favoritos',
-    FAVORITE_REMINDER_EMPTY: 'Aún no tienes punteros favoritos. Primero añade los punteros que te gusten a favoritos.',
+    FAVORITE_REMINDER_EMPTY:
+      'Aún no tienes punteros favoritos. Primero añade los punteros que te gusten a favoritos.',
     FAVORITE_BADGE_INFO: 'Estás viendo tus favoritos personales ⭐',
-    EXPIRE_BADGE_INFO: '⏳ Este mensaje desaparecerá automáticamente. Haz clic en "⭐ A favoritos" para guardarlo.',
-    FAVORITE_TOAST: (current, total) => total ? `⭐ Favoritos: ${current} de ${total}` : '⭐ Modo: Favoritos'
+    EXPIRE_BADGE_INFO:
+      '⏳ Este mensaje desaparecerá automáticamente. Haz clic en "⭐ A favoritos" para guardarlo.',
+    FAVORITE_TOAST: (current, total) =>
+      total ? `⭐ Favoritos: ${current} de ${total}` : '⭐ Modo: Favoritos'
   },
 
   SEARCH: {
     HINT: '🔍 Introduce el texto de búsqueda, fragmento del puntero o nombre del autor.\nIndique el texto para buscar o el autor y el bot encontrará coincidencias.\nEjemplo: /f Buda o /f [fragmento del puntero]',
-    NOT_FOUND: (query, lang) => `❌ No se encontraron punteros para «${query}» (${lang.toUpperCase()}).`,
+    NOT_FOUND: (query, lang) =>
+      `❌ No se encontraron punteros para «${query}» (${lang.toUpperCase()}).`,
     PAGINATION_STATUS: (total, shown) => `ℹ️ Total encontrados: ${total}. Mostrados: 1–${shown}`,
-    MORE_BUTTON: remaining => `Mostrar más (quedan ${remaining}) ➡️`,
-    ALL_SHOWN: total => `✅ Se han mostrado todos los punteros encontrados (${total}).`,
+    MORE_BUTTON: (remaining) => `Mostrar más (quedan ${remaining}) ➡️`,
+    ALL_SHOWN: (total) => `✅ Se han mostrado todos los punteros encontrados (${total}).`,
     EXPIRED_SESSION: 'La sesión de búsqueda ha caducado. Envía /f de nuevo.'
   },
 
@@ -487,12 +528,16 @@ Te recordaré lo que verdaderamente importa.
     ASK_TEXT: '¿Qué mensaje llegará en el recordatorio?',
     ASK_TEXT_SUBTITLE: '✍️ Escribe el texto, elige una sugerencia o envía 📷 foto / 🎬 video',
     ASK_INTERVAL: 'Con qué frecuencia recordar:',
-    ASK_INTERVAL_HINT: '⌨️ Puedes elegir con un botón, escribir minutos o una hora (por ejemplo, 09:00)',
+    ASK_INTERVAL_HINT:
+      '⌨️ Puedes elegir con un botón, escribir minutos o una hora (por ejemplo, 09:00)',
     ASK_DELETE_AFTER: '🗑 Autoeliminación del recordatorio',
-    ASK_DELETE_AFTER_HINT: '⌨️ Puedes elegir con un botón o escribir la cantidad de segundos en números',
+    ASK_DELETE_AFTER_HINT:
+      '⌨️ Puedes elegir con un botón o escribir la cantidad de segundos en números',
     MIN_INTERVAL: 'Mínimo — 1 minuto',
-    MAX_INTERVAL: '⚠️ El intervalo máximo es de 525 600 minutos (1 año). Ingresa un número menor de minutos.',
-    LIMIT_REACHED: '⚠️ Límite de recordatorios alcanzado (máximo 100). Elimina los antiguos para crear uno nuevo.',
+    MAX_INTERVAL:
+      '⚠️ El intervalo máximo es de 525 600 minutos (1 año). Ingresa un número menor de minutos.',
+    LIMIT_REACHED:
+      '⚠️ Límite de recordatorios alcanzado (máximo 100). Elimina los antiguos para crear uno nuevo.',
     INVALID_SECONDS: '⌨️ Introduce la cantidad de segundos en números',
     CONFIRM_STATUS: '¿Seguro que deseas cambiar el estado del recordatorio?',
     NOT_FOUND: 'Recordatorio no encontrado',
@@ -519,13 +564,18 @@ Te recordaré lo que verdaderamente importa.
     CUSTOMIZE_PROMPT: 'Toca una opción abajo para personalizar:',
     TIMEZONE_REGION_PROMPT: '🌍 Selecciona región:',
     TIMEZONE_CITY_PROMPT: () => `🌍 Selecciona ciudad:`,
-    TIMEZONE_SET: tz => `✅ Zona horaria establecida:\n🌍 ${tz}`,
-    QUIET_MENU_PROMPT: '🔕 <b>Horas de silencio</b>\n\nDurante este período no se enviarán recordatorios.',
-    QUIET_SET_PRESET: (start, end) => `✅ Horas de silencio configuradas: <b>${start}:00–${end}:00</b>`,
-    QUIET_CUSTOM_PROMPT: '✍️ Introduce las horas de silencio en formato <code>INICIO-FIN</code> (ej. <code>23-8</code> o <code>22:00-07:00</code>):',
-    QUIET_CUSTOM_ERROR: '⚠️ Por favor, indica las horas en formato <code>23-8</code> o <code>22:00-07:00</code>:',
+    TIMEZONE_SET: (tz) => `✅ Zona horaria establecida:\n🌍 ${tz}`,
+    QUIET_MENU_PROMPT:
+      '🔕 <b>Horas de silencio</b>\n\nDurante este período no se enviarán recordatorios.',
+    QUIET_SET_PRESET: (start, end) =>
+      `✅ Horas de silencio configuradas: <b>${start}:00–${end}:00</b>`,
+    QUIET_CUSTOM_PROMPT:
+      '✍️ Introduce las horas de silencio en formato <code>INICIO-FIN</code> (ej. <code>23-8</code> o <code>22:00-07:00</code>):',
+    QUIET_CUSTOM_ERROR:
+      '⚠️ Por favor, indica las horas en formato <code>23-8</code> o <code>22:00-07:00</code>:',
     QUIET_RANGE_ERROR: '⚠️ Las horas deben estar entre 0 y 23 y no coincidir:',
-    QUIET_CUSTOM_SUCCESS: (start, end) => `✅ Horas de silencio configuradas: <b>${start}:00 - ${end}:00</b>`,
+    QUIET_CUSTOM_SUCCESS: (start, end) =>
+      `✅ Horas de silencio configuradas: <b>${start}:00 - ${end}:00</b>`,
     QUIET_PRESETS: {
       early: '🌅 22:00 – 07:00 (Temprano)',
       standard: '🌙 23:00 – 08:00 (Estándar)',
@@ -534,9 +584,7 @@ Te recordaré lo que verdaderamente importa.
       custom: '✍️ Horario personalizado'
     },
     QUIET_STATUS: (enabled, range) =>
-      enabled
-        ? `🔕 Activado (${range})`
-        : `🔔 Desactivado (${range})`
+      enabled ? `🔕 Activado (${range})` : `🔔 Desactivado (${range})`
   },
 
   SUPPORT: `Soporte técnico, comentarios y sugerencias:
@@ -552,7 +600,8 @@ Si deseas agradecer por el bot o apoyar el proyecto económicamente - escribe a 
 
   AUTH: {
     USER_NOT_FOUND: '❌ Error: usuario no encontrado',
-    CODE_MESSAGE: code => `🔐 Tu código para iniciar sesión en la aplicación:\n\n<code>${code}</code>\n\n⏱ El código es válido durante 10 minutos.\nIntrodúcelo en la aplicación para iniciar sesión.`,
+    CODE_MESSAGE: (code) =>
+      `🔐 Tu código para iniciar sesión en la aplicación:\n\n<code>${code}</code>\n\n⏱ El código es válido durante 10 minutos.\nIntrodúcelo en la aplicación para iniciar sesión.`,
     GET_NEW_CODE_BUTTON: '🔄 Obtener nuevo código',
     GENERIC_ERROR: '❌ Ocurrió un error. Inténtalo más tarde.'
   },
@@ -571,10 +620,12 @@ Si deseas agradecer por el bot o apoyar el proyecto económicamente - escribe a 
     BROADCAST_STARTED: '🚀 La difusión ha comenzado. Al finalizar llegará un informe.',
     REPLY_CANCELLED: 'Envío de respuesta cancelado.',
     SPECIFY_POINTER_NUMBER: '⚠️ Indica el número de puntero. Ejemplo: /p 42 o get pointer 42',
-    POINTER_NOT_FOUND: (number, lang) => `❌ Puntero #${number} (${lang.toUpperCase()}) no encontrado en la base.`
+    POINTER_NOT_FOUND: (number, lang) =>
+      `❌ Puntero #${number} (${lang.toUpperCase()}) no encontrado en la base.`
   },
 
-  FEEDBACK_SUCCESS: '✅ Tu mensaje ha sido enviado al administrador. ¡Muchas gracias por tus comentarios!',
+  FEEDBACK_SUCCESS:
+    '✅ Tu mensaje ha sido enviado al administrador. ¡Muchas gracias por tus comentarios!',
 
   INTERVALS: {
     OPTIONS: ['10 seg', '30 seg', '1 min', 'No eliminar'],
@@ -604,7 +655,7 @@ export const DO_NOT_DELETE_TEXTS = [
   SPANISH_TEXTS.INTERVALS.OPTIONS[3]
 ];
 
-export const isDoNotDeleteText = textValue =>
+export const isDoNotDeleteText = (textValue) =>
   DO_NOT_DELETE_TEXTS.includes(typeof textValue === 'string' ? textValue.trim() : '');
 
 export const COMBINED_AUTO_DELETE_MAP = {

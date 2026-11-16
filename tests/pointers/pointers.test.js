@@ -130,8 +130,8 @@ describe('getNextPointerForUser — показ избранного в конц�
   it('должен выдавать указатели из избранного в конце круга, а затем начинать новый круг', async () => {
     const userId = 888101;
     const pointerOne = await Pointer.create({ text: 'Первый указатель', isActive: true });
-    const pointerTwo = await Pointer.create({ text: 'Второй указатель', isActive: true });
-    const pointerThree = await Pointer.create({ text: 'Третий указатель', isActive: true });
+    await Pointer.create({ text: 'Второй указатель', isActive: true });
+    await Pointer.create({ text: 'Третий указатель', isActive: true });
 
     await toggleFavoritePointer(userId, pointerOne._id);
 
@@ -141,7 +141,7 @@ describe('getNextPointerForUser — показ избранного в конц�
       await getNextPointerForUser(userId)
     ];
 
-    const firstRoundTexts = firstRoundPointers.map(item => item.text);
+    const firstRoundTexts = firstRoundPointers.map((item) => item.text);
     expect(firstRoundTexts).toHaveLength(3);
     expect(firstRoundTexts).toContain('Первый указатель');
     expect(firstRoundTexts).toContain('Второй указатель');
@@ -156,7 +156,7 @@ describe('getNextPointerForUser — показ избранного в конц�
       await getNextPointerForUser(userId),
       await getNextPointerForUser(userId)
     ];
-    const secondRoundTexts = secondRoundPointers.map(item => item.text);
+    const secondRoundTexts = secondRoundPointers.map((item) => item.text);
     expect(secondRoundTexts).toContain('Первый указатель');
     expect(secondRoundTexts).toContain('Второй указатель');
     expect(secondRoundTexts).toContain('Третий указатель');
@@ -177,13 +177,13 @@ describe('getNextPointerForUser — показ избранного в конц�
       await getNextPointerForUser(userId),
       await getNextPointerForUser(userId)
     ];
-    expect(mainRoundPointers.map(p => p.text).sort()).toEqual(['Альфа', 'Бета']);
+    expect(mainRoundPointers.map((p) => p.text).sort()).toEqual(['Альфа', 'Бета']);
 
     const finalePointers = [
       await getNextPointerForUser(userId),
       await getNextPointerForUser(userId)
     ];
-    const finaleTexts = finalePointers.map(p => p.text).sort();
+    const finaleTexts = finalePointers.map((p) => p.text).sort();
     expect(finaleTexts).toEqual(['Альфа', 'Бета']);
 
     const newRoundFirstPointer = await getNextPointerForUser(userId);
@@ -195,11 +195,8 @@ describe('getNextPointerForUser — показ избранного в конц�
     await Pointer.create({ text: 'Один', isActive: true });
     await Pointer.create({ text: 'Два', isActive: true });
 
-    const firstRound = [
-      await getNextPointerForUser(userId),
-      await getNextPointerForUser(userId)
-    ];
-    expect(firstRound.map(p => p.text).sort()).toEqual(['Два', 'Один']);
+    const firstRound = [await getNextPointerForUser(userId), await getNextPointerForUser(userId)];
+    expect(firstRound.map((p) => p.text).sort()).toEqual(['Два', 'Один']);
 
     const secondRoundFirst = await getNextPointerForUser(userId);
     expect(['Два', 'Один']).toContain(secondRoundFirst.text);
@@ -207,9 +204,17 @@ describe('getNextPointerForUser — показ избранного в конц�
 
   it('должен учитывать фильтр по тегам для финала избранного', async () => {
     const userId = 888104;
-    const silenceFavorite = await Pointer.create({ text: 'Тишина любимая', tags: ['тишина'], isActive: true });
-    const otherFavorite = await Pointer.create({ text: 'Обычная любимая', tags: ['другое'], isActive: true });
-    const silenceRegular = await Pointer.create({ text: 'Тишина обычная', tags: ['тишина'], isActive: true });
+    const silenceFavorite = await Pointer.create({
+      text: 'Тишина любимая',
+      tags: ['тишина'],
+      isActive: true
+    });
+    const otherFavorite = await Pointer.create({
+      text: 'Обычная любимая',
+      tags: ['другое'],
+      isActive: true
+    });
+    await Pointer.create({ text: 'Тишина обычная', tags: ['тишина'], isActive: true });
 
     await toggleFavoritePointer(userId, silenceFavorite._id);
     await toggleFavoritePointer(userId, otherFavorite._id);
@@ -218,7 +223,7 @@ describe('getNextPointerForUser — показ избранного в конц�
       await getNextPointerForUser(userId, 'тишина'),
       await getNextPointerForUser(userId, 'тишина')
     ];
-    const mainTaggedTexts = mainTaggedRound.map(p => p.text);
+    const mainTaggedTexts = mainTaggedRound.map((p) => p.text);
     expect(mainTaggedTexts).toContain('Тишина любимая');
     expect(mainTaggedTexts).toContain('Тишина обычная');
     expect(mainTaggedTexts).not.toContain('Обычная любимая');

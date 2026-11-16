@@ -3,7 +3,11 @@ import { Pointer, PointerEn, PointerUk, PointerEs } from '../../src/models/Point
 import User from '../../src/models/User.js';
 import { getNextPointerForUser } from '../../src/services/pointers.js';
 import { activityMiddleware, resolveUserLanguage } from '../../src/middlewares/activity.js';
-import { handleNextPointer, handlePointer, handlePointerToReminder } from '../../src/handlers/pointers.js';
+import {
+  handleNextPointer,
+  handlePointer,
+  handlePointerToReminder
+} from '../../src/handlers/pointers.js';
 import { createMockContext } from '../helpers/mockContext.js';
 import russianPointersDataset from '../../data/pointers.ru.js';
 import englishPointersDataset from '../../data/pointers.en.js';
@@ -69,7 +73,11 @@ describe('Изоляция языков и защита от утечки анг
     const historicalUserTelegramId = 88112244;
 
     await Pointer.create([
-      { text: 'Исторический русский указатель без указания языка', isActive: true, tags: ['тишина'] }
+      {
+        text: 'Исторический русский указатель без указания языка',
+        isActive: true,
+        tags: ['тишина']
+      }
     ]);
 
     const receivedPointer = await getNextPointerForUser(historicalUserTelegramId);
@@ -236,12 +244,8 @@ describe('Изоляция языков и защита от утечки анг
       language: 'ru'
     });
 
-    await Pointer.create([
-      { text: 'Наблюдение за дыханием', isActive: true }
-    ]);
-    await PointerEn.create([
-      { text: 'Observation of breathing', isActive: true }
-    ]);
+    await Pointer.create([{ text: 'Наблюдение за дыханием', isActive: true }]);
+    await PointerEn.create([{ text: 'Observation of breathing', isActive: true }]);
 
     const mockContext = createMockContext({
       userId: englishClientUserId,
@@ -255,7 +259,7 @@ describe('Изоляция языков и защита от утечки анг
     expect(firstReplyMessageText).toContain('Наблюдение за дыханием');
 
     const inlineKeyboardButtons = firstReplyMessageKeyboard.reply_markup.inline_keyboard.flat();
-    const buttonCaptionsList = inlineKeyboardButtons.map(buttonItem => buttonItem.text);
+    const buttonCaptionsList = inlineKeyboardButtons.map((buttonItem) => buttonItem.text);
     expect(buttonCaptionsList).toContain('🔔 В напоминание');
     expect(buttonCaptionsList).toContain('➡️ Следующий');
 
@@ -268,11 +272,12 @@ describe('Изоляция языков и защита от утечки анг
     await handleNextPointer(nextPointerCallbackMockContext);
 
     expect(nextPointerCallbackMockContext.editMessageText).toHaveBeenCalled();
-    const [editedMessageText, editedMessageKeyboard] = nextPointerCallbackMockContext.editMessageText.mock.calls[0];
+    const [editedMessageText, editedMessageKeyboard] =
+      nextPointerCallbackMockContext.editMessageText.mock.calls[0];
     expect(editedMessageText).toContain('Наблюдение за дыханием');
 
     const editedInlineButtons = editedMessageKeyboard.reply_markup.inline_keyboard.flat();
-    const editedButtonCaptionsList = editedInlineButtons.map(buttonItem => buttonItem.text);
+    const editedButtonCaptionsList = editedInlineButtons.map((buttonItem) => buttonItem.text);
     expect(editedButtonCaptionsList).toContain('🔔 В напоминание');
     expect(editedButtonCaptionsList).toContain('➡️ Следующий');
   });
@@ -280,12 +285,8 @@ describe('Изоляция языков и защита от утечки анг
   it('должен возвращать null для английского пользователя если английские указатели деактивированы', async () => {
     const englishLanguageUserId = 44332211;
 
-    await Pointer.create([
-      { text: 'Русский рабочий указатель', isActive: true }
-    ]);
-    await PointerEn.create([
-      { text: 'Inactive english pointer', isActive: false }
-    ]);
+    await Pointer.create([{ text: 'Русский рабочий указатель', isActive: true }]);
+    await PointerEn.create([{ text: 'Inactive english pointer', isActive: false }]);
 
     await User.create({
       telegramId: englishLanguageUserId,
@@ -321,7 +322,9 @@ describe('Изоляция языков и защита от утечки анг
 
     const replyMarkup = replyMessageOptions.reply_markup;
     const keyboardRows = replyMarkup.keyboard;
-    const flattenedButtons = keyboardRows.flat().map(buttonItem => (typeof buttonItem === 'string' ? buttonItem : buttonItem.text));
+    const flattenedButtons = keyboardRows
+      .flat()
+      .map((buttonItem) => (typeof buttonItem === 'string' ? buttonItem : buttonItem.text));
     expect(flattenedButtons).toContain('Каждые 5 минут');
     expect(flattenedButtons).toContain('Каждые 15 минут');
     expect(flattenedButtons).toContain('Каждый час');
@@ -364,7 +367,8 @@ describe('Изоляция языков и защита от утечки анг
   });
 
   it('должен поддерживать украинские опции автоудаления в handleDeleteAfterPreset', async () => {
-    const { handleDeleteAfterPreset, REMINDER_STEP } = await import('../../src/handlers/reminders.js');
+    const { handleDeleteAfterPreset, REMINDER_STEP } =
+      await import('../../src/handlers/reminders.js');
     const Reminder = (await import('../../src/models/Reminder.js')).default;
 
     const testUserTelegramId = 99887755;
@@ -381,7 +385,10 @@ describe('Изоляция языков и защита от утечки анг
     });
 
     await handleDeleteAfterPreset(mockContextOneMinute);
-    const savedReminderOneMinute = await Reminder.findOne({ userId: testUserTelegramId, text: 'Тест нагадування' });
+    const savedReminderOneMinute = await Reminder.findOne({
+      userId: testUserTelegramId,
+      text: 'Тест нагадування'
+    });
     expect(savedReminderOneMinute).not.toBeNull();
     expect(savedReminderOneMinute.deleteAfterSeconds).toBe(60);
 
@@ -398,13 +405,17 @@ describe('Изоляция языков и защита от утечки анг
     });
 
     await handleDeleteAfterPreset(mockContextNeverDelete);
-    const savedReminderNeverDelete = await Reminder.findOne({ userId: testUserTelegramId, text: 'Тест нагадування 2' });
+    const savedReminderNeverDelete = await Reminder.findOne({
+      userId: testUserTelegramId,
+      text: 'Тест нагадування 2'
+    });
     expect(savedReminderNeverDelete).not.toBeNull();
     expect(savedReminderNeverDelete.deleteAfterSeconds).toBeNull();
   });
 
   it('должен поддерживать испанские опции автоудаления в handleDeleteAfterPreset', async () => {
-    const { handleDeleteAfterPreset, REMINDER_STEP } = await import('../../src/handlers/reminders.js');
+    const { handleDeleteAfterPreset, REMINDER_STEP } =
+      await import('../../src/handlers/reminders.js');
     const Reminder = (await import('../../src/models/Reminder.js')).default;
 
     const testUserTelegramId = 99887744;
@@ -421,7 +432,10 @@ describe('Изоляция языков и защита от утечки анг
     });
 
     await handleDeleteAfterPreset(mockContextTenSeconds);
-    const savedReminderTenSeconds = await Reminder.findOne({ userId: testUserTelegramId, text: 'Recordatorio prueba 1' });
+    const savedReminderTenSeconds = await Reminder.findOne({
+      userId: testUserTelegramId,
+      text: 'Recordatorio prueba 1'
+    });
     expect(savedReminderTenSeconds).not.toBeNull();
     expect(savedReminderTenSeconds.deleteAfterSeconds).toBe(10);
 
@@ -438,7 +452,10 @@ describe('Изоляция языков и защита от утечки анг
     });
 
     await handleDeleteAfterPreset(mockContextNoEliminar);
-    const savedReminderNoEliminar = await Reminder.findOne({ userId: testUserTelegramId, text: 'Recordatorio prueba 2' });
+    const savedReminderNoEliminar = await Reminder.findOne({
+      userId: testUserTelegramId,
+      text: 'Recordatorio prueba 2'
+    });
     expect(savedReminderNoEliminar).not.toBeNull();
     expect(savedReminderNoEliminar.deleteAfterSeconds).toBeNull();
   });
@@ -449,6 +466,8 @@ describe('Изоляция языков и защита от утечки анг
     expect(spanishPointersDataset.length).toBe(ukrainianPointersDataset.length);
     expect(spanishPointersDataset.length).toBeGreaterThan(0);
     expect(spanishPointersDataset[0].text.length).toBeGreaterThan(5);
-    expect(spanishPointersDataset[spanishPointersDataset.length - 1].text.length).toBeGreaterThan(5);
+    expect(spanishPointersDataset[spanishPointersDataset.length - 1].text.length).toBeGreaterThan(
+      5
+    );
   });
 });

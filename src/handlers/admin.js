@@ -4,20 +4,14 @@ import User from '../models/User.js';
 import { escapeHtml } from '../utils/escapeHtml.js';
 import { isAdministratorContext } from '../utils/admin.js';
 import { cleanupUser } from '../services/cleanupUser.js';
-import {
-  getPointerByNumber,
-  isPointerInFavorites
-} from '../services/pointers.js';
-import {
-  buildPointerInlineKeyboard,
-  formatPointerText,
-  handleSearchPointers
-} from './pointers.js';
+import { getPointerByNumber, isPointerInFavorites } from '../services/pointers.js';
+import { buildPointerInlineKeyboard, formatPointerText, handleSearchPointers } from './pointers.js';
 import { allKnownNavigationButtons } from '../utils/navigation.js';
 import { getTexts } from '../constants/texts.js';
 import { resolveUserLanguage } from '../middlewares/activity.js';
+import { suppressExpectedError } from '../utils/logger.js';
 
-export const handleAdminActiveUsers = async ctx => {
+export const handleAdminActiveUsers = async (ctx) => {
   if (!isAdministratorContext(ctx)) return;
 
   const millisecondsInOneDay = 24 * 60 * 60 * 1000;
@@ -53,7 +47,7 @@ export const handleAdminActiveUsers = async ctx => {
   await ctx.reply(responseText, { parse_mode: 'HTML' });
 };
 
-export const handleAdminBroadcastStart = async ctx => {
+export const handleAdminBroadcastStart = async (ctx) => {
   if (!isAdministratorContext(ctx)) return;
 
   ctx.session ??= {};
@@ -71,19 +65,17 @@ export const handleAdminBroadcastStart = async ctx => {
 
   await ctx.reply(promptText, {
     parse_mode: 'HTML',
-    ...Markup.inlineKeyboard([
-      [Markup.button.callback('❌ Отмена', 'broadcast:cancel')]
-    ])
+    ...Markup.inlineKeyboard([[Markup.button.callback('❌ Отмена', 'broadcast:cancel')]])
   });
 };
 
-export const handleAdminBroadcastCancel = async ctx => {
+export const handleAdminBroadcastCancel = async (ctx) => {
   if (!isAdministratorContext(ctx)) return;
 
   const userLanguage = await resolveUserLanguage(ctx);
   const texts = getTexts(userLanguage);
 
-  await ctx.answerCbQuery().catch(() => {});
+  await ctx.answerCbQuery().catch(suppressExpectedError);
 
   if (ctx.session) {
     ctx.session.adminBroadcastStep = null;
@@ -91,10 +83,10 @@ export const handleAdminBroadcastCancel = async ctx => {
     ctx.session.broadcastSourceMessageId = null;
   }
 
-  await ctx.editMessageText(texts.ADMIN.CANCEL_BROADCAST).catch(() => {});
+  await ctx.editMessageText(texts.ADMIN.CANCEL_BROADCAST).catch(suppressExpectedError);
 };
 
-export const handleAdminBroadcastMessage = async ctx => {
+export const handleAdminBroadcastMessage = async (ctx) => {
   if (!isAdministratorContext(ctx)) return false;
   if (ctx.session?.adminBroadcastStep !== 'AWAITING_MESSAGE') return false;
 
@@ -136,13 +128,13 @@ export const handleAdminBroadcastMessage = async ctx => {
   return true;
 };
 
-export const handleAdminBroadcastConfirm = async ctx => {
+export const handleAdminBroadcastConfirm = async (ctx) => {
   if (!isAdministratorContext(ctx)) return;
   const userLanguage = await resolveUserLanguage(ctx);
   const texts = getTexts(userLanguage);
 
   if (ctx.session?.adminBroadcastStep !== 'AWAITING_CONFIRMATION') {
-    await ctx.answerCbQuery(texts.ADMIN.BROADCAST_NOT_PENDING).catch(() => {});
+    await ctx.answerCbQuery(texts.ADMIN.BROADCAST_NOT_PENDING).catch(suppressExpectedError);
     return;
   }
 
@@ -150,12 +142,12 @@ export const handleAdminBroadcastConfirm = async ctx => {
   const sourceMessageIdentifier = ctx.session.broadcastSourceMessageId;
 
   if (!sourceChatIdentifier || !sourceMessageIdentifier) {
-    await ctx.answerCbQuery(texts.ADMIN.SOURCE_MESSAGE_NOT_FOUND).catch(() => {});
+    await ctx.answerCbQuery(texts.ADMIN.SOURCE_MESSAGE_NOT_FOUND).catch(suppressExpectedError);
     return;
   }
 
-  await ctx.answerCbQuery(texts.ADMIN.BROADCAST_STARTING).catch(() => {});
-  await ctx.editMessageText(texts.ADMIN.BROADCAST_STARTED).catch(() => {});
+  await ctx.answerCbQuery(texts.ADMIN.BROADCAST_STARTING).catch(suppressExpectedError);
+  await ctx.editMessageText(texts.ADMIN.BROADCAST_STARTED).catch(suppressExpectedError);
 
   ctx.session.adminBroadcastStep = null;
   ctx.session.broadcastSourceChatId = null;
@@ -164,7 +156,9 @@ export const handleAdminBroadcastConfirm = async ctx => {
   const allTelegramUsers = await User.find(
     { telegramId: { $exists: true, $ne: null } },
     { telegramId: 1 }
-  ).lean().catch(() => []);
+  )
+    .lean()
+    .catch(() => []);
 
   const totalRecipientsCount = allTelegramUsers.length;
   let successfulDeliveriesCount = 0;
@@ -192,14 +186,14 @@ export const handleAdminBroadcastConfirm = async ctx => {
       } catch (deliveryError) {
         const errorCode = deliveryError?.response?.error_code || deliveryError?.code;
         if (errorCode === 403) {
-          await cleanupUser(recipientUser.telegramId).catch(cleanupError => {
+          await cleanupUser(recipientUser.telegramId).catch((cleanupError) => {
             console.error('BROADCAST_CLEANUP_USER_ERROR', cleanupError?.message || cleanupError);
           });
           break;
         }
         if (errorCode === 429 && deliveryAttempt === 0) {
           const retryAfterSeconds = deliveryError?.response?.parameters?.retry_after || 1;
-          await new Promise(resolveRetry => setTimeout(resolveRetry, retryAfterSeconds * 1000));
+          await new Promise((resolveRetry) => setTimeout(resolveRetry, retryAfterSeconds * 1000));
           continue;
         }
         break;
@@ -209,7 +203,7 @@ export const handleAdminBroadcastConfirm = async ctx => {
       failedDeliveriesCount++;
     }
 
-    await new Promise(resolveTimer => setTimeout(resolveTimer, 40));
+    await new Promise((resolveTimer) => setTimeout(resolveTimer, 40));
   }
 
   const broadcastReportText = [
@@ -223,11 +217,11 @@ export const handleAdminBroadcastConfirm = async ctx => {
   await ctx.reply(broadcastReportText, { parse_mode: 'HTML' });
 };
 
-export const handleFeedbackStart = async ctx => {
+export const handleFeedbackStart = async (ctx) => {
   ctx.session ??= {};
   ctx.session.feedbackAwaiting = true;
 
-  await ctx.answerCbQuery().catch(() => {});
+  await ctx.answerCbQuery().catch(suppressExpectedError);
 
   const promptText = [
     '✍️ <b>Обратная связь</b>',
@@ -237,26 +231,24 @@ export const handleFeedbackStart = async ctx => {
 
   await ctx.reply(promptText, {
     parse_mode: 'HTML',
-    ...Markup.inlineKeyboard([
-      [Markup.button.callback('❌ Отмена', 'feedback:cancel')]
-    ])
+    ...Markup.inlineKeyboard([[Markup.button.callback('❌ Отмена', 'feedback:cancel')]])
   });
 };
 
-export const handleFeedbackCancel = async ctx => {
+export const handleFeedbackCancel = async (ctx) => {
   const userLanguage = await resolveUserLanguage(ctx);
   const texts = getTexts(userLanguage);
 
-  await ctx.answerCbQuery().catch(() => {});
+  await ctx.answerCbQuery().catch(suppressExpectedError);
 
   if (ctx.session) {
     ctx.session.feedbackAwaiting = false;
   }
 
-  await ctx.editMessageText(texts.ADMIN.REPLY_CANCELLED).catch(() => {});
+  await ctx.editMessageText(texts.ADMIN.REPLY_CANCELLED).catch(suppressExpectedError);
 };
 
-export const handleFeedbackMessage = async ctx => {
+export const handleFeedbackMessage = async (ctx) => {
   if (!ctx.session?.feedbackAwaiting) return false;
 
   const incomingMessageText = ctx.message?.text;
@@ -271,7 +263,8 @@ export const handleFeedbackMessage = async ctx => {
 
   const senderFirstName = ctx.from?.first_name || '';
   const senderLastName = ctx.from?.last_name || '';
-  const senderFullName = [senderFirstName, senderLastName].filter(Boolean).join(' ') || 'Пользователь';
+  const senderFullName =
+    [senderFirstName, senderLastName].filter(Boolean).join(' ') || 'Пользователь';
   const senderUsernameString = ctx.from?.username ? `@${ctx.from.username}` : 'нет username';
   const senderTelegramIdentifier = ctx.from?.id;
 
@@ -284,15 +277,15 @@ export const handleFeedbackMessage = async ctx => {
 
   const administratorTelegramIdentifier = process.env.CREATOR_ID;
 
-  await ctx.telegram.sendMessage(administratorTelegramIdentifier, adminNotificationHeader, {
-    parse_mode: 'HTML'
-  }).catch(() => {});
+  await ctx.telegram
+    .sendMessage(administratorTelegramIdentifier, adminNotificationHeader, {
+      parse_mode: 'HTML'
+    })
+    .catch(suppressExpectedError);
 
-  await ctx.telegram.copyMessage(
-    administratorTelegramIdentifier,
-    ctx.chat.id,
-    ctx.message.message_id
-  ).catch(() => {});
+  await ctx.telegram
+    .copyMessage(administratorTelegramIdentifier, ctx.chat.id, ctx.message.message_id)
+    .catch(suppressExpectedError);
 
   ctx.session.feedbackAwaiting = false;
 
@@ -315,7 +308,10 @@ export const handleAdminGetPointerByNumber = async (ctx, next) => {
   const rawIncomingMessageText = ctx.message?.text || '';
   const trimmedLowerCasedText = rawIncomingMessageText.trim().toLowerCase();
 
-  const isExplicitPointerCommand = /^(?:\/p(?:ointer)?(?:_(?:en|ru|uk|es))?|(?:получить\s+)?(?:pointer|указатель|вказівник|puntero))(?:\s+(?:en|ru|uk|es))?(?:\s+\d+|\s*$)/i.test(trimmedLowerCasedText);
+  const isExplicitPointerCommand =
+    /^(?:\/p(?:ointer)?(?:_(?:en|ru|uk|es))?|(?:получить\s+)?(?:pointer|указатель|вказівник|puntero))(?:\s+(?:en|ru|uk|es))?(?:\s+\d+|\s*$)/i.test(
+      trimmedLowerCasedText
+    );
   if (!isExplicitPointerCommand) {
     return false;
   }
@@ -324,7 +320,11 @@ export const handleAdminGetPointerByNumber = async (ctx, next) => {
   const languageModifierMatch = trimmedLowerCasedText.match(/(?:^|\s|_)(en|ru|uk|es)(?:\s|$)/i);
   if (languageModifierMatch) {
     targetPointerLanguage = languageModifierMatch[1].toLowerCase();
-  } else if (ctx.state?.userLanguage === 'en' || ctx.state?.userLanguage === 'uk' || ctx.state?.userLanguage === 'es') {
+  } else if (
+    ctx.state?.userLanguage === 'en' ||
+    ctx.state?.userLanguage === 'uk' ||
+    ctx.state?.userLanguage === 'es'
+  ) {
     targetPointerLanguage = ctx.state.userLanguage;
   }
 
@@ -342,7 +342,10 @@ export const handleAdminGetPointerByNumber = async (ctx, next) => {
     return true;
   }
 
-  const foundPointerRecord = await getPointerByNumber(requestedPointerNumber, targetPointerLanguage);
+  const foundPointerRecord = await getPointerByNumber(
+    requestedPointerNumber,
+    targetPointerLanguage
+  );
 
   if (!foundPointerRecord) {
     await ctx.reply(texts.ADMIN.POINTER_NOT_FOUND(requestedPointerNumber, targetPointerLanguage));

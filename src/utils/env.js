@@ -8,4 +8,7 @@ export const validateApplicationEnvironment = () => {
   if (!process.env.CREATOR_ID) {
     throw new Error('Критическая ошибка конфигурации: переменная CREATOR_ID обязательна');
   }
+  if (!process.env.JWT_SECRET) {
+    throw new Error('Критическая ошибка конфигурации: переменная JWT_SECRET обязательна');
+  }
 };

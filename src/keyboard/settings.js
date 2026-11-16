@@ -34,29 +34,9 @@ export const settingsKeyboard = (enabled, language = 'ru', userPreferences = {})
         'settings:quiet_toggle'
       )
     ],
-    [
-      Markup.button.callback(
-        quietHoursScheduleLabel,
-        'settings:quiet_hours:menu'
-      )
-    ],
-    [
-      Markup.button.callback(
-        timezoneButtonLabel,
-        'settings:timezone'
-      )
-    ],
-    [
-      Markup.button.callback(
-        languageButtonLabel,
-        'settings:language'
-      )
-    ],
-    [
-      Markup.button.callback(
-        buttons.BACK,
-        'settings:back'
-      )
-    ]
+    [Markup.button.callback(quietHoursScheduleLabel, 'settings:quiet_hours:menu')],
+    [Markup.button.callback(timezoneButtonLabel, 'settings:timezone')],
+    [Markup.button.callback(languageButtonLabel, 'settings:language')],
+    [Markup.button.callback(buttons.BACK, 'settings:back')]
   ]);
 };

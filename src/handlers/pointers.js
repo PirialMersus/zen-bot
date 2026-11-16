@@ -15,10 +15,7 @@ import {
   buildPointerInlineKeyboard,
   buildReminderPointerInlineKeyboard
 } from '../keyboard/pointers.js';
-import {
-  cancelDeletionTimer,
-  hasDeletionTimer
-} from '../services/deletionTimers.js';
+import { cancelDeletionTimer, hasDeletionTimer } from '../services/deletionTimers.js';
 import { getTexts } from '../constants/texts.js';
 import { getUi } from '../constants/ui.js';
 import { resolveUserLanguage } from '../middlewares/activity.js';
@@ -26,13 +23,14 @@ import { previewText } from '../utils/text.js';
 import { escapeHtml } from '../utils/escapeHtml.js';
 import { isNavigationButton } from '../utils/navigation.js';
 import { handleReminderText, REMINDER_STEP } from './reminders.js';
+import { suppressExpectedError } from '../utils/logger.js';
 
 export { buildPointerInlineKeyboard };
 
-export const formatPointerText = pointer =>
-  pointer?.source ? `${pointer.text}\n\n— ${pointer.source}` : (pointer?.text || '');
+export const formatPointerText = (pointer) =>
+  pointer?.source ? `${pointer.text}\n\n— ${pointer.source}` : pointer?.text || '';
 
-export const handlePointer = async ctx => {
+export const handlePointer = async (ctx) => {
   const userLanguage = await resolveUserLanguage(ctx);
   const texts = getTexts(userLanguage);
   const pointer = await getNextPointerForUser(ctx.from.id);
@@ -62,7 +60,7 @@ export const handlePointer = async ctx => {
   );
 };
 
-export const handlePointersMenu = async ctx => {
+export const handlePointersMenu = async (ctx) => {
   ctx.session ??= {};
   ctx.session.reminderStep = null;
   ctx.session.creatingReminder = null;
@@ -73,7 +71,7 @@ export const handlePointersMenu = async ctx => {
   await handlePointer(ctx);
 };
 
-export const handleRandomPointer = async ctx => {
+export const handleRandomPointer = async (ctx) => {
   if (ctx.session?.reminderStep === REMINDER_STEP.TEXT) {
     return handleReminderText(ctx);
   }
@@ -82,7 +80,7 @@ export const handleRandomPointer = async ctx => {
   await handlePointer(ctx);
 };
 
-export const handleFavoritePointer = async ctx => {
+export const handleFavoritePointer = async (ctx) => {
   if (ctx.session?.reminderStep === REMINDER_STEP.TEXT) {
     return handleReminderText(ctx);
   }
@@ -127,23 +125,28 @@ export const handleFavoritePointer = async ctx => {
   );
 };
 
-export const handleFavoriteInfo = async ctx => {
+export const handleFavoriteInfo = async (ctx) => {
   const userLanguage = await resolveUserLanguage(ctx);
   const texts = getTexts(userLanguage);
-  await ctx.answerCbQuery(texts.POINTERS.FAVORITE_BADGE_INFO, { show_alert: false }).catch(() => {});
+  await ctx
+    .answerCbQuery(texts.POINTERS.FAVORITE_BADGE_INFO, { show_alert: false })
+    .catch(suppressExpectedError);
 };
 
-export const handleExpireInfo = async ctx => {
+export const handleExpireInfo = async (ctx) => {
   const userLanguage = await resolveUserLanguage(ctx);
   const texts = getTexts(userLanguage);
-  await ctx.answerCbQuery(texts.POINTERS.EXPIRE_BADGE_INFO, { show_alert: false }).catch(() => {});
+  await ctx
+    .answerCbQuery(texts.POINTERS.EXPIRE_BADGE_INFO, { show_alert: false })
+    .catch(suppressExpectedError);
 };
 
-export const handleNextPointer = async ctx => {
+export const handleNextPointer = async (ctx) => {
   const isCallbackQueryEvent = Boolean(ctx.callbackQuery);
 
   const callbackData = ctx.callbackQuery?.data || '';
-  const isFavoriteMode = callbackData.startsWith('pointer:next:favorite') || ctx.session?.pointerMode === 'favorite';
+  const isFavoriteMode =
+    callbackData.startsWith('pointer:next:favorite') || ctx.session?.pointerMode === 'favorite';
   const currentMode = isFavoriteMode ? 'favorite' : 'random';
 
   const userLanguage = await resolveUserLanguage(ctx);
@@ -162,12 +165,14 @@ export const handleNextPointer = async ctx => {
         total: pointer.totalFavorites || 1
       };
       if (isCallbackQueryEvent) {
-        await ctx.answerCbQuery(texts.POINTERS.FAVORITE_TOAST(favoriteInfo.current, favoriteInfo.total)).catch(() => {});
+        await ctx
+          .answerCbQuery(texts.POINTERS.FAVORITE_TOAST(favoriteInfo.current, favoriteInfo.total))
+          .catch(suppressExpectedError);
       }
     }
   } else {
     if (isCallbackQueryEvent) {
-      await ctx.answerCbQuery().catch(() => {});
+      await ctx.answerCbQuery().catch(suppressExpectedError);
     }
     pointer = await getNextPointerForUser(ctx.from.id);
     if (pointer) {
@@ -178,7 +183,7 @@ export const handleNextPointer = async ctx => {
   if (!pointer) {
     const emptyMessage = isFavoriteMode ? texts.POINTERS.FAVORITE_EMPTY : texts.POINTERS.EMPTY;
     if (isCallbackQueryEvent) {
-      await ctx.editMessageText(emptyMessage).catch(() => {});
+      await ctx.editMessageText(emptyMessage).catch(suppressExpectedError);
     } else {
       await ctx.reply(emptyMessage);
     }
@@ -197,16 +202,18 @@ export const handleNextPointer = async ctx => {
   const formattedText = formatPointerText(pointer);
 
   if (isCallbackQueryEvent) {
-    await ctx.editMessageText(
-      formattedText,
-      buildPointerInlineKeyboard({
-        pointerId: pointer._id,
-        isFavorite,
-        mode: currentMode,
-        language: userLanguage,
-        favoriteInfo
-      })
-    ).catch(() => {});
+    await ctx
+      .editMessageText(
+        formattedText,
+        buildPointerInlineKeyboard({
+          pointerId: pointer._id,
+          isFavorite,
+          mode: currentMode,
+          language: userLanguage,
+          favoriteInfo
+        })
+      )
+      .catch(suppressExpectedError);
   } else {
     await ctx.reply(
       formattedText,
@@ -221,7 +228,7 @@ export const handleNextPointer = async ctx => {
   }
 };
 
-export const handleToggleFavoritePointer = async ctx => {
+export const handleToggleFavoritePointer = async (ctx) => {
   const callbackData = ctx.callbackQuery?.data || '';
   const dataParts = callbackData.split(':');
   const pointerIdFromCallback = dataParts[2];
@@ -229,7 +236,7 @@ export const handleToggleFavoritePointer = async ctx => {
   const targetPointerId = pointerIdFromCallback || ctx.session?.lastPointerId;
 
   if (!targetPointerId) {
-    await ctx.answerCbQuery().catch(() => {});
+    await ctx.answerCbQuery().catch(suppressExpectedError);
     return;
   }
 
@@ -238,7 +245,7 @@ export const handleToggleFavoritePointer = async ctx => {
   const { isFavorite, totalFavorites } = await toggleFavoritePointer(ctx.from.id, targetPointerId);
 
   const answerNotice = isFavorite ? texts.POINTERS.FAVORITE_ADDED : texts.POINTERS.FAVORITE_REMOVED;
-  await ctx.answerCbQuery(answerNotice).catch(() => {});
+  await ctx.answerCbQuery(answerNotice).catch(suppressExpectedError);
 
   if (modeFromCallback === 'reminder') {
     const targetChatId = ctx.chat?.id || ctx.callbackQuery?.message?.chat?.id;
@@ -255,7 +262,7 @@ export const handleToggleFavoritePointer = async ctx => {
       language: userLanguage
     });
 
-    await ctx.editMessageReplyMarkup(reminderKeyboard?.reply_markup).catch(() => {});
+    await ctx.editMessageReplyMarkup(reminderKeyboard?.reply_markup).catch(suppressExpectedError);
     return;
   }
 
@@ -275,10 +282,10 @@ export const handleToggleFavoritePointer = async ctx => {
     favoriteInfo
   });
 
-  await ctx.editMessageReplyMarkup(updatedKeyboard.reply_markup).catch(() => {});
+  await ctx.editMessageReplyMarkup(updatedKeyboard.reply_markup).catch(suppressExpectedError);
 };
 
-export const handleKeepPointer = async ctx => {
+export const handleKeepPointer = async (ctx) => {
   const targetChatId = ctx.chat?.id || ctx.callbackQuery?.message?.chat?.id;
   const targetMessageId = ctx.callbackQuery?.message?.message_id;
 
@@ -287,13 +294,13 @@ export const handleKeepPointer = async ctx => {
   const userLanguage = await resolveUserLanguage(ctx);
   const ui = getUi(userLanguage);
 
-  await ctx.editMessageReplyMarkup().catch(() => {});
-  await ctx.answerCbQuery(ui.POINTER_KEEP_TOAST).catch(() => {});
+  await ctx.editMessageReplyMarkup().catch(suppressExpectedError);
+  await ctx.answerCbQuery(ui.POINTER_KEEP_TOAST).catch(suppressExpectedError);
 };
 
-export const handlePointerToReminder = async ctx => {
+export const handlePointerToReminder = async (ctx) => {
   if (ctx.callbackQuery) {
-    await ctx.answerCbQuery().catch(() => {});
+    await ctx.answerCbQuery().catch(suppressExpectedError);
   }
 
   const text = ctx.session?.lastPointerText || ctx.callbackQuery?.message?.text;
@@ -322,10 +329,10 @@ export const handlePointerToReminder = async ctx => {
   );
 };
 
-export const handlePointerToMenu = async ctx => {
+export const handlePointerToMenu = async (ctx) => {
   if (ctx.callbackQuery) {
-    await ctx.answerCbQuery().catch(() => {});
-    await ctx.deleteMessage().catch(() => {});
+    await ctx.answerCbQuery().catch(suppressExpectedError);
+    await ctx.deleteMessage().catch(suppressExpectedError);
   }
   const userLanguage = await resolveUserLanguage(ctx);
   const texts = getTexts(userLanguage);
@@ -386,7 +393,7 @@ export const executePointersSearch = async (ctx, searchPhrase, targetLanguage) =
   return true;
 };
 
-export const handleSearchPointers = async ctx => {
+export const handleSearchPointers = async (ctx) => {
   const rawIncomingMessageText = ctx.message?.text || '';
   const trimmedLowerCasedText = rawIncomingMessageText.trim().toLowerCase();
 
@@ -422,7 +429,7 @@ export const handleSearchPointers = async ctx => {
   return executePointersSearch(ctx, extractedSearchPhrase, targetPointerLanguage);
 };
 
-export const handleSearchQueryInput = async ctx => {
+export const handleSearchQueryInput = async (ctx) => {
   if (!ctx.session?.isWaitingForSearchQuery) return false;
 
   const rawInputText = ctx.message?.text?.trim() || '';
@@ -441,17 +448,19 @@ export const handleSearchQueryInput = async ctx => {
   return executePointersSearch(ctx, rawInputText, targetLanguage);
 };
 
-export const handleSearchMorePointers = async ctx => {
+export const handleSearchMorePointers = async (ctx) => {
   const searchState = ctx.session?.searchState;
   const userLanguage = await resolveUserLanguage(ctx);
   const texts = getTexts(searchState?.language || userLanguage);
 
   if (!searchState || !searchState.query) {
-    await ctx.answerCbQuery(texts.SEARCH.EXPIRED_SESSION, { show_alert: true }).catch(() => {});
+    await ctx
+      .answerCbQuery(texts.SEARCH.EXPIRED_SESSION, { show_alert: true })
+      .catch(suppressExpectedError);
     return;
   }
 
-  await ctx.answerCbQuery().catch(() => {});
+  await ctx.answerCbQuery().catch(suppressExpectedError);
 
   const portionSizeLimit = 5;
   const nextPointers = await findPointersByText(
@@ -462,12 +471,14 @@ export const handleSearchMorePointers = async ctx => {
   );
 
   if (nextPointers.length === 0) {
-    await ctx.editMessageText(texts.SEARCH.ALL_SHOWN(searchState.total)).catch(() => {});
+    await ctx
+      .editMessageText(texts.SEARCH.ALL_SHOWN(searchState.total))
+      .catch(suppressExpectedError);
     delete ctx.session.searchState;
     return;
   }
 
-  await ctx.editMessageReplyMarkup().catch(() => {});
+  await ctx.editMessageReplyMarkup().catch(suppressExpectedError);
 
   for (const singlePointerRecord of nextPointers) {
     const formattedPointerMessage = formatPointerText(singlePointerRecord);

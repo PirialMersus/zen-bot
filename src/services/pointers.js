@@ -3,44 +3,59 @@ import { Pointer, PointerEn, PointerUk, PointerEs } from '../models/Pointer.js';
 import User from '../models/User.js';
 import { SUPPORTED_LANGUAGES, DEFAULT_LANGUAGE } from '../constants/languages.js';
 
-const buildShuffledIndexArray = length => {
+const buildShuffledIndexArray = (length) => {
   const indexArray = Array.from({ length }, (_, i) => i);
   for (let currentIndex = indexArray.length - 1; currentIndex > 0; currentIndex--) {
     const randomIndex = Math.floor(Math.random() * (currentIndex + 1));
-    [indexArray[currentIndex], indexArray[randomIndex]] = [indexArray[randomIndex], indexArray[currentIndex]];
+    [indexArray[currentIndex], indexArray[randomIndex]] = [
+      indexArray[randomIndex],
+      indexArray[currentIndex]
+    ];
   }
   return indexArray;
 };
 
 const resolveEffectiveTagFilter = (tagFilter, userLanguage) => {
   if (!tagFilter) return null;
-  if (userLanguage === 'en' && (tagFilter === 'тишина' || tagFilter === 'тиша' || tagFilter === 'silencio')) {
+  if (
+    userLanguage === 'en' &&
+    (tagFilter === 'тишина' || tagFilter === 'тиша' || tagFilter === 'silencio')
+  ) {
     return 'stillness';
   }
-  if (userLanguage === 'ru' && (tagFilter === 'stillness' || tagFilter === 'тиша' || tagFilter === 'silencio')) {
+  if (
+    userLanguage === 'ru' &&
+    (tagFilter === 'stillness' || tagFilter === 'тиша' || tagFilter === 'silencio')
+  ) {
     return 'тишина';
   }
-  if (userLanguage === 'uk' && (tagFilter === 'stillness' || tagFilter === 'тишина' || tagFilter === 'silencio')) {
+  if (
+    userLanguage === 'uk' &&
+    (tagFilter === 'stillness' || tagFilter === 'тишина' || tagFilter === 'silencio')
+  ) {
     return 'тиша';
   }
-  if (userLanguage === 'es' && (tagFilter === 'stillness' || tagFilter === 'тишина' || tagFilter === 'тиша')) {
+  if (
+    userLanguage === 'es' &&
+    (tagFilter === 'stillness' || tagFilter === 'тишина' || tagFilter === 'тиша')
+  ) {
     return 'silencio';
   }
   return tagFilter;
 };
 
-const selectPointerModelByLanguage = language => {
+const selectPointerModelByLanguage = (language) => {
   if (language === 'en') return PointerEn;
   if (language === 'uk') return PointerUk;
   if (language === 'es') return PointerEs;
   return Pointer;
 };
 
-const escapeRegularExpressionString = unescapedTextString => {
+const escapeRegularExpressionString = (unescapedTextString) => {
   return unescapedTextString.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 };
 
-const buildTextSearchCriteria = rawSearchQuery => {
+const buildTextSearchCriteria = (rawSearchQuery) => {
   const normalizedSearchQuery = typeof rawSearchQuery === 'string' ? rawSearchQuery.trim() : '';
   if (!normalizedSearchQuery) {
     return null;
@@ -56,7 +71,12 @@ const buildTextSearchCriteria = rawSearchQuery => {
   };
 };
 
-export const findPointersByText = async (rawSearchQuery, language = 'ru', maximumRecordsLimit = 10, skipRecordsCount = 0) => {
+export const findPointersByText = async (
+  rawSearchQuery,
+  language = 'ru',
+  maximumRecordsLimit = 10,
+  skipRecordsCount = 0
+) => {
   const searchCriteria = buildTextSearchCriteria(rawSearchQuery);
   if (!searchCriteria) {
     return [];
@@ -85,7 +105,10 @@ export const getPointerByNumber = async (pointerNumber, language = 'ru') => {
   if (!numericPointerIdentifier || isNaN(numericPointerIdentifier)) return null;
 
   const targetPointerModel = selectPointerModelByLanguage(language);
-  let pointerDocument = await targetPointerModel.findOne({ number: numericPointerIdentifier, isActive: true });
+  let pointerDocument = await targetPointerModel.findOne({
+    number: numericPointerIdentifier,
+    isActive: true
+  });
   if (!pointerDocument && targetPointerModel !== Pointer) {
     const totalCollectionCount = await targetPointerModel.countDocuments({});
     if (totalCollectionCount === 0) {
@@ -101,7 +124,9 @@ export const getNextPointerForUser = async (telegramUserId, tagFilter = null) =>
     user = await User.create({ telegramId: telegramUserId });
   }
 
-  const userLanguage = SUPPORTED_LANGUAGES.includes(user?.language) ? user.language : DEFAULT_LANGUAGE;
+  const userLanguage = SUPPORTED_LANGUAGES.includes(user?.language)
+    ? user.language
+    : DEFAULT_LANGUAGE;
   let effectiveTagFilter = resolveEffectiveTagFilter(tagFilter, userLanguage);
   let targetPointerModel = selectPointerModelByLanguage(userLanguage);
 
@@ -131,15 +156,19 @@ export const getNextPointerForUser = async (telegramUserId, tagFilter = null) =>
 
   const queueFieldName = effectiveTagFilter ? 'tagShuffleQueue' : 'shuffleQueue';
   const indexFieldName = effectiveTagFilter ? 'tagShuffleIndex' : 'shuffleIndex';
-  const favoriteQueueFieldName = effectiveTagFilter ? 'tagShuffleFavoriteQueue' : 'shuffleFavoriteQueue';
-  const favoriteIndexFieldName = effectiveTagFilter ? 'tagShuffleFavoriteIndex' : 'shuffleFavoriteIndex';
+  const favoriteQueueFieldName = effectiveTagFilter
+    ? 'tagShuffleFavoriteQueue'
+    : 'shuffleFavoriteQueue';
+  const favoriteIndexFieldName = effectiveTagFilter
+    ? 'tagShuffleFavoriteIndex'
+    : 'shuffleFavoriteIndex';
 
   const existingFavoriteQueue = user[favoriteQueueFieldName] || [];
   let existingFavoriteIndex = user[favoriteIndexFieldName] || 0;
 
   if (existingFavoriteQueue.length > 0) {
     const validUserFavoriteIdStrings = new Set(
-      (user.favoritePointers || []).map(item => String(item?.pointerId))
+      (user.favoritePointers || []).map((item) => String(item?.pointerId))
     );
 
     while (existingFavoriteIndex < existingFavoriteQueue.length) {
@@ -222,7 +251,8 @@ export const getNextPointerForUser = async (telegramUserId, tagFilter = null) =>
 
   const pointerPositionIndex = currentQueue[currentIndex];
 
-  const [pointer] = await targetPointerModel.find(activePointersQuery)
+  const [pointer] = await targetPointerModel
+    .find(activePointersQuery)
     .sort({ number: 1, _id: 1 })
     .skip(pointerPositionIndex)
     .limit(1);
@@ -233,7 +263,8 @@ export const getNextPointerForUser = async (telegramUserId, tagFilter = null) =>
       { telegramId: telegramUserId },
       { [queueFieldName]: freshQueue, [indexFieldName]: 0 }
     );
-    const [fallbackPointer] = await targetPointerModel.find(activePointersQuery)
+    const [fallbackPointer] = await targetPointerModel
+      .find(activePointersQuery)
       .sort({ number: 1, _id: 1 })
       .limit(1);
     return fallbackPointer || null;
@@ -243,16 +274,19 @@ export const getNextPointerForUser = async (telegramUserId, tagFilter = null) =>
 
   if (isEndOfMainQueue) {
     const validObjectIds = (user.favoritePointers || [])
-      .map(item => item?.pointerId)
-      .filter(id => id && mongoose.Types.ObjectId.isValid(id));
+      .map((item) => item?.pointerId)
+      .filter((id) => id && mongoose.Types.ObjectId.isValid(id));
 
     let eligibleFavoriteDocuments = [];
     if (validObjectIds.length > 0) {
-      eligibleFavoriteDocuments = await targetPointerModel.find({
-        _id: { $in: validObjectIds },
-        isActive: true,
-        ...(effectiveTagFilter ? { tags: effectiveTagFilter } : {})
-      }).select('_id').lean();
+      eligibleFavoriteDocuments = await targetPointerModel
+        .find({
+          _id: { $in: validObjectIds },
+          isActive: true,
+          ...(effectiveTagFilter ? { tags: effectiveTagFilter } : {})
+        })
+        .select('_id')
+        .lean();
 
       if (eligibleFavoriteDocuments.length === 0 && targetPointerModel !== Pointer) {
         const totalCollectionCount = await targetPointerModel.countDocuments({});
@@ -261,15 +295,19 @@ export const getNextPointerForUser = async (telegramUserId, tagFilter = null) =>
             _id: { $in: validObjectIds },
             isActive: true,
             ...(effectiveTagFilter ? { tags: effectiveTagFilter } : {})
-          }).select('_id').lean();
+          })
+            .select('_id')
+            .lean();
         }
       }
     }
 
     if (eligibleFavoriteDocuments.length > 0) {
-      const eligibleFavoriteIds = eligibleFavoriteDocuments.map(doc => doc._id);
+      const eligibleFavoriteIds = eligibleFavoriteDocuments.map((doc) => doc._id);
       const shuffledFavoriteIndices = buildShuffledIndexArray(eligibleFavoriteIds.length);
-      const shuffledFavoriteIds = shuffledFavoriteIndices.map(shuffledIndex => eligibleFavoriteIds[shuffledIndex]);
+      const shuffledFavoriteIds = shuffledFavoriteIndices.map(
+        (shuffledIndex) => eligibleFavoriteIds[shuffledIndex]
+      );
 
       await User.updateOne(
         { telegramId: telegramUserId },
@@ -300,10 +338,7 @@ export const getNextPointerForUser = async (telegramUserId, tagFilter = null) =>
         { [queueFieldName]: currentQueue, [indexFieldName]: nextIndex }
       );
     } else {
-      await User.updateOne(
-        { telegramId: telegramUserId },
-        { [indexFieldName]: nextIndex }
-      );
+      await User.updateOne({ telegramId: telegramUserId }, { [indexFieldName]: nextIndex });
     }
   }
 
@@ -330,22 +365,22 @@ export const toggleFavoritePointer = async (telegramUserId, pointerId) => {
   }
 
   const existingIndex = user.favoritePointers.findIndex(
-    item => String(item.pointerId) === String(pointerId)
+    (item) => String(item.pointerId) === String(pointerId)
   );
 
   let isFavoriteNow = false;
 
   if (existingIndex >= 0) {
     user.favoritePointers = user.favoritePointers.filter(
-      item => String(item.pointerId) !== String(pointerId)
+      (item) => String(item.pointerId) !== String(pointerId)
     );
     user.favoriteQueue = [];
     user.favoriteIndex = 0;
     user.shuffleFavoriteQueue = (user.shuffleFavoriteQueue || []).filter(
-      id => String(id) !== String(pointerId)
+      (id) => String(id) !== String(pointerId)
     );
     user.tagShuffleFavoriteQueue = (user.tagShuffleFavoriteQueue || []).filter(
-      id => String(id) !== String(pointerId)
+      (id) => String(id) !== String(pointerId)
     );
     isFavoriteNow = false;
   } else {
@@ -366,11 +401,11 @@ export const getNextFavoritePointerForUser = async (telegramUserId) => {
   }
 
   const validObjectIds = user.favoritePointers
-    .map(item => item?.pointerId)
-    .filter(id => id && mongoose.Types.ObjectId.isValid(id));
+    .map((item) => item?.pointerId)
+    .filter((id) => id && mongoose.Types.ObjectId.isValid(id));
 
   const allModels = [Pointer, PointerEn, PointerUk, PointerEs];
-  const queryPromises = allModels.map(model =>
+  const queryPromises = allModels.map((model) =>
     model.find({ _id: { $in: validObjectIds }, isActive: true }).lean()
   );
   const queryResults = await Promise.all(queryPromises);
@@ -410,7 +445,11 @@ export const getNextFavoritePointerForUser = async (telegramUserId) => {
   let currentQueue = [...user.favoriteQueue];
   let currentIndex = user.favoriteIndex;
 
-  if (currentQueue.length === 0 || currentQueue.length !== totalFavoritesCount || currentIndex >= currentQueue.length) {
+  if (
+    currentQueue.length === 0 ||
+    currentQueue.length !== totalFavoritesCount ||
+    currentIndex >= currentQueue.length
+  ) {
     currentQueue = buildShuffledIndexArray(totalFavoritesCount);
     currentIndex = 0;
   }

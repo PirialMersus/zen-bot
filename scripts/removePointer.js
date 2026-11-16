@@ -22,7 +22,7 @@ const extractPointerBlockFromContent = (fileContent, targetPointerNumber) => {
   return matchedResult ? matchedResult[0] : null;
 };
 
-export const executeSynchronousPointerRemoval = async targetPointerNumber => {
+export const executeSynchronousPointerRemoval = async (targetPointerNumber) => {
   const parsedTargetNumber = parseInt(targetPointerNumber, 10);
   if (!parsedTargetNumber || isNaN(parsedTargetNumber) || parsedTargetNumber <= 0) {
     console.error('Ошибка: укажите корректный положительный номер указателя для удаления.');
@@ -44,7 +44,9 @@ export const executeSynchronousPointerRemoval = async targetPointerNumber => {
   }
 
   if (foundBlocksPreviewMap.size === 0) {
-    console.error(`Ошибка: указатель с номером #${parsedTargetNumber} не найден ни в одном из языковых файлов.`);
+    console.error(
+      `Ошибка: указатель с номером #${parsedTargetNumber} не найден ни в одном из языковых файлов.`
+    );
     return false;
   }
 
@@ -76,7 +78,7 @@ export const executeSynchronousPointerRemoval = async targetPointerNumber => {
 
 if (process.argv[1] === fileURLToPath(import.meta.url)) {
   const requestedPointerNumber = process.argv[2];
-  executeSynchronousPointerRemoval(requestedPointerNumber).catch(executionError => {
+  executeSynchronousPointerRemoval(requestedPointerNumber).catch((executionError) => {
     console.error('Ошибка при удалении указателя:', executionError);
     process.exit(1);
   });

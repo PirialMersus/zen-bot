@@ -6,7 +6,9 @@ describe('Утилиты экранирования и форматирован�
   it('должен корректно экранировать HTML спецсимволы', () => {
     expect(escapeHtml('<b>Иван & Марья</b>')).toBe('&lt;b&gt;Иван &amp; Марья&lt;/b&gt;');
     expect(escapeHtml('"test" and \'quote\'')).toBe('&quot;test&quot; and &#39;quote&#39;');
-    expect(escapeHtml('<script>alert("hack")</script>')).toBe('&lt;script&gt;alert(&quot;hack&quot;)&lt;/script&gt;');
+    expect(escapeHtml('<script>alert("hack")</script>')).toBe(
+      '&lt;script&gt;alert(&quot;hack&quot;)&lt;/script&gt;'
+    );
   });
 
   it('должен безопасно обрабатывать null, undefined и числа в escapeHtml', () => {

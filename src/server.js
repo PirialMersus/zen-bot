@@ -9,7 +9,9 @@ app.set('trust proxy', 1);
 const configuredAllowedOrigins = process.env.ALLOWED_ORIGINS;
 const resolvedCorsOptions = configuredAllowedOrigins
   ? {
-      origin: configuredAllowedOrigins.split(',').map(allowedOriginItem => allowedOriginItem.trim()),
+      origin: configuredAllowedOrigins
+        .split(',')
+        .map((allowedOriginItem) => allowedOriginItem.trim()),
       methods: ['GET', 'POST', 'PATCH', 'PUT', 'DELETE', 'OPTIONS'],
       credentials: true
     }
@@ -34,10 +36,18 @@ const PORT = process.env.PORT || 3000;
 
 export const validateServerEnvironment = () => {
   if (!process.env.JWT_SECRET && process.env.NODE_ENV === 'production') {
-    throw new Error('Критическая ошибка конфигурации: переменная JWT_SECRET обязательна в production окружении');
+    throw new Error(
+      'Критическая ошибка конфигурации: переменная JWT_SECRET обязательна в production окружении'
+    );
   }
-  if (process.env.JWT_SECRET && process.env.JWT_SECRET.length < 32 && process.env.NODE_ENV === 'production') {
-    throw new Error('Критическая ошибка конфигурации: переменная JWT_SECRET должна содержать минимум 32 символа');
+  if (
+    process.env.JWT_SECRET &&
+    process.env.JWT_SECRET.length < 32 &&
+    process.env.NODE_ENV === 'production'
+  ) {
+    throw new Error(
+      'Критическая ошибка конфигурации: переменная JWT_SECRET должна содержать минимум 32 символа'
+    );
   }
 };
 
@@ -53,7 +63,7 @@ export const startServer = () => {
 
 export const stopServer = async () => {
   if (runningHttpServer) {
-    await new Promise(resolveClose => runningHttpServer.close(resolveClose));
+    await new Promise((resolveClose) => runningHttpServer.close(resolveClose));
     runningHttpServer = null;
   }
 };

@@ -9,9 +9,7 @@ import {
   handleRandomPointer,
   handleToggleFavoritePointer
 } from '../../src/handlers/pointers.js';
-import {
-  handleBack
-} from '../../src/handlers/back.js';
+import { handleBack } from '../../src/handlers/back.js';
 import {
   handleReminderText,
   handleIntervalPreset,
@@ -75,7 +73,7 @@ describe('Стресс-тестирование и граничные сцена
 
     const user = await User.findOne({ telegramId: userId });
     const pointerMatches = user.favoritePointers.filter(
-      item => String(item.pointerId) === String(pointer._id)
+      (item) => String(item.pointerId) === String(pointer._id)
     );
     expect(pointerMatches.length).toBe(1);
   });
@@ -189,7 +187,9 @@ describe('Стресс-тестирование и граничные сцена
 
     expect(changeMindContext.session.reminderStep).toBe(REMINDER_STEP.INTERVAL);
     expect(changeMindContext.session.creatingReminder.isFavoritePointer).toBe(false);
-    expect(changeMindContext.session.creatingReminder.text).toBe('Собственный текст после передумывания');
+    expect(changeMindContext.session.creatingReminder.text).toBe(
+      'Собственный текст после передумывания'
+    );
 
     await handleIntervalPreset(changeMindContext, 15);
     expect(changeMindContext.session.reminderStep).toBe(REMINDER_STEP.AUTO_DELETE);

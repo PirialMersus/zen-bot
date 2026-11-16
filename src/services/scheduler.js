@@ -7,10 +7,7 @@ import { SUPPORTED_LANGUAGES, DEFAULT_LANGUAGE } from '../constants/languages.js
 import { logError } from '../utils/logger.js';
 import { cleanupUser } from './cleanupUser.js';
 import { isQuietNow, getQuietEndDate } from './quietHours.js';
-import {
-  getNextPointerForUser,
-  getNextFavoritePointerForUser
-} from '../services/pointers.js';
+import { getNextPointerForUser, getNextFavoritePointerForUser } from '../services/pointers.js';
 import {
   deliverReminder,
   handleDeliveryError,
@@ -22,10 +19,13 @@ const INACTIVE_DAYS = 30;
 const DAY_MS = 24 * 60 * 60 * 1000;
 const LOCK_TIMEOUT_MS = 2 * 60 * 1000;
 
-export const calcNextRun = (from, minutes) =>
-  new Date(from.getTime() + minutes * 60 * 1000);
+export const calcNextRun = (from, minutes) => new Date(from.getTime() + minutes * 60 * 1000);
 
-export const calculateDailyNextRun = (targetTime, timezone = DEFAULT_TIMEZONE, fromDate = new Date()) => {
+export const calculateDailyNextRun = (
+  targetTime,
+  timezone = DEFAULT_TIMEZONE,
+  fromDate = new Date()
+) => {
   const [targetHours, targetMinutes] = targetTime.split(':').map(Number);
   const nowInTimezone = DateTime.fromJSDate(fromDate).setZone(timezone);
   let nextOccurrence = nowInTimezone.set({
@@ -45,7 +45,7 @@ export const calculateDailyNextRun = (targetTime, timezone = DEFAULT_TIMEZONE, f
 let lastCleanupDay = null;
 let isSchedulerTickProcessing = false;
 
-const performInactiveUsersCleanup = async now => {
+const performInactiveUsersCleanup = async (now) => {
   const currentDay = now.toISOString().slice(0, 10);
   if (lastCleanupDay === currentDay) return;
   lastCleanupDay = currentDay;
@@ -68,8 +68,11 @@ const performInactiveUsersCleanup = async now => {
       if (activeRemindersCount > 0) {
         continue;
       }
-      await cleanupUser(inactiveUser.telegramId).catch(cleanupError => {
-        logError(cleanupError, { scope: 'inactiveUserCleanup', telegramId: inactiveUser.telegramId });
+      await cleanupUser(inactiveUser.telegramId).catch((cleanupError) => {
+        logError(cleanupError, {
+          scope: 'inactiveUserCleanup',
+          telegramId: inactiveUser.telegramId
+        });
       });
     }
   } catch (error) {
@@ -83,10 +86,7 @@ const acquireReminderExecutionLock = async (reminderId, now) => {
     {
       _id: reminderId,
       isActive: true,
-      $or: [
-        { lockedAt: null },
-        { lockedAt: { $lt: lockExpirationThreshold } }
-      ]
+      $or: [{ lockedAt: null }, { lockedAt: { $lt: lockExpirationThreshold } }]
     },
     { $set: { lockedAt: now } },
     { new: true }
@@ -102,7 +102,7 @@ export const stopScheduler = () => {
   }
 };
 
-export const startScheduler = bot => {
+export const startScheduler = (bot) => {
   schedulerIntervalIdentifier = setInterval(async () => {
     if (isSchedulerTickProcessing) {
       logError(new Error('Scheduler tick skipped: previous tick is still in progress'), {
@@ -115,7 +115,9 @@ export const startScheduler = bot => {
 
     try {
       if (process.env.NODE_ENV === 'production' && process.env.HEALTHCHECKS_URL) {
-        https.get(process.env.HEALTHCHECKS_URL, response => response.resume()).on('error', () => {});
+        https
+          .get(process.env.HEALTHCHECKS_URL, (response) => response.resume())
+          .on('error', () => {});
       }
 
       const now = new Date();
@@ -127,7 +129,7 @@ export const startScheduler = bot => {
       })
         .sort({ nextRunAt: 1 })
         .lean(false)
-        .catch(findRemindersError => {
+        .catch((findRemindersError) => {
           logError(findRemindersError, { scope: 'schedulerFindDueReminders' });
           return [];
         });
@@ -143,21 +145,30 @@ export const startScheduler = bot => {
 
           let targetUser = usersCache.get(reminderItem.userId);
           if (!targetUser) {
-            targetUser = await User.findOne({ telegramId: reminderItem.userId }).catch(findUserError => {
-              logError(findUserError, { scope: 'schedulerFindUser', userId: reminderItem.userId });
-              return null;
-            });
+            targetUser = await User.findOne({ telegramId: reminderItem.userId }).catch(
+              (findUserError) => {
+                logError(findUserError, {
+                  scope: 'schedulerFindUser',
+                  userId: reminderItem.userId
+                });
+                return null;
+              }
+            );
             usersCache.set(reminderItem.userId, targetUser);
           }
 
           if (isQuietNow(targetUser, now)) {
             const quietEndDate = getQuietEndDate(targetUser, now);
             const nextRunByInterval = calcNextRun(now, reminderItem.intervalMinutes);
-            const nextScheduledDate = nextRunByInterval < quietEndDate ? nextRunByInterval : quietEndDate;
+            const nextScheduledDate =
+              nextRunByInterval < quietEndDate ? nextRunByInterval : quietEndDate;
 
             reminderItem.nextRunAt = nextScheduledDate;
-            await reminderItem.save().catch(databaseSaveError => {
-              logError(databaseSaveError, { scope: 'schedulerQuietHoursSave', reminderId: reminderItem._id });
+            await reminderItem.save().catch((databaseSaveError) => {
+              logError(databaseSaveError, {
+                scope: 'schedulerQuietHoursSave',
+                reminderId: reminderItem._id
+              });
             });
             continue;
           }
@@ -171,15 +182,22 @@ export const startScheduler = bot => {
             continue;
           }
 
-          const userLanguage = SUPPORTED_LANGUAGES.includes(targetUser?.language) ? targetUser.language : DEFAULT_LANGUAGE;
+          const userLanguage = SUPPORTED_LANGUAGES.includes(targetUser?.language)
+            ? targetUser.language
+            : DEFAULT_LANGUAGE;
           let messageText = reminderItem.text;
           let currentPointer = null;
 
           if (reminderItem.isFavoritePointer) {
-            const favoritePointer = await getNextFavoritePointerForUser(reminderItem.userId).catch(findFavoriteError => {
-              logError(findFavoriteError, { scope: 'schedulerFindFavoritePointer', userId: reminderItem.userId });
-              return null;
-            });
+            const favoritePointer = await getNextFavoritePointerForUser(reminderItem.userId).catch(
+              (findFavoriteError) => {
+                logError(findFavoriteError, {
+                  scope: 'schedulerFindFavoritePointer',
+                  userId: reminderItem.userId
+                });
+                return null;
+              }
+            );
             if (favoritePointer) {
               currentPointer = favoritePointer;
               messageText = favoritePointer.source
@@ -188,10 +206,15 @@ export const startScheduler = bot => {
             }
           } else if (reminderItem.isRandomPointer) {
             const tagForLanguage = getPointerTagForLanguage(userLanguage);
-            const pointer = await getNextPointerForUser(reminderItem.userId, tagForLanguage).catch(findPointerError => {
-              logError(findPointerError, { scope: 'schedulerFindPointer', userId: reminderItem.userId });
-              return null;
-            });
+            const pointer = await getNextPointerForUser(reminderItem.userId, tagForLanguage).catch(
+              (findPointerError) => {
+                logError(findPointerError, {
+                  scope: 'schedulerFindPointer',
+                  userId: reminderItem.userId
+                });
+                return null;
+              }
+            );
             if (pointer) {
               currentPointer = pointer;
               messageText = pointer.source
@@ -212,8 +235,11 @@ export const startScheduler = bot => {
           } catch (deliveryError) {
             await handleDeliveryError({ error: deliveryError, reminder: reminderItem });
             reminderItem.lockedAt = null;
-            await reminderItem.save().catch(databaseSaveError => {
-              logError(databaseSaveError, { scope: 'schedulerUnlockAfterDeliveryErrorSave', reminderId: reminderItem._id });
+            await reminderItem.save().catch((databaseSaveError) => {
+              logError(databaseSaveError, {
+                scope: 'schedulerUnlockAfterDeliveryErrorSave',
+                reminderId: reminderItem._id
+              });
             });
             continue;
           }
@@ -223,13 +249,20 @@ export const startScheduler = bot => {
           reminderItem.lastSentAt = now;
           if (reminderItem.type === 'daily' && reminderItem.targetTime) {
             const userTimezone = targetUser?.timezone || DEFAULT_TIMEZONE;
-            reminderItem.nextRunAt = calculateDailyNextRun(reminderItem.targetTime, userTimezone, now);
+            reminderItem.nextRunAt = calculateDailyNextRun(
+              reminderItem.targetTime,
+              userTimezone,
+              now
+            );
           } else {
             reminderItem.nextRunAt = calcNextRun(now, reminderItem.intervalMinutes);
           }
           reminderItem.lockedAt = null;
-          await reminderItem.save().catch(databaseSaveError => {
-            logError(databaseSaveError, { scope: 'schedulerNextRunSave', reminderId: reminderItem._id });
+          await reminderItem.save().catch((databaseSaveError) => {
+            logError(databaseSaveError, {
+              scope: 'schedulerNextRunSave',
+              reminderId: reminderItem._id
+            });
           });
         } catch (itemError) {
           logError(itemError, { scope: 'reminderItem', reminderId: reminderItem._id });

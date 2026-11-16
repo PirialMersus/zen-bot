@@ -6,10 +6,7 @@ export const getRemindersKeyboard = (language = 'ru') => {
   const buttons = getButtons(language);
   const ui = getUi(language);
 
-  return Markup.keyboard([
-    [ui.REMINDER_CREATE, ui.REMINDER_MY],
-    [buttons.BACK]
-  ]).resize();
+  return Markup.keyboard([[ui.REMINDER_CREATE, ui.REMINDER_MY], [buttons.BACK]]).resize();
 };
 
 export const buildAutoDeleteKeepKeyboard = (deleteAfterSeconds, language = 'ru') => {

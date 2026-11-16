@@ -1,4 +1,8 @@
-export const synchronizePointerCollection = async (targetPointerModel, pointerDataset, languageCode) => {
+export const synchronizePointerCollection = async (
+  targetPointerModel,
+  pointerDataset,
+  languageCode
+) => {
   const existingPointerDocuments = await targetPointerModel.find({});
   const existingPointerDocumentsByText = new Map();
   const existingPointerDocumentsByNumber = new Map();
@@ -16,7 +20,7 @@ export const synchronizePointerCollection = async (targetPointerModel, pointerDa
 
   for (let datasetIndex = 0; datasetIndex < pointerDataset.length; datasetIndex++) {
     const rawPointerItem = pointerDataset[datasetIndex];
-    const sequentialPointerNumber = rawPointerItem.number ?? (datasetIndex + 1);
+    const sequentialPointerNumber = rawPointerItem.number ?? datasetIndex + 1;
     const normalizedItemText = rawPointerItem.text.trim();
     const resolvedItemSource = rawPointerItem.source ?? null;
     const resolvedItemTags = rawPointerItem.tags ?? [];
@@ -24,8 +28,12 @@ export const synchronizePointerCollection = async (targetPointerModel, pointerDa
     let matchedExistingDocument = existingPointerDocumentsByText.get(normalizedItemText);
 
     if (!matchedExistingDocument) {
-      const candidateDocumentByNumber = existingPointerDocumentsByNumber.get(sequentialPointerNumber);
-      if (candidateDocumentByNumber && !processedDocumentObjectIds.has(String(candidateDocumentByNumber._id))) {
+      const candidateDocumentByNumber =
+        existingPointerDocumentsByNumber.get(sequentialPointerNumber);
+      if (
+        candidateDocumentByNumber &&
+        !processedDocumentObjectIds.has(String(candidateDocumentByNumber._id))
+      ) {
         matchedExistingDocument = candidateDocumentByNumber;
       }
     }
@@ -85,7 +93,9 @@ export const synchronizePointerCollection = async (targetPointerModel, pointerDa
   }
 
   console.log(`[${languageCode.toUpperCase()}] Безопасная синхронизация завершена:`);
-  console.log(`  - Сохранено и обновлено существующих (_id без изменений): ${updatedPointersCount}`);
+  console.log(
+    `  - Сохранено и обновлено существующих (_id без изменений): ${updatedPointersCount}`
+  );
   console.log(`  - Добавлено новых записей: ${insertedPointersCount}`);
   console.log(`  - Деактивировано отсутствующих: ${deactivatedPointersCount}`);
   console.log(`  - Актуальный объем активной базы: ${pointerDataset.length}`);

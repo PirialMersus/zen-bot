@@ -3,6 +3,7 @@ import User from '../models/User.js';
 import { escapeHtml } from '../utils/escapeHtml.js';
 import { isAdministratorUser } from '../utils/admin.js';
 import { SUPPORTED_LANGUAGES, DEFAULT_LANGUAGE } from '../constants/languages.js';
+import { logError, suppressExpectedError } from '../utils/logger.js';
 
 const defaultFallbackLanguage = DEFAULT_LANGUAGE;
 const userCache = new Map();
@@ -10,7 +11,7 @@ const USER_CACHE_TTL_MS = 5 * 60 * 1000;
 const ACTIVITY_UPDATE_INTERVAL_MS = 5 * 60 * 1000;
 const MAX_USER_CACHE_CAPACITY = 5000;
 
-const pruneExpiredUserCacheEntries = currentTimeMs => {
+const pruneExpiredUserCacheEntries = (currentTimeMs) => {
   for (const [cachedTelegramId, cachedUserMetadata] of userCache.entries()) {
     if (currentTimeMs - cachedUserMetadata.cachedAt >= USER_CACHE_TTL_MS) {
       userCache.delete(cachedTelegramId);
@@ -30,13 +31,13 @@ export const clearUserCache = () => {
   userCache.clear();
 };
 
-export const invalidateUserCache = telegramId => {
+export const invalidateUserCache = (telegramId) => {
   if (telegramId) {
     userCache.delete(Number(telegramId));
   }
 };
 
-export const detectUserLanguage = userLanguageCode => {
+export const detectUserLanguage = (userLanguageCode) => {
   if (!userLanguageCode || typeof userLanguageCode !== 'string') {
     return defaultFallbackLanguage;
   }
@@ -54,7 +55,7 @@ export const detectUserLanguage = userLanguageCode => {
   return 'en';
 };
 
-export const resolveUserLanguage = async ctx => {
+export const resolveUserLanguage = async (ctx) => {
   if (SUPPORTED_LANGUAGES.includes(ctx.state?.userLanguage)) {
     return ctx.state.userLanguage;
   }
@@ -67,7 +68,9 @@ export const resolveUserLanguage = async ctx => {
       return cachedEntry.language;
     }
 
-    const existingUser = await User.findOne({ telegramId }).lean().catch(() => null);
+    const existingUser = await User.findOne({ telegramId })
+      .lean()
+      .catch(() => null);
     if (SUPPORTED_LANGUAGES.includes(existingUser?.language)) {
       ctx.state = ctx.state || {};
       ctx.state.userLanguage = existingUser.language;
@@ -102,17 +105,16 @@ const notifyAdministratorAboutNewUser = async (ctx, telegramId) => {
   ].join('\n');
 
   if (ctx.telegram?.sendMessage) {
-    await ctx.telegram.sendMessage(administratorTelegramIdentifier, alertMessageText, {
-      parse_mode: 'HTML'
-    }).catch(() => {});
+    await ctx.telegram
+      .sendMessage(administratorTelegramIdentifier, alertMessageText, {
+        parse_mode: 'HTML'
+      })
+      .catch(suppressExpectedError);
   }
 };
 
 export const activityMiddleware = async (ctx, next) => {
-  const telegramId =
-    ctx.from?.id ||
-    ctx.callbackQuery?.from?.id ||
-    ctx.message?.from?.id;
+  const telegramId = ctx.from?.id || ctx.callbackQuery?.from?.id || ctx.message?.from?.id;
 
   if (!telegramId) return next();
 
@@ -126,7 +128,9 @@ export const activityMiddleware = async (ctx, next) => {
   if (cachedEntry && currentTimeMs - cachedEntry.cachedAt < USER_CACHE_TTL_MS) {
     existingUserRecord = cachedEntry.userRecord;
   } else {
-    existingUserRecord = await User.findOne({ telegramId: numericTelegramId }).lean().catch(() => null);
+    existingUserRecord = await User.findOne({ telegramId: numericTelegramId })
+      .lean()
+      .catch(() => null);
   }
 
   const isBrandNewUser = !existingUserRecord;
@@ -145,7 +149,8 @@ export const activityMiddleware = async (ctx, next) => {
   ctx.state.userLanguage = effectiveLanguage;
 
   const lastActivityTimestamp = cachedEntry?.lastActivityUpdated || 0;
-  const shouldUpdateDatabaseActivity = isBrandNewUser || (currentTimeMs - lastActivityTimestamp >= ACTIVITY_UPDATE_INTERVAL_MS);
+  const shouldUpdateDatabaseActivity =
+    isBrandNewUser || currentTimeMs - lastActivityTimestamp >= ACTIVITY_UPDATE_INTERVAL_MS;
 
   if (shouldUpdateDatabaseActivity) {
     await User.updateOne(
@@ -162,7 +167,9 @@ export const activityMiddleware = async (ctx, next) => {
         }
       },
       { upsert: true }
-    ).catch(() => {});
+    ).catch((error) => {
+      logError(error, { context: 'USER_ACTIVITY_UPSERT' });
+    });
 
     if (userCache.size >= MAX_USER_CACHE_CAPACITY) {
       pruneExpiredUserCacheEntries(currentTimeMs);
@@ -193,7 +200,9 @@ export const activityMiddleware = async (ctx, next) => {
   Activity.create({
     telegramId: numericTelegramId,
     type: ctx.callbackQuery ? 'callback' : 'message'
-  }).catch(() => {});
+  }).catch((error) => {
+    logError(error, { context: 'ACTIVITY_LOG_CREATE' });
+  });
 
   return next();
 };

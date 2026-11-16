@@ -3,9 +3,7 @@ import { Pointer } from '../../src/models/Pointer.js';
 import User from '../../src/models/User.js';
 import { UI } from '../../src/constants/ui.js';
 import { TEXTS } from '../../src/constants/texts.js';
-import {
-  buildReminderPointerInlineKeyboard
-} from '../../src/keyboard/pointers.js';
+import { buildReminderPointerInlineKeyboard } from '../../src/keyboard/pointers.js';
 import {
   handleKeepPointer,
   handleToggleFavoritePointer,
@@ -89,10 +87,9 @@ describe('Указатели в напоминаниях и управление
 
     await handleExpireInfo(mockCtx);
 
-    expect(mockCtx.answerCbQuery).toHaveBeenCalledWith(
-      TEXTS.ru.POINTERS.EXPIRE_BADGE_INFO,
-      { show_alert: false }
-    );
+    expect(mockCtx.answerCbQuery).toHaveBeenCalledWith(TEXTS.ru.POINTERS.EXPIRE_BADGE_INFO, {
+      show_alert: false
+    });
   });
 
   it('должен корректно регистрировать и отменять таймер автоудаления в deletionTimers', async () => {

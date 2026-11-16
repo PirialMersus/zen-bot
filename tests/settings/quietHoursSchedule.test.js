@@ -21,9 +21,9 @@ describe('Гибкая настройка тихих часов', () => {
     expect(mockContext.reply).toHaveBeenCalled();
     const [replyText, replyOptions] = mockContext.reply.mock.calls[0];
     expect(replyText).toContain('Расписание тихих часов');
-    const buttons = replyOptions.reply_markup.inline_keyboard.flat().map(button => button.text);
-    expect(buttons.some(text => text.includes('23:00 – 08:00'))).toBe(true);
-    expect(buttons.some(text => text.includes('22:00 – 07:00'))).toBe(true);
+    const buttons = replyOptions.reply_markup.inline_keyboard.flat().map((button) => button.text);
+    expect(buttons.some((text) => text.includes('23:00 – 08:00'))).toBe(true);
+    expect(buttons.some((text) => text.includes('22:00 – 07:00'))).toBe(true);
   });
 
   it('должен сохранять выбранный пресет тихих часов в профиль пользователя', async () => {

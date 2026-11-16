@@ -4,27 +4,36 @@ import { resolveUserLanguage } from '../middlewares/activity.js';
 import { getTexts } from '../constants/texts.js';
 import { REMINDER_STEP } from './reminders.js';
 import { renderReminderStep } from './reminders/create.js';
+import { suppressExpectedError } from '../utils/logger.js';
 
-export const handleUnknownMessage = async ctx => {
+export const handleUnknownMessage = async (ctx) => {
   const userLanguage = await resolveUserLanguage(ctx);
   const texts = getTexts(userLanguage);
   const incomingMessageText = ctx.message?.text;
 
   ctx.session ??= {};
 
-  await ctx.reply(texts.FALLBACK.UNKNOWN_MESSAGE, mainKeyboard(ctx, userLanguage)).catch(() => {});
+  await ctx
+    .reply(texts.FALLBACK.UNKNOWN_MESSAGE, mainKeyboard(ctx, userLanguage))
+    .catch(suppressExpectedError);
 
-  if (incomingMessageText && typeof incomingMessageText === 'string' && !incomingMessageText.startsWith('/')) {
+  if (
+    incomingMessageText &&
+    typeof incomingMessageText === 'string' &&
+    !incomingMessageText.startsWith('/')
+  ) {
     ctx.session.pendingFallbackReminderText = incomingMessageText;
     const inlineActionKeyboard = Markup.inlineKeyboard([
       [Markup.button.callback(texts.FALLBACK.BUTTON_CREATE_REMINDER, 'fallback:create_reminder')]
     ]);
-    await ctx.reply(texts.FALLBACK.OFFER_CREATE_REMINDER, inlineActionKeyboard).catch(() => {});
+    await ctx
+      .reply(texts.FALLBACK.OFFER_CREATE_REMINDER, inlineActionKeyboard)
+      .catch(suppressExpectedError);
   }
 };
 
-export const handleFallbackCreateReminder = async ctx => {
-  await ctx.answerCbQuery().catch(() => {});
+export const handleFallbackCreateReminder = async (ctx) => {
+  await ctx.answerCbQuery().catch(suppressExpectedError);
 
   const pendingReminderText = ctx.session?.pendingFallbackReminderText;
 
@@ -33,7 +42,7 @@ export const handleFallbackCreateReminder = async ctx => {
 
   if (!pendingReminderText) {
     ctx.session.creatingReminder = {
-      deleteAfterSeconds: 10
+      deleteAfterSeconds: null
     };
     ctx.session.reminderStep = REMINDER_STEP.TEXT;
     await renderReminderStep(ctx);
@@ -41,7 +50,7 @@ export const handleFallbackCreateReminder = async ctx => {
   }
 
   ctx.session.creatingReminder = {
-    deleteAfterSeconds: 10,
+    deleteAfterSeconds: null,
     text: pendingReminderText,
     isRandomPointer: false
   };

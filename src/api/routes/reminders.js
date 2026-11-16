@@ -37,7 +37,14 @@ router.get('/', authMiddleware, async (req, res) => {
 
 router.post('/', authMiddleware, async (req, res) => {
   try {
-    const { text, intervalMinutes, deleteAfterSeconds, soundId, isRandomPointer, isFavoritePointer } = req.body;
+    const {
+      text,
+      intervalMinutes,
+      deleteAfterSeconds,
+      soundId,
+      isRandomPointer,
+      isFavoritePointer
+    } = req.body;
 
     if (!text || typeof text !== 'string' || text.trim().length === 0) {
       return res.status(400).json({ message: 'text обязателен и не должен быть пустым' });
@@ -49,19 +56,35 @@ router.post('/', authMiddleware, async (req, res) => {
 
     const existingRemindersCount = await Reminder.countDocuments({ userId: req.user.telegramId });
     if (existingRemindersCount >= MAX_REMINDERS_PER_USER) {
-      return res.status(400).json({ message: `Достигнут лимит напоминаний (максимум ${MAX_REMINDERS_PER_USER})` });
+      return res
+        .status(400)
+        .json({ message: `Достигнут лимит напоминаний (максимум ${MAX_REMINDERS_PER_USER})` });
     }
 
     const parsedInterval = Number(intervalMinutes);
-    if (!Number.isInteger(parsedInterval) || parsedInterval < MIN_REMINDER_INTERVAL_MINUTES || parsedInterval > MAX_REMINDER_INTERVAL_MINUTES) {
-      return res.status(400).json({ message: `intervalMinutes должен быть положительным целым числом не более ${MAX_REMINDER_INTERVAL_MINUTES}` });
+    if (
+      !Number.isInteger(parsedInterval) ||
+      parsedInterval < MIN_REMINDER_INTERVAL_MINUTES ||
+      parsedInterval > MAX_REMINDER_INTERVAL_MINUTES
+    ) {
+      return res
+        .status(400)
+        .json({
+          message: `intervalMinutes должен быть положительным целым числом не более ${MAX_REMINDER_INTERVAL_MINUTES}`
+        });
     }
 
     let parsedDeleteAfter = 10;
     if (deleteAfterSeconds !== undefined && deleteAfterSeconds !== null) {
       parsedDeleteAfter = Number(deleteAfterSeconds);
-      if (!Number.isInteger(parsedDeleteAfter) || parsedDeleteAfter < 1 || parsedDeleteAfter > 86400) {
-        return res.status(400).json({ message: 'deleteAfterSeconds должен быть числом от 1 до 86400' });
+      if (
+        !Number.isInteger(parsedDeleteAfter) ||
+        parsedDeleteAfter < 1 ||
+        parsedDeleteAfter > 86400
+      ) {
+        return res
+          .status(400)
+          .json({ message: 'deleteAfterSeconds должен быть числом от 1 до 86400' });
       }
     } else if (deleteAfterSeconds === null) {
       parsedDeleteAfter = null;
@@ -99,22 +122,45 @@ router.patch('/:id', authMiddleware, async (req, res) => {
 
     if (incomingUpdates.intervalMinutes !== undefined) {
       const parsedInterval = Number(incomingUpdates.intervalMinutes);
-      if (!Number.isInteger(parsedInterval) || parsedInterval < MIN_REMINDER_INTERVAL_MINUTES || parsedInterval > MAX_REMINDER_INTERVAL_MINUTES) {
-        return res.status(400).json({ message: `intervalMinutes должен быть положительным целым числом не более ${MAX_REMINDER_INTERVAL_MINUTES}` });
+      if (
+        !Number.isInteger(parsedInterval) ||
+        parsedInterval < MIN_REMINDER_INTERVAL_MINUTES ||
+        parsedInterval > MAX_REMINDER_INTERVAL_MINUTES
+      ) {
+        return res
+          .status(400)
+          .json({
+            message: `intervalMinutes должен быть положительным целым числом не более ${MAX_REMINDER_INTERVAL_MINUTES}`
+          });
       }
       incomingUpdates.intervalMinutes = parsedInterval;
     }
 
     if (incomingUpdates.text !== undefined) {
-      if (typeof incomingUpdates.text !== 'string' || incomingUpdates.text.trim().length === 0 || incomingUpdates.text.length > 4096) {
-        return res.status(400).json({ message: 'text должен быть непустой строкой длиной до 4096 символов' });
+      if (
+        typeof incomingUpdates.text !== 'string' ||
+        incomingUpdates.text.trim().length === 0 ||
+        incomingUpdates.text.length > 4096
+      ) {
+        return res
+          .status(400)
+          .json({ message: 'text должен быть непустой строкой длиной до 4096 символов' });
       }
     }
 
-    if (incomingUpdates.deleteAfterSeconds !== undefined && incomingUpdates.deleteAfterSeconds !== null) {
+    if (
+      incomingUpdates.deleteAfterSeconds !== undefined &&
+      incomingUpdates.deleteAfterSeconds !== null
+    ) {
       const parsedDeleteAfter = Number(incomingUpdates.deleteAfterSeconds);
-      if (!Number.isInteger(parsedDeleteAfter) || parsedDeleteAfter < 1 || parsedDeleteAfter > 86400) {
-        return res.status(400).json({ message: 'deleteAfterSeconds должен быть числом от 1 до 86400' });
+      if (
+        !Number.isInteger(parsedDeleteAfter) ||
+        parsedDeleteAfter < 1 ||
+        parsedDeleteAfter > 86400
+      ) {
+        return res
+          .status(400)
+          .json({ message: 'deleteAfterSeconds должен быть числом от 1 до 86400' });
       }
       incomingUpdates.deleteAfterSeconds = parsedDeleteAfter;
     }
@@ -123,11 +169,17 @@ router.patch('/:id', authMiddleware, async (req, res) => {
       return res.status(400).json({ message: 'isActive должен быть булевым значением' });
     }
 
-    if (incomingUpdates.isRandomPointer !== undefined && typeof incomingUpdates.isRandomPointer !== 'boolean') {
+    if (
+      incomingUpdates.isRandomPointer !== undefined &&
+      typeof incomingUpdates.isRandomPointer !== 'boolean'
+    ) {
       return res.status(400).json({ message: 'isRandomPointer должен быть булевым значением' });
     }
 
-    if (incomingUpdates.isFavoritePointer !== undefined && typeof incomingUpdates.isFavoritePointer !== 'boolean') {
+    if (
+      incomingUpdates.isFavoritePointer !== undefined &&
+      typeof incomingUpdates.isFavoritePointer !== 'boolean'
+    ) {
       return res.status(400).json({ message: 'isFavoritePointer должен быть булевым значением' });
     }
 
@@ -139,7 +191,9 @@ router.patch('/:id', authMiddleware, async (req, res) => {
     }
 
     if (incomingUpdates.intervalMinutes !== undefined) {
-      sanitizedUpdates.nextRunAt = new Date(Date.now() + incomingUpdates.intervalMinutes * 60 * 1000);
+      sanitizedUpdates.nextRunAt = new Date(
+        Date.now() + incomingUpdates.intervalMinutes * 60 * 1000
+      );
     }
 
     if (Object.keys(sanitizedUpdates).length === 0) {

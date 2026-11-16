@@ -1,15 +1,16 @@
 const RUSSIAN_UI = {
   POINTER_NEXT: '➡️ Следующий',
   POINTER_NEXT_FAV: '➡️ Следующий ⭐',
-  POINTER_FAV_MODE_BADGE: (current, total) => total ? `⭐ Избранные (${current} из ${total})` : '⭐ Режим: Избранное',
+  POINTER_FAV_MODE_BADGE: (current, total) =>
+    total ? `⭐ Избранные (${current} из ${total})` : '⭐ Режим: Избранное',
   POINTER_TO_REMINDER: '🔔 В напоминание',
   POINTER_RANDOM: '🎲 Случайный',
   POINTER_FAVORITE: '⭐ Из избранного',
   POINTER_FAV_ADD: '⭐ В избранное',
   POINTER_FAV_REMOVE: '❌ Из избранного',
   POINTER_SHARE: '📤 Переслать',
-  POINTER_EXPIRE_BADGE: seconds => `⏳ Исчезнет через ${seconds} сек`,
-  POINTER_KEEP_BUTTON: seconds => `⏳ Оставить (${seconds}с)`,
+  POINTER_EXPIRE_BADGE: (seconds) => `⏳ Исчезнет через ${seconds} сек`,
+  POINTER_KEEP_BUTTON: (seconds) => `⏳ Оставить (${seconds}с)`,
   POINTER_KEEP_TOAST: 'Сохранено в чате 🕊',
   POINTER_TO_MENU: '⬅️ В меню',
 
@@ -34,15 +35,16 @@ const RUSSIAN_UI = {
 const ENGLISH_UI = {
   POINTER_NEXT: '➡️ Next',
   POINTER_NEXT_FAV: '➡️ Next ⭐',
-  POINTER_FAV_MODE_BADGE: (current, total) => total ? `⭐ Favorites (${current} of ${total})` : '⭐ Mode: Favorites',
+  POINTER_FAV_MODE_BADGE: (current, total) =>
+    total ? `⭐ Favorites (${current} of ${total})` : '⭐ Mode: Favorites',
   POINTER_TO_REMINDER: '🔔 To reminder',
   POINTER_RANDOM: '🎲 Random',
   POINTER_FAVORITE: '⭐ From favorites',
   POINTER_FAV_ADD: '⭐ To favorites',
   POINTER_FAV_REMOVE: '❌ Remove from favorites',
   POINTER_SHARE: '📤 Forward',
-  POINTER_EXPIRE_BADGE: seconds => `⏳ Disappears in ${seconds}s`,
-  POINTER_KEEP_BUTTON: seconds => `⏳ Keep (${seconds}s)`,
+  POINTER_EXPIRE_BADGE: (seconds) => `⏳ Disappears in ${seconds}s`,
+  POINTER_KEEP_BUTTON: (seconds) => `⏳ Keep (${seconds}s)`,
   POINTER_KEEP_TOAST: 'Saved in chat 🕊',
   POINTER_TO_MENU: '⬅️ To menu',
 
@@ -67,15 +69,16 @@ const ENGLISH_UI = {
 const UKRAINIAN_UI = {
   POINTER_NEXT: '➡️ Наступний',
   POINTER_NEXT_FAV: '➡️ Наступний ⭐',
-  POINTER_FAV_MODE_BADGE: (current, total) => total ? `⭐ Обрані (${current} з ${total})` : '⭐ Режим: Обране',
+  POINTER_FAV_MODE_BADGE: (current, total) =>
+    total ? `⭐ Обрані (${current} з ${total})` : '⭐ Режим: Обране',
   POINTER_TO_REMINDER: '🔔 У нагадування',
   POINTER_RANDOM: '🎲 Випадковий',
   POINTER_FAVORITE: '⭐ З обраного',
   POINTER_FAV_ADD: '⭐ До обраного',
   POINTER_FAV_REMOVE: '❌ З обраного',
   POINTER_SHARE: '📤 Переслати',
-  POINTER_EXPIRE_BADGE: seconds => `⏳ Зникне через ${seconds} сек`,
-  POINTER_KEEP_BUTTON: seconds => `⏳ Залишити (${seconds}с)`,
+  POINTER_EXPIRE_BADGE: (seconds) => `⏳ Зникне через ${seconds} сек`,
+  POINTER_KEEP_BUTTON: (seconds) => `⏳ Залишити (${seconds}с)`,
   POINTER_KEEP_TOAST: 'Збережено в чаті 🕊',
   POINTER_TO_MENU: '⬅️ До меню',
 
@@ -100,15 +103,16 @@ const UKRAINIAN_UI = {
 const SPANISH_UI = {
   POINTER_NEXT: '➡️ Siguiente',
   POINTER_NEXT_FAV: '➡️ Siguiente ⭐',
-  POINTER_FAV_MODE_BADGE: (current, total) => total ? `⭐ Favoritos (${current} de ${total})` : '⭐ Modo: Favoritos',
+  POINTER_FAV_MODE_BADGE: (current, total) =>
+    total ? `⭐ Favoritos (${current} de ${total})` : '⭐ Modo: Favoritos',
   POINTER_TO_REMINDER: '🔔 En recordatorio',
   POINTER_RANDOM: '🎲 Aleatorio',
   POINTER_FAVORITE: '⭐ De favoritos',
   POINTER_FAV_ADD: '⭐ A favoritos',
   POINTER_FAV_REMOVE: '❌ Quitar de favoritos',
   POINTER_SHARE: '📤 Reenviar',
-  POINTER_EXPIRE_BADGE: seconds => `⏳ Desaparece en ${seconds}s`,
-  POINTER_KEEP_BUTTON: seconds => `⏳ Guardar (${seconds}s)`,
+  POINTER_EXPIRE_BADGE: (seconds) => `⏳ Desaparece en ${seconds}s`,
+  POINTER_KEEP_BUTTON: (seconds) => `⏳ Guardar (${seconds}s)`,
   POINTER_KEEP_TOAST: 'Guardado en el chat 🕊',
   POINTER_TO_MENU: '⬅️ Al menú',
 
@@ -145,9 +149,5 @@ export const getUi = (language = 'ru') => {
   return RUSSIAN_UI;
 };
 
-export const getUiVariants = uiKey => [
-  UI.ru[uiKey],
-  UI.en[uiKey],
-  UI.uk[uiKey],
-  UI.es[uiKey]
-].filter(Boolean);
+export const getUiVariants = (uiKey) =>
+  [UI.ru[uiKey], UI.en[uiKey], UI.uk[uiKey], UI.es[uiKey]].filter(Boolean);

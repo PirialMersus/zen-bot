@@ -54,7 +54,9 @@ describe('Контракты пользовательского интерфей
       expect(anchorKeyboardOptions.reply_markup).toBeDefined();
       expect(anchorKeyboardOptions.reply_markup.keyboard).toBeDefined();
 
-      const flattenedButtons = anchorKeyboardOptions.reply_markup.keyboard.flat().map(btn => btn.text || btn);
+      const flattenedButtons = anchorKeyboardOptions.reply_markup.keyboard
+        .flat()
+        .map((btn) => btn.text || btn);
       expect(flattenedButtons).toContain(UI.ru.POINTER_RANDOM);
       expect(flattenedButtons).toContain(UI.ru.POINTER_FAVORITE);
       expect(flattenedButtons).toContain(BUTTONS.ru.BACK);
@@ -70,7 +72,9 @@ describe('Контракты пользовательского интерфей
       expect(cardKeyboardOptions.reply_markup).toBeDefined();
       expect(cardKeyboardOptions.reply_markup.inline_keyboard).toBeDefined();
 
-      const inlineButtons = cardKeyboardOptions.reply_markup.inline_keyboard.flat().map(btn => btn.text);
+      const inlineButtons = cardKeyboardOptions.reply_markup.inline_keyboard
+        .flat()
+        .map((btn) => btn.text);
       expect(inlineButtons).toContain(UI.ru.POINTER_TO_REMINDER);
       expect(inlineButtons).toContain(UI.ru.POINTER_NEXT);
       expect(inlineButtons).toContain(UI.ru.POINTER_FAV_ADD);
@@ -123,7 +127,9 @@ describe('Контракты пользовательского интерфей
       expect(keyboardOptions.reply_markup).toBeDefined();
       expect(keyboardOptions.reply_markup.keyboard).toBeDefined();
 
-      const mainButtons = keyboardOptions.reply_markup.keyboard.flat().map(btn => btn.text || btn);
+      const mainButtons = keyboardOptions.reply_markup.keyboard
+        .flat()
+        .map((btn) => btn.text || btn);
       expect(mainButtons).toContain(BUTTONS.ru.POINTER);
       expect(mainButtons).toContain(BUTTONS.ru.REMINDERS);
       expect(mainButtons).toContain(BUTTONS.ru.SETTINGS);
@@ -132,7 +138,9 @@ describe('Контракты пользовательского интерфей
       const [onboardingText, onboardingOptions] = mockContext.reply.mock.calls[1];
       expect(onboardingText).toContain('Europe/Minsk');
       expect(onboardingOptions.reply_markup.inline_keyboard).toBeDefined();
-      expect(onboardingOptions.reply_markup.inline_keyboard[0][0].callback_data).toBe('settings:timezone');
+      expect(onboardingOptions.reply_markup.inline_keyboard[0][0].callback_data).toBe(
+        'settings:timezone'
+      );
     });
 
     it('handleBack без активного шага должен возвращать в главное меню с сохранением главной клавиатуры', async () => {
@@ -146,7 +154,9 @@ describe('Контракты пользовательского интерфей
       expect(mockContext.reply).toHaveBeenCalledTimes(1);
       const [, keyboardOptions] = mockContext.reply.mock.calls[0];
 
-      const mainButtons = keyboardOptions.reply_markup.keyboard.flat().map(btn => btn.text || btn);
+      const mainButtons = keyboardOptions.reply_markup.keyboard
+        .flat()
+        .map((btn) => btn.text || btn);
       expect(mainButtons).toContain(BUTTONS.ru.POINTER);
       expect(mainButtons).toContain(BUTTONS.ru.REMINDERS);
     });
@@ -164,7 +174,9 @@ describe('Контракты пользовательского интерфей
       expect(keyboardOptions.reply_markup).toBeDefined();
       expect(keyboardOptions.reply_markup.keyboard).toBeDefined();
 
-      const reminderButtons = keyboardOptions.reply_markup.keyboard.flat().map(btn => btn.text || btn);
+      const reminderButtons = keyboardOptions.reply_markup.keyboard
+        .flat()
+        .map((btn) => btn.text || btn);
       expect(reminderButtons).toContain(UI.ru.REMINDER_CREATE);
       expect(reminderButtons).toContain(UI.ru.REMINDER_MY);
       expect(reminderButtons).toContain(BUTTONS.ru.BACK);
@@ -179,7 +191,9 @@ describe('Контракты пользовательского интерфей
       expect(wizardContext.session.reminderStep).toBe(REMINDER_STEP.TEXT);
       expect(wizardContext.reply).toHaveBeenCalledTimes(1);
       const [, textStepKeyboard] = wizardContext.reply.mock.calls[0];
-      const textButtons = textStepKeyboard.reply_markup.keyboard.flat().map(btn => btn.text || btn);
+      const textButtons = textStepKeyboard.reply_markup.keyboard
+        .flat()
+        .map((btn) => btn.text || btn);
       expect(textButtons).toContain(BUTTONS.ru.BACK);
 
       wizardContext.message = { text: 'Пить воду регулярно' };
@@ -188,7 +202,9 @@ describe('Контракты пользовательского интерфей
       expect(wizardContext.session.reminderStep).toBe(REMINDER_STEP.INTERVAL);
       expect(wizardContext.reply).toHaveBeenCalledTimes(2);
       const [, intervalStepKeyboard] = wizardContext.reply.mock.calls[1];
-      const intervalButtons = intervalStepKeyboard.reply_markup.keyboard.flat().map(btn => btn.text || btn);
+      const intervalButtons = intervalStepKeyboard.reply_markup.keyboard
+        .flat()
+        .map((btn) => btn.text || btn);
       expect(intervalButtons).toContain(UI.ru.INTERVAL_5);
       expect(intervalButtons).toContain(UI.ru.INTERVAL_15);
       expect(intervalButtons).toContain(UI.ru.INTERVAL_60);
@@ -200,7 +216,9 @@ describe('Контракты пользовательского интерфей
       expect(wizardContext.session.reminderStep).toBe(REMINDER_STEP.AUTO_DELETE);
       expect(wizardContext.reply).toHaveBeenCalledTimes(3);
       const [, autoDeleteStepKeyboard] = wizardContext.reply.mock.calls[2];
-      const autoDeleteButtons = autoDeleteStepKeyboard.reply_markup.keyboard.flat().map(btn => btn.text || btn);
+      const autoDeleteButtons = autoDeleteStepKeyboard.reply_markup.keyboard
+        .flat()
+        .map((btn) => btn.text || btn);
       expect(autoDeleteButtons.length).toBeGreaterThan(0);
       expect(autoDeleteButtons).toContain(BUTTONS.ru.BACK);
     });
@@ -225,15 +243,29 @@ describe('Контракты пользовательского интерфей
       expect(replyOptions.reply_markup).toBeDefined();
       expect(replyOptions.reply_markup.inline_keyboard).toBeDefined();
 
-      const inlineActionButtons = replyOptions.reply_markup.inline_keyboard.flat().map(btn => btn.text);
-      expect(inlineActionButtons.some(text => text.includes('Приостановить'))).toBe(true);
-      expect(inlineActionButtons.some(text => text.includes('Удалить'))).toBe(true);
+      const inlineActionButtons = replyOptions.reply_markup.inline_keyboard
+        .flat()
+        .map((btn) => btn.text);
+      expect(inlineActionButtons.some((text) => text.includes('Приостановить'))).toBe(true);
+      expect(inlineActionButtons.some((text) => text.includes('Удалить'))).toBe(true);
     });
 
     it('handleMyReminders при наличии нескольких напоминаний должен формировать список со всеми напоминаниями', async () => {
       await Reminder.create([
-        { userId: 3004, chatId: 3004, text: 'Первое напоминание', intervalMinutes: 60, isActive: true },
-        { userId: 3004, chatId: 3004, text: 'Второе напоминание', intervalMinutes: 120, isActive: true }
+        {
+          userId: 3004,
+          chatId: 3004,
+          text: 'Первое напоминание',
+          intervalMinutes: 60,
+          isActive: true
+        },
+        {
+          userId: 3004,
+          chatId: 3004,
+          text: 'Второе напоминание',
+          intervalMinutes: 120,
+          isActive: true
+        }
       ]);
 
       const multipleListContext = createMockContext({ userId: 3004 });
@@ -264,7 +296,9 @@ describe('Контракты пользовательского интерфей
       expect(settingsOptions.reply_markup).toBeDefined();
       expect(settingsOptions.reply_markup.inline_keyboard).toBeDefined();
 
-      const callbacks = settingsOptions.reply_markup.inline_keyboard.flat().map(btn => btn.callback_data);
+      const callbacks = settingsOptions.reply_markup.inline_keyboard
+        .flat()
+        .map((btn) => btn.callback_data);
       expect(callbacks).toContain('settings:timezone');
       expect(callbacks).toContain('settings:language');
       expect(callbacks).toContain('settings:quiet_hours:menu');
@@ -278,7 +312,9 @@ describe('Контракты пользовательского интерфей
       expect(languageContext.reply).toHaveBeenCalledTimes(1);
       const [, languageOptions] = languageContext.reply.mock.calls[0];
 
-      const callbacks = languageOptions.reply_markup.inline_keyboard.flat().map(btn => btn.callback_data);
+      const callbacks = languageOptions.reply_markup.inline_keyboard
+        .flat()
+        .map((btn) => btn.callback_data);
       expect(callbacks).toContain('settings:language:set:ru');
       expect(callbacks).toContain('settings:language:set:en');
       expect(callbacks).toContain('settings:language:set:uk');
@@ -303,7 +339,9 @@ describe('Контракты пользовательского интерфей
       expect(responseOptions.reply_markup).toBeDefined();
       expect(responseOptions.reply_markup.keyboard).toBeDefined();
 
-      const restoredButtons = responseOptions.reply_markup.keyboard.flat().map(btn => btn.text || btn);
+      const restoredButtons = responseOptions.reply_markup.keyboard
+        .flat()
+        .map((btn) => btn.text || btn);
       expect(restoredButtons).toContain(BUTTONS.ru.POINTER);
       expect(restoredButtons).toContain(BUTTONS.ru.REMINDERS);
       expect(restoredButtons).toContain(BUTTONS.ru.SETTINGS);
@@ -312,7 +350,9 @@ describe('Контракты пользовательского интерфей
       const [offerText, offerOptions] = fallbackContext.reply.mock.calls[1];
       expect(offerText).toContain('Хочешь создать напоминание');
       expect(offerOptions.reply_markup.inline_keyboard).toBeDefined();
-      expect(offerOptions.reply_markup.inline_keyboard[0][0].callback_data).toBe('fallback:create_reminder');
+      expect(offerOptions.reply_markup.inline_keyboard[0][0].callback_data).toBe(
+        'fallback:create_reminder'
+      );
     });
   });
 });

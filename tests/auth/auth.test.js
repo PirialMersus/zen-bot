@@ -30,7 +30,7 @@ describe('Обработчик авторизации (Auth Handler)', () => {
 
     const updatedUser = await User.findOne({ telegramId: telegramUserId });
     expect(updatedUser.authCode).toBeDefined();
-    expect(updatedUser.authCode).toMatch(/^[A-Z0-9]{3}-[A-Z0-9]{3}$/);
+    expect(updatedUser.authCode).toMatch(/^[A-Z0-9]{4}-[A-Z0-9]{4}$/);
     expect(updatedUser.authCodeExpiresAt).toBeDefined();
 
     expect(mockContext.reply).toHaveBeenCalledTimes(1);
@@ -38,7 +38,9 @@ describe('Обработчик авторизации (Auth Handler)', () => {
     expect(replyText).toContain(updatedUser.authCode);
     expect(replyText).toContain('10 минут');
     expect(replyOptions.reply_markup).toBeDefined();
-    expect(replyOptions.reply_markup.inline_keyboard[0][0].text).toBe(TEXTS.ru.AUTH.GET_NEW_CODE_BUTTON);
+    expect(replyOptions.reply_markup.inline_keyboard[0][0].text).toBe(
+      TEXTS.ru.AUTH.GET_NEW_CODE_BUTTON
+    );
   });
 
   it('должен отвечать на callbackQuery при вызове через кнопку', async () => {

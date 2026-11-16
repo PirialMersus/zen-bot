@@ -30,8 +30,12 @@ vi.mock('telegraf', () => {
 
 vi.mock('https', () => ({ default: { get: vi.fn() } }));
 
-vi.mock('../../src/models/User.js', () => ({ default: { findOne: vi.fn(), find: vi.fn(), updateOne: vi.fn(), create: vi.fn() } }));
-vi.mock('../../src/models/Reminder.js', () => ({ default: { find: vi.fn(), create: vi.fn(), countDocuments: vi.fn() } }));
+vi.mock('../../src/models/User.js', () => ({
+  default: { findOne: vi.fn(), find: vi.fn(), updateOne: vi.fn(), create: vi.fn() }
+}));
+vi.mock('../../src/models/Reminder.js', () => ({
+  default: { find: vi.fn(), create: vi.fn(), countDocuments: vi.fn() }
+}));
 vi.mock('../../src/models/Pointer.js', () => ({
   Pointer: { find: vi.fn(), countDocuments: vi.fn() },
   PointerRu: { find: vi.fn(), countDocuments: vi.fn() },

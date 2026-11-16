@@ -12,7 +12,9 @@ export const registerDeletionTimer = (chatId, messageId, deleteAfterSeconds, onD
       if (typeof onDeleteCallback === 'function') {
         await onDeleteCallback();
       }
-    } catch {}
+    } catch (deletionError) {
+      void deletionError;
+    }
   }, deleteAfterSeconds * 1000);
 
   activeTimers.set(timerKey, {

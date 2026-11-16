@@ -117,7 +117,7 @@ describe('Поиск указателей администратором', () =>
     expect(replyMessageText).toContain('Nisargadatta');
 
     const keyboardButtons = replyOptions.reply_markup.inline_keyboard.flat();
-    const buttonTextsList = keyboardButtons.map(button => button.text);
+    const buttonTextsList = keyboardButtons.map((button) => button.text);
     expect(buttonTextsList).toContain('🔔 To reminder');
   });
 

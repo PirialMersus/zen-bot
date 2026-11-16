@@ -46,7 +46,10 @@ router.patch('/settings', authMiddleware, async (req, res) => {
         return res.status(400).json({ message: 'Некорректные параметры тихих часов' });
       }
       req.user.quietHours = {
-        enabled: quietHours.enabled !== undefined ? Boolean(quietHours.enabled) : req.user.quietHours.enabled,
+        enabled:
+          quietHours.enabled !== undefined
+            ? Boolean(quietHours.enabled)
+            : req.user.quietHours.enabled,
         start: quietHours.start,
         end: quietHours.end
       };

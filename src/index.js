@@ -38,12 +38,11 @@ const performGracefulShutdown = async (terminationReason, exitCode = 0) => {
   process.exit(exitCode);
 };
 
-process.on('unhandledRejection', async err => {
+process.on('unhandledRejection', (err) => {
   console.error('UNHANDLED_REJECTION', err);
-  await performGracefulShutdown('UNHANDLED_REJECTION', 1);
 });
 
-process.on('uncaughtException', async err => {
+process.on('uncaughtException', async (err) => {
   console.error('UNCAUGHT_EXCEPTION', err);
   await performGracefulShutdown('UNCAUGHT_EXCEPTION', 1);
 });
@@ -72,7 +71,7 @@ const startBotWithAutoRestart = async () => {
       }
       const errorMessageString = launchError?.message || String(launchError);
       console.error('BOT_LAUNCH_ERROR', errorMessageString);
-      await new Promise(resolveTimeout => setTimeout(resolveTimeout, retryDelayMilliseconds));
+      await new Promise((resolveTimeout) => setTimeout(resolveTimeout, retryDelayMilliseconds));
     }
   }
 };

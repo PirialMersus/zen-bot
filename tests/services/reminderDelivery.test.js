@@ -7,10 +7,7 @@ import {
 } from '../../src/services/reminderDelivery.js';
 import Reminder from '../../src/models/Reminder.js';
 import * as cleanupUserModule from '../../src/services/cleanupUser.js';
-import {
-  hasDeletionTimer,
-  clearAllDeletionTimers
-} from '../../src/services/deletionTimers.js';
+import { hasDeletionTimer, clearAllDeletionTimers } from '../../src/services/deletionTimers.js';
 import { handleKeepReminder } from '../../src/handlers/reminders.js';
 import { createMockContext } from '../helpers/mockContext.js';
 import { UI } from '../../src/constants/ui.js';
@@ -61,11 +58,9 @@ describe('Сервис доставки напоминаний (reminderDelivery
     });
 
     expect(mockBot.telegram.sendMessage).toHaveBeenCalledTimes(1);
-    expect(mockBot.telegram.sendMessage).toHaveBeenCalledWith(
-      12345,
-      'Время дышать',
-      { parse_mode: 'HTML' }
-    );
+    expect(mockBot.telegram.sendMessage).toHaveBeenCalledWith(12345, 'Время дышать', {
+      parse_mode: 'HTML'
+    });
   });
 
   it('должен отправлять текстовое напоминание с футером автоудаления', async () => {
@@ -114,11 +109,10 @@ describe('Сервис доставки напоминаний (reminderDelivery
     });
 
     expect(mockBot.telegram.sendPhoto).toHaveBeenCalledTimes(1);
-    expect(mockBot.telegram.sendPhoto).toHaveBeenCalledWith(
-      998877,
-      'photo_file_123',
-      { caption: 'Красивый закат', parse_mode: 'HTML' }
-    );
+    expect(mockBot.telegram.sendPhoto).toHaveBeenCalledWith(998877, 'photo_file_123', {
+      caption: 'Красивый закат',
+      parse_mode: 'HTML'
+    });
   });
 
   it('должен отправлять напоминание с видеофайлом', async () => {
@@ -141,11 +135,10 @@ describe('Сервис доставки напоминаний (reminderDelivery
     });
 
     expect(mockBot.telegram.sendVideo).toHaveBeenCalledTimes(1);
-    expect(mockBot.telegram.sendVideo).toHaveBeenCalledWith(
-      887766,
-      'video_file_456',
-      { caption: 'Инструкция по медитации', parse_mode: 'HTML' }
-    );
+    expect(mockBot.telegram.sendVideo).toHaveBeenCalledWith(887766, 'video_file_456', {
+      caption: 'Инструкция по медитации',
+      parse_mode: 'HTML'
+    });
   });
 
   it('должен отправлять указатель с инлайн-клавиатурой и регистрировать таймер автоудаления', async () => {
@@ -272,7 +265,9 @@ describe('Сервис доставки напоминаний (reminderDelivery
     expect(mockBot.telegram.sendPhoto).toHaveBeenCalledTimes(1);
     const [, , photoOptions] = mockBot.telegram.sendPhoto.mock.calls[0];
     expect(photoOptions.reply_markup).toBeDefined();
-    expect(photoOptions.reply_markup.inline_keyboard[0][0].text).toBe(UI.ru.POINTER_KEEP_BUTTON(15));
+    expect(photoOptions.reply_markup.inline_keyboard[0][0].text).toBe(
+      UI.ru.POINTER_KEEP_BUTTON(15)
+    );
     expect(photoOptions.reply_markup.inline_keyboard[0][0].callback_data).toBe('reminder:keep');
     expect(hasDeletionTimer(998877, 102)).toBe(true);
 
@@ -297,7 +292,9 @@ describe('Сервис доставки напоминаний (reminderDelivery
     expect(mockBot.telegram.sendVideo).toHaveBeenCalledTimes(1);
     const [, , videoOptions] = mockBot.telegram.sendVideo.mock.calls[0];
     expect(videoOptions.reply_markup).toBeDefined();
-    expect(videoOptions.reply_markup.inline_keyboard[0][0].text).toBe(UI.ru.POINTER_KEEP_BUTTON(25));
+    expect(videoOptions.reply_markup.inline_keyboard[0][0].text).toBe(
+      UI.ru.POINTER_KEEP_BUTTON(25)
+    );
     expect(videoOptions.reply_markup.inline_keyboard[0][0].callback_data).toBe('reminder:keep');
     expect(hasDeletionTimer(887766, 103)).toBe(true);
   });

@@ -42,7 +42,9 @@ describe('Покрытие всех переводов и целостность
         if (objectKey === 'INTERVALS') continue;
         const completePath = currentPrefix ? `${currentPrefix}.${objectKey}` : objectKey;
         if (typeof sourceObject[objectKey] === 'object' && sourceObject[objectKey] !== null) {
-          accumulatedKeyPaths = accumulatedKeyPaths.concat(collectObjectLeafKeys(sourceObject[objectKey], completePath));
+          accumulatedKeyPaths = accumulatedKeyPaths.concat(
+            collectObjectLeafKeys(sourceObject[objectKey], completePath)
+          );
         } else {
           accumulatedKeyPaths.push(completePath);
         }
@@ -62,9 +64,15 @@ describe('Покрытие всех переводов и целостность
     expect(TEXTS.ru.INTERVALS.OPTIONS.length).toBe(TEXTS.en.INTERVALS.OPTIONS.length);
     expect(TEXTS.uk.INTERVALS.OPTIONS.length).toBe(TEXTS.ru.INTERVALS.OPTIONS.length);
     expect(TEXTS.es.INTERVALS.OPTIONS.length).toBe(TEXTS.ru.INTERVALS.OPTIONS.length);
-    expect(Object.keys(TEXTS.ru.INTERVALS.MAP).length).toBe(Object.keys(TEXTS.en.INTERVALS.MAP).length);
-    expect(Object.keys(TEXTS.uk.INTERVALS.MAP).length).toBe(Object.keys(TEXTS.ru.INTERVALS.MAP).length);
-    expect(Object.keys(TEXTS.es.INTERVALS.MAP).length).toBe(Object.keys(TEXTS.ru.INTERVALS.MAP).length);
+    expect(Object.keys(TEXTS.ru.INTERVALS.MAP).length).toBe(
+      Object.keys(TEXTS.en.INTERVALS.MAP).length
+    );
+    expect(Object.keys(TEXTS.uk.INTERVALS.MAP).length).toBe(
+      Object.keys(TEXTS.ru.INTERVALS.MAP).length
+    );
+    expect(Object.keys(TEXTS.es.INTERVALS.MAP).length).toBe(
+      Object.keys(TEXTS.ru.INTERVALS.MAP).length
+    );
   });
 
   it('должен гарантировать полную симметрию ключей в BUTTONS и UI между ru, en, uk и es', () => {
@@ -86,7 +94,7 @@ describe('Покрытие всех переводов и целостность
   });
 
   it('должен гарантировать отсутствие пустых или undefined переводов в словарях', () => {
-    const verifyNoEmptyValuesInObject = inspectedObject => {
+    const verifyNoEmptyValuesInObject = (inspectedObject) => {
       for (const [, dictionaryValue] of Object.entries(inspectedObject)) {
         expect(dictionaryValue).not.toBeUndefined();
         expect(dictionaryValue).not.toBeNull();
@@ -279,7 +287,9 @@ describe('Покрытие всех переводов и целостность
     });
     await handleDeleteAfterInput(invalidDeleteAfterContext);
 
-    expect(invalidDeleteAfterContext.reply).toHaveBeenCalledWith(TEXTS.en.REMINDERS.INVALID_SECONDS);
+    expect(invalidDeleteAfterContext.reply).toHaveBeenCalledWith(
+      TEXTS.en.REMINDERS.INVALID_SECONDS
+    );
   });
 
   it('должен отображать список напоминаний и кнопки действий на английском языке', async () => {
@@ -317,7 +327,7 @@ describe('Покрытие всех переводов и целостность
     expect(singleReminderText).toContain('Observe thoughts without judgement');
 
     const inlineActionButtons = singleReminderOptions.reply_markup.inline_keyboard.flat();
-    const actionButtonsTextList = inlineActionButtons.map(buttonItem => buttonItem.text);
+    const actionButtonsTextList = inlineActionButtons.map((buttonItem) => buttonItem.text);
     expect(actionButtonsTextList).toContain('⏸️ Pause');
     expect(actionButtonsTextList).toContain('🗑 Delete');
 
@@ -337,7 +347,9 @@ describe('Покрытие всех переводов и целостность
 
     expect(deleteActionContext.editMessageReplyMarkup).toHaveBeenCalled();
     const deleteMarkupArgument = deleteActionContext.editMessageReplyMarkup.mock.calls[0][0];
-    const deleteConfirmButtons = deleteMarkupArgument.inline_keyboard.flat().map(buttonItem => buttonItem.text);
+    const deleteConfirmButtons = deleteMarkupArgument.inline_keyboard
+      .flat()
+      .map((buttonItem) => buttonItem.text);
     expect(deleteConfirmButtons).toContain('🗑 Confirm');
     expect(deleteConfirmButtons).toContain('❌ Cancel');
   });
@@ -358,10 +370,16 @@ describe('Покрытие всех переводов и целостность
     const [settingsMessageText, settingsMessageOptions] = settingsContext.reply.mock.calls[0];
     expect(settingsMessageText).toContain(TEXTS.en.MENU.SETTINGS);
 
-    const settingsButtons = settingsMessageOptions.reply_markup.inline_keyboard.flat().map(buttonItem => buttonItem.text);
+    const settingsButtons = settingsMessageOptions.reply_markup.inline_keyboard
+      .flat()
+      .map((buttonItem) => buttonItem.text);
     expect(settingsButtons).toContain(BUTTONS.en.QUIET_OFF);
-    expect(settingsButtons.some(buttonText => buttonText.includes(BUTTONS.en.TIMEZONE))).toBe(true);
-    expect(settingsButtons.some(buttonText => buttonText.includes(BUTTONS.en.LANGUAGE))).toBe(true);
+    expect(settingsButtons.some((buttonText) => buttonText.includes(BUTTONS.en.TIMEZONE))).toBe(
+      true
+    );
+    expect(settingsButtons.some((buttonText) => buttonText.includes(BUTTONS.en.LANGUAGE))).toBe(
+      true
+    );
     expect(settingsButtons).toContain(BUTTONS.en.BACK);
 
     const timezoneMenuContext = createMockContext({
@@ -373,7 +391,9 @@ describe('Покрытие всех переводов и целостность
     expect(timezoneMenuContext.reply).toHaveBeenCalled();
     const [regionPromptText, regionOptions] = timezoneMenuContext.reply.mock.calls[0];
     expect(regionPromptText).toContain('Select region');
-    const regionButtons = regionOptions.reply_markup.inline_keyboard.flat().map(buttonItem => buttonItem.text);
+    const regionButtons = regionOptions.reply_markup.inline_keyboard
+      .flat()
+      .map((buttonItem) => buttonItem.text);
     expect(regionButtons).toContain(BUTTONS.en.BACK);
 
     const timezoneRegionContext = createMockContext({
@@ -385,7 +405,9 @@ describe('Покрытие всех переводов и целостность
     expect(timezoneRegionContext.reply).toHaveBeenCalled();
     const [cityPromptText, cityOptions] = timezoneRegionContext.reply.mock.calls[0];
     expect(cityPromptText).toContain('Select city');
-    const cityButtons = cityOptions.reply_markup.inline_keyboard.flat().map(buttonItem => buttonItem.text);
+    const cityButtons = cityOptions.reply_markup.inline_keyboard
+      .flat()
+      .map((buttonItem) => buttonItem.text);
     expect(cityButtons).toContain(BUTTONS.en.BACK);
 
     const timezoneSetContext = createMockContext({
@@ -441,7 +463,9 @@ describe('Покрытие всех переводов и целостность
     expect(pointerReplyText).toContain('You are the awareness behind the thoughts');
     expect(pointerReplyText).toContain('Eckhart Tolle');
 
-    const inlineButtons = pointerOptions.reply_markup.inline_keyboard.flat().map(buttonItem => buttonItem.text);
+    const inlineButtons = pointerOptions.reply_markup.inline_keyboard
+      .flat()
+      .map((buttonItem) => buttonItem.text);
     expect(inlineButtons).toContain(UI.en.POINTER_TO_REMINDER);
     expect(inlineButtons).toContain(UI.en.POINTER_NEXT);
 
@@ -455,7 +479,9 @@ describe('Покрытие всех переводов и целостность
     const [editedPointerText, editedOptions] = nextPointerContext.editMessageText.mock.calls[0];
     expect(editedPointerText).toContain('You are the awareness behind the thoughts');
 
-    const editedButtons = editedOptions.reply_markup.inline_keyboard.flat().map(buttonItem => buttonItem.text);
+    const editedButtons = editedOptions.reply_markup.inline_keyboard
+      .flat()
+      .map((buttonItem) => buttonItem.text);
     expect(editedButtons).toContain(UI.en.POINTER_TO_REMINDER);
     expect(editedButtons).toContain(UI.en.POINTER_NEXT);
   });
@@ -660,7 +686,9 @@ describe('Покрытие всех переводов и целостность
     });
     await handleDeleteAfterInput(invalidDeleteAfterContext);
 
-    expect(invalidDeleteAfterContext.reply).toHaveBeenCalledWith(TEXTS.es.REMINDERS.INVALID_SECONDS);
+    expect(invalidDeleteAfterContext.reply).toHaveBeenCalledWith(
+      TEXTS.es.REMINDERS.INVALID_SECONDS
+    );
   });
 
   it('должен отображать список напоминаний и кнопки действий на испанском языке', async () => {
@@ -698,7 +726,7 @@ describe('Покрытие всех переводов и целостность
     expect(singleReminderText).toContain('Observa los pensamientos sin juzgar');
 
     const inlineActionButtons = singleReminderOptions.reply_markup.inline_keyboard.flat();
-    const actionButtonsTextList = inlineActionButtons.map(buttonItem => buttonItem.text);
+    const actionButtonsTextList = inlineActionButtons.map((buttonItem) => buttonItem.text);
     expect(actionButtonsTextList).toContain('⏸️ Pausar');
     expect(actionButtonsTextList).toContain('🗑 Eliminar');
 
@@ -718,7 +746,9 @@ describe('Покрытие всех переводов и целостность
 
     expect(deleteActionContext.editMessageReplyMarkup).toHaveBeenCalled();
     const deleteMarkupArgument = deleteActionContext.editMessageReplyMarkup.mock.calls[0][0];
-    const deleteConfirmButtons = deleteMarkupArgument.inline_keyboard.flat().map(buttonItem => buttonItem.text);
+    const deleteConfirmButtons = deleteMarkupArgument.inline_keyboard
+      .flat()
+      .map((buttonItem) => buttonItem.text);
     expect(deleteConfirmButtons).toContain('🗑 Confirmar');
     expect(deleteConfirmButtons).toContain('❌ Cancelar');
   });
@@ -739,10 +769,16 @@ describe('Покрытие всех переводов и целостность
     const [settingsMessageText, settingsMessageOptions] = settingsContext.reply.mock.calls[0];
     expect(settingsMessageText).toContain(TEXTS.es.MENU.SETTINGS);
 
-    const settingsButtons = settingsMessageOptions.reply_markup.inline_keyboard.flat().map(buttonItem => buttonItem.text);
+    const settingsButtons = settingsMessageOptions.reply_markup.inline_keyboard
+      .flat()
+      .map((buttonItem) => buttonItem.text);
     expect(settingsButtons).toContain(BUTTONS.es.QUIET_OFF);
-    expect(settingsButtons.some(buttonText => buttonText.includes(BUTTONS.es.TIMEZONE))).toBe(true);
-    expect(settingsButtons.some(buttonText => buttonText.includes(BUTTONS.es.LANGUAGE))).toBe(true);
+    expect(settingsButtons.some((buttonText) => buttonText.includes(BUTTONS.es.TIMEZONE))).toBe(
+      true
+    );
+    expect(settingsButtons.some((buttonText) => buttonText.includes(BUTTONS.es.LANGUAGE))).toBe(
+      true
+    );
     expect(settingsButtons).toContain(BUTTONS.es.BACK);
 
     const timezoneMenuContext = createMockContext({
@@ -754,7 +790,9 @@ describe('Покрытие всех переводов и целостность
     expect(timezoneMenuContext.reply).toHaveBeenCalled();
     const [regionPromptText, regionOptions] = timezoneMenuContext.reply.mock.calls[0];
     expect(regionPromptText).toContain('Selecciona región');
-    const regionButtons = regionOptions.reply_markup.inline_keyboard.flat().map(buttonItem => buttonItem.text);
+    const regionButtons = regionOptions.reply_markup.inline_keyboard
+      .flat()
+      .map((buttonItem) => buttonItem.text);
     expect(regionButtons).toContain(BUTTONS.es.BACK);
 
     const timezoneRegionContext = createMockContext({
@@ -766,7 +804,9 @@ describe('Покрытие всех переводов и целостность
     expect(timezoneRegionContext.reply).toHaveBeenCalled();
     const [cityPromptText, cityOptions] = timezoneRegionContext.reply.mock.calls[0];
     expect(cityPromptText).toContain('Selecciona ciudad');
-    const cityButtons = cityOptions.reply_markup.inline_keyboard.flat().map(buttonItem => buttonItem.text);
+    const cityButtons = cityOptions.reply_markup.inline_keyboard
+      .flat()
+      .map((buttonItem) => buttonItem.text);
     expect(cityButtons).toContain(BUTTONS.es.BACK);
 
     const timezoneSetContext = createMockContext({
@@ -822,7 +862,9 @@ describe('Покрытие всех переводов и целостность
     expect(pointerReplyText).toContain('Tú eres la conciencia detrás de los pensamientos');
     expect(pointerReplyText).toContain('Eckhart Tolle');
 
-    const inlineButtons = pointerOptions.reply_markup.inline_keyboard.flat().map(buttonItem => buttonItem.text);
+    const inlineButtons = pointerOptions.reply_markup.inline_keyboard
+      .flat()
+      .map((buttonItem) => buttonItem.text);
     expect(inlineButtons).toContain(UI.es.POINTER_TO_REMINDER);
     expect(inlineButtons).toContain(UI.es.POINTER_NEXT);
 
@@ -836,7 +878,9 @@ describe('Покрытие всех переводов и целостность
     const [editedPointerText, editedOptions] = nextPointerContext.editMessageText.mock.calls[0];
     expect(editedPointerText).toContain('Tú eres la conciencia detrás de los pensamientos');
 
-    const editedButtons = editedOptions.reply_markup.inline_keyboard.flat().map(buttonItem => buttonItem.text);
+    const editedButtons = editedOptions.reply_markup.inline_keyboard
+      .flat()
+      .map((buttonItem) => buttonItem.text);
     expect(editedButtons).toContain(UI.es.POINTER_TO_REMINDER);
     expect(editedButtons).toContain(UI.es.POINTER_NEXT);
   });

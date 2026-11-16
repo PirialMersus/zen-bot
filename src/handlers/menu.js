@@ -5,6 +5,7 @@ import { handleGetAuthCode } from './auth.js';
 import { resolveUserLanguage } from '../middlewares/activity.js';
 import User from '../models/User.js';
 import { DEFAULT_TIMEZONE } from '../constants/timezones.js';
+import { suppressExpectedError } from '../utils/logger.js';
 
 const getLocalizedQuietDisabledText = (language = 'ru') => {
   const quietDisabledTranslations = {
@@ -28,7 +29,7 @@ const formatQuietHoursSchedule = (quietHoursSettings, userLanguage = 'ru') => {
   return `${startHourFormatted}:00–${endHourFormatted}:00`;
 };
 
-export const handleStart = async ctx => {
+export const handleStart = async (ctx) => {
   ctx.session ??= {};
   ctx.session.reminderStep = null;
   ctx.session.creatingReminder = null;
@@ -51,12 +52,17 @@ export const handleStart = async ctx => {
   let formattedQuietHoursSchedule = '23:00–08:00';
 
   if (telegramUserIdentifier) {
-    const existingUserData = await User.findOne({ telegramId: telegramUserIdentifier }).lean().catch(() => null);
+    const existingUserData = await User.findOne({ telegramId: telegramUserIdentifier })
+      .lean()
+      .catch(() => null);
     if (existingUserData?.timezone) {
       currentUserTimezone = existingUserData.timezone;
     }
     if (existingUserData?.quietHours) {
-      formattedQuietHoursSchedule = formatQuietHoursSchedule(existingUserData.quietHours, userLanguage);
+      formattedQuietHoursSchedule = formatQuietHoursSchedule(
+        existingUserData.quietHours,
+        userLanguage
+      );
     }
   }
 
@@ -64,16 +70,18 @@ export const handleStart = async ctx => {
     [Markup.button.callback(texts.MENU.ONBOARDING_TIMEZONE_BUTTON, 'settings:timezone')]
   ]);
 
-  await ctx.reply(
-    texts.MENU.ONBOARDING_TIMEZONE_PROMPT(currentUserTimezone, formattedQuietHoursSchedule),
-    {
-      parse_mode: 'HTML',
-      ...timezoneOnboardingKeyboard
-    }
-  ).catch(() => {});
+  await ctx
+    .reply(
+      texts.MENU.ONBOARDING_TIMEZONE_PROMPT(currentUserTimezone, formattedQuietHoursSchedule),
+      {
+        parse_mode: 'HTML',
+        ...timezoneOnboardingKeyboard
+      }
+    )
+    .catch(suppressExpectedError);
 };
 
-export const handleHelp = async ctx => {
+export const handleHelp = async (ctx) => {
   const userLanguage = await resolveUserLanguage(ctx);
   const texts = getTexts(userLanguage);
   await ctx.reply(texts.MENU.HELP, mainKeyboard(ctx, userLanguage));

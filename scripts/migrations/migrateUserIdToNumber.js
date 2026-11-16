@@ -19,19 +19,18 @@ const runMigration = async () => {
   for (const doc of stringReminders) {
     const numericUserId = Number(doc.userId);
     if (!Number.isNaN(numericUserId)) {
-      await rawCollection.updateOne(
-        { _id: doc._id },
-        { $set: { userId: numericUserId } }
-      );
+      await rawCollection.updateOne({ _id: doc._id }, { $set: { userId: numericUserId } });
       migratedCount++;
     }
   }
 
-  console.log(`Миграция завершена. Обновлено документов: ${migratedCount} из ${stringReminders.length}`);
+  console.log(
+    `Миграция завершена. Обновлено документов: ${migratedCount} из ${stringReminders.length}`
+  );
   await mongoose.disconnect();
 };
 
-runMigration().catch(err => {
+runMigration().catch((err) => {
   console.error(err);
   process.exit(1);
 });

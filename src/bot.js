@@ -65,10 +65,11 @@ import {
 import { mainKeyboard } from './keyboard/main.js';
 import { getSupportInlineKeyboard } from './keyboard/support.js';
 import { activityMiddleware, resolveUserLanguage } from './middlewares/activity.js';
+import { createMongoSessionStore } from './storage/sessionStore.js';
 
 export const bot = new Telegraf(process.env.BOT_TOKEN);
 
-bot.use(session());
+bot.use(session({ store: createMongoSessionStore() }));
 bot.use(activityMiddleware);
 
 bot.catch((err, ctx) => {
@@ -82,7 +83,7 @@ bot.catch((err, ctx) => {
 bot.start(handleStart);
 bot.help(handleHelp);
 
-export const registerBotCommands = async targetBot => {
+export const registerBotCommands = async (targetBot) => {
   if (!targetBot?.telegram?.setMyCommands) return;
   try {
     await targetBot.telegram.setMyCommands([
@@ -90,23 +91,35 @@ export const registerBotCommands = async targetBot => {
       { command: 'help', description: 'Справка и возможности' },
       { command: 'f', description: 'Поиск указателей по автору или фразе' }
     ]);
-    await targetBot.telegram.setMyCommands([
-      { command: 'start', description: 'Start the bot / Main menu' },
-      { command: 'help', description: 'Help and features' },
-      { command: 'f', description: 'Search pointers by author or phrase' }
-    ], { language_code: 'en' });
-    await targetBot.telegram.setMyCommands([
-      { command: 'start', description: 'Запустити бота / Головне меню' },
-      { command: 'help', description: 'Довідка та можливості' },
-      { command: 'f', description: 'Пошук вказівників за автором або фразою' }
-    ], { language_code: 'uk' });
-    await targetBot.telegram.setMyCommands([
-      { command: 'start', description: 'Iniciar el bot / Menú principal' },
-      { command: 'help', description: 'Ayuda y características' },
-      { command: 'f', description: 'Buscar punteros por autor o frase' }
-    ], { language_code: 'es' });
+    await targetBot.telegram.setMyCommands(
+      [
+        { command: 'start', description: 'Start the bot / Main menu' },
+        { command: 'help', description: 'Help and features' },
+        { command: 'f', description: 'Search pointers by author or phrase' }
+      ],
+      { language_code: 'en' }
+    );
+    await targetBot.telegram.setMyCommands(
+      [
+        { command: 'start', description: 'Запустити бота / Головне меню' },
+        { command: 'help', description: 'Довідка та можливості' },
+        { command: 'f', description: 'Пошук вказівників за автором або фразою' }
+      ],
+      { language_code: 'uk' }
+    );
+    await targetBot.telegram.setMyCommands(
+      [
+        { command: 'start', description: 'Iniciar el bot / Menú principal' },
+        { command: 'help', description: 'Ayuda y características' },
+        { command: 'f', description: 'Buscar punteros por autor o frase' }
+      ],
+      { language_code: 'es' }
+    );
   } catch (commandRegistrationError) {
-    console.error('SET_COMMANDS_ERROR', commandRegistrationError?.message || commandRegistrationError);
+    console.error(
+      'SET_COMMANDS_ERROR',
+      commandRegistrationError?.message || commandRegistrationError
+    );
   }
 };
 
@@ -132,14 +145,14 @@ bot.hears(getButtonVariants('SETTINGS'), handleSettings);
 bot.hears(getUiVariants('REMINDER_CREATE'), handleCreateReminder);
 bot.hears(getUiVariants('REMINDER_MY'), handleMyReminders);
 
-bot.hears(getUiVariants('INTERVAL_5'), ctx => handleIntervalPreset(ctx, 5));
-bot.hears(getUiVariants('INTERVAL_15'), ctx => handleIntervalPreset(ctx, 15));
-bot.hears(getUiVariants('INTERVAL_60'), ctx => handleIntervalPreset(ctx, 60));
-bot.hears(getUiVariants('INTERVAL_1440'), ctx => handleIntervalPreset(ctx, 1440));
+bot.hears(getUiVariants('INTERVAL_5'), (ctx) => handleIntervalPreset(ctx, 5));
+bot.hears(getUiVariants('INTERVAL_15'), (ctx) => handleIntervalPreset(ctx, 15));
+bot.hears(getUiVariants('INTERVAL_60'), (ctx) => handleIntervalPreset(ctx, 60));
+bot.hears(getUiVariants('INTERVAL_1440'), (ctx) => handleIntervalPreset(ctx, 1440));
 
-bot.action(/^pause:/, ctx => handleRequestAction(ctx, 'pause'));
-bot.action(/^resume:/, ctx => handleRequestAction(ctx, 'resume'));
-bot.action(/^delete:/, ctx => handleRequestAction(ctx, 'delete'));
+bot.action(/^pause:/, (ctx) => handleRequestAction(ctx, 'pause'));
+bot.action(/^resume:/, (ctx) => handleRequestAction(ctx, 'resume'));
+bot.action(/^delete:/, (ctx) => handleRequestAction(ctx, 'delete'));
 
 bot.action(/^confirm:/, handleConfirmAction);
 
@@ -166,32 +179,32 @@ bot.action(/^reminder:view:/, handleViewReminder);
 
 bot.action('settings:quiet_toggle', handleQuietToggle);
 
-bot.action('settings:back', async ctx => {
+bot.action('settings:back', async (ctx) => {
   const userLanguage = await resolveUserLanguage(ctx);
   const texts = getTexts(userLanguage);
-  await ctx.answerCbQuery().catch(() => { });
-  await ctx.deleteMessage().catch(() => { });
-  await ctx.reply(texts.MENU.MAIN, mainKeyboard(ctx, userLanguage)).catch(() => { });
+  await ctx.answerCbQuery().catch(() => {});
+  await ctx.deleteMessage().catch(() => {});
+  await ctx.reply(texts.MENU.MAIN, mainKeyboard(ctx, userLanguage)).catch(() => {});
 });
 
-bot.hears([
-  ...getButtonVariants('BACK'),
-  ...getUiVariants('POINTER_TO_MENU')
-], handleBack);
+bot.hears([...getButtonVariants('BACK'), ...getUiVariants('POINTER_TO_MENU')], handleBack);
 bot.hears(getUiVariants('POINTER_NEXT'), handleNextPointer);
 bot.hears(getUiVariants('POINTER_TO_REMINDER'), handlePointerToReminder);
 bot.hears(getUiVariants('ADMIN_ACTIVE_USERS'), handleAdminActiveUsers);
 bot.hears(getUiVariants('ADMIN_BROADCAST'), handleAdminBroadcastStart);
 
 bot.command(['pointer', 'p'], handleAdminGetPointerByNumber);
-bot.hears(/^(?:получить\s+)?(?:pointer|указатель|вказівник|puntero)(?:\s+(?:en|ru|uk|es))?\s+\d+$/i, handleAdminGetPointerByNumber);
+bot.hears(
+  /^(?:получить\s+)?(?:pointer|указатель|вказівник|puntero)(?:\s+(?:en|ru|uk|es))?\s+\d+$/i,
+  handleAdminGetPointerByNumber
+);
 bot.hears(/^\/p(?:ointer)?(?:_(?:en|ru|uk|es))?\s+\d+$/i, handleAdminGetPointerByNumber);
 
 bot.command('f', handleSearchPointers);
 bot.hears(/^\/f(?:_(?:en|ru|uk|es))?(?:\s+.*)?$/i, handleSearchPointers);
 bot.action('search:more', handleSearchMorePointers);
 
-bot.hears(getButtonVariants('SUPPORT'), async ctx => {
+bot.hears(getButtonVariants('SUPPORT'), async (ctx) => {
   const userLanguage = await resolveUserLanguage(ctx);
   const texts = getTexts(userLanguage);
   await ctx.reply(texts.SUPPORT, getSupportInlineKeyboard(userLanguage));
@@ -204,7 +217,7 @@ const allowedIntervalOptions = [
   ...TEXTS.es.INTERVALS.OPTIONS
 ];
 
-bot.hears(allowedIntervalOptions, async ctx => {
+bot.hears(allowedIntervalOptions, async (ctx) => {
   const incomingMessageText = ctx.message.text;
 
   if (isDoNotDeleteText(incomingMessageText)) {
@@ -215,25 +228,25 @@ bot.hears(allowedIntervalOptions, async ctx => {
   await handleDeleteAfterPreset(ctx, COMBINED_AUTO_DELETE_MAP[incomingMessageText]);
 });
 
-bot.on('photo', async ctx => {
+bot.on('photo', async (ctx) => {
   if (await handleFeedbackMessage(ctx)) return;
   if (await handleAdminBroadcastMessage(ctx)) return;
   await handleReminderPhoto(ctx);
 });
 
-bot.on(['video', 'video_note'], async ctx => {
+bot.on(['video', 'video_note'], async (ctx) => {
   if (await handleFeedbackMessage(ctx)) return;
   if (await handleAdminBroadcastMessage(ctx)) return;
   await handleReminderVideo(ctx);
 });
 
-bot.on(['voice', 'audio', 'document', 'sticker'], async ctx => {
+bot.on(['voice', 'audio', 'document', 'sticker'], async (ctx) => {
   if (await handleFeedbackMessage(ctx)) return;
   if (await handleAdminBroadcastMessage(ctx)) return;
   await handleUnknownMessage(ctx);
 });
 
-bot.on('text', async ctx => {
+bot.on('text', async (ctx) => {
   if (await handleFeedbackMessage(ctx)) return;
   if (await handleAdminBroadcastMessage(ctx)) return;
   if (await handleQuietHoursCustomInput(ctx)) return;

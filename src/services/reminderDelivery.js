@@ -1,20 +1,16 @@
 import { cleanupUser } from './cleanupUser.js';
-import { logError } from '../utils/logger.js';
+import { logError, suppressExpectedError } from '../utils/logger.js';
 import { isPointerInFavorites } from './pointers.js';
 import { buildReminderPointerInlineKeyboard } from '../keyboard/pointers.js';
 import { buildAutoDeleteKeepKeyboard } from '../keyboard/reminders.js';
 import { registerDeletionTimer } from './deletionTimers.js';
 import { escapeHtml } from '../utils/escapeHtml.js';
 
-const IS_DEV = process.env.NODE_ENV === 'development';
-const CREATOR_ID = Number(process.env.CREATOR_ID);
-
-export const getDeleteAfterSeconds = reminder => {
-  if (IS_DEV && Number(reminder.userId) === CREATOR_ID) return 60;
+export const getDeleteAfterSeconds = (reminder) => {
   return reminder.deleteAfterSeconds ?? null;
 };
 
-export const getPointerTagForLanguage = language => {
+export const getPointerTagForLanguage = (language) => {
   const languageTags = {
     en: 'stillness',
     uk: 'тиша',
@@ -24,7 +20,7 @@ export const getPointerTagForLanguage = language => {
   return languageTags[language] || 'тишина';
 };
 
-const getPushTitle = language => {
+const getPushTitle = (language) => {
   const pushTitles = {
     en: 'Reminder',
     uk: 'Нагадування',
@@ -65,8 +61,8 @@ const getMediaFallbackCaption = (mediaType, language) => {
 
 export const sendPushNotification = async (pushTokens, text, soundId, title = 'Напоминание') => {
   const messages = pushTokens
-    .filter(token => token && token.startsWith('ExponentPushToken'))
-    .map(token => ({
+    .filter((token) => token && token.startsWith('ExponentPushToken'))
+    .map((token) => ({
       to: token,
       sound: 'default',
       title,
@@ -79,7 +75,7 @@ export const sendPushNotification = async (pushTokens, text, soundId, title = '�
   const response = await fetch('https://exp.host/--/api/v2/push/send', {
     method: 'POST',
     headers: {
-      'Accept': 'application/json',
+      Accept: 'application/json',
       'Accept-Encoding': 'gzip, deflate',
       'Content-Type': 'application/json'
     },
@@ -96,7 +92,7 @@ export const sendPushNotification = async (pushTokens, text, soundId, title = '�
 const scheduleMessageDeletion = (bot, chatId, messageId, deleteAfterSeconds) => {
   if (!deleteAfterSeconds || !messageId) return;
   registerDeletionTimer(chatId, messageId, deleteAfterSeconds, async () => {
-    await bot.telegram.deleteMessage(chatId, messageId).catch(() => {});
+    await bot.telegram.deleteMessage(chatId, messageId).catch(suppressExpectedError);
   });
 };
 
@@ -110,52 +106,63 @@ export const deliverReminder = async ({
 }) => {
   const isPointerMessage = Boolean(currentPointer);
   const deleteAfterSeconds = getDeleteAfterSeconds(reminder);
-  const footer = (deleteAfterSeconds && !isPointerMessage)
-    ? getAutoDeleteFooter(deleteAfterSeconds, userLanguage)
-    : '';
+  const footer =
+    deleteAfterSeconds && !isPointerMessage
+      ? getAutoDeleteFooter(deleteAfterSeconds, userLanguage)
+      : '';
 
   const useApp = user?.notificationChannel === 'app' && user?.pushTokens?.length > 0;
   const pushTitle = getPushTitle(userLanguage);
 
   if (reminder.photoFileId) {
-    const photoCaption = reminder.caption ? `${escapeHtml(reminder.caption)}${footer}` : (footer ? footer.trim() : '');
+    const photoCaption = reminder.caption
+      ? `${escapeHtml(reminder.caption)}${footer}`
+      : footer
+        ? footer.trim()
+        : '';
     if (useApp) {
       const fallbackCaption = getMediaFallbackCaption('photo', userLanguage);
-      await sendPushNotification(user.pushTokens, reminder.caption || fallbackCaption, reminder.soundId, pushTitle);
+      await sendPushNotification(
+        user.pushTokens,
+        reminder.caption || fallbackCaption,
+        reminder.soundId,
+        pushTitle
+      );
     } else {
       const keepKeyboard = deleteAfterSeconds
         ? buildAutoDeleteKeepKeyboard(deleteAfterSeconds, userLanguage)
         : null;
-      const sentMessage = await bot.telegram.sendPhoto(
-        reminder.chatId,
-        reminder.photoFileId,
-        {
-          ...(photoCaption ? { caption: photoCaption, parse_mode: 'HTML' } : {}),
-          ...(keepKeyboard || {})
-        }
-      );
+      const sentMessage = await bot.telegram.sendPhoto(reminder.chatId, reminder.photoFileId, {
+        ...(photoCaption ? { caption: photoCaption, parse_mode: 'HTML' } : {}),
+        ...(keepKeyboard || {})
+      });
       scheduleMessageDeletion(bot, reminder.chatId, sentMessage?.message_id, deleteAfterSeconds);
     }
     return;
   }
 
   if (reminder.videoFileId) {
-    const videoCaption = reminder.caption ? `${escapeHtml(reminder.caption)}${footer}` : (footer ? footer.trim() : '');
+    const videoCaption = reminder.caption
+      ? `${escapeHtml(reminder.caption)}${footer}`
+      : footer
+        ? footer.trim()
+        : '';
     if (useApp) {
       const fallbackCaption = getMediaFallbackCaption('video', userLanguage);
-      await sendPushNotification(user.pushTokens, reminder.caption || fallbackCaption, reminder.soundId, pushTitle);
+      await sendPushNotification(
+        user.pushTokens,
+        reminder.caption || fallbackCaption,
+        reminder.soundId,
+        pushTitle
+      );
     } else {
       const keepKeyboard = deleteAfterSeconds
         ? buildAutoDeleteKeepKeyboard(deleteAfterSeconds, userLanguage)
         : null;
-      const sentMessage = await bot.telegram.sendVideo(
-        reminder.chatId,
-        reminder.videoFileId,
-        {
-          ...(videoCaption ? { caption: videoCaption, parse_mode: 'HTML' } : {}),
-          ...(keepKeyboard || {})
-        }
-      );
+      const sentMessage = await bot.telegram.sendVideo(reminder.chatId, reminder.videoFileId, {
+        ...(videoCaption ? { caption: videoCaption, parse_mode: 'HTML' } : {}),
+        ...(keepKeyboard || {})
+      });
       scheduleMessageDeletion(bot, reminder.chatId, sentMessage?.message_id, deleteAfterSeconds);
     }
     return;
@@ -175,11 +182,10 @@ export const deliverReminder = async ({
       language: userLanguage
     });
 
-    const sentMessage = await bot.telegram.sendMessage(
-      reminder.chatId,
-      escapeHtml(messageText),
-      { parse_mode: 'HTML', ...(reminderKeyboard || {}) }
-    );
+    const sentMessage = await bot.telegram.sendMessage(reminder.chatId, escapeHtml(messageText), {
+      parse_mode: 'HTML',
+      ...(reminderKeyboard || {})
+    });
 
     scheduleMessageDeletion(bot, reminder.chatId, sentMessage?.message_id, deleteAfterSeconds);
     return;
@@ -213,15 +219,18 @@ export const handleDeliveryError = async ({ error, reminder }) => {
   });
 
   if (errorCode === 403) {
-    await cleanupUser(reminder.userId).catch(cleanupError => {
+    await cleanupUser(reminder.userId).catch((cleanupError) => {
       logError(cleanupError, { context: 'DELIVERY_CLEANUP_USER_ERROR', userId: reminder.userId });
     });
   }
 
   if (errorCode === 400) {
     reminder.isActive = false;
-    await reminder.save().catch(databaseSaveError => {
-      logError(databaseSaveError, { scope: 'reminderDeliveryDeactivateSave', reminderId: reminder._id });
+    await reminder.save().catch((databaseSaveError) => {
+      logError(databaseSaveError, {
+        scope: 'reminderDeliveryDeactivateSave',
+        reminderId: reminder._id
+      });
     });
   }
 };

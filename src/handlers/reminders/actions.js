@@ -7,17 +7,18 @@ import { getUi } from '../../constants/ui.js';
 import { DEFAULT_TIMEZONE } from '../../constants/timezones.js';
 import { resolveUserLanguage } from '../../middlewares/activity.js';
 import { cancelDeletionTimer } from '../../services/deletionTimers.js';
+import { suppressExpectedError } from '../../utils/logger.js';
 import {
   formatReminderMessageText,
   getReminderMessageKeyboard,
   buildRemindersListPayload
 } from '../../services/remindersFormat.js';
 
-export const handleReminderListCallback = async ctx => {
+export const handleReminderListCallback = async (ctx) => {
   const userLanguage = await resolveUserLanguage(ctx);
   const texts = getTexts(userLanguage);
 
-  await ctx.answerCbQuery().catch(() => {});
+  await ctx.answerCbQuery().catch(suppressExpectedError);
 
   const [reminders, user] = await Promise.all([
     Reminder.find({ userId: ctx.from.id }).sort({ createdAt: 1 }),
@@ -26,7 +27,7 @@ export const handleReminderListCallback = async ctx => {
 
   if (!reminders.length) {
     await ctx.editMessageText(texts.REMINDERS.NONE).catch(async () => {
-      await ctx.reply(texts.REMINDERS.NONE).catch(() => {});
+      await ctx.reply(texts.REMINDERS.NONE).catch(suppressExpectedError);
     });
     return;
   }
@@ -34,18 +35,22 @@ export const handleReminderListCallback = async ctx => {
   const userTimezone = user?.timezone || DEFAULT_TIMEZONE;
   const { text, keyboard } = buildRemindersListPayload(reminders, userLanguage, userTimezone);
 
-  await ctx.editMessageText(text, {
-    parse_mode: 'HTML',
-    ...keyboard
-  }).catch(async () => {
-    await ctx.reply(text, {
+  await ctx
+    .editMessageText(text, {
       parse_mode: 'HTML',
       ...keyboard
-    }).catch(() => {});
-  });
+    })
+    .catch(async () => {
+      await ctx
+        .reply(text, {
+          parse_mode: 'HTML',
+          ...keyboard
+        })
+        .catch(suppressExpectedError);
+    });
 };
 
-export const handleViewReminder = async ctx => {
+export const handleViewReminder = async (ctx) => {
   const userLanguage = await resolveUserLanguage(ctx);
   const texts = getTexts(userLanguage);
   const reminderId = ctx.callbackQuery.data.replace('reminder:view:', '');
@@ -57,22 +62,30 @@ export const handleViewReminder = async ctx => {
   ]);
 
   if (!reminderItem) {
-    await ctx.answerCbQuery(texts.REMINDERS.NOT_FOUND).catch(() => {});
+    await ctx.answerCbQuery(texts.REMINDERS.NOT_FOUND).catch(suppressExpectedError);
     return handleReminderListCallback(ctx);
   }
 
-  await ctx.answerCbQuery().catch(() => {});
+  await ctx.answerCbQuery().catch(suppressExpectedError);
 
-  const indexNumber = allUserReminders.findIndex(item => String(item._id) === String(reminderItem._id)) + 1;
+  const indexNumber =
+    allUserReminders.findIndex((item) => String(item._id) === String(reminderItem._id)) + 1;
   const userTimezone = user?.timezone || DEFAULT_TIMEZONE;
 
-  await ctx.editMessageText(
-    formatReminderMessageText(reminderItem, indexNumber > 0 ? String(indexNumber) : '1', userLanguage, userTimezone),
-    {
-      parse_mode: 'HTML',
-      ...getReminderMessageKeyboard(reminderItem, userLanguage, true)
-    }
-  ).catch(() => {});
+  await ctx
+    .editMessageText(
+      formatReminderMessageText(
+        reminderItem,
+        indexNumber > 0 ? String(indexNumber) : '1',
+        userLanguage,
+        userTimezone
+      ),
+      {
+        parse_mode: 'HTML',
+        ...getReminderMessageKeyboard(reminderItem, userLanguage, true)
+      }
+    )
+    .catch(suppressExpectedError);
 };
 
 export const handleRequestAction = async (ctx, type) => {
@@ -85,7 +98,8 @@ export const handleRequestAction = async (ctx, type) => {
     User.findOne({ telegramId: ctx.from.id })
   ]);
 
-  if (!reminderItem) return ctx.answerCbQuery(texts.REMINDERS.NOT_FOUND).catch(() => {});
+  if (!reminderItem)
+    return ctx.answerCbQuery(texts.REMINDERS.NOT_FOUND).catch(suppressExpectedError);
 
   if (type === 'pause' || type === 'resume') {
     const userTimezone = user?.timezone || DEFAULT_TIMEZONE;
@@ -105,39 +119,55 @@ export const handleRequestAction = async (ctx, type) => {
     await reminderItem.save();
 
     const allUserReminders = await Reminder.find({ userId: ctx.from.id }).sort({ createdAt: 1 });
-    const indexNumber = allUserReminders.findIndex(item => String(item._id) === String(reminderItem._id)) + 1;
+    const indexNumber =
+      allUserReminders.findIndex((item) => String(item._id) === String(reminderItem._id)) + 1;
 
-    await ctx.editMessageText(
-      formatReminderMessageText(reminderItem, indexNumber > 0 ? String(indexNumber) : '1', userLanguage, userTimezone),
-      {
-        parse_mode: 'HTML',
-        ...getReminderMessageKeyboard(reminderItem, userLanguage, true)
-      }
-    ).catch(() => {});
+    await ctx
+      .editMessageText(
+        formatReminderMessageText(
+          reminderItem,
+          indexNumber > 0 ? String(indexNumber) : '1',
+          userLanguage,
+          userTimezone
+        ),
+        {
+          parse_mode: 'HTML',
+          ...getReminderMessageKeyboard(reminderItem, userLanguage, true)
+        }
+      )
+      .catch(suppressExpectedError);
 
-    return ctx.answerCbQuery(texts.REMINDERS.STATUS_UPDATED).catch(() => {});
+    return ctx.answerCbQuery(texts.REMINDERS.STATUS_UPDATED).catch(suppressExpectedError);
   }
 
   if (type === 'delete') {
-    await ctx.editMessageReplyMarkup(
-      Markup.inlineKeyboard([
-        [
-          Markup.button.callback(texts.REMINDERS.CONFIRM_DELETE_BUTTON, `confirm:delete:${reminderIdentifier}`),
-          Markup.button.callback(texts.REMINDERS.CANCEL_DELETE_BUTTON, `confirm:cancel:${reminderIdentifier}`)
-        ]
-      ]).reply_markup
-    ).catch(() => {});
+    await ctx
+      .editMessageReplyMarkup(
+        Markup.inlineKeyboard([
+          [
+            Markup.button.callback(
+              texts.REMINDERS.CONFIRM_DELETE_BUTTON,
+              `confirm:delete:${reminderIdentifier}`
+            ),
+            Markup.button.callback(
+              texts.REMINDERS.CANCEL_DELETE_BUTTON,
+              `confirm:cancel:${reminderIdentifier}`
+            )
+          ]
+        ]).reply_markup
+      )
+      .catch(suppressExpectedError);
 
-    return ctx.answerCbQuery().catch(() => {});
+    return ctx.answerCbQuery().catch(suppressExpectedError);
   }
 };
 
-export const handleConfirmAction = async ctx => {
+export const handleConfirmAction = async (ctx) => {
   const callbackDataString = ctx.callbackQuery.data;
 
   if (callbackDataString === 'confirm:no') {
-    await ctx.answerCbQuery().catch(() => {});
-    await ctx.deleteMessage().catch(() => {});
+    await ctx.answerCbQuery().catch(suppressExpectedError);
+    await ctx.deleteMessage().catch(suppressExpectedError);
     return;
   }
 
@@ -146,25 +176,27 @@ export const handleConfirmAction = async ctx => {
   const texts = getTexts(userLanguage);
 
   if (actionType === 'cancel') {
-    await ctx.answerCbQuery().catch(() => {});
+    await ctx.answerCbQuery().catch(suppressExpectedError);
     const reminderItem = await Reminder.findOne({ _id: reminderIdentifier, userId: ctx.from.id });
 
     if (reminderItem) {
-      await ctx.editMessageReplyMarkup(
-        getReminderMessageKeyboard(reminderItem, userLanguage, true).reply_markup
-      ).catch(() => {});
+      await ctx
+        .editMessageReplyMarkup(
+          getReminderMessageKeyboard(reminderItem, userLanguage, true).reply_markup
+        )
+        .catch(suppressExpectedError);
     }
     return;
   }
 
   if (actionType === 'delete') {
     await Reminder.findOneAndDelete({ _id: reminderIdentifier, userId: ctx.from.id });
-    await ctx.answerCbQuery(texts.REMINDERS.DELETED).catch(() => {});
+    await ctx.answerCbQuery(texts.REMINDERS.DELETED).catch(suppressExpectedError);
     return handleReminderListCallback(ctx);
   }
 };
 
-export const handleKeepReminder = async ctx => {
+export const handleKeepReminder = async (ctx) => {
   const targetChatId = ctx.chat?.id || ctx.callbackQuery?.message?.chat?.id;
   const targetMessageId = ctx.callbackQuery?.message?.message_id;
 
@@ -173,6 +205,6 @@ export const handleKeepReminder = async ctx => {
   const userLanguage = await resolveUserLanguage(ctx);
   const ui = getUi(userLanguage);
 
-  await ctx.editMessageReplyMarkup().catch(() => {});
-  await ctx.answerCbQuery(ui.POINTER_KEEP_TOAST).catch(() => {});
+  await ctx.editMessageReplyMarkup().catch(suppressExpectedError);
+  await ctx.answerCbQuery(ui.POINTER_KEEP_TOAST).catch(suppressExpectedError);
 };

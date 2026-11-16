@@ -9,7 +9,11 @@ export const cleanExpiredRateLimitEntries = () => {
   }
 };
 
-export const isRequestWithinRateLimit = (rateLimitKey, maximumRequestsAllowed = 10, timeWindowMilliseconds = 60 * 1000) => {
+export const isRequestWithinRateLimit = (
+  rateLimitKey,
+  maximumRequestsAllowed = 10,
+  timeWindowMilliseconds = 60 * 1000
+) => {
   if (authRateLimitMap.size > 500) {
     cleanExpiredRateLimitEntries();
   }

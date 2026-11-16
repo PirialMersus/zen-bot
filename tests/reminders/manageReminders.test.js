@@ -16,10 +16,7 @@ describe('Управление существующими напоминания
 
     await handleMyReminders(mockContext);
 
-    expect(mockContext.reply).toHaveBeenCalledWith(
-      TEXTS.REMINDERS.NONE,
-      expect.anything()
-    );
+    expect(mockContext.reply).toHaveBeenCalledWith(TEXTS.REMINDERS.NONE, expect.anything());
   });
 
   it('должен выводить список напоминаний пользователя', async () => {
@@ -143,6 +140,6 @@ describe('Управление существующими напоминания
     expect(editedText).not.toContain('Первое напоминание');
 
     const inlineButtons = editedOptions.reply_markup.inline_keyboard.flat();
-    expect(inlineButtons.some(button => button.text === '1')).toBe(true);
+    expect(inlineButtons.some((button) => button.text === '1')).toBe(true);
   });
 });

@@ -45,7 +45,7 @@ export {
   handleKeepReminder
 } from './reminders/actions.js';
 
-export const handleReminders = async ctx => {
+export const handleReminders = async (ctx) => {
   ctx.session ??= {};
   ctx.session.reminderStep = null;
   ctx.session.creatingReminder = null;
@@ -55,7 +55,7 @@ export const handleReminders = async ctx => {
   await ctx.reply(texts.MENU.REMINDERS, getRemindersKeyboard(userLanguage));
 };
 
-export const handleMyReminders = async ctx => {
+export const handleMyReminders = async (ctx) => {
   const userLanguage = await resolveUserLanguage(ctx);
   const texts = getTexts(userLanguage);
 
@@ -73,13 +73,10 @@ export const handleMyReminders = async ctx => {
 
   if (reminders.length === 1) {
     const singleReminder = reminders[0];
-    await ctx.reply(
-      formatReminderMessageText(singleReminder, '1', userLanguage, userTimezone),
-      {
-        parse_mode: 'HTML',
-        ...getReminderMessageKeyboard(singleReminder, userLanguage, false)
-      }
-    );
+    await ctx.reply(formatReminderMessageText(singleReminder, '1', userLanguage, userTimezone), {
+      parse_mode: 'HTML',
+      ...getReminderMessageKeyboard(singleReminder, userLanguage, false)
+    });
     return;
   }
 

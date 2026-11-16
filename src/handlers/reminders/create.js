@@ -24,9 +24,9 @@ const RANDOM_POINTER_COMMANDS = new Set(getUiVariants('REMINDER_RANDOM'));
 
 const FAVORITE_POINTER_COMMANDS = new Set(getUiVariants('REMINDER_FAVORITE'));
 
-const isRandomPointerCommandText = commandText => RANDOM_POINTER_COMMANDS.has(commandText);
-const isFavoritePointerCommandText = commandText => FAVORITE_POINTER_COMMANDS.has(commandText);
-const isSpecialPointerCommandText = commandText =>
+const isRandomPointerCommandText = (commandText) => RANDOM_POINTER_COMMANDS.has(commandText);
+const isFavoritePointerCommandText = (commandText) => FAVORITE_POINTER_COMMANDS.has(commandText);
+const isSpecialPointerCommandText = (commandText) =>
   isRandomPointerCommandText(commandText) || isFavoritePointerCommandText(commandText);
 
 export const REMINDER_STEP = {
@@ -36,43 +36,29 @@ export const REMINDER_STEP = {
 };
 
 const DEFAULT_REMINDER_TEXTS_BY_LANGUAGE = {
-  ru: [
-    'Не вовлекайся 🧘',
-    'В этом теле никого нет 🤯'
-  ],
-  en: [
-    'Do not get involved 🧘',
-    'There is no one in this body 🤯'
-  ],
-  uk: [
-    'Не втягуйся 🧘',
-    'У цьому тілі нікого немає 🤯'
-  ],
-  es: [
-    'No te involucres 🧘',
-    'No hay nadie en este cuerpo 🤯'
-  ]
+  ru: ['Не вовлекайся 🧘', 'В этом теле никого нет 🤯'],
+  en: ['Do not get involved 🧘', 'There is no one in this body 🤯'],
+  uk: ['Не втягуйся 🧘', 'У цьому тілі нікого немає 🤯'],
+  es: ['No te involucres 🧘', 'No hay nadie en este cuerpo 🤯']
 };
 
-const normalizeText = text =>
-  text.replace(/^«|»$/g, '').trim();
+const normalizeText = (text) => text.replace(/^«|»$/g, '').trim();
 
-export const renderReminderStep = async ctx => {
+export const renderReminderStep = async (ctx) => {
   const step = ctx.session.reminderStep;
   const data = ctx.session.creatingReminder;
   const userLanguage = await resolveUserLanguage(ctx);
   const texts = getTexts(userLanguage);
-  const defaultTexts = DEFAULT_REMINDER_TEXTS_BY_LANGUAGE[userLanguage] || DEFAULT_REMINDER_TEXTS_BY_LANGUAGE.ru;
+  const defaultTexts =
+    DEFAULT_REMINDER_TEXTS_BY_LANGUAGE[userLanguage] || DEFAULT_REMINDER_TEXTS_BY_LANGUAGE.ru;
 
   if (step === REMINDER_STEP.TEXT) {
     const user = await User.findOne({ telegramId: ctx.from.id });
 
-    const storedTexts = user?.lastReminderTexts?.length
-      ? user.lastReminderTexts
-      : [];
+    const storedTexts = user?.lastReminderTexts?.length ? user.lastReminderTexts : [];
 
     const suggestedTexts = [
-      ...storedTexts.filter(item => !defaultTexts.includes(item)),
+      ...storedTexts.filter((item) => !defaultTexts.includes(item)),
       ...defaultTexts
     ].slice(0, 2);
 
@@ -107,7 +93,7 @@ export const renderReminderStep = async ctx => {
   }
 };
 
-export const handleCreateReminder = async ctx => {
+export const handleCreateReminder = async (ctx) => {
   const existingRemindersCount = await Reminder.countDocuments({ userId: ctx.from.id });
   if (existingRemindersCount >= MAX_REMINDERS_PER_USER) {
     const userLanguage = await resolveUserLanguage(ctx);
@@ -119,13 +105,13 @@ export const handleCreateReminder = async ctx => {
   ctx.session ??= {};
   ctx.session.isSettingCustomQuietHours = null;
   ctx.session.creatingReminder = {
-    deleteAfterSeconds: 10
+    deleteAfterSeconds: null
   };
   ctx.session.reminderStep = REMINDER_STEP.TEXT;
   await renderReminderStep(ctx);
 };
 
-export const handleReminderPhoto = async ctx => {
+export const handleReminderPhoto = async (ctx) => {
   if (ctx.session?.reminderStep !== REMINDER_STEP.TEXT) return;
 
   const photoArray = ctx.message.photo;
@@ -149,7 +135,7 @@ export const handleReminderPhoto = async ctx => {
   return true;
 };
 
-export const handleReminderVideo = async ctx => {
+export const handleReminderVideo = async (ctx) => {
   if (ctx.session?.reminderStep !== REMINDER_STEP.TEXT) return;
 
   const video = ctx.message.video || ctx.message.video_note;
@@ -170,7 +156,7 @@ export const handleReminderVideo = async ctx => {
   return true;
 };
 
-export const handleReminderText = async ctx => {
+export const handleReminderText = async (ctx) => {
   if (ctx.session?.reminderStep !== REMINDER_STEP.TEXT) return false;
 
   let incomingText = ctx.message.text;
@@ -189,7 +175,7 @@ export const handleReminderText = async ctx => {
 
   if (incomingText.endsWith('…')) {
     const user = await User.findOne({ telegramId: ctx.from.id });
-    const fullMatch = user?.lastReminderTexts?.find(item =>
+    const fullMatch = user?.lastReminderTexts?.find((item) =>
       item.startsWith(incomingText.slice(0, -1))
     );
     if (fullMatch) incomingText = fullMatch;
@@ -198,7 +184,11 @@ export const handleReminderText = async ctx => {
   const isRandomPointerCommand = isRandomPointerCommandText(incomingText);
   const isFavoritePointerCommand = isFavoritePointerCommandText(incomingText);
 
-  if (!isRandomPointerCommand && !isFavoritePointerCommand && allKnownNavigationButtons.includes(incomingText)) {
+  if (
+    !isRandomPointerCommand &&
+    !isFavoritePointerCommand &&
+    allKnownNavigationButtons.includes(incomingText)
+  ) {
     return false;
   }
 
@@ -238,7 +228,7 @@ export const handleIntervalPreset = async (ctx, minutes) => {
   await renderReminderStep(ctx);
 };
 
-export const handleIntervalInput = async ctx => {
+export const handleIntervalInput = async (ctx) => {
   if (ctx.session?.reminderStep !== REMINDER_STEP.INTERVAL) return false;
 
   const rawText = ctx.message.text ? ctx.message.text.trim() : '';
@@ -301,7 +291,7 @@ export const handleDeleteAfterPreset = async (ctx, presetSeconds = undefined) =>
   await finalizeReminder(ctx);
 };
 
-export const handleDeleteAfterInput = async ctx => {
+export const handleDeleteAfterInput = async (ctx) => {
   if (ctx.session?.reminderStep !== REMINDER_STEP.AUTO_DELETE) return false;
 
   const seconds = Number(ctx.message.text);
@@ -328,27 +318,23 @@ export const saveLastReminderText = async (ctx, text) => {
 
   const clean = normalizeText(text);
   const userLanguage = user.language || 'ru';
-  const defaultTexts = DEFAULT_REMINDER_TEXTS_BY_LANGUAGE[userLanguage] || DEFAULT_REMINDER_TEXTS_BY_LANGUAGE.ru;
+  const defaultTexts =
+    DEFAULT_REMINDER_TEXTS_BY_LANGUAGE[userLanguage] || DEFAULT_REMINDER_TEXTS_BY_LANGUAGE.ru;
 
-  const stored = user.lastReminderTexts?.length
-    ? user.lastReminderTexts
-    : defaultTexts;
+  const stored = user.lastReminderTexts?.length ? user.lastReminderTexts : defaultTexts;
 
   const userTexts = stored
-    .filter(item => !defaultTexts.includes(item))
-    .filter(item => item !== clean);
+    .filter((item) => !defaultTexts.includes(item))
+    .filter((item) => item !== clean);
 
   const nextUserTexts = [clean, ...userTexts].slice(0, 2);
 
-  user.lastReminderTexts = [
-    ...nextUserTexts,
-    ...defaultTexts
-  ];
+  user.lastReminderTexts = [...nextUserTexts, ...defaultTexts];
 
   await user.save();
 };
 
-export const finalizeReminder = async ctx => {
+export const finalizeReminder = async (ctx) => {
   const data = ctx.session.creatingReminder;
   const now = new Date();
   const cleanText = normalizeText(data.text);
@@ -399,8 +385,8 @@ export const finalizeReminder = async ctx => {
   ctx.session.creatingReminder = null;
   ctx.session.reminderStep = null;
 
-  await ctx.reply(
-    `<i>${texts.REMINDERS.CREATED}</i>`,
-    { parse_mode: 'HTML', ...mainKeyboard(ctx, userLanguage) }
-  );
+  await ctx.reply(`<i>${texts.REMINDERS.CREATED}</i>`, {
+    parse_mode: 'HTML',
+    ...mainKeyboard(ctx, userLanguage)
+  });
 };

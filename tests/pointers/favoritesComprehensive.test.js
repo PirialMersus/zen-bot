@@ -8,9 +8,7 @@ import {
   handlePointer,
   handlePointerToReminder
 } from '../../src/handlers/pointers.js';
-import {
-  handleBack
-} from '../../src/handlers/back.js';
+import { handleBack } from '../../src/handlers/back.js';
 import {
   handleAdminSearchPointers,
   handleAdminGetPointerByNumber
@@ -48,7 +46,9 @@ describe('Всестороннее тестирование функционал
     });
 
     await handleReminderText(emptyReminderContext);
-    expect(emptyReminderContext.reply).toHaveBeenCalledWith(TEXTS.en.POINTERS.FAVORITE_REMINDER_EMPTY);
+    expect(emptyReminderContext.reply).toHaveBeenCalledWith(
+      TEXTS.en.POINTERS.FAVORITE_REMINDER_EMPTY
+    );
     expect(emptyReminderContext.session.reminderStep).toBe(REMINDER_STEP.TEXT);
 
     const enPointer = await PointerEn.create({
@@ -143,7 +143,10 @@ describe('Всестороннее тестирование функционал
 
   it('должен позволять откат через Назад со стадии автоудаления до выбора текста', async () => {
     const testUserId = 77703;
-    const pointer = await Pointer.create({ text: 'Указатель для глубокого отката', isActive: true });
+    const pointer = await Pointer.create({
+      text: 'Указатель для глубокого отката',
+      isActive: true
+    });
     await toggleFavoritePointer(testUserId, pointer._id);
 
     const sessionState = {
@@ -151,7 +154,11 @@ describe('Всестороннее тестирование функционал
       creatingReminder: { deleteAfterSeconds: 10 }
     };
 
-    const ctxText = createMockContext({ userId: testUserId, text: UI.ru.REMINDER_FAVORITE, session: sessionState });
+    const ctxText = createMockContext({
+      userId: testUserId,
+      text: UI.ru.REMINDER_FAVORITE,
+      session: sessionState
+    });
     await handleReminderText(ctxText);
     expect(sessionState.reminderStep).toBe(REMINDER_STEP.INTERVAL);
 
@@ -292,9 +299,14 @@ describe('Всестороннее тестирование функционал
     expect(inlineKeyboardRows[0][0].callback_data).toBe('pointer:fav_info');
     expect(inlineKeyboardRows[2][1].text).toBe(UI.en.POINTER_NEXT_FAV);
 
-    const infoContext = createMockContext({ userId: englishUserId, callbackData: 'pointer:fav_info' });
+    const infoContext = createMockContext({
+      userId: englishUserId,
+      callbackData: 'pointer:fav_info'
+    });
     await handleFavoriteInfo(infoContext);
-    expect(infoContext.answerCbQuery).toHaveBeenCalledWith(TEXTS.en.POINTERS.FAVORITE_BADGE_INFO, { show_alert: false });
+    expect(infoContext.answerCbQuery).toHaveBeenCalledWith(TEXTS.en.POINTERS.FAVORITE_BADGE_INFO, {
+      show_alert: false
+    });
 
     const nextFavoriteContext = createMockContext({
       userId: englishUserId,
@@ -306,10 +318,14 @@ describe('Всестороннее тестирование функционал
     });
     await handleNextPointer(nextFavoriteContext);
 
-    expect(nextFavoriteContext.answerCbQuery).toHaveBeenCalledWith(TEXTS.en.POINTERS.FAVORITE_TOAST(2, 2));
+    expect(nextFavoriteContext.answerCbQuery).toHaveBeenCalledWith(
+      TEXTS.en.POINTERS.FAVORITE_TOAST(2, 2)
+    );
     const [editedText, editedOptions] = nextFavoriteContext.editMessageText.mock.calls[0];
     expect(editedText).not.toContain('Favorites');
     expect(editedText).not.toContain('⭐');
-    expect(editedOptions.reply_markup.inline_keyboard[0][0].text).toBe(UI.en.POINTER_FAV_MODE_BADGE(2, 2));
+    expect(editedOptions.reply_markup.inline_keyboard[0][0].text).toBe(
+      UI.en.POINTER_FAV_MODE_BADGE(2, 2)
+    );
   });
 });

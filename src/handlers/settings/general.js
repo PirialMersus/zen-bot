@@ -3,12 +3,13 @@ import { settingsKeyboard } from '../../keyboard/settings.js';
 import { getTexts } from '../../constants/texts.js';
 import { DEFAULT_TIMEZONE } from '../../constants/timezones.js';
 import { resolveUserLanguage } from '../../middlewares/activity.js';
+import { suppressExpectedError } from '../../utils/logger.js';
 
 export const renderSettings = async (ctx, prefixMessage = '') => {
   const userLanguage = await resolveUserLanguage(ctx);
   const texts = getTexts(userLanguage);
 
-  const user = await User.findOne({ telegramId: ctx.from.id }) ?? {
+  const user = (await User.findOne({ telegramId: ctx.from.id })) ?? {
     quietHours: { enabled: true, start: 23, end: 8 },
     timezone: DEFAULT_TIMEZONE,
     language: userLanguage
@@ -26,8 +27,8 @@ export const renderSettings = async (ctx, prefixMessage = '') => {
   }
 
   if (ctx.callbackQuery) {
-    await ctx.answerCbQuery().catch(() => {});
-    await ctx.deleteMessage().catch(() => {});
+    await ctx.answerCbQuery().catch(suppressExpectedError);
+    await ctx.deleteMessage().catch(suppressExpectedError);
   }
 
   await ctx.reply(
@@ -39,7 +40,7 @@ export const renderSettings = async (ctx, prefixMessage = '') => {
   );
 };
 
-export const handleSettings = async ctx => {
+export const handleSettings = async (ctx) => {
   ctx.session ??= {};
   ctx.session.reminderStep = null;
   ctx.session.creatingReminder = null;

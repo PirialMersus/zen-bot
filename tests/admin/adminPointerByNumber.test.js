@@ -78,7 +78,7 @@ describe('Админская команда получения указател�
     expect(mockAdminContext.session.lastPointerText).toBe('Осознавай осознавание');
 
     const inlineKeyboardButtons = replyOptions.reply_markup.inline_keyboard.flat();
-    const buttonTextsList = inlineKeyboardButtons.map(buttonItem => buttonItem.text);
+    const buttonTextsList = inlineKeyboardButtons.map((buttonItem) => buttonItem.text);
     expect(buttonTextsList).toContain('🔔 В напоминание');
     expect(buttonTextsList).toContain('➡️ Следующий');
   });
@@ -134,7 +134,7 @@ describe('Админская команда получения указател�
     expect(replyMessageText).not.toContain('EN');
 
     const inlineKeyboardButtons = replyOptions.reply_markup.inline_keyboard.flat();
-    const buttonTextsList = inlineKeyboardButtons.map(buttonItem => buttonItem.text);
+    const buttonTextsList = inlineKeyboardButtons.map((buttonItem) => buttonItem.text);
     expect(buttonTextsList).toContain('🔔 To reminder');
     expect(buttonTextsList).toContain('➡️ Next');
   });

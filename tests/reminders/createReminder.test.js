@@ -12,7 +12,10 @@ import {
 import Reminder from '../../src/models/Reminder.js';
 import User from '../../src/models/User.js';
 import { createMockContext } from '../helpers/mockContext.js';
-import { MAX_REMINDERS_PER_USER, MAX_REMINDER_INTERVAL_MINUTES } from '../../src/constants/limits.js';
+import {
+  MAX_REMINDERS_PER_USER,
+  MAX_REMINDER_INTERVAL_MINUTES
+} from '../../src/constants/limits.js';
 
 describe('Создание напоминаний', () => {
   it('должен инициализировать сессию и переводить на шаг ввода текста', async () => {
@@ -22,7 +25,7 @@ describe('Создание напоминаний', () => {
 
     expect(mockContext.session.reminderStep).toBe(REMINDER_STEP.TEXT);
     expect(mockContext.session.creatingReminder).toEqual({
-      deleteAfterSeconds: 10
+      deleteAfterSeconds: null
     });
     expect(mockContext.reply).toHaveBeenCalled();
   });
@@ -232,13 +235,15 @@ describe('Создание напоминаний', () => {
     const testUserId = 778899;
     await Reminder.deleteMany({ userId: testUserId });
 
-    const reminderDocumentsArray = Array.from({ length: MAX_REMINDERS_PER_USER }).map((_, reminderIndex) => ({
-      userId: testUserId,
-      chatId: testUserId,
-      text: `Напоминание ${reminderIndex}`,
-      intervalMinutes: 10,
-      nextRunAt: new Date()
-    }));
+    const reminderDocumentsArray = Array.from({ length: MAX_REMINDERS_PER_USER }).map(
+      (_, reminderIndex) => ({
+        userId: testUserId,
+        chatId: testUserId,
+        text: `Напоминание ${reminderIndex}`,
+        intervalMinutes: 10,
+        nextRunAt: new Date()
+      })
+    );
     await Reminder.insertMany(reminderDocumentsArray);
 
     const mockContext = createMockContext({

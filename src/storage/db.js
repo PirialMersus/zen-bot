@@ -6,10 +6,7 @@ export const connectDB = async () => {
 
   const isProd = process.env.NODE_ENV === 'production';
 
-  await mongoose.connect(
-    uri,
-    isProd ? {} : { dbName: 'zen-bot-dev' }
-  );
+  await mongoose.connect(uri, isProd ? {} : { dbName: 'zen-bot-dev' });
   console.log('Mongo connected');
 };
 

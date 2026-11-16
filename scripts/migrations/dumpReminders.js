@@ -1,7 +1,7 @@
 import 'dotenv/config';
 import mongoose from 'mongoose';
-import User from "../src/models/User.js";
-import Reminder from "../src/models/Reminder.js";
+import User from '../src/models/User.js';
+import Reminder from '../src/models/Reminder.js';
 
 const MONGO_URL = process.env.MONGO_URI || 'mongodb://127.0.0.1:27017/zenbot';
 
@@ -12,7 +12,9 @@ const main = async () => {
   const users = await User.find({});
 
   for (const user of users) {
-    const reminders = await Reminder.find({ userId: String(user.telegramId) }).sort({ nextRunAt: 1 });
+    const reminders = await Reminder.find({ userId: String(user.telegramId) }).sort({
+      nextRunAt: 1
+    });
     if (!reminders.length) continue; // пропускаем юзеров без напоминаний
 
     console.log(`=== User: ${user.telegramId} (${user.username || 'no username'}) ===`);
@@ -37,7 +39,7 @@ const main = async () => {
   await mongoose.disconnect();
 };
 
-main().catch(err => {
+main().catch((err) => {
   console.error(err);
   process.exit(1);
 });
