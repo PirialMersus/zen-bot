@@ -34,6 +34,10 @@ export const handleStart = async (ctx) => {
   ctx.session.reminderStep = null;
   ctx.session.creatingReminder = null;
   ctx.session.isSettingCustomQuietHours = null;
+  ctx.session.pointerHistory = null;
+  ctx.session.pointerHistoryIndex = null;
+  ctx.session.favoriteHistory = null;
+  ctx.session.favoriteHistoryIndex = null;
 
   const startPayload = ctx.startPayload;
 

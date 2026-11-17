@@ -2,6 +2,7 @@ import { Markup } from 'telegraf';
 import {
   getNextPointerForUser,
   getNextFavoritePointerForUser,
+  getPointerById,
   isPointerInFavorites,
   toggleFavoritePointer,
   countUserFavoritePointers,
@@ -47,6 +48,21 @@ export const handlePointer = async (ctx) => {
   ctx.session.lastPointerId = String(pointer._id);
   ctx.session.pointerMode = 'random';
 
+  ctx.session.pointerHistory ??= [];
+  ctx.session.pointerHistoryIndex ??= -1;
+  if (
+    ctx.session.pointerHistoryIndex >= 0 &&
+    ctx.session.pointerHistoryIndex < ctx.session.pointerHistory.length - 1
+  ) {
+    ctx.session.pointerHistory = ctx.session.pointerHistory.slice(
+      0,
+      ctx.session.pointerHistoryIndex + 1
+    );
+  }
+  ctx.session.pointerHistory.push(String(pointer._id));
+  ctx.session.pointerHistoryIndex = ctx.session.pointerHistory.length - 1;
+
+  const hasPrevious = ctx.session.pointerHistoryIndex > 0;
   const formattedText = formatPointerText(pointer);
 
   await ctx.reply(
@@ -55,7 +71,8 @@ export const handlePointer = async (ctx) => {
       pointerId: pointer._id,
       isFavorite,
       mode: 'random',
-      language: userLanguage
+      language: userLanguage,
+      hasPrevious
     })
   );
 };
@@ -111,6 +128,25 @@ export const handleFavoritePointer = async (ctx) => {
   ctx.session.favoritePosition = favoriteInfo.current;
   ctx.session.totalFavorites = favoriteInfo.total;
 
+  ctx.session.favoriteHistory ??= [];
+  ctx.session.favoriteHistoryIndex ??= -1;
+  if (
+    ctx.session.favoriteHistoryIndex >= 0 &&
+    ctx.session.favoriteHistoryIndex < ctx.session.favoriteHistory.length - 1
+  ) {
+    ctx.session.favoriteHistory = ctx.session.favoriteHistory.slice(
+      0,
+      ctx.session.favoriteHistoryIndex + 1
+    );
+  }
+  ctx.session.favoriteHistory.push({
+    id: String(pointer._id),
+    current: favoriteInfo.current,
+    total: favoriteInfo.total
+  });
+  ctx.session.favoriteHistoryIndex = ctx.session.favoriteHistory.length - 1;
+
+  const hasPrevious = ctx.session.favoriteHistoryIndex > 0;
   const formattedText = formatPointerText(pointer);
 
   await ctx.reply(
@@ -120,7 +156,8 @@ export const handleFavoritePointer = async (ctx) => {
       isFavorite: true,
       mode: 'favorite',
       language: userLanguage,
-      favoriteInfo
+      favoriteInfo,
+      hasPrevious
     })
   );
 };
@@ -156,27 +193,78 @@ export const handleNextPointer = async (ctx) => {
   let isFavorite = false;
   let favoriteInfo = null;
 
+  ctx.session ??= {};
+
   if (isFavoriteMode) {
-    pointer = await getNextFavoritePointerForUser(ctx.from.id);
-    isFavorite = true;
-    if (pointer) {
-      favoriteInfo = {
-        current: pointer.favoritePosition || 1,
-        total: pointer.totalFavorites || 1
-      };
+    ctx.session.favoriteHistory ??= [];
+    ctx.session.favoriteHistoryIndex ??= -1;
+
+    const canNavigateForwardInFavoriteHistory =
+      ctx.session.favoriteHistoryIndex >= 0 &&
+      ctx.session.favoriteHistoryIndex < ctx.session.favoriteHistory.length - 1;
+
+    if (canNavigateForwardInFavoriteHistory) {
       if (isCallbackQueryEvent) {
-        await ctx
-          .answerCbQuery(texts.POINTERS.FAVORITE_TOAST(favoriteInfo.current, favoriteInfo.total))
-          .catch(suppressExpectedError);
+        await ctx.answerCbQuery().catch(suppressExpectedError);
+      }
+      ctx.session.favoriteHistoryIndex += 1;
+      const historyEntry = ctx.session.favoriteHistory[ctx.session.favoriteHistoryIndex];
+      pointer = await getPointerById(historyEntry.id, userLanguage);
+      if (pointer) {
+        isFavorite = await isPointerInFavorites(ctx.from.id, pointer._id);
+        favoriteInfo = {
+          current: historyEntry.current,
+          total: historyEntry.total
+        };
+      }
+    } else {
+      pointer = await getNextFavoritePointerForUser(ctx.from.id);
+      if (pointer) {
+        isFavorite = true;
+        favoriteInfo = {
+          current: pointer.favoritePosition || 1,
+          total: pointer.totalFavorites || 1
+        };
+        ctx.session.favoriteHistory.push({
+          id: String(pointer._id),
+          current: favoriteInfo.current,
+          total: favoriteInfo.total
+        });
+        ctx.session.favoriteHistoryIndex = ctx.session.favoriteHistory.length - 1;
+
+        if (isCallbackQueryEvent) {
+          await ctx
+            .answerCbQuery(texts.POINTERS.FAVORITE_TOAST(favoriteInfo.current, favoriteInfo.total))
+            .catch(suppressExpectedError);
+        }
       }
     }
   } else {
     if (isCallbackQueryEvent) {
       await ctx.answerCbQuery().catch(suppressExpectedError);
     }
-    pointer = await getNextPointerForUser(ctx.from.id);
-    if (pointer) {
-      isFavorite = await isPointerInFavorites(ctx.from.id, pointer._id);
+
+    ctx.session.pointerHistory ??= [];
+    ctx.session.pointerHistoryIndex ??= -1;
+
+    const canNavigateForwardInPointerHistory =
+      ctx.session.pointerHistoryIndex >= 0 &&
+      ctx.session.pointerHistoryIndex < ctx.session.pointerHistory.length - 1;
+
+    if (canNavigateForwardInPointerHistory) {
+      ctx.session.pointerHistoryIndex += 1;
+      const targetPointerId = ctx.session.pointerHistory[ctx.session.pointerHistoryIndex];
+      pointer = await getPointerById(targetPointerId, userLanguage);
+      if (pointer) {
+        isFavorite = await isPointerInFavorites(ctx.from.id, pointer._id);
+      }
+    } else {
+      pointer = await getNextPointerForUser(ctx.from.id);
+      if (pointer) {
+        isFavorite = await isPointerInFavorites(ctx.from.id, pointer._id);
+        ctx.session.pointerHistory.push(String(pointer._id));
+        ctx.session.pointerHistoryIndex = ctx.session.pointerHistory.length - 1;
+      }
     }
   }
 
@@ -190,7 +278,10 @@ export const handleNextPointer = async (ctx) => {
     return;
   }
 
-  ctx.session ??= {};
+  const hasPrevious = isFavoriteMode
+    ? ctx.session.favoriteHistoryIndex > 0
+    : ctx.session.pointerHistoryIndex > 0;
+
   ctx.session.lastPointerText = pointer.text;
   ctx.session.lastPointerId = String(pointer._id);
   ctx.session.pointerMode = currentMode;
@@ -210,7 +301,8 @@ export const handleNextPointer = async (ctx) => {
           isFavorite,
           mode: currentMode,
           language: userLanguage,
-          favoriteInfo
+          favoriteInfo,
+          hasPrevious
         })
       )
       .catch(suppressExpectedError);
@@ -222,7 +314,109 @@ export const handleNextPointer = async (ctx) => {
         isFavorite,
         mode: currentMode,
         language: userLanguage,
-        favoriteInfo
+        favoriteInfo,
+        hasPrevious
+      })
+    );
+  }
+};
+
+export const handlePrevPointer = async (ctx) => {
+  const isCallbackQueryEvent = Boolean(ctx.callbackQuery);
+  if (isCallbackQueryEvent) {
+    await ctx.answerCbQuery().catch(suppressExpectedError);
+  }
+
+  const callbackData = ctx.callbackQuery?.data || '';
+  const isFavoriteMode =
+    callbackData.startsWith('pointer:prev:favorite') || ctx.session?.pointerMode === 'favorite';
+  const currentMode = isFavoriteMode ? 'favorite' : 'random';
+
+  const userLanguage = await resolveUserLanguage(ctx);
+  let pointer = null;
+  let isFavorite = false;
+  let favoriteInfo = null;
+
+  ctx.session ??= {};
+
+  if (isFavoriteMode) {
+    ctx.session.favoriteHistory ??= [];
+    ctx.session.favoriteHistoryIndex ??= 0;
+
+    if (ctx.session.favoriteHistoryIndex > 0) {
+      ctx.session.favoriteHistoryIndex -= 1;
+    }
+
+    const historyEntry = ctx.session.favoriteHistory[ctx.session.favoriteHistoryIndex];
+    if (historyEntry) {
+      pointer = await getPointerById(historyEntry.id, userLanguage);
+      if (pointer) {
+        isFavorite = await isPointerInFavorites(ctx.from.id, pointer._id);
+        favoriteInfo = {
+          current: historyEntry.current,
+          total: historyEntry.total
+        };
+      }
+    }
+  } else {
+    ctx.session.pointerHistory ??= [];
+    ctx.session.pointerHistoryIndex ??= 0;
+
+    if (ctx.session.pointerHistoryIndex > 0) {
+      ctx.session.pointerHistoryIndex -= 1;
+    }
+
+    const targetPointerId = ctx.session.pointerHistory[ctx.session.pointerHistoryIndex];
+    if (targetPointerId) {
+      pointer = await getPointerById(targetPointerId, userLanguage);
+      if (pointer) {
+        isFavorite = await isPointerInFavorites(ctx.from.id, pointer._id);
+      }
+    }
+  }
+
+  if (!pointer) {
+    return;
+  }
+
+  const hasPrevious = isFavoriteMode
+    ? ctx.session.favoriteHistoryIndex > 0
+    : ctx.session.pointerHistoryIndex > 0;
+
+  ctx.session.lastPointerText = pointer.text;
+  ctx.session.lastPointerId = String(pointer._id);
+  ctx.session.pointerMode = currentMode;
+  if (favoriteInfo) {
+    ctx.session.favoritePosition = favoriteInfo.current;
+    ctx.session.totalFavorites = favoriteInfo.total;
+  }
+
+  const formattedText = formatPointerText(pointer);
+
+  if (isCallbackQueryEvent) {
+    await ctx
+      .editMessageText(
+        formattedText,
+        buildPointerInlineKeyboard({
+          pointerId: pointer._id,
+          isFavorite,
+          mode: currentMode,
+          language: userLanguage,
+          favoriteInfo,
+          hasPrevious
+        })
+      )
+      .catch(suppressExpectedError);
+  } else {
+    await ctx.reply(
+      formattedText,
+      buildPointerInlineKeyboard({
+        pointerId: pointer._id,
+        isFavorite,
+        mode: currentMode,
+        language: userLanguage,
+        favoriteInfo,
+        hasPrevious
       })
     );
   }
@@ -274,12 +468,18 @@ export const handleToggleFavoritePointer = async (ctx) => {
     };
   }
 
+  const isFavoriteMode = modeFromCallback === 'favorite';
+  const hasPrevious = isFavoriteMode
+    ? (ctx.session?.favoriteHistoryIndex || 0) > 0
+    : (ctx.session?.pointerHistoryIndex || 0) > 0;
+
   const updatedKeyboard = buildPointerInlineKeyboard({
     pointerId: targetPointerId,
     isFavorite,
     mode: modeFromCallback,
     language: userLanguage,
-    favoriteInfo
+    favoriteInfo,
+    hasPrevious
   });
 
   await ctx.editMessageReplyMarkup(updatedKeyboard.reply_markup).catch(suppressExpectedError);
@@ -334,6 +534,11 @@ export const handlePointerToMenu = async (ctx) => {
     await ctx.answerCbQuery().catch(suppressExpectedError);
     await ctx.deleteMessage().catch(suppressExpectedError);
   }
+  ctx.session ??= {};
+  ctx.session.pointerHistory = null;
+  ctx.session.pointerHistoryIndex = null;
+  ctx.session.favoriteHistory = null;
+  ctx.session.favoriteHistoryIndex = null;
   const userLanguage = await resolveUserLanguage(ctx);
   const texts = getTexts(userLanguage);
   await ctx.reply(texts.MENU.MAIN, mainKeyboard(ctx, userLanguage));

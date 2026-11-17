@@ -297,7 +297,11 @@ describe('Всестороннее тестирование функционал
     const inlineKeyboardRows = replyOptions.reply_markup.inline_keyboard;
     expect(inlineKeyboardRows[0][0].text).toBe(UI.en.POINTER_FAV_MODE_BADGE(1, 2));
     expect(inlineKeyboardRows[0][0].callback_data).toBe('pointer:fav_info');
-    expect(inlineKeyboardRows[2][1].text).toBe(UI.en.POINTER_NEXT_FAV);
+    const nextFavoriteButton = inlineKeyboardRows[2].find(
+      (button) => button.callback_data === 'pointer:next:favorite'
+    );
+    expect(nextFavoriteButton).toBeDefined();
+    expect(nextFavoriteButton.text).toBe(UI.en.POINTER_NEXT_FAV);
 
     const infoContext = createMockContext({
       userId: englishUserId,

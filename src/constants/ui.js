@@ -1,4 +1,6 @@
 const RUSSIAN_UI = {
+  POINTER_PREV: '⬅️ Предыдущий',
+  POINTER_PREV_FAV: '⬅️ Предыдущий ⭐',
   POINTER_NEXT: '➡️ Следующий',
   POINTER_NEXT_FAV: '➡️ Следующий ⭐',
   POINTER_FAV_MODE_BADGE: (current, total) =>
@@ -33,6 +35,8 @@ const RUSSIAN_UI = {
 };
 
 const ENGLISH_UI = {
+  POINTER_PREV: '⬅️ Previous',
+  POINTER_PREV_FAV: '⬅️ Previous ⭐',
   POINTER_NEXT: '➡️ Next',
   POINTER_NEXT_FAV: '➡️ Next ⭐',
   POINTER_FAV_MODE_BADGE: (current, total) =>
@@ -67,6 +71,8 @@ const ENGLISH_UI = {
 };
 
 const UKRAINIAN_UI = {
+  POINTER_PREV: '⬅️ Попередній',
+  POINTER_PREV_FAV: '⬅️ Попередній ⭐',
   POINTER_NEXT: '➡️ Наступний',
   POINTER_NEXT_FAV: '➡️ Наступний ⭐',
   POINTER_FAV_MODE_BADGE: (current, total) =>
@@ -101,6 +107,8 @@ const UKRAINIAN_UI = {
 };
 
 const SPANISH_UI = {
+  POINTER_PREV: '⬅️ Anterior',
+  POINTER_PREV_FAV: '⬅️ Anterior ⭐',
   POINTER_NEXT: '➡️ Siguiente',
   POINTER_NEXT_FAV: '➡️ Siguiente ⭐',
   POINTER_FAV_MODE_BADGE: (current, total) =>

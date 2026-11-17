@@ -118,6 +118,29 @@ export const getPointerByNumber = async (pointerNumber, language = 'ru') => {
   return pointerDocument;
 };
 
+export const getPointerById = async (pointerId, language = 'ru') => {
+  if (!pointerId || !mongoose.Types.ObjectId.isValid(pointerId)) return null;
+
+  const targetPointerModel = selectPointerModelByLanguage(language);
+  let pointerDocument = await targetPointerModel.findOne({
+    _id: pointerId,
+    isActive: true
+  });
+  if (!pointerDocument) {
+    const alternateModels = [Pointer, PointerEn, PointerUk, PointerEs].filter(
+      (candidateModel) => candidateModel !== targetPointerModel
+    );
+    for (const alternateModel of alternateModels) {
+      pointerDocument = await alternateModel.findOne({
+        _id: pointerId,
+        isActive: true
+      });
+      if (pointerDocument) break;
+    }
+  }
+  return pointerDocument;
+};
+
 export const getNextPointerForUser = async (telegramUserId, tagFilter = null) => {
   let user = await User.findOne({ telegramId: telegramUserId });
   if (!user) {

@@ -222,4 +222,27 @@ describe('Публичный поиск указателей по команде
     expect(buttonResult).toBe(false);
     expect(buttonContext.session.isWaitingForSearchQuery).toBe(false);
   });
+
+  it('должен поддерживать поиск через команду /find', async () => {
+    await Pointer.create({
+      number: 105,
+      text: 'Истина находится прямо перед тобой',
+      source: 'Лао-цзы',
+      isActive: true
+    });
+
+    const searchContext = createMockContext({
+      userId: 99887766,
+      text: '/find Лао-цзы'
+    });
+
+    const executionResult = await handleSearchPointers(searchContext);
+
+    expect(executionResult).toBe(true);
+    expect(searchContext.reply).toHaveBeenCalledTimes(1);
+
+    const replyText = searchContext.reply.mock.calls[0][0];
+    expect(replyText).toContain('Истина находится прямо перед тобой');
+    expect(replyText).toContain('Лао-цзы');
+  });
 });

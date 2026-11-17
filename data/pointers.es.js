@@ -12423,5 +12423,1021 @@ pero la esencia subyacente no tiene forma y nunca se va.
 Si te apegas a la forma, cometes un gran error.`,
     source: "Papaji",
     tags: ["silencio"]
+  },
+  {
+    number: 1813,
+    text: `Ahora mismo, revisa tu mandíbula, tus hombros y la parte baja del abdomen.
+El ego no se sostiene solo en pensamientos: vive en un espasmo muscular crónico de defensiva.
+Relaja estos tres puntos al exhalar y observa cuánto de «ti» queda sin armadura.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1814,
+    text: `Mira cuánta energía se fue hoy trabajando como agente de relaciones públicas gratuito de tu propia imagen.
+Ajustas el tono, la postura y las palabras solo para que en la mente de otro brille una imagen favorable, que esa persona olvidará en cuatro minutos.
+Despide al departamento de relaciones públicas al menos por una hora.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1815,
+    text: `Tu cerebro funciona como la prensa sensacionalista: inventa titulares alarmantes («Todo se derrumbará», «Llegas tarde», «Ocultan algo») únicamente para que hagas clic con tu atención.
+No abras el artículo solo porque el titular grite en letras rojas.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1816,
+    text: `La falacia del costo hundido en la psique: arrastras un viejo rencor, un diagnóstico o el papel de víctima durante años solo porque ya invertiste demasiado esfuerzo y duele admitir que esos años fueron vacíos.
+Cierra el proyecto deficitario ahora mismo; las inversiones pasadas ya no se pueden recuperar.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1817,
+    text: `La tranquilidad te parece insípida e inquieta no porque le falte algo, sino porque tu sistema nervioso es adicto a microdosis de cortisol.
+Cuando todo está en silencio, el cerebro mismo provoca un pequeño drama para recibir su habitual inyección de adrenalina.
+Aguanta el síndrome de abstinencia.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1818,
+    text: `Cada vez que te ofendes bruscamente, te congelas o te alteras, no conduce un adulto, sino un guion de emergencia escrito por un niño asustado de siete años hace mucho tiempo.
+Es hora de actualizar el firmware o al menos notar quién ha tomado el timón ahora mismo.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1819,
+    text: `La realidad ahora mismo se transmite en resolución 8K: la textura de la luz, docenas de matices de sonido, la temperatura del aire sobre la piel.
+Pero en cuanto se activa el comentarista interno, comprime este mundo vivo en un turbio resumen: «normal / irritante / aburrido».
+No cambies la realidad por su relato barato.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1820,
+    text: `Un hecho impactante de la neurociencia: cada vez que recuerdas tu pasado, el cerebro lo reescribe de nuevo, ajustando los detalles a tu estado de ánimo actual.
+Esa biografía de la que estás tan orgulloso o avergonzado es una ficción amateur, no un documento. ¿En qué te apoyas?`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1821,
+    text: `La tensión desaparece en dos segundos si cambias tu mirada del enfoque estrecho a la visión periférica.
+La visión de túnel es el modo fisiológico de depredador o presa que desencadena el estrés.
+Desenfoca tus ojos, percibe el espacio a la derecha y a la izquierda a la vez, y el cuerpo exhalará por sí mismo.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1822,
+    text: `Detrás del miedo a «perderte a ti mismo» casi nunca se oculta una gran angustia existencial, sino el temor banal a perder el control sobre la opinión de vecinos, familiares y colegas.
+«Tú» sin sus valoraciones eres simplemente un espacio vivo que respira.
+¿Qué hay que temer?`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1823,
+    text: `Al entrar en cualquier habitación o chat, tu mente saca en fracciones de segundo una tabla de rangos invisible: ¿quién aquí es más inteligente, más rico o más atractivo que yo?
+Es la calculadora integrada de un primate gregario.
+Observa cómo opera y no uses sus cifras.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1824,
+    text: `El «pensar obsesivamente en el futuro» rara vez tiene que ver con una planificación real.
+La mayoría de las veces es solo la masturbación mental de la ansiedad: la mente repasa catástrofes para crear la ilusión de que tiene el control del pulso.
+Suelta el pulso: el corazón funcionará por sí mismo.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1825,
+    text: `Todo tu ajetreo se parece al turno de noche de atención al cliente para un usuario que no existe.
+El teléfono no para de sonar en tu cabeza, el operador se desvive escribiendo respuestas a quejas...
+Desconecta el cable del enchufe. Nadie morirá.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1826,
+    text: `Un pequeño coágulo o el desgaste neuronal por la edad, y en un par de años este castillo impecable de personalidad que llevas décadas puliendo se desmoronará en polvo.
+¿Por qué defender lo que la bioquímica puede barrer en un segundo?
+Apóyate en lo que no envejece.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1827,
+    text: `No intentes mantener una hora de atención plena impecable ni lo abandones todo tras un tropiezo.
+Toma una respiración completamente pura ahora mismo: sin pasado, sin futuro y sin juzgar esa inhalación.
+Una sola. Es suficiente.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1828,
+    text: `El acontecimiento golpeó una vez y ya pasó.
+El segundo, décimo y centésimo golpe te lo das tú mismo, repitiendo la discusión en la ducha e inventando respuestas mordaces.
+Baja el garrote. El ataque terminó hace una hora.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1829,
+    text: `La primera flecha es el dolor físico o un hecho desagradable: son inevitables.
+La segunda flecha es el sufrimiento por ese dolor («¿por qué a mí?», «todo está arruinado»): esa te la clavas voluntariamente.
+Aparta la mano de la segunda flecha.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1830,
+    text: `El mundo fuera de la ventana no es ni bueno ni malo: simplemente acontece.
+Las etiquetas de «terrible», «injusto», «catástrofe» las imprimes tú mismo en tu propia impresora y las pegas en cada poste.
+Apaga la impresora.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1831,
+    text: `La vida se divide en lo que está bajo tu control (tus reacciones, tu atención) y lo que está fuera de él (el clima, las opiniones ajenas, el tráfico).
+Gastas el 90% de tu energía intentando mover las piezas de otros.
+Regresa las manos a tu lado del tablero.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1832,
+    text: `La ira no nace dentro de ti como un monstruo ya formado.
+Primero surge una chispa: un impulso corporal. Le acercas la paja de los pensamientos («¡cómo se atreve!») y avivas el fuego.
+Observa la chispa y no le eches leña.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1833,
+    text: `Temes tanto las pausas en el diálogo o el silencio en la habitación como si en ese instante el mundo fuera a desaparecer.
+En realidad, solo desaparece la ilusión de control.
+Haz una pausa de tres segundos antes de responder a alguien. Comprueba: el mundo seguirá en pie.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1834,
+    text: `El diálogo interno no es una sola persona, sino dos: una comete un error y la otra empieza de inmediato a reprenderla.
+¿Quién es ese fiscal severo con cuya voz te juzgas?
+Observa: tú eres el espacio en el que ambos discuten.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1835,
+    text: `Cualquier drama requiere dos actos: primero la situación, luego tu comentario sobre lo insoportable que es.
+Sin el segundo acto, la tragedia se transforma simplemente en un hecho que resolver.
+Priva al drama de tu comentario: el segundo acto no sucederá.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1836,
+    text: `Tus pensamientos no son un texto continuo, sino decenas de pestañas de fondo abiertas en el navegador hace meses: una discusión pendiente, una vieja vergüenza, la opinión ajena.
+Consumen en silencio el 70% de tu memoria RAM. No examines cada una: simplemente cierra el navegador por completo.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1837,
+    text: `Esperar un «estado puro, profundo y correcto» para practicar es puro perfeccionismo del ego disfrazado de diligencia.
+Un minuto de atención crudo, torpe e irritado justo en medio del caos vale más que tus fantasías de una meditación perfecta.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1838,
+    text: `Una de las ilusiones más costosas es la necesidad de un «cierre definitivo»: crees que será más fácil si comprendes por qué actuaron así o si tienes la última palabra.
+La realidad no tiene la obligación de dar una nota explicativa.
+Suelta sin explicaciones.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1839,
+    text: `No confíes en la fuerza de voluntad: hacia la noche siempre está en cero.
+Crea un entorno con fricción inteligente: cierra sesión en tus cuentas, retira las distracciones de tu campo visual, coloca obstáculos físicos en el camino de los hábitos.
+La sobriedad debe requerir menos pasos que la recaída.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1840,
+    text: `El temblor interno, la irritación o el bloqueo al afrontar una nueva tarea no son una señal para retroceder.
+Es el sonido con el que tu vieja imagen propia se agrieta al no caber en la realidad.
+No remiendes el traje viejo: sal de él.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1841,
+    text: `Esperas el momento en que finalmente sientas confianza y disposición para emprender lo importante.
+Sorpresa: la confianza es un subproducto del movimiento, no un billete de entrada.
+Empieza con manos temblorosas y una mente dubitativa; de lo contrario, nunca empezarás.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1842,
+    text: `Comprueba cuántas de tus «experiencias profundas» te pertenecen realmente.
+A menudo solo te contagias de la ansiedad, la prisa o el enojo ajenos como de un virus en el autobús, y un minuto después ya los defiendes con orgullo como tu propio estado de ánimo.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1843,
+    text: `En el instante en que te atrapa una emoción, no busques verdades elevadas; nombra el proceso con total frialdad, como un laboratorista: «Calor en el pecho, opresión en la garganta, impulso de ser insolente».
+Una descripción física precisa reduce al instante la actividad del centro del miedo en el cerebro y devuelve el control.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1844,
+    text: `Ofenderse porque una situación no salió como querías o porque alguien actúa según su propia naturaleza es como gritarle a una fotografía ya impresa, exigiendo que las personas cambien de asiento.
+Primero reconoce la foto como un hecho, luego decide qué hacer después.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1845,
+    text: `La nostalgia y el arrepentimiento son pagar el alquiler de un departamento del que te mudaste hace mucho, cuando el edificio mismo ya ni siquiera existe en el mapa.
+No transfieras dinero desde el presente por el derecho a habitar entre muros demolidos.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1846,
+    text: `No me digas cuántos libros sobre no-dualidad has leído ni qué revelaciones tuviste el año pasado.
+Muéstrame tu última hora: cómo reaccionaste ante un fallo, un retraso y la torpeza ajena.
+La conducta es el único examen honesto.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1847,
+    text: `Nadie se vuelve gris, apagado y medio vivo en un solo lunes.
+Sucede en silencio: un pequeño «bueno, da igual, luego me ocupo» al día.
+Nota hoy esa silenciosa deriva hacia el pantano, mientras aún puedes sentir la diferencia.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1848,
+    text: `Recuerda el segundo en que una taza se te resbaló inesperadamente de las manos o sonó un chasquido fuerte cerca de ti:
+durante una fracción de segundo, todos los pensamientos se evaporaron, dejando una quietud cristalina.
+La vida te ofrece constantemente una versión de demostración gratuita del despertar.
+Es hora de dejar de esperar una catástrofe para activar la versión completa.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1849,
+    text: `Escucha la voz interior que ahora mismo te critica por debilidad o fracaso.
+No es la voz de la verdad ni siquiera tu propia voz: es una grabación en cinta de adultos estrictos de tu pasado lejano.
+Saca el casete.
+Hace mucho que dejaron el escenario.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1850,
+    text: `Siente ahora mismo la diferencia exacta de temperatura del aire al inhalar y al exhalar en el mismo borde de las fosas nasales.
+La mente detesta semejante concreción: a partir de un hecho físico puro es imposible construir una tragedia, una teoría o una historia personal.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1851,
+    text: `Deja de dividir el día en «tiempo propicio» e «interrupciones».
+El internet lento, un atasco, un cliente exigente, un interlocutor tedioso no son fallos en tu agenda, sino el silbato de tu entrenador personal: «¡Atención! ¡La serie ha comenzado!»`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1852,
+    text: `Solo tienes dos opciones para esta vida:
+o tú mismo, voluntariamente y en vida, desmontas pieza por pieza el «yo» inventado,
+o la vejez, las enfermedades y las pérdidas lo harán por ti: de forma tosca, lenta y sin tu consentimiento.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1853,
+    text: `Imagina que esta noche tienes una entrevista de salida con toda tu vida vivida.
+¿Qué porcentaje de horas laborables registraría con honestidad recursos humanos en la casilla «Cuerpo presente, dueño ausente del puesto»?
+Aún te quedan unas horas para mejorar las estadísticas.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1854,
+    text: `Detecta el gesto microscópico previo a la reacción: un breve suspiro de fastidio, poner los ojos en blanco, apretar los labios.
+Es el chasquido físico de la cerradura: el milisegundo exacto en que cierras voluntariamente la puerta de la jaula tras de ti.
+Sorprende tu mano en el cerrojo.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1855,
+    text: `Un ladrón, cansado de la persecución, simplemente se puso el uniforme del jefe de seguridad y ahora informa con severidad:
+«Hoy estuve muy desapegado, y justo aquí perdí un poco la consciencia».
+No te dejes engañar por el uniforme.
+Registra a quien rinde cuentas de los éxitos.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1856,
+    text: `No confundas la empatía con la fusión emocional.
+Contagiarte del pánico o la ira ajenos y sufrir por solidaridad no es bondad, sino límites de atención porosos.
+Solo puede ayudar de verdad a quien se ahoga quien tiene los pies firmes sobre suelo sólido.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1857,
+    text: `Hazte una pregunta de coaching rigurosa para hoy: si elimino todo el ajetreo, ¿qué tarea concreta estoy evitando ahora mismo?
+Por lo general, tras diez asuntos triviales y reflexiones espirituales se esconde una conversación difícil, una decisión o un encuentro sincero con el vacío.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1858,
+    text: `Mira hacia atrás en el día vivido no como un juez severo, sino como un científico honesto:
+¿en qué punto exacto hoy cambiaste la realidad viva por otra fantasía mental más, y qué precio pagaste por ese intercambio?`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1859,
+    text: `Al escuchar una piedrecilla golpear el bambú, Xiangyan escribió:
+De un solo golpe se olvidó todo lo que sabía. Y ya no hay necesidad de ninguna práctica.`,
+    source: "Xiangyan Zhixian",
+    tags: ["silencio"]
+  },
+  {
+    number: 1860,
+    text: `Buscas una experiencia que todavía no está aquí.
+Pero el despertar no es una experiencia que llegará, sino el reconocimiento de lo que mira desde cualquier experiencia.
+¿Qué mira ahora mismo?
+No pienses la respuesta.
+Obsérvala.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1861,
+    text: `Entre dos pensamientos hay una brecha. La cruzas miles de veces al día y te apresuras a llenarla en cada ocasión.
+No la llenes. Una sola brecha dejada vacía, y toda la historia sobre ti queda suspendida en el aire.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1862,
+    text: `Cada «después» fue inventado por quien teme que suceda hoy.
+No temes que no llegue. Temes que llegue y no quede nadie para regresar a la vida habitual.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1863,
+    text: `No es necesario preparar la mente infinitamente para el despertar.
+Solo necesitas notar por un segundo que quien se prepara es precisamente lo que estorba.
+Un segundo. Eso es todo lo que toma.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1864,
+    text: `No corras tras ello. Prepárate y luego espera en silencio, como el ojo aguarda la salida del sol.
+Llega sin aproximarse: aparece no como algo venido de fuera, sino como lo que estuvo aquí antes que todo.`,
+    source: "Plotino",
+    tags: ["silencio"]
+  },
+  {
+    number: 1865,
+    text: `Recuerda cómo despiertas cuando te llaman por tu nombre: no gradualmente, sino al instante.
+Un momento antes estabas en una historia, y ahora estás aquí.
+Ocurre lo mismo con el sueño principal.
+Te están llamando ahora mismo.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1866,
+    text: `«Un poco más» es la mentira más persistente del camino.
+No hay distancia.
+Solo hay «advertido» y «aún no advertido».`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1867,
+    text: `La mente pregunta: «¿Y si realmente todo es tan simple?» Excelente. Entonces años de búsqueda resultan ridículos.
+No defiende la verdad. Defiende su propia ocupación.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1868,
+    text: `Si el despertar dependiera de la antigüedad, estaría garantizado para cualquiera que lleve treinta años sentado.
+No es así.
+Depende de si te das cuenta en este preciso segundo.
+Los años dan hábito, no lucidez.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1869,
+    text: `No puedes acercarte a lo que ya eres. Cada paso «más cerca» desvía el rumbo y deja todo como está.
+El único paso honesto es frenar la carrera y detenerse.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1870,
+    text: `Mientras lees, algo escucha los sonidos a tu alrededor. Sin esfuerzo. Sin nombre.
+No despertó por la mañana ni se dormirá por la noche.
+Deja por un segundo de buscar otra cosa y reconócelo.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1871,
+    text: `Aunque el despertar llega de golpe, los hábitos acumulados desde tiempos sin principio no desaparecen de una vez.
+Por eso, tras el despertar repentino se requiere una práctica gradual.`,
+    source: "Zongmi",
+    tags: ["silencio"]
+  },
+  {
+    number: 1872,
+    text: `No pidas que la iluminación se quede para siempre. No «viene».
+Reconoces y olvidas, reconoces y olvidas, hasta que el olvido se vuelve demasiado breve para llamarse olvido.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1873,
+    text: `No regreses al pasado ni cifres esperanzas en el futuro: el pasado quedó atrás, el futuro aún no ha llegado.
+Quien vea claramente lo que surge ahora, que lo conozca con firmeza inquebrantable.
+El esfuerzo debe hacerse hoy: ¿quién sabe si la muerte llegará mañana?`,
+    source: "Bhaddekaratta Sutta",
+    tags: ["silencio"]
+  },
+  {
+    number: 1874,
+    text: `Suelta el pasado, suelta el futuro, suelta lo que está en medio.
+Habiendo cruzado a la otra orilla del ser y liberado la mente en todo, ya no regresarás al nacimiento y al envejecimiento.`,
+    source: "Dhammapada",
+    tags: ["silencio"]
+  },
+  {
+    number: 1875,
+    text: `La huida siempre parece una tarea: revisar el correo, trazar un plan, «primero termino esto». Nada en ella parece una fuga, por eso funciona.
+Distinguirlo es simple: ¿estás haciendo algo o escapando de algo?`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1876,
+    text: `Tienes tres refugios: ayer, mañana y «cómo pudo haber sido».
+En el primero te recibe el remordimiento, en el segundo la ansiedad, en el tercero la fantasía.
+En todos hay un sillón y té.
+Solo que no hay ventanas para ver lo que ocurre ahora.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1877,
+    text: `El aburrimiento no es falta de ocupación.
+Son los primeros segundos después de haber dejado de correr, cuando el hábito de correr aún sigue girando.
+Aguanta tres respiraciones.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1878,
+    text: `No tienes prisa por llegar al futuro porque sea mejor allí.
+Es simplemente que allí todavía no ha ocurrido nada y se puede embellecer.
+El presente no se puede maquillar.
+Por eso se huye de él.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1879,
+    text: `Una conversación imaginaria con quien te lastimó es la más cálida de las huidas.
+En ella siempre tienes la razón, siempre eres ingenioso y no arriesgas nada.
+Córtala a mitad de frase y observa qué queda: el cuerpo, la respiración y un resentimiento que se quedó sin texto.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1880,
+    text: `Nunca nos aferramos al presente.
+Nos anticipamos al futuro como si tardara en llegar, o llamamos al pasado para detenerlo como si huyera demasiado deprisa.
+Tan insensatos somos que erramos por tiempos que no nos pertenecen y no pensamos en el único que se nos concede.`,
+    source: "Blaise Pascal",
+    tags: ["silencio"]
+  },
+  {
+    number: 1881,
+    text: `Cuando surja en ti el «antes era...», fíjate: no es un recuerdo, sino una puerta por la que ya has salido a medias de esta habitación.
+Deténte en el umbral.
+Solo por una respiración.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1882,
+    text: `Nunca estamos en casa; siempre estamos fuera de ella.
+El miedo, el deseo y la esperanza nos lanzan hacia el futuro y nos despojan del sentimiento y pensamiento de lo que es, para ocuparnos de lo que será.`,
+    source: "Montaigne",
+    tags: ["silencio"]
+  },
+  {
+    number: 1883,
+    text: `Al compararte con los demás también huyes: hacia una vida ajena donde todo parece más claro que en la tuya.
+Pero la miras desde la tuya. Regresa al lugar desde donde miras.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1884,
+    text: `El mayor impedimento de la vida es la expectativa: depende del mañana y pierde el hoy.
+Dispones de lo que está en manos de la fortuna y dejas escapar lo que está en las tuyas.`,
+    source: "Séneca",
+    tags: ["silencio"]
+  },
+  {
+    number: 1885,
+    text: `El cansancio, el hambre, la necesidad de revisar el teléfono: a veces son ciertos.
+Pero con mayor frecuencia son la excusa más decorosa para marcharse.
+Antes de levantarte, pregunta: ¿qué veré si me quedo solo un minuto?`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1886,
+    text: `Así que no os preocupéis por el día de mañana, porque el día de mañana se preocupará de sí mismo. Basta a cada día su propio afán.`,
+    source: "Evangelio de Mateo, 6:34",
+    tags: ["silencio"]
+  },
+  {
+    number: 1887,
+    text: `No estás huyendo del momento presente.
+No hay adónde huir de él: cualquier escape ocurre ahora.
+Lo que huye es el pensamiento.
+Y quien observa esto permanece sentado en el mismo lugar todo el tiempo.
+Nota que nunca te has marchado.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1888,
+    text: `El no involucramiento no es «me da igual». Es: «oigo que el pensamiento me llama, pero no acudo al llamado».`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1889,
+    text: `Vairagya (desapego o no involucramiento) no es renunciar al mundo, sino negarse a pagar las facturas ajenas. El mundo te pasa factura por cada pensamiento. No tienes obligación de pagar.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1890,
+    text: `La mente envía invitaciones a cada drama. Vairagya (no involucramiento) es simplemente no responder a las invitaciones. No por orgullo, sino por falta de interés.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1891,
+    text: `El no involucramiento no es distancia: distancia significa que estás en otro lugar.
+Estás justo aquí.
+Simplemente no hay de dónde engancharse.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1892,
+    text: `El hombre perfecto carece de «yo», el sagrado carece de mérito, el sabio carece de nombre.`,
+    source: "Zhuangzi",
+    tags: ["silencio"]
+  },
+  {
+    number: 1893,
+    text: `No albergar noción alguna de «yo», de «persona», de «ser vivo» ni de «vida».`,
+    source: "Sutra del Diamante",
+    tags: ["silencio"]
+  },
+  {
+    number: 1894,
+    text: `Aquel que abandona el «mío» y el «yo» alcanza la paz.`,
+    source: "Bhagavad Gita",
+    tags: ["silencio"]
+  },
+  {
+    number: 1895,
+    text: `Deja de considerarte alguien.
+Ahora mismo, no más tarde.
+No «intentes», no «trabajes en ello».
+Simplemente para.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1896,
+    text: `Ni hombre, ni mujer, ni profesión, ni nombre, ni historia, ni carácter.
+Todo eso es ropa.
+Quítatela.
+Debajo no hay otra.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1897,
+    text: `La sensación en el cuerpo no eres tú. El pensamiento no eres tú. El estado de ánimo no eres tú. La imagen propia no eres tú.
+No seas nada de eso.
+Ni siquiera seas «aquel que no es nada de eso».`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1898,
+    text: `La ansiedad dice: «Estoy ansioso».
+Deja de creer que en esa frase hay alguien que se angustia, y la ansiedad se quedará sin dueño.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1899,
+    text: `No estás obligado a ser alguien. Ni bueno, ni malo, ni iluminado, ni dormido.
+Niégate a ser cualquier cosa.
+Es un despido sin indemnización.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1900,
+    text: `Quítate el pasado: tú no eres quien hizo aquello.
+Quítate el futuro: tú no eres quien será eso.
+Quítate el presente: tú no eres a quien le sucede esto.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1901,
+    text: `No busques quién eres en realidad.
+El buscador es un papel más.
+Sal de todos los roles, incluido el de quien sale de ellos.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1902,
+    text: `El departamento de recursos humanos en tu cabeza te abrió un expediente de mil páginas.
+No lo leas ni lo discutas.
+Simplemente no reconozcas que es tuyo.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1903,
+    text: `La iluminación instantánea no es un logro, sino el instante en que dejaste de considerarte alguien o algo.
+Todos los demás métodos son formas de seguir contando.
+Detente ahora.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1904,
+    text: `La mente inquieta se sosiega mediante la práctica y el desapego.`,
+    source: "Bhagavad Gita",
+    tags: ["silencio"]
+  },
+  {
+    number: 1905,
+    text: `La práctica y la iluminación son una sola cosa.`,
+    source: "Dogen",
+    tags: ["silencio"]
+  },
+  {
+    number: 1906,
+    text: `Avanzad hacia la meta con incansable diligencia.`,
+    source: "Buda",
+    tags: ["silencio"]
+  },
+  {
+    number: 1907,
+    text: `Incluso una pequeña porción de esta práctica libra del gran temor.`,
+    source: "Bhagavad Gita",
+    tags: ["silencio"]
+  },
+  {
+    number: 1908,
+    text: `Diez minutos cada día valen más que tres horas una vez al mes. La mente aprende por repetición, no por heroísmo.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1909,
+    text: `La regularidad no es un castigo, sino un cauce. El río no decide cada mañana si hoy va a fluir o no.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1910,
+    text: `Si te saltas un día, no te juzgues. El juicio es solo otra forma de enredo. Vuelve mañana con naturalidad, como si no hubiera sido ni bueno ni malo.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1911,
+    text: `La mente inventa mil razones para no practicar justo hoy. Los motivos son nuevos cada vez, pero el autor es el mismo. ¿Reconoces la letra?`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1912,
+    text: `Te lavas los dientes sin inspiración y sin dudas, porque se ha convertido en parte del día. Haz lo mismo con la práctica. Con serenidad.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1913,
+    text: `Al ego le encantan los avances dramáticos, los retiros y las revelaciones. La regularidad es monótona, por eso el ego la sabotea. Lo rutinario es tu aliado más fiable.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1914,
+    text: `El placer y el dolor vienen y van, son impermanentes. 
+Toléralos.`,
+    source: "Bhagavad Gita",
+    tags: ["silencio"]
+  },
+  {
+    number: 1915,
+    text: `La certeza no existe. 
+Solo existe el hábito de la ilusión de certeza. 
+La ansiedad es su síndrome de abstinencia.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1916,
+    text: `Nunca supiste qué pasaría mañana. 
+Antes solo fingías saberlo. 
+Ahora puedes dejar de hacerlo.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1917,
+    text: `La mente exige una respuesta ahora. 
+Respóndele: «No lo sé». 
+Es una respuesta honesta, y ante ella la mente se va acallando.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1918,
+    text: `La pregunta «¿qué pasará?» siempre se hace en el presente, y en el presente no está sucediendo nada terrible. 
+Compruébalo ahora mismo.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1919,
+    text: `La mente resuelta es una sola, mientras que la de los indecisos tiene innumerables ramas sin fin.`,
+    source: "Bhagavad Gita",
+    tags: ["silencio"]
+  },
+  {
+    number: 1920,
+    text: `El yoga debe practicarse con determinación y una mente inquebrantable.`,
+    source: "Bhagavad Gita",
+    tags: ["silencio"]
+  },
+  {
+    number: 1921,
+    text: `Quien se vence a sí mismo es fuerte. Quien persevera posee voluntad.`,
+    source: "Lao Tsé",
+    tags: ["silencio"]
+  },
+  {
+    number: 1922,
+    text: `Para la práctica se necesita una gran fe, una gran duda y una gran determinación.`,
+    source: "Hakuin",
+    tags: ["silencio"]
+  },
+  {
+    number: 1923,
+    text: `El fruto está cerca para aquellos cuyo anhelo es intenso.`,
+    source: "Yoga Sutras de Patanjali",
+    tags: ["silencio"]
+  },
+  {
+    number: 1924,
+    text: `Si algo debe hacerse, hazlo con toda tu fuerza.`,
+    source: "Dhammapada",
+    tags: ["silencio"]
+  },
+  {
+    number: 1925,
+    text: `Una decisión se toma una sola vez. 
+Cada mañana no la tomas de nuevo, simplemente la recuerdas.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1926,
+    text: `Mientras estás «intentando», te dejas una salida. 
+Decide y cierra la puerta.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1927,
+    text: `Una decisión no es un sentimiento. Los sentimientos vienen y van como el clima. 
+Una decisión es lo que permanece cuando el clima es malo.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1928,
+    text: `Si no decides tú, la mente decide por ti. 
+Y siempre decide rápido: «después».`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1929,
+    text: `No necesitas forzarte. 
+Solo necesitas decidir una vez y luego dejar de discutirlo contigo mismo. 
+No hace falta celebrar reuniones en tu cabeza.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1930,
+    text: `El primer paso y el último son el mismo: notar que ya eres consciente. 
+Ahora mismo. 
+Todo lo demás son comentarios sobre ello.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1931,
+    text: `No intentes despertar mejor. 
+No hay nadie a quien mejorar. 
+Reconoce esto y tendrás la mitad del camino recorrido. 
+La otra mitad es lo mismo, solo que una vez más.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1932,
+    text: `Permite que todo sea tal como es. 
+Incluso el hecho de que aún no estás despierto. 
+Este es el camino más corto: dejar de luchar contra lo que es.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1933,
+    text: `La búsqueda es el hábito de la mente de sentirse incompleta. 
+El paso consiste en ver ese hábito. 
+No en vencerlo, ni en reemplazarlo. 
+Simplemente en verlo.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1934,
+    text: `Un día dejas de preguntar: «¿Cómo puedo despertar?» 
+No porque hayas encontrado la respuesta, sino porque la pregunta resultó no tener dueño.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1935,
+    text: `Como una sólida roca no se conmueve con el viento, así los sabios no vacilan ante la censura ni la alabanza.`,
+    source: "Dhammapada, 81",
+    tags: ["silencio"]
+  },
+  {
+    number: 1936,
+    text: `Te han ofendido, y la mente ya está redactando una demanda. 
+Pregunta: ¿a quién han herido exactamente? 
+Si no encuentras a nadie, el caso se cierra por falta de víctima.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1937,
+    text: `Quien actúa sin apego, ofreciendo los frutos de sus actos, permanece intacto ante el pecado, como la hoja de loto permanece intocada por el agua.`,
+    source: "Bhagavad Gita, V.10",
+    tags: ["silencio"]
+  },
+  {
+    number: 1938,
+    text: `Una emoción puede ser todo lo ruidosa que quiera. 
+El espacio en el que resuena permanece silencioso. 
+No escuches a la emoción, sino al lugar donde ocurre.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1939,
+    text: `Como una gota de agua no se adhiere al loto, así el sabio no se apega a lo visto, a lo oído ni a lo pensado.`,
+    source: "Sutta Nipata",
+    tags: ["silencio"]
+  },
+  {
+    number: 1940,
+    text: `Las nubes pueden ser tormentosas, pesadas, hermosas o temibles. 
+Al cielo le da igual. 
+Esto no es indiferencia, sino simplemente su naturaleza: no conservar huellas.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1941,
+    text: `La imperturbabilidad no necesita ser fingida. 
+Si te esfuerzas por parecer sereno, alguien sigue estando afectado. 
+Simplemente observa adónde impacta el golpe.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1942,
+    text: `Las armas no lo cortan, el fuego no lo quema, el agua no lo moja, el viento no lo seca.`,
+    source: "Bhagavad Gita, II.23",
+    tags: ["silencio"]
+  },
+  {
+    number: 1943,
+    text: `Un problema llega buscando a quién engancharse. 
+El anzuelo solo lo tiene el «yo». 
+Sin «yo» no hay anzuelo, y el problema se marcha con desconcierto.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1944,
+    text: `Sé como el promontorio contra el que rompen continuamente las olas: permanece firme y apacigua la furia del agua a su alrededor.`,
+    source: "Marco Aurelio, Meditaciones, IV.49",
+    tags: ["silencio"]
+  },
+  {
+    number: 1945,
+    text: `Puedes estar metido de lleno en la vida y aun así permanecer intacto. 
+No son dos estados, sino uno solo. 
+La pantalla no se esconde de la película.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1946,
+    text: `A las personas no las perturban las cosas, sino las opiniones que tienen sobre las cosas.`,
+    source: "Epicteto",
+    tags: ["silencio"]
+  },
+  {
+    number: 1947,
+    text: `Lo bueno no te hace más limpio. 
+Lo malo no te ensucia. 
+Un espejo no se mancha con lo que en él se refleja.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1948,
+    text: `Al hombre consumado no lo quema el fuego que abrasa las grandes ciénagas, ni lo hiela el frío que congela los ríos.`,
+    source: "Zhuangzi",
+    tags: ["silencio"]
+  },
+  {
+    number: 1949,
+    text: `La imperturbabilidad comienza con las pequeñeces. 
+Un atasco de tráfico, un café frío, la opinión ajena. 
+Observa cómo la mente intenta ofenderse y no la dejes terminar la frase.`,
+    source: null,
+    tags: ["silencio"]
   }
 ];

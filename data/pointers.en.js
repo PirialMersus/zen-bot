@@ -12423,5 +12423,1022 @@ but the underlying essence has no form and never leaves.
 If you attach yourself to form, you make a great mistake.`,
     source: "Papaji",
     tags: ["stillness"]
+  },
+  {
+    number: 1813,
+    text: `Right now, check your jaw, shoulders, and lower abdomen.
+The ego is sustained not only by thoughts — it lives in a chronic muscular spasm of defensiveness.
+Relax these three points on an exhale and see how much of "you" remains without armor.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1814,
+    text: `Notice how much energy was spent today working as an unpaid PR agent for your own image.
+You adjust your tone, posture, and words just so a favorable picture flashes in someone else's mind — which they will forget four minutes later.
+Fire the PR department for at least an hour.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1815,
+    text: `Your brain works like the yellow press: it invents alarming headlines ("Everything will collapse", "You are late", "They are hiding something") solely so that you click with your attention.
+Don't open the article just because the headline screams in red font.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1816,
+    text: `Sunk cost fallacy in the psyche: you carry an old grievance, a diagnosis, or a victim role for years merely because you have already invested so much effort, and it feels painful to admit those years were empty.
+Close the unprofitable project right now — past investments cannot be recovered anyway.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1817,
+    text: `Peace feels bland and unsettling to you not because something is missing, but because your nervous system is hooked on microdoses of cortisol.
+When everything is quiet around, the brain itself provokes a minor drama to get its habitual adrenaline shot.
+Ride out the withdrawal.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1818,
+    text: `Every time you take sharp offense, freeze, or lash out, it isn't an adult at the wheel, but an emergency script written by a frightened seven-year-old child many years ago.
+It's time to update the firmware, or at least notice who has grabbed the controls right now.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1819,
+    text: `Reality right now unfolds in 8K resolution: the texture of light, dozens of shades of sound, the air temperature on your skin.
+Yet as soon as the inner commentator switches on, it compresses this living world into a murky summary: "fine / annoying / boring".
+Don't trade reality for its cheap retelling.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1820,
+    text: `A striking fact of neuroscience: every time you recall your past, the brain rewrites it anew, adjusting the details to match your current mood.
+That biography you are so proud of or ashamed of is an amateur fanfic, not a document. What are you leaning on?`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1821,
+    text: `Tension disappears in two seconds if you shift your gaze from narrow focus to peripheral vision.
+Tunnel vision is the physiological mode of predator or prey that triggers stress.
+Defocus your eyes, notice the space to the right and left simultaneously — and the body will exhale on its own.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1822,
+    text: `Behind the fear of "losing yourself" there is almost never some grand existential dread, but a mundane fear of losing control over the opinions of neighbors, relatives, and colleagues.
+"You" without their appraisals is simply a living, breathing space.
+What is there to fear?`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1823,
+    text: `Entering any room or chat, your mind instantly pulls out an invisible rank table: who here is smarter, wealthier, or more attractive than me?
+This is the built-in calculator of a pack primate.
+See it operating and refuse to use its numbers.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1824,
+    text: `Chronic "overthinking the future" rarely has anything to do with actual planning.
+More often it is merely the mental masturbation of anxiety: the mind replays disasters to create the illusion that it has its finger on the pulse.
+Let go of the pulse — the heart will manage on its own.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1825,
+    text: `All your fuss is like the night shift of tech support for a client who does not exist.
+The phone in your head is ringing off the hook, the operator is frantic, typing responses to complaints...
+Unplug the cord from the wall. Nobody will die.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1826,
+    text: `A single small blood clot or age-related breakdown of neural pathways — and in a couple of years this immaculate fortress of personality you have spent decades polishing will crumble into dust.
+Why defend what biochemistry will flush away in a second?
+Rely on that which never ages.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1827,
+    text: `Do not try to maintain an hour of flawless mindfulness, and do not abandon everything after slipping.
+Take one completely pure breath right now — free of past, free of future, and without judging this breath.
+Just one. That is enough.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1828,
+    text: `The event struck once and has already passed.
+The second, tenth, and hundredth blows you inflict on yourself, replaying the conversation in the shower and crafting biting comebacks.
+Lower the club. The attack ended an hour ago.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1829,
+    text: `The first arrow is physical pain or an unpleasant fact: they are unavoidable.
+The second arrow is suffering over the pain ("why me?", "everything is ruined"): this one you plunge into yourself voluntarily.
+Take your hand off the second arrow.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1830,
+    text: `The world outside the window is neither good nor bad — it is simply happening.
+Labels like "terrible", "unfair", "catastrophe" you print yourself on your own printer and paste onto every post.
+Turn off the printer.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1831,
+    text: `Life is divided into what is within your control (your reactions, your attention) and what is outside it (weather, other people's opinions, traffic jams).
+You spend 90% of your energy trying to move someone else's pieces.
+Bring your hands back to your side of the board.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1832,
+    text: `Anger is not born inside you as a full-fledged monster.
+First, a spark appears — a bodily impulse. You bring the straw of thoughts to it ("how dare he!") and fan the flames.
+Notice the spark and don't feed it firewood.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1833,
+    text: `You fear pauses in conversation or silence in a room as if the world might vanish in that moment.
+In reality, only the illusion of control vanishes.
+Pause for three seconds before replying to someone. Check for yourself: the world will hold.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1834,
+    text: `The inner dialogue is not one person, but two: one makes a mistake, and the second immediately begins to reprimand him.
+Who is that strict prosecutor whose voice you use to judge yourself?
+Notice: you are the space in which both are arguing.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1835,
+    text: `Every drama requires two acts: first the situation, then your commentary on how unbearable it is.
+Without the second act, the tragedy turns into a simple fact that needs handling.
+Deprive the drama of commentary — the second act won't take place.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1836,
+    text: `Your thoughts are not a single text, but dozens of background tabs opened in a browser months ago: an unfinished argument, an old shame, someone else's opinion.
+They silently consume 70% of your RAM. Don't inspect each one — simply close the whole browser.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1837,
+    text: `Waiting for a "pure, deep, proper state" for practice is pure ego perfectionism disguised as diligence.
+A raw, clumsy, irritated minute of awareness right in the middle of chaos is worth more than your fantasies of ideal meditation.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1838,
+    text: `One of the most costly illusions is the need for "closure": you believe it will get easier if you understand why they acted that way, or if you have the last word.
+Reality is under no obligation to provide an explanatory note.
+Let go without explanations.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1839,
+    text: `Don't rely on willpower — by evening it is always at zero.
+Create an environment with smart friction: log out of accounts, remove distractions from your sight, put physical obstacles in the path of habits.
+Sobriety should require fewer steps than relapse.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1840,
+    text: `Inner trembling, irritation, or numbness when facing a new task is not a signal to retreat.
+It is the sound of your old self-image cracking because it no longer fits reality.
+Don't patch the old suit — step out of it.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1841,
+    text: `You are waiting for the moment when you finally feel confident and ready to tackle what matters.
+Surprise: confidence is a byproduct of movement, not an admission ticket.
+Start with trembling hands and a doubting mind — otherwise you will never start.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1842,
+    text: `Check how many of your "deep experiences" actually belong to you.
+Often you simply catch someone else's anxiety, hurry, or anger like a virus on a bus, and a minute later you are proudly defending them as your own mood.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1843,
+    text: `In the moment of being seized by an emotion, don't look for lofty truths — name the process dryly, like a lab technician: "Heat in the chest, tightness in the throat, impulse to be rude".
+A precise physical description instantly reduces the fear center's activity in the brain and restores control.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1844,
+    text: `Taking offense that a situation didn't go your way, or that a person acts according to their nature, is like yelling at an already printed photograph, demanding that the people in it change seats.
+First acknowledge the photograph as a fact, then decide what to do next.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1845,
+    text: `Nostalgia and regret are rent payments for an apartment you moved out of long ago, when the building itself is no longer on the map.
+Don't wire money from the present for the right to dwell inside demolished walls.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1846,
+    text: `Don't tell me how many books on non-duality you have read or what insights you caught last year.
+Show me your last hour: how you reacted to a glitch, a delay, and someone else's foolishness.
+Behavior is the only honest exam.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1847,
+    text: `Nobody becomes gray, dim, and half-alive in a single Monday.
+It happens quietly: one small "oh well, I'll deal with it later" per day.
+Notice this quiet drift into the swamp today, while you can still feel the difference.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1848,
+    text: `Recall the second when a cup unexpectedly slipped from your hands or a sharp clap rang out nearby:
+for a fraction of a moment, all thoughts evaporated, leaving crystalline stillness.
+Life constantly offers you a free demo version of awakening.
+It is time to stop waiting for a catastrophe to activate the full one.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1849,
+    text: `Listen to the voice inside that is criticizing you right now for weakness or failure.
+It is not the voice of truth, nor even your voice — it is a tape recording of strict adults from your distant past.
+Eject the cassette.
+They left the stage long ago.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1850,
+    text: `Feel right now the exact difference in air temperature on inhalation and exhalation at the very edge of your nostrils.
+The mind hates such specificity: from a pure physical fact, it is impossible to assemble a tragedy, a theory, or a personal story.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1851,
+    text: `Stop dividing the day into "convenient time" and "disruptions".
+Slow internet, a traffic jam, a demanding client, a tedious interlocutor — these are not schedule breakdowns, but your personal trainer's whistle: "Attention! The set has begun!"`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1852,
+    text: `You have only two options for this life:
+either you yourself, voluntarily and while still vibrant, dismantle the fabricated "I" for parts,
+or old age, illness, and loss will do it for you — crudely, slowly, and without your consent.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1853,
+    text: `Imagine that tonight you have an exit interview with your entire lived life.
+What percentage of working hours would the HR department honestly enter under "Body present, owner absent from the desk"?
+You still have a few hours to improve the statistics.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1854,
+    text: `Notice the microscopic gesture before a reaction: a short sigh of annoyance, an eye roll, compressed lips.
+This is the physical click of a lock — the exact millisecond when you voluntarily slam the cage door behind you.
+Catch your hand on the latch.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1855,
+    text: `A thief, weary of the chase, simply put on the uniform of the head of security and now strictly reports:
+"Today I was very detached, and right here I lost mindfulness for a bit".
+Don't fall for the uniform.
+Frisk the one who reports the successes.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1856,
+    text: `Do not confuse empathy with enmeshment.
+Catching someone else's panic or anger and suffering for company is not kindness, but leaky boundaries of attention.
+Only someone who stands firmly on solid ground can truly help a drowning person.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1857,
+    text: `Ask yourself a tough coaching question for today: if all the fuss is stripped away, what specific task am I avoiding right now?
+Usually, behind ten minor errands and spiritual ponderings hides one difficult conversation, one decision, or one honest encounter with emptiness.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1858,
+    text: `Look back on the day lived not as a strict judge, but as an honest scientist:
+at what exact point today did you trade living reality for yet another illusion and mental fantasy — and what price did you pay for that exchange?`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1859,
+    text: `Hearing a pebble strike bamboo, Xiangyan wrote:
+With one strike, everything I knew was forgotten. And there is no longer any need for any practice.`,
+    source: "Xiangyan Zhixian",
+    tags: ["stillness"]
+  },
+  {
+    number: 1860,
+    text: `You are looking for an experience that is not yet here.
+Yet awakening is not an experience that will arrive, but recognizing that which looks out of any experience.
+What is looking right now?
+Do not think the answer.
+See it.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1861,
+    text: `Between two thoughts there is a gap. You cross it thousands of times a day and rush to fill it every time.
+Do not fill it. One gap left empty — and the entire story of you hangs suspended in midair.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1862,
+    text: `Every "later" was invented by someone who fears it might happen today.
+You are not afraid that it won't arrive. You are afraid that it will — and there will be no one left to return to the habitual life.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1863,
+    text: `There is no need to endlessly prepare the mind for awakening.
+You only need to notice for a second that the one preparing is the very thing in the way.
+A single second. That is all it takes.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1864,
+    text: `Do not chase it. Prepare yourself, and then wait in silence, as the eye awaits the rising sun.
+It arrives without drawing near: appearing not as something having arrived, but as having been here before all else.`,
+    source: "Plotinus",
+    tags: ["stillness"]
+  },
+  {
+    number: 1865,
+    text: `Remember how you wake up when called by your name: not gradually, but instantly.
+Just a moment ago you were in a story — and now you are here.
+It is the same with the primary dream.
+You are being called right now.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1866,
+    text: `"Just a little more" is the most enduring lie on the path.
+There is no distance.
+There is only "noticed" and "not yet noticed".`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1867,
+    text: `The mind asks: "What if everything is truly that simple?" Great. Then years of searching look ridiculous.
+It is not defending the truth. It is defending its own employment.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1868,
+    text: `If awakening depended on seniority, it would be guaranteed to anyone who has sat for thirty years.
+That is not so.
+It depends on whether you notice in this very second.
+Years provide habit, not insight.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1869,
+    text: `You cannot draw closer to what you already are. Every step "closer" leads astray and leaves everything as it is.
+The only honest step is to slow down the race and stop.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1870,
+    text: `While you read, something hears the sounds around you. Effortlessly. Namelessly.
+It did not wake up in the morning and will not fall asleep at night.
+Stop searching for something else for a second — and recognize it.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1871,
+    text: `Although awakening comes suddenly, habits accumulated from beginningless time do not vanish all at once.
+Therefore, after sudden awakening, gradual practice is needed.`,
+    source: "Zongmi",
+    tags: ["stillness"]
+  },
+  {
+    number: 1872,
+    text: `Do not ask for enlightenment to stay forever. It does not "come".
+You recognize and forget, recognize and forget — until the forgetting becomes too brief to be called forgetting.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1873,
+    text: `Do not return to the past and do not pin hopes on the future: the past is left behind, the future has not yet arrived.
+Let whoever clearly sees what arises now know it unshakably.
+Effort must be made today: who knows, perhaps death will come tomorrow?`,
+    source: "Bhaddekaratta Sutta",
+    tags: ["stillness"]
+  },
+  {
+    number: 1874,
+    text: `Let go of the past, let go of the future, let go of what is in between.
+Crossing over to the other shore of existence and freeing the mind in everything, you will no longer return to birth and aging.`,
+    source: "Dhammapada",
+    tags: ["stillness"]
+  },
+  {
+    number: 1875,
+    text: `Escape always looks like business: checking email, drafting a plan, "let me finish this first". Nothing about it resembles fleeing, which is why it works.
+The test is simple: are you doing something, or running away from something?`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1876,
+    text: `You have three refuges: yesterday, tomorrow, and "how it could have been".
+In the first, regret greets you; in the second, anxiety; in the third, reverie.
+In each there is an armchair and tea.
+Only there are no windows to see what is happening now.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1877,
+    text: `Boredom is not an absence of tasks.
+It is the first few seconds after you stop running, while the habit of running is still spinning.
+Hold on for three breaths.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1878,
+    text: `You do not rush into the future because it is better there.
+It is simply that nothing has happened there yet, and it can be embellished.
+The present cannot be embellished.
+That is why people flee from it.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1879,
+    text: `An imaginary conversation with someone who hurt you is the coziest of escapes.
+In it you are always right, always witty, and risk nothing.
+Cut it off mid-sentence and see what remains: the body, the breath, and a grievance that has run out of words.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1880,
+    text: `We never hold on to the present.
+We anticipate the future as if it were too slow in coming, or we recall the past to stop it as too swift.
+So imprudent are we that we wander in times which are not ours, and do not think of the only one which belongs to us.`,
+    source: "Blaise Pascal",
+    tags: ["stillness"]
+  },
+  {
+    number: 1881,
+    text: `When "it used to be..." rises within you, notice: this is not a memory, but a doorway through which you are already halfway out of this room.
+Pause on the threshold.
+For just one breath.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1882,
+    text: `We are never at home; we are always beyond it.
+Fear, desire, and hope drive us toward the future and rob us of the feeling and thought of what is, to occupy us with what will be.`,
+    source: "Montaigne",
+    tags: ["stillness"]
+  },
+  {
+    number: 1883,
+    text: `Comparing yourself with others is also an escape — into someone else's life, where everything looks clearer than in your own.
+Yet you are looking at it from your own.
+Return to where you are looking from.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1884,
+    text: `The greatest impediment to life is expectation: it depends on tomorrow and wastes today.
+You dispose of that which lies in the hands of fortune, and you abandon that which is in your own.`,
+    source: "Seneca",
+    tags: ["stillness"]
+  },
+  {
+    number: 1885,
+    text: `Tiredness, hunger, the urge to check your phone — sometimes they are genuine.
+Yet more often they are the most respectable excuses to leave.
+Before standing up, ask: what will I see if I stay for just one minute?`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1886,
+    text: `Therefore do not worry about tomorrow, for tomorrow will worry about itself. Sufficient for the day is its own trouble.`,
+    source: "Gospel of Matthew, 6:34",
+    tags: ["stillness"]
+  },
+  {
+    number: 1887,
+    text: `You do not escape from the present moment.
+There is nowhere to flee from it: any escape happens right now.
+It is the thought that runs.
+Yet the one seeing this remains seated in the very same place the entire time.
+Notice that you have never left.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1888,
+    text: `Non-involvement is not "I don't care". It is: "I hear the thought calling, and I do not follow the call".`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1889,
+    text: `Vairagya (non-involvement) is not renouncing the world, but refusing to pay other people's bills. The world bills you for every thought. You are under no obligation to pay.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1890,
+    text: `The mind sends out invitations to every drama. Vairagya (non-involvement) is simply not answering the invitations. Not out of pride, but because it is uninteresting.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1891,
+    text: `Non-involvement is not distance: distance means you are somewhere else.
+You are right here.
+It is simply that there is nothing to catch onto.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1892,
+    text: `The perfected person has no self, the sacred has no merit, the wise has no name.`,
+    source: "Zhuangzi",
+    tags: ["stillness"]
+  },
+  {
+    number: 1893,
+    text: `To entertain no notion of a "self", of a "person", of a "living being", of a "life".`,
+    source: "Diamond Sutra",
+    tags: ["stillness"]
+  },
+  {
+    number: 1894,
+    text: `He who casts off "mine" and "I" attains peace.`,
+    source: "Bhagavad Gita",
+    tags: ["stillness"]
+  },
+  {
+    number: 1895,
+    text: `Stop considering yourself to be anyone.
+Right now, not later.
+Not "try", not "work on it".
+Simply stop.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1896,
+    text: `Not a man, not a woman, not a profession, not a name, not a story, not a character.
+All of this is clothing.
+Take it off.
+Beneath it there is no other.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1897,
+    text: `The sensation in the body is not you. The thought is not you. The mood is not you. The self-image is not you.
+Do not be any of these.
+Do not even be "the one who is none of these".`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1898,
+    text: `Anxiety says: "I am anxious".
+Stop assuming there is anyone in that sentence who is anxious, and the anxiety is left without an owner.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1899,
+    text: `You are not obligated to be anyone. Neither good, nor bad, nor enlightened, nor asleep.
+Refuse to be anything whatsoever.
+This is a dismissal with no severance pay.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1900,
+    text: `Strip off the past: you are not the one who did that.
+Strip off the future: you are not the one who will be that.
+Strip off the present: you are not the one to whom this is happening.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1901,
+    text: `Do not look for who you really are.
+The seeker is yet another role.
+Step out of all roles, including the role of the one stepping out of them.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1902,
+    text: `The HR department in your head has compiled a thousand-page dossier on you.
+Do not read it and do not dispute it.
+Simply refuse to acknowledge it as yours.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1903,
+    text: `Instant enlightenment is not an achievement, but the moment you stop regarding yourself as anyone or anything.
+All other methods are ways to keep counting.
+Stop now.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1904,
+    text: `The restless mind is subdued by practice and non-involvement.`,
+    source: "Bhagavad Gita",
+    tags: ["stillness"]
+  },
+  {
+    number: 1905,
+    text: `Practice and enlightenment are one.`,
+    source: "Dogen",
+    tags: ["stillness"]
+  },
+  {
+    number: 1906,
+    text: `Strive toward the goal with unflagging diligence.`,
+    source: "Buddha",
+    tags: ["stillness"]
+  },
+  {
+    number: 1907,
+    text: `Even a little of this practice delivers from great fear.`,
+    source: "Bhagavad Gita",
+    tags: ["stillness"]
+  },
+  {
+    number: 1908,
+    text: `Ten minutes every day matters more than three hours once a month. The mind learns through repetition, not heroism.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1909,
+    text: `Regularity is not punishment, but a riverbed. A river does not decide each morning whether to flow today or not.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1910,
+    text: `Missed a day — don't put yourself on trial. Judgment is just another form of entanglement. Simply return tomorrow, as if it was neither good nor bad.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1911,
+    text: `The mind invents a thousand reasons not to practice on this particular day. The excuses are new each time, but the author is the same. Recognize the handwriting?`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1912,
+    text: `You brush your teeth without inspiration and without doubt, because it has become part of the day. Do the same with practice. Imperturbably.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1913,
+    text: `The ego loves dramatic breakthroughs, retreats, and epiphanies. Regularity is boring, so the ego sabotages it. The boring is your most reliable ally.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1914,
+    text: `Joy and pain come and go; they are fleeting. 
+Endure them.`,
+    source: "Bhagavad Gita",
+    tags: ["stillness"]
+  },
+  {
+    number: 1915,
+    text: `There is no certainty. 
+There is only a habit of clinging to the illusion of certainty. 
+Anxiety is its withdrawal symptom.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1916,
+    text: `You never knew what tomorrow would bring. 
+Before, you simply pretended you did. 
+Now you can stop.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1917,
+    text: `The mind demands an answer right now. 
+Reply to it: «I do not know». 
+This is an honest answer, and before it the mind gradually falls silent.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1918,
+    text: `The question «what will happen?» is always asked in the present, and in the present nothing terrible is happening right now. 
+Check right now.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1919,
+    text: `The resolute mind is one, but the thoughts of the irresolute have many branches and no end.`,
+    source: "Bhagavad Gita",
+    tags: ["stillness"]
+  },
+  {
+    number: 1920,
+    text: `Yoga should be practiced with determination and an undaunted mind.`,
+    source: "Bhagavad Gita",
+    tags: ["stillness"]
+  },
+  {
+    number: 1921,
+    text: `He who overcomes himself is mighty. He who perseveres possesses willpower.`,
+    source: "Lao Tzu",
+    tags: ["stillness"]
+  },
+  {
+    number: 1922,
+    text: `Practice requires great faith, great doubt, and great determination.`,
+    source: "Hakuin",
+    tags: ["stillness"]
+  },
+  {
+    number: 1923,
+    text: `Success is near for those whose dedication is intense.`,
+    source: "Patanjali, Yoga Sutras",
+    tags: ["stillness"]
+  },
+  {
+    number: 1924,
+    text: `If anything is to be done, let one do it with vigor.`,
+    source: "Dhammapada",
+    tags: ["stillness"]
+  },
+  {
+    number: 1925,
+    text: `A decision is made only once. 
+Each morning you do not make it anew; you simply remember it.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1926,
+    text: `As long as you are «trying», you leave yourself an exit. 
+Decide and shut the door.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1927,
+    text: `A decision is not a feeling. Feelings come and go like the weather. 
+A decision is what remains when the weather is foul.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1928,
+    text: `If you have not decided, the mind decides for you. 
+And its choice is always quick: «later».`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1929,
+    text: `You do not need to force yourself. 
+You just need to decide once and then stop debating it with yourself. 
+There is no need to hold meetings in your head.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1930,
+    text: `The first step and the last are the same: notice that you are already aware. 
+Right now. 
+Everything else is commentary on this.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1931,
+    text: `Do not try to awaken better. 
+There is no one to improve. 
+See this, and half the journey is done. 
+The other half is the very same thing, once again.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1932,
+    text: `Allow everything to be just as it is. 
+Including the fact that you are not yet awakened. 
+This is the shortest path: to stop warring with what is.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1933,
+    text: `Seeking is the mind's habit of feeling incomplete. 
+The step is to see this habit. 
+Not to defeat it, not to replace it. 
+Simply to see it.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1934,
+    text: `One day you stop asking: «How do I awaken?» 
+Not because you found an answer, but because the question turned out to have no owner.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1935,
+    text: `As a solid rock is not shaken by the wind, so the wise are not moved by blame or praise.`,
+    source: "Dhammapada, 81",
+    tags: ["stillness"]
+  },
+  {
+    number: 1936,
+    text: `You were offended, and the mind is already drafting a lawsuit. 
+Ask: who exactly was hurt? 
+If you cannot find anyone, the case is dismissed for lack of a victim.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1937,
+    text: `One who performs action without attachment, offering the results to the Divine, is untouched by sin, as a lotus leaf is untouched by water.`,
+    source: "Bhagavad Gita, V.10",
+    tags: ["stillness"]
+  },
+  {
+    number: 1938,
+    text: `An emotion can be as loud as can be. 
+The space in which it sounds remains silent. 
+Listen not to the emotion, but to where it takes place.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1939,
+    text: `As a drop of water does not cling to a lotus leaf, so the wise person does not cling to what is seen, heard, or conceived.`,
+    source: "Sutta Nipata",
+    tags: ["stillness"]
+  },
+  {
+    number: 1940,
+    text: `Clouds can be stormy, heavy, beautiful, or terrifying. 
+The sky does not care. 
+This is not indifference, but simply its nature: to leave no trace.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1941,
+    text: `Untouchedness does not need to be acted out. 
+If you try to look imperturbable, someone is still affected. 
+Simply observe where the blow lands.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1942,
+    text: `Weapons cannot cut it, fire cannot burn it, water cannot wet it, wind cannot dry it.`,
+    source: "Bhagavad Gita, II.23",
+    tags: ["stillness"]
+  },
+  {
+    number: 1943,
+    text: `A problem arrives looking for someone to latch onto. 
+Only the «I» has a hook. 
+No «I» means no hook, and the problem wanders off with mild bewilderment.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1944,
+    text: `Be like the promontory against which the waves continually break, but it stands firm and tames the fury of the water around it.`,
+    source: "Marcus Aurelius, Meditations, IV.49",
+    tags: ["stillness"]
+  },
+  {
+    number: 1945,
+    text: `You can be fully immersed in life and yet remain completely untouched. 
+These are not two states, but one. 
+The screen does not hide from the movie.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1946,
+    text: `Men are disturbed not by things, but by the views which they take of things.`,
+    source: "Epictetus",
+    tags: ["stillness"]
+  },
+  {
+    number: 1947,
+    text: `Good does not make you purer. 
+Bad does not make you dirtier. 
+A mirror does not get stained by what is reflected in it.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1948,
+    text: `The consummate person is not burned by fire that scorches the great swamps, nor chilled by the cold that freezes the rivers.`,
+    source: "Zhuangzi",
+    tags: ["stillness"]
+  },
+  {
+    number: 1949,
+    text: `Untouchedness begins with small things. 
+A traffic jam, cold coffee, someone else's opinion. 
+Watch how the mind tries to take offense, and do not let it finish its sentence.`,
+    source: null,
+    tags: ["stillness"]
   }
 ];

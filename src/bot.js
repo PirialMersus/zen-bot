@@ -19,6 +19,7 @@ import { handleStart, handleHelp } from './handlers/menu.js';
 import { handleUnknownMessage, handleFallbackCreateReminder } from './handlers/fallback.js';
 import {
   handleNextPointer,
+  handlePrevPointer,
   handlePointersMenu,
   handleRandomPointer,
   handleFavoritePointer,
@@ -90,15 +91,13 @@ export const registerBotCommands = async (targetBot) => {
     await targetBot.telegram.setMyCommands([
       { command: 'start', description: 'Запустить бота / Главное меню' },
       { command: 'help', description: 'Справка и возможности' },
-      { command: 'f', description: 'Поиск указателей по автору или фразе' },
-      { command: 'cancel', description: 'Отмена текущего действия' }
+      { command: 'find', description: 'Поиск указателей по автору или фразе' }
     ]);
     await targetBot.telegram.setMyCommands(
       [
         { command: 'start', description: 'Start the bot / Main menu' },
         { command: 'help', description: 'Help and features' },
-        { command: 'f', description: 'Search pointers by author or phrase' },
-        { command: 'cancel', description: 'Cancel current action' }
+        { command: 'find', description: 'Search pointers by author or phrase' }
       ],
       { language_code: 'en' }
     );
@@ -106,8 +105,7 @@ export const registerBotCommands = async (targetBot) => {
       [
         { command: 'start', description: 'Запустити бота / Головне меню' },
         { command: 'help', description: 'Довідка та можливості' },
-        { command: 'f', description: 'Пошук вказівників за автором або фразою' },
-        { command: 'cancel', description: 'Скасувати поточну дію' }
+        { command: 'find', description: 'Пошук вказівників за автором або фразою' }
       ],
       { language_code: 'uk' }
     );
@@ -115,8 +113,7 @@ export const registerBotCommands = async (targetBot) => {
       [
         { command: 'start', description: 'Iniciar el bot / Menú principal' },
         { command: 'help', description: 'Ayuda y características' },
-        { command: 'f', description: 'Buscar punteros por autor o frase' },
-        { command: 'cancel', description: 'Cancelar acción actual' }
+        { command: 'find', description: 'Buscar punteros por autor o frase' }
       ],
       { language_code: 'es' }
     );
@@ -132,6 +129,7 @@ bot.command('getcode', handleGetAuthCode);
 bot.action('get_auth_code', handleGetAuthCode);
 
 bot.action('fallback:create_reminder', handleFallbackCreateReminder);
+bot.action(/^pointer:prev/, handlePrevPointer);
 bot.action(/^pointer:next/, handleNextPointer);
 bot.action('pointer:to_reminder', handlePointerToReminder);
 bot.action(/^pointer:fav_toggle/, handleToggleFavoritePointer);
@@ -195,6 +193,7 @@ bot.action('settings:back', async (ctx) => {
 bot.command('cancel', handleCancel);
 bot.hears([...getButtonVariants('BACK'), ...getUiVariants('POINTER_TO_MENU')], handleBack);
 bot.hears(getButtonVariants('CANCEL'), handleCancel);
+bot.hears(getUiVariants('POINTER_PREV'), handlePrevPointer);
 bot.hears(getUiVariants('POINTER_NEXT'), handleNextPointer);
 bot.hears(getUiVariants('POINTER_TO_REMINDER'), handlePointerToReminder);
 bot.hears(getUiVariants('ADMIN_ACTIVE_USERS'), handleAdminActiveUsers);
@@ -207,8 +206,8 @@ bot.hears(
 );
 bot.hears(/^\/p(?:ointer)?(?:_(?:en|ru|uk|es))?\s+\d+$/i, handleAdminGetPointerByNumber);
 
-bot.command('f', handleSearchPointers);
-bot.hears(/^\/f(?:_(?:en|ru|uk|es))?(?:\s+.*)?$/i, handleSearchPointers);
+bot.command(['find', 'f'], handleSearchPointers);
+bot.hears(/^\/(?:find|f)(?:_(?:en|ru|uk|es))?(?:\s+.*)?$/i, handleSearchPointers);
 bot.action('search:more', handleSearchMorePointers);
 
 bot.hears(getButtonVariants('SUPPORT'), async (ctx) => {

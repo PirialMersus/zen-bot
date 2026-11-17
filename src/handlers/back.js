@@ -12,6 +12,10 @@ export const handleBack = async (ctx) => {
   const texts = getTexts(userLanguage);
 
   if (!step) {
+    ctx.session.pointerHistory = null;
+    ctx.session.pointerHistoryIndex = null;
+    ctx.session.favoriteHistory = null;
+    ctx.session.favoriteHistoryIndex = null;
     await ctx.reply(texts.MENU.MAIN, mainKeyboard(ctx, userLanguage));
     return;
   }
@@ -42,6 +46,10 @@ export const handleCancel = async (ctx) => {
   ctx.session.reminderStep = null;
   ctx.session.feedbackAwaiting = false;
   ctx.session.adminBroadcastStep = null;
+  ctx.session.pointerHistory = null;
+  ctx.session.pointerHistoryIndex = null;
+  ctx.session.favoriteHistory = null;
+  ctx.session.favoriteHistoryIndex = null;
 
   const userLanguage = await resolveUserLanguage(ctx);
   const texts = getTexts(userLanguage);
