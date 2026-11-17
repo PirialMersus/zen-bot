@@ -90,24 +90,25 @@ router.post('/verify', async (req, res) => {
       return res.status(400).json({ message: 'Код обязателен и должен быть непустой строкой' });
     }
 
+    const telegramIdNumber = Number(telegramId);
+    if (!Number.isSafeInteger(telegramIdNumber) || telegramIdNumber <= 0) {
+      return res
+        .status(400)
+        .json({ message: 'telegramId обязателен и должен быть положительным числом' });
+    }
+
+    if (!isRequestWithinRateLimit(`auth_verify_tg:${telegramIdNumber}`, 5, 5 * 60 * 1000)) {
+      return res.status(429).json({
+        message:
+          'Слишком много попыток ввода кода для этого аккаунта. Пожалуйста, подожди 5 минут.'
+      });
+    }
+
     const verificationQuery = {
+      telegramId: telegramIdNumber,
       authCode: code.toUpperCase(),
       authCodeExpiresAt: { $gt: new Date() }
     };
-
-    if (telegramId !== undefined && telegramId !== null) {
-      const telegramIdNumber = Number(telegramId);
-      if (!Number.isSafeInteger(telegramIdNumber) || telegramIdNumber <= 0) {
-        return res.status(400).json({ message: 'telegramId должен быть положительным числом' });
-      }
-      if (!isRequestWithinRateLimit(`auth_verify_tg:${telegramIdNumber}`, 5, 5 * 60 * 1000)) {
-        return res.status(429).json({
-          message:
-            'Слишком много попыток ввода кода для этого аккаунта. Пожалуйста, подожди 5 минут.'
-        });
-      }
-      verificationQuery.telegramId = telegramIdNumber;
-    }
 
     const user = await User.findOne(verificationQuery);
 

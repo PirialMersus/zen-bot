@@ -30,17 +30,6 @@ const getPushTitle = (language) => {
   return pushTitles[language] || pushTitles.ru;
 };
 
-const getAutoDeleteFooter = (deleteAfterSeconds, language) => {
-  if (!deleteAfterSeconds) return '';
-  const footers = {
-    en: `\n\n<i>(auto-delete in ${deleteAfterSeconds} sec)</i>`,
-    uk: `\n\n<i>(автовидалення через ${deleteAfterSeconds} сек)</i>`,
-    es: `\n\n<i>(autoeliminación en ${deleteAfterSeconds} seg)</i>`,
-    ru: `\n\n<i>(автоудаление через ${deleteAfterSeconds} сек)</i>`
-  };
-  return footers[language] || footers.ru;
-};
-
 const getMediaFallbackCaption = (mediaType, language) => {
   const fallbackCaptions = {
     photo: {
@@ -106,20 +95,12 @@ export const deliverReminder = async ({
 }) => {
   const isPointerMessage = Boolean(currentPointer);
   const deleteAfterSeconds = getDeleteAfterSeconds(reminder);
-  const footer =
-    deleteAfterSeconds && !isPointerMessage
-      ? getAutoDeleteFooter(deleteAfterSeconds, userLanguage)
-      : '';
 
   const useApp = user?.notificationChannel === 'app' && user?.pushTokens?.length > 0;
   const pushTitle = getPushTitle(userLanguage);
 
   if (reminder.photoFileId) {
-    const photoCaption = reminder.caption
-      ? `${escapeHtml(reminder.caption)}${footer}`
-      : footer
-        ? footer.trim()
-        : '';
+    const photoCaption = reminder.caption ? escapeHtml(reminder.caption) : '';
     if (useApp) {
       const fallbackCaption = getMediaFallbackCaption('photo', userLanguage);
       await sendPushNotification(
@@ -142,11 +123,7 @@ export const deliverReminder = async ({
   }
 
   if (reminder.videoFileId) {
-    const videoCaption = reminder.caption
-      ? `${escapeHtml(reminder.caption)}${footer}`
-      : footer
-        ? footer.trim()
-        : '';
+    const videoCaption = reminder.caption ? escapeHtml(reminder.caption) : '';
     if (useApp) {
       const fallbackCaption = getMediaFallbackCaption('video', userLanguage);
       await sendPushNotification(
@@ -197,7 +174,7 @@ export const deliverReminder = async ({
 
   const sentMessage = await bot.telegram.sendMessage(
     reminder.chatId,
-    escapeHtml(messageText) + footer,
+    escapeHtml(messageText),
     {
       parse_mode: 'HTML',
       ...(keepKeyboard || {})

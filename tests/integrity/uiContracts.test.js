@@ -49,7 +49,7 @@ describe('Контракты пользовательского интерфей
       const anchorMessageText = firstCallArgs[0];
       const anchorKeyboardOptions = firstCallArgs[1];
 
-      expect(anchorMessageText).toContain('Указатели');
+      expect(anchorMessageText).toBe('🪷');
       expect(anchorKeyboardOptions).toBeDefined();
       expect(anchorKeyboardOptions.reply_markup).toBeDefined();
       expect(anchorKeyboardOptions.reply_markup.keyboard).toBeDefined();

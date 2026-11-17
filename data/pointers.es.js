@@ -8676,7 +8676,7 @@ Nota la absoluta imposibilidad de ello.`,
   },
   {
     number: 1246,
-    text: ` aquello que temes y de lo que teblindas te alcanzará inevitablemente.`,
+    text: `Aquello que temes y de lo que te blindas te alcanzará inevitablemente.`,
     source: "Amu Mom",
     tags: ["sabiduría"]
   },
@@ -10709,145 +10709,145 @@ Elige ahora mismo.`,
   },
   {
     number: 1571,
-    text: "Donde hay paz y meditación, no hay ansiedad ni duda.",
+    text: `Donde hay paz y meditación, no hay ansiedad ni duda.`,
     source: "Paramahansa Yogananda",
     tags: ["silencio"]
   },
   {
     number: 1572,
-    text: "La felicidad, el amor, tu estado interior: todo está en tus manos. Tú tienes la llave de todo.",
+    text: `La felicidad, el amor, tu estado interior: todo está en tus manos. Tú tienes la llave de todo.`,
     source: "Anar (Anar Dreams)",
     tags: ["silencio"]
   },
   {
     number: 1573,
-    text: "El Dharma (la suprema ley espiritual y el camino de la verdad) vive ante todo en las personas que le consagran su vida.",
+    text: `El Dharma (la suprema ley espiritual y el camino de la verdad) vive ante todo en las personas que le consagran su vida.`,
     source: "Swami Vishnudevananda Giri",
     tags: ["silencio"]
   },
   {
     number: 1574,
-    text: "Levántate, despierta y no te detengas hasta alcanzar la meta.",
+    text: `Levántate, despierta y no te detengas hasta alcanzar la meta.`,
     source: "Swami Vivekananda",
     tags: ["silencio"]
   },
   {
     number: 1575,
-    text: "Paz, más paz, cada vez más paz: el fundamento de toda vida espiritual.",
+    text: `Paz, más paz, cada vez más paz: el fundamento de toda vida espiritual.`,
     source: "Sri Aurobindo",
     tags: ["silencio"]
   },
   {
     number: 1576,
-    text: "El bienestar interior es una elección, no una consecuencia de las circunstancias.",
+    text: `El bienestar interior es una elección, no una consecuencia de las circunstancias.`,
     source: "Sadhguru",
     tags: ["silencio"]
   },
   {
     number: 1577,
-    text: "Todo lo que somos es el resultado de lo que hemos pensado.",
+    text: `Todo lo que somos es el resultado de lo que hemos pensado.`,
     source: "El Buda",
     tags: ["silencio"]
   },
   {
     number: 1578,
-    text: "No hay camino hacia la felicidad: la felicidad es el camino.",
+    text: `No hay camino hacia la felicidad: la felicidad es el camino.`,
     source: "Thich Nhat Hanh",
     tags: ["silencio"]
   },
   {
     number: 1579,
-    text: "La naturaleza de la mente es como el cielo claro: las nubes vienen y van, pero el cielo permanece.",
+    text: `La naturaleza de la mente es como el cielo claro: las nubes vienen y van, pero el cielo permanece.`,
     source: "Dilgo Khyentse Rinpoche",
     tags: ["silencio"]
   },
   {
     number: 1580,
-    text: "El camino espiritual no consiste en trabajar en uno mismo, sino en disolver la ilusión del yo.",
+    text: `El camino espiritual no consiste en trabajar en uno mismo, sino en disolver la ilusión del yo.`,
     source: "Chogyam Trungpa",
     tags: ["silencio"]
   },
   {
     number: 1581,
-    text: "La capacidad de observar sin evaluar es la forma más elevada de inteligencia.",
+    text: `La capacidad de observar sin evaluar es la forma más elevada de inteligencia.`,
     source: "Jiddu Krishnamurti",
     tags: ["silencio"]
   },
   {
     number: 1582,
-    text: "Sé realista: planifica un milagro.",
+    text: `Sé realista: planifica un milagro.`,
     source: "Osho",
     tags: ["silencio"]
   },
   {
     number: 1583,
-    text: "Guarda silencio, o di algo que sea mejor que el silencio.",
+    text: `Guarda silencio, o di algo que sea mejor que el silencio.`,
     source: "Pitágoras",
     tags: ["silencio"]
   },
   {
     number: 1584,
-    text: "El yoga es 99% práctica y 1% teoría.",
+    text: `El yoga es 99% práctica y 1% teoría.`,
     source: "K. Pattabhi Jois",
     tags: ["silencio"]
   },
   {
     number: 1585,
-    text: "Cada instante justo ahora no es otra cosa que nuestra vida, nuestra práctica, nuestro despertar.",
+    text: `Cada instante justo ahora no es otra cosa que nuestra vida, nuestra práctica, nuestro despertar.`,
     source: "Taizan Maezumi",
     tags: ["silencio"]
   },
   {
     number: 1586,
-    text: "No son las apariencias las que te atan, sino el apego a ellas; córtalo, Naropa.",
+    text: `No son las apariencias las que te atan, sino el apego a ellas; córtalo, Naropa.`,
     source: "Tilopa",
     tags: ["silencio"]
   },
   {
     number: 1587,
-    text: "Los seres encarnados están fuertemente atados por el anhelo de existencia; por tanto, cultiva primero la renuncia.",
+    text: `Los seres encarnados están fuertemente atados por el anhelo de existencia; por tanto, cultiva primero la renuncia.`,
     source: "Je Tsongkhapa",
     tags: ["silencio"]
   },
   {
     number: 1588,
-    text: "Todo el camino de la atención plena consiste simplemente en ser consciente de lo que estás haciendo.",
+    text: `Todo el camino de la atención plena consiste simplemente en ser consciente de lo que estás haciendo.`,
     source: "Dipa Ma",
     tags: ["silencio"]
   },
   {
     number: 1589,
-    text: "Tu vida se llena de todo aquello en lo que enfocas tu atención.",
+    text: `Tu vida se llena de todo aquello en lo que enfocas tu atención.`,
     source: "Vadim Zeland",
     tags: ["silencio"]
   },
   {
     number: 1590,
-    text: "Para los principiantes, lo más importante es la diligencia.",
+    text: `Para los principiantes, lo más importante es la diligencia.`,
     source: "Chokyi Nyima Rinpoche",
     tags: ["silencio"]
   },
   {
     number: 1591,
-    text: "Da un paso fuera de ti mismo, para que así puedas alcanzar a Dios.",
+    text: `Da un paso fuera de ti mismo, para que así puedas alcanzar a Dios.`,
     source: "Abu Sa'id Abu'l-Khayr",
     tags: ["silencio"]
   },
   {
     number: 1592,
-    text: "El corazón con Dios y las manos en el trabajo.",
+    text: `El corazón con Dios y las manos en el trabajo.`,
     source: "Baha-ud-Din Naqshband",
     tags: ["silencio"]
   },
   {
     number: 1593,
-    text: "La raíz primordial de la persona verdadera es la vigilia sin sueño.",
+    text: `La raíz primordial de la persona verdadera es la vigilia sin sueño.`,
     source: "Chen Tuan",
     tags: ["silencio"]
   },
   {
     number: 1594,
-    text: "El trabajo de este momento es la atención, el darse cuenta, la presencia.",
+    text: `El trabajo de este momento es la atención, el darse cuenta, la presencia.`,
     source: "Toni Packer",
     tags: ["silencio"]
   },
@@ -13131,8 +13131,8 @@ Detente ahora.`,
   },
   {
     number: 1905,
-    text: `La práctica y la iluminación son una sola cosa.`,
-    source: "Dogen",
+    text: `No te rindas. Sufre ahora y vive el resto de tu vida como un campeón.`,
+    source: "Muhammad Ali",
     tags: ["silencio"]
   },
   {
@@ -13437,6 +13437,72 @@ Un espejo no se mancha con lo que en él se refleja.`,
     text: `La imperturbabilidad comienza con las pequeñeces. 
 Un atasco de tráfico, un café frío, la opinión ajena. 
 Observa cómo la mente intenta ofenderse y no la dejes terminar la frase.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1950,
+    text: `El éxito no es un accidente. Es trabajo duro, perseverancia y amor por lo que haces.`,
+    source: "Pelé",
+    tags: ["silencio"]
+  },
+  {
+    number: 1951,
+    text: `No es la montaña lo que conquistamos, sino a nosotros mismos.`,
+    source: "Edmund Hillary",
+    tags: ["silencio"]
+  },
+  {
+    number: 1952,
+    text: `El mejor entrenamiento es aquel al que no querías ir. Sales de él siendo una persona diferente.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1953,
+    text: `La fuerza no crece en el gimnasio, sino en el momento exacto en que quieres abandonar. Con la práctica ocurre lo mismo.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1954,
+    text: `El dolor de la disciplina pesa gramos. El dolor del arrepentimiento pesa toneladas.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1955,
+    text: `Nadie recordará lo difícil que fue para ti. Pero tú sabrás en quién te convertiste al superarlo.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1956,
+    text: `No llegas tarde. Estás justo donde te detuviste. Cualquier día es el día de partida.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1957,
+    text: `La inspiración es un huésped que llega cuando el trabajo ya ha comenzado. Empieza sin ella.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1958,
+    text: `Estar cansado significa que estás en la frontera. La frontera es el lugar más fascinante del mapa.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1959,
+    text: `Los campeones no están más motivados que tú. Simplemente se levantaron más a menudo cuando no tenían ganas.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1960,
+    text: `El que hoy no tiene ganas y el que mañana te dará las gracias son la misma persona. Decide a quién estás ayudando.`,
     source: null,
     tags: ["silencio"]
   }

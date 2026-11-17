@@ -669,7 +669,7 @@ Awakening is experiencing reality from the perspective of reality as a whole —
   {
     number: 60,
     text: `The only measure of life is the amount of joy in each moment.
-Want to write a book? Write it and make your plans, but measure your progress not by how many plans you fulfil, but by how much joy grows.
+Want to write a book? Write it and make your plans, but measure your progress not by how many plans you fulfill, but by how much joy grows.
 Want to make a chart tracking your progress toward success? Do it, if you enjoy it.
 Want to earn money? Figure out how, and measure your path in pounds of joy, right here and now.
 If your plans bring no joy, forget them and look for the path that does.
@@ -2169,13 +2169,13 @@ Real life begins where all comfort ends.`,
   {
     number: 247,
     text: `You want to find God or absolute freedom not because you deeply love truth, but because you cannot cope with ordinary human life.
-You are looking for an indulgence that will excuse your laziness, your fear of responsibility, and your lack of fulfilment.`,
+You are looking for an indulgence that will excuse your laziness, your fear of responsibility, and your lack of fulfillment.`,
     source: "U. G. Krishnamurti",
     tags: ["stillness"]
   },
   {
     number: 248,
-    text: `All this talk about the “illusory nature of the world” and “non-doing” is a favourite refuge for failures.
+    text: `All this talk about the “illusory nature of the world” and “non-doing” is a favorite refuge for failures.
 Instead of admitting their cowardice and getting to work on every front that life demands, people sit in the lotus position and play at being sages to whom nothing matters.`,
     source: "Jed McKenna",
     tags: ["stillness"]
@@ -8544,799 +8544,799 @@ Notice the absolute impossibility of it.`,
   },
   {
     number: 1224,
-    text: "Everything that appears in your life is a reflection of something happening inside you.",
+    text: `Everything that appears in your life is a reflection of something happening inside you.`,
     source: "Amu Mom",
     tags: ["silence"]
   },
   {
     number: 1225,
-    text: "What you think, you feel; what you feel, you radiate; what you radiate, you receive.",
+    text: `What you think, you feel; what you feel, you radiate; what you radiate, you receive.`,
     source: "Amu Mom",
     tags: ["silence"]
   },
   {
     number: 1226,
-    text: "If you lack awareness to stop clinging to negative feelings, there is one effective mantra: there is only this moment, and in this moment there is only light.",
+    text: `If you lack awareness to stop clinging to negative feelings, there is one effective mantra: there is only this moment, and in this moment there is only light.`,
     source: "Amu Mom",
     tags: ["wisdom"]
   },
   {
     number: 1227,
-    text: "One who does not know how to give will not be able to receive: energy always works both ways—inward and outward.",
+    text: `One who does not know how to give will not be able to receive: energy always works both ways—inward and outward.`,
     source: "Amu Mom",
     tags: ["silence"]
   },
   {
     number: 1228,
-    text: "There is no better or worse path—there is only your path, so walk it.",
+    text: `There is no better or worse path—there is only your path, so walk it.`,
     source: "Amu Mom",
     tags: ["silence"]
   },
   {
     number: 1229,
-    text: "If you have learned not to take offense, it means you have learned to look into the heart of another.",
+    text: `If you have learned not to take offense, it means you have learned to look into the heart of another.`,
     source: "Amu Mom",
     tags: ["silence"]
   },
   {
     number: 1230,
-    text: "One day you will realize that your true greatness begins where your pride ends.",
+    text: `One day you will realize that your true greatness begins where your pride ends.`,
     source: "Amu Mom",
     tags: ["silence"]
   },
   {
     number: 1231,
-    text: "Of all the arts worth learning, one of the greatest is the art of listening.",
+    text: `Of all the arts worth learning, one of the greatest is the art of listening.`,
     source: "Amu Mom",
     tags: ["silence"]
   },
   {
     number: 1232,
-    text: "Let the mind be quietly attentive; remain unattached, but listen as if you are hearing God.",
+    text: `Let the mind be quietly attentive; remain unattached, but listen as if you are hearing God.`,
     source: "Amu Mom",
     tags: ["silence"]
   },
   {
     number: 1233,
-    text: "Diseases are the body's reflection of a distortion in consciousness; a disease leaves when the distortion is corrected.",
+    text: `Diseases are the body's reflection of a distortion in consciousness; a disease leaves when the distortion is corrected.`,
     source: "Amu Mom",
     tags: ["silence"]
   },
   {
     number: 1234,
-    text: "You have no enemies outside—my enemy is an angel sent to reveal the enemy within myself.",
+    text: `You have no enemies outside—my enemy is an angel sent to reveal the enemy within myself.`,
     source: "Amu Mom",
     tags: ["wisdom"]
   },
   {
     number: 1235,
-    text: "Darkness breeds foolishness: do not rush, let what is happening reveal wisdom to you.",
+    text: `Darkness breeds foolishness: do not rush, let what is happening reveal wisdom to you.`,
     source: "Amu Mom",
     tags: ["silence"]
   },
   {
     number: 1236,
-    text: "Avoid extremes if you want to maintain balance. You are alive only to the extent that you are flexible.",
+    text: `Avoid extremes if you want to maintain balance. You are alive only to the extent that you are flexible.`,
     source: "Amu Mom",
     tags: ["wisdom"]
   },
   {
     number: 1237,
-    text: "Whatever you look at most, you eventually become.",
+    text: `Whatever you look at most, you eventually become.`,
     source: "Amu Mom",
     tags: ["silence"]
   },
   {
     number: 1238,
-    text: "If people looked with their hearts instead of their eyes, they would see a longing for love in anyone.",
+    text: `If people looked with their hearts instead of their eyes, they would see a longing for love in anyone.`,
     source: "Amu Mom",
     tags: ["wisdom"]
   },
   {
     number: 1239,
-    text: "Any interaction with life where you are not yourself leads to collapse and loss of power.",
+    text: `Any interaction with life where you are not yourself leads to collapse and loss of power.`,
     source: "Amu Mom",
     tags: ["wisdom"]
   },
   {
     number: 1240,
-    text: "Whatever you attune yourself to, that is how you will sound.",
+    text: `Whatever you attune yourself to, that is how you will sound.`,
     source: "Amu Mom",
     tags: ["silence"]
   },
   {
     number: 1241,
-    text: "Forgetting the bad means letting in the good; it is never too late to take a step in a different direction.",
+    text: `Forgetting the bad means letting in the good; it is never too late to take a step in a different direction.`,
     source: "Amu Mom",
     tags: ["silence"]
   },
   {
     number: 1242,
-    text: "Ask yourself: does what I am doing bring joy and lightness to my soul? If not, look for the mistake.",
+    text: `Ask yourself: does what I am doing bring joy and lightness to my soul? If not, look for the mistake.`,
     source: "Amu Mom",
     tags: ["silence"]
   },
   {
     number: 1243,
-    text: "The walls of your mind are the boundaries of your world.",
+    text: `The walls of your mind are the boundaries of your world.`,
     source: "Amu Mom",
     tags: ["silence"]
   },
   {
     number: 1244,
-    text: "The search for oneself is the search for an image. You already exist, so what are you looking for?",
+    text: `The search for oneself is the search for an image. You already exist, so what are you looking for?`,
     source: "Amu Mom",
     tags: ["wisdom"]
   },
   {
     number: 1245,
-    text: "As long as you believe that another person is obligated to meet your expectations, your own resources remain untapped.",
+    text: `As long as you believe that another person is obligated to meet your expectations, your own resources remain untapped.`,
     source: "Amu Mom",
     tags: ["wisdom"]
   },
   {
     number: 1246,
-    text: "What you fear and shield yourself from will inevitably catch up with you.",
+    text: `What you fear and shield yourself from will inevitably catch up with you.`,
     source: "Amu Mom",
     tags: ["wisdom"]
   },
   {
     number: 1247,
-    text: "Trust the inner silence: this alone will be enough to keep walking without losing your way.",
+    text: `Trust the inner silence: this alone will be enough to keep walking without losing your way.`,
     source: "Amu Mom",
     tags: ["silence"]
   },
   {
     number: 1248,
-    text: "If you cannot forgive someone, it means you have not yet forgiven yourself.",
+    text: `If you cannot forgive someone, it means you have not yet forgiven yourself.`,
     source: "Amu Mom",
     tags: ["wisdom"]
   },
   {
     number: 1249,
-    text: "A minute of reconciliation is worth more than a thousand years of fighting for the truth.",
+    text: `A minute of reconciliation is worth more than a thousand years of fighting for the truth.`,
     source: "Amu Mom",
     tags: ["wisdom"]
   },
   {
     number: 1250,
-    text: "There is no human without depth, and no depth without darkness; one who exposes darkness in another exposes it in themselves.",
+    text: `There is no human without depth, and no depth without darkness; one who exposes darkness in another exposes it in themselves.`,
     source: "Amu Mom",
     tags: ["wisdom"]
   },
   {
     number: 1251,
-    text: "Filling another with happiness comes from the ability to be filled with happiness alone.",
+    text: `Filling another with happiness comes from the ability to be filled with happiness alone.`,
     source: "Amu Mom",
     tags: ["wisdom"]
   },
   {
     number: 1252,
-    text: "People do not have flaws, people have excesses: cleanse yourself of the superfluous and you will sparkle with purity.",
+    text: `People do not have flaws, people have excesses: cleanse yourself of the superfluous and you will sparkle with purity.`,
     source: "Amu Mom",
     tags: ["wisdom"]
   },
   {
     number: 1253,
-    text: "Truth is always quiet, but its echo is infinite.",
+    text: `Truth is always quiet, but its echo is infinite.`,
     source: "Amu Mom",
     tags: ["silence"]
   },
   {
     number: 1254,
-    text: "Wherever you go, you will only find what you brought with you.",
+    text: `Wherever you go, you will only find what you brought with you.`,
     source: "Amu Mom",
     tags: ["wisdom"]
   },
   {
     number: 1255,
-    text: "Wishing for the wind of change, do not complain about broken branches.",
+    text: `Wishing for the wind of change, do not complain about broken branches.`,
     source: "Amu Mom",
     tags: ["wisdom"]
   },
   {
     number: 1256,
-    text: "Your mind is what creates your heaven, and your mind creates hell—the mind creates EVERYTHING.",
+    text: `Your mind is what creates your heaven, and your mind creates hell—the mind creates EVERYTHING.`,
     source: "Amu Mom",
     tags: ["wisdom"]
   },
   {
     number: 1257,
-    text: "There are no forgiven and no forgivers; to accept this fact, it is enough to realize that nothing happens without a higher intelligence's design.",
+    text: `There are no forgiven and no forgivers; to accept this fact, it is enough to realize that nothing happens without a higher intelligence's design.`,
     source: "Amu Mom",
     tags: ["wisdom"]
   },
   {
     number: 1258,
-    text: "Looking into another's eyes, you are looking into your own: in no place and in no thing will you see what is not inside you.",
+    text: `Looking into another's eyes, you are looking into your own: in no place and in no thing will you see what is not inside you.`,
     source: "Amu Mom",
     tags: ["wisdom"]
   },
   {
     number: 1259,
-    text: "No one can offend you without your consent, because the cause of offense is thoughts, and they are solely in your power.",
+    text: `No one can offend you without your consent, because the cause of offense is thoughts, and they are solely in your power.`,
     source: "Amu Mom",
     tags: ["silence"]
   },
   {
     number: 1260,
-    text: "Happiness cannot exist outside of you; like any feeling, it lives only within.",
+    text: `Happiness cannot exist outside of you; like any feeling, it lives only within.`,
     source: "Amu Mom",
     tags: ["silence"]
   },
   {
     number: 1261,
-    text: "Your suffering is caused by your resistance; by saying 'yes' to the universe, you will receive the key to its treasures.",
+    text: `Your suffering is caused by your resistance; by saying 'yes' to the universe, you will receive the key to its treasures.`,
     source: "Amu Mom",
     tags: ["silence"]
   },
   {
     number: 1262,
-    text: "The world loves you, otherwise you would not have appeared.",
+    text: `The world loves you, otherwise you would not have appeared.`,
     source: "Amu Mom",
     tags: ["silence"]
   },
   {
     number: 1263,
-    text: "Do not judge by what is said—words are merely emotions and moods.",
+    text: `Do not judge by what is said—words are merely emotions and moods.`,
     source: "Amu Mom",
     tags: ["wisdom"]
   },
   {
     number: 1264,
-    text: "At the start of a relationship, many think total happiness lies ahead; love is like a plant: it either grows and blooms, or it fades.",
+    text: `At the start of a relationship, many think total happiness lies ahead; love is like a plant: it either grows and blooms, or it fades.`,
     source: "Amu Mom",
     tags: ["wisdom"]
   },
   {
     number: 1265,
-    text: "Everything that causes fear and judgment must be healed, but not in another—in yourself.",
+    text: `Everything that causes fear and judgment must be healed, but not in another—in yourself.`,
     source: "Amu Mom",
     tags: ["silence"]
   },
   {
     number: 1266,
-    text: "If you are feeling bad, do not ask yourself when it will end; ask yourself why you are doing this to your life.",
+    text: `If you are feeling bad, do not ask yourself when it will end; ask yourself why you are doing this to your life.`,
     source: "Amu Mom",
     tags: ["silence"]
   },
   {
     number: 1267,
-    text: "One who does not master oneself will try to master others, receiving illusory peace.",
+    text: `One who does not master oneself will try to master others, receiving illusory peace.`,
     source: "Amu Mom",
     tags: ["wisdom"]
   },
   {
     number: 1268,
-    text: "Observe your thoughts: what you think about takes shape, and what you ponder upon, you embody.",
+    text: `Observe your thoughts: what you think about takes shape, and what you ponder upon, you embody.`,
     source: "Amu Mom",
     tags: ["silence"]
   },
   {
     number: 1269,
-    text: "Do not fear what tomorrow brings—out of your love today, love it as it comes.",
+    text: `Do not fear what tomorrow brings—out of your love today, love it as it comes.`,
     source: "Amu Mom",
     tags: ["wisdom"]
   },
   {
     number: 1270,
-    text: "Never despair: whatever happens, you just need to take a step, and then another step.",
+    text: `Never despair: whatever happens, you just need to take a step, and then another step.`,
     source: "Amu Mom",
     tags: ["silence"]
   },
   {
     number: 1271,
-    text: "A thought is living energy; be careful with it when it slips out of your mind.",
+    text: `A thought is living energy; be careful with it when it slips out of your mind.`,
     source: "Amu Mom",
     tags: ["silence"]
   },
   {
     number: 1272,
-    text: "Your life is your personal development, not a service to external objects.",
+    text: `Your life is your personal development, not a service to external objects.`,
     source: "Amu Mom",
     tags: ["silence"]
   },
   {
     number: 1273,
-    text: "Do not demand or expect others to be similar to you: there are different worlds of people, differing in their levels of experience and consciousness.",
+    text: `Do not demand or expect others to be similar to you: there are different worlds of people, differing in their levels of experience and consciousness.`,
     source: "Amu Mom",
     tags: ["wisdom"]
   },
   {
     number: 1274,
-    text: "What you are truly ready for, you will certainly receive; you do not always get what you want, but you will surely get what you are prepared for.",
+    text: `What you are truly ready for, you will certainly receive; you do not always get what you want, but you will surely get what you are prepared for.`,
     source: "Amu Mom",
     tags: ["wisdom"]
   },
   {
     number: 1275,
-    text: "Heaven does not condemn us to suffering so that we live through pain, but so that, having passed through it, we find heaven within ourselves.",
+    text: `Heaven does not condemn us to suffering so that we live through pain, but so that, having passed through it, we find heaven within ourselves.`,
     source: "Amu Mom",
     tags: ["wisdom"]
   },
   {
     number: 1276,
-    text: "There is no limit to growth: a master is always a student; thinking that you have achieved mastery in anything means to regress.",
+    text: `There is no limit to growth: a master is always a student; thinking that you have achieved mastery in anything means to regress.`,
     source: "Amu Mom",
     tags: ["silence"]
   },
   {
     number: 1277,
-    text: "Do not dig into other people's lives: everyone has their own lessons.",
+    text: `Do not dig into other people's lives: everyone has their own lessons.`,
     source: "Amu Mom",
     tags: ["wisdom"]
   },
   {
     number: 1278,
-    text: "The art of knowing much is the ability to pay attention to the moment.",
+    text: `The art of knowing much is the ability to pay attention to the moment.`,
     source: "Amu Mom",
     tags: ["silence"]
   },
   {
     number: 1279,
-    text: "Everything said by any person is only one temporary facet of the ever-changing truth, but not a dogma.",
+    text: `Everything said by any person is only one temporary facet of the ever-changing truth, but not a dogma.`,
     source: "Amu Mom",
     tags: ["wisdom"]
   },
   {
     number: 1280,
-    text: "Do not fixate on anyone's words, not even your own; let yourself flow like subtitles, just as the energy of life flows.",
+    text: `Do not fixate on anyone's words, not even your own; let yourself flow like subtitles, just as the energy of life flows.`,
     source: "Amu Mom",
     tags: ["wisdom"]
   },
   {
     number: 1281,
-    text: "Until you accept yourself, you will keep searching for someone else.",
+    text: `Until you accept yourself, you will keep searching for someone else.`,
     source: "Amu Mom",
     tags: ["wisdom"]
   },
   {
     number: 1282,
-    text: "Without emptying the vessel, you cannot fill it anew; a mind overflowing with anger and pain will not hold peace.",
+    text: `Without emptying the vessel, you cannot fill it anew; a mind overflowing with anger and pain will not hold peace.`,
     source: "Amu Mom",
     tags: ["wisdom"]
   },
   {
     number: 1283,
-    text: "Do not choose condemnation as a defense against what you do not understand.",
+    text: `Do not choose condemnation as a defense against what you do not understand.`,
     source: "Amu Mom",
     tags: ["wisdom"]
   },
   {
     number: 1284,
-    text: "When your mind is not darkened by resentment and envy, that in itself is the best defense against poison that destroys body and soul.",
+    text: `When your mind is not darkened by resentment and envy, that in itself is the best defense against poison that destroys body and soul.`,
     source: "Amu Mom",
     tags: ["wisdom"]
   },
   {
     number: 1285,
-    text: "Acceptance serves as an antidote to all fears.",
+    text: `Acceptance serves as an antidote to all fears.`,
     source: "Amu Mom",
     tags: ["silence"]
   },
   {
     number: 1286,
-    text: "In nature, no living creature tries to control the course of events: flowers bloom in due time, trees bear fruit, birds sing.",
+    text: `In nature, no living creature tries to control the course of events: flowers bloom in due time, trees bear fruit, birds sing.`,
     source: "Amu Mom",
     tags: ["silence"]
   },
   {
     number: 1287,
-    text: "There are no dark or light feelings—there is only an inability to use them.",
+    text: `There are no dark or light feelings—there is only an inability to use them.`,
     source: "Amu Mom",
     tags: ["silence"]
   },
   {
     number: 1288,
-    text: "When the noise of judgments subsides, truth opens the door to its home.",
+    text: `When the noise of judgments subsides, truth opens the door to its home.`,
     source: "Amu Mom",
     tags: ["silence"]
   },
   {
     number: 1289,
-    text: "The truth is that the fear of being left alone is an illusion.",
+    text: `The truth is that the fear of being left alone is an illusion.`,
     source: "Amu Mom",
     tags: ["wisdom"]
   },
   {
     number: 1290,
-    text: "The pain of the inevitable comes not from the inevitability itself, but from resistance to it.",
+    text: `The pain of the inevitable comes not from the inevitability itself, but from resistance to it.`,
     source: "Amu Mom",
     tags: ["wisdom"]
   },
   {
     number: 1291,
-    text: "Give yourself the right to be yourself: if you allow yourself this, the need to conform will disappear.",
+    text: `Give yourself the right to be yourself: if you allow yourself this, the need to conform will disappear.`,
     source: "Amu Mom",
     tags: ["wisdom"]
   },
   {
     number: 1292,
-    text: "No one chops wood that has already been chopped; it is the same with the past when you worry about what has already gone.",
+    text: `No one chops wood that has already been chopped; it is the same with the past when you worry about what has already gone.`,
     source: "Amu Mom",
     tags: ["wisdom"]
   },
   {
     number: 1293,
-    text: "No knowledge will help you acquire what you do not have inside; you are only capable of discovering gifts that are already there.",
+    text: `No knowledge will help you acquire what you do not have inside; you are only capable of discovering gifts that are already there.`,
     source: "Amu Mom",
     tags: ["wisdom"]
   },
   {
     number: 1294,
-    text: "There is no 'later', everything always repeats 'right now': right now I can, right now I live, right now I love.",
+    text: `There is no 'later', everything always repeats 'right now': right now I can, right now I live, right now I love.`,
     source: "Amu Mom",
     tags: ["silence"]
   },
   {
     number: 1295,
-    text: "If you want to live in love and peace, do not throw sharp knives of resentment into the walls of your paper house.",
+    text: `If you want to live in love and peace, do not throw sharp knives of resentment into the walls of your paper house.`,
     source: "Amu Mom",
     tags: ["wisdom"]
   },
   {
     number: 1296,
-    text: "Rain is needed today, and sun tomorrow—whether good or bad, what must happen happens.",
+    text: `Rain is needed today, and sun tomorrow—whether good or bad, what must happen happens.`,
     source: "Amu Mom",
     tags: ["wisdom"]
   },
   {
     number: 1297,
-    text: "Darkness enters only through the door that you have opened.",
+    text: `Darkness enters only through the door that you have opened.`,
     source: "Amu Mom",
     tags: ["wisdom"]
   },
   {
     number: 1298,
-    text: "A word can give life and it can kill; the wise will find freedom in it, the foolish will fall into captivity.",
+    text: `A word can give life and it can kill; the wise will find freedom in it, the foolish will fall into captivity.`,
     source: "Amu Mom",
     tags: ["wisdom"]
   },
   {
     number: 1299,
-    text: "Your problem is within you, and your solution is within you as well.",
+    text: `Your problem is within you, and your solution is within you as well.`,
     source: "Amu Mom",
     tags: ["wisdom"]
   },
   {
     number: 1300,
-    text: "All aggression and anger in this world is simply a cry for unreceived love.",
+    text: `All aggression and anger in this world is simply a cry for unreceived love.`,
     source: "Amu Mom",
     tags: ["wisdom"]
   },
   {
     number: 1301,
-    text: "Every soul is given two paths: the first is the path of love, hard at the beginning, but light at the end; the second is the path of hatred, easy at the beginning, but destructive at the end.",
+    text: `Every soul is given two paths: the first is the path of love, hard at the beginning, but light at the end; the second is the path of hatred, easy at the beginning, but destructive at the end.`,
     source: "Amu Mom",
     tags: ["wisdom"]
   },
   {
     number: 1302,
-    text: "Love is a certain style and way of life; cultivate it within yourself gently and carefully.",
+    text: `Love is a certain style and way of life; cultivate it within yourself gently and carefully.`,
     source: "Amu Mom",
     tags: ["wisdom"]
   },
   {
     number: 1303,
-    text: "Your world begins with you.",
+    text: `Your world begins with you.`,
     source: "Amu Mom",
     tags: ["wisdom"]
   },
   {
     number: 1304,
-    text: "When you do not reason about good and evil, you keep your mind in harmony.",
+    text: `When you do not reason about good and evil, you keep your mind in harmony.`,
     source: "Amu Mom",
     tags: ["silence"]
   },
   {
     number: 1305,
-    text: "Wisdom is not about winning a battle while participating in it, but about avoiding war within yourself.",
+    text: `Wisdom is not about winning a battle while participating in it, but about avoiding war within yourself.`,
     source: "Amu Mom",
     tags: ["wisdom"]
   },
   {
     number: 1306,
-    text: "There are many variations of destiny for each person, because every probability of reality has already been created in information fields.",
+    text: `There are many variations of destiny for each person, because every probability of reality has already been created in information fields.`,
     source: "Amu Mom",
     tags: ["wisdom"]
   },
   {
     number: 1307,
-    text: "Learn to give thanks, and not just speak words, but feel from the depths of your heart—gratitude is capable of changing negative vibrations into positive ones.",
+    text: `Learn to give thanks, and not just speak words, but feel from the depths of your heart—gratitude is capable of changing negative vibrations into positive ones.`,
     source: "Amu Mom",
     tags: ["wisdom"]
   },
   {
     number: 1308,
-    text: "If the soul is in love, the mind will find a way to the dream.",
+    text: `If the soul is in love, the mind will find a way to the dream.`,
     source: "Amu Mom",
     tags: ["wisdom"]
   },
   {
     number: 1309,
-    text: "The fewer the words, the deeper the meaning.",
+    text: `The fewer the words, the deeper the meaning.`,
     source: "Amu Mom",
     tags: ["silence"]
   },
   {
     number: 1310,
-    text: "First pass through the confusion of teachings, then comprehend what you have learned, and finally let go of what you have learned.",
+    text: `First pass through the confusion of teachings, then comprehend what you have learned, and finally let go of what you have learned.`,
     source: "Amu Mom",
     tags: ["silence"]
   },
   {
     number: 1311,
-    text: "You already have the knowledge, you just don't feel it yet because your mind makes too much noise.",
+    text: `You already have the knowledge, you just don't feel it yet because your mind makes too much noise.`,
     source: "Amu Mom",
     tags: ["silence"]
   },
   {
     number: 1312,
-    text: "Labels and value judgments with which a person bestows anyone are a mirror of their own mind.",
+    text: `Labels and value judgments with which a person bestows anyone are a mirror of their own mind.`,
     source: "Amu Mom",
     tags: ["wisdom"]
   },
   {
     number: 1313,
-    text: "A minute of silence and gratitude before what awaits you.",
+    text: `A minute of silence and gratitude before what awaits you.`,
     source: "Amu Mom",
     tags: ["silence"]
   },
   {
     number: 1314,
-    text: "Sometimes your own doubts are so loud that you cannot hear the voice of happiness.",
+    text: `Sometimes your own doubts are so loud that you cannot hear the voice of happiness.`,
     source: "Amu Mom",
     tags: ["wisdom"]
   },
   {
     number: 1315,
-    text: "Just as rain washes the earth, tears caused by pain wash your soul—do not resist the rain.",
+    text: `Just as rain washes the earth, tears caused by pain wash your soul—do not resist the rain.`,
     source: "Amu Mom",
     tags: ["wisdom"]
   },
   {
     number: 1316,
-    text: "By tuning your mind, you tune your destiny.",
+    text: `By tuning your mind, you tune your destiny.`,
     source: "Amu Mom",
     tags: ["wisdom"]
   },
   {
     number: 1317,
-    text: "Emotions are tools; it depends on the person whether they create a masterpiece with the tool or shatter everything to pieces.",
+    text: `Emotions are tools; it depends on the person whether they create a masterpiece with the tool or shatter everything to pieces.`,
     source: "Amu Mom",
     tags: ["wisdom"]
   },
   {
     number: 1318,
-    text: "Do not be ashamed of yourself: the aware, wise adults of today are the experience of the child of yesterday.",
+    text: `Do not be ashamed of yourself: the aware, wise adults of today are the experience of the child of yesterday.`,
     source: "Amu Mom",
     tags: ["silence"]
   },
   {
     number: 1319,
-    text: "When it is cold—warm yourself, when it is dark—light your light; do not curse those who chose to stay in the dark.",
+    text: `When it is cold—warm yourself, when it is dark—light your light; do not curse those who chose to stay in the dark.`,
     source: "Amu Mom",
     tags: ["wisdom"]
   },
   {
     number: 1320,
-    text: "All your fears came to show you that place within you where love has not been cultivated.",
+    text: `All your fears came to show you that place within you where love has not been cultivated.`,
     source: "Amu Mom",
     tags: ["wisdom"]
   },
   {
     number: 1321,
-    text: "If people speak words about you, it means they are speaking words about themselves.",
+    text: `If people speak words about you, it means they are speaking words about themselves.`,
     source: "Amu Mom",
     tags: ["wisdom"]
   },
   {
     number: 1322,
-    text: "As soon as a desire is formed in the mind, everything around begins to rearrange itself so that it can be fulfilled.",
+    text: `As soon as a desire is formed in the mind, everything around begins to rearrange itself so that it can be fulfilled.`,
     source: "Amu Mom",
     tags: ["wisdom"]
   },
   {
     number: 1323,
-    text: "Sometimes strength is needed, without which one cannot walk the path, and this strength is given by the hardships we overcome.",
+    text: `Sometimes strength is needed, without which one cannot walk the path, and this strength is given by the hardships we overcome.`,
     source: "Amu Mom",
     tags: ["silence"]
   },
   {
     number: 1324,
-    text: "By desiring, you yourself trigger the mechanisms that begin to change life for a new birth within it; be careful with your desires.",
+    text: `By desiring, you yourself trigger the mechanisms that begin to change life for a new birth within it; be careful with your desires.`,
     source: "Amu Mom",
     tags: ["wisdom"]
   },
   {
     number: 1325,
-    text: "Between two lovers there should be no fears, otherwise there will be no love; cast away all apprehensions.",
+    text: `Between two lovers there should be no fears, otherwise there will be no love; cast away all apprehensions.`,
     source: "Amu Mom",
     tags: ["wisdom"]
   },
   {
     number: 1326,
-    text: "Life is a game in form, an art in content, and in the details of mastery — a duel with egoism.",
+    text: `Life is a game in form, an art in content, and in the details of mastery — a duel with egoism.`,
     source: "Amu Mom",
     tags: ["wisdom"]
   },
   {
     number: 1327,
-    text: "The higher the quality of your food, the more love and respect you show for your own body — the temple of the soul.",
+    text: `The higher the quality of your food, the more love and respect you show for your own body — the temple of the soul.`,
     source: "Amu Mom",
     tags: ["silence"]
   },
   {
     number: 1328,
-    text: "What is necessary will happen: after the destruction of the old comes the birth of the new.",
+    text: `What is necessary will happen: after the destruction of the old comes the birth of the new.`,
     source: "Amu Mom",
     tags: ["silence"]
   },
   {
     number: 1329,
-    text: "Hold the vector of HERE firmly, thinking of the great, but do not fixate on it and never back down.",
+    text: `Hold the vector of HERE firmly, thinking of the great, but do not fixate on it and never back down.`,
     source: "Amu Mom",
     tags: ["silence"]
   },
   {
     number: 1330,
-    text: "Every person you meet knows something you do not know.",
+    text: `Every person you meet knows something you do not know.`,
     source: "Amu Mom",
     tags: ["wisdom"]
   },
   {
     number: 1331,
-    text: "Truth is very quiet: if you are trying to prove something, that is the first sign that a lie has been told.",
+    text: `Truth is very quiet: if you are trying to prove something, that is the first sign that a lie has been told.`,
     source: "Amu Mom",
     tags: ["silence"]
   },
   {
     number: 1332,
-    text: "Do not criticize others — take care of yourself; you always have something to work on within.",
+    text: `Do not criticize others — take care of yourself; you always have something to work on within.`,
     source: "Amu Mom",
     tags: ["silence"]
   },
   {
     number: 1333,
-    text: "Do not evaluate another person's behavior: evaluation is, first and foremost, an unconscious devaluation of oneself.",
+    text: `Do not evaluate another person's behavior: evaluation is, first and foremost, an unconscious devaluation of oneself.`,
     source: "Amu Mom",
     tags: ["silence"]
   },
   {
     number: 1334,
-    text: "To hear another person, you must first quiet down yourself: tell your beliefs, principles, fears, and demands to be quieter.",
+    text: `To hear another person, you must first quiet down yourself: tell your beliefs, principles, fears, and demands to be quieter.`,
     source: "Amu Mom",
     tags: ["silence"]
   },
   {
     number: 1335,
-    text: "There is always a place where it is warm in any weather: it can be a home, a person, or a corner inside you.",
+    text: `There is always a place where it is warm in any weather: it can be a home, a person, or a corner inside you.`,
     source: "Amu Mom",
     tags: ["silence"]
   },
   {
     number: 1336,
-    text: "Any negative situation in relationships is a lesson that will reveal your own unconscious attitudes.",
+    text: `Any negative situation in relationships is a lesson that will reveal your own unconscious attitudes.`,
     source: "Amu Mom",
     tags: ["wisdom"]
   },
   {
     number: 1337,
-    text: "The more freedom we give to another, the closer they are to us.",
+    text: `The more freedom we give to another, the closer they are to us.`,
     source: "Amu Mom",
     tags: ["wisdom"]
   },
   {
     number: 1338,
-    text: "Learn to give thanks from the depths of your heart for everything, even for the most minor things and for what seems bad.",
+    text: `Learn to give thanks from the depths of your heart for everything, even for the most minor things and for what seems bad.`,
     source: "Amu Mom",
     tags: ["wisdom"]
   },
   {
     number: 1339,
-    text: "Gratitude is true magic: through the bad, three times as much good always comes.",
+    text: `Gratitude is true magic: through the bad, three times as much good always comes.`,
     source: "Amu Mom",
     tags: ["wisdom"]
   },
   {
     number: 1340,
-    text: "Your mindset is the forerunner of the events that are preparing to become your reality tomorrow.",
+    text: `Your mindset is the forerunner of the events that are preparing to become your reality tomorrow.`,
     source: "Amu Mom",
     tags: ["wisdom"]
   },
   {
     number: 1341,
-    text: "When you enter into contact with another, go into it sincerely, be real, cast aside all social roles and masks.",
+    text: `When you enter into contact with another, go into it sincerely, be real, cast aside all social roles and masks.`,
     source: "Amu Mom",
     tags: ["silence"]
   },
   {
     number: 1342,
-    text: "Relationships cannot exist without boundaries: the absence of boundaries kills creativity.",
+    text: `Relationships cannot exist without boundaries: the absence of boundaries kills creativity.`,
     source: "Amu Mom",
     tags: ["wisdom"]
   },
   {
     number: 1343,
-    text: "You are mature when you do not fear the abyss of another, for in everyone there is both light and an abyss.",
+    text: `You are mature when you do not fear the abyss of another, for in everyone there is both light and an abyss.`,
     source: "Amu Mom",
     tags: ["wisdom"]
   },
   {
     number: 1344,
-    text: "Just as a weed continues to grow if its root is strong, pain is born anew if egoism is not sincere.",
+    text: `Just as a weed continues to grow if its root is strong, pain is born anew if egoism is not sincere.`,
     source: "Amu Mom",
     tags: ["wisdom"]
   },
   {
     number: 1345,
-    text: "Many react from the mind, from past experience, and from petrified concepts that are inadequate to the moment here and now.",
+    text: `Many react from the mind, from past experience, and from petrified concepts that are inadequate to the moment here and now.`,
     source: "Amu Mom",
     tags: ["wisdom"]
   },
   {
     number: 1346,
-    text: "Every moment is new; it comes from consciousness, in which you never repeat yourself and are always as pure as a blank sheet.",
+    text: `Every moment is new; it comes from consciousness, in which you never repeat yourself and are always as pure as a blank sheet.`,
     source: "Amu Mom",
     tags: ["silence"]
   },
   {
     number: 1347,
-    text: "In inner silence, there is more knowledge than in all the scriptures of the world.",
+    text: `In inner silence, there is more knowledge than in all the scriptures of the world.`,
     source: "Amu Mom",
     tags: ["silence"]
   },
   {
     number: 1348,
-    text: "One of the stages of life's changes is when a person finds themselves face to face with their inner war and can no longer shift responsibility.",
+    text: `One of the stages of life's changes is when a person finds themselves face to face with their inner war and can no longer shift responsibility.`,
     source: "Amu Mom",
     tags: ["wisdom"]
   },
   {
     number: 1349,
-    text: "Following the path of your life, learn to leave behind without regret everything that hinders moving forward.",
+    text: `Following the path of your life, learn to leave behind without regret everything that hinders moving forward.`,
     source: "Amu Mom",
     tags: ["silence"]
   },
   {
     number: 1350,
-    text: "Your life, your body, and your mind are a vessel in your power; filling it and cleansing it is in your power.",
+    text: `Your life, your body, and your mind are a vessel in your power; filling it and cleansing it is in your power.`,
     source: "Amu Mom",
     tags: ["wisdom"]
   },
   {
     number: 1351,
-    text: "Watching the flight of an autumn leaf, feel the flight within yourself.",
+    text: `Watching the flight of an autumn leaf, feel the flight within yourself.`,
     source: "Amu Mom",
     tags: ["silence"]
   },
   {
     number: 1352,
-    text: "Acceptance of life is not bowing down to it, but seeing what is, without wars and resistance.",
+    text: `Acceptance of life is not bowing down to it, but seeing what is, without wars and resistance.`,
     source: "Amu Mom",
     tags: ["silence"]
   },
   {
     number: 1353,
-    text: "A person's opinion of things is merely a measure of how they see those things; speaking words about you, they speak about themselves.",
+    text: `A person's opinion of things is merely a measure of how they see those things; speaking words about you, they speak about themselves.`,
     source: "Amu Mom",
     tags: ["wisdom"]
   },
   {
     number: 1354,
-    text: "The law of attraction states: like attracts like; a pure mind will create a pure reflection.",
+    text: `The law of attraction states: like attracts like; a pure mind will create a pure reflection.`,
     source: "Amu Mom",
     tags: ["silence"]
   },
   {
     number: 1355,
-    text: "People do things not for your sake, they always do things for their own sake.",
+    text: `People do things not for your sake, they always do things for their own sake.`,
     source: "Amu Mom",
     tags: ["wisdom"]
   },
   {
     number: 1356,
-    text: "Look for what a person finds attractive, and you will see their entire philosophy of life.",
+    text: `Look for what a person finds attractive, and you will see their entire philosophy of life.`,
     source: "Amu Mom",
     tags: ["wisdom"]
   },
@@ -10019,835 +10019,835 @@ Choose right now.`,
   },
   {
     number: 1456,
-    text: "Apply the rope and snake analogy: when confronted with fear or panic, do not fight them emotionally, but coolly investigate their cause.",
+    text: `Apply the rope and snake analogy: when confronted with fear or panic, do not fight them emotionally, but coolly investigate their cause.`,
     source: "Sri Shankaracharya",
     tags: ["practice"]
   },
   {
     number: 1457,
-    text: "Practice rigorous calmness (shama): resolutely halt the mind's attempts to chase after external objects and cling to them.",
+    text: `Practice rigorous calmness (shama): resolutely halt the mind's attempts to chase after external objects and cling to them.`,
     source: "Sri Shankaracharya",
     tags: ["practice"]
   },
   {
     number: 1458,
-    text: "Establish strict self-restraint (dama): master the outer sense organs, never letting them hijack attention automatically.",
+    text: `Establish strict self-restraint (dama): master the outer sense organs, never letting them hijack attention automatically.`,
     source: "Sri Shankaracharya",
     tags: ["practice"]
   },
   {
     number: 1459,
-    text: "Practice uparati: completely cut off the mind's involvement in worldly tendencies and habitual mental rumination.",
+    text: `Practice uparati: completely cut off the mind's involvement in worldly tendencies and habitual mental rumination.`,
     source: "Sri Shankaracharya",
     tags: ["practice"]
   },
   {
     number: 1460,
-    text: "Cultivate endurance (titiksha): withstand all blows of duality (pain, discomfort, judgments) without internal hysteria or entanglement.",
+    text: `Cultivate endurance (titiksha): withstand all blows of duality (pain, discomfort, judgments) without internal hysteria or entanglement.`,
     source: "Sri Shankaracharya",
     tags: ["practice"]
   },
   {
     number: 1461,
-    text: "Maintain concentration (samadhana): fix the focus of attention on the changeless foundation of perception, cutting off extraneous thoughts.",
+    text: `Maintain concentration (samadhana): fix the focus of attention on the changeless foundation of perception, cutting off extraneous thoughts.`,
     source: "Sri Shankaracharya",
     tags: ["practice"]
   },
   {
     number: 1462,
-    text: "Abandon the expectation of the fruits of your actions: perform what is necessary mechanically or with discipline, without feeding the mind with hopes of reward.",
+    text: `Abandon the expectation of the fruits of your actions: perform what is necessary mechanically or with discipline, without feeding the mind with hopes of reward.`,
     source: "Sri Shankaracharya",
     tags: ["practice"]
   },
   {
     number: 1463,
-    text: "Seek contact only with those who are truly free from illusion and rooted in stillness, so that your own concepts may be shattered.",
+    text: `Seek contact only with those who are truly free from illusion and rooted in stillness, so that your own concepts may be shattered.`,
     source: "Sri Shankaracharya",
     tags: ["practice"]
   },
   {
     number: 1464,
-    text: "Every time the mind demands new agitation or entertainment, strike at this impulse with the question: «Who demands this right now?»",
+    text: `Every time the mind demands new agitation or entertainment, strike at this impulse with the question: «Who demands this right now?»`,
     source: "Sri Shankaracharya",
     tags: ["practice"]
   },
   {
     number: 1465,
-    text: "Test anyone with whom you go deep into practice for absolute freedom from hidden vices, self-interest, and attachments.",
+    text: `Test anyone with whom you go deep into practice for absolute freedom from hidden vices, self-interest, and attachments.`,
     source: "Sri Shankaracharya",
     tags: ["practice"]
   },
   {
     number: 1466,
-    text: "Make the unrelenting yearning for liberation your highest priority, displacing all secondary restlessness with it.",
+    text: `Make the unrelenting yearning for liberation your highest priority, displacing all secondary restlessness with it.`,
     source: "Sri Shankaracharya",
     tags: ["practice"]
   },
   {
     number: 1467,
-    text: "Scrutinize every intention: does it lead toward awareness, or plunge you into the slumber of samsara.",
+    text: `Scrutinize every intention: does it lead toward awareness, or plunge you into the slumber of samsara.`,
     source: "Sri Shankaracharya",
     tags: ["practice"]
   },
   {
     number: 1468,
-    text: "Stop making excuses for the mind's inertia; apply a conscious effort of will to return attention to its starting point.",
+    text: `Stop making excuses for the mind's inertia; apply a conscious effort of will to return attention to its starting point.`,
     source: "Sri Shankaracharya",
     tags: ["practice"]
   },
   {
     number: 1469,
-    text: "Track the moments when the mind clings to the judgments and opinions of others, and instantly dissolve these projections.",
+    text: `Track the moments when the mind clings to the judgments and opinions of others, and instantly dissolve these projections.`,
     source: "Sri Shankaracharya",
     tags: ["practice"]
   },
   {
     number: 1470,
-    text: "Use every life obstacle as a training ground for developing resilience and mental equanimity.",
+    text: `Use every life obstacle as a training ground for developing resilience and mental equanimity.`,
     source: "Sri Shankaracharya",
     tags: ["practice"]
   },
   {
     number: 1471,
-    text: "Do not let emotional surges and everyday triggers pull your focus away from the observer state.",
+    text: `Do not let emotional surges and everyday triggers pull your focus away from the observer state.`,
     source: "Sri Shankaracharya",
     tags: ["practice"]
   },
   {
     number: 1472,
-    text: "Regularly examine your motives for hidden self-interest, vanity, and the craving for approval.",
+    text: `Regularly examine your motives for hidden self-interest, vanity, and the craving for approval.`,
     source: "Sri Shankaracharya",
     tags: ["practice"]
   },
   {
     number: 1473,
-    text: "Relinquish the habit of mentally rehashing past conflicts or projecting future fears.",
+    text: `Relinquish the habit of mentally rehashing past conflicts or projecting future fears.`,
     source: "Sri Shankaracharya",
     tags: ["practice"]
   },
   {
     number: 1474,
-    text: "Hold attention on the pure perception of «I am» before any mental concepts adhere to it.",
+    text: `Hold attention on the pure perception of «I am» before any mental concepts adhere to it.`,
     source: "Sri Shankaracharya",
     tags: ["practice"]
   },
   {
     number: 1475,
-    text: "Practice the austerity of attention: forbid yourself from consuming hollow informational noise and meaningless conversations.",
+    text: `Practice the austerity of attention: forbid yourself from consuming hollow informational noise and meaningless conversations.`,
     source: "Sri Shankaracharya",
     tags: ["practice"]
   },
   {
     number: 1476,
-    text: "Investigate the root of any fear or anxiety: locate that specific subject to whom they supposedly belong.",
+    text: `Investigate the root of any fear or anxiety: locate that specific subject to whom they supposedly belong.`,
     source: "Sri Shankaracharya",
     tags: ["practice"]
   },
   {
     number: 1477,
-    text: "Suppress the mind's attempts to justify its laziness, weakness, or procrastination with pseudo-spiritual reasoning.",
+    text: `Suppress the mind's attempts to justify its laziness, weakness, or procrastination with pseudo-spiritual reasoning.`,
     source: "Sri Shankaracharya",
     tags: ["practice"]
   },
   {
     number: 1478,
-    text: "Practice absolute honesty with yourself regarding your true attachments and vulnerabilities.",
+    text: `Practice absolute honesty with yourself regarding your true attachments and vulnerabilities.`,
     source: "Sri Shankaracharya",
     tags: ["practice"]
   },
   {
     number: 1479,
-    text: "Whenever the sense of «I am the doer» arises, shift focus to the fact that everything happens spontaneously within the space of consciousness.",
+    text: `Whenever the sense of «I am the doer» arises, shift focus to the fact that everything happens spontaneously within the space of consciousness.`,
     source: "Sri Shankaracharya",
     tags: ["practice"]
   },
   {
     number: 1480,
-    text: "Pinpoint the still gap between thoughts and expand that interval until it becomes a permanent background.",
+    text: `Pinpoint the still gap between thoughts and expand that interval until it becomes a permanent background.`,
     source: "Sri Shankaracharya",
     tags: ["practice"]
   },
   {
     number: 1481,
-    text: "Stop waiting for suitable conditions to practice; use every daily disruption and stress as an immediate catalyst for awakening attention.",
+    text: `Stop waiting for suitable conditions to practice; use every daily disruption and stress as an immediate catalyst for awakening attention.`,
     source: "Sri Shankaracharya",
     tags: ["practice"]
   },
   {
     number: 1482,
-    text: "Catch the exact moment a mental concept of self emerges, and dissolve it before it crystallizes into a story.",
+    text: `Catch the exact moment a mental concept of self emerges, and dissolve it before it crystallizes into a story.`,
     source: "Sri Shankaracharya",
     tags: ["practice"]
   },
   {
     number: 1483,
-    text: "Set a strict ban on justifying your weaknesses with tiredness, circumstances, or external factors.",
+    text: `Set a strict ban on justifying your weaknesses with tiredness, circumstances, or external factors.`,
     source: "Sri Shankaracharya",
     tags: ["practice"]
   },
   {
     number: 1484,
-    text: "Redirect attention from evaluating what is happening to the one who is currently rendering that evaluation.",
+    text: `Redirect attention from evaluating what is happening to the one who is currently rendering that evaluation.`,
     source: "Sri Shankaracharya",
     tags: ["practice"]
   },
   {
     number: 1485,
-    text: "Cut short any inclination of the mind to drift into fantasies about the future or regrets over the past — return focus to the single point of here.",
+    text: `Cut short any inclination of the mind to drift into fantasies about the future or regrets over the past — return focus to the single point of here.`,
     source: "Sri Shankaracharya",
     tags: ["practice"]
   },
   {
     number: 1486,
-    text: "Use the method of disidentification: for every internal movement (pain, fear, desire), silently note: «This is observed, but this is not me.»",
+    text: `Use the method of disidentification: for every internal movement (pain, fear, desire), silently note: «This is observed, but this is not me.»`,
     source: "Sri Shankaracharya",
     tags: ["practice"]
   },
   {
     number: 1487,
-    text: "Eliminate the habit of arguing and proving yourself right: every argument feeds the illusion of a separate ego.",
+    text: `Eliminate the habit of arguing and proving yourself right: every argument feeds the illusion of a separate ego.`,
     source: "Sri Shankaracharya",
     tags: ["practice"]
   },
   {
     number: 1488,
-    text: "Control the impulses of body and speech: engage in no automated actions without a preceding conscious intention.",
+    text: `Control the impulses of body and speech: engage in no automated actions without a preceding conscious intention.`,
     source: "Sri Shankaracharya",
     tags: ["practice"]
   },
   {
     number: 1489,
-    text: "Turn routine actions into a practice of presence, completely erasing the divide between «meditation» and «life.»",
+    text: `Turn routine actions into a practice of presence, completely erasing the divide between «meditation» and «life.»`,
     source: "Sri Shankaracharya",
     tags: ["practice"]
   },
   {
     number: 1490,
-    text: "Wash away any display of mental pride with the question: «By whom was this knowledge acquired, and to whom does it belong?»",
+    text: `Wash away any display of mental pride with the question: «By whom was this knowledge acquired, and to whom does it belong?»`,
     source: "Sri Shankaracharya",
     tags: ["practice"]
   },
   {
     number: 1491,
-    text: "Sever the need for approval and praise: dependence on external validation instantly plunges the mind back into bondage.",
+    text: `Sever the need for approval and praise: dependence on external validation instantly plunges the mind back into bondage.`,
     source: "Sri Shankaracharya",
     tags: ["practice"]
   },
   {
     number: 1492,
-    text: "Keep attention on the source of sounds, thoughts, and images, refusing to let them draw you into narratives.",
+    text: `Keep attention on the source of sounds, thoughts, and images, refusing to let them draw you into narratives.`,
     source: "Sri Shankaracharya",
     tags: ["practice"]
   },
   {
     number: 1493,
-    text: "Quench internal dialogue in its infancy: the moment inner speech begins, cut it short with an act of will.",
+    text: `Quench internal dialogue in its infancy: the moment inner speech begins, cut it short with an act of will.`,
     source: "Sri Shankaracharya",
     tags: ["practice"]
   },
   {
     number: 1494,
-    text: "Refuse to seek comfort in concepts; if a crisis arises, go straight into its epicenter without the mind's protective barriers.",
+    text: `Refuse to seek comfort in concepts; if a crisis arises, go straight into its epicenter without the mind's protective barriers.`,
     source: "Sri Shankaracharya",
     tags: ["practice"]
   },
   {
     number: 1495,
-    text: "Reset all achievements and spiritual experiences to zero: everything that can be remembered or recorded is an object, not you.",
+    text: `Reset all achievements and spiritual experiences to zero: everything that can be remembered or recorded is an object, not you.`,
     source: "Sri Shankaracharya",
     tags: ["practice"]
   },
   {
     number: 1496,
-    text: "Halt the inner monologue the very moment it sparks, returning focus to the absolute stillness of the mind.",
+    text: `Halt the inner monologue the very moment it sparks, returning focus to the absolute stillness of the mind.`,
     source: "Sri Shankaracharya",
     tags: ["stillness"]
   },
   {
     number: 1497,
-    text: "Stop searching for answers in external sources and words; immerse yourself in the silent space that precedes every thought.",
+    text: `Stop searching for answers in external sources and words; immerse yourself in the silent space that precedes every thought.`,
     source: "Sri Shankaracharya",
     tags: ["stillness"]
   },
   {
     number: 1498,
-    text: "Notice not the sounds or images themselves, but that immutable stillness against which they arise and disappear.",
+    text: `Notice not the sounds or images themselves, but that immutable stillness against which they arise and disappear.`,
     source: "Sri Shankaracharya",
     tags: ["stillness"]
   },
   {
     number: 1499,
-    text: "Sustain attention in the intervals between in-breath and out-breath, between one thought and the next — true peace reveals itself there.",
+    text: `Sustain attention in the intervals between in-breath and out-breath, between one thought and the next — true peace reveals itself there.`,
     source: "Sri Shankaracharya",
     tags: ["stillness"]
   },
   {
     number: 1500,
-    text: "Allow the world's turmoil to shatter against your inner equanimity, permitting no external factor to disturb the silence.",
+    text: `Allow the world's turmoil to shatter against your inner equanimity, permitting no external factor to disturb the silence.`,
     source: "Sri Shankaracharya",
     tags: ["stillness"]
   },
   {
     number: 1501,
-    text: "Relinquish the urge to defend your concepts: in silence, there is no one who needs to be right or wrong.",
+    text: `Relinquish the urge to defend your concepts: in silence, there is no one who needs to be right or wrong.`,
     source: "Sri Shankaracharya",
     tags: ["stillness"]
   },
   {
     number: 1502,
-    text: "Direct attention to the root of any experience before the mind has time to label or evaluate it.",
+    text: `Direct attention to the root of any experience before the mind has time to label or evaluate it.`,
     source: "Sri Shankaracharya",
     tags: ["stillness"]
   },
   {
     number: 1503,
-    text: "Make silence of mind not a pause between activities, but the enduring foundation from which all movement originates.",
+    text: `Make silence of mind not a pause between activities, but the enduring foundation from which all movement originates.`,
     source: "Sri Shankaracharya",
     tags: ["stillness"]
   },
   {
     number: 1504,
-    text: "Dissolve the boundaries between inner and outer perception, merging them into the singular space of silent presence.",
+    text: `Dissolve the boundaries between inner and outer perception, merging them into the singular space of silent presence.`,
     source: "Sri Shankaracharya",
     tags: ["stillness"]
   },
   {
     number: 1505,
-    text: "When a wave of fear or desire rises, do not combat it; submerge it into the silent ocean of pure awareness.",
+    text: `When a wave of fear or desire rises, do not combat it; submerge it into the silent ocean of pure awareness.`,
     source: "Sri Shankaracharya",
     tags: ["stillness"]
   },
   {
     number: 1506,
-    text: "Renounce the pursuit of new impressions and knowledge — everything essential is already present in the depths of absolute stillness.",
+    text: `Renounce the pursuit of new impressions and knowledge — everything essential is already present in the depths of absolute stillness.`,
     source: "Sri Shankaracharya",
     tags: ["stillness"]
   },
   {
     number: 1507,
-    text: "Watch thoughts come and go, remaining a motionless and uninvolved observer.",
+    text: `Watch thoughts come and go, remaining a motionless and uninvolved observer.`,
     source: "Sri Shankaracharya",
     tags: ["stillness"]
   },
   {
     number: 1508,
-    text: "Cast off all mental masks and roles, revealing the pure silence that remains beyond them.",
+    text: `Cast off all mental masks and roles, revealing the pure silence that remains beyond them.`,
     source: "Sri Shankaracharya",
     tags: ["stillness"]
   },
   {
     number: 1509,
-    text: "Cease clinging to emotional states; they come and go, while the stillness in which they are reflected remains changeless.",
+    text: `Cease clinging to emotional states; they come and go, while the stillness in which they are reflected remains changeless.`,
     source: "Sri Shankaracharya",
     tags: ["stillness"]
   },
   {
     number: 1510,
-    text: "Abide in total rest right now, without deferring liberation to later or fabricating concepts about it.",
+    text: `Abide in total rest right now, without deferring liberation to later or fabricating concepts about it.`,
     source: "Sri Shankaracharya",
     tags: ["stillness"]
   },
   {
     number: 1511,
-    text: "Halt all attempts of the mind to construct logical chains about what enlightenment is — return to the direct experience of stillness.",
+    text: `Halt all attempts of the mind to construct logical chains about what enlightenment is — return to the direct experience of stillness.`,
     source: "Sri Shankaracharya",
     tags: ["stillness"]
   },
   {
     number: 1512,
-    text: "End the internal struggle with the noise of the world; genuine stillness is discovered not outside, but in the immediate cessation of resistance.",
+    text: `End the internal struggle with the noise of the world; genuine stillness is discovered not outside, but in the immediate cessation of resistance.`,
     source: "Sri Shankaracharya",
     tags: ["stillness"]
   },
   {
     number: 1513,
-    text: "Notice that point of peace that is invariably present at the very center of any chaos or turbulent activity.",
+    text: `Notice that point of peace that is invariably present at the very center of any chaos or turbulent activity.`,
     source: "Sri Shankaracharya",
     tags: ["stillness"]
   },
   {
     number: 1514,
-    text: "Drop the burden of accumulated memories and projections, sinking into the pure, resonant space of the wordless «now.»",
+    text: `Drop the burden of accumulated memories and projections, sinking into the pure, resonant space of the wordless «now.»`,
     source: "Sri Shankaracharya",
     tags: ["stillness"]
   },
   {
     number: 1515,
-    text: "Abandon seeking external validation for your spiritual state — the sole criterion is the depth of peace.",
+    text: `Abandon seeking external validation for your spiritual state — the sole criterion is the depth of peace.`,
     source: "Sri Shankaracharya",
     tags: ["stillness"]
   },
   {
     number: 1516,
-    text: "Watch how any emotion dissolves in the space of consciousness when deprived of nourishment from internal dialogue.",
+    text: `Watch how any emotion dissolves in the space of consciousness when deprived of nourishment from internal dialogue.`,
     source: "Sri Shankaracharya",
     tags: ["stillness"]
   },
   {
     number: 1517,
-    text: "Break the mind's habit of grasping at definitions and concepts; dwell in the pristine field of ineffable presence.",
+    text: `Break the mind's habit of grasping at definitions and concepts; dwell in the pristine field of ineffable presence.`,
     source: "Sri Shankaracharya",
     tags: ["stillness"]
   },
   {
     number: 1518,
-    text: "Allow every inhalation and exhalation to bring you back from mental wanderings into the immutable silence of your inner center.",
+    text: `Allow every inhalation and exhalation to bring you back from mental wanderings into the immutable silence of your inner center.`,
     source: "Sri Shankaracharya",
     tags: ["stillness"]
   },
   {
     number: 1519,
-    text: "Relinquish the roles of both doer and observer: dissolve into that absolute silence where division into subject and object does not exist.",
+    text: `Relinquish the roles of both doer and observer: dissolve into that absolute silence where division into subject and object does not exist.`,
     source: "Sri Shankaracharya",
     tags: ["stillness"]
   },
   {
     number: 1520,
-    text: "Extinguish any flashes of irritation or anxiety the instant they touch the screen of the mind, returning to peace.",
+    text: `Extinguish any flashes of irritation or anxiety the instant they touch the screen of the mind, returning to peace.`,
     source: "Sri Shankaracharya",
     tags: ["stillness"]
   },
   {
     number: 1521,
-    text: "Stop fleeing from voidness: what the mind perceives as frightening emptiness is, in truth, the wellspring of absolute fullness and stillness.",
+    text: `Stop fleeing from voidness: what the mind perceives as frightening emptiness is, in truth, the wellspring of absolute fullness and stillness.`,
     source: "Sri Shankaracharya",
     tags: ["stillness"]
   },
   {
     number: 1522,
-    text: "Direct attention not to what unfolds in the visual field, but to that stillness which accommodates everything that occurs.",
+    text: `Direct attention not to what unfolds in the visual field, but to that stillness which accommodates everything that occurs.`,
     source: "Sri Shankaracharya",
     tags: ["stillness"]
   },
   {
     number: 1523,
-    text: "Erase every trace of self-importance and pride in the restorative waters of total silence.",
+    text: `Erase every trace of self-importance and pride in the restorative waters of total silence.`,
     source: "Sri Shankaracharya",
     tags: ["stillness"]
   },
   {
     number: 1524,
-    text: "Give up anticipating future fruits of practice; genuine silence is accessible solely in this very second.",
+    text: `Give up anticipating future fruits of practice; genuine silence is accessible solely in this very second.`,
     source: "Sri Shankaracharya",
     tags: ["stillness"]
   },
   {
     number: 1525,
-    text: "Abide in pure stillness that requires no confirmations, words, or justifications from the mind.",
+    text: `Abide in pure stillness that requires no confirmations, words, or justifications from the mind.`,
     source: "Sri Shankaracharya",
     tags: ["stillness"]
   },
   {
     number: 1526,
-    text: "Stop clinging to mental constructs of time and space; plunge into the absolute «now,» where there is no movement whatsoever.",
+    text: `Stop clinging to mental constructs of time and space; plunge into the absolute «now,» where there is no movement whatsoever.`,
     source: "Sri Shankaracharya",
     tags: ["stillness"]
   },
   {
     number: 1527,
-    text: "Cut off any mind-made excuses that mask laziness or inaction with complex theories — stay in pure, resonant alertness.",
+    text: `Cut off any mind-made excuses that mask laziness or inaction with complex theories — stay in pure, resonant alertness.`,
     source: "Sri Shankaracharya",
     tags: ["stillness"]
   },
   {
     number: 1528,
-    text: "Notice the moments when attention is drawn into the drama of external events, and with an act of will, return it to the motionless center.",
+    text: `Notice the moments when attention is drawn into the drama of external events, and with an act of will, return it to the motionless center.`,
     source: "Sri Shankaracharya",
     tags: ["stillness"]
   },
   {
     number: 1529,
-    text: "Discard the craving to appear enlightened or wise; burn all falsehood and masks in the fire of total silence.",
+    text: `Discard the craving to appear enlightened or wise; burn all falsehood and masks in the fire of total silence.`,
     source: "Sri Shankaracharya",
     tags: ["stillness"]
   },
   {
     number: 1530,
-    text: "Focus on the source from which every new impulse is born, without letting it unfold into an obsessive thought.",
+    text: `Focus on the source from which every new impulse is born, without letting it unfold into an obsessive thought.`,
     source: "Sri Shankaracharya",
     tags: ["stillness"]
   },
   {
     number: 1531,
-    text: "Arrest the mind's habit of evaluating occurrences as good or bad — remain in the neutral expanse of pure perception.",
+    text: `Arrest the mind's habit of evaluating occurrences as good or bad — remain in the neutral expanse of pure perception.`,
     source: "Sri Shankaracharya",
     tags: ["stillness"]
   },
   {
     number: 1532,
-    text: "Use external pressure and stress not as an excuse to complain, but as a direct tool for testing the depth of your silence.",
+    text: `Use external pressure and stress not as an excuse to complain, but as a direct tool for testing the depth of your silence.`,
     source: "Sri Shankaracharya",
     tags: ["stillness"]
   },
   {
     number: 1533,
-    text: "Shed the burden of others' expectations and evaluations; for the silent space, authorities and foreign opinions do not exist.",
+    text: `Shed the burden of others' expectations and evaluations; for the silent space, authorities and foreign opinions do not exist.`,
     source: "Sri Shankaracharya",
     tags: ["stillness"]
   },
   {
     number: 1534,
-    text: "Anchor attention on the still background of consciousness, even when the most intense activity unfolds in view.",
+    text: `Anchor attention on the still background of consciousness, even when the most intense activity unfolds in view.`,
     source: "Sri Shankaracharya",
     tags: ["stillness"]
   },
   {
     number: 1535,
-    text: "Drop the habit of mentally tallying your spiritual achievements or failures — reset the entire story to zero every second.",
+    text: `Drop the habit of mentally tallying your spiritual achievements or failures — reset the entire story to zero every second.`,
     source: "Sri Shankaracharya",
     tags: ["stillness"]
   },
   {
     number: 1536,
-    text: "Stop searching for salvation or refuge in outer things; everything necessary for enduring peace is already present within.",
+    text: `Stop searching for salvation or refuge in outer things; everything necessary for enduring peace is already present within.`,
     source: "Sri Shankaracharya",
     tags: ["stillness"]
   },
   {
     number: 1537,
-    text: "Watch how every mental problem dissolves if you cease feeding it with attention and dialogue.",
+    text: `Watch how every mental problem dissolves if you cease feeding it with attention and dialogue.`,
     source: "Sri Shankaracharya",
     tags: ["stillness"]
   },
   {
     number: 1538,
-    text: "Wash away any remnants of self-importance and egoic control in the life-giving flow of all-encompassing silence.",
+    text: `Wash away any remnants of self-importance and egoic control in the life-giving flow of all-encompassing silence.`,
     source: "Sri Shankaracharya",
     tags: ["stillness"]
   },
   {
     number: 1539,
-    text: "Do not attempt to hold or freeze states of peace — that which is true requires no artificial defense.",
+    text: `Do not attempt to hold or freeze states of peace — that which is true requires no artificial defense.`,
     source: "Sri Shankaracharya",
     tags: ["stillness"]
   },
   {
     number: 1540,
-    text: "Abide in absolute stillness right now, leaving the mind no loophole to slip into doubts and concepts.",
+    text: `Abide in absolute stillness right now, leaving the mind no loophole to slip into doubts and concepts.`,
     source: "Sri Shankaracharya",
     tags: ["stillness"]
   },
   {
     number: 1541,
-    text: "Check any attempt of the mind to rate its own practice — the evaluating mind already operates outside of stillness.",
+    text: `Check any attempt of the mind to rate its own practice — the evaluating mind already operates outside of stillness.`,
     source: "Sri Shankaracharya",
     tags: ["stillness"]
   },
   {
     number: 1542,
-    text: "Stop clinging to memories of past insights; only that silence resonating right in this moment is real.",
+    text: `Stop clinging to memories of past insights; only that silence resonating right in this moment is real.`,
     source: "Sri Shankaracharya",
     tags: ["stillness"]
   },
   {
     number: 1543,
-    text: "Notice the moment the focus of attention begins to scatter over trifles, and with a willful impulse, bring it back into monolithic peace.",
+    text: `Notice the moment the focus of attention begins to scatter over trifles, and with a willful impulse, bring it back into monolithic peace.`,
     source: "Sri Shankaracharya",
     tags: ["stillness"]
   },
   {
     number: 1544,
-    text: "Relinquish the need to seek kindred spirits or external validation — true silence is utterly self-sufficient.",
+    text: `Relinquish the need to seek kindred spirits or external validation — true silence is utterly self-sufficient.`,
     source: "Sri Shankaracharya",
     tags: ["stillness"]
   },
   {
     number: 1545,
-    text: "Direct attention to the very emergence point of a thought and watch it vanish instantly, before taking form.",
+    text: `Direct attention to the very emergence point of a thought and watch it vanish instantly, before taking form.`,
     source: "Sri Shankaracharya",
     tags: ["stillness"]
   },
   {
     number: 1546,
-    text: "Cut short the mind's attempts to construct salvific concepts when facing hardship — meet them with naked attention.",
+    text: `Cut short the mind's attempts to construct salvific concepts when facing hardship — meet them with naked attention.`,
     source: "Sri Shankaracharya",
     tags: ["stillness"]
   },
   {
     number: 1547,
-    text: "Drop the tension of warring with the world: peace arrives not when the world alters, but when your resistance ends.",
+    text: `Drop the tension of warring with the world: peace arrives not when the world alters, but when your resistance ends.`,
     source: "Sri Shankaracharya",
     tags: ["stillness"]
   },
   {
     number: 1548,
-    text: "Maintain vigilance in the intervals between actions, never letting the mind slide into dull numbness or torpor.",
+    text: `Maintain vigilance in the intervals between actions, never letting the mind slide into dull numbness or torpor.`,
     source: "Sri Shankaracharya",
     tags: ["stillness"]
   },
   {
     number: 1549,
-    text: "Give up the habit of mentally commenting on what you see or hear — leave only pure, resonant awareness.",
+    text: `Give up the habit of mentally commenting on what you see or hear — leave only pure, resonant awareness.`,
     source: "Sri Shankaracharya",
     tags: ["stillness"]
   },
   {
     number: 1550,
-    text: "Stop running from loneliness: what appears as loneliness to the ego is, in truth, the fullness of silent space.",
+    text: `Stop running from loneliness: what appears as loneliness to the ego is, in truth, the fullness of silent space.`,
     source: "Sri Shankaracharya",
     tags: ["stillness"]
   },
   {
     number: 1551,
-    text: "Observe how all pain or discomfort loses its edge once you stop labeling them as «mine» and fighting them.",
+    text: `Observe how all pain or discomfort loses its edge once you stop labeling them as «mine» and fighting them.`,
     source: "Sri Shankaracharya",
     tags: ["stillness"]
   },
   {
     number: 1552,
-    text: "Erase every trace of mental conceit and «knowing» the very instant they try to claim ground.",
+    text: `Erase every trace of mental conceit and «knowing» the very instant they try to claim ground.`,
     source: "Sri Shankaracharya",
     tags: ["stillness"]
   },
   {
     number: 1553,
-    text: "Relinquish the anticipation of monumental epiphanies; stillness is unobtrusive, it simply is — here, now, and always.",
+    text: `Relinquish the anticipation of monumental epiphanies; stillness is unobtrusive, it simply is — here, now, and always.`,
     source: "Sri Shankaracharya",
     tags: ["stillness"]
   },
   {
     number: 1554,
-    text: "Abide at the zero point of reference, where there is neither past experience nor future goals, only pure alertness.",
+    text: `Abide at the zero point of reference, where there is neither past experience nor future goals, only pure alertness.`,
     source: "Sri Shankaracharya",
     tags: ["stillness"]
   },
   {
     number: 1555,
-    text: "Leave the mind to its illusions and fuss, while you remain that unmoved expanse that was never born and never dies.",
+    text: `Leave the mind to its illusions and fuss, while you remain that unmoved expanse that was never born and never dies.`,
     source: "Sri Shankaracharya",
     tags: ["stillness"]
   },
   {
     number: 1556,
-    text: "Abandon the hope that time or outer circumstances will one day prepare you for awakening.",
+    text: `Abandon the hope that time or outer circumstances will one day prepare you for awakening.`,
     source: "Sri Shankaracharya",
     tags: ["stillness"]
   },
   {
     number: 1557,
-    text: "Stop looking for a teacher outside: the true Guru is that silent vigilance which discovers the seeker themselves.",
+    text: `Stop looking for a teacher outside: the true Guru is that silent vigilance which discovers the seeker themselves.`,
     source: "Sri Shankaracharya",
     tags: ["stillness"]
   },
   {
     number: 1558,
-    text: "Notice every time the mind attempts to cling to the status of a «disciple» or «seeker,» and shed that disguise.",
+    text: `Notice every time the mind attempts to cling to the status of a «disciple» or «seeker,» and shed that disguise.`,
     source: "Sri Shankaracharya",
     tags: ["stillness"]
   },
   {
     number: 1559,
-    text: "Abandon the belief that your efforts can create reality — reality is discovered only upon the collapse of all effort.",
+    text: `Abandon the belief that your efforts can create reality — reality is discovered only upon the collapse of all effort.`,
     source: "Sri Shankaracharya",
     tags: ["stillness"]
   },
   {
     number: 1560,
-    text: "Discern the root of illusion: all suffering lasts precisely as long as you believe in the reality of your separate character.",
+    text: `Discern the root of illusion: all suffering lasts precisely as long as you believe in the reality of your separate character.`,
     source: "Sri Shankaracharya",
     tags: ["stillness"]
   },
   {
     number: 1561,
-    text: "Stop using concepts of non-duality as mental armor to shield your vulnerable ego.",
+    text: `Stop using concepts of non-duality as mental armor to shield your vulnerable ego.`,
     source: "Sri Shankaracharya",
     tags: ["stillness"]
   },
   {
     number: 1562,
-    text: "Focus on the absolute permanence of the background: all events supersede each other, but the background of perception remains untouched.",
+    text: `Focus on the absolute permanence of the background: all events supersede each other, but the background of perception remains untouched.`,
     source: "Sri Shankaracharya",
     tags: ["stillness"]
   },
   {
     number: 1563,
-    text: "Drop the habit of shifting responsibility for your inner slumber onto others, the system, or living conditions.",
+    text: `Drop the habit of shifting responsibility for your inner slumber onto others, the system, or living conditions.`,
     source: "Sri Shankaracharya",
     tags: ["stillness"]
   },
   {
     number: 1564,
-    text: "Abandon the mental habit of bargaining with the present moment, attempting to negotiate more comfortable conditions for existence.",
+    text: `Abandon the mental habit of bargaining with the present moment, attempting to negotiate more comfortable conditions for existence.`,
     source: "Sri Shankaracharya",
     tags: ["stillness"]
   },
   {
     number: 1565,
-    text: "Suppress any urge of the mind to construct an elaborate philosophical story around its crisis or dead end.",
+    text: `Suppress any urge of the mind to construct an elaborate philosophical story around its crisis or dead end.`,
     source: "Sri Shankaracharya",
     tags: ["stillness"]
   },
   {
     number: 1566,
-    text: "Hold attention in the utter simplicity of perception: what is seen is merely seen, what is heard is merely heard, without binding to an «I.»",
+    text: `Hold attention in the utter simplicity of perception: what is seen is merely seen, what is heard is merely heard, without binding to an «I.»`,
     source: "Sri Shankaracharya",
     tags: ["stillness"]
   },
   {
     number: 1567,
-    text: "Renounce the need to derive emotional nourishment or approval from your insights and spiritual states.",
+    text: `Renounce the need to derive emotional nourishment or approval from your insights and spiritual states.`,
     source: "Sri Shankaracharya",
     tags: ["stillness"]
   },
   {
     number: 1568,
-    text: "Notice the mechanics of the mind constantly attempting to claim authorship over life, and strip it of that right.",
+    text: `Notice the mechanics of the mind constantly attempting to claim authorship over life, and strip it of that right.`,
     source: "Sri Shankaracharya",
     tags: ["stillness"]
   },
   {
     number: 1569,
-    text: "Dwell in total transparency: let both thoughts and events pass through you, leaving behind no personal scars.",
+    text: `Dwell in total transparency: let both thoughts and events pass through you, leaving behind no personal scars.`,
     source: "Sri Shankaracharya",
     tags: ["stillness"]
   },
   {
     number: 1570,
-    text: "Leave all seeking outside: that which seeks freedom is that very freedom itself, having forgotten itself in a fleeting moment of dream.",
+    text: `Leave all seeking outside: that which seeks freedom is that very freedom itself, having forgotten itself in a fleeting moment of dream.`,
     source: "Sri Shankaracharya",
     tags: ["stillness"]
   },
   {
     number: 1571,
-    text: "Where there is peace and meditation, there is neither anxiety nor doubt.",
+    text: `Where there is peace and meditation, there is neither anxiety nor doubt.`,
     source: "Paramahansa Yogananda",
     tags: ["stillness"]
   },
   {
     number: 1572,
-    text: "Happiness, love, your inner state — everything is in your hands. You hold the key to everything.",
+    text: `Happiness, love, your inner state — everything is in your hands. You hold the key to everything.`,
     source: "Anar (Anar Dreams)",
     tags: ["stillness"]
   },
   {
     number: 1573,
-    text: "Dharma (the supreme spiritual law and path of truth) lives above all in people who dedicate their lives to it.",
+    text: `Dharma (the supreme spiritual law and path of truth) lives above all in people who dedicate their lives to it.`,
     source: "Swami Vishnudevananda Giri",
     tags: ["stillness"]
   },
   {
     number: 1574,
-    text: "Arise, awake, and stop not until the goal is reached.",
+    text: `Arise, awake, and stop not until the goal is reached.`,
     source: "Swami Vivekananda",
     tags: ["stillness"]
   },
   {
     number: 1575,
-    text: "Peace, more peace, ever more peace — the foundation of all spiritual life.",
+    text: `Peace, more peace, ever more peace — the foundation of all spiritual life.`,
     source: "Sri Aurobindo",
     tags: ["stillness"]
   },
   {
     number: 1576,
-    text: "Inner well-being is a choice, not an outcome of circumstances.",
+    text: `Inner well-being is a choice, not an outcome of circumstances.`,
     source: "Sadhguru",
     tags: ["stillness"]
   },
   {
     number: 1577,
-    text: "All that we are is the result of what we have thought.",
+    text: `All that we are is the result of what we have thought.`,
     source: "The Buddha",
     tags: ["stillness"]
   },
   {
     number: 1578,
-    text: "There is no way to happiness — happiness is the way.",
+    text: `There is no way to happiness — happiness is the way.`,
     source: "Thich Nhat Hanh",
     tags: ["stillness"]
   },
   {
     number: 1579,
-    text: "The nature of mind is like the clear sky: clouds come and go, but the sky remains.",
+    text: `The nature of mind is like the clear sky: clouds come and go, but the sky remains.`,
     source: "Dilgo Khyentse Rinpoche",
     tags: ["stillness"]
   },
   {
     number: 1580,
-    text: "The spiritual path is not about working on oneself, but dissolving the illusion of self.",
+    text: `The spiritual path is not about working on oneself, but dissolving the illusion of self.`,
     source: "Chogyam Trungpa",
     tags: ["stillness"]
   },
   {
     number: 1581,
-    text: "The ability to observe without evaluating is the highest form of intelligence.",
+    text: `The ability to observe without evaluating is the highest form of intelligence.`,
     source: "Jiddu Krishnamurti",
     tags: ["stillness"]
   },
   {
     number: 1582,
-    text: "Be a realist — plan for a miracle.",
+    text: `Be a realist — plan for a miracle.`,
     source: "Osho",
     tags: ["stillness"]
   },
   {
     number: 1583,
-    text: "Be silent, or say something better than silence.",
+    text: `Be silent, or say something better than silence.`,
     source: "Pythagoras",
     tags: ["stillness"]
   },
   {
     number: 1584,
-    text: "Yoga is 99% practice and 1% theory.",
+    text: `Yoga is 99% practice and 1% theory.`,
     source: "K. Pattabhi Jois",
     tags: ["stillness"]
   },
   {
     number: 1585,
-    text: "Every moment right now is nothing other than our life, our practice, our enlightenment.",
+    text: `Every moment right now is nothing other than our life, our practice, our enlightenment.`,
     source: "Taizan Maezumi",
     tags: ["stillness"]
   },
   {
     number: 1586,
-    text: "It is not appearances that bind you, but attachment to them; cut it through, Naropa.",
+    text: `It is not appearances that bind you, but attachment to them; cut it through, Naropa.`,
     source: "Tilopa",
     tags: ["stillness"]
   },
   {
     number: 1587,
-    text: "Embodied beings are firmly bound by craving for existence, therefore cultivate renunciation first.",
+    text: `Embodied beings are firmly bound by craving for existence, therefore cultivate renunciation first.`,
     source: "Je Tsongkhapa",
     tags: ["stillness"]
   },
   {
     number: 1588,
-    text: "The whole path of mindfulness is simply being aware of whatever you are doing.",
+    text: `The whole path of mindfulness is simply being aware of whatever you are doing.`,
     source: "Dipa Ma",
     tags: ["stillness"]
   },
   {
     number: 1589,
-    text: "Your life fills with whatever your attention is focused upon.",
+    text: `Your life fills with whatever your attention is focused upon.`,
     source: "Vadim Zeland",
     tags: ["stillness"]
   },
   {
     number: 1590,
-    text: "For beginners, the most important thing is diligence.",
+    text: `For beginners, the most important thing is diligence.`,
     source: "Chokyi Nyima Rinpoche",
     tags: ["stillness"]
   },
   {
     number: 1591,
-    text: "Take one step away from yourself, so that through this you may reach God.",
+    text: `Take one step away from yourself, so that through this you may reach God.`,
     source: "Abu Sa'id Abu'l-Khayr",
     tags: ["stillness"]
   },
   {
     number: 1592,
-    text: "Heart with God, hands at work.",
+    text: `Heart with God, hands at work.`,
     source: "Baha-ud-Din Naqshband",
     tags: ["stillness"]
   },
   {
     number: 1593,
-    text: "The essential root of the true person is sleepless clarity.",
+    text: `The essential root of the true person is sleepless clarity.`,
     source: "Chen Tuan",
     tags: ["stillness"]
   },
   {
     number: 1594,
-    text: "The work of this moment is attentiveness, awareness, presence.",
+    text: `The work of this moment is attentiveness, awareness, presence.`,
     source: "Toni Packer",
     tags: ["stillness"]
   },
@@ -13132,8 +13132,8 @@ Stop now.`,
   },
   {
     number: 1905,
-    text: `Practice and enlightenment are one.`,
-    source: "Dogen",
+    text: `Do not quit. Suffer now and live the rest of your life as a champion.`,
+    source: "Muhammad Ali",
     tags: ["stillness"]
   },
   {
@@ -13438,6 +13438,72 @@ A mirror does not get stained by what is reflected in it.`,
     text: `Untouchedness begins with small things. 
 A traffic jam, cold coffee, someone else's opinion. 
 Watch how the mind tries to take offense, and do not let it finish its sentence.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1950,
+    text: `Success is no accident. It is hard work, perseverance, and love of what you are doing.`,
+    source: "Pelé",
+    tags: ["stillness"]
+  },
+  {
+    number: 1951,
+    text: `It is not the mountain we conquer, but ourselves.`,
+    source: "Edmund Hillary",
+    tags: ["stillness"]
+  },
+  {
+    number: 1952,
+    text: `The best workout is the one you did not want to go to. You walk out of it a different person.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1953,
+    text: `Strength does not grow in the gym, but at the exact moment you want to quit. It is the same with practice.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1954,
+    text: `The pain of discipline weighs ounces. The pain of regret weighs tons.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1955,
+    text: `No one will remember how hard it was for you. But you will know who you became by going through it.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1956,
+    text: `You are not late. You are right where you stopped. Any day is a day to begin.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1957,
+    text: `Inspiration is a guest that arrives once the work has already begun. Start without it.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1958,
+    text: `If you are tired, you are at the boundary. The boundary is the most interesting place on the map.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1959,
+    text: `Champions are not more motivated than you. They just got up more often when they did not feel like it.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1960,
+    text: `The one who does not want to today, and the one who will say «thank you» tomorrow, are the same person. Decide which one you are helping.`,
     source: null,
     tags: ["stillness"]
   }

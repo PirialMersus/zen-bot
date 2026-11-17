@@ -63,7 +63,7 @@ describe('Сервис доставки напоминаний (reminderDelivery
     });
   });
 
-  it('должен отправлять текстовое напоминание с футером автоудаления', async () => {
+  it('должен отправлять текстовое напоминание с кнопкой автоудаления без текстового футера', async () => {
     const reminder = {
       _id: 'reminder2',
       chatId: 54321,
@@ -84,9 +84,10 @@ describe('Сервис доставки напоминаний (reminderDelivery
     expect(mockBot.telegram.sendMessage).toHaveBeenCalledTimes(1);
     const [chatId, text, options] = mockBot.telegram.sendMessage.mock.calls[0];
     expect(chatId).toBe(54321);
-    expect(text).toContain('Будь в моменте');
-    expect(text).toContain('автоудаление через 30 сек');
+    expect(text).toBe('Будь в моменте');
+    expect(text).not.toContain('автоудаление');
     expect(options.parse_mode).toBe('HTML');
+    expect(options.reply_markup.inline_keyboard[0][0].text).toBe(UI.ru.POINTER_KEEP_BUTTON(30));
   });
 
   it('должен отправлять напоминание с фотографией и подписью', async () => {

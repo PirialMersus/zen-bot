@@ -24,7 +24,7 @@ const RUSSIAN_TEXTS = {
   },
 
   POINTERS: {
-    MENU_LABEL: '🧘 Указатели',
+    MENU_LABEL: '🪷',
     EMPTY: 'Пока нет указателей.',
     FAVORITE_EMPTY:
       'У тебя пока нет избранных указателей. Читая случайные указатели, нажимай «⭐ В избранное», чтобы сохранить понравившиеся.',
@@ -182,7 +182,7 @@ I will remind you about what truly matters.
   },
 
   POINTERS: {
-    MENU_LABEL: '🧘 Pointers',
+    MENU_LABEL: '🪷',
     EMPTY: 'No pointers yet.',
     FAVORITE_EMPTY:
       'You have no favorite pointers yet. While reading pointers, click "⭐ To favorites" to save them.',
@@ -338,7 +338,7 @@ const UKRAINIAN_TEXTS = {
   },
 
   POINTERS: {
-    MENU_LABEL: '🧘 Вказівники',
+    MENU_LABEL: '🪷',
     EMPTY: 'Поки немає вказівників.',
     FAVORITE_EMPTY:
       'У тебе поки немає обраних вказівників. Читаючи випадкові вказівники, натискай «⭐ До обраного», щоб зберегти ті, що сподобалися.',
@@ -497,7 +497,7 @@ Te recordaré lo que verdaderamente importa.
   },
 
   POINTERS: {
-    MENU_LABEL: '🧘 Punteros',
+    MENU_LABEL: '🪷',
     EMPTY: 'Aún no hay punteros.',
     FAVORITE_EMPTY:
       'Aún no tienes punteros favoritos. Al leer punteros aleatorios, pulsa «⭐ A favoritos» para guardar los que te gusten.',

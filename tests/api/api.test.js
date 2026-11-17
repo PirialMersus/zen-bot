@@ -64,7 +64,7 @@ describe('API безопасность и мультиязычность ука�
     const verificationHttpResponse = await fetch(`${serverBaseUrl}/api/auth/verify`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ code: 'DEV-123' })
+      body: JSON.stringify({ code: 'DEV-123', telegramId: 791785172 })
     });
 
     const responseJsonBody = await verificationHttpResponse.json();
@@ -77,13 +77,35 @@ describe('API безопасность и мультиязычность ука�
     const verificationHttpResponse = await fetch(`${serverBaseUrl}/api/auth/verify`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ code: 123456 })
+      body: JSON.stringify({ code: 123456, telegramId: 791785172 })
     });
 
     const responseJsonBody = await verificationHttpResponse.json();
 
     expect(verificationHttpResponse.status).toBe(400);
     expect(responseJsonBody.message).toBe('Код обязателен и должен быть непустой строкой');
+  });
+
+  it('должен возвращать статус 400 при отсутствии или некорректном telegramId', async () => {
+    const verificationWithoutTelegramId = await fetch(`${serverBaseUrl}/api/auth/verify`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ code: 'XYZ-123' })
+    });
+
+    const bodyWithoutTelegramId = await verificationWithoutTelegramId.json();
+    expect(verificationWithoutTelegramId.status).toBe(400);
+    expect(bodyWithoutTelegramId.message).toBe('telegramId обязателен и должен быть положительным числом');
+
+    const verificationWithInvalidTelegramId = await fetch(`${serverBaseUrl}/api/auth/verify`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ code: 'XYZ-123', telegramId: -5 })
+    });
+
+    const bodyWithInvalidTelegramId = await verificationWithInvalidTelegramId.json();
+    expect(verificationWithInvalidTelegramId.status).toBe(400);
+    expect(bodyWithInvalidTelegramId.message).toBe('telegramId обязателен и должен быть положительным числом');
   });
 
   it('должен генерировать код авторизации в формате XXXX-XXXX', () => {
@@ -137,7 +159,7 @@ describe('API безопасность и мультиязычность ука�
     const verificationHttpResponse = await fetch(`${serverBaseUrl}/api/auth/verify`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ code: 'XYZ-789' })
+      body: JSON.stringify({ code: 'XYZ-789', telegramId: validUserTelegramId })
     });
 
     const responseJsonBody = await verificationHttpResponse.json();
@@ -245,7 +267,7 @@ describe('API безопасность и мультиязычность ука�
     const verificationResponse = await fetch(`${serverBaseUrl}/api/auth/verify`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ code: 'AAA-111' })
+      body: JSON.stringify({ code: 'AAA-111', telegramId: testUserTelegramId })
     });
     const verificationBody = await verificationResponse.json();
     const authToken = verificationBody.token;
@@ -286,7 +308,7 @@ describe('API безопасность и мультиязычность ука�
     const verificationResponse = await fetch(`${serverBaseUrl}/api/auth/verify`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ code: 'BBB-222' })
+      body: JSON.stringify({ code: 'BBB-222', telegramId: testUserTelegramId })
     });
     const verificationBody = await verificationResponse.json();
     const authToken = verificationBody.token;
