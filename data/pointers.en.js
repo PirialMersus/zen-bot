@@ -7703,7 +7703,7 @@ To remain as perception, one must perceive the perception from the perspective o
     text: `As soon as the thought "later" appears, don't argue with it. Take one step toward your practice before the next thought appears.
 Procrastination feeds on discussion.`,
     source: null,
-    tags: ["silence"]
+    tags: ["stillness"]
   },
   {
     number: 1096,
@@ -7712,7 +7712,7 @@ What does it promise?
 Who is it promising relief to?
 Investigate the impulse itself.`,
     source: null,
-    tags: ["silence"]
+    tags: ["stillness"]
   },
   {
     number: 1097,
@@ -7720,19 +7720,19 @@ Investigate the impulse itself.`,
 Stop before you touch it. Investigate the movement toward your phone itself.
 Don't turn another impulse into another wasted minute.`,
     source: null,
-    tags: ["silence"]
+    tags: ["stillness"]
   },
   {
     number: 1098,
     text: `Before distracting or entertaining yourself, ask: "What exactly am I looking for right now?" Don't settle for the answer "rest." Identify the real need. What are you trying to escape from?`,
     source: null,
-    tags: ["silence"]
+    tags: ["stillness"]
   },
   {
     number: 1099,
     text: `Don't start your day with a stream of other people's information. "`,
     source: null,
-    tags: ["silence"]
+    tags: ["stillness"]
   },
   {
     number: 1100,
@@ -7740,41 +7740,41 @@ Don't turn another impulse into another wasted minute.`,
 Stop as soon as you notice.
 Don't keep watching just because you've already started. The minute that's passed doesn't obligate you to give away the next one.`,
     source: null,
-    tags: ["silence"]
+    tags: ["stillness"]
   },
   {
     number: 1101,
     text: `Habit lives not in promises but in repetition.
 Break the chain at a specific point: the impulse arose, but the habitual action did not follow. That's your work.`,
     source: null,
-    tags: ["silence"]
+    tags: ["stillness"]
   },
   {
     number: 1102,
     text: `Stop lying to yourself that just a little more entertainment will finally make you feel rested.
 Look at the desire for yet another dose of stimulation. Who keeps demanding more?`,
     source: null,
-    tags: ["silence"]
+    tags: ["stillness"]
   },
   {
     number: 1103,
     text: `Don't wait for the desire to entertain yourself to disappear. Let it be there. Your task is not to automatically surrender your next action to it.`,
     source: null,
-    tags: ["silence"]
+    tags: ["stillness"]
   },
   {
     number: 1104,
     text: `Don't let a moment of pleasure quietly buy your entire evening.
 See the price before agreeing to the deal.`,
     source: null,
-    tags: ["silence"]
+    tags: ["stillness"]
   },
   {
     number: 1105,
     text: `Sexual desire is neither an order nor a reason for shame. Observe the sensations, images, and promise of pleasure.
 Don't suppress the impulse, but don't become its automatic executor either.`,
     source: null,
-    tags: ["silence"]
+    tags: ["stillness"]
   },
   {
     number: 1106,
@@ -7782,60 +7782,60 @@ Don't suppress the impulse, but don't become its automatic executor either.`,
 Eat properly. Practice doesn't require depriving the body of what it needs.
 Don't treat food as the enemy; investigate your own automatic behavior instead.`,
     source: null,
-    tags: ["silence"]
+    tags: ["stillness"]
   },
   {
     number: 1107,
     text: `When you feel like eating even though you're not hungry, don't blame yourself or forbid yourself from eating.
 Pause for a moment and discover what you're seeking beyond nourishment.`,
     source: null,
-    tags: ["silence"]
+    tags: ["stillness"]
   },
   {
     number: 1108,
     text: `Don't use pleasure as a way to escape yourself. Pleasure can be present. But why do you constantly need to run away from something?`,
     source: null,
-    tags: ["silence"]
+    tags: ["stillness"]
   },
   {
     number: 1109,
     text: `" Test that promise. What exactly is being sought?
 And who is supposed to feel better?`,
     source: null,
-    tags: ["silence"]
+    tags: ["stillness"]
   },
   {
     number: 1110,
     text: `You don't need to defeat desire forever. You need to see it now. One impulse, one pause, one clear return.
 Repeat.`,
     source: null,
-    tags: ["silence"]
+    tags: ["stillness"]
   },
   {
     number: 1111,
     text: `While the kettle is heating, don't reach for your phone. Use those minutes for self-inquiry. Everyday life offers you thousands of opportunities to practice.`,
     source: null,
-    tags: ["silence"]
+    tags: ["stillness"]
   },
   {
     number: 1112,
     text: `Every time you enter a new room, notice not only where the body has arrived, but also the very experience of what is happening.
 Don't automatically return to the familiar first-person perspective.`,
     source: null,
-    tags: ["silence"]
+    tags: ["stillness"]
   },
   {
     number: 1113,
     text: `When you hear a notification, don't respond immediately. First, notice your reaction to the sound itself.
 Are you directing your attention, or is every signal directing you?`,
     source: null,
-    tags: ["silence"]
+    tags: ["stillness"]
   },
   {
     number: 1114,
     text: `Before responding impulsively, investigate the one who wants to respond. Sometimes one second of clarity can save hours of pointless internal dialogue.`,
     source: null,
-    tags: ["silence"]
+    tags: ["stillness"]
   },
   {
     number: 1115,
@@ -7843,173 +7843,173 @@ Are you directing your attention, or is every signal directing you?`,
 Don't create another story.
 Look directly at the experience itself.`,
     source: null,
-    tags: ["silence"]
+    tags: ["stillness"]
   },
   {
     number: 1116,
     text: `Overcome anger with the absence of anger, evil with goodness, stinginess with generosity, and lies with truth.
 Don't become an extension of what you encounter.`,
     source: "Buddha",
-    tags: ["silence"]
+    tags: ["stillness"]
   },
   {
     number: 1117,
     text: `Be straightforward, humble, open to guidance, and free from arrogance.
 Don't humiliate anyone. Wish no one harm. Isn't this also part of genuine spiritual practice?`,
     source: "Buddha",
-    tags: ["silence"]
+    tags: ["stillness"]
   },
   {
     number: 1118,
     text: `There are two extremes: the pursuit of pleasure and the torment of oneself. Neither leads to awakening.
 Seek neither comfort at any cost nor suffering for the sake of spiritual significance. Follow the Middle Way.`,
     source: "Buddha",
-    tags: ["silence"]
+    tags: ["stillness"]
   },
   {
     number: 1119,
     text: `Keep your word, even in small things.
 Don't promise what you don't intend to fulfill. Reliability is a far greater sign of inner maturity than the ability to speak beautifully about freedom.`,
     source: null,
-    tags: ["silence"]
+    tags: ["stillness"]
   },
   {
     number: 1120,
     text: `Death stands behind your shoulder and waits. She does not insult, rush, or argue. She simply reminds you: every day spent sleepwalking through life is another piece of your life already surrendered.`,
     source: null,
-    tags: ["silence"]
+    tags: ["stillness"]
   },
   {
     number: 1121,
     text: `Juan Matus told Castaneda: remember your death. Not as a source of fear, but as an advisor.
 Ask yourself: if this were your last day, would you be sitting here exactly as you are now?`,
     source: "Carlos Castaneda",
-    tags: ["silence"]
+    tags: ["stillness"]
   },
   {
     number: 1122,
     text: `Seneca wrote: it is not that we have too little time, but that we waste so much of it. You spend your life trying to kill time — and that is the one thing you can never get back.`,
     source: "Seneca",
-    tags: ["silence"]
+    tags: ["stillness"]
   },
   {
     number: 1123,
     text: `No one is coming. No teacher, no sign, no circumstance, no Monday. What you are searching for outside as a reason to begin is already within you — reaching from your future self toward the present.`,
     source: null,
-    tags: ["silence"]
+    tags: ["stillness"]
   },
   {
     number: 1124,
     text: `Gurdjieff called it the only miracle available to human beings: a person is capable of anything. Every time you say "I can't," you trade that miracle for the comfort of an excuse.`,
     source: "Gurdjieff",
-    tags: ["silence"]
+    tags: ["stillness"]
   },
   {
     number: 1125,
     text: `Someone irritates you?
 Good. Irritation is a tentacle pulling you out of automatic behavior. Who gave that person the power to decide what state of mind you will live in for the next hour?`,
     source: null,
-    tags: ["silence"]
+    tags: ["stillness"]
   },
   {
     number: 1126,
     text: `You want motivation?
 Here it is: you have already spent so many days on everything except what matters most. Every new day that begins with the same "later" is not a repetition — it is a deeper surrender.`,
     source: null,
-    tags: ["silence"]
+    tags: ["stillness"]
   },
   {
     number: 1127,
     text: `" But this applies to someone who willingly walks toward what challenges them. A person who merely survives through inaction does not become stronger — only quieter.`,
     source: "Nietzsche",
-    tags: ["silence"]
+    tags: ["stillness"]
   },
   {
     number: 1128,
     text: `Bruce Lee: "Don't think. Feel. It is like a finger pointing away to the moon. " Stop thinking about the practice.
 Do it.`,
     source: "Bruce Lee",
-    tags: ["silence"]
+    tags: ["stillness"]
   },
   {
     number: 1129,
     text: `You are not living your life. Your habits, traffic, social media feeds, and other people's demands are living it for you.
 Take back at least your morning. Make the first hour of the day yours, and the rest of the day will follow.`,
     source: null,
-    tags: ["silence"]
+    tags: ["stillness"]
   },
   {
     number: 1130,
     text: `Steve Jobs asked himself every morning: if today were the last day of my life, would I want to do what I am about to do today?
 When the answer is "no" for too many days in a row, it is time to change something.`,
     source: "Steve Jobs",
-    tags: ["silence"]
+    tags: ["stillness"]
   },
   {
     number: 1131,
     text: `Milarepa said: "Last year, I thought about meditating. " Between those two sentences lies a year lost to overthinking.`,
     source: "Milarepa",
-    tags: ["silence"]
+    tags: ["stillness"]
   },
   {
     number: 1132,
     text: `Perhaps the hardest spiritual exercise is not sitting in the lotus position, fasting, or retreating into the mountains.
 The hardest thing is to encounter a difficult person without losing yourself in your reaction to them.`,
     source: null,
-    tags: ["silence"]
+    tags: ["stillness"]
   },
   {
     number: 1133,
     text: `If your practice depends on your mood, it is not a practice — it is a hobby. Mood is weather. Discipline is climate.
 Build your climate.`,
     source: null,
-    tags: ["silence"]
+    tags: ["stillness"]
   },
   {
     number: 1134,
     text: `A hero and a coward experience the same fear. The difference is that the hero counts to three, while the coward counts to infinity.
 Count. Act.`,
     source: null,
-    tags: ["silence"]
+    tags: ["stillness"]
   },
   {
     number: 1135,
     text: `" You don't need to wait for that bed. Tell yourself what matters now.`,
     source: null,
-    tags: ["silence"]
+    tags: ["stillness"]
   },
   {
     number: 1136,
     text: `Do not confuse peace with the absence of problems. True peace is tested precisely when everything around you is changing.
 You can stand in the middle of a storm without allowing it to settle inside you. Silence is not the absence of wind, but a depth the wind cannot reach.`,
     source: null,
-    tags: ["silence"]
+    tags: ["stillness"]
   },
   {
     number: 1137,
     text: `Arnold Schwarzenegger: "You have two voices. One says: give up, you're tired. " The voice you obey most often is the one that eventually becomes you.`,
     source: "Arnold Schwarzenegger",
-    tags: ["silence"]
+    tags: ["stillness"]
   },
   {
     number: 1138,
     text: `You don't need to abandon everything and disappear into the mountains. You need to devote one day to what truly matters.
 One honest day. That may be enough to see what your life was before it.`,
     source: null,
-    tags: ["silence"]
+    tags: ["stillness"]
   },
   {
     number: 1139,
     text: `You ask yourself: "Why am I doing this?" Because a year from now, you will either thank yourself for this day or ask "why?" all over again. Only the question will weigh more heavily.`,
     source: null,
-    tags: ["silence"]
+    tags: ["stillness"]
   },
   {
     number: 1140,
     text: `If someone told you that you had only one week left, you would discover what truly matters within an hour.
 But no one has told you that. Consider yourself fortunate: you have the chance to discover it without having only a week left.`,
     source: null,
-    tags: ["silence"]
+    tags: ["stillness"]
   },
   {
     number: 1141,
@@ -8017,349 +8017,349 @@ But no one has told you that. Consider yourself fortunate: you have the chance t
 Ask yourself: what did you want a year ago, and what do you want now?
 If the list has grown shorter, you are growing old. Add something to it.`,
     source: null,
-    tags: ["silence"]
+    tags: ["stillness"]
   },
   {
     number: 1142,
     text: `Whoever controls their morning controls their life. Whoever surrenders their morning to algorithms surrenders their destiny as well.
 Take your morning back.`,
     source: null,
-    tags: ["silence"]
+    tags: ["stillness"]
   },
   {
     number: 1143,
     text: `Practice that depends on your mood is a hobby. Put it on your calendar like a meeting with the person you love most in the world.`,
     source: null,
-    tags: ["silence"]
+    tags: ["stillness"]
   },
   {
     number: 1144,
     text: `Practice first, then email. Practice first, then news. Practice first, then everything else. Never the reverse — otherwise "everything else" will consume everything.`,
     source: null,
-    tags: ["silence"]
+    tags: ["stillness"]
   },
   {
     number: 1145,
     text: `Make the very first action of the day a physical anchor: feet on the floor — and ten seconds of pure listening.
 Not for a result. Simply so the mind does not begin your day.`,
     source: null,
-    tags: ["silence"]
+    tags: ["stillness"]
   },
   {
     number: 1146,
     text: `Go to sleep on one condition: tomorrow, before you touch your phone — one minute of presence. Just one. That is far cheaper than a year of regret.`,
     source: null,
-    tags: ["silence"]
+    tags: ["stillness"]
   },
   {
     number: 1147,
     text: `Tell one person that you practice consistently. Now silence is no longer an option. Disgrace is an ancient and effective engine.`,
     source: null,
-    tags: ["silence"]
+    tags: ["stillness"]
   },
   {
     number: 1148,
     text: `" Not for meditation. Simply to notice three times where attention is resting right now.`,
     source: null,
-    tags: ["silence"]
+    tags: ["stillness"]
   },
   {
     number: 1149,
     text: `Stop waiting for inspiration. Inspiration is an opium for those who cannot make a decision. A decision is made once and is no longer up for discussion.`,
     source: null,
-    tags: ["silence"]
+    tags: ["stillness"]
   },
   {
     number: 1150,
     text: `Choose one doorway in your home. Every time you cross it — one second: pause, listen, step. In a month, you will have a hundred awakenings woven directly into the fabric of your day.`,
     source: null,
-    tags: ["silence"]
+    tags: ["stillness"]
   },
   {
     number: 1151,
     text: `Do not fight procrastination. Make the practice so small that refusing it feels more embarrassing than doing it.
 One breath. Start with a single breath.`,
     source: null,
-    tags: ["silence"]
+    tags: ["stillness"]
   },
   {
     number: 1152,
     text: `You did not "forget" about the practice. You chose your phone, conversation, food, sleep, drama. Call it a choice — and it becomes yours. And what is yours, you can change.`,
     source: null,
-    tags: ["silence"]
+    tags: ["stillness"]
   },
   {
     number: 1153,
     text: `A practice without sacrifice is hollow. Sacrifice something tangible: half an hour of a TV show, an extra cup of coffee, an argument.
 What costs nothing changes nothing.`,
     source: null,
-    tags: ["silence"]
+    tags: ["stillness"]
   },
   {
     number: 1154,
     text: `As long as practice fits into the leftovers of your day, it fits into the leftovers of you. Flip it: let the leftovers arrange themselves around the practice.`,
     source: null,
-    tags: ["silence"]
+    tags: ["stillness"]
   },
   {
     number: 1155,
     text: `Eat the frog: do the practice first thing, before the mind gets a chance to negotiate. The mind awakens by the second minute — then it is already too late.`,
     source: null,
-    tags: ["silence"]
+    tags: ["stillness"]
   },
   {
     number: 1156,
     text: `One day a week — a day when practice matters more than any person, call, or event.
 Do not retreat to the mountains. Just surrender this morning to no one.`,
     source: null,
-    tags: ["silence"]
+    tags: ["stillness"]
   },
   {
     number: 1157,
     text: `Missed a day?
 Do not compensate and do not repent. The rule: never miss more than one. Two missed days in a row is already a new habit.`,
     source: null,
-    tags: ["silence"]
+    tags: ["stillness"]
   },
   {
     number: 1158,
     text: `Forbid yourself from saying "now is not the time." Replace it with: "what single minute of practice can this exact moment offer?" There is always an answer.`,
     source: null,
-    tags: ["silence"]
+    tags: ["stillness"]
   },
   {
     number: 1159,
     text: `Sleep is the first practice. Going to bed, let go of the day three times: the day is gone, I am gone, the morning will decide for itself.
 Whoever cannot die in the evening cannot truly awaken in the morning.`,
     source: null,
-    tags: ["silence"]
+    tags: ["stillness"]
   },
   {
     number: 1160,
     text: `The mind resists the first five minutes the most. Make a deal with yourself for just five. The sixth will arrive on its own — or not, but those five can never be taken away.`,
     source: null,
-    tags: ["silence"]
+    tags: ["stillness"]
   },
   {
     number: 1161,
     text: `When you look at an object without concepts or labels, as if for the first time in your life, the boundary between you and it dissolves, for pure attention is true love.`,
     source: null,
-    tags: ["silence"]
+    tags: ["stillness"]
   },
   {
     number: 1162,
     text: `Practicing in a queue, in traffic, while waiting is not about saving time. It is acknowledging that time was never yours while you were asleep within it.`,
     source: null,
-    tags: ["silence"]
+    tags: ["stillness"]
   },
   {
     number: 1163,
     text: `Remove your phone from your bedroom for a week. Not for a digital detox — but so the morning belongs to the one who woke up, not to the ones sending messages.`,
     source: null,
-    tags: ["silence"]
+    tags: ["stillness"]
   },
   {
     number: 1164,
     text: `Before eating — one breath, look at the food, give thanks or remain silent. A hungry mind rushes. A fed mind sleeps.
 You are not caught between them.`,
     source: null,
-    tags: ["silence"]
+    tags: ["stillness"]
   },
   {
     number: 1165,
     text: `Turn fatigue into a signal, not an excuse. Fatigue is when the familiar "I" begins to fracture. The perfect moment to look and see who is tired.`,
     source: null,
-    tags: ["silence"]
+    tags: ["stillness"]
   },
   {
     number: 1166,
     text: `Do not trust promises made in the evening. The evening mind writes checks the morning mind refuses to cash.
 Pay immediately: lie down — stand up — sit down.`,
     source: null,
-    tags: ["silence"]
+    tags: ["stillness"]
   },
   {
     number: 1167,
     text: `Practice silence for one hour a day: not silence of the mouth, but silence of commentary. Words may flow — but your signature is on them only after a pause.`,
     source: null,
-    tags: ["silence"]
+    tags: ["stillness"]
   },
   {
     number: 1168,
     text: `Sit down and say aloud: "Today, practice matters more than my mood, my tasks, and my relationships." If that feels shameful, you are living in reverse.`,
     source: null,
-    tags: ["silence"]
+    tags: ["stillness"]
   },
   {
     number: 1169,
     text: `If you remain the same after practice, you did not practice — you rested. The only difference is that after real practice, someone is left unemployed.
 Find that one.`,
     source: null,
-    tags: ["silence"]
+    tags: ["stillness"]
   },
   {
     number: 1170,
     text: `Stop discussing practice with your tired evening self. Decide once in the morning — and in the evening, simply execute.
 The evening has no voting rights.`,
     source: null,
-    tags: ["silence"]
+    tags: ["stillness"]
   },
   {
     number: 1171,
     text: `Make a list of ten things that "interfere with practice." Now rewrite it: "ten things I choose instead of practice." Reads differently, doesn't it?`,
     source: null,
-    tags: ["silence"]
+    tags: ["stillness"]
   },
   {
     number: 1172,
     text: `Fifteen minutes of morning stillness. Not meditation — stillness. The body does not move, and the mind is forced to reveal itself without the rustle of activities.`,
     source: null,
-    tags: ["silence"]
+    tags: ["stillness"]
   },
   {
     number: 1173,
     text: `A practice nobody knows about is the easiest to abandon.
 Find one witness. Not a mentor — a witness. A witness is stronger than motivation.`,
     source: null,
-    tags: ["silence"]
+    tags: ["stillness"]
   },
   {
     number: 1174,
     text: `One day without music, podcasts, or background noise. Is silence irritating?
 Excellent. Irritation shows what the mind feeds on when you are not looking.`,
     source: null,
-    tags: ["silence"]
+    tags: ["stillness"]
   },
   {
     number: 1175,
     text: `You think of practice as an activity, but it is the place from which all activities arise. Mistake the address, and you walk past your own home all day.`,
     source: null,
-    tags: ["silence"]
+    tags: ["stillness"]
   },
   {
     number: 1176,
     text: `The rule of one trace: each day must leave one thing testifying to practice — a note, silence before sleep, an unspoken word.
 Just one. But every single day.`,
     source: null,
-    tags: ["silence"]
+    tags: ["stillness"]
   },
   {
     number: 1177,
     text: `Do not seek balance between practice and life. Balance is sought on a scale. You are not a scale. Practice first, and life flowing from it — never the reverse.`,
     source: null,
-    tags: ["silence"]
+    tags: ["stillness"]
   },
   {
     number: 1178,
     text: `Take a vow for forty days: ten minutes at the exact same time. A vow works not by magic, but because breaking it requires conscious choice.
 A conscious refusal is better than a hundred unconscious ones.`,
     source: null,
-    tags: ["silence"]
+    tags: ["stillness"]
   },
   {
     number: 1179,
     text: `Every time you catch yourself thinking "there is no time," stop and take one breath slower than usual.
 Just one. Now there was time. Remember that feeling.`,
     source: null,
-    tags: ["silence"]
+    tags: ["stillness"]
   },
   {
     number: 1180,
     text: `An hour of practice on a calm day is worth less than a minute of practice on a day of chaos.
 Do not avoid difficult days — they are your training ground, not your excuse.`,
     source: null,
-    tags: ["silence"]
+    tags: ["stillness"]
   },
   {
     number: 1181,
     text: `" Life is the sorting out. Practice is the place from which it is sorted. You have mistaken the address again.`,
     source: null,
-    tags: ["silence"]
+    tags: ["stillness"]
   },
   {
     number: 1182,
     text: `Make slipping up harder than practicing: yoga mat unrolled the night before, phone in another room, timer set.
 Laziness is a landscape. Change the landscape, do not try to be a hero.`,
     source: null,
-    tags: ["silence"]
+    tags: ["stillness"]
   },
   {
     number: 1183,
     text: `" Simply do everything ten percent slower: eat, write, speak, walk. Slowness does not require time — it requires a master.`,
     source: null,
-    tags: ["silence"]
+    tags: ["stillness"]
   },
   {
     number: 1184,
     text: `You spent years learning to argue, earn money, and be liked. How many weeks did you give to the ability to simply be here?
 That is your true hierarchy — not the one in your head.`,
     source: null,
-    tags: ["silence"]
+    tags: ["stillness"]
   },
   {
     number: 1185,
     text: `Practice is the only endeavor that cannot be inherited, bought, or delegated. That is why the mind abandons it first.
 The mind dislikes what cannot be purchased.`,
     source: null,
-    tags: ["silence"]
+    tags: ["stillness"]
   },
   {
     number: 1186,
     text: `Read nothing new about practice for a week. Not a single line. If practice grows cold without new texts, you were never in love with practice, only with reading about it.`,
     source: null,
-    tags: ["silence"]
+    tags: ["stillness"]
   },
   {
     number: 1187,
     text: `" People abandon what has already worked. Practice that "does not work" is the only real one. The rest is rehearsing an image.`,
     source: null,
-    tags: ["silence"]
+    tags: ["stillness"]
   },
   {
     number: 1188,
     text: `Say "no" to one task today — and give that freed minute to practice. That is what priority looks like not in your head, but in action.`,
     source: null,
-    tags: ["silence"]
+    tags: ["stillness"]
   },
   {
     number: 1189,
     text: `Your week will reveal your faith far more accurately than your books. What did you give your best hours to seven days in a row?
 There is your god. The rest is literature.`,
     source: null,
-    tags: ["silence"]
+    tags: ["stillness"]
   },
   {
     number: 1190,
     text: `Make practice expensive: pay something for it before it even begins — wake up earlier, take a walk instead of watching a show, hold your tongue in a dispute.
 Free things cost nothing, and therefore yield nothing.`,
     source: null,
-    tags: ["silence"]
+    tags: ["stillness"]
   },
   {
     number: 1191,
     text: `Do not turn practice into a shelter from people. A shelter smells of fear. Practice right inside the meat grinder of the day — that is where it truly exists, or it does not exist at all.`,
     source: null,
-    tags: ["silence"]
+    tags: ["stillness"]
   },
   {
     number: 1192,
     text: `The mind rushes you to the end of your practice. Let it rush. Sit for thirty more seconds. Those thirty seconds are the only part of the day where you do not follow orders.`,
     source: null,
-    tags: ["silence"]
+    tags: ["stillness"]
   },
   {
     number: 1193,
     text: `Ask your day honestly: if practice were a meeting with the most important person in your life — would you be late today, reschedule, or forget?
 There is your answer about who comes first in your life.`,
     source: null,
-    tags: ["silence"]
+    tags: ["stillness"]
   },
   {
     number: 1194,
     text: `You fear that practice will steal your life. In truth, it is not practice that steals it — it is sleepwalking through life.
 Hours spent asleep on autopilot can never be reclaimed by any practice.`,
     source: null,
-    tags: ["silence"]
+    tags: ["stillness"]
   },
   {
     number: 1195,
@@ -8367,192 +8367,192 @@ Hours spent asleep on autopilot can never be reclaimed by any practice.`,
 If it is a "supplement" — weave at least one hour out of it.
 See what remains.`,
     source: null,
-    tags: ["silence"]
+    tags: ["stillness"]
   },
   {
     number: 1196,
     text: `For a week, do not track your practice — track its killers: the exact moment when "now" turned into "later." Catch that moment once, and you will see the killer face to face.`,
     source: null,
-    tags: ["silence"]
+    tags: ["stillness"]
   },
   {
     number: 1197,
     text: `" The crumbling is the practice arriving early as an unexpected guest. Meet it at the door.`,
     source: null,
-    tags: ["silence"]
+    tags: ["stillness"]
   },
   {
     number: 1198,
     text: `Create a practice room where there is no room: washing your face, sipping tea, turning a key. A place is not physical space.
 A place is an intention repeated a hundred times.`,
     source: null,
-    tags: ["silence"]
+    tags: ["stillness"]
   },
   {
     number: 1199,
     text: `Do not expect practice to become pleasant. What becomes pleasant is what brings a selfish payoff. Practice does not trade.
 It simply opens your eyes — and at first, that hurts.`,
     source: null,
-    tags: ["silence"]
+    tags: ["stillness"]
   },
   {
     number: 1200,
     text: `Instant awakening is not the result of long accumulation, but a sudden release of all concepts in the present wordless moment.`,
     source: "Dmitry Tyurin",
-    tags: ["silence"]
+    tags: ["stillness"]
   },
   {
     number: 1201,
     text: `The complete cessation of the mind occurs when attention stops clinging to emerging thoughts and returns to its source.`,
     source: "Mooji",
-    tags: ["silence"]
+    tags: ["stillness"]
   },
   {
     number: 1202,
     text: `A unique experiment: look at familiar things without accumulated past experience, so you may see this world for the very first time.`,
     source: null,
-    tags: ["silence"]
+    tags: ["stillness"]
   },
   {
     number: 1203,
     text: `Inner non-involvement allows you to participate fully in life, leaving behind no mental residue and no grasping.`,
     source: null,
-    tags: ["silence"]
+    tags: ["stillness"]
   },
   {
     number: 1204,
     text: `Liberation is not the acquisition of new experience or knowledge. It is the loss of the illusion that there is anyone separate here who needs to be liberated.
 Notice the silent presence that remains before thoughts arise.`,
     source: "Tony Parsons",
-    tags: ["silence"]
+    tags: ["stillness"]
   },
   {
     number: 1205,
     text: `Do not try to hold onto an insight. Anything that can be held is merely a mental footprint of the past.`,
     source: "Tony Parsons",
-    tags: ["silence"]
+    tags: ["stillness"]
   },
   {
     number: 1206,
     text: `The search for enlightenment is an escape from that which is already fully expressed in this very moment.`,
     source: "Tony Parsons",
-    tags: ["silence"]
+    tags: ["stillness"]
   },
   {
     number: 1207,
     text: `The absence of a personal history is not a loss, but the discovery of ringing, absolute freedom.`,
     source: "Gegham",
-    tags: ["silence"]
+    tags: ["stillness"]
   },
   {
     number: 1208,
     text: `You are not bound by karma, nor bound by the body. You are pure Consciousness, having neither beginning nor end.`,
     source: "Avadhuta Gita",
-    tags: ["silence"]
+    tags: ["stillness"]
   },
   {
     number: 1209,
     text: `Drop the burden of past knowledge and look at the world with fresh eyes right this second.`,
     source: null,
-    tags: ["silence"]
+    tags: ["stillness"]
   },
   {
     number: 1210,
     text: `Direct presence requires no preconditions or meditative techniques.`,
     source: null,
-    tags: ["silence"]
+    tags: ["stillness"]
   },
   {
     number: 1211,
     text: `All suffering is merely resistance to what has already occurred.`,
     source: "S. Kuldin",
-    tags: ["silence"]
+    tags: ["stillness"]
   },
   {
     number: 1212,
     text: `Look at everything that is happening as though you are seeing it for the very first time in your life.`,
     source: null,
-    tags: ["silence"]
+    tags: ["stillness"]
   },
   {
     number: 1213,
     text: `Do not be afraid to let go of thoughts: what you truly are can never be lost.`,
     source: "Mooji",
-    tags: ["silence"]
+    tags: ["stillness"]
   },
   {
     number: 1214,
     text: `Notice: in the very center of any storm of emotion, an absolute, untouched silence always abides.`,
     source: null,
-    tags: ["silence"]
+    tags: ["stillness"]
   },
   {
     number: 1215,
     text: `Disillusionment is the best thing that can happen to a seeker. It kills the hopes of the mind.`,
     source: "Karl Renz",
-    tags: ["silence"]
+    tags: ["stillness"]
   },
   {
     number: 1216,
     text: `Try taking a step away from this moment.
 Notice that you always remain Here.`,
     source: "Karl Renz",
-    tags: ["silence"]
+    tags: ["stillness"]
   },
   {
     number: 1217,
     text: `Right now: look at the huge importance the mind gives to this thought. And smile.`,
     source: "Karl Renz",
-    tags: ["silence"]
+    tags: ["stillness"]
   },
   {
     number: 1218,
     text: `Try making a mistake in Being right now.
 Notice the absolute impossibility of it.`,
     source: "Karl Renz",
-    tags: ["silence"]
+    tags: ["stillness"]
   },
   {
     number: 1219,
     text: `You don't forget the practice. You just temporarily become the one who forgot. And that can be noticed too.`,
     source: null,
-    tags: ["silence"]
+    tags: ["stillness"]
   },
   {
     number: 1220,
     text: `The moment you realize you've drifted into thoughts again is the purest moment of the day.`,
     source: null,
-    tags: ["silence"]
+    tags: ["stillness"]
   },
   {
     number: 1221,
     text: `The thought of practice and the practice itself are not the same thing. One requires effort, the other is already here.`,
     source: null,
-    tags: ["silence"]
+    tags: ["stillness"]
   },
   {
     number: 1222,
     text: `Even if you "slept through" the whole day — the moment you notice it, you are already awake.`,
     source: null,
-    tags: ["silence"]
+    tags: ["stillness"]
   },
   {
     number: 1223,
     text: `Do not seek special states. The ordinary state is already unusual enough if you look at it.`,
     source: null,
-    tags: ["silence"]
+    tags: ["stillness"]
   },
   {
     number: 1224,
     text: `Everything that appears in your life is a reflection of something happening inside you.`,
     source: "Amu Mom",
-    tags: ["silence"]
+    tags: ["stillness"]
   },
   {
     number: 1225,
     text: `What you think, you feel; what you feel, you radiate; what you radiate, you receive.`,
     source: "Amu Mom",
-    tags: ["silence"]
+    tags: ["stillness"]
   },
   {
     number: 1226,
@@ -8564,43 +8564,43 @@ Notice the absolute impossibility of it.`,
     number: 1227,
     text: `One who does not know how to give will not be able to receive: energy always works both ways—inward and outward.`,
     source: "Amu Mom",
-    tags: ["silence"]
+    tags: ["stillness"]
   },
   {
     number: 1228,
     text: `There is no better or worse path—there is only your path, so walk it.`,
     source: "Amu Mom",
-    tags: ["silence"]
+    tags: ["stillness"]
   },
   {
     number: 1229,
     text: `If you have learned not to take offense, it means you have learned to look into the heart of another.`,
     source: "Amu Mom",
-    tags: ["silence"]
+    tags: ["stillness"]
   },
   {
     number: 1230,
     text: `One day you will realize that your true greatness begins where your pride ends.`,
     source: "Amu Mom",
-    tags: ["silence"]
+    tags: ["stillness"]
   },
   {
     number: 1231,
     text: `Of all the arts worth learning, one of the greatest is the art of listening.`,
     source: "Amu Mom",
-    tags: ["silence"]
+    tags: ["stillness"]
   },
   {
     number: 1232,
     text: `Let the mind be quietly attentive; remain unattached, but listen as if you are hearing God.`,
     source: "Amu Mom",
-    tags: ["silence"]
+    tags: ["stillness"]
   },
   {
     number: 1233,
     text: `Diseases are the body's reflection of a distortion in consciousness; a disease leaves when the distortion is corrected.`,
     source: "Amu Mom",
-    tags: ["silence"]
+    tags: ["stillness"]
   },
   {
     number: 1234,
@@ -8612,7 +8612,7 @@ Notice the absolute impossibility of it.`,
     number: 1235,
     text: `Darkness breeds foolishness: do not rush, let what is happening reveal wisdom to you.`,
     source: "Amu Mom",
-    tags: ["silence"]
+    tags: ["stillness"]
   },
   {
     number: 1236,
@@ -8624,7 +8624,7 @@ Notice the absolute impossibility of it.`,
     number: 1237,
     text: `Whatever you look at most, you eventually become.`,
     source: "Amu Mom",
-    tags: ["silence"]
+    tags: ["stillness"]
   },
   {
     number: 1238,
@@ -8642,25 +8642,25 @@ Notice the absolute impossibility of it.`,
     number: 1240,
     text: `Whatever you attune yourself to, that is how you will sound.`,
     source: "Amu Mom",
-    tags: ["silence"]
+    tags: ["stillness"]
   },
   {
     number: 1241,
     text: `Forgetting the bad means letting in the good; it is never too late to take a step in a different direction.`,
     source: "Amu Mom",
-    tags: ["silence"]
+    tags: ["stillness"]
   },
   {
     number: 1242,
     text: `Ask yourself: does what I am doing bring joy and lightness to my soul? If not, look for the mistake.`,
     source: "Amu Mom",
-    tags: ["silence"]
+    tags: ["stillness"]
   },
   {
     number: 1243,
     text: `The walls of your mind are the boundaries of your world.`,
     source: "Amu Mom",
-    tags: ["silence"]
+    tags: ["stillness"]
   },
   {
     number: 1244,
@@ -8684,7 +8684,7 @@ Notice the absolute impossibility of it.`,
     number: 1247,
     text: `Trust the inner silence: this alone will be enough to keep walking without losing your way.`,
     source: "Amu Mom",
-    tags: ["silence"]
+    tags: ["stillness"]
   },
   {
     number: 1248,
@@ -8720,7 +8720,7 @@ Notice the absolute impossibility of it.`,
     number: 1253,
     text: `Truth is always quiet, but its echo is infinite.`,
     source: "Amu Mom",
-    tags: ["silence"]
+    tags: ["stillness"]
   },
   {
     number: 1254,
@@ -8756,25 +8756,25 @@ Notice the absolute impossibility of it.`,
     number: 1259,
     text: `No one can offend you without your consent, because the cause of offense is thoughts, and they are solely in your power.`,
     source: "Amu Mom",
-    tags: ["silence"]
+    tags: ["stillness"]
   },
   {
     number: 1260,
     text: `Happiness cannot exist outside of you; like any feeling, it lives only within.`,
     source: "Amu Mom",
-    tags: ["silence"]
+    tags: ["stillness"]
   },
   {
     number: 1261,
     text: `Your suffering is caused by your resistance; by saying 'yes' to the universe, you will receive the key to its treasures.`,
     source: "Amu Mom",
-    tags: ["silence"]
+    tags: ["stillness"]
   },
   {
     number: 1262,
     text: `The world loves you, otherwise you would not have appeared.`,
     source: "Amu Mom",
-    tags: ["silence"]
+    tags: ["stillness"]
   },
   {
     number: 1263,
@@ -8792,13 +8792,13 @@ Notice the absolute impossibility of it.`,
     number: 1265,
     text: `Everything that causes fear and judgment must be healed, but not in another—in yourself.`,
     source: "Amu Mom",
-    tags: ["silence"]
+    tags: ["stillness"]
   },
   {
     number: 1266,
     text: `If you are feeling bad, do not ask yourself when it will end; ask yourself why you are doing this to your life.`,
     source: "Amu Mom",
-    tags: ["silence"]
+    tags: ["stillness"]
   },
   {
     number: 1267,
@@ -8810,7 +8810,7 @@ Notice the absolute impossibility of it.`,
     number: 1268,
     text: `Observe your thoughts: what you think about takes shape, and what you ponder upon, you embody.`,
     source: "Amu Mom",
-    tags: ["silence"]
+    tags: ["stillness"]
   },
   {
     number: 1269,
@@ -8822,19 +8822,19 @@ Notice the absolute impossibility of it.`,
     number: 1270,
     text: `Never despair: whatever happens, you just need to take a step, and then another step.`,
     source: "Amu Mom",
-    tags: ["silence"]
+    tags: ["stillness"]
   },
   {
     number: 1271,
     text: `A thought is living energy; be careful with it when it slips out of your mind.`,
     source: "Amu Mom",
-    tags: ["silence"]
+    tags: ["stillness"]
   },
   {
     number: 1272,
     text: `Your life is your personal development, not a service to external objects.`,
     source: "Amu Mom",
-    tags: ["silence"]
+    tags: ["stillness"]
   },
   {
     number: 1273,
@@ -8858,7 +8858,7 @@ Notice the absolute impossibility of it.`,
     number: 1276,
     text: `There is no limit to growth: a master is always a student; thinking that you have achieved mastery in anything means to regress.`,
     source: "Amu Mom",
-    tags: ["silence"]
+    tags: ["stillness"]
   },
   {
     number: 1277,
@@ -8870,7 +8870,7 @@ Notice the absolute impossibility of it.`,
     number: 1278,
     text: `The art of knowing much is the ability to pay attention to the moment.`,
     source: "Amu Mom",
-    tags: ["silence"]
+    tags: ["stillness"]
   },
   {
     number: 1279,
@@ -8912,25 +8912,25 @@ Notice the absolute impossibility of it.`,
     number: 1285,
     text: `Acceptance serves as an antidote to all fears.`,
     source: "Amu Mom",
-    tags: ["silence"]
+    tags: ["stillness"]
   },
   {
     number: 1286,
     text: `In nature, no living creature tries to control the course of events: flowers bloom in due time, trees bear fruit, birds sing.`,
     source: "Amu Mom",
-    tags: ["silence"]
+    tags: ["stillness"]
   },
   {
     number: 1287,
     text: `There are no dark or light feelings—there is only an inability to use them.`,
     source: "Amu Mom",
-    tags: ["silence"]
+    tags: ["stillness"]
   },
   {
     number: 1288,
     text: `When the noise of judgments subsides, truth opens the door to its home.`,
     source: "Amu Mom",
-    tags: ["silence"]
+    tags: ["stillness"]
   },
   {
     number: 1289,
@@ -8966,7 +8966,7 @@ Notice the absolute impossibility of it.`,
     number: 1294,
     text: `There is no 'later', everything always repeats 'right now': right now I can, right now I live, right now I love.`,
     source: "Amu Mom",
-    tags: ["silence"]
+    tags: ["stillness"]
   },
   {
     number: 1295,
@@ -9026,7 +9026,7 @@ Notice the absolute impossibility of it.`,
     number: 1304,
     text: `When you do not reason about good and evil, you keep your mind in harmony.`,
     source: "Amu Mom",
-    tags: ["silence"]
+    tags: ["stillness"]
   },
   {
     number: 1305,
@@ -9056,19 +9056,19 @@ Notice the absolute impossibility of it.`,
     number: 1309,
     text: `The fewer the words, the deeper the meaning.`,
     source: "Amu Mom",
-    tags: ["silence"]
+    tags: ["stillness"]
   },
   {
     number: 1310,
     text: `First pass through the confusion of teachings, then comprehend what you have learned, and finally let go of what you have learned.`,
     source: "Amu Mom",
-    tags: ["silence"]
+    tags: ["stillness"]
   },
   {
     number: 1311,
     text: `You already have the knowledge, you just don't feel it yet because your mind makes too much noise.`,
     source: "Amu Mom",
-    tags: ["silence"]
+    tags: ["stillness"]
   },
   {
     number: 1312,
@@ -9080,7 +9080,7 @@ Notice the absolute impossibility of it.`,
     number: 1313,
     text: `A minute of silence and gratitude before what awaits you.`,
     source: "Amu Mom",
-    tags: ["silence"]
+    tags: ["stillness"]
   },
   {
     number: 1314,
@@ -9110,7 +9110,7 @@ Notice the absolute impossibility of it.`,
     number: 1318,
     text: `Do not be ashamed of yourself: the aware, wise adults of today are the experience of the child of yesterday.`,
     source: "Amu Mom",
-    tags: ["silence"]
+    tags: ["stillness"]
   },
   {
     number: 1319,
@@ -9140,7 +9140,7 @@ Notice the absolute impossibility of it.`,
     number: 1323,
     text: `Sometimes strength is needed, without which one cannot walk the path, and this strength is given by the hardships we overcome.`,
     source: "Amu Mom",
-    tags: ["silence"]
+    tags: ["stillness"]
   },
   {
     number: 1324,
@@ -9164,19 +9164,19 @@ Notice the absolute impossibility of it.`,
     number: 1327,
     text: `The higher the quality of your food, the more love and respect you show for your own body — the temple of the soul.`,
     source: "Amu Mom",
-    tags: ["silence"]
+    tags: ["stillness"]
   },
   {
     number: 1328,
     text: `What is necessary will happen: after the destruction of the old comes the birth of the new.`,
     source: "Amu Mom",
-    tags: ["silence"]
+    tags: ["stillness"]
   },
   {
     number: 1329,
     text: `Hold the vector of HERE firmly, thinking of the great, but do not fixate on it and never back down.`,
     source: "Amu Mom",
-    tags: ["silence"]
+    tags: ["stillness"]
   },
   {
     number: 1330,
@@ -9188,31 +9188,31 @@ Notice the absolute impossibility of it.`,
     number: 1331,
     text: `Truth is very quiet: if you are trying to prove something, that is the first sign that a lie has been told.`,
     source: "Amu Mom",
-    tags: ["silence"]
+    tags: ["stillness"]
   },
   {
     number: 1332,
     text: `Do not criticize others — take care of yourself; you always have something to work on within.`,
     source: "Amu Mom",
-    tags: ["silence"]
+    tags: ["stillness"]
   },
   {
     number: 1333,
     text: `Do not evaluate another person's behavior: evaluation is, first and foremost, an unconscious devaluation of oneself.`,
     source: "Amu Mom",
-    tags: ["silence"]
+    tags: ["stillness"]
   },
   {
     number: 1334,
     text: `To hear another person, you must first quiet down yourself: tell your beliefs, principles, fears, and demands to be quieter.`,
     source: "Amu Mom",
-    tags: ["silence"]
+    tags: ["stillness"]
   },
   {
     number: 1335,
     text: `There is always a place where it is warm in any weather: it can be a home, a person, or a corner inside you.`,
     source: "Amu Mom",
-    tags: ["silence"]
+    tags: ["stillness"]
   },
   {
     number: 1336,
@@ -9248,7 +9248,7 @@ Notice the absolute impossibility of it.`,
     number: 1341,
     text: `When you enter into contact with another, go into it sincerely, be real, cast aside all social roles and masks.`,
     source: "Amu Mom",
-    tags: ["silence"]
+    tags: ["stillness"]
   },
   {
     number: 1342,
@@ -9278,13 +9278,13 @@ Notice the absolute impossibility of it.`,
     number: 1346,
     text: `Every moment is new; it comes from consciousness, in which you never repeat yourself and are always as pure as a blank sheet.`,
     source: "Amu Mom",
-    tags: ["silence"]
+    tags: ["stillness"]
   },
   {
     number: 1347,
     text: `In inner silence, there is more knowledge than in all the scriptures of the world.`,
     source: "Amu Mom",
-    tags: ["silence"]
+    tags: ["stillness"]
   },
   {
     number: 1348,
@@ -9296,7 +9296,7 @@ Notice the absolute impossibility of it.`,
     number: 1349,
     text: `Following the path of your life, learn to leave behind without regret everything that hinders moving forward.`,
     source: "Amu Mom",
-    tags: ["silence"]
+    tags: ["stillness"]
   },
   {
     number: 1350,
@@ -9308,13 +9308,13 @@ Notice the absolute impossibility of it.`,
     number: 1351,
     text: `Watching the flight of an autumn leaf, feel the flight within yourself.`,
     source: "Amu Mom",
-    tags: ["silence"]
+    tags: ["stillness"]
   },
   {
     number: 1352,
     text: `Acceptance of life is not bowing down to it, but seeing what is, without wars and resistance.`,
     source: "Amu Mom",
-    tags: ["silence"]
+    tags: ["stillness"]
   },
   {
     number: 1353,
@@ -9326,7 +9326,7 @@ Notice the absolute impossibility of it.`,
     number: 1354,
     text: `The law of attraction states: like attracts like; a pure mind will create a pure reflection.`,
     source: "Amu Mom",
-    tags: ["silence"]
+    tags: ["stillness"]
   },
   {
     number: 1355,
@@ -10021,241 +10021,241 @@ Choose right now.`,
     number: 1456,
     text: `Apply the rope and snake analogy: when confronted with fear or panic, do not fight them emotionally, but coolly investigate their cause.`,
     source: "Sri Shankaracharya",
-    tags: ["practice"]
+    tags: ["stillness"]
   },
   {
     number: 1457,
     text: `Practice rigorous calmness (shama): resolutely halt the mind's attempts to chase after external objects and cling to them.`,
     source: "Sri Shankaracharya",
-    tags: ["practice"]
+    tags: ["stillness"]
   },
   {
     number: 1458,
     text: `Establish strict self-restraint (dama): master the outer sense organs, never letting them hijack attention automatically.`,
     source: "Sri Shankaracharya",
-    tags: ["practice"]
+    tags: ["stillness"]
   },
   {
     number: 1459,
     text: `Practice uparati: completely cut off the mind's involvement in worldly tendencies and habitual mental rumination.`,
     source: "Sri Shankaracharya",
-    tags: ["practice"]
+    tags: ["stillness"]
   },
   {
     number: 1460,
     text: `Cultivate endurance (titiksha): withstand all blows of duality (pain, discomfort, judgments) without internal hysteria or entanglement.`,
     source: "Sri Shankaracharya",
-    tags: ["practice"]
+    tags: ["stillness"]
   },
   {
     number: 1461,
     text: `Maintain concentration (samadhana): fix the focus of attention on the changeless foundation of perception, cutting off extraneous thoughts.`,
     source: "Sri Shankaracharya",
-    tags: ["practice"]
+    tags: ["stillness"]
   },
   {
     number: 1462,
     text: `Abandon the expectation of the fruits of your actions: perform what is necessary mechanically or with discipline, without feeding the mind with hopes of reward.`,
     source: "Sri Shankaracharya",
-    tags: ["practice"]
+    tags: ["stillness"]
   },
   {
     number: 1463,
     text: `Seek contact only with those who are truly free from illusion and rooted in stillness, so that your own concepts may be shattered.`,
     source: "Sri Shankaracharya",
-    tags: ["practice"]
+    tags: ["stillness"]
   },
   {
     number: 1464,
     text: `Every time the mind demands new agitation or entertainment, strike at this impulse with the question: «Who demands this right now?»`,
     source: "Sri Shankaracharya",
-    tags: ["practice"]
+    tags: ["stillness"]
   },
   {
     number: 1465,
     text: `Test anyone with whom you go deep into practice for absolute freedom from hidden vices, self-interest, and attachments.`,
     source: "Sri Shankaracharya",
-    tags: ["practice"]
+    tags: ["stillness"]
   },
   {
     number: 1466,
     text: `Make the unrelenting yearning for liberation your highest priority, displacing all secondary restlessness with it.`,
     source: "Sri Shankaracharya",
-    tags: ["practice"]
+    tags: ["stillness"]
   },
   {
     number: 1467,
     text: `Scrutinize every intention: does it lead toward awareness, or plunge you into the slumber of samsara.`,
     source: "Sri Shankaracharya",
-    tags: ["practice"]
+    tags: ["stillness"]
   },
   {
     number: 1468,
     text: `Stop making excuses for the mind's inertia; apply a conscious effort of will to return attention to its starting point.`,
     source: "Sri Shankaracharya",
-    tags: ["practice"]
+    tags: ["stillness"]
   },
   {
     number: 1469,
     text: `Track the moments when the mind clings to the judgments and opinions of others, and instantly dissolve these projections.`,
     source: "Sri Shankaracharya",
-    tags: ["practice"]
+    tags: ["stillness"]
   },
   {
     number: 1470,
     text: `Use every life obstacle as a training ground for developing resilience and mental equanimity.`,
     source: "Sri Shankaracharya",
-    tags: ["practice"]
+    tags: ["stillness"]
   },
   {
     number: 1471,
     text: `Do not let emotional surges and everyday triggers pull your focus away from the observer state.`,
     source: "Sri Shankaracharya",
-    tags: ["practice"]
+    tags: ["stillness"]
   },
   {
     number: 1472,
     text: `Regularly examine your motives for hidden self-interest, vanity, and the craving for approval.`,
     source: "Sri Shankaracharya",
-    tags: ["practice"]
+    tags: ["stillness"]
   },
   {
     number: 1473,
     text: `Relinquish the habit of mentally rehashing past conflicts or projecting future fears.`,
     source: "Sri Shankaracharya",
-    tags: ["practice"]
+    tags: ["stillness"]
   },
   {
     number: 1474,
     text: `Hold attention on the pure perception of «I am» before any mental concepts adhere to it.`,
     source: "Sri Shankaracharya",
-    tags: ["practice"]
+    tags: ["stillness"]
   },
   {
     number: 1475,
     text: `Practice the austerity of attention: forbid yourself from consuming hollow informational noise and meaningless conversations.`,
     source: "Sri Shankaracharya",
-    tags: ["practice"]
+    tags: ["stillness"]
   },
   {
     number: 1476,
     text: `Investigate the root of any fear or anxiety: locate that specific subject to whom they supposedly belong.`,
     source: "Sri Shankaracharya",
-    tags: ["practice"]
+    tags: ["stillness"]
   },
   {
     number: 1477,
     text: `Suppress the mind's attempts to justify its laziness, weakness, or procrastination with pseudo-spiritual reasoning.`,
     source: "Sri Shankaracharya",
-    tags: ["practice"]
+    tags: ["stillness"]
   },
   {
     number: 1478,
     text: `Practice absolute honesty with yourself regarding your true attachments and vulnerabilities.`,
     source: "Sri Shankaracharya",
-    tags: ["practice"]
+    tags: ["stillness"]
   },
   {
     number: 1479,
     text: `Whenever the sense of «I am the doer» arises, shift focus to the fact that everything happens spontaneously within the space of consciousness.`,
     source: "Sri Shankaracharya",
-    tags: ["practice"]
+    tags: ["stillness"]
   },
   {
     number: 1480,
     text: `Pinpoint the still gap between thoughts and expand that interval until it becomes a permanent background.`,
     source: "Sri Shankaracharya",
-    tags: ["practice"]
+    tags: ["stillness"]
   },
   {
     number: 1481,
     text: `Stop waiting for suitable conditions to practice; use every daily disruption and stress as an immediate catalyst for awakening attention.`,
     source: "Sri Shankaracharya",
-    tags: ["practice"]
+    tags: ["stillness"]
   },
   {
     number: 1482,
     text: `Catch the exact moment a mental concept of self emerges, and dissolve it before it crystallizes into a story.`,
     source: "Sri Shankaracharya",
-    tags: ["practice"]
+    tags: ["stillness"]
   },
   {
     number: 1483,
     text: `Set a strict ban on justifying your weaknesses with tiredness, circumstances, or external factors.`,
     source: "Sri Shankaracharya",
-    tags: ["practice"]
+    tags: ["stillness"]
   },
   {
     number: 1484,
     text: `Redirect attention from evaluating what is happening to the one who is currently rendering that evaluation.`,
     source: "Sri Shankaracharya",
-    tags: ["practice"]
+    tags: ["stillness"]
   },
   {
     number: 1485,
     text: `Cut short any inclination of the mind to drift into fantasies about the future or regrets over the past — return focus to the single point of here.`,
     source: "Sri Shankaracharya",
-    tags: ["practice"]
+    tags: ["stillness"]
   },
   {
     number: 1486,
     text: `Use the method of disidentification: for every internal movement (pain, fear, desire), silently note: «This is observed, but this is not me.»`,
     source: "Sri Shankaracharya",
-    tags: ["practice"]
+    tags: ["stillness"]
   },
   {
     number: 1487,
     text: `Eliminate the habit of arguing and proving yourself right: every argument feeds the illusion of a separate ego.`,
     source: "Sri Shankaracharya",
-    tags: ["practice"]
+    tags: ["stillness"]
   },
   {
     number: 1488,
     text: `Control the impulses of body and speech: engage in no automated actions without a preceding conscious intention.`,
     source: "Sri Shankaracharya",
-    tags: ["practice"]
+    tags: ["stillness"]
   },
   {
     number: 1489,
     text: `Turn routine actions into a practice of presence, completely erasing the divide between «meditation» and «life.»`,
     source: "Sri Shankaracharya",
-    tags: ["practice"]
+    tags: ["stillness"]
   },
   {
     number: 1490,
     text: `Wash away any display of mental pride with the question: «By whom was this knowledge acquired, and to whom does it belong?»`,
     source: "Sri Shankaracharya",
-    tags: ["practice"]
+    tags: ["stillness"]
   },
   {
     number: 1491,
     text: `Sever the need for approval and praise: dependence on external validation instantly plunges the mind back into bondage.`,
     source: "Sri Shankaracharya",
-    tags: ["practice"]
+    tags: ["stillness"]
   },
   {
     number: 1492,
     text: `Keep attention on the source of sounds, thoughts, and images, refusing to let them draw you into narratives.`,
     source: "Sri Shankaracharya",
-    tags: ["practice"]
+    tags: ["stillness"]
   },
   {
     number: 1493,
     text: `Quench internal dialogue in its infancy: the moment inner speech begins, cut it short with an act of will.`,
     source: "Sri Shankaracharya",
-    tags: ["practice"]
+    tags: ["stillness"]
   },
   {
     number: 1494,
     text: `Refuse to seek comfort in concepts; if a crisis arises, go straight into its epicenter without the mind's protective barriers.`,
     source: "Sri Shankaracharya",
-    tags: ["practice"]
+    tags: ["stillness"]
   },
   {
     number: 1495,
     text: `Reset all achievements and spiritual experiences to zero: everything that can be remembered or recorded is an object, not you.`,
     source: "Sri Shankaracharya",
-    tags: ["practice"]
+    tags: ["stillness"]
   },
   {
     number: 1496,
@@ -13504,6 +13504,544 @@ Watch how the mind tries to take offense, and do not let it finish its sentence.
   {
     number: 1960,
     text: `The one who does not want to today, and the one who will say «thank you» tomorrow, are the same person. Decide which one you are helping.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1961,
+    text: `When I argue with reality, I lose — but only 100% of the time.`,
+    source: "Byron Katie",
+    tags: ["stillness"]
+  },
+  {
+    number: 1962,
+    text: `You are perfect just as you are. And you could use a little improvement.`,
+    source: "Suzuki Roshi",
+    tags: ["stillness"]
+  },
+  {
+    number: 1963,
+    text: `If you let go a little, you will have a little peace. If you let go a lot, you will have a lot of peace. If you let go completely, you will be completely free.`,
+    source: "Ajahn Chah",
+    tags: ["stillness"]
+  },
+  {
+    number: 1964,
+    text: `Do not run from what is unpleasant, and do not cling to what is pleasant. Inner peace is not created by external circumstances, but by your attitude toward them.`,
+    source: "Ajahn Chah",
+    tags: ["stillness"]
+  },
+  {
+    number: 1965,
+    text: `The Great Way is not difficult for those who have no preferences. Only when love and hate are both absent does everything become completely clear.`,
+    source: "Sengcan",
+    tags: ["stillness"]
+  },
+  {
+    number: 1966,
+    text: `There is nothing that needs to be done. Nowhere to go. Nothing to attain. You already are what you seek. Stop striving.`,
+    source: "Bankei",
+    tags: ["stillness"]
+  },
+  {
+    number: 1967,
+    text: `The only thing that will ultimately set you free is total honesty with yourself. Not partial, not once in a while, but total, ruthless, 24 hours a day.`,
+    source: "Adyashanti",
+    tags: ["stillness"]
+  },
+  {
+    number: 1968,
+    text: `You have power over your mind, not outside events. Realize this, and you will find strength.`,
+    source: "Marcus Aurelius",
+    tags: ["stillness"]
+  },
+  {
+    number: 1969,
+    text: `Train yourself rigorously and purposefully. Do not prolong the agony. Die right now. Use every single moment to completely sever all attachment to this world.`,
+    source: "Hakuin",
+    tags: ["stillness"]
+  },
+  {
+    number: 1970,
+    text: `To believe you can control your thoughts is like trying to bite your own teeth.`,
+    source: "Alan Watts",
+    tags: ["stillness"]
+  },
+  {
+    number: 1971,
+    text: `The jerk is not the one who offended you. The jerk is that voice in your head replaying the offense for the forty-sixth time today.`,
+    source: "Chögyam Trungpa",
+    tags: ["stillness"]
+  },
+  {
+    number: 1972,
+    text: `If a fish could describe water, it would no longer be a fish. If you can describe «yourself», you are describing what you are not.`,
+    source: "Alan Watts",
+    tags: ["stillness"]
+  },
+  {
+    number: 1973,
+    text: `Do not work on yourself. Working implies that there is something wrong with you. But you are completely fine — once you remove the one who disagrees.`,
+    source: "Adyashanti",
+    tags: ["stillness"]
+  },
+  {
+    number: 1974,
+    text: `You are not a problem to be solved. You are the space in which problems arise and dissolve without your involvement.`,
+    source: "Mooji",
+    tags: ["stillness"]
+  },
+  {
+    number: 1975,
+    text: `Understanding happens when it becomes clear to «me» that neither understanding nor lack of understanding is within «my» control.`,
+    source: "Ramesh Balsekar",
+    tags: ["stillness"]
+  },
+  {
+    number: 1976,
+    text: `Do not move. Do not stir a single thought. This is freedom. This is all.`,
+    source: "Papaji",
+    tags: ["stillness"]
+  },
+  {
+    number: 1977,
+    text: `If you lose mindful vigilance even for a moment, it is like letting go of the rope holding an ox — you will spend hours trying to catch it again.`,
+    source: "Tsongkhapa",
+    tags: ["stillness"]
+  },
+  {
+    number: 1978,
+    text: `The fear of death is the applause with which the ego greets every new morning. Remove the applause, and the morning remains. Just morning.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1979,
+    text: `Next time you are waiting in line and boiling inside, notice: the body is standing completely fine. The legs are not furious. The hands are not panicking. Only the commentator in your head is frantic. Mute the commentator. The line turns into meditation.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1980,
+    text: `A dog does not suffer from being a dog. A tree does not agonize over being a tree. Only the mind manages to suffer from being a mind. Stop sympathizing with it — it will survive.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1981,
+    text: `You chew your lunch while World War III rages inside: plans, grudges, anxieties. You cannot even taste the food. That is not eating. It is feeding the body on autopilot while the mind devours itself. Try the reverse: let the mind fast while you eat.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1982,
+    text: `Stuck in a traffic jam. You are running late. Fuming. Now look: you are still standing still. Anger does not move cars. It only moves you — out of presence and straight into hell. Stay in the car, not in your head.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1983,
+    text: `Bring your hand to your nose. Slowly. Notice: the decision to do it was already made BEFORE you «decided». The hand moved on its own. «You» merely found out after the fact and claimed credit. That is how everything in your life works.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1984,
+    text: `If you were paid a dollar for every second of genuine presence today, how much would you have earned? Three dollars? Five? That is the true value of your day. The rest was background noise with nobody home.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1985,
+    text: `You spent years training your mind to think. Not a single day training it to be quiet. Surprised it never shuts up? That is like being shocked when a dog fed from the table for ten years begs at dinner.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1986,
+    text: `Here is an experiment: live the next five minutes as if you were an actor who forgot their lines. You do not know what to say, what to do, or who to be. The body will keep acting on its own. And «you» will finally get some rest.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1987,
+    text: `Take off your headphones. Not for a minute, but for an hour. Listen to what is happening without a soundtrack. The wind, footsteps, breathing. The world without a background track is the very reality you keep hiding from in content.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1988,
+    text: `The ultimate argument: imagine you will die in sixty seconds. Not abstractly «someday», but literally in one minute. Where did all your problems go? Where is the «spiritual path» now? Only this remains. Breath. The screen. Silence. Live from here.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1989,
+    text: `In the morning, before the very first thought, there is a gap. Pristine and bare. You usually rush past it in half a second, diving straight into «my day, my tasks, me». Tomorrow, catch that gap. Rest in it for just three breaths. That is who you are before «you».`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1990,
+    text: `Yawning is contagious. So is autopilot. You spent the day around people sleepwalking through life, and you nodded off right along with them. Do not judge them. Just be the first to wake up.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1991,
+    text: `What if right now nothing needs fixing? Absolutely nothing. Not in life, not in practice, not in yourself. What if the only problem is the habit of seeing problems?`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1992,
+    text: `Have you noticed that during genuine laughter «you» are gone? There is only pure laughter. No owner, no observer, no censor. That is what presence looks like. It holds no artificial seriousness.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1993,
+    text: `Gravity does not ask for your permission; it simply holds the earth together. Awareness works the exact same way: it is already here right now, regardless of your efforts to meditate. You simply keep looking away into thought.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1994,
+    text: `A one-day experiment: in every conversation, whenever the mind urges you to voice an expert opinion, stay silent. Not by forceful suppression, but out of genuine curiosity: what actually remains of «you» once all those opinions are dropped?`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1995,
+    text: `Do not try to manufacture silence — become useless to noise. The internal dialogue desperately needs an audience that reacts, argues, or frets. If you do not respond, the noise chokes without attention.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1996,
+    text: `The exact second you notice you have drifted away from presence, you are ALREADY present. Reproaching yourself for losing focus is simply falling back asleep. Smile at the fact that you just woke up.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 1997,
+    text: `If you wish to do something, make a habit of it. If you do not wish to do it, do not do it, but practice the opposite.`,
+    source: "Epictetus, Discourses, II.18",
+    tags: ["stillness"]
+  },
+  {
+    number: 1998,
+    text: `A thousand days of training is discipline. Ten thousand days of training is refinement.`,
+    source: "Miyamoto Musashi",
+    tags: ["stillness"]
+  },
+  {
+    number: 1999,
+    text: `There is no easy way from the earth to the stars.`,
+    source: "Seneca",
+    tags: ["stillness"]
+  },
+  {
+    number: 2000,
+    text: `Never give in. Never, never, never, never.`,
+    source: "Winston Churchill",
+    tags: ["stillness"]
+  },
+  {
+    number: 2001,
+    text: `Men become builders by building and lyre players by playing the lyre. So too we become just by doing just acts, temperate by doing temperate acts, brave by doing brave acts.`,
+    source: "Aristotle",
+    tags: ["stillness"]
+  },
+  {
+    number: 2002,
+    text: `There are no shortcuts. Everything is reps, reps, reps.`,
+    source: "Arnold Schwarzenegger",
+    tags: ["stillness"]
+  },
+  {
+    number: 2003,
+    text: `Those who lack strength collapse halfway along the path. But you are drawing the line yourself.`,
+    source: "Confucius",
+    tags: ["stillness"]
+  },
+  {
+    number: 2004,
+    text: `Absorb what is useful, discard what is useless, add what is uniquely your own.`,
+    source: "Bruce Lee",
+    tags: ["stillness"]
+  },
+  {
+    number: 2005,
+    text: `A drop hollows the stone, a ring is worn thin by continuous use.`,
+    source: "Ovid",
+    tags: ["stillness"]
+  },
+  {
+    number: 2006,
+    text: `The credit belongs to the man who is actually in the arena, whose face is marred by dust and sweat and blood.`,
+    source: "Theodore Roosevelt",
+    tags: ["stillness"]
+  },
+  {
+    number: 2007,
+    text: `When Heaven is about to confer a great responsibility on a man, it first fills his heart with suffering, strains his sinews and bones, and exposes his body to hunger.`,
+    source: "Mencius",
+    tags: ["stillness"]
+  },
+  {
+    number: 2008,
+    text: `I can accept failure; everyone fails at something. But I can't accept not trying.`,
+    source: "Michael Jordan",
+    tags: ["stillness"]
+  },
+  {
+    number: 2009,
+    text: `Fortune favors the bold.`,
+    source: "Virgil",
+    tags: ["stillness"]
+  },
+  {
+    number: 2010,
+    text: `Dost thou love life? Then do not squander time, for that's the stuff life is made of.`,
+    source: "Benjamin Franklin",
+    tags: ["stillness"]
+  },
+  {
+    number: 2011,
+    text: `Discipline equals freedom.`,
+    source: "Jocko Willink",
+    tags: ["stillness"]
+  },
+  {
+    number: 2012,
+    text: `The impediment to action advances action. What stands in the way becomes the way.`,
+    source: "Marcus Aurelius, Meditations, V.20",
+    tags: ["stillness"]
+  },
+  {
+    number: 2013,
+    text: `Pain is inevitable. Suffering is optional.`,
+    source: "Haruki Murakami",
+    tags: ["stillness"]
+  },
+  {
+    number: 2014,
+    text: `If you can fill the unforgiving minute with sixty seconds' worth of distance run, yours is the Earth and everything that's in it.`,
+    source: "Rudyard Kipling, If (1910)",
+    tags: ["stillness"]
+  },
+  {
+    number: 2015,
+    text: `Everything negative - pressure, challenges - is all an opportunity for me to rise.`,
+    source: "Kobe Bryant",
+    tags: ["stillness"]
+  },
+  {
+    number: 2016,
+    text: `If you can't fly then run, if you can't run then walk, if you can't walk then crawl, but whatever you do you have to keep moving forward.`,
+    source: "Martin Luther King Jr.",
+    tags: ["stillness"]
+  },
+  {
+    number: 2017,
+    text: `I walk slowly, but I never walk backward.`,
+    source: "Abraham Lincoln",
+    tags: ["stillness"]
+  },
+  {
+    number: 2018,
+    text: `Nothing in this world can take the place of persistence.
+Talent will not: nothing is more common than unsuccessful men with talent.`,
+    source: "Calvin Coolidge",
+    tags: ["stillness"]
+  },
+  {
+    number: 2019,
+    text: `It took me 17 years and 114 days to become an overnight success.`,
+    source: "Lionel Messi",
+    tags: ["stillness"]
+  },
+  {
+    number: 2020,
+    text: `If you want to run, run a mile.
+If you want to experience a different life, run a marathon.`,
+    source: "Emil Zátopek",
+    tags: ["stillness"]
+  },
+  {
+    number: 2021,
+    text: `The brick walls are there for a reason.
+They give us a chance to show how badly we want something.`,
+    source: "Randy Pausch, \"The Last Lecture\"",
+    tags: ["stillness"]
+  },
+  {
+    number: 2022,
+    text: `In the midst of winter, I found there was, within me, an invincible summer.`,
+    source: "Albert Camus",
+    tags: ["stillness"]
+  },
+  {
+    number: 2023,
+    text: `Thirty years from now, your children won't remember what you told them.
+They will remember whether you were truly there. Not just physically - with your whole presence.
+Practice is training to be genuinely present while they are still here.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 2024,
+    text: `One day you will desperately wish to return to this very ordinary day: with cold tea, an aching back, and a to-do list.
+You are in it right now.
+Don't miss it.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 2025,
+    text: `Something in your life has already happened for the very last time without you noticing: the last time your mother carried you in her arms, the last evening playing outside until dark.
+Today something is also happening for the last time.
+Pay close attention.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 2026,
+    text: `People who love you are speaking to you, while you answer without looking up from the screen.
+They aren't angry. They are simply waiting.
+Practice is lifting your eyes. While they are still by your side.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 2027,
+    text: `For years you have been a strict warden to yourself.
+Try spending just one day being what a kind old friend would be for you.
+Sit down beside yourself. Breathe. That is enough to begin.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 2028,
+    text: `Inside you, there is a place that does not ache, does not fear, and does not rush.
+You visit it every night, just before falling asleep, for a few quiet seconds.
+Practice is learning to visit that place in the daytime.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 2029,
+    text: `Your heart beat about a hundred thousand times today, and not once did you say thank you.
+It asks for nothing in return. It just beats, from day one and without a single day off.
+Sit down for a moment and listen to the one who has never taken a rest for your sake.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 2030,
+    text: `Courage in practice is not about enduring an hour of sitting.
+Courage is staying with whatever arises: the grief you avoided for three years, the name you didn't want to recall.
+Neither chasing it away nor feeding it. Simply being there and watching.
+This is how old pain comes to an end.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 2031,
+    text: `A lighthouse does not fight the storm, nor does it run away from it. It stands firm and shines.
+Storms will always come.
+Be the one who simply stays grounded in place - and the ships of your life will find their way.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 2032,
+    text: `As a child, you could watch an ant carry a blade of grass for hours, completely losing track of time.
+That wasn't childish weakness. That was something taken from you and labeled "growing up."
+Practice brings it back.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 2033,
+    text: `Everyone you meet today carries something heavy inside.
+If there is stillness within you, you offer what they lack: a calm, steady presence.
+Sometimes that alone is enough for someone to breathe a little easier.
+Your practice is a gift not only to yourself.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 2034,
+    text: `Freedom is not about feeling nothing ever again.
+It is about feeling everything without being swept away.
+You won't turn into a stone. You will become a river that flows smoothly around any obstacle.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 2035,
+    text: `Don't wait for life to become calm. It never will.
+Children, deadlines, illnesses, news - there will always be something.
+Peace is not found in the pause between storms. It is found beneath them.
+Drop down.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 2036,
+    text: `The anxiety you fed for years never prevented a single thing.
+Not one accident, not one loss. It only stole time that could have been truly lived.
+Take back at least this day.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 2037,
+    text: `If you saw someone slapping themselves in the face every single day, you would rush to stop them.
+You do this with your own thoughts.
+Stop. Not for the sake of being righteous - simply because it hurts.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 2038,
+    text: `You don't have to believe in the practice, in yourself, or in stillness.
+Yet you have these three minutes right now. Give them over.
+Stillness itself will do the rest - it is far more patient than any disbelief.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 2039,
+    text: `Ten years from now, you won't remember why you were so worried today.
+But you will remember who you spent this evening with and how you were present.
+Attention cannot be saved for later. It is either here, or it is spent.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 2040,
+    text: `There are things no one can ever do for you: eat your meal, get your sleep, or live your stillness.
+A teacher, a book, and any application can only point to the door.
+Walking in is up to you.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 2041,
+    text: `You are reading this because somewhere deep inside, there is still a quiet wish: "I want to live differently."
+Don't put it out. That is the most precious fire you have.
+Give it some air: give it at least five minutes of stillness today.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 2042,
+    text: `Each breath is the only one you have right now. The previous one is gone, the next is not promised.
+All of life is a single breath, repeated as many times as you are given.
+Take this one.`,
     source: null,
     tags: ["stillness"]
   }

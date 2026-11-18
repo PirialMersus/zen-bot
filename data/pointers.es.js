@@ -76,7 +76,7 @@ Dejen de convertirse constantemente en alguien y de mirar el mundo a través de 
 Desarrollar la conciencia es especialmente importante para cualquiera que cuide su figura.
 De lo contrario, te despistas un momento — y ella ya está comiendo.`,
     source: null,
-    tags: ["silencio"]
+    tags: ["recomendaciones"]
   },
   {
     number: 9,
@@ -95,7 +95,7 @@ Nunca podrás darles un poco más de calidez y alegría.
 Y ellos nunca más sentirán que los abrazas y les susurras esas palabras.
 Siente esto. Compréndelo. ¿Quizás esta comprensión puede cambiar algo, incluso ahora?`,
     source: null,
-    tags: ["silencio"]
+    tags: ["recomendaciones"]
   },
   {
     number: 10,
@@ -140,7 +140,7 @@ Que se preocupe por ello.`,
 — ¿Entonces no es el personaje quien sufre?
 — No. Es Dios, habiéndose olvidado de sí mismo en un ser humano. Es un anhelo universal nacido de no saber cómo salir de este círculo vicioso.`,
     source: null,
-    tags: ["silencio"]
+    tags: ["observaciones"]
   },
   {
     number: 13,
@@ -437,7 +437,7 @@ La que te espera.
 Imagina cómo es por dentro.
 Compara.`,
     source: null,
-    tags: ["silencio"]
+    tags: ["recomendaciones"]
   },
   {
     number: 41,
@@ -470,7 +470,7 @@ La mente no está diseñada para trabajar con estructuras complejas. Así es sim
 P.D. Una cosa más...
 Cuando escribas — si lo haces — escribe como si tus palabras fueran a ser leídas y publicadas después de tu muerte. Hazlas claras, completas, legibles y ordenadas. Esto importa porque la mente quiere ahorrar tiempo y convierte el trabajo real en garabatos. Eso arruinará todo. Y una cosa más... Si esto fue útil, usa la flecha de la derecha y recomiéndalo a amigos que puedan necesitarlo.`,
     source: null,
-    tags: ["silencio"]
+    tags: ["recomendaciones"]
   },
   {
     number: 42,
@@ -585,7 +585,7 @@ Ahora yaces solo, y tienes miedo. Miedo de que ya no puedas cambiar nada. El tie
 
 Ahora todo lo que queda es reír, y luego llorar en tu almohada hasta que el sueño te libere de este doloroso vacío.`,
     source: null,
-    tags: ["silencio"]
+    tags: ["recomendaciones"]
   },
   {
     number: 51,
@@ -604,7 +604,7 @@ El mundo es un genio que da vida a todos tus deseos y sueños. Pero el mundo no 
 
 Simplemente relájate y confía completamente en el mundo. Hará realidad todas tus fantasías.`,
     source: null,
-    tags: ["silencio"]
+    tags: ["recomendaciones"]
   },
   {
     number: 53,
@@ -767,7 +767,7 @@ Sigue hasta que los vecinos de abajo suban y empiecen a llamar a tu puerta.`,
     number: 68,
     text: `Nunca mires atrás. Nada ha cambiado allí.`,
     source: null,
-    tags: ["silencio"]
+    tags: ["recomendaciones"]
   },
   {
     number: 69,
@@ -803,7 +803,7 @@ Entonces, cada juicio se convierte en lo que realmente es: solo una palabra.`,
     text: `Usualmente pensamos que tenemos que esperar a que nuestro sueño se haga realidad. En realidad, simplemente tenemos que apoderarnos de él.
 Simplemente ve y reclama aquello con lo que sueñas.`,
     source: null,
-    tags: ["silencio"]
+    tags: ["recomendaciones"]
   },
   {
     number: 74,
@@ -811,7 +811,7 @@ Simplemente ve y reclama aquello con lo que sueñas.`,
 Conozco personas que tienen metas —grandes, interesantes metas. Las persiguen, superando dificultades y debilidades personales. Pero un sueño es algo más. Un sueño es algo que haces por los demás. Un sueño es algo que cambia el mundo.
 Pocas personas son capaces de vivir por un sueño. Porque es difícil. Casi imposible. Y conlleva una enorme responsabilidad. Cuando persigues tu sueño, la gente inevitablemente estará a tu lado —personas que han creído en tu sueño, personas que han creído en tu fuerza. Vivir por un sueño es difícil. Solo los más fuertes pueden hacerlo.`,
     source: null,
-    tags: ["silencio"]
+    tags: ["recomendaciones"]
   },
   {
     number: 75,
@@ -10021,241 +10021,241 @@ Elige ahora mismo.`,
     number: 1456,
     text: `Aplica la analogía de la cuerda y la serpiente: cuando te enfrentes al miedo o al pánico, no luches contra ellos emocionalmente, sino investiga fríamente su causa.`,
     source: "Sri Shankaracharya",
-    tags: ["práctica"]
+    tags: ["silencio"]
   },
   {
     number: 1457,
     text: `Practica la calma rigurosa (shama): detén resueltamente los intentos de la mente por perseguir objetos externos y aferrarse a ellos.`,
     source: "Sri Shankaracharya",
-    tags: ["práctica"]
+    tags: ["silencio"]
   },
   {
     number: 1458,
     text: `Establece un estricto autocontrol (dama): domina los órganos de los sentidos externos, sin permitir nunca que secuestren la atención automáticamente.`,
     source: "Sri Shankaracharya",
-    tags: ["práctica"]
+    tags: ["silencio"]
   },
   {
     number: 1459,
     text: `Practica uparati: corta por completo la participación de la mente en las tendencias mundanas y en la rumiación mental habitual.`,
     source: "Sri Shankaracharya",
-    tags: ["práctica"]
+    tags: ["silencio"]
   },
   {
     number: 1460,
     text: `Cultiva la resistencia (titiksha): soporta todos los golpes de la dualidad (dolor, incomodidad, juicios) sin histeria interna ni enredo.`,
     source: "Sri Shankaracharya",
-    tags: ["práctica"]
+    tags: ["silencio"]
   },
   {
     number: 1461,
     text: `Mantén la concentración (samadhana): fija el foco de la atención en el fundamento inmutable de la percepción, cortando los pensamientos extraños.`,
     source: "Sri Shankaracharya",
-    tags: ["práctica"]
+    tags: ["silencio"]
   },
   {
     number: 1462,
     text: `Abandona la expectativa de los frutos de tus acciones: realiza lo que sea necesario de manera mecánica o con disciplina, sin alimentar la mente con esperanzas de recompensa.`,
     source: "Sri Shankaracharya",
-    tags: ["práctica"]
+    tags: ["silencio"]
   },
   {
     number: 1463,
     text: `Busca el contacto únicamente con aquellos que están verdaderamente libres de ilusión y arraigados en la quietud, para que tus propios conceptos puedan ser destrozados.`,
     source: "Sri Shankaracharya",
-    tags: ["práctica"]
+    tags: ["silencio"]
   },
   {
     number: 1464,
     text: `Cada vez que la mente demande nueva agitación o entretenimiento, ataca este impulso con la pregunta: «¿Quién demanda esto ahora mismo?»`,
     source: "Sri Shankaracharya",
-    tags: ["práctica"]
+    tags: ["silencio"]
   },
   {
     number: 1465,
     text: `Pon a prueba a cualquiera con quien profundices en la práctica para comprobar su absoluta libertad de vicios ocultos, interés propio y apegos.`,
     source: "Sri Shankaracharya",
-    tags: ["práctica"]
+    tags: ["silencio"]
   },
   {
     number: 1466,
     text: `Haz del anhelo implacable de liberación tu máxima prioridad, desplazando con él toda inquietud secundaria.`,
     source: "Sri Shankaracharya",
-    tags: ["práctica"]
+    tags: ["silencio"]
   },
   {
     number: 1467,
     text: `¿Conduce hacia la conciencia o te sumerge en el sopor del samsara? Escudriña cada intención.`,
     source: "Sri Shankaracharya",
-    tags: ["práctica"]
+    tags: ["silencio"]
   },
   {
     number: 1468,
     text: `Deja de buscar excusas para la inercia de la mente; aplica un esfuerzo consciente de la voluntad para devolver la atención a su punto de partida.`,
     source: "Sri Shankaracharya",
-    tags: ["práctica"]
+    tags: ["silencio"]
   },
   {
     number: 1469,
     text: `Rastrea los momentos en que la mente se aferra a los juicios y opiniones de los demás, y disuelve al instante estas proyecciones.`,
     source: "Sri Shankaracharya",
-    tags: ["práctica"]
+    tags: ["silencio"]
   },
   {
     number: 1470,
     text: `Utiliza cada obstáculo de la vida como un campo de entrenamiento para desarrollar la resiliencia y la ecuanimidad mental.`,
     source: "Sri Shankaracharya",
-    tags: ["práctica"]
+    tags: ["silencio"]
   },
   {
     number: 1471,
     text: `No permitas que las oleadas emocionales y los desencadenantes cotidianos aparten tu enfoque del estado de observador.`,
     source: "Sri Shankaracharya",
-    tags: ["práctica"]
+    tags: ["silencio"]
   },
   {
     number: 1472,
     text: `Examina regularmente tus motivos en busca de interés propio oculto, vanidad y el ansia de aprobación.`,
     source: "Sri Shankaracharya",
-    tags: ["práctica"]
+    tags: ["silencio"]
   },
   {
     number: 1473,
     text: `Renuncia al hábito de rumiar mentalmente conflictos pasados o proyectar miedos futuros.`,
     source: "Sri Shankaracharya",
-    tags: ["práctica"]
+    tags: ["silencio"]
   },
   {
     number: 1474,
     text: `Mantén la atención en la percepción pura del «Yo soy» antes de que cualquier concepto mental se adhiera a ella.`,
     source: "Sri Shankaracharya",
-    tags: ["práctica"]
+    tags: ["silencio"]
   },
   {
     number: 1475,
     text: `Practica la austeridad de la atención: prohíbete consumir ruido informativo hueco y conversaciones sin sentido.`,
     source: "Sri Shankaracharya",
-    tags: ["práctica"]
+    tags: ["silencio"]
   },
   {
     number: 1476,
     text: `Investiga la raíz de cualquier miedo o ansiedad: localiza a ese sujeto específico al que supuestamente pertenecen.`,
     source: "Sri Shankaracharya",
-    tags: ["práctica"]
+    tags: ["silencio"]
   },
   {
     number: 1477,
     text: `Reprime los intentos de la mente por justificar su pereza, debilidad o procrastinación con razonamientos pseudoespirituales.`,
     source: "Sri Shankaracharya",
-    tags: ["práctica"]
+    tags: ["silencio"]
   },
   {
     number: 1478,
     text: `Practica la honestidad absoluta contigo mismo con respecto a tus verdaderos apegos y vulnerabilidades.`,
     source: "Sri Shankaracharya",
-    tags: ["práctica"]
+    tags: ["silencio"]
   },
   {
     number: 1479,
     text: `Siempre que surja la sensación de «yo soy el hacedor», desplaza el enfoque hacia el hecho de que todo sucede espontáneamente dentro del espacio de la conciencia.`,
     source: "Sri Shankaracharya",
-    tags: ["práctica"]
+    tags: ["silencio"]
   },
   {
     number: 1480,
     text: `Identifica el espacio silencioso entre los pensamientos y expande ese intervalo hasta que se convierta en un trasfondo permanente.`,
     source: "Sri Shankaracharya",
-    tags: ["práctica"]
+    tags: ["silencio"]
   },
   {
     number: 1481,
     text: `Deja de esperar condiciones propicias para practicar; utiliza cada interrupción y estrés diario como un catalizador inmediato para despertar la atención.`,
     source: "Sri Shankaracharya",
-    tags: ["práctica"]
+    tags: ["silencio"]
   },
   {
     number: 1482,
     text: `Atrapa el momento exacto en que emerge un concepto mental del yo, y disuélvelo antes de que cristalice en una historia.`,
     source: "Sri Shankaracharya",
-    tags: ["práctica"]
+    tags: ["silencio"]
   },
   {
     number: 1483,
     text: `Establece una prohibición estricta de justificar tus debilidades con el cansancio, las circunstancias o factores externos.`,
     source: "Sri Shankaracharya",
-    tags: ["práctica"]
+    tags: ["silencio"]
   },
   {
     number: 1484,
     text: `Redirige la atención desde la evaluación de lo que está sucediendo hacia aquel que está emitiendo dicha evaluación.`,
     source: "Sri Shankaracharya",
-    tags: ["práctica"]
+    tags: ["silencio"]
   },
   {
     number: 1485,
     text: `Corta de raíz cualquier inclinación de la mente a derivar en fantasías sobre el futuro o lamentos sobre el pasado; devuelve el foco al único punto del aquí.`,
     source: "Sri Shankaracharya",
-    tags: ["práctica"]
+    tags: ["silencio"]
   },
   {
     number: 1486,
     text: `Utiliza el método de la desidentificación: ante cada movimiento interno (dolor, miedo, deseo), nota en silencio: «Esto es observado, pero esto no soy yo».`,
     source: "Sri Shankaracharya",
-    tags: ["práctica"]
+    tags: ["silencio"]
   },
   {
     number: 1487,
     text: `Elimina el hábito de discutir y demostrar que tienes la razón: toda discusión alimenta la ilusión de un ego separado.`,
     source: "Sri Shankaracharya",
-    tags: ["práctica"]
+    tags: ["silencio"]
   },
   {
     number: 1488,
     text: `Controla los impulsos del cuerpo y del habla: no realices ninguna acción automatizada sin una intención consciente previa.`,
     source: "Sri Shankaracharya",
-    tags: ["práctica"]
+    tags: ["silencio"]
   },
   {
     number: 1489,
     text: `Convierte las acciones rutinarias en una práctica de presencia, borrando por completo la división entre «meditación» y «vida».`,
     source: "Sri Shankaracharya",
-    tags: ["práctica"]
+    tags: ["silencio"]
   },
   {
     number: 1490,
     text: `Lava cualquier manifestación de orgullo mental con la pregunta: «¿Por quién fue adquirido este conocimiento y a quién pertenece?»`,
     source: "Sri Shankaracharya",
-    tags: ["práctica"]
+    tags: ["silencio"]
   },
   {
     number: 1491,
     text: `Corta la necesidad de aprobación y elogio: la dependencia de la validación externa precipita instantáneamente a la mente de vuelta a la esclavitud.`,
     source: "Sri Shankaracharya",
-    tags: ["práctica"]
+    tags: ["silencio"]
   },
   {
     number: 1492,
     text: `Mantén la atención en la fuente de los sonidos, pensamientos e imágenes, negándote a dejar que te arrastren a narrativas.`,
     source: "Sri Shankaracharya",
-    tags: ["práctica"]
+    tags: ["silencio"]
   },
   {
     number: 1493,
     text: `Apaga el diálogo interno en su infancia: en el momento en que comience el discurso interior, córtalo con un acto de voluntad.`,
     source: "Sri Shankaracharya",
-    tags: ["práctica"]
+    tags: ["silencio"]
   },
   {
     number: 1494,
     text: `Rechaza buscar consuelo en los conceptos; si surge una crisis, adéntrate directamente en su epicentro sin las barreras protectoras de la mente.`,
     source: "Sri Shankaracharya",
-    tags: ["práctica"]
+    tags: ["silencio"]
   },
   {
     number: 1495,
     text: `Restablece todos los logros y experiencias espirituales a cero: todo lo que puede ser recordado o registrado es un objeto, no tú.`,
     source: "Sri Shankaracharya",
-    tags: ["práctica"]
+    tags: ["silencio"]
   },
   {
     number: 1496,
@@ -13503,6 +13503,544 @@ Observa cómo la mente intenta ofenderse y no la dejes terminar la frase.`,
   {
     number: 1960,
     text: `El que hoy no tiene ganas y el que mañana te dará las gracias son la misma persona. Decide a quién estás ayudando.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1961,
+    text: `Cuando discuto con la realidad, pierdo, pero solo el 100% de las veces.`,
+    source: "Byron Katie",
+    tags: ["silencio"]
+  },
+  {
+    number: 1962,
+    text: `Eres perfecto tal como eres. Y no te vendría mal mejorar un poco.`,
+    source: "Suzuki Roshi",
+    tags: ["silencio"]
+  },
+  {
+    number: 1963,
+    text: `Si sueltas un poco, tendrás un poco de paz. Si sueltas mucho, tendrás mucha paz. Si sueltas por completo, serás completamente libre.`,
+    source: "Ajahn Chah",
+    tags: ["silencio"]
+  },
+  {
+    number: 1964,
+    text: `No huyas de lo desagradable ni te aferres a lo agradable. La paz interior no la crean las circunstancias externas, sino tu actitud hacia ellas.`,
+    source: "Ajahn Chah",
+    tags: ["silencio"]
+  },
+  {
+    number: 1965,
+    text: `El Gran Camino no es difícil para quien no tiene preferencias. Solo cuando se abandonan el apego y la aversión, todo se revela con perfecta claridad.`,
+    source: "Sengcan",
+    tags: ["silencio"]
+  },
+  {
+    number: 1966,
+    text: `No hay nada que deba hacerse. Ningún lugar adonde ir. Nada que alcanzar. Ya eres lo que buscas. Deja de apresurarte.`,
+    source: "Bankei",
+    tags: ["silencio"]
+  },
+  {
+    number: 1967,
+    text: `Lo único que en última instancia te liberará es la honestidad total contigo mismo. No parcial, no de vez en cuando, sino total, implacable, las 24 horas del día.`,
+    source: "Adyashanti",
+    tags: ["silencio"]
+  },
+  {
+    number: 1968,
+    text: `Tienes poder sobre tu mente, no sobre los acontecimientos externos. Comprende esto y encontrarás la fuerza.`,
+    source: "Marco Aurelio",
+    tags: ["silencio"]
+  },
+  {
+    number: 1969,
+    text: `Entrénate con rigor y determinación. No prolongues la agonía. Muere ahora mismo. Usa cada instante para cortar de raíz todo apego a este mundo.`,
+    source: "Hakuin",
+    tags: ["silencio"]
+  },
+  {
+    number: 1970,
+    text: `Creer que puedes controlar los pensamientos es como intentar morderte tus propios dientes.`,
+    source: "Alan Watts",
+    tags: ["silencio"]
+  },
+  {
+    number: 1971,
+    text: `El idiota no es quien te ofendió. El idiota es esa voz en tu cabeza que te repite la ofensa por cuadragésima sexta vez en el día.`,
+    source: "Chögyam Trungpa",
+    tags: ["silencio"]
+  },
+  {
+    number: 1972,
+    text: `Si un pez pudiera describir el agua, ya no sería un pez. Si puedes describir a tu «yo», no te estás describiendo a ti.`,
+    source: "Alan Watts",
+    tags: ["silencio"]
+  },
+  {
+    number: 1973,
+    text: `No trabajes en ti mismo. Trabajar implica que algo anda mal contigo. Pero todo está bien contigo, si quitas a quien no está de acuerdo.`,
+    source: "Adyashanti",
+    tags: ["silencio"]
+  },
+  {
+    number: 1974,
+    text: `No eres un problema que deba resolverse. Eres el espacio en el que los problemas surgen y se disuelven sin tu intervención.`,
+    source: "Mooji",
+    tags: ["silencio"]
+  },
+  {
+    number: 1975,
+    text: `La comprensión ocurre cuando le queda claro al «yo» que ni comprender ni no comprender están bajo «mi» control.`,
+    source: "Ramesh Balsekar",
+    tags: ["silencio"]
+  },
+  {
+    number: 1976,
+    text: `No te muevas de donde estás. No levantes ni un solo pensamiento. Esto es libertad. Esto es todo.`,
+    source: "Papaji",
+    tags: ["silencio"]
+  },
+  {
+    number: 1977,
+    text: `Si pierdes la atención interior aunque sea por un instante, es como soltar la cuerda que sujeta al buey: luego pasarás horas intentando atraparlo de nuevo.`,
+    source: "Tsongkhapa",
+    tags: ["silencio"]
+  },
+  {
+    number: 1978,
+    text: `El miedo a la muerte es el aplauso con el que el ego recibe cada nueva mañana. Quita el aplauso y la mañana seguirá ahí. Simplemente mañana.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1979,
+    text: `La próxima vez que estés en una fila y sientas hervir por dentro, nota esto: el cuerpo está completamente tranquilo. Las piernas no se desesperan. Las manos no tienen pánico. Solo se altera el comentarista en tu cabeza. Silencia al comentarista. La fila se convertirá en meditación.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1980,
+    text: `Un perro no sufre por ser perro. Un árbol no se angustia por ser árbol. Solo la mente se las arregla para sufrir por ser mente. Deja de compadecerla: sobrevivirá.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1981,
+    text: `Masticas el almuerzo mientras dentro se libra la tercera guerra mundial: planes, rencores, ansiedades. Ni siquiera saboreas la comida. Eso no es comer: es alimentar el cuerpo en piloto automático mientras la mente se devora a sí misma. Prueba lo contrario: deja que la mente ayune mientras tú comes.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1982,
+    text: `Un atasco en la carretera. Llegas tarde. Te enfureces. Ahora mira: sigues detenido. La ira no mueve los coches. Solo te mueve a ti: de la presencia al infierno. Quédate en el coche, no en tu cabeza.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1983,
+    text: `Lleva la mano a tu nariz. Despacio. Observa: la decisión ya se había tomado ANTES de que «decidieras». La mano se movió sola. «Tú» solo te enteraste a posteriori y te apropiaste del acto. Así funciona todo en tu vida.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1984,
+    text: `Si te pagaran un euro por cada segundo de presencia real en el día de hoy, ¿cuánto habrías ganado? ¿Tres euros? ¿Cinco? Ese es el valor real de tu día. El resto no fue más que ruido de fondo sin nadie presente.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1985,
+    text: `Pasaste años entrenando a la mente para pensar. Ni un solo día para callar. ¿Te sorprende que no se calle? Es como asombrarse de que un perro alimentado desde la mesa durante diez años pida comida en la cena.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1986,
+    text: `Un experimento: vive los próximos cinco minutos como un actor que olvidó su papel. No sabes qué decir, qué hacer ni quién ser. El cuerpo seguirá actuando por su cuenta. Y «tú» por fin descansarás.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1987,
+    text: `Quítate los auriculares. No un minuto, sino una hora. Escucha lo que ocurre sin banda sonora. El viento, los pasos, la respiración. El mundo sin filtros es la realidad misma de la que huyes consumiendo contenido.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1988,
+    text: `El argumento definitivo: imagina que mueres en un minuto. No en un «algún día» abstracto, sino dentro de sesenta segundos. ¿Adónde fueron todos tus problemas? ¿Adónde fue el «camino»? Solo queda esto. La respiración. La pantalla. El silencio. Vive desde aquí.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1989,
+    text: `Por la mañana, antes del primer pensamiento, hay una brecha. Limpia, desnuda. La pasas de largo en medio segundo y te zambulles en «el día, las tareas, yo». Mañana atrapa esa brecha. Quédate en ella al menos tres respiraciones. Eres tú antes de «ti».`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1990,
+    text: `El bostezo es contagioso. El automatismo también. Pasaste el día con personas que duermen despiertas y te quedaste dormido con ellas. No las juzgues. Simplemente despierta tú primero.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1991,
+    text: `¿Y si justo ahora nada necesita arreglo? Absolutamente nada. Ni en la vida, ni en la práctica, ni en ti. ¿Y si el único problema es el hábito de buscar problemas?`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1992,
+    text: `¿Has notado que durante una carcajada sincera «tú» no estás? Solo hay risa pura. Sin dueño, sin observador, sin censor. Así es la presencia: no tiene ninguna seriedad fingida.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1993,
+    text: `La gravedad no pide tu permiso; simplemente sostiene el suelo bajo tus pies. La conciencia funciona exactamente igual: ya está aquí ahora mismo, sin importar tus esfuerzos por meditar. Solo que no dejas de desviar la mirada hacia el pensamiento.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1994,
+    text: `Un experimento de un día: en cada conversación, cuando la mente quiera soltar una opinión experta, calla. No por represión forzada, sino por pura curiosidad: ¿qué queda realmente de «ti» si dejas caer todas esas opiniones?`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1995,
+    text: `No intentes fabricar silencio: vuélvete inútil para el ruido. El diálogo interno necesita desesperadamente un oyente que se queje o discuta. Si no reaccionas, el ruido se apaga por falta de atención.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1996,
+    text: `En el mismísimo segundo en que notas que perdiste la presencia, YA estás presente. Regañarte por distraerte es volver a dormirte. Sonríele al hecho de haber despertado.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 1997,
+    text: `Si quieres hacer algo, haz de ello una costumbre. Si no quieres hacerlo, no lo hagas, y acostúmbrate a hacer lo contrario.`,
+    source: "Epicteto, Disertaciones, II.18",
+    tags: ["silencio"]
+  },
+  {
+    number: 1998,
+    text: `Mil días de entrenamiento son disciplina. Diez mil días de entrenamiento son refinamiento.`,
+    source: "Miyamoto Musashi",
+    tags: ["silencio"]
+  },
+  {
+    number: 1999,
+    text: `No hay camino fácil desde la tierra hasta las estrellas.`,
+    source: "Séneca",
+    tags: ["silencio"]
+  },
+  {
+    number: 2000,
+    text: `Nunca se rindan. Nunca, nunca, nunca, nunca.`,
+    source: "Winston Churchill",
+    tags: ["silencio"]
+  },
+  {
+    number: 2001,
+    text: `Nos hacemos constructores construyendo, y tañedores de lira tocando la lira. Del mismo modo, nos hacemos justos practicando la justicia, y valientes practicando la valentía.`,
+    source: "Aristóteles",
+    tags: ["silencio"]
+  },
+  {
+    number: 2002,
+    text: `No hay atajos. Todo consiste en repeticiones, repeticiones, repeticiones.`,
+    source: "Arnold Schwarzenegger",
+    tags: ["silencio"]
+  },
+  {
+    number: 2003,
+    text: `Quien carece de fuerzas se rinde a mitad de camino. Pero tú mismo estás trazando la línea.`,
+    source: "Confucio",
+    tags: ["silencio"]
+  },
+  {
+    number: 2004,
+    text: `Absorbe lo que sea útil, descarta lo que no sirva y añade lo que sea exclusivamente tuyo.`,
+    source: "Bruce Lee",
+    tags: ["silencio"]
+  },
+  {
+    number: 2005,
+    text: `La gota horada la piedra, el anillo se desgasta con el uso constante.`,
+    source: "Ovidio",
+    tags: ["silencio"]
+  },
+  {
+    number: 2006,
+    text: `El mérito pertenece al hombre que está realmente en la arena, cuyo rostro está manchado de polvo, sudor y sangre.`,
+    source: "Theodore Roosevelt",
+    tags: ["silencio"]
+  },
+  {
+    number: 2007,
+    text: `Cuando el Cielo está a punto de conferir una gran responsabilidad a un hombre, primero aflige su corazón con sufrimiento, agota sus músculos y huesos, y somete su cuerpo al hambre.`,
+    source: "Mencio",
+    tags: ["silencio"]
+  },
+  {
+    number: 2008,
+    text: `Puedo aceptar el fracaso: todos fracasan en algo. Pero no puedo aceptar no haberlo intentado.`,
+    source: "Michael Jordan",
+    tags: ["silencio"]
+  },
+  {
+    number: 2009,
+    text: `La fortuna sonríe a los audaces.`,
+    source: "Virgilio",
+    tags: ["silencio"]
+  },
+  {
+    number: 2010,
+    text: `¿Amas la vida? Entonces no malgastes el tiempo, porque es la sustancia de la que está hecha.`,
+    source: "Benjamin Franklin",
+    tags: ["silencio"]
+  },
+  {
+    number: 2011,
+    text: `La disciplina es libertad.`,
+    source: "Jocko Willink",
+    tags: ["silencio"]
+  },
+  {
+    number: 2012,
+    text: `El impedimento a la acción avanza la acción. Lo que se interpone en el camino se convierte en el camino.`,
+    source: "Marco Aurelio, Meditaciones, V.20",
+    tags: ["silencio"]
+  },
+  {
+    number: 2013,
+    text: `El dolor es inevitable. El sufrimiento es opcional.`,
+    source: "Haruki Murakami",
+    tags: ["silencio"]
+  },
+  {
+    number: 2014,
+    text: `Si puedes llenar el implacable minuto con sesenta segundos de esfuerzo cumplido, tuya es la Tierra y todo lo que hay en ella.`,
+    source: "Rudyard Kipling, Si (1910)",
+    tags: ["silencio"]
+  },
+  {
+    number: 2015,
+    text: `Todo lo negativo —la presión, los desafíos— es para mí una oportunidad de levantarme más alto.`,
+    source: "Kobe Bryant",
+    tags: ["silencio"]
+  },
+  {
+    number: 2016,
+    text: `Si no puedes volar, corre; si no puedes correr, camina; si no puedes caminar, gatea; pero hagas lo que hagas, sigue avanzando.`,
+    source: "Martin Luther King Jr.",
+    tags: ["silencio"]
+  },
+  {
+    number: 2017,
+    text: `Camino despacio, pero nunca camino hacia atrás.`,
+    source: "Abraham Lincoln",
+    tags: ["silencio"]
+  },
+  {
+    number: 2018,
+    text: `Nada en el mundo puede ocupar el lugar de la persistencia.
+El talento no lo hará: nada es más común que hombres fracasados con talento.`,
+    source: "Calvin Coolidge",
+    tags: ["silencio"]
+  },
+  {
+    number: 2019,
+    text: `Me tomó diecisiete años y ciento catorce días alcanzar el éxito de la noche a la mañana.`,
+    source: "Lionel Messi",
+    tags: ["silencio"]
+  },
+  {
+    number: 2020,
+    text: `Si quieres correr, corre una milla.
+Si quieres experimentar una vida diferente, corre un maratón.`,
+    source: "Emil Zátopek",
+    tags: ["silencio"]
+  },
+  {
+    number: 2021,
+    text: `Las paredes de ladrillo están ahí por una razón.
+Están ahí para darnos la oportunidad de demostrar cuánto deseamos algo.`,
+    source: "Randy Pausch, «La última lección»",
+    tags: ["silencio"]
+  },
+  {
+    number: 2022,
+    text: `En medio del invierno, aprendí por fin que había en mí un verano invencible.`,
+    source: "Albert Camus",
+    tags: ["silencio"]
+  },
+  {
+    number: 2023,
+    text: `Dentro de treinta años tus hijos no recordarán exactamente lo que les dijiste.
+Recordarán si estuviste a su lado. No solo en cuerpo, sino con toda tu presencia.
+La práctica es el entrenamiento para estar verdaderamente presente mientras aún están aquí.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 2024,
+    text: `Algún día desearás desesperadamente volver a este día tan ordinario: con té frío, dolor de espalda y una lista de tareas pendientes.
+Estás en él justo ahora.
+No te lo pierdas.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 2025,
+    text: `Algo en tu vida ya ocurrió por última vez y no te diste cuenta: la última vez que tu madre te cargó en brazos, la última tarde jugando en el patio hasta que oscureció.
+Hoy también está pasando algo por última vez.
+Mira con atención.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 2026,
+    text: `Te aman personas a las que respondes sin levantar la mirada de la pantalla.
+No se resienten. Simplemente esperan.
+La práctica es levantar la vista. Mientras todavía están a tu lado.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 2027,
+    text: `Durante años has sido un carcelero severo para ti mismo.
+Intenta pasar un solo día siendo como sería un viejo amigo bondadoso contigo.
+Siéntate junto a ti mismo. Respira. Eso es suficiente para empezar.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 2028,
+    text: `Dentro de ti hay un lugar que no duele, no teme y no tiene prisa.
+Lo visitas cada noche, justo antes de dormir, durante unos breves segundos.
+La práctica es aprender a entrar allí durante el día.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 2029,
+    text: `Tu corazón latió hoy unas cien mil veces y ni una sola vez le diste las gracias.
+No pide nada a cambio. Simplemente late, desde el primer día y sin días libres.
+Siéntate un minuto y escucha a quien nunca ha descansado por ti.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 2030,
+    text: `La valentía en la práctica no es aguantar una hora.
+La valentía es quedarte con lo que surge: la tristeza que evitaste durante tres años, el nombre que no querías recordar.
+Sin ahuyentarlo. Sin alimentarlo. Solo estar ahí y observar.
+Así es como termina el viejo dolor.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 2031,
+    text: `Un faro no lucha contra la tormenta ni huye de ella. Permanece firme y brilla.
+Las tormentas siempre existirán.
+Conviértete en quien simplemente permanece en su lugar, y los barcos de tu vida encontrarán el camino.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 2032,
+    text: `De niño podías pasar horas mirando cómo una hormiga cargaba una pajita, sin notar el paso del tiempo.
+No era una debilidad infantil. Era algo que te arrebataron llamándolo madurez.
+La práctica te lo devuelve.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 2033,
+    text: `Cada persona que encuentres hoy lleva algo pesado por dentro.
+Si hay calma en ti, tienes lo que a ellos les falta: una presencia tranquila y cercana.
+A veces eso basta para que alguien respire con un poco más de alivio.
+Tu práctica es un regalo no solo para ti.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 2034,
+    text: `La libertad no consiste en no sentir nada nunca más.
+Consiste en sentir y no dejarse arrastrar por la corriente.
+No te convertirás en piedra. Te convertirás en un río que sabe fluir alrededor de cualquier obstáculo.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 2035,
+    text: `No esperes a que la vida se vuelva tranquila. Nunca lo hará.
+Hijos, plazos de entrega, enfermedades, noticias: siempre habrá algo.
+La paz no reside en la pausa entre tormentas. Está por debajo de ellas.
+Desciende.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 2036,
+    text: `La ansiedad que alimentaste durante años nunca evitó nada.
+Ni un solo accidente, ni una sola pérdida. Solo te robó tiempo que podrías haber vivido de verdad.
+Recupera al menos el día de hoy.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 2037,
+    text: `Si vieras a alguien abofetearse a sí mismo todos los días, correrías a detenerlo.
+Tú te haces exactamente eso con tus pensamientos.
+Deténte. No por ser correcto, sino simplemente porque duele.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 2038,
+    text: `Puedes no creer en la práctica, ni en ti mismo, ni en el silencio.
+Pero tienes estos tres minutos ahora. Entrégalos.
+El resto lo hará el propio silencio: es mucho más paciente que cualquier incredulidad.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 2039,
+    text: `Dentro de diez años no recordarás por qué te preocupabas tanto hoy.
+Pero recordarás con quién y cómo pasaste esta tarde.
+La atención no se pospone. O está aquí, o se ha desperdiciado.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 2040,
+    text: `Hay cosas que nadie puede hacer por ti: comer tu almuerzo, dormir por ti o vivir tu silencio.
+Un maestro, un libro y cualquier aplicación solo pueden señalar la puerta.
+Entrar depende exclusivamente de ti.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 2041,
+    text: `Estás leyendo esto porque en algún lugar de tu interior todavía arde un anhelo: "quiero vivir de otra manera".
+No lo apagues. Es el fuego más valioso que tienes.
+Dale un poco de aire: al menos cinco minutos de silencio hoy.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 2042,
+    text: `Cada respiración es la única que tienes ahora mismo. La anterior se ha ido, la siguiente no está prometida.
+Toda la vida es una sola respiración, repetida tantas veces como te haya sido concedido.
+Toma esta.`,
     source: null,
     tags: ["silencio"]
   }

@@ -19,6 +19,7 @@ import User from '../../src/models/User.js';
 import { createMockContext } from '../helpers/mockContext.js';
 import { BUTTONS } from '../../src/constants/buttons.js';
 import { UI } from '../../src/constants/ui.js';
+import { TEXTS } from '../../src/constants/texts.js';
 import { clearUserCache } from '../../src/middlewares/activity.js';
 
 describe('Контракты пользовательского интерфейса (UI Contracts & Flow Integrity)', () => {
@@ -49,7 +50,7 @@ describe('Контракты пользовательского интерфей
       const anchorMessageText = firstCallArgs[0];
       const anchorKeyboardOptions = firstCallArgs[1];
 
-      expect(anchorMessageText).toBe('🪷');
+      expect(anchorMessageText).toBe(TEXTS.ru.POINTERS.MENU_LABEL);
       expect(anchorKeyboardOptions).toBeDefined();
       expect(anchorKeyboardOptions.reply_markup).toBeDefined();
       expect(anchorKeyboardOptions.reply_markup.keyboard).toBeDefined();

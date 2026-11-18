@@ -8,9 +8,9 @@ const RUSSIAN_TEXTS = {
 🧘‍♀️ «Указатели» — мудрые цитаты и практические подсказки для возвращения внимания в настоящий момент (недвойственность, дзен)
 ⏳ Своё напоминание — текст, 📷 фото или 🎬 видео с любой частотой
 `,
-    MAIN: 'Главное меню',
-    SETTINGS: 'Настройки:',
-    REMINDERS: 'Управление напоминаниями 👇',
+    MAIN: '🏠 Главное меню',
+    SETTINGS: '⚙️ Настройки:',
+    REMINDERS: '⏳ Напоминания 👇',
     HELP: `📖 Справка по боту:
 
 🧘‍♀️ «Указатели» — мудрые мысли, цитаты и подсказки для возвращения внимания в настоящий момент (недвойственность, дзен, осознанность)
@@ -18,9 +18,14 @@ const RUSSIAN_TEXTS = {
 ⚙️ «Настройки» — часовой пояс, тихие часы и язык
 
 💡 Чтобы создать напоминание, нажми «⏳ Напоминания» ➡️ «➕ Создать». Можно указать интервал в минутах или точное время (например, 09:00).`,
-    ONBOARDING_TIMEZONE_PROMPT: (timezone, quietHoursText = '23:00–08:00') =>
-      `🌍 Твой часовой пояс: <b>${timezone}</b>\nТихие часы: <b>${quietHoursText}</b> (рассчитываются по нему).\n\nЕсли ты в другом регионе — выбери свой город ниже 👇`,
-    ONBOARDING_TIMEZONE_BUTTON: '🌍 Выбрать часовой пояс'
+    ONBOARDING_TIMEZONE_PROMPT: (
+      timezone,
+      quietHoursText = '23:00–08:00',
+      languageName = '🇷🇺 Русский'
+    ) =>
+      `🌍 Твой часовой пояс: <b>${timezone}</b>\n🔕 Тихие часы: <b>${quietHoursText}</b> (рассчитываются по нему)\n🌐 Язык бота: <b>${languageName}</b>\n\nЕсли определился не твой язык или ты в другом регионе — настрой их ниже 👇`,
+    ONBOARDING_TIMEZONE_BUTTON: '🌍 Выбрать часовой пояс',
+    ONBOARDING_LANGUAGE_BUTTON: '🌐 Сменить язык / Change language'
   },
 
   POINTERS: {
@@ -111,7 +116,7 @@ const RUSSIAN_TEXTS = {
       enabled ? `🔕 Включены (${range})` : `🔔 Выключены (${range})`
   },
 
-  SUPPORT: `Техподдержка, обратная связь и пожелания:
+  SUPPORT: `🛠 Техподдержка, обратная связь и пожелания:
 👉 @pirial_mersus
 
 Группа в Telegram: @dzenline
@@ -166,9 +171,9 @@ I will remind you about what truly matters.
 🧘‍♀️ "Pointers" — wise quotes and practical clues to return your attention to the present moment (non-duality, Zen)
 ⏳ Custom reminder — text, 📷 photo, or 🎬 video at any frequency
 `,
-    MAIN: 'Main menu',
-    SETTINGS: 'Settings:',
-    REMINDERS: 'Manage reminders 👇',
+    MAIN: '🏠 Main menu',
+    SETTINGS: '⚙️ Settings:',
+    REMINDERS: '⏳ Reminders 👇',
     HELP: `📖 Bot help:
 
 🧘‍♀️ "Pointers" — wise thoughts, quotes, and clues to return attention to the present moment (non-duality, Zen, mindfulness)
@@ -176,9 +181,14 @@ I will remind you about what truly matters.
 ⚙️ "Settings" — timezone, quiet hours, and language
 
 💡 To create a reminder, press "⏳ Reminders" ➡️ "➕ Create". You can set interval in minutes or exact daily time (e.g., 09:00).`,
-    ONBOARDING_TIMEZONE_PROMPT: (timezone, quietHoursText = '23:00–08:00') =>
-      `🌍 Your timezone: <b>${timezone}</b>\nQuiet hours: <b>${quietHoursText}</b> (calculated based on it).\n\nIf you are in another region, choose your city below 👇`,
-    ONBOARDING_TIMEZONE_BUTTON: '🌍 Choose timezone'
+    ONBOARDING_TIMEZONE_PROMPT: (
+      timezone,
+      quietHoursText = '23:00–08:00',
+      languageName = '🇬🇧 English'
+    ) =>
+      `🌍 Your timezone: <b>${timezone}</b>\n🔕 Quiet hours: <b>${quietHoursText}</b> (calculated based on it)\n🌐 Bot language: <b>${languageName}</b>\n\nIf your language is different or you are in another region, customize them below 👇`,
+    ONBOARDING_TIMEZONE_BUTTON: '🌍 Choose timezone',
+    ONBOARDING_LANGUAGE_BUTTON: '🌐 Change language / Сменить язык'
   },
 
   POINTERS: {
@@ -266,7 +276,7 @@ I will remind you about what truly matters.
     QUIET_STATUS: (enabled, range) => (enabled ? `🔕 Enabled (${range})` : `🔔 Disabled (${range})`)
   },
 
-  SUPPORT: `Support, feedback & suggestions:
+  SUPPORT: `🛠 Support, feedback & suggestions:
 👉 @pirial_mersus
 
 Telegram community: @dzenline
@@ -322,9 +332,9 @@ const UKRAINIAN_TEXTS = {
 🧘‍♀️ «Вказівники» — мудрі цитати та практичні підказки для повернення уваги в теперішній момент (недвоїстість, дзен)
 ⏳ Власне нагадування — текст, 📷 фото або 🎬 відео з будь-якою частотою
 `,
-    MAIN: 'Головне меню',
-    SETTINGS: 'Налаштування:',
-    REMINDERS: 'Керування нагадуваннями 👇',
+    MAIN: '🏠 Головне меню',
+    SETTINGS: '⚙️ Налаштування:',
+    REMINDERS: '⏳ Керування нагадуваннями 👇',
     HELP: `📖 Довідка по боту:
 
 🧘‍♀️ «Вказівники» — мудрі думки, цитати та підказки для повернення уваги в теперішній момент (недвоїстість, дзен, усвідомленість)
@@ -332,9 +342,14 @@ const UKRAINIAN_TEXTS = {
 ⚙️ «Налаштування» — часовий пояс, тихі години та мова
 
 💡 Щоб створити нагадування, натисни «⏳ Нагадування» ➡️ «➕ Створити». Можна вказати інтервал у хвилинах або точний час (наприклад, 09:00).`,
-    ONBOARDING_TIMEZONE_PROMPT: (timezone, quietHoursText = '23:00–08:00') =>
-      `🌍 Твій часовий пояс: <b>${timezone}</b>\nТихі години: <b>${quietHoursText}</b> (розраховуються за ним).\n\nЯкщо ти в іншому регіоні — обери своє місто нижче 👇`,
-    ONBOARDING_TIMEZONE_BUTTON: '🌍 Обрати часовий пояс'
+    ONBOARDING_TIMEZONE_PROMPT: (
+      timezone,
+      quietHoursText = '23:00–08:00',
+      languageName = '🇺🇦 Українська'
+    ) =>
+      `🌍 Твій часовий пояс: <b>${timezone}</b>\n🔕 Тихі години: <b>${quietHoursText}</b> (розраховуються за ним)\n🌐 Мова бота: <b>${languageName}</b>\n\nЯкщо мова визначилася невірно або ти в іншому регіоні — налаштуй їх нижче 👇`,
+    ONBOARDING_TIMEZONE_BUTTON: '🌍 Обрати часовий пояс',
+    ONBOARDING_LANGUAGE_BUTTON: '🌐 Змінити мову / Change language'
   },
 
   POINTERS: {
@@ -425,7 +440,7 @@ const UKRAINIAN_TEXTS = {
       enabled ? `🔕 Увімкнено (${range})` : `🔔 Вимкнено (${range})`
   },
 
-  SUPPORT: `Техпідтримка, зворотний зв'язок та побажання:
+  SUPPORT: `🛠 Техпідтримка, зворотний зв'язок та побажання:
 👉 @pirial_mersus
 
 Група в Telegram: @dzenline
@@ -481,9 +496,9 @@ Te recordaré lo que verdaderamente importa.
 🧘‍♀️ «Punteros» — citas sabias y pistas prácticas para devolver tu atención al momento presente (no-dualidad, Zen)
 ⏳ Recordatorio personalizado — texto, 📷 foto o 🎬 video con cualquier frecuencia
 `,
-    MAIN: 'Menú principal',
-    SETTINGS: 'Ajustes:',
-    REMINDERS: 'Gestión de recordatorios 👇',
+    MAIN: '🏠 Menú principal',
+    SETTINGS: '⚙️ Ajustes:',
+    REMINDERS: '⏳ Gestión de recordatorios 👇',
     HELP: `📖 Ayuda del bot:
 
 🧘‍♀️ «Punteros» — pensamientos sabios, citas y pistas para devolver la atención al momento presente (no-dualidad, Zen, atención plena)
@@ -491,9 +506,14 @@ Te recordaré lo que verdaderamente importa.
 ⚙️ «Ajustes» — zona horaria, horas de silencio e idioma
 
 💡 Para crear un recordatorio, presiona «⏳ Recordatorios» ➡️ «➕ Crear». Puedes indicar el intervalo en minutos o la hora exacta (por ejemplo, 09:00).`,
-    ONBOARDING_TIMEZONE_PROMPT: (timezone, quietHoursText = '23:00–08:00') =>
-      `🌍 Tu zona horaria: <b>${timezone}</b>\nHoras de silencio: <b>${quietHoursText}</b> (calculadas en base a ella).\n\nSi estás en otra región, elige tu ciudad abajo 👇`,
-    ONBOARDING_TIMEZONE_BUTTON: '🌍 Elegir zona horaria'
+    ONBOARDING_TIMEZONE_PROMPT: (
+      timezone,
+      quietHoursText = '23:00–08:00',
+      languageName = '🇪🇸 Español'
+    ) =>
+      `🌍 Tu zona horaria: <b>${timezone}</b>\n🔕 Horas de silencio: <b>${quietHoursText}</b> (calculadas en base a ella)\n🌐 Idioma del bot: <b>${languageName}</b>\n\nSi el idioma no es el tuyo o estás en otra región, ajústalos abajo 👇`,
+    ONBOARDING_TIMEZONE_BUTTON: '🌍 Elegir zona horaria',
+    ONBOARDING_LANGUAGE_BUTTON: '🌐 Cambiar idioma / Change language'
   },
 
   POINTERS: {
@@ -587,7 +607,7 @@ Te recordaré lo que verdaderamente importa.
       enabled ? `🔕 Activado (${range})` : `🔔 Desactivado (${range})`
   },
 
-  SUPPORT: `Soporte técnico, comentarios y sugerencias:
+  SUPPORT: `🛠 Soporte técnico, comentarios y sugerencias:
 👉 @pirial_mersus
 
 Comunidad en Telegram: @dzenline

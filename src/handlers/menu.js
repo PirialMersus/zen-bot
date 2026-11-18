@@ -5,6 +5,7 @@ import { handleGetAuthCode } from './auth.js';
 import { resolveUserLanguage } from '../middlewares/activity.js';
 import User from '../models/User.js';
 import { DEFAULT_TIMEZONE } from '../constants/timezones.js';
+import { LOCALIZED_LANGUAGE_NAMES } from '../constants/languages.js';
 import { suppressExpectedError } from '../utils/logger.js';
 
 const getLocalizedQuietDisabledText = (language = 'ru') => {
@@ -70,13 +71,21 @@ export const handleStart = async (ctx) => {
     }
   }
 
+  const currentLanguageDisplayName =
+    LOCALIZED_LANGUAGE_NAMES[userLanguage] || LOCALIZED_LANGUAGE_NAMES.ru;
+
   const timezoneOnboardingKeyboard = Markup.inlineKeyboard([
-    [Markup.button.callback(texts.MENU.ONBOARDING_TIMEZONE_BUTTON, 'settings:timezone')]
+    [Markup.button.callback(texts.MENU.ONBOARDING_TIMEZONE_BUTTON, 'settings:timezone')],
+    [Markup.button.callback(texts.MENU.ONBOARDING_LANGUAGE_BUTTON, 'settings:language')]
   ]);
 
   await ctx
     .reply(
-      texts.MENU.ONBOARDING_TIMEZONE_PROMPT(currentUserTimezone, formattedQuietHoursSchedule),
+      texts.MENU.ONBOARDING_TIMEZONE_PROMPT(
+        currentUserTimezone,
+        formattedQuietHoursSchedule,
+        currentLanguageDisplayName
+      ),
       {
         parse_mode: 'HTML',
         ...timezoneOnboardingKeyboard

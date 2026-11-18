@@ -20,6 +20,9 @@ describe('Главное меню и навигация', () => {
     expect(
       mockContext.reply.mock.calls[1][1].reply_markup.inline_keyboard[0][0].callback_data
     ).toBe('settings:timezone');
+    expect(
+      mockContext.reply.mock.calls[1][1].reply_markup.inline_keyboard[1][0].callback_data
+    ).toBe('settings:language');
   });
 
   it('должен отображать кастомный часовой пояс и кастомные тихие часы в карточке онбординга', async () => {

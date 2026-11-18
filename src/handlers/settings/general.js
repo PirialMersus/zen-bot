@@ -18,7 +18,7 @@ export const renderSettings = async (ctx, prefixMessage = '') => {
   const quietSettings = user.quietHours;
   const timezoneValue = user.timezone || DEFAULT_TIMEZONE;
 
-  const localizedSettingsPrompt = `⚙️ ${texts.MENU.SETTINGS}\n\n${texts.SETTINGS.CUSTOMIZE_PROMPT}`;
+  const localizedSettingsPrompt = `${texts.MENU.SETTINGS}\n\n${texts.SETTINGS.CUSTOMIZE_PROMPT}`;
 
   let localizedSettingsText = localizedSettingsPrompt;
 
