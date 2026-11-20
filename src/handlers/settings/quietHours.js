@@ -43,7 +43,9 @@ export const handleQuietHoursSetPreset = async (ctx) => {
     { telegramId: ctx.from.id },
     {
       'quietHours.start': startHour,
-      'quietHours.end': endHour
+      'quietHours.startMinute': 0,
+      'quietHours.end': endHour,
+      'quietHours.endMinute': 0
     },
     { upsert: true }
   );
@@ -74,7 +76,9 @@ export const handleQuietHoursCustomInput = async (ctx) => {
     return false;
   }
 
-  const parsedTimeMatch = rawInputText.match(/^(\d{1,2})(?::00)?\s*[-–—]\s*(\d{1,2})(?::00)?$/);
+  const parsedTimeMatch = rawInputText.match(
+    /^(\d{1,2})(?::(\d{1,2}))?\s*[-–—]\s*(\d{1,2})(?::(\d{1,2}))?$/
+  );
 
   const userLanguage = await resolveUserLanguage(ctx);
   const texts = getTexts(userLanguage);
@@ -85,9 +89,22 @@ export const handleQuietHoursCustomInput = async (ctx) => {
   }
 
   const startHour = Number(parsedTimeMatch[1]);
-  const endHour = Number(parsedTimeMatch[2]);
+  const startMinute = parsedTimeMatch[2] !== undefined ? Number(parsedTimeMatch[2]) : 0;
+  const endHour = Number(parsedTimeMatch[3]);
+  const endMinute = parsedTimeMatch[4] !== undefined ? Number(parsedTimeMatch[4]) : 0;
 
-  if (startHour < 0 || startHour > 23 || endHour < 0 || endHour > 23 || startHour === endHour) {
+  const isInvalidTimeRange =
+    startHour < 0 ||
+    startHour > 23 ||
+    endHour < 0 ||
+    endHour > 23 ||
+    startMinute < 0 ||
+    startMinute > 59 ||
+    endMinute < 0 ||
+    endMinute > 59 ||
+    (startHour === endHour && startMinute === endMinute);
+
+  if (isInvalidTimeRange) {
     await ctx.reply(texts.SETTINGS.QUIET_RANGE_ERROR, { parse_mode: 'HTML' });
     return true;
   }
@@ -98,12 +115,19 @@ export const handleQuietHoursCustomInput = async (ctx) => {
     { telegramId: ctx.from.id },
     {
       'quietHours.start': startHour,
-      'quietHours.end': endHour
+      'quietHours.startMinute': startMinute,
+      'quietHours.end': endHour,
+      'quietHours.endMinute': endMinute
     },
     { upsert: true }
   );
 
-  const confirmationText = texts.SETTINGS.QUIET_CUSTOM_SUCCESS(startHour, endHour);
+  const confirmationText = texts.SETTINGS.QUIET_CUSTOM_SUCCESS(
+    startHour,
+    endHour,
+    startMinute,
+    endMinute
+  );
 
   await renderSettings(ctx, confirmationText);
   return true;

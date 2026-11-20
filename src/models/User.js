@@ -23,7 +23,9 @@ const schema = new mongoose.Schema(
     quietHours: {
       enabled: { type: Boolean, default: true },
       start: { type: Number, default: 23 },
-      end: { type: Number, default: 8 }
+      end: { type: Number, default: 8 },
+      startMinute: { type: Number, default: 0 },
+      endMinute: { type: Number, default: 0 }
     },
 
     timezone: { type: String, default: DEFAULT_TIMEZONE },

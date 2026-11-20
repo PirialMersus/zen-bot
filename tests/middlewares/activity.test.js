@@ -43,6 +43,8 @@ describe('Middleware активности и уведомление о ново�
     expect(sentNotificationText).toContain('@ivan_zen');
     expect(sentNotificationText).toContain(String(newTelegramUserId));
     expect(sentNotificationText).toContain('ru');
+    expect(sentNotificationText).toContain('Пользователи по языкам:');
+    expect(sentNotificationText).toContain('Русский');
     expect(sentNotificationOptions.parse_mode).toBe('HTML');
 
     const createdDatabaseUser = await User.findOne({ telegramId: newTelegramUserId });

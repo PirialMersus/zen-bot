@@ -2,7 +2,7 @@ import Activity from '../models/Activity.js';
 import User from '../models/User.js';
 import { escapeHtml } from '../utils/escapeHtml.js';
 import { isAdministratorUser } from '../utils/admin.js';
-import { SUPPORTED_LANGUAGES, DEFAULT_LANGUAGE } from '../constants/languages.js';
+import { SUPPORTED_LANGUAGES, DEFAULT_LANGUAGE, LOCALIZED_LANGUAGE_NAMES } from '../constants/languages.js';
 import { logError, suppressExpectedError } from '../utils/logger.js';
 
 const defaultFallbackLanguage = DEFAULT_LANGUAGE;
@@ -95,13 +95,35 @@ const notifyAdministratorAboutNewUser = async (ctx, telegramId) => {
   const usernameString = ctx.from?.username ? `@${ctx.from.username}` : 'нет username';
   const userLanguageCode = ctx.from?.language_code || 'не указан';
 
+  const userCountsByLanguage = await User.aggregate([
+    {
+      $group: {
+        _id: { $ifNull: ['$language', defaultFallbackLanguage] },
+        count: { $sum: 1 }
+      }
+    }
+  ]).catch(() => []);
+
+  const languageStatsMap = new Map(
+    userCountsByLanguage.map((item) => [item._id, item.count])
+  );
+
+  const formattedLanguageBreakdown = SUPPORTED_LANGUAGES.map((langCode) => {
+    const languageLabel = LOCALIZED_LANGUAGE_NAMES[langCode] || langCode;
+    const count = languageStatsMap.get(langCode) || 0;
+    return `• ${languageLabel}: <b>${count}</b>`;
+  }).join('\n');
+
   const alertMessageText = [
     '👤 <b>Новый пользователь в боте!</b>',
     '',
     `Имя: <b>${escapeHtml(userFullName)}</b>`,
     `Аккаунт: ${escapeHtml(usernameString)}`,
     `ID: <code>${escapeHtml(telegramId)}</code>`,
-    `Язык: <code>${escapeHtml(userLanguageCode)}</code>`
+    `Язык в Telegram: <code>${escapeHtml(userLanguageCode)}</code>`,
+    '',
+    '📊 <b>Пользователи по языкам:</b>',
+    formattedLanguageBreakdown
   ].join('\n');
 
   if (ctx.telegram?.sendMessage) {

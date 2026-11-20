@@ -10,7 +10,7 @@ export const renderSettings = async (ctx, prefixMessage = '') => {
   const texts = getTexts(userLanguage);
 
   const user = (await User.findOne({ telegramId: ctx.from.id })) ?? {
-    quietHours: { enabled: true, start: 23, end: 8 },
+    quietHours: { enabled: true, start: 23, end: 8, startMinute: 0, endMinute: 0 },
     timezone: DEFAULT_TIMEZONE,
     language: userLanguage
   };

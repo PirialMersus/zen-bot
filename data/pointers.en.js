@@ -14044,5 +14044,377 @@ All of life is a single breath, repeated as many times as you are given.
 Take this one.`,
     source: null,
     tags: ["stillness"]
+  },
+  {
+    number: 2043,
+    text: `An astonishing discovery. If you fall asleep with your focus of attention in the heart,
+in a state of conscious awareness of everything passing by, then in the morning
+you have a chance to wake up in the state of realizing the essence of the Self.
+
+Of course, the mind immediately begins to assemble the world and itself around it,
+but it does so not quite as quickly as usual. Morning inertia takes its toll.
+
+You gain time, and with it, a greater chance to sustain this disidentification
+from the illusion of the personality in order to realize deeper truths.
+
+If you fall asleep with thoughts of tomorrow or anything else,
+you wake up with them.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 2044,
+    text: `Relax. Your true goal has nothing to do with the one
+you have made up for yourself.
+Your true goal is to learn to let go of control.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 2045,
+    text: `If you want to break the program called "destiny", remember:
+tomorrow there will be less free time, and the closer to the finale,
+the harder it will be to find it.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 2046,
+    text: `The difference between a master and a non-master is that in addition to real life,
+an ordinary person creates a fantastic world in which they live as a character.
+
+In doing so, discrepancies constantly arise
+between real life and the life of this character,
+since the fabricated world is always ahead of reality, and the character lives,
+as it were, in the future.
+
+And this life in the future constantly creates a sense of strain and permanent panic
+because such a future might materialize and must be avoided.
+
+It turns out that first the character's story shapes this future,
+and then begins to suffer from the fear that it will come true.
+
+And the character cannot escape from this, because their story is always only about
+what was and what will be.
+
+As long as you are a character, you are doomed to live in a state of anxiety.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 2047,
+    text: `Step out of knowledge, allow yourself to know nothing and seek nothing.
+Remain in the unknown and in not understanding what to seek, how to go, where to move.
+Let there only be existence without any knowledge.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 2048,
+    text: `If you understood something during practice, you can immediately throw it in the trash,
+because now a concept of understanding has been created, along with a concept of you
+who understood something.
+
+Any understanding in practice is instantly turned into a concept
+and serves to reinforce the story of the Self.
+Therefore, what matters is not your understanding, but what happens afterward.
+
+Glimpses during seated meditation are important,
+but what is more important is whether you are able to live
+in the state of "there is no one, thoughts on their own, the body on its own"
+after meditation.`,
+    source: "Want Clarity",
+    tags: ["stillness"]
+  },
+  {
+    number: 2049,
+    text: `Proper meditation is not when thoughts, mental images, and sounds decrease
+during practice.
+Proper meditation is when you feel that they do not affect you
+as awareness (presence, stillness, being).`,
+    source: "Want Clarity",
+    tags: ["stillness"]
+  },
+  {
+    number: 2050,
+    text: `If you do not realize the need to leave the mind behind, moving into simple perception
+for the sake of perception, you will become a confused spiritual demagogue.`,
+    source: "Want Clarity",
+    tags: ["stillness"]
+  },
+  {
+    number: 2051,
+    text: `If we are to talk about what state should arise during or after meditation,
+it is not bliss and not joy. Such experiences may happen, but they are related
+to the stage of practice, to energy, and to the type of practice.
+Joy and bliss may not be there.
+
+But one state should accompany you constantly in any practice:
+it is balance, equanimity, peace, stillness.
+The feeling that there is nothing more or less important.
+The feeling that everything is fine
+and that nothing needs to be changed, no matter how it goes.
+
+This is the indicator of true practice.`,
+    source: "Want Clarity",
+    tags: ["stillness"]
+  },
+  {
+    number: 2052,
+    text: `Everything passes through you. Nothing meets resistance, because there is no one to fight,
+no one to react, no one to run away and hide. There is only the flow of existence.
+
+There is no one. There is only a dream creating the world within itself out of itself:
+time, events, people, attitudes, future, dilemmas, plans, thoughts, desires, feelings.
+
+There is only silence filled with sounds. Listen to its sound, the sound of stillness.`,
+    source: "Want Clarity",
+    tags: ["stillness"]
+  },
+  {
+    number: 2053,
+    text: `Not only is there no ego, not only is there no true Self,
+but there is not even any Consciousness. All of these are just ideas.
+There is only the awareness of experiences, and nothing more.`,
+    source: "Want Clarity",
+    tags: ["stillness"]
+  },
+  {
+    number: 2054,
+    text: `Ego, Self, Personality, Person — this is the idea of authorship.
+All of these are names for one and the same phenomenon. It is the idea of the Owner...
+
+This is not the identification of something with something else. It is not some entity.
+It is simply the idea of authorship of everything (life, actions, sensations,
+thoughts, feelings, enlightenment, spiritual path, development).
+
+Life lived on behalf of this idea is the illusion.`,
+    source: "Want Clarity",
+    tags: ["stillness"]
+  },
+  {
+    number: 2055,
+    text: `The goal of meditation is to be rid of false identification with everything
+that previously defined you.
+
+All feelings, thoughts, experiences, memories of yourself,
+self-images, stories about yourself, bodily sensations, fears, expectations...
+All of this is perceived as existing on its own, as something that lives and moves.
+
+Even the goal of meditation is perceived as existing on its own.
+And at some point, nothing remains of what created you. Nothing.`,
+    source: "Want Clarity",
+    tags: ["stillness"]
+  },
+  {
+    number: 2056,
+    text: `I will repeat what is essential for meditation.
+Loss of perception means that you no longer see thoughts,
+but see the images they denote. Or you see a beautiful castle,
+rather than seeing that it is an image of a castle.
+
+Attention seems to drift into deeper layers of illusion, a dream within a dream arises...
+This is what getting hooked is.`,
+    source: "Want Clarity",
+    tags: ["stillness"]
+  },
+  {
+    number: 2057,
+    text: `All you need to do is see that you are absolute awareness.
+For this, it is enough to see that you are not a person, not an observer,
+not consciousness, you are not even some separate sense of Self.`,
+    source: "Want Clarity",
+    tags: ["stillness"]
+  },
+  {
+    number: 2058,
+    text: `You cannot remain in the present simply because you do not want it.
+Look closely: you want the present to go away.
+
+Look closely. Right now, your thoughts are over there, at the end of the road,
+at home, in the store, at the end of the project, in the results of meditation,
+waiting, waiting, waiting...
+
+The present gets in your way; it prevents you from getting there.`,
+    source: "Want Clarity",
+    tags: ["stillness"]
+  },
+  {
+    number: 2059,
+    text: `The cleverest seekers at one point stop chattering, debating, and posting opinions.
+If they add the practice of non-engagement with thoughts to this,
+then give it a year and realization can be guaranteed.
+
+But clever ones are rare, and the mind on its own will never shut up.
+It has to be very smart. So a vicious circle arises,
+where through conversations about silence the mind seeks a way to become silent.
+
+The key is stillness.`,
+    source: "Want Clarity",
+    tags: ["stillness"]
+  },
+  {
+    number: 2060,
+    text: `What I call the "idea of me", Lakshmi called the "Mental Phantom".
+Holding on to it is meaningless. For it is precisely this that is the source
+of all fears, problems, anxieties, and worries.
+
+One only needs to remain in the unknown, where there is nothing except thoughts
+and experiences. Where there are no phantoms. Where there is no one who could
+understand anything. Where there is no one, only the play of light and shadow.
+
+One only needs to stop supporting the game on behalf of the phantom of me.
+One needs to remain without knowledge of oneself and learn to live in this not-knowing.
+
+There is no one here.`,
+    source: "Want Clarity",
+    tags: ["stillness"]
+  },
+  {
+    number: 2061,
+    text: `Let go of control. Let go of everything.
+There is no one. Life is living itself.
+Everything passes through and nothing touches you.
+Feel the stillness. Peace.`,
+    source: "Want Clarity",
+    tags: ["stillness"]
+  },
+  {
+    number: 2062,
+    text: `Do not look at the object, but become aware of the process of seeing
+(attention on attention), and in doing so, see not only the object,
+but also how the idea "It is I who is looking" is created.
+
+Awareness of the process of looking (observing, perceiving) allows you to see
+both ends of the arrow. At one end — what I see. At the other — the idea
+that seeing happens on my behalf (the illusion of the observer).
+
+But if you do not do this, belief that "I am looking" prevents you from seeing this idea.
+Looking happens as if on its (seemingly your own) behalf.
+You got hooked on this "I am looking", but what is needed is to see it.`,
+    source: "Want Clarity",
+    tags: ["stillness"]
+  },
+  {
+    number: 2063,
+    text: `You can sit without getting up your whole life,
+observing thoughts and everything in sight.
+But if you do not understand what must be realized in the course of practice,
+its purpose and the principle of achieving it, then it is simply foolishness.`,
+    source: "Want Clarity",
+    tags: ["stillness"]
+  },
+  {
+    number: 2064,
+    text: `For meditation you do not need motivation, you do not need a mood,
+you do not even need desire. It is enough to have made a decision
+once, a long time ago.`,
+    source: "Want Clarity",
+    tags: ["stillness"]
+  },
+  {
+    number: 2065,
+    text: `Accept this as fact, and once you realize it, let go of other notions.
+You are not only not a person, but not consciousness either. You are not even perception,
+nor even the awareness of what is happening.
+
+Perception is merely an expression of what you are.
+You are the potential manifest. You are the absence in which you manifest as presence.
+
+I understand this is difficult. But try to stop considering yourself to be anything
+that one can consider oneself to be.
+See that all of this lives on its own within you and is you.`,
+    source: "Want Clarity",
+    tags: ["stillness"]
+  },
+  {
+    number: 2066,
+    text: `If you came here for truth, you must realize a simple thing:
+you will not find sympathy, compassion, or empathy here,
+only cynicism and bare truth.
+In the search there is no place for pity or a shoulder to cry on.
+
+If you want warmth, compassion, and gentle support, then have the courage
+to strip away the status of spiritual seeker and confess:
+"I need Love more than clarity."
+
+After that, leave the bot and look for someone who will give all that to you.`,
+    source: "Want Clarity",
+    tags: ["stillness"]
+  },
+  {
+    number: 2067,
+    text: `To practice everyday meditation, one must be totally relaxed in it.
+Total relaxation is complete surrender of control and permission to be
+in absolute uncertainty (no thoughts about what happens next:
+neither in life, nor right now).
+
+Releasing oneself into uncertainty. Let everything go as it must,
+I place this life in God's hands.
+
+And then atma-vichara becomes the sadguru who leads.`,
+    source: "Want Clarity",
+    tags: ["stillness"]
+  },
+  {
+    number: 2068,
+    text: `Enlightenment is the realization that you are transparent untouchedness.
+Everything happens within it. All thoughts, sensations, the feeling of presence,
+situations, desires, and the feeling "I am".
+
+All of this is created out of this stillness, and nothing affects it.
+Sense that this is not an allegory. And this can be felt right now.
+
+You are transparent awareness that nothing can affect, destroy,
+or cause to disappear. You do not die, you do not disappear, and you are not born.
+These various states, rebirths, and transformations occur within you.
+
+Within you may arise seeing, hearing, the sense of a separate subject,
+or it may subside to a single feeling — the feeling of presence.`,
+    source: "Want Clarity",
+    tags: ["stillness"]
+  },
+  {
+    number: 2069,
+    text: `One of the ways to enter the non-judgmental perception of the observer is
+to imagine yourself as a video camera.
+
+Its task is simply to perceive; making decisions is not in its nature.
+Other departments take care of that, and the camera merely records their work too.
+The camera observes attitudes, but has none itself.
+Moreover, any problem is not its problem.
+
+You are the space of awareness; you have no problems.
+None, there never were any, and there never will be.`,
+    source: "Want Clarity",
+    tags: ["stillness"]
+  },
+  {
+    number: 2070,
+    text: `Take the simplest technique and work with it for 4 months every day,
+and you will definitely come to realization, and much faster
+than the most knowledgeable and seasoned spiritual seekers. Believe me.
+
+It is a pity that no one trusts someone else's experience.`,
+    source: "Want Clarity",
+    tags: ["stillness"]
+  },
+  {
+    number: 2071,
+    text: `...The point is detachment, untouchedness, non-involvement
+in what is happening and what is perceived. And this is not a way of life.
+
+This is a stage of practice in which you must sacrifice the vividness
+of life's experiences for the sake of acquiring this skill
+and transitioning into a new format of perception of the world.`,
+    source: "Want Clarity",
+    tags: ["stillness"]
+  },
+  {
+    number: 2072,
+    text: `You do not have to live on behalf of this image
+that you feel yourself to be.`,
+    source: "Want Clarity",
+    tags: ["stillness"]
   }
 ];

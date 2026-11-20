@@ -6,6 +6,9 @@ import { resolveUserLanguage } from '../middlewares/activity.js';
 export const handleBack = async (ctx) => {
   ctx.session ??= {};
   ctx.session.isSettingCustomQuietHours = null;
+  ctx.session.isWaitingForSearchQuery = false;
+  ctx.session.searchLanguage = null;
+  ctx.session.lastFailedSearchQuery = null;
 
   const step = ctx.session.reminderStep;
   const userLanguage = await resolveUserLanguage(ctx);
@@ -42,6 +45,9 @@ export const handleBack = async (ctx) => {
 export const handleCancel = async (ctx) => {
   ctx.session ??= {};
   ctx.session.isSettingCustomQuietHours = null;
+  ctx.session.isWaitingForSearchQuery = false;
+  ctx.session.searchLanguage = null;
+  ctx.session.lastFailedSearchQuery = null;
   ctx.session.creatingReminder = null;
   ctx.session.reminderStep = null;
   ctx.session.feedbackAwaiting = false;

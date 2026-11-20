@@ -39,8 +39,12 @@ describe('Управление напоминаниями (Вариант А)', 
     expect(replyText).toContain('Напоминание Б');
 
     const inlineButtons = replyOptions.reply_markup.inline_keyboard.flat();
-    expect(inlineButtons.some((button) => button.text === '1')).toBe(true);
-    expect(inlineButtons.some((button) => button.text === '2')).toBe(true);
+    expect(
+      inlineButtons.some((button) => button.text.includes('1') && button.text.includes('🟢'))
+    ).toBe(true);
+    expect(
+      inlineButtons.some((button) => button.text.includes('2') && button.text.includes('⏸️'))
+    ).toBe(true);
   });
 
   it('должен открывать детальную карточку конкретного напоминания по клику на номер', async () => {

@@ -140,6 +140,6 @@ describe('Управление существующими напоминания
     expect(editedText).not.toContain('Первое напоминание');
 
     const inlineButtons = editedOptions.reply_markup.inline_keyboard.flat();
-    expect(inlineButtons.some((button) => button.text === '1')).toBe(true);
+    expect(inlineButtons.some((button) => button.text.includes('1'))).toBe(true);
   });
 });

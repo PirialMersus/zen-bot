@@ -10,6 +10,7 @@ import { allKnownNavigationButtons } from '../utils/navigation.js';
 import { getTexts } from '../constants/texts.js';
 import { resolveUserLanguage } from '../middlewares/activity.js';
 import { suppressExpectedError } from '../utils/logger.js';
+import { SUPPORTED_LANGUAGES, DEFAULT_LANGUAGE, LOCALIZED_LANGUAGE_NAMES } from '../constants/languages.js';
 
 export const handleAdminActiveUsers = async (ctx) => {
   if (!isAdministratorContext(ctx)) return;
@@ -23,16 +24,34 @@ export const handleAdminActiveUsers = async (ctx) => {
     usersWithFavoritePointersCount,
     activeUsersPastDayCount,
     activeUsersPastWeekCount,
-    totalUsersCount
+    totalUsersCount,
+    userCountsByLanguage
   ] = await Promise.all([
     Reminder.distinct('userId', { isActive: true }),
     User.countDocuments({ 'favoritePointers.0': { $exists: true } }),
     User.countDocuments({ lastActivityAt: { $gte: oneDayAgoDate } }),
     User.countDocuments({ lastActivityAt: { $gte: sevenDaysAgoDate } }),
-    User.countDocuments()
+    User.countDocuments(),
+    User.aggregate([
+      {
+        $group: {
+          _id: { $ifNull: ['$language', DEFAULT_LANGUAGE] },
+          count: { $sum: 1 }
+        }
+      }
+    ])
   ]);
 
   const activeRemindersUsersCount = usersWithActiveReminders.length;
+  const languageStatsMap = new Map(
+    userCountsByLanguage.map((item) => [item._id, item.count])
+  );
+
+  const formattedLanguageBreakdown = SUPPORTED_LANGUAGES.map((langCode) => {
+    const languageLabel = LOCALIZED_LANGUAGE_NAMES[langCode] || langCode;
+    const count = languageStatsMap.get(langCode) || 0;
+    return `• ${languageLabel}: <b>${count}</b>`;
+  }).join('\n');
 
   const responseText = [
     '👥 <b>Статистика пользователей</b>',
@@ -41,7 +60,10 @@ export const handleAdminActiveUsers = async (ctx) => {
     `• С избранным: <b>${usersWithFavoritePointersCount}</b>`,
     `• Активность за 24 часа: <b>${activeUsersPastDayCount}</b>`,
     `• Активность за 7 дней: <b>${activeUsersPastWeekCount}</b>`,
-    `• Всего пользователей: <b>${totalUsersCount}</b>`
+    `• Всего пользователей: <b>${totalUsersCount}</b>`,
+    '',
+    '📊 <b>Распределение по языкам:</b>',
+    formattedLanguageBreakdown
   ].join('\n');
 
   await ctx.reply(responseText, { parse_mode: 'HTML' });

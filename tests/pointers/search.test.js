@@ -3,7 +3,8 @@ import { Pointer, PointerEn } from '../../src/models/Pointer.js';
 import {
   handleSearchPointers,
   handleSearchMorePointers,
-  handleSearchQueryInput
+  handleSearchQueryInput,
+  handleCancelSearch
 } from '../../src/handlers/pointers.js';
 import { createMockContext } from '../helpers/mockContext.js';
 import { findPointersByText, countPointersByText } from '../../src/services/pointers.js';
@@ -47,21 +48,34 @@ describe('Публичный поиск указателей по команде
     expect(matchingByText[0].text).toContain('кончике носа');
   });
 
-  it('должен выводить подсказку с примером при вызове /f без поискового запроса', async () => {
+  it('должен выводить подсказку с примером при вызове /f или /find без поискового запроса', async () => {
     const regularUserId = 12345678;
-    const mockContext = createMockContext({
+    const mockContextF = createMockContext({
       userId: regularUserId,
       text: '/f'
     });
 
-    const executionResult = await handleSearchPointers(mockContext);
+    const executionResultF = await handleSearchPointers(mockContextF);
 
-    expect(executionResult).toBe(true);
-    expect(mockContext.reply).toHaveBeenCalled();
+    expect(executionResultF).toBe(true);
+    expect(mockContextF.reply).toHaveBeenCalled();
 
-    const replyMessage = mockContext.reply.mock.calls[0][0];
-    expect(replyMessage).toContain('Укажите текст для поиска или автора');
-    expect(replyMessage).toContain('/f Будда или /f [отрывок указателя]');
+    const replyMessageF = mockContextF.reply.mock.calls[0][0];
+    expect(replyMessageF).toContain('Укажите текст для поиска или автора');
+    expect(replyMessageF).toContain('/find (или /f) Будда или /find [отрывок указателя]');
+
+    const mockContextFind = createMockContext({
+      userId: regularUserId,
+      text: '/find'
+    });
+
+    const executionResultFind = await handleSearchPointers(mockContextFind);
+
+    expect(executionResultFind).toBe(true);
+    expect(mockContextFind.reply).toHaveBeenCalled();
+
+    const replyMessageFind = mockContextFind.reply.mock.calls[0][0];
+    expect(replyMessageFind).toContain('/find (или /f) Будда или /find [отрывок указателя]');
   });
 
   it('должен быть доступен обычному пользователю без прав администратора', async () => {
@@ -244,5 +258,109 @@ describe('Публичный поиск указателей по команде
     const replyText = searchContext.reply.mock.calls[0][0];
     expect(replyText).toContain('Истина находится прямо перед тобой');
     expect(replyText).toContain('Лао-цзы');
+  });
+
+  it('должен предлагать повторить ввод и показывать кнопку отмены при отсутствии результатов', async () => {
+    const testUserId = 88776655;
+    const initialSearchContext = createMockContext({
+      userId: testUserId,
+      text: '/f несуществующий_текст_123'
+    });
+
+    const executionResult = await handleSearchPointers(initialSearchContext);
+    expect(executionResult).toBe(true);
+    expect(initialSearchContext.session.isWaitingForSearchQuery).toBe(true);
+    expect(initialSearchContext.session.lastFailedSearchQuery).toBe('несуществующий_текст_123');
+    expect(initialSearchContext.reply).toHaveBeenCalledTimes(1);
+
+    const replyText = initialSearchContext.reply.mock.calls[0][0];
+    const replyOptions = initialSearchContext.reply.mock.calls[0][1];
+    expect(replyText).toContain('не найдены');
+    expect(replyText).toContain('Попробуйте ввести другой текст');
+
+    const inlineKeyboard = replyOptions.reply_markup.inline_keyboard.flat();
+    expect(inlineKeyboard[0].callback_data).toBe('search:cancel');
+    expect(inlineKeyboard[0].text).toContain('Завершить поиск');
+  });
+
+  it('должен выдавать уточняющие рекомендации при повторном вводе того же несуществующего запроса', async () => {
+    const testUserId = 88776656;
+    const firstSearchContext = createMockContext({
+      userId: testUserId,
+      text: '/f абракадабра'
+    });
+
+    await handleSearchPointers(firstSearchContext);
+    expect(firstSearchContext.session.lastFailedSearchQuery).toBe('абракадабра');
+
+    const repeatSearchContext = createMockContext({
+      userId: testUserId,
+      text: 'АБРАКАДАБРА',
+      session: { ...firstSearchContext.session }
+    });
+
+    const repeatResult = await handleSearchQueryInput(repeatSearchContext);
+    expect(repeatResult).toBe(true);
+    expect(repeatSearchContext.session.isWaitingForSearchQuery).toBe(true);
+    expect(repeatSearchContext.reply).toHaveBeenCalledTimes(1);
+
+    const repeatReplyText = repeatSearchContext.reply.mock.calls[0][0];
+    expect(repeatReplyText).toContain('по-прежнему ничего не найдено');
+    expect(repeatReplyText).toContain('ввести только основу слова');
+  });
+
+  it('должен корректно завершать поиск и возвращать клавиатуру меню при нажатии кнопки отмены', async () => {
+    const testUserId = 88776657;
+    const cancelContext = createMockContext({
+      userId: testUserId,
+      callbackData: 'search:cancel',
+      session: {
+        isWaitingForSearchQuery: true,
+        searchLanguage: 'ru',
+        lastFailedSearchQuery: 'ошибка'
+      }
+    });
+
+    await handleCancelSearch(cancelContext);
+
+    expect(cancelContext.session.isWaitingForSearchQuery).toBe(false);
+    expect(cancelContext.session.searchLanguage).toBeNull();
+    expect(cancelContext.session.lastFailedSearchQuery).toBeNull();
+    expect(cancelContext.answerCbQuery).toHaveBeenCalled();
+    expect(cancelContext.deleteMessage).toHaveBeenCalled();
+    expect(cancelContext.reply).toHaveBeenCalledTimes(1);
+
+    const replyText = cancelContext.reply.mock.calls[0][0];
+    expect(replyText).toBe('Поиск завершён.');
+  });
+
+  it('должен сбрасывать состояние ожидания и ошибку при успешном поиске после неудачного', async () => {
+    await Pointer.create({
+      number: 106,
+      text: 'Спокойствие ума рождает ясность',
+      source: 'Дзен Мастер',
+      isActive: true
+    });
+
+    const testUserId = 88776658;
+    const failedSearchContext = createMockContext({
+      userId: testUserId,
+      text: '/f несуществующий'
+    });
+
+    await handleSearchPointers(failedSearchContext);
+    expect(failedSearchContext.session.isWaitingForSearchQuery).toBe(true);
+
+    const successfulInputContext = createMockContext({
+      userId: testUserId,
+      text: 'Спокойствие',
+      session: { ...failedSearchContext.session }
+    });
+
+    const successResult = await handleSearchQueryInput(successfulInputContext);
+    expect(successResult).toBe(true);
+    expect(successfulInputContext.session.isWaitingForSearchQuery).toBe(false);
+    expect(successfulInputContext.session.lastFailedSearchQuery).toBeNull();
+    expect(successfulInputContext.reply).toHaveBeenCalled();
   });
 });

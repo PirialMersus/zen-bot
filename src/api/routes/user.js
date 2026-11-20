@@ -32,16 +32,27 @@ router.patch('/settings', authMiddleware, async (req, res) => {
     }
 
     if (quietHours !== undefined) {
+      const resolvedStartMinute =
+        quietHours?.startMinute !== undefined ? quietHours.startMinute : 0;
+      const resolvedEndMinute =
+        quietHours?.endMinute !== undefined ? quietHours.endMinute : 0;
+
       if (
         typeof quietHours !== 'object' ||
         quietHours === null ||
         typeof quietHours.start !== 'number' ||
         typeof quietHours.end !== 'number' ||
+        typeof resolvedStartMinute !== 'number' ||
+        typeof resolvedEndMinute !== 'number' ||
         quietHours.start < 0 ||
         quietHours.start > 23 ||
         quietHours.end < 0 ||
         quietHours.end > 23 ||
-        quietHours.start === quietHours.end
+        resolvedStartMinute < 0 ||
+        resolvedStartMinute > 59 ||
+        resolvedEndMinute < 0 ||
+        resolvedEndMinute > 59 ||
+        (quietHours.start === quietHours.end && resolvedStartMinute === resolvedEndMinute)
       ) {
         return res.status(400).json({ message: 'Некорректные параметры тихих часов' });
       }
@@ -51,7 +62,9 @@ router.patch('/settings', authMiddleware, async (req, res) => {
             ? Boolean(quietHours.enabled)
             : req.user.quietHours.enabled,
         start: quietHours.start,
-        end: quietHours.end
+        startMinute: resolvedStartMinute,
+        end: quietHours.end,
+        endMinute: resolvedEndMinute
       };
     }
 

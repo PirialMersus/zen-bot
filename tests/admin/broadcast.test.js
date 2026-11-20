@@ -6,6 +6,7 @@ import {
   handleAdminBroadcastConfirm,
   handleAdminBroadcastMessage,
   handleAdminBroadcastStart,
+  handleAdminActiveUsers,
   handleFeedbackCancel,
   handleFeedbackMessage,
   handleFeedbackStart
@@ -183,5 +184,29 @@ describe('Рассылка сообщений и сбор обратной св�
     expect(regularUserContext.session.feedbackAwaiting).toBe(false);
     expect(regularUserContext.telegram.sendMessage).not.toHaveBeenCalled();
     expect(regularUserContext.telegram.copyMessage).not.toHaveBeenCalled();
+  });
+
+  it('должен формировать детальный отчет по языкам в статистике пользователей', async () => {
+    await User.create([
+      { telegramId: 801, language: 'ru' },
+      { telegramId: 802, language: 'en' },
+      { telegramId: 803, language: 'uk' },
+      { telegramId: 804, language: 'es' }
+    ]);
+
+    const adminUserContext = createMockContext({
+      userId: administratorTelegramIdentifier
+    });
+
+    await handleAdminActiveUsers(adminUserContext);
+
+    expect(adminUserContext.reply).toHaveBeenCalledTimes(1);
+    const [sentResponseText] = adminUserContext.reply.mock.calls[0];
+    expect(sentResponseText).toContain('Статистика пользователей');
+    expect(sentResponseText).toContain('Распределение по языкам:');
+    expect(sentResponseText).toContain('Русский');
+    expect(sentResponseText).toContain('English');
+    expect(sentResponseText).toContain('Українська');
+    expect(sentResponseText).toContain('Español');
   });
 });

@@ -86,6 +86,58 @@ describe('Гибкая настройка тихих часов', () => {
     expect(updatedUser.quietHours.end).toBe(9);
   });
 
+  it('должен сохранять ручной ввод тихих часов с произвольными минутами', async () => {
+    const telegramUserId = 55667792;
+    await User.create({
+      telegramId: telegramUserId,
+      quietHours: { enabled: true, start: 23, end: 8, startMinute: 0, endMinute: 0 }
+    });
+
+    const mockContext = createMockContext({
+      userId: telegramUserId,
+      session: { isSettingCustomQuietHours: true },
+      text: '23:35 - 07:00'
+    });
+
+    const isHandled = await handleQuietHoursCustomInput(mockContext);
+
+    expect(isHandled).toBe(true);
+    expect(mockContext.session.isSettingCustomQuietHours).toBeNull();
+
+    const updatedUser = await User.findOne({ telegramId: telegramUserId });
+    expect(updatedUser.quietHours.start).toBe(23);
+    expect(updatedUser.quietHours.startMinute).toBe(35);
+    expect(updatedUser.quietHours.end).toBe(7);
+    expect(updatedUser.quietHours.endMinute).toBe(0);
+    expect(mockContext.reply).toHaveBeenCalledWith(
+      expect.stringContaining('23:35 - 07:00'),
+      expect.anything()
+    );
+  });
+
+  it('должен отклонять совпадающее время начала и конца с минутами', async () => {
+    const telegramUserId = 55667793;
+    await User.create({
+      telegramId: telegramUserId,
+      quietHours: { enabled: true, start: 23, end: 8 }
+    });
+
+    const mockContext = createMockContext({
+      userId: telegramUserId,
+      session: { isSettingCustomQuietHours: true },
+      text: '07:30 - 07:30'
+    });
+
+    const isHandled = await handleQuietHoursCustomInput(mockContext);
+
+    expect(isHandled).toBe(true);
+    expect(mockContext.session.isSettingCustomQuietHours).toBe(true);
+    expect(mockContext.reply).toHaveBeenCalledWith(
+      expect.stringContaining('Часы должны быть от 0 до 23'),
+      expect.anything()
+    );
+  });
+
   it('должен отклонять некорректный ручной ввод часов и выводить сообщение об ошибке', async () => {
     const telegramUserId = 55667791;
     const mockContext = createMockContext({

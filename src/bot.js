@@ -31,7 +31,8 @@ import {
   handleKeepPointer,
   handleSearchPointers,
   handleSearchMorePointers,
-  handleSearchQueryInput
+  handleSearchQueryInput,
+  handleCancelSearch
 } from './handlers/pointers.js';
 import {
   handleConfirmAction,
@@ -209,6 +210,7 @@ bot.hears(/^\/p(?:ointer)?(?:_(?:en|ru|uk|es))?\s+\d+$/i, handleAdminGetPointerB
 bot.command(['find', 'f'], handleSearchPointers);
 bot.hears(/^\/(?:find|f)(?:_(?:en|ru|uk|es))?(?:\s+.*)?$/i, handleSearchPointers);
 bot.action('search:more', handleSearchMorePointers);
+bot.action('search:cancel', handleCancelSearch);
 
 bot.hears(getButtonVariants('SUPPORT'), async (ctx) => {
   const userLanguage = await resolveUserLanguage(ctx);

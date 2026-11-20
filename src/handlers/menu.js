@@ -26,8 +26,10 @@ const formatQuietHoursSchedule = (quietHoursSettings, userLanguage = 'ru') => {
     return getLocalizedQuietDisabledText(userLanguage);
   }
   const startHourFormatted = String(quietHoursSettings.start ?? 23).padStart(2, '0');
+  const startMinuteFormatted = String(quietHoursSettings.startMinute ?? 0).padStart(2, '0');
   const endHourFormatted = String(quietHoursSettings.end ?? 8).padStart(2, '0');
-  return `${startHourFormatted}:00–${endHourFormatted}:00`;
+  const endMinuteFormatted = String(quietHoursSettings.endMinute ?? 0).padStart(2, '0');
+  return `${startHourFormatted}:${startMinuteFormatted}–${endHourFormatted}:${endMinuteFormatted}`;
 };
 
 export const handleStart = async (ctx) => {
@@ -35,6 +37,9 @@ export const handleStart = async (ctx) => {
   ctx.session.reminderStep = null;
   ctx.session.creatingReminder = null;
   ctx.session.isSettingCustomQuietHours = null;
+  ctx.session.isWaitingForSearchQuery = false;
+  ctx.session.searchLanguage = null;
+  ctx.session.lastFailedSearchQuery = null;
   ctx.session.pointerHistory = null;
   ctx.session.pointerHistoryIndex = null;
   ctx.session.favoriteHistory = null;

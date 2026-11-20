@@ -14043,5 +14043,375 @@ Toda la vida es una sola respiración, repetida tantas veces como te haya sido c
 Toma esta.`,
     source: null,
     tags: ["silencio"]
+  },
+  {
+    number: 2043,
+    text: `Un descubrimiento asombroso. Si te duermes con el foco de atención en el corazón,
+en un estado de atención consciente a todo lo que pasa volando, por la mañana
+tienes la oportunidad de despertar en un estado de conciencia de la esencia del Yo.
+
+Por supuesto, la mente de inmediato comienza a construir el mundo y a sí misma
+a su alrededor, pero lo hace con menor rapidez que de costumbre.
+La inercia matutina surte efecto.
+
+Ganas tiempo, y con él mayores posibilidades de mantener esta desidentificación
+de la ilusión de la personalidad para comprender cosas más profundas.
+
+Si te duermes con pensamientos sobre el mañana o cualquier otra cosa,
+con ellos mismos despertarás.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 2044,
+    text: `Relájate. Tu verdadero objetivo no tiene nada que ver
+con el que te has inventado.
+Tu verdadero objetivo es aprender a soltar el control.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 2045,
+    text: `Si quieres romper el programa llamado "destino", recuerda:
+mañana habrá menos tiempo libre, y cuanto más cerca del final,
+más difícil será encontrarlo.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 2046,
+    text: `La diferencia entre un maestro y un no maestro radica en que, además de la vida real,
+la persona común crea su propio mundo fantástico en el que vive como un personaje.
+
+Al mismo tiempo, surgen constantemente discrepancias entre la vida real
+y la vida de este personaje, ya que el mundo inventado siempre se adelanta a la realidad
+y el personaje vive, por так decirlo, en el futuro.
+
+Y esta vida en el futuro genera todo el tiempo una sensación de desgarro
+y pánico permanente debido a que ese futuro podría materializarse y debe ser evitado.
+
+Resulta que primero la historia del personaje da forma a ese futuro
+y luego comienza a sufrir por el miedo de que se haga realidad.
+
+Y el personaje no puede escapar de esto, porque su historia siempre trata únicamente
+de lo que fue y de lo que será.
+
+Mientras seas un personaje, estarás condenado a vivir en un estado de inquietud.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 2047,
+    text: `Sal del conocimiento, permítete no saber nada y no buscar nada.
+Quédate en lo desconocido y en el no entender qué buscar, cómo avanzar, hacia dónde moverse.
+Que solo haya existencia sin conocimiento alguno.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 2048,
+    text: `Si comprendiste algo durante la práctica, puedes tirarlo de inmediato a la basura,
+ya que ahora se ha creado un concepto de comprensión y un concepto de ti, que comprendió algo.
+
+Cualquier comprensión en la práctica se transforma al instante en un concepto
+y sirve para reforzar la historia del Yo. Por lo tanto, lo importante no es tu comprensión,
+sino lo que sucede después.
+
+Los destellos durante la meditación sentada son importantes, pero lo más importante
+es si eres capaz de vivir en el estado de "no hay nadie, los pensamientos por sí mismos,
+el cuerpo por sí mismo" después de la meditación.`,
+    source: "Quiero Claridad",
+    tags: ["silencio"]
+  },
+  {
+    number: 2049,
+    text: `La meditación correcta no es cuando disminuyen los pensamientos, las imágenes mentales
+y los sonidos durante la práctica.
+La meditación correcta es cuando sientes que no te afectan
+como conciencia (presencia, silencio, ser).`,
+    source: "Quiero Claridad",
+    tags: ["silencio"]
+  },
+  {
+    number: 2050,
+    text: `Si no eres consciente de la necesidad de abandonar la mente, pasando a la simple percepción
+por la percepción misma, te convertirás en un demagogo espiritual enredado.`,
+    source: "Quiero Claridad",
+    tags: ["silencio"]
+  },
+  {
+    number: 2051,
+    text: `Si se trata de hablar de qué estado debe surgir durante o después de la meditación,
+no es el éxtasis ni la alegría. Tales experiencias pueden ocurrir, pero están ligadas
+a la etapa de la práctica, a la energía y al tipo de práctica.
+Puede que no haya alegría ni éxtasis.
+
+Pero un estado debe acompañarte constantemente en cualquier práctica:
+el equilibrio, la ecuanimidad, la paz, el sosiego.
+La sensación de que no hay nada más o menos importante.
+La sensación de que todo está bien y de que no hay que cambiar nada, vaya como vaya.
+
+Este es el indicador de una práctica correcta.`,
+    source: "Quiero Claridad",
+    tags: ["silencio"]
+  },
+  {
+    number: 2052,
+    text: `Todo pasa a través de ti. Nada encuentra resistencia, porque no hay nadie para luchar,
+nadie para reaccionar, nadie para huir y esconderse. Solo existe el flujo de la existencia.
+
+No hay nadie. Solo hay un sueño que crea el mundo dentro de sí mismo a partir de sí mismo:
+tiempo, acontecimientos, personas, relaciones, futuro,
+dilemas, planes, pensamientos, deseos, sentimientos.
+
+Solo hay silencio lleno de sonidos. Escucha su rumor, el rumor del silencio.`,
+    source: "Quiero Claridad",
+    tags: ["silencio"]
+  },
+  {
+    number: 2053,
+    text: `No solo no hay ningún ego, no solo no hay ningún Yo verdadero,
+sino que ni siquiera hay ninguna Conciencia. Todo esto son solo ideas.
+Solo existe el darse cuenta de las experiencias, y nada más.`,
+    source: "Quiero Claridad",
+    tags: ["silencio"]
+  },
+  {
+    number: 2054,
+    text: `Ego, Yo, Personalidad, Persona: es la idea de autoría.
+Todos estos son nombres para un mismo fenómeno. Es la idea del Propietario...
+
+No es la identificación de algo con algo más. No es una entidad.
+Es simplemente la idea de autoría de todo (vida, acciones, sensaciones,
+pensamientos, sentimientos, iluminación, camino espiritual, desarrollo).
+
+Vivir en nombre de esta idea es la ilusión.`,
+    source: "Quiero Claridad",
+    tags: ["silencio"]
+  },
+  {
+    number: 2055,
+    text: `El objetivo de la meditación es librarse de la falsa identificación con todo
+lo que antes te definía.
+
+Todos los sentimientos, pensamientos, experiencias,
+memoria de uno mismo, imágenes de uno mismo, historias sobre uno mismo,
+sensaciones del cuerpo, miedos, expectativas...
+Todo esto se percibe como algo que existe por sí mismo, como algo que vive y se mueve.
+
+Incluso el objetivo de la meditación se percibe como existente por sí mismo.
+Y en un momento dado no queda nada de lo que te creaba. Nada.`,
+    source: "Quiero Claridad",
+    tags: ["silencio"]
+  },
+  {
+    number: 2056,
+    text: `Repetiré lo importante para la meditación. La pérdida de la percepción significa que ya no ves
+los pensamientos, sino que ves las imágenes que representan. O ves un hermoso castillo,
+en lugar de ver que es solo la imagen de un castillo.
+
+La atención parece descender a planos más profundos de la ilusión,
+surge un sueño dentro de un sueño... Esto es quedarse enganchado.`,
+    source: "Quiero Claridad",
+    tags: ["silencio"]
+  },
+  {
+    number: 2057,
+    text: `Todo lo que necesitas hacer es ver que eres conciencia absoluta.
+Para ello basta con ver que no eres una persona, ni un observador, ni la conciencia;
+ni siquiera eres una sensación separada del Yo.`,
+    source: "Quiero Claridad",
+    tags: ["silencio"]
+  },
+  {
+    number: 2058,
+    text: `No puedes permanecer en el presente simplemente porque no lo quieres.
+Mira con atención: quieres que el presente se vaya.
+
+Mira con atención. Ahora mismo estás con el pensamiento allá, al final del camino,
+en casa, в la tienda, al final del proyecto, en los resultados de la meditación,
+esperando, esperando, esperando...
+
+El presente te estorba; te impide llegar allí.`,
+    source: "Quiero Claridad",
+    tags: ["silencio"]
+  },
+  {
+    number: 2059,
+    text: `Los buscadores más inteligentes en un momento dado dejan de charlar, debatir y opinar.
+Si a esto le suman la práctica de no involucrarse con los pensamientos,
+en un año la realización se puede garantizar.
+
+Pero los inteligentes son escasos, y la mente por sí misma nunca se callará.
+Tiene que ser muy lista. Y así surge un círculo vicioso,
+cuando a través de conversaciones sobre el silencio la mente busca una manera de callarse.
+
+La clave es el silencio.`,
+    source: "Quiero Claridad",
+    tags: ["silencio"]
+  },
+  {
+    number: 2060,
+    text: `Lo que yo llamo "la idea del yo", Lakshmi lo llamaba "Fantasma mental".
+No tiene sentido aferrarse a él. Pues es precisamente él la fuente
+de todos los miedos, problemas, inquietudes y angustias.
+
+Solo hace falta quedarse en lo desconocido, donde no hay nada excepto pensamientos
+y experiencias. Donde no hay fantasmas. Donde no hay nadie que pudiera
+entender algo. Donde no hay nadie, tan solo el juego de luces y sombras.
+
+Solo hay que dejar de alimentar el juego en nombre del fantasma de mí.
+Hay que quedarse sin conocimiento de uno mismo y aprender a vivir en este no-saber.
+
+Aquí no hay nadie.`,
+    source: "Quiero Claridad",
+    tags: ["silencio"]
+  },
+  {
+    number: 2061,
+    text: `Suelta el control. Suelta todo.
+No hay nadie. La vida se vive a sí misma.
+Todo pasa a través y nada te afecta.
+Siente el silencio. La paz.`,
+    source: "Quiero Claridad",
+    tags: ["silencio"]
+  },
+  {
+    number: 2062,
+    text: `No mires al objeto, sino hazte consciente del proceso de ver (atención a la atención),
+y en el proceso percibe no solo el objeto, sino también cómo se genera la idea
+"Soy Yo quien mira".
+
+Tomar conciencia del proceso de mirar (observar, percibir) permite ver
+ambos extremos de la flecha. En uno, lo que veo. En el otro, la idea
+de que la visión ocurre en mi nombre (la ilusión del observador).
+
+Pero si no se hace esto, creer que "Yo miro" impide ver esta idea.
+Se mira como si fuera en su nombre (algo así como el propio).
+Te has quedado atrapado en este "Yo miro", pero lo que hace falta es verlo.`,
+    source: "Quiero Claridad",
+    tags: ["silencio"]
+  },
+  {
+    number: 2063,
+    text: `Puedes pasarte la vida entera sentado, sin levantarte,
+observando pensamientos y todo lo que pase.
+Pero si no comprendes qué debe ser reconocido durante la práctica,
+su propósito y el principio para alcanzarlo, entonces es simplemente una insensatez.`,
+    source: "Quiero Claridad",
+    tags: ["silencio"]
+  },
+  {
+    number: 2064,
+    text: `Para meditar no necesitas motivación, ni estado de ánimo,
+ni siquiera deseo. Basta con haber tomado la decisión
+una sola vez, hace mucho tiempo.`,
+    source: "Quiero Claridad",
+    tags: ["silencio"]
+  },
+  {
+    number: 2065,
+    text: `Acéptalo como un hecho y, tras reconocerlo, renuncia a otras ideas.
+No solo no eres una persona, sino que tampoco eres la conciencia.
+Ni siquiera eres la percepción ni el darse cuenta de lo que ocurre.
+
+La percepción es solo una manifestación de lo que eres.
+Eres lo potencial manifestado. Eres la ausencia en la que te manifiestas como presencia.
+
+Entiendo que sea difícil. Pero intenta dejar de considerarte todo aquello
+que uno puede considerarse. Mira cómo todo esto vive por sí mismo en ti y es tú mismo.`,
+    source: "Quiero Claridad",
+    tags: ["silencio"]
+  },
+  {
+    number: 2066,
+    text: `Si viniste aquí por la verdad, debes darte cuenta de una cosa sencilla:
+no encontrarás aquí compasión, consuelo ni empatía,
+sino únicamente cinismo y la verdad desnuda.
+En la búsqueda no hay lugar para lamentos ni paños de lágrimas.
+
+Si quieres calidez, empatía y apoyo reconfortante, ten el valor
+de despojarte del estatus de buscador espiritual y confesar:
+"Necesito Amor más que claridad".
+
+Después de eso, sal del bot y busca a alguien que te dé todo eso.`,
+    source: "Quiero Claridad",
+    tags: ["silencio"]
+  },
+  {
+    number: 2067,
+    text: `Para practicar la meditación cotidiana, hay que estar totalmente relajado en ella.
+La relajación total es el abandono completo del control y el permiso para estar
+en absoluta incertidumbre (sin pensamientos sobre lo que vendrá después:
+ni en la vida, ni ahora mismo).
+
+Soltarse a uno mismo en la incertidumbre. Que todo vaya como tenga que ir,
+pongo esta vida en manos de Dios.
+
+Y entonces la atma-vichara se convierte en el sadgurú que guía.`,
+    source: "Quiero Claridad",
+    tags: ["silencio"]
+  },
+  {
+    number: 2068,
+    text: `La iluminación es darse cuenta de que eres una transparencia intacta.
+En ella ocurre todo. Todos los pensamientos, sensaciones, el sentido de presencia,
+situaciones, deseos y la sensación de "Yo soy".
+
+Todo esto se crea a partir de esta inmovilidad y nada la afecta.
+Siente que esto no es una alegoría. Y esto se puede sentir ahora mismo.
+
+Eres una conciencia transparente que nada puede tocar, destruir
+ni hacer desaparecer. No mueres, no desapareces ni naces.
+Son diferentes estados, renacimientos y transformaciones que suceden en ti.
+
+En ti puede surgir la visión, la audición, la sensación de un sujeto separado,
+o bien puede reducirse a un único sentimiento: el sentimiento de presencia.`,
+    source: "Quiero Claridad",
+    tags: ["silencio"]
+  },
+  {
+    number: 2069,
+    text: `Una de las formas de entrar en la percepción sin juicio del observador es
+imaginarte como una cámara de video.
+
+Su tarea es simplemente percibir,
+mientras que tomar decisiones no forma parte de su naturaleza.
+De eso se encargan otros servicios, cuyo trabajo ella también se limita a registrar.
+La cámara observa la actitud, pero no tiene ninguna.
+Más aún, cualquier problema no es su problema.
+
+Tú eres el espacio del darse cuenta, no tienes problemas.
+Ninguno, nunca los hubo y nunca los habrá.`,
+    source: "Quiero Claridad",
+    tags: ["silencio"]
+  },
+  {
+    number: 2070,
+    text: `Toma la técnica más sencilla y trabaja con ella durante 4 meses todos los días,
+y con certeza llegarás a la realización, y mucho más rápido
+que los buscadores espirituales más preparados y experimentados. Créeme.
+
+Es una lástima que nadie confíe en la experiencia ajena.`,
+    source: "Quiero Claridad",
+    tags: ["silencio"]
+  },
+  {
+    number: 2071,
+    text: `...La cuestión radica en el desapego, en no ser afectado, en no involucrarse
+en lo que sucede y se percibe. Y esto no es una forma de vida.
+
+Es una etapa de la práctica en la que hay que sacrificar la intensidad
+de las experiencias de la vida para adquirir esta habilidad
+y pasar a un nuevo formato de percibir el mundo.`,
+    source: "Quiero Claridad",
+    tags: ["silencio"]
+  },
+  {
+    number: 2072,
+    text: `No tienes que vivir en nombre de esta imagen
+con la que te sientes identificado.`,
+    source: "Quiero Claridad",
+    tags: ["silencio"]
   }
 ];

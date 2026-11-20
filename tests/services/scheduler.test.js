@@ -70,6 +70,39 @@ describe('Планировщик и тихие часы (Scheduler & Quiet Hours
     expect(result.toISOString()).toBe(expectedEndDate.toISOString());
   });
 
+  it('должен корректно определять статус тихих часов с произвольными минутами', () => {
+    const testUser = {
+      quietHours: { enabled: true, start: 23, startMinute: 35, end: 7, endMinute: 0 },
+      timezone: 'UTC'
+    };
+
+    const beforeQuietTime = new Date('2026-10-27T23:34:00Z');
+    const exactStartTime = new Date('2026-10-27T23:35:00Z');
+    const middleOfQuietTime = new Date('2026-10-28T04:12:00Z');
+    const rightBeforeEndTime = new Date('2026-10-28T06:59:00Z');
+    const exactEndTime = new Date('2026-10-28T07:00:00Z');
+
+    expect(isQuietNow(testUser, beforeQuietTime)).toBe(false);
+    expect(isQuietNow(testUser, exactStartTime)).toBe(true);
+    expect(isQuietNow(testUser, middleOfQuietTime)).toBe(true);
+    expect(isQuietNow(testUser, rightBeforeEndTime)).toBe(true);
+    expect(isQuietNow(testUser, exactEndTime)).toBe(false);
+  });
+
+  it('должен корректно рассчитывать окончание тихих часов с минутами', () => {
+    const testUser = {
+      quietHours: { enabled: true, start: 23, startMinute: 35, end: 7, endMinute: 15 },
+      timezone: 'UTC'
+    };
+
+    const eveningDate = new Date('2026-10-27T23:50:00Z');
+    const morningDate = new Date('2026-10-28T05:00:00Z');
+    const expectedEndDate = new Date('2026-10-28T07:15:00Z');
+
+    expect(getQuietEndDate(testUser, eveningDate).toISOString()).toBe(expectedEndDate.toISOString());
+    expect(getQuietEndDate(testUser, morningDate).toISOString()).toBe(expectedEndDate.toISOString());
+  });
+
   it('должен находить только активные напоминания, чей срок выполнения наступил', async () => {
     const currentTime = new Date();
     const pastTime = new Date(currentTime.getTime() - 60000);

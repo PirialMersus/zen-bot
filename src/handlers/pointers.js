@@ -535,6 +535,9 @@ export const handlePointerToMenu = async (ctx) => {
     await ctx.deleteMessage().catch(suppressExpectedError);
   }
   ctx.session ??= {};
+  ctx.session.isWaitingForSearchQuery = false;
+  ctx.session.searchLanguage = null;
+  ctx.session.lastFailedSearchQuery = null;
   ctx.session.pointerHistory = null;
   ctx.session.pointerHistoryIndex = null;
   ctx.session.favoriteHistory = null;
@@ -554,11 +557,30 @@ export const executePointersSearch = async (ctx, searchPhrase, targetLanguage) =
   ]);
 
   if (totalFoundCount === 0 || foundPointersList.length === 0) {
-    await ctx.reply(texts.SEARCH.NOT_FOUND(searchPhrase, targetLanguage));
+    ctx.session ??= {};
+    const normalizedQuery = searchPhrase.trim().toLowerCase();
+    const isRepeatedFailedQuery = ctx.session.lastFailedSearchQuery === normalizedQuery;
+    ctx.session.isWaitingForSearchQuery = true;
+    ctx.session.searchLanguage = targetLanguage;
+    ctx.session.lastFailedSearchQuery = normalizedQuery;
+
+    const notFoundMessage = isRepeatedFailedQuery
+      ? texts.SEARCH.NOT_FOUND_REPEAT(searchPhrase, targetLanguage)
+      : texts.SEARCH.NOT_FOUND(searchPhrase, targetLanguage);
+
+    await ctx.reply(
+      notFoundMessage,
+      Markup.inlineKeyboard([
+        [Markup.button.callback(texts.SEARCH.CANCEL_BUTTON, 'search:cancel')]
+      ])
+    );
     return true;
   }
 
   ctx.session ??= {};
+  ctx.session.isWaitingForSearchQuery = false;
+  ctx.session.searchLanguage = null;
+  ctx.session.lastFailedSearchQuery = null;
 
   for (const singlePointerRecord of foundPointersList) {
     const formattedPointerMessage = formatPointerText(singlePointerRecord);
@@ -623,13 +645,13 @@ export const handleSearchPointers = async (ctx) => {
     ctx.session ??= {};
     ctx.session.isWaitingForSearchQuery = true;
     ctx.session.searchLanguage = targetPointerLanguage;
+    ctx.session.lastFailedSearchQuery = null;
     await ctx.reply(texts.SEARCH.HINT);
     return true;
   }
 
   ctx.session ??= {};
-  ctx.session.isWaitingForSearchQuery = false;
-  ctx.session.searchLanguage = null;
+  ctx.session.lastFailedSearchQuery = null;
 
   return executePointersSearch(ctx, extractedSearchPhrase, targetPointerLanguage);
 };
@@ -643,14 +665,29 @@ export const handleSearchQueryInput = async (ctx) => {
   if (rawInputText.startsWith('/') || isNavigationButton(rawInputText)) {
     ctx.session.isWaitingForSearchQuery = false;
     ctx.session.searchLanguage = null;
+    ctx.session.lastFailedSearchQuery = null;
     return false;
   }
 
   const targetLanguage = ctx.session.searchLanguage || (await resolveUserLanguage(ctx));
-  ctx.session.isWaitingForSearchQuery = false;
-  ctx.session.searchLanguage = null;
 
   return executePointersSearch(ctx, rawInputText, targetLanguage);
+};
+
+export const handleCancelSearch = async (ctx) => {
+  ctx.session ??= {};
+  ctx.session.isWaitingForSearchQuery = false;
+  ctx.session.searchLanguage = null;
+  ctx.session.lastFailedSearchQuery = null;
+
+  if (ctx.callbackQuery) {
+    await ctx.answerCbQuery().catch(suppressExpectedError);
+    await ctx.deleteMessage().catch(suppressExpectedError);
+  }
+
+  const userLanguage = await resolveUserLanguage(ctx);
+  const texts = getTexts(userLanguage);
+  await ctx.reply(texts.SEARCH.CANCELLED, mainKeyboard(ctx, userLanguage));
 };
 
 export const handleSearchMorePointers = async (ctx) => {

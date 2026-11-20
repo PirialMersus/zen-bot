@@ -24,8 +24,14 @@ const REMINDERS_FORMAT_LOCALIZATIONS = {
     delete: '🗑 Удалить',
     backToList: '⬅️ Ко всем напоминаниям',
     headerTitle: '📋 <b>Твои напоминания:</b>',
-    hintFooter: '<i>Нажми на номер ниже для управления напоминанием 👇</i>',
-    moreReminders: (count) => `… и ещё ${count} напоминаний`
+    hintFooter: '<i>Нажми на напоминание ниже, чтобы включить (▶️), приостановить (⏸️) или настроить 👇</i>',
+    moreReminders: (count) => `… и ещё ${count} напоминаний`,
+    pausedHint: '(Напоминание на паузе. Нажми «▶️ Возобновить» ниже, чтобы включить)',
+    listPausedBadge: 'на паузе ⏸️',
+    buttonManage: (index) => `${index}. 🟢 Настроить`,
+    buttonResume: (index) => `${index}. ⏸️ Возобновить ▶️`,
+    buttonCompactManage: (index) => `${index} 🟢`,
+    buttonCompactResume: (index) => `${index} ⏸️ ▶️`
   },
   en: {
     intervalDay: 'Once a day ⌛',
@@ -44,8 +50,14 @@ const REMINDERS_FORMAT_LOCALIZATIONS = {
     delete: '🗑 Delete',
     backToList: '⬅️ All reminders',
     headerTitle: '📋 <b>Your reminders:</b>',
-    hintFooter: '<i>Tap a number below to manage a reminder 👇</i>',
-    moreReminders: (count) => `… and ${count} more reminders`
+    hintFooter: '<i>Tap a reminder below to resume (▶️), pause (⏸️), or manage 👇</i>',
+    moreReminders: (count) => `… and ${count} more reminders`,
+    pausedHint: '(Reminder is paused. Tap "▶️ Resume" below to turn it on)',
+    listPausedBadge: 'paused ⏸️',
+    buttonManage: (index) => `${index}. 🟢 Manage`,
+    buttonResume: (index) => `${index}. ⏸️ Resume ▶️`,
+    buttonCompactManage: (index) => `${index} 🟢`,
+    buttonCompactResume: (index) => `${index} ⏸️ ▶️`
   },
   uk: {
     intervalDay: 'Раз на день ⌛',
@@ -64,8 +76,14 @@ const REMINDERS_FORMAT_LOCALIZATIONS = {
     delete: '🗑 Видалити',
     backToList: '⬅️ До всіх нагадувань',
     headerTitle: '📋 <b>Твої нагадування:</b>',
-    hintFooter: '<i>Натисни на номер нижче для керування нагадуванням 👇</i>',
-    moreReminders: (count) => `… та ще ${count} нагадувань`
+    hintFooter: '<i>Натисни на нагадування нижче, щоб увімкнути (▶️), призупинити (⏸️) або налаштувати 👇</i>',
+    moreReminders: (count) => `… та ще ${count} нагадувань`,
+    pausedHint: '(Нагадування на паузі. Натисни «▶️ Відновити» нижче, щоб увімкнути)',
+    listPausedBadge: 'на паузі ⏸️',
+    buttonManage: (index) => `${index}. 🟢 Налаштувати`,
+    buttonResume: (index) => `${index}. ⏸️ Відновити ▶️`,
+    buttonCompactManage: (index) => `${index} 🟢`,
+    buttonCompactResume: (index) => `${index} ⏸️ ▶️`
   },
   es: {
     intervalDay: 'Una vez al día ⌛',
@@ -84,8 +102,14 @@ const REMINDERS_FORMAT_LOCALIZATIONS = {
     delete: '🗑 Eliminar',
     backToList: '⬅️ A todos los recordatorios',
     headerTitle: '📋 <b>Tus recordatorios:</b>',
-    hintFooter: '<i>Toca un número abajo para gestionar el recordatorio 👇</i>',
-    moreReminders: (count) => `… y ${count} recordatorios más`
+    hintFooter: '<i>Toca un recordatorio abajo para reanudar (▶️), pausar (⏸️) o gestionar 👇</i>',
+    moreReminders: (count) => `… y ${count} recordatorios más`,
+    pausedHint: '(El recordatorio está en pausa. Toca "▶️ Reanudar" abajo para activarlo)',
+    listPausedBadge: 'en pausa ⏸️',
+    buttonManage: (index) => `${index}. 🟢 Gestionar`,
+    buttonResume: (index) => `${index}. ⏸️ Reanudar ▶️`,
+    buttonCompactManage: (index) => `${index} 🟢`,
+    buttonCompactResume: (index) => `${index} ⏸️ ▶️`
   }
 };
 
@@ -191,7 +215,11 @@ export const formatReminderMessageText = (
     ? `\n<i>${formatLocalization.nextRun}: ${nextRunString}</i>`
     : '';
 
-  return `<b>${indexNumberString}.</b> ${status}
+  const pausedExplanation = !reminderItem.isActive && formatLocalization.pausedHint
+    ? `\n<i>${formatLocalization.pausedHint}</i>`
+    : '';
+
+  return `<b>${indexNumberString}.</b> ${status}${pausedExplanation}
 
 <i>${formatInterval(reminderItem, language)}</i>
 <i>${autoDeleteLabel}</i>${nextRunLine}
@@ -256,7 +284,11 @@ export const buildRemindersListPayload = (
         : null;
 
     const nextRunSuffix = nextRunTime ? ` • 🕒 ${nextRunTime}` : '';
-    const currentLine = `<b>${indexNumber}.</b> ${statusIcon} «${escapeHtml(shortText)}»\n   <i>${intervalLabel}${nextRunSuffix}</i>`;
+    const pausedSuffix =
+      !reminderItem.isActive && formatLocalization.listPausedBadge
+        ? ` • <i>${formatLocalization.listPausedBadge}</i>`
+        : '';
+    const currentLine = `<b>${indexNumber}.</b> ${statusIcon} «${escapeHtml(shortText)}»\n   <i>${intervalLabel}${nextRunSuffix}${pausedSuffix}</i>`;
 
     const remainingIfTruncated = reminders.length - (index + 1);
     const potentialOverflowNotice =
@@ -287,15 +319,32 @@ export const buildRemindersListPayload = (
 
   const fullText = `${formatLocalization.headerTitle}\n\n${renderedLines.join('\n\n')}${overflowNoticeSection}\n\n${formatLocalization.hintFooter}`;
 
+  const isCompactMode = reminders.length > 5;
   const buttons = reminders.map((reminderItem, index) => {
-    const label = String(index + 1);
+    const indexNumber = index + 1;
+    let label;
+    if (isCompactMode) {
+      label = reminderItem.isActive
+        ? formatLocalization.buttonCompactManage(indexNumber)
+        : formatLocalization.buttonCompactResume(indexNumber);
+    } else {
+      label = reminderItem.isActive
+        ? formatLocalization.buttonManage(indexNumber)
+        : formatLocalization.buttonResume(indexNumber);
+    }
     return Markup.button.callback(label, `reminder:view:${reminderItem.id}`);
   });
 
   const keyboardRows = [];
-  const chunkSize = 5;
-  for (let i = 0; i < buttons.length; i += chunkSize) {
-    keyboardRows.push(buttons.slice(i, i + chunkSize));
+  if (isCompactMode) {
+    const chunkSize = 5;
+    for (let i = 0; i < buttons.length; i += chunkSize) {
+      keyboardRows.push(buttons.slice(i, i + chunkSize));
+    }
+  } else {
+    for (const button of buttons) {
+      keyboardRows.push([button]);
+    }
   }
 
   return {

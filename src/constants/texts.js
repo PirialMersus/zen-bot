@@ -45,13 +45,17 @@ const RUSSIAN_TEXTS = {
   },
 
   SEARCH: {
-    HINT: '🔍 Введите текст для поиска, отрывок указателя или имя автора.\nУкажите текст для поиска или автора — бот найдет совпадения.\nПример: /f Будда или /f [отрывок указателя]',
+    HINT: '🔍 Введите текст для поиска, отрывок указателя или имя автора.\nУкажите текст для поиска или автора — бот найдет совпадения.\nПример: /find (или /f) Будда или /find [отрывок указателя]',
     NOT_FOUND: (query, lang) =>
-      `❌ Указатели с текстом «${query}» (${lang.toUpperCase()}) не найдены.`,
+      `❌ Указатели с текстом «${query}» (${lang.toUpperCase()}) не найдены.\n\nПопробуйте ввести другой текст, фрагмент указателя или автора.\nЛибо нажмите кнопку ниже, чтобы завершить поиск:`,
+    NOT_FOUND_REPEAT: (query, lang) =>
+      `⚠️ По запросу «${query}» (${lang.toUpperCase()}) по-прежнему ничего не найдено.\n\nПопробуйте:\n• ввести только основу слова (без окончаний)\n• указать имя автора (например, Будда, Лао-цзы, Махарши)\n• проверить выбранный язык\n\n⬇️ Введите другой запрос или завершите поиск:`,
+    CANCEL_BUTTON: '❌ Завершить поиск',
+    CANCELLED: 'Поиск завершён.',
     PAGINATION_STATUS: (total, shown) => `ℹ️ Найдено всего: ${total}. Показаны: 1–${shown}`,
     MORE_BUTTON: (remaining) => `Показать ещё (${remaining}) ➡️`,
     ALL_SHOWN: (total) => `✅ Показаны все найденные указатели (${total}).`,
-    EXPIRED_SESSION: 'Поисковая сессия устарела. Отправьте /f заново.'
+    EXPIRED_SESSION: 'Поисковая сессия устарела. Отправьте /find (или /f) заново.'
   },
 
   REMINDERS: {
@@ -99,12 +103,17 @@ const RUSSIAN_TEXTS = {
       '🔕 <b>Расписание тихих часов</b>\n\nВ этот период напоминания не будут приходить.',
     QUIET_SET_PRESET: (start, end) => `✅ Часы тишины установлены: <b>${start}:00–${end}:00</b>`,
     QUIET_CUSTOM_PROMPT:
-      '✍️ Введи часы тишины в формате <code>НАЧАЛО-КОНЕЦ</code> (например, <code>23-8</code> или <code>22:00-07:00</code>):',
+      '✍️ Введи часы тишины в формате <code>НАЧАЛО-КОНЕЦ</code> (например, <code>23-8</code>, <code>23:35-07:00</code> или <code>22:00-07:00</code>):',
     QUIET_CUSTOM_ERROR:
-      '⚠️ Пожалуйста, укажите часы в формате <code>23-8</code> или <code>22:00-07:00</code>:',
-    QUIET_RANGE_ERROR: '⚠️ Часы должны быть от 0 до 23 и не совпадать:',
-    QUIET_CUSTOM_SUCCESS: (start, end) =>
-      `✅ Часы тишины установлены: <b>${start}:00 - ${end}:00</b>`,
+      '⚠️ Пожалуйста, укажите часы в формате <code>23-8</code>, <code>23:35-07:00</code> или <code>22:00-07:00</code>:',
+    QUIET_RANGE_ERROR: '⚠️ Часы должны быть от 0 до 23, минуты от 0 до 59 и не совпадать:',
+    QUIET_CUSTOM_SUCCESS: (start, end, startMinute = 0, endMinute = 0) => {
+      const formattedStartHour = String(start).padStart(2, '0');
+      const formattedStartMinute = String(startMinute).padStart(2, '0');
+      const formattedEndHour = String(end).padStart(2, '0');
+      const formattedEndMinute = String(endMinute).padStart(2, '0');
+      return `✅ Часы тишины установлены: <b>${formattedStartHour}:${formattedStartMinute} - ${formattedEndHour}:${formattedEndMinute}</b>`;
+    },
     QUIET_PRESETS: {
       early: '🌅 22:00 – 07:00 (Ранний)',
       standard: '🌙 23:00 – 08:00 (Стандартный)',
@@ -208,13 +217,17 @@ I will remind you about what truly matters.
   },
 
   SEARCH: {
-    HINT: '🔍 Enter text, pointer excerpt or author name to search.\nSpecify search text or author, and the bot will find matches.\nExample: /f Buddha or /f [pointer excerpt]',
+    HINT: '🔍 Enter text, pointer excerpt or author name to search.\nSpecify search text or author, and the bot will find matches.\nExample: /find (or /f) Buddha or /find [pointer excerpt]',
     NOT_FOUND: (query, lang) =>
-      `❌ Pointers matching «${query}» (${lang.toUpperCase()}) not found.`,
+      `❌ Pointers matching «${query}» (${lang.toUpperCase()}) not found.\n\nTry entering a different text, pointer excerpt, or author.\nOr click the button below to cancel search:`,
+    NOT_FOUND_REPEAT: (query, lang) =>
+      `⚠️ Still no pointers found for «${query}» (${lang.toUpperCase()}).\n\nTry:\n• entering the word root without endings\n• specifying an author name (e.g. Buddha, Lao Tzu, Maharshi)\n• checking search language\n\n⬇️ Enter a different query or cancel search:`,
+    CANCEL_BUTTON: '❌ Cancel search',
+    CANCELLED: 'Search cancelled.',
     PAGINATION_STATUS: (total, shown) => `ℹ️ Total found: ${total}. Shown: 1–${shown}`,
     MORE_BUTTON: (remaining) => `Show more (${remaining}) ➡️`,
     ALL_SHOWN: (total) => `✅ All found pointers shown (${total}).`,
-    EXPIRED_SESSION: 'Search session expired. Send /f again.'
+    EXPIRED_SESSION: 'Search session expired. Send /find (or /f) again.'
   },
 
   REMINDERS: {
@@ -260,12 +273,17 @@ I will remind you about what truly matters.
     QUIET_MENU_PROMPT: '🔕 <b>Quiet hours</b>\n\nDuring this period, reminders will not be sent.',
     QUIET_SET_PRESET: (start, end) => `✅ Quiet hours set: <b>${start}:00–${end}:00</b>`,
     QUIET_CUSTOM_PROMPT:
-      '✍️ Enter quiet hours as <code>START-END</code> (e.g. <code>23-8</code> or <code>22:00-07:00</code>):',
+      '✍️ Enter quiet hours as <code>START-END</code> (e.g. <code>23-8</code>, <code>23:35-07:00</code> or <code>22:00-07:00</code>):',
     QUIET_CUSTOM_ERROR:
-      '⚠️ Please specify hours in format <code>23-8</code> or <code>22:00-07:00</code>:',
-    QUIET_RANGE_ERROR: '⚠️ Hours must be between 0 and 23 and must not match:',
-    QUIET_CUSTOM_SUCCESS: (start, end) =>
-      `✅ Custom quiet hours set: <b>${start}:00 - ${end}:00</b>`,
+      '⚠️ Please specify hours in format <code>23-8</code>, <code>23:35-07:00</code> or <code>22:00-07:00</code>:',
+    QUIET_RANGE_ERROR: '⚠️ Hours must be between 0 and 23, minutes between 0 and 59, and must not match:',
+    QUIET_CUSTOM_SUCCESS: (start, end, startMinute = 0, endMinute = 0) => {
+      const formattedStartHour = String(start).padStart(2, '0');
+      const formattedStartMinute = String(startMinute).padStart(2, '0');
+      const formattedEndHour = String(end).padStart(2, '0');
+      const formattedEndMinute = String(endMinute).padStart(2, '0');
+      return `✅ Custom quiet hours set: <b>${formattedStartHour}:${formattedStartMinute} - ${formattedEndHour}:${formattedEndMinute}</b>`;
+    },
     QUIET_PRESETS: {
       early: '🌅 22:00 – 07:00 (Early)',
       standard: '🌙 23:00 – 08:00 (Standard)',
@@ -369,13 +387,17 @@ const UKRAINIAN_TEXTS = {
   },
 
   SEARCH: {
-    HINT: "🔍 Введіть текст для пошуку, уривок вказівника або ім'я автора.\nВкажіть текст для пошуку або автора — бот знайде збіги.\nПриклад: /f Будда або /f [уривок вказівника]",
+    HINT: "🔍 Введіть текст для пошуку, уривок вказівника або ім'я автора.\nВкажіть текст для пошуку або автора — бот знайде збіги.\nПриклад: /find (або /f) Будда або /find [уривок вказівника]",
     NOT_FOUND: (query, lang) =>
-      `❌ Вказівники за запитом «${query}» (${lang.toUpperCase()}) не знайдені.`,
+      `❌ Вказівники за запитом «${query}» (${lang.toUpperCase()}) не знайдені.\n\nСпробуйте ввести інший текст, уривок вказівника або автора.\nАбо натисніть кнопку нижче, щоб завершити пошук:`,
+    NOT_FOUND_REPEAT: (query, lang) =>
+      `⚠️ За запитом «${query}» (${lang.toUpperCase()}) як і раніше нічого не знайдено.\n\nСпробуйте:\n• ввести лише основу слова (без закінчень)\n• вказати ім'я автора (наприклад, Будда, Лао-цзи, Махарші)\n• перевірити мову пошуку\n\n⬇️ Введіть інший запит або завершіть пошук:`,
+    CANCEL_BUTTON: '❌ Завершити пошук',
+    CANCELLED: 'Пошук завершено.',
     PAGINATION_STATUS: (total, shown) => `ℹ️ Всього знайдено: ${total}. Показано: 1–${shown}`,
     MORE_BUTTON: (remaining) => `Показати ще (${remaining}) ➡️`,
     ALL_SHOWN: (total) => `✅ Показано всі знайдені вказівники (${total}).`,
-    EXPIRED_SESSION: 'Пошукова сесія застаріла. Надішліть /f знову.'
+    EXPIRED_SESSION: 'Пошукова сесія застаріла. Надішліть /find (або /f) знову.'
   },
 
   REMINDERS: {
@@ -423,12 +445,17 @@ const UKRAINIAN_TEXTS = {
     QUIET_MENU_PROMPT: '🔕 <b>Години тиші</b>\n\nУ цей період нагадування не приходитимуть.',
     QUIET_SET_PRESET: (start, end) => `✅ Години тиші встановлено: <b>${start}:00–${end}:00</b>`,
     QUIET_CUSTOM_PROMPT:
-      '✍️ Введи години тиші у форматі <code>ПОЧАТОК-КІНЕЦЬ</code> (наприклад, <code>23-8</code> або <code>22:00-07:00</code>):',
+      '✍️ Введи години тиші у форматі <code>ПОЧАТОК-КІНЕЦЬ</code> (наприклад, <code>23-8</code>, <code>23:35-07:00</code> або <code>22:00-07:00</code>):',
     QUIET_CUSTOM_ERROR:
-      '⚠️ Будь ласка, вкажи години у форматі <code>23-8</code> або <code>22:00-07:00</code>:',
-    QUIET_RANGE_ERROR: '⚠️ Години мають бути від 0 до 23 і не збігатися:',
-    QUIET_CUSTOM_SUCCESS: (start, end) =>
-      `✅ Години тиші встановлено: <b>${start}:00 - ${end}:00</b>`,
+      '⚠️ Будь ласка, вкажи години у форматі <code>23-8</code>, <code>23:35-07:00</code> або <code>22:00-07:00</code>:',
+    QUIET_RANGE_ERROR: '⚠️ Години мають бути від 0 до 23, хвилини від 0 до 59 і не збігатися:',
+    QUIET_CUSTOM_SUCCESS: (start, end, startMinute = 0, endMinute = 0) => {
+      const formattedStartHour = String(start).padStart(2, '0');
+      const formattedStartMinute = String(startMinute).padStart(2, '0');
+      const formattedEndHour = String(end).padStart(2, '0');
+      const formattedEndMinute = String(endMinute).padStart(2, '0');
+      return `✅ Години тиші встановлено: <b>${formattedStartHour}:${formattedStartMinute} - ${formattedEndHour}:${formattedEndMinute}</b>`;
+    },
     QUIET_PRESETS: {
       early: '🌅 22:00 – 07:00 (Ранній)',
       standard: '🌙 23:00 – 08:00 (Стандартний)',
@@ -533,13 +560,17 @@ Te recordaré lo que verdaderamente importa.
   },
 
   SEARCH: {
-    HINT: '🔍 Introduce el texto de búsqueda, fragmento del puntero o nombre del autor.\nIndique el texto para buscar o el autor y el bot encontrará coincidencias.\nEjemplo: /f Buda o /f [fragmento del puntero]',
+    HINT: '🔍 Introduce el texto de búsqueda, fragmento del puntero o nombre del autor.\nIndique el texto para buscar o el autor y el bot encontrará coincidencias.\nEjemplo: /find (o /f) Buda o /find [fragmento del puntero]',
     NOT_FOUND: (query, lang) =>
-      `❌ No se encontraron punteros para «${query}» (${lang.toUpperCase()}).`,
+      `❌ No se encontraron punteros para «${query}» (${lang.toUpperCase()}).\n\nIntenta ingresar otro texto, fragmento de puntero o autor.\nO presiona el botón abajo para cancelar la búsqueda:`,
+    NOT_FOUND_REPEAT: (query, lang) =>
+      `⚠️ Aún no se encontraron punteros para «${query}» (${lang.toUpperCase()}).\n\nIntenta:\n• escribir solo la raíz de la palabra\n• especificar el autor (por ejemplo, Buda, Lao Tzu, Maharshi)\n• verificar el idioma de búsqueda\n\n⬇️ Ingresa otra consulta o cancela la búsqueda:`,
+    CANCEL_BUTTON: '❌ Cancelar búsqueda',
+    CANCELLED: 'Búsqueda cancelada.',
     PAGINATION_STATUS: (total, shown) => `ℹ️ Total encontrados: ${total}. Mostrados: 1–${shown}`,
     MORE_BUTTON: (remaining) => `Mostrar más (quedan ${remaining}) ➡️`,
     ALL_SHOWN: (total) => `✅ Se han mostrado todos los punteros encontrados (${total}).`,
-    EXPIRED_SESSION: 'La sesión de búsqueda ha caducado. Envía /f de nuevo.'
+    EXPIRED_SESSION: 'La sesión de búsqueda ha caducado. Envía /find (o /f) de nuevo.'
   },
 
   REMINDERS: {
@@ -590,12 +621,18 @@ Te recordaré lo que verdaderamente importa.
     QUIET_SET_PRESET: (start, end) =>
       `✅ Horas de silencio configuradas: <b>${start}:00–${end}:00</b>`,
     QUIET_CUSTOM_PROMPT:
-      '✍️ Introduce las horas de silencio en formato <code>INICIO-FIN</code> (ej. <code>23-8</code> o <code>22:00-07:00</code>):',
+      '✍️ Introduce las horas de silencio en formato <code>INICIO-FIN</code> (ej. <code>23-8</code>, <code>23:35-07:00</code> o <code>22:00-07:00</code>):',
     QUIET_CUSTOM_ERROR:
-      '⚠️ Por favor, indica las horas en formato <code>23-8</code> o <code>22:00-07:00</code>:',
-    QUIET_RANGE_ERROR: '⚠️ Las horas deben estar entre 0 y 23 y no coincidir:',
-    QUIET_CUSTOM_SUCCESS: (start, end) =>
-      `✅ Horas de silencio configuradas: <b>${start}:00 - ${end}:00</b>`,
+      '⚠️ Por favor, indica las horas en formato <code>23-8</code>, <code>23:35-07:00</code> o <code>22:00-07:00</code>:',
+    QUIET_RANGE_ERROR:
+      '⚠️ Las horas deben estar entre 0 y 23, los minutos entre 0 y 59 y no coincidir:',
+    QUIET_CUSTOM_SUCCESS: (start, end, startMinute = 0, endMinute = 0) => {
+      const formattedStartHour = String(start).padStart(2, '0');
+      const formattedStartMinute = String(startMinute).padStart(2, '0');
+      const formattedEndHour = String(end).padStart(2, '0');
+      const formattedEndMinute = String(endMinute).padStart(2, '0');
+      return `✅ Horas de silencio configuradas: <b>${formattedStartHour}:${formattedStartMinute} - ${formattedEndHour}:${formattedEndMinute}</b>`;
+    },
     QUIET_PRESETS: {
       early: '🌅 22:00 – 07:00 (Temprano)',
       standard: '🌙 23:00 – 08:00 (Estándar)',

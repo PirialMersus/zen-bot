@@ -6,8 +6,10 @@ export const settingsKeyboard = (enabled, language = 'ru', userPreferences = {})
   const buttons = getButtons(language);
 
   const startHourFormatted = String(userPreferences.quietHours?.start ?? 23).padStart(2, '0');
+  const startMinuteFormatted = String(userPreferences.quietHours?.startMinute ?? 0).padStart(2, '0');
   const endHourFormatted = String(userPreferences.quietHours?.end ?? 8).padStart(2, '0');
-  const quietHoursFormattedRange = `${startHourFormatted}:00–${endHourFormatted}:00`;
+  const endMinuteFormatted = String(userPreferences.quietHours?.endMinute ?? 0).padStart(2, '0');
+  const quietHoursFormattedRange = `${startHourFormatted}:${startMinuteFormatted}–${endHourFormatted}:${endMinuteFormatted}`;
 
   const quietHoursScheduleBaseText = buttons.QUIET_HOURS_SCHEDULE;
   const quietHoursScheduleLabel = `${quietHoursScheduleBaseText} (${quietHoursFormattedRange})`;

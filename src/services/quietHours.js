@@ -11,30 +11,61 @@ const getUserDateTime = (user, date) => {
 };
 
 export const isQuietNow = (user, date = new Date()) => {
-  const q = user?.quietHours;
-  if (!q || q.enabled === false) return false;
+  const quietSettings = user?.quietHours;
+  if (!quietSettings || quietSettings.enabled === false) return false;
 
-  const dt = getUserDateTime(user, date);
-  const hour = dt.hour;
+  const userCurrentDateTime = getUserDateTime(user, date);
+  const currentTotalMinutesFromMidnight =
+    userCurrentDateTime.hour * 60 + userCurrentDateTime.minute;
+  const startTotalMinutesFromMidnight =
+    (quietSettings.start ?? 23) * 60 + (quietSettings.startMinute ?? 0);
+  const endTotalMinutesFromMidnight =
+    (quietSettings.end ?? 8) * 60 + (quietSettings.endMinute ?? 0);
 
-  if (q.start < q.end) {
-    return hour >= q.start && hour < q.end;
+  if (startTotalMinutesFromMidnight === endTotalMinutesFromMidnight) {
+    return false;
   }
 
-  return hour >= q.start || hour < q.end;
+  if (startTotalMinutesFromMidnight < endTotalMinutesFromMidnight) {
+    return (
+      currentTotalMinutesFromMidnight >= startTotalMinutesFromMidnight &&
+      currentTotalMinutesFromMidnight < endTotalMinutesFromMidnight
+    );
+  }
+
+  return (
+    currentTotalMinutesFromMidnight >= startTotalMinutesFromMidnight ||
+    currentTotalMinutesFromMidnight < endTotalMinutesFromMidnight
+  );
 };
 
 export const getQuietEndDate = (user, date = new Date()) => {
-  const q = user.quietHours;
-  let dt = getUserDateTime(user, date);
+  const quietSettings = user.quietHours;
+  const userCurrentDateTime = getUserDateTime(user, date);
 
-  if (!isQuietNow(user, date)) return dt.toJSDate();
+  if (!isQuietNow(user, date)) return userCurrentDateTime.toJSDate();
 
-  let end = dt.set({ hour: q.end, minute: 0, second: 0 });
+  const targetEndHour = quietSettings.end ?? 8;
+  const targetEndMinute = quietSettings.endMinute ?? 0;
+  let quietEndDateTime = userCurrentDateTime.set({
+    hour: targetEndHour,
+    minute: targetEndMinute,
+    second: 0,
+    millisecond: 0
+  });
 
-  if (q.start > q.end && dt.hour >= q.start) {
-    end = end.plus({ days: 1 });
+  const currentTotalMinutesFromMidnight =
+    userCurrentDateTime.hour * 60 + userCurrentDateTime.minute;
+  const startTotalMinutesFromMidnight =
+    (quietSettings.start ?? 23) * 60 + (quietSettings.startMinute ?? 0);
+  const endTotalMinutesFromMidnight = targetEndHour * 60 + targetEndMinute;
+
+  if (
+    startTotalMinutesFromMidnight > endTotalMinutesFromMidnight &&
+    currentTotalMinutesFromMidnight >= startTotalMinutesFromMidnight
+  ) {
+    quietEndDateTime = quietEndDateTime.plus({ days: 1 });
   }
 
-  return end.toJSDate();
+  return quietEndDateTime.toJSDate();
 };
