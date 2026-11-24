@@ -8,19 +8,19 @@ export default [
   {
     number: 2,
     text: `There is no one in this body.`,
-    source: null,
+    source: "Want Clarity",
     tags: ["stillness"]
   },
   {
     number: 3,
     text: `The mind is a filter through which consciousness perceives the world and, at the same time, creates it. And by “the world” we mean everything: thoughts, sensations, the body, and the universe itself.`,
-    source: null,
+    source: "Want Clarity",
     tags: ["stillness"]
   },
   {
     number: 4,
     text: `May it happen one day this year: the dream comes to an end, the body gets up, scratches itself, goes to the bathroom, thoughts appear — and you still don't show up.`,
-    source: null,
+    source: "Want Clarity",
     tags: ["stillness"]
   },
   {
@@ -43,7 +43,7 @@ For it is the only absolutely motionless point in the entire mechanism it has se
 Just think about it — equal to the Great Vampire!
 Its mirrors can no longer stop you, because you are no longer going anywhere.
 This is the Secret Black Path.`,
-    source: null,
+    source: "Want Clarity",
     tags: ["stillness"]
   },
   {
@@ -55,7 +55,7 @@ Leave him in peace. 😂
 Let him meditate, seek enlightenment, and live as he pleases.
 Hands off. Stop trying to run everything: stopping thoughts, dissolving Vasya, chasing some state...
 Give the world a break from you.`,
-    source: null,
+    source: "Want Clarity",
     tags: ["stillness"]
   },
   {
@@ -66,7 +66,7 @@ That's it.
 You don't need to do anything.
 You simply need to stop doing what you're doing.
 Stop constantly becoming someone and looking at the world through that person's eyes.`,
-    source: null,
+    source: "Want Clarity",
     tags: ["stillness"]
   },
   {
@@ -75,7 +75,7 @@ Stop constantly becoming someone and looking at the world through that person's 
 
 Developing awareness is especially important for anyone watching their figure.
 Otherwise, you look away for a moment — and she's already eating.`,
-    source: null,
+    source: "Want Clarity",
     tags: ["guidance"]
   },
   {
@@ -94,7 +94,7 @@ You will never be able to tell them you love them. And you will never hear “I 
 You will never be able to give them a little more warmth and joy.
 And they will never again feel you holding them close and whispering those words.
 Feel this. Understand it. Perhaps this understanding can change something, even now?`,
-    source: null,
+    source: "Want Clarity",
     tags: ["guidance"]
   },
   {
@@ -106,7 +106,7 @@ Nothing can harm you.
 Nothing can destroy you.
 You cannot be late for anything.
 Do not be afraid.`,
-    source: null,
+    source: "Want Clarity",
     tags: ["stillness"]
   },
   {
@@ -128,7 +128,7 @@ They are problems of the mind-body.
 And it will deal with them, as it always has.
 If it doesn't, that too is its concern.
 Let it worry about it.`,
-    source: null,
+    source: "Want Clarity",
     tags: ["stillness"]
   },
   {
@@ -139,7 +139,7 @@ Let it worry about it.`,
 — Because you are not a part. You are the whole — free and complete — yet forced to live in a prison of imagined chains. This longing and pain make you struggle inside the cage of that imaginary prison.
 — So it isn't the character who suffers?
 — No. It is God, having forgotten itself in a human being. It is a universal longing born of not knowing how to break out of this vicious circle.`,
-    source: null,
+    source: "Want Clarity",
     tags: ["observations"]
   },
   {
@@ -153,7 +153,7 @@ It is another level of experiencing life.
 Vast, shattering the limits of consciousness.
 If you do not feel life being experienced on another level, you have not fully immersed yourself in the state these words point to.
 Surrender completely to this understanding.`,
-    source: null,
+    source: "Want Clarity",
     tags: ["stillness"]
   },
   {
@@ -164,7 +164,7 @@ Nothing threatens you.
 Nothing can harm you.
 The whole world is within you.
 And you are the whole world.`,
-    source: null,
+    source: "Want Clarity",
     tags: ["stillness"]
   },
   {
@@ -178,7 +178,7 @@ It is also called “non-doing.” You remember that everything happens by itsel
 Another is: “The world is within.” You remember that everything is the space of consciousness, and that the body, mind, concepts, personality, and presence all exist within you.
 And remember: this “you” is only a manner of speaking.
 Otherwise, some grand “I” will appear, containing everything.`,
-    source: null,
+    source: "Want Clarity",
     tags: ["stillness"]
   },
   {
@@ -188,13 +188,13 @@ Otherwise, some grand “I” will appear, containing everything.`,
 2. Total trust in existence.
 3. Dissolving into the indefinable.
 4. You are existence itself.`,
-    source: null,
+    source: "Want Clarity",
     tags: ["stillness"]
   },
   {
     number: 17,
     text: `Everything simply happens.`,
-    source: null,
+    source: "Want Clarity",
     tags: ["stillness"]
   },
   {
@@ -211,14 +211,14 @@ You know how a little bear sleeps and keeps pulling everything toward itself? Mi
 The moment “mine” appears, the “I” appears with it.
 This is where the tradition of discarding, relinquishing, giving up, and renouncing came from. But you don't need to throw away your clothes, friends, money, or desires...
 You need to see that none of it belongs to anyone — none of it is yours.`,
-    source: null,
+    source: "Want Clarity",
     tags: ["stillness"]
   },
   {
     number: 19,
     text: `Whatever you may be experiencing — who cares? All your “Oh! What was that?” moments are false signposts.
 Put a label on all of it: it doesn't matter. Only one thing matters: keep your attention on the fact that everything simply happens. Not on the states that arise along the way, but on the processes themselves.`,
-    source: null,
+    source: "Want Clarity",
     tags: ["stillness"]
   },
   {
@@ -228,7 +228,7 @@ You realize that this so-called real world does not exist...
 And a world of childhood and dreams appears...
 A world that exists nowhere, where time does not exist...
 It is as though you are returning home, to a dream in which you can remain forever...`,
-    source: null,
+    source: "Want Clarity",
     tags: ["stillness"]
   },
   {
@@ -236,7 +236,7 @@ It is as though you are returning home, to a dream in which you can remain forev
     text: `Seeing yourself as a human being is an unnatural condition that requires constant mental effort to maintain.
 Stop continually piecing yourself together through a stream of thoughts about yourself, and you will return to your natural state — you will become being itself.
 A vast amount of energy will be released, and that is what gives rise to bliss.`,
-    source: null,
+    source: "Want Clarity",
     tags: ["stillness"]
   },
   {
@@ -247,7 +247,7 @@ To awaken, you must act quickly, right now: stop the race.
 Then let everything go. Surrender your life — not to anyone, simply give it all up, completely and at once.
 Totally. Without expectation. Irrevocably.
 With complete acceptance that there is no taking it back.`,
-    source: null,
+    source: "Want Clarity",
     tags: ["stillness"]
   },
   {
@@ -255,32 +255,32 @@ With complete acceptance that there is no taking it back.`,
     text: `You need to discover Nothing, recognize that this is what you are, and let the mind rest in this Nothing.
 You are timeless, aware indefinability.
 It is enough to discover this and not lose sight of it.`,
-    source: null,
+    source: "Want Clarity",
     tags: ["stillness"]
   },
   {
     number: 24,
     text: `Feel this right now.
 You grow tired not because you lack energy, but because you experience yourself as real.`,
-    source: null,
+    source: "Want Clarity",
     tags: ["stillness"]
   },
   {
     number: 25,
     text: `Look at reality without taking a position.`,
-    source: null,
+    source: "Want Clarity",
     tags: ["stillness"]
   },
   {
     number: 26,
     text: `You need to understand very clearly why enlightenment cannot exist as an event that happens — and yet enlightenment exists as a fact.`,
-    source: null,
+    source: "Want Clarity",
     tags: ["stillness"]
   },
   {
     number: 27,
-    text: `There is a word that brings you home and sets life right again. ”`,
-    source: null,
+    text: `There is a word that brings you home and sets life right again. That word is "Untouchedness".`,
+    source: "Want Clarity",
     tags: ["stillness"]
   },
   {
@@ -293,7 +293,7 @@ Keep your distance.
 Do not get involved.
 Remain in the effortless presence of the absence of everything.
 Here.`,
-    source: null,
+    source: "Want Clarity",
     tags: ["stillness"]
   },
   {
@@ -326,7 +326,7 @@ Favorable conditions will disappear.
 Wisdom will fade.
 
 The conclusion: there is one top priority, and it matters more than anything else — even creativity. First keep your distance; then create.`,
-    source: null,
+    source: "Want Clarity",
     tags: ["stillness"]
   },
   {
@@ -342,7 +342,7 @@ The automatic creation of a duplicate “I” — an “I” that supposedly und
 For example: “I realized there is no one here,” “YOU create an image of yourself,” or “How can you do nothing if you're doing something anyway?”...
 
 The mind immediately creates another “I,” turning it into the one who understands the great truth that no one exists.`,
-    source: null,
+    source: "Want Clarity",
     tags: ["stillness"]
   },
   {
@@ -355,7 +355,7 @@ This is why monks cultivate acceptance, while we speak of total agreement with w
 But agreement cannot arise without total trust in life — without completely letting go of control.
 Unclench your fingers. When the thought comes, “I really must solve this problem first, and then I'll return to the practice,” answer: “I'm afraid, but I let go.”
 Let things unfold as they will.`,
-    source: null,
+    source: "Want Clarity",
     tags: ["stillness"]
   },
   {
@@ -366,13 +366,13 @@ Let things unfold as they will.`,
 — The meaning of your life is to play your part. Play it well! With initiative and wholehearted commitment.
 — And what is the meaning of life after enlightenment?
 — Keep playing your part, but now knowing that it is a play.`,
-    source: null,
+    source: "Want Clarity",
     tags: ["quotes"]
   },
   {
     number: 33,
     text: `You are reality without limits.`,
-    source: null,
+    source: "Want Clarity",
     tags: ["stillness"]
   },
   {
@@ -380,13 +380,13 @@ Let things unfold as they will.`,
     text: `The “sense of I — an individual self” can be noticed right now, without meditation.
 Simply stop identifying yourself with it.
 Then remain nowhere.`,
-    source: null,
+    source: "Want Clarity",
     tags: ["stillness"]
   },
   {
     number: 35,
     text: `The world is here, but you are not in it.`,
-    source: null,
+    source: "Want Clarity",
     tags: ["stillness"]
   },
   {
@@ -394,7 +394,7 @@ Then remain nowhere.`,
     text: `At every crossroads, choose the new.
 Not what is better, more comfortable, or more useful — choose what is new.
 Only the new can show you what you have never known and make you wiser.`,
-    source: null,
+    source: "Want Clarity",
     tags: ["quotes"]
   },
   {
@@ -405,20 +405,20 @@ Perhaps this is the nature of the “I”: it uses everything to make its person
 It uses friends, acquaintances, strangers on social media, children, family, and loved ones.
 For this, it sacrifices opportunities, its future, its dreams, and the warmth in which loved ones might have found comfort.
 Disguised as helpfulness, it listens only so it can answer.`,
-    source: null,
+    source: "Want Clarity",
     tags: ["quotes"]
   },
   {
     number: 38,
     text: `It is not people who cause us pain, but our thoughts about them.
 Yet we would rather choose suffering than accept this fact — and the responsibility that comes with it.`,
-    source: null,
+    source: "Want Clarity",
     tags: ["quotes"]
   },
   {
     number: 39,
     text: `When you are always doing something, you never find the time to meet yourself. And so life goes on, but there is no one there to live it.`,
-    source: null,
+    source: "Want Clarity",
     tags: ["quotes"]
   },
   {
@@ -436,7 +436,7 @@ Your own.
 The one that awaits you.
 Imagine what it is like inside.
 Compare.`,
-    source: null,
+    source: "Want Clarity",
     tags: ["guidance"]
   },
   {
@@ -469,7 +469,7 @@ The mind is not designed to work with complex structures. That is simply how it 
 
 P.S. One more thing...
 When you write — if you do — write as though your words will be read and published after your death. Make them clear, complete, literate, and neat. This matters because the mind wants to save time and turns real work into scribbles. That will ruin the whole thing. And one more thing... If this was useful, use the arrow on the right and recommend it to friends who might need it.`,
-    source: null,
+    source: "Want Clarity",
     tags: ["guidance"]
   },
   {
@@ -480,7 +480,7 @@ This perspective fragments reality, creating stories and confining us within the
 Here is the bright dream of a new birth and the hope of happiness; there, someone is already feeling the pain of an impending disappearance.
 They appear, burst, merge, expand, take hold, and suffer.
 Diving into the depths changes how you see what is happening. Returning to the surface can no longer take that understanding away.`,
-    source: null,
+    source: "Want Clarity",
     tags: ["stillness"]
   },
   {
@@ -492,14 +492,14 @@ That is a lie.
 You have no firsthand knowledge of your birth.
 You were taught to think that way.
 In exactly the same way, you were taught to think that you will die.`,
-    source: null,
+    source: "Want Clarity",
     tags: ["quotes"]
   },
   {
     number: 44,
     text: `— Tell me, how should I meditate in order to discover my true nature?
 — So you've already decided that there is someone who must meditate, and that someone is you?`,
-    source: null,
+    source: "Want Clarity",
     tags: ["stillness"]
   },
   {
@@ -513,7 +513,7 @@ There is also a fifth level.
 Given that only ten percent of the population make it to the end of the second level — and that, at best, it takes half a lifetime — only a few dozen out of billions ever reach the beginning of the fourth.
 Perhaps it is time to understand this and start looking more broadly from the outset?
 It is not as difficult as it seems.`,
-    source: null,
+    source: "Want Clarity",
     tags: ["quotes"]
   },
   {
@@ -544,13 +544,13 @@ And he knows that this requires genuine desire and a genuine thirst for truth. A
 The moment a real teacher sees someone ticking off such absurd demands on their fingers, he will quickly explain where you need to go, and how fast. As for your suddenly changed attitude toward him, he simply couldn't care less.
 
 And he will earn his living not from satsangs and books, but because he knows how to make excellent stools, run a company, or do embroidery. He does his own work instead of traveling from city to city and country to country, preaching or holding satsangs for donations.`,
-    source: null,
+    source: "Want Clarity",
     tags: ["stillness"]
   },
   {
     number: 47,
     text: `Making a decision is the most important step.`,
-    source: null,
+    source: "Want Clarity",
     tags: ["stillness"]
   },
   {
@@ -561,14 +561,14 @@ But it is not being dreamed by another you, by your “real self,” or by you i
 It is not being dreamed by another version of itself, either.
 It is simply being dreamed.
 You are being dreamed.`,
-    source: null,
+    source: "Want Clarity",
     tags: ["stillness"]
   },
   {
     number: 49,
     text: `What meaning could life possibly have for a character in a dream?
 What is there to worry about when it comes to failing to achieve some goal?`,
-    source: null,
+    source: "Want Clarity",
     tags: ["stillness"]
   },
   {
@@ -584,7 +584,7 @@ Yes, sooner or later, you will lie in your bed thinking that life is unfair and 
 Now you lie alone, and you are afraid. Afraid that you can no longer change anything. Time is up. And with its passing comes an understanding of what truly matters — along with the realization that all those years spent on health, achievements, career success, and luxury apartments have been devalued. You were a sucker. You squandered your life because you never found the time, somewhere around its midpoint, to stop and look around. You never made that time. You were too absorbed in the game and in self-deception. You repeated so often that you must live right now that you ended up losing the very life you were talking about.
 
 Now all that remains is to laugh, and then cry into your pillow until sleep releases you from this painful emptiness.`,
-    source: null,
+    source: "Want Clarity",
     tags: ["guidance"]
   },
   {
@@ -592,7 +592,7 @@ Now all that remains is to laugh, and then cry into your pillow until sleep rele
     text: `...Welcome to the Matrix, where you are nothing but a cash cow.
 The purpose of this cow's existence is to feed its energy to a parasite called the mind.
 When the cow grows old, tired, and exhausted, it is slaughtered...`,
-    source: null,
+    source: "Want Clarity",
     tags: ["stillness"]
   },
   {
@@ -603,7 +603,7 @@ Remember this above all: the mind is the world's executor. A good, faithful exec
 The world is a genie that brings all your wishes and dreams to life. But the world has no wishes of its own. So if you fear a hurricane and imagine it destroying your home, the world will arrange that for you. Want that picture? Here you are. If you picture yourself on a white shore beside the person you love, it will gladly begin painting that scene. Want to defeat everyone in a difficult struggle? Certainly. Want to rescue kittens? No problem. Here are cruel people, and here are kittens. Want to earn the right to succeed? Off we go — we'll create obstacles and give you the will to overcome them. Just picture your life, this year, tomorrow — and so it will be. Your desires and fears determine what you see, and therefore what the world will build. “Whatever you wish, my dear,” it says. “The mind and I will take care of everything. Relax, and don't get in the way.”
 
 Just relax and trust the world completely. It will bring all your fantasies to life.`,
-    source: null,
+    source: "Want Clarity",
     tags: ["guidance"]
   },
   {
@@ -613,7 +613,7 @@ Success is being so highly skilled at the work you love that you can afford not 
 From this point on, what matters most in your life is having as much free time as you need, and knowing that at any moment you can earn the level of comfort you need right now.
 It is absolute independence from things, people, circumstances, clients' whims, material entanglements, and even society's rules of survival.
 Through your mastery, you buy just one thing: absolute freedom.`,
-    source: null,
+    source: "Want Clarity",
     tags: ["quotes"]
   },
   {
@@ -624,7 +624,7 @@ Something that would help me brush aside the superficiality of the human world a
 Here are those words...
 
 “Everything passes through you. There is no one to fight, no one to run away. No one is here. Only a dream, creating a world within itself and out of itself: time, events, people, relationships, the future, dilemmas, plans, thoughts, desires, feelings. Silence all around. Listen to its sound.”`,
-    source: null,
+    source: "Want Clarity",
     tags: ["stillness"]
   },
   {
@@ -632,13 +632,13 @@ Here are those words...
     text: `The right kind of writing is based on the effect of a truth pill. The point is that people often cannot bear the truth, because it forces them either to act and change their situation, or to admit their own inadequacy and their unwillingness to do anything about it.
 ...
 That is why truth is the most powerful instrument of influence — and why it provokes the greatest aggression in those who refuse to acknowledge it.`,
-    source: null,
+    source: "Want Clarity",
     tags: ["quotes"]
   },
   {
     number: 56,
     text: `When people refuse to let their relationships die to the old self, refuse to change, and refuse to pay with precious pieces of their dearly loved “I,” the relationship dies before they do.`,
-    source: null,
+    source: "Want Clarity",
     tags: ["quotes"]
   },
   {
@@ -648,13 +648,13 @@ Say what needs to be said, then let it go and return to the position of the witn
 There is no need to keep talking once the thought has been expressed.
 Otherwise, you get an endless stream of words like this:
 “I don't understand when this is ever going to end there's no time for myself there are always problems and not a single minute to just be alone with myself God when will this ever end”`,
-    source: null,
+    source: "Want Clarity",
     tags: ["stillness"]
   },
   {
     number: 58,
     text: `Courage is measured by the distance between making a decision and taking action.`,
-    source: null,
+    source: "Want Clarity",
     tags: ["quotes"]
   },
   {
@@ -663,7 +663,7 @@ Otherwise, you get an endless stream of words like this:
 Remember: the moment you feel that you are living in the first person, you are stuck.
 Your programs and narratives are now living your life, while you are fast asleep, dreaming.
 Awakening is experiencing reality from the perspective of reality as a whole — the reality in which the first-person character is moving about.`,
-    source: null,
+    source: "Want Clarity",
     tags: ["quotes"]
   },
   {
@@ -675,13 +675,13 @@ Want to earn money? Figure out how, and measure your path in pounds of joy, righ
 If your plans bring no joy, forget them and look for the path that does.
 Success is not defined by achieving goals or carrying out plans, but by the amount of joy your present activity brings you.
 Find those activities and build your daily plans around them. Not around goals, but around the activities themselves.`,
-    source: null,
+    source: "Want Clarity",
     tags: ["quotes"]
   },
   {
     number: 61,
     text: `To succeed, create a sea of problems for yourself — and then solve them all. The more problems, the greater the success.`,
-    source: null,
+    source: "Want Clarity",
     tags: ["quotes"]
   },
   {
@@ -691,7 +691,7 @@ To do this, start observing the process. You will notice that your opponent is w
 They follow every movement of your ego, jump back, bristle, and respond.
 After a while, you will stop and see the confusion in the other person's ego.
 In that confusion, it will try one random variation after another, hoping to make your ego move again.`,
-    source: null,
+    source: "Want Clarity",
     tags: ["quotes"]
   },
   {
@@ -709,7 +709,7 @@ Western culture, by contrast, is oriented toward maturing and uses concepts such
 My path is an integrated approach. The path of “self-development + self-inquiry” makes it possible not only to awaken within the dream, recognizing the illusion as an illusion, but also to use that clarity to create your own worlds within it. These words are not entirely accurate, because at the moment of awakening the first-person view of the world disappears, along with the concepts of mine, yours, and someone else's...
 
 As they say: happiness, pleasure, and absolute peace.`,
-    source: null,
+    source: "Want Clarity",
     tags: ["quotes"]
   },
   {
@@ -727,7 +727,7 @@ And even if you nod, you may not grasp how extraordinary this situation is.
 You have never made anything happen by yourself. Never.
 None of your decisions are yours.
 You are merely a program, a transmitter with no will of its own, no choice of its own, and not even the right to decide whether to become aware of its own nature.`,
-    source: null,
+    source: "Want Clarity",
     tags: ["stillness"]
   },
   {
@@ -737,7 +737,7 @@ All contradictions, inner and outer conflicts, and depression are connected with
 People are torn apart by the lack of clarity here.
 To compensate for their confusion, they invent words such as “must,” “should,” and “circumstances,” hiding from their own ignorance.
 And all it takes is to sit down and look carefully at your desires and needs.`,
-    source: null,
+    source: "Want Clarity",
     tags: ["quotes"]
   },
   {
@@ -747,7 +747,7 @@ Attentiveness answers the question, “What am I doing?” The strength of atten
 Awareness answers the question, “Why am I doing this?” Again, few people examine where they are going, why they are going there, what it will give them, and whether they need to go there at all. Answering these questions requires setting aside time and applying that same attentiveness.
 I have literally seen people I consider strong and successful devote an entire day to examining their personal goals, fears, and desires, and understanding what they truly want. They would take a pencil and paper and turn inward. Every Sunday...
 Few people do this. These are two great capacities, and they do not arise by themselves.`,
-    source: null,
+    source: "Want Clarity",
     tags: ["quotes"]
   },
   {
@@ -760,19 +760,19 @@ Act against logic, common sense, and even your own lack of motivation.
 Do something — vacuum the floor, if that's all you can manage.
 Feeling bad? Pick up the vacuum cleaner and start vacuuming.
 Keep going until the neighbors downstairs come up and start knocking on your door.`,
-    source: null,
+    source: "Want Clarity",
     tags: ["quotes"]
   },
   {
     number: 68,
     text: `Never look back. Nothing has changed there.`,
-    source: null,
+    source: "Want Clarity",
     tags: ["guidance"]
   },
   {
     number: 69,
     text: `Any task takes less energy when you do it wholeheartedly than when you do it half-heartedly.`,
-    source: null,
+    source: "Want Clarity",
     tags: ["wisdom"]
   },
   {
@@ -781,7 +781,7 @@ Keep going until the neighbors downstairs come up and start knocking on your doo
 This is not traditional horror designed simply to scare you. It is a speculative story told through the eyes of twelve-year-old Luke, about how he is forced to grow up very quickly and make his own choices. Should he fight, like his friend Nick, knowing the struggle is doomed, or surrender, as so many others do?
 Should he accept imposed rules when despair itself is screaming, “Give in, do what you're told, and you'll feel better right away”? Should he become numb, or keep going despite his fear? And there is an even bigger question: is it worth saving the world if doing so means torturing and killing children? The book raises a great many questions without providing answers. They are not childish questions, but questions everyone must answer for themselves.
 Everyone who reads this book will make their own choice and find their own answers. And that is precisely what matters so much for a growing child: learning to make their own choices. I highly recommend it.`,
-    source: null,
+    source: "Want Clarity",
     tags: ["reading"]
   },
   {
@@ -789,20 +789,20 @@ Everyone who reads this book will make their own choice and find their own answe
     text: `To enter bliss, stop judging everything that happens — and stop judging yourself.
 See that names, words, letters, and labels have no inherent essence. This can be seen easily and immediately.
 Then every judgment becomes what it really is: just a word.`,
-    source: null,
+    source: "Want Clarity",
     tags: ["stillness"]
   },
   {
     number: 72,
     text: `Everything happening in this moment is necessary.`,
-    source: null,
+    source: "Want Clarity",
     tags: ["stillness"]
   },
   {
     number: 73,
     text: `We usually think we have to wait for our dream to come true. In reality, we simply have to take hold of it.
 Just go and claim what you dream of.`,
-    source: null,
+    source: "Want Clarity",
     tags: ["guidance"]
   },
   {
@@ -810,7 +810,7 @@ Just go and claim what you dream of.`,
     text: `Do you have a dream? A dream that would shape all your plans and all your important decisions?
 I know people who have goals — big, interesting goals. They pursue them, overcoming difficulties and personal weaknesses. But a dream is something more. A dream is something you do for others. A dream is something that changes the world.
 Few people are capable of living by a dream. Because it is difficult. Almost impossible. And it carries enormous responsibility. When you pursue your dream, people will inevitably stand beside you — people who have believed in your dream, people who have believed in your strength. Living by a dream is hard. Only the strongest can do it.`,
-    source: null,
+    source: "Want Clarity",
     tags: ["guidance"]
   },
   {
@@ -818,7 +818,7 @@ Few people are capable of living by a dream. Because it is difficult. Almost imp
     text: `The mind is forced to play chess with itself, sometimes from one person's perspective and sometimes from the other person's. But in truth, it is talking to you.
 You are what perceives the mind's conversations. You are what hears, but does not evaluate, judge, or react.
 You are the divine presence with which the mind is forever trying to communicate.`,
-    source: null,
+    source: "Want Clarity",
     tags: ["stillness"]
   },
   {
@@ -847,7 +847,7 @@ To fight reality is madness.`,
   {
     number: 78,
     text: `The path is the end of the inner war with what is happening right now.`,
-    source: null,
+    source: "Want Clarity",
     tags: ["stillness"]
   },
   {
@@ -862,7 +862,7 @@ What could be more insane than opposing life itself as it unfolds right now?`,
     number: 80,
     text: `Your only task is total inner agreement with every moment of your life, without the slightest resistance.
 On the outside, act however you wish. But inwardly, remain anchored in absolute, impenetrable serenity.`,
-    source: null,
+    source: "Want Clarity",
     tags: ["stillness"]
   },
   {
@@ -874,7 +874,7 @@ On the outside, act however you wish. But inwardly, remain anchored in absolute,
   {
     number: 82,
     text: `Every second spent in non-involvement matters. It trains the mind.`,
-    source: null,
+    source: "Want Clarity",
     tags: ["stillness"]
   },
   {
@@ -886,7 +886,7 @@ On the outside, act however you wish. But inwardly, remain anchored in absolute,
   {
     number: 84,
     text: `Begin your day and live as though you are not here.`,
-    source: null,
+    source: "Want Clarity",
     tags: ["stillness"]
   },
   {
@@ -941,7 +941,7 @@ On the outside, act however you wish. But inwardly, remain anchored in absolute,
     number: 93,
     text: `You are not in the moment.
 You are the moment.`,
-    source: null,
+    source: "Want Clarity",
     tags: ["stillness"]
   },
   {
@@ -950,13 +950,13 @@ You are the moment.`,
 You are what is aware of the action.
 You cannot act, because actions are happening.
 Yet they happen in presence — that is, in you.`,
-    source: null,
+    source: "Want Clarity",
     tags: ["stillness"]
   },
   {
     number: 95,
     text: `Are you still waiting for life to begin once the problems are over?`,
-    source: null,
+    source: "Want Clarity",
     tags: ["stillness"]
   },
   {
@@ -998,25 +998,25 @@ They speak in a way that does not disturb another person's mind or stir up their
   {
     number: 101,
     text: `The one who thinks there is a thought is the thought itself.`,
-    source: null,
+    source: "Want Clarity",
     tags: ["stillness"]
   },
   {
     number: 102,
     text: `You are the place from which everything is seen.`,
-    source: null,
+    source: "Want Clarity",
     tags: ["stillness"]
   },
   {
     number: 103,
     text: `Total surrender. This is the essential instruction!`,
-    source: null,
+    source: "Want Clarity",
     tags: ["stillness"]
   },
   {
     number: 104,
     text: `Remain unwavering in detachment.`,
-    source: null,
+    source: "Want Clarity",
     tags: ["stillness"]
   },
   {
@@ -1028,27 +1028,27 @@ If you can feel this state, that is what you are.
 Your true nature.
 This is enlightenment.
 If your personality and body disappear but the sense of a separate observer remains, that is liberation — but not enlightenment.`,
-    source: null,
+    source: "Want Clarity",
     tags: ["stillness"]
   },
   {
     number: 106,
     text: `Live from a sense of the indefinable.`,
-    source: null,
+    source: "Want Clarity",
     tags: ["stillness"]
   },
   {
     number: 107,
     text: `The state shapes reality.
 Do not change the world — change the state. The state changes on its own when you dissolve into the flow.`,
-    source: null,
+    source: "Want Clarity",
     tags: ["stillness"]
   },
   {
     number: 108,
     text: `Dissolve into the flow. Trust it and become it.
 You are not the center, but the space of awareness in which life lives itself.`,
-    source: null,
+    source: "Want Clarity",
     tags: ["stillness"]
   },
   {
@@ -1056,7 +1056,7 @@ You are not the center, but the space of awareness in which life lives itself.`,
     text: `There is no one living this life.
 There is only life, living itself.
 You are not the doer, but the unaffected awareness in which everything arises and disappears.`,
-    source: null,
+    source: "Want Clarity",
     tags: ["stillness"]
   },
   {
@@ -1064,13 +1064,13 @@ You are not the doer, but the unaffected awareness in which everything arises an
     text: `Do not attach significance to anything.
 A thought about enlightenment and a thought about a cup are of the same nature.
 Do not elevate one or devalue the other. In this way, they liberate themselves.`,
-    source: null,
+    source: "Want Clarity",
     tags: ["stillness"]
   },
   {
     number: 111,
     text: `Stop the race. Right now.`,
-    source: null,
+    source: "Want Clarity",
     tags: ["stillness"]
   },
   {
@@ -1084,50 +1084,50 @@ You interfere with them.
 Leave yourself alone, and everything will fall into place.
 Trust, even when it seems that everything is going the wrong way.
 That is only how it seems to you.`,
-    source: null,
+    source: "Want Clarity",
     tags: ["stillness"]
   },
   {
     number: 113,
     text: `If you want to solve an unsolvable problem but have no idea how, sit down and simply stay there: no people, no activity, no distractions.
 Within an hour, the solution will appear.`,
-    source: null,
+    source: "Want Clarity",
     tags: ["stillness"]
   },
   {
     number: 114,
     text: `Meditate now.`,
-    source: null,
+    source: "Want Clarity",
     tags: ["stillness"]
   },
   {
     number: 115,
     text: `Live as though no one is here.`,
-    source: null,
+    source: "Want Clarity",
     tags: ["stillness"]
   },
   {
     number: 116,
     text: `You are eternal, unaffected awareness.`,
-    source: null,
+    source: "Want Clarity",
     tags: ["stillness"]
   },
   {
     number: 117,
     text: `Everything passes through you, and nothing touches you.`,
-    source: null,
+    source: "Want Clarity",
     tags: ["stillness"]
   },
   {
     number: 118,
     text: `Trust life. It knows how.`,
-    source: null,
+    source: "Want Clarity",
     tags: ["stillness"]
   },
   {
     number: 119,
     text: `Reality is very gentle.`,
-    source: null,
+    source: "Want Clarity",
     tags: ["stillness"]
   },
   {
@@ -1138,21 +1138,24 @@ You are stillness itself.
 The whole world is within you and made of you, yet it does not touch you.
 You are the indefinable in which concepts of definition play.
 You are unmoving, undefined, all-filled emptiness.`,
-    source: null,
+    source: "Want Clarity",
     tags: ["stillness"]
   },
   {
     number: 121,
-    text: `You are the unmoving center of the dream, untouched by anything.
-The whole world is within you.`,
-    source: null,
+    text: `Your task is not to reflect on or describe reality,
+but to shut off the mind, shifting into the format of a pure observer.
+
+All discussions and reflections serve only one purpose:
+to bring you to the practice, and then disappear.`,
+    source: "Want Clarity",
     tags: ["stillness"]
   },
   {
     number: 122,
     text: `Find your grounding in the space of presence, and observe the mind at work within that space.
 This requires unwavering detachment.`,
-    source: null,
+    source: "Want Clarity",
     tags: ["stillness"]
   },
   {
@@ -1161,7 +1164,7 @@ This requires unwavering detachment.`,
 You can enter it by ceasing to be part of what is called “my life.”
 Absolute indefinability and not-knowing.
 There is no time here.`,
-    source: null,
+    source: "Want Clarity",
     tags: ["stillness"]
   },
   {
@@ -1170,25 +1173,25 @@ There is no time here.`,
 That is the illusion of time.
 There is only now, and all your memories are information about a past that never was.
 You exist as a frozen instant.`,
-    source: null,
+    source: "Want Clarity",
     tags: ["stillness"]
   },
   {
     number: 125,
     text: `Time and space are illusions that arise when different experiences are brought together.`,
-    source: null,
+    source: "Want Clarity",
     tags: ["stillness"]
   },
   {
     number: 126,
     text: `There is EXPERIENCE, and within it a human being is running around.`,
-    source: null,
+    source: "Want Clarity",
     tags: ["stillness"]
   },
   {
     number: 127,
     text: `What you notice creates the space of your life — or you as life itself.`,
-    source: null,
+    source: "Want Clarity",
     tags: ["stillness"]
   },
   {
@@ -1197,7 +1200,7 @@ You exist as a frozen instant.`,
 Everything simply happens.
 You do not exist.
 The body lives, thoughts come and go, desires arise.`,
-    source: null,
+    source: "Want Clarity",
     tags: ["stillness"]
   },
   {
@@ -1205,7 +1208,7 @@ The body lives, thoughts come and go, desires arise.`,
     text: `You need to develop the habit of remaining detached from whatever situations unfold.
 Unaffectedness.
 A kind of unshakable unaffectedness toward everything that happens.`,
-    source: null,
+    source: "Want Clarity",
     tags: ["stillness"]
   },
   {
@@ -1213,14 +1216,14 @@ A kind of unshakable unaffectedness toward everything that happens.`,
     text: `Life is happening.
 It is not you who are being taught — learning is happening.
 It is not you who buy the bread — the bread is being bought.`,
-    source: null,
+    source: "Want Clarity",
     tags: ["stillness"]
   },
   {
     number: 131,
     text: `You are simply being, with form moving through it...
 Eternity lies ahead.`,
-    source: null,
+    source: "Want Clarity",
     tags: ["stillness"]
   },
   {
@@ -1229,7 +1232,7 @@ Eternity lies ahead.`,
 You cling to these questions as though they were a lifebuoy, even though the very presence of the question is just another damn itch at the back of the mind.
 There is no “I” that needs to understand or become aware of anything.
 There is simply the process of perceiving. Without an owner. Without a center. Without an observer.`,
-    source: null,
+    source: "Want Clarity",
     tags: ["stillness"]
   },
   {
@@ -1237,7 +1240,7 @@ There is simply the process of perceiving. Without an owner. Without a center. W
     text: `Stop searching for your “true self.”
 You are what remains when all searching has stopped.
 While you sit waiting for some revelation, your mind is simply playing with another spiritual toy, replacing one concept with another.`,
-    source: null,
+    source: "Want Clarity",
     tags: ["stillness"]
   },
   {
@@ -1245,7 +1248,7 @@ While you sit waiting for some revelation, your mind is simply playing with anot
     text: `All this talk about “awareness,” “presence,” and “the here and now” is complete bullshit as long as there is someone behind it trying to hold on to the moment.
 No one is holding on to anything. Everything flows by itself.
 You are not the one who is aware. You are that upon which all of this unfolds, without you making the slightest effort.`,
-    source: null,
+    source: "Want Clarity",
     tags: ["stillness"]
   },
   {
@@ -1253,7 +1256,7 @@ You are not the one who is aware. You are that upon which all of this unfolds, w
     text: `Stop fussing over your “practice” as though it were some sacred treasure.
 If you practice awareness, then there is someone who practices and something to be practiced. That is pure dreaming.
 Enlightenment is not being “in a state of awareness.” It is when there is no one left to be unaware.`,
-    source: null,
+    source: "Want Clarity",
     tags: ["stillness"]
   },
   {
@@ -1261,7 +1264,7 @@ Enlightenment is not being “in a state of awareness.” It is when there is no
     text: `Forget all your states, revelations, and “deep practices.”
 Everything that can be experienced will disappear. Everything that can be felt will come to an end.
 Only what has no name, no form, and no damn spiritual backstory remains.`,
-    source: null,
+    source: "Want Clarity",
     tags: ["stillness"]
   },
   {
@@ -2353,7 +2356,7 @@ Withdraw that belief, take a step back into silence — and the whole house of c
   {
     number: 271,
     text: `When “Grisha” is present, God is not. When God is present, “Grisha” is not.`,
-    source: null,
+    source: "Want Clarity",
     tags: ["stillness"]
   },
   {
@@ -2365,7 +2368,7 @@ You need to develop the habit of being unshakable, untouched by external circums
 Otherwise, situations and difficulties will once again create a fog of ordinary life and draw you into routine.
 It will be as though you keep slipping into oblivion.
 Learn to remain unwaveringly detached.`,
-    source: null,
+    source: "Want Clarity",
     tags: ["stillness"]
   },
   {
@@ -3499,7 +3502,8 @@ Investigate where you find the time you supposedly need to return to.`,
   },
   {
     number: 431,
-    text: `The habitual mind claims even liberation as its own. ”`,
+    text: `The habitual mind claims even liberation as its own.
+Notice how the thought arises: "This happened/is happening to me."`,
     source: null,
     tags: ["stillness"]
   },
@@ -4076,7 +4080,8 @@ Stop constantly modeling the next step and leave attention with the present fact
   },
   {
     number: 520,
-    text: `Physical pain is simply a biological signal. ”`,
+    text: `Physical pain is simply a biological signal.
+Suffering appears only together with the tale: "this is happening to me."`,
     source: null,
     tags: ["stillness"]
   },
@@ -4138,7 +4143,9 @@ Everything happens within you.`,
   },
   {
     number: 530,
-    text: `” The present moment is a concept of the mind. Perception simply happens, without timestamps.`,
+    text: `Do not try to "live in the present moment."
+The present moment is a concept of the mind.
+Perception simply happens, without timestamps.`,
     source: null,
     tags: ["stillness"]
   },
@@ -4150,7 +4157,8 @@ Everything happens within you.`,
   },
   {
     number: 532,
-    text: `Every time you say “I am not the body,” you create a new image that supposedly is not the body. ”`,
+    text: `Every time you say "I am not the body," you create a new image that supposedly is not the body.
+Discard the very concept of "I."`,
     source: null,
     tags: ["stillness"]
   },
@@ -4174,13 +4182,19 @@ Everything happens within you.`,
   },
   {
     number: 536,
-    text: `When the desire to get up from meditation arises, recognize it as a passing sensation, not a personal command.`,
-    source: null,
+    text: `Practice does not tolerate dilution.
+Either intensity or regularity (and preferably both):
+only through them can the stagnation of the mind be broken.
+
+Without this, you will merely recall enlightenment
+from time to time, but never move toward it.`,
+    source: "Want Clarity",
     tags: ["stillness"]
   },
   {
     number: 537,
-    text: `There is no “doer” inside. ”`,
+    text: `There is no "doer" inside.
+Action occurs, a decision is formed, and then the mind comes running with the shout: "I decided this."`,
     source: null,
     tags: ["stillness"]
   },
@@ -4192,7 +4206,8 @@ Everything happens within you.`,
   },
   {
     number: 539,
-    text: `Do not try to expand your “I” to the size of the Absolute — that is simply the ego inflating itself. ”`,
+    text: `Do not try to expand your "I" to the size of the Absolute — that is simply the ego inflating itself.
+Discard the initial "I."`,
     source: null,
     tags: ["stillness"]
   },
@@ -4228,7 +4243,7 @@ Everything happens within you.`,
   },
   {
     number: 545,
-    text: `Every time the timer beeps, do not look for deep states. ”`,
+    text: `Every time the timer beeps, do not look for deep states, but simply remember: everything is, while "I" am not.`,
     source: null,
     tags: ["stillness"]
   },
@@ -4282,8 +4297,8 @@ Everything happens within you.`,
   },
   {
     number: 554,
-    text: `Quiet the mind and perform your duties like a tortoise that has withdrawn its limbs.`,
-    source: "Yoga Vasistha",
+    text: `One who is able to withdraw the senses from sense objects, like a tortoise drawing its limbs into its shell, is established in steady wisdom.`,
+    source: "Bhagavad Gita, 2.58",
     tags: ["stillness"]
   },
   {
@@ -4349,10 +4364,10 @@ Do not strive to obtain what is absent, and do not reject what comes.`,
   },
   {
     number: 565,
-    text: `Make the inquiry, together with the wise, into these questions the work of your whole life: “What am I?
+    text: `Make the inquiry, together with the wise, into these questions the work of your whole life: "What am I?
 What are visible objects?
 What are life and the living soul?
-”`,
+How and from where do they arise?"`,
     source: "Yoga Vasistha",
     tags: ["stillness"]
   },
@@ -4583,7 +4598,8 @@ Notice that the story itself exists as a thought right now.`,
   },
   {
     number: 603,
-    text: `For a long time you have been a prisoner of identification with the body. ”`,
+    text: `For a long time you have been a prisoner of identification with the body.
+Sever this bond with the knowledge: "I am awareness."`,
     source: "Ashtavakra Gita, I.14",
     tags: ["stillness"]
   },
@@ -5115,7 +5131,8 @@ Investigate the changing nature of these states, and do not rush to identify you
   },
   {
     number: 685,
-    text: `“Only Consciousness is alive. ”`,
+    text: `"Only Consciousness is alive.
+Everything objective is dead and inert."`,
     source: "Sri Atmananda Krishna Menon",
     tags: ["stillness"]
   },
@@ -5219,7 +5236,9 @@ Do not turn awakening into a dream of some future event. Be attentive to reality
   },
   {
     number: 701,
-    text: `” Do not answer in words. Simply stop and recognize immediate presence.`,
+    text: `Ask yourself: "Am I aware?"
+Do not answer in words.
+Simply stop and recognize immediate presence.`,
     source: "Sailor Bob Adamson",
     tags: ["stillness"]
   },
@@ -5326,8 +5345,13 @@ Do not forget it and do not become distracted.`,
   },
   {
     number: 718,
-    text: `To study the Way of the Buddha is to study the self. To study the self is to forget the self.`,
-    source: "Dogen",
+    text: `To make the transition, you must consistently
+cast aside everything you thought you were:
+I am not a person, not thoughts, not sensations.
+
+By discarding what you are not, you remain in emptiness,
+waiting for the moment when a qualitative shift in perception occurs.`,
+    source: "Want Clarity",
     tags: ["stillness"]
   },
   {
@@ -5403,8 +5427,15 @@ Do not lose a single moment. Give your whole mind to the practice of the Way.`,
   },
   {
     number: 730,
-    text: `Let go a little and you will gain a little peace. Let go completely and you will gain complete peace.`,
-    source: "Ajahn Chah",
+    text: `Imagine that your life only flows
+while you are sitting in meditation.
+As soon as you stand up, everything vanishes and ceases,
+as if life has ended.
+
+Realizing that nothing is more important
+than your primary task of presence helps overcome
+the illusion of busywork and stay in meditation longer.`,
+    source: "Want Clarity",
     tags: ["stillness"]
   },
   {
@@ -5489,8 +5520,13 @@ Let nothing get in the way.`,
   },
   {
     number: 744,
-    text: `All compounded things are subject to decay. Practice tirelessly!`,
-    source: "The Buddha",
+    text: `The essence of meditative practice lies in the momentum
+of growing continuity of awareness.
+
+The goal is not simply to sit mechanically,
+but to extend the intervals in which consciousness remains
+without being distracted by thoughts.`,
+    source: "Want Clarity",
     tags: ["stillness"]
   },
   {
@@ -5827,9 +5863,13 @@ Every anxiety is an opportunity to see the mechanism of identification.`,
   },
   {
     number: 798,
-    text: `Use every transition from one task to another as a reminder.
-Do not carry automaticity from one activity into the next. Pause for a second. Return to direct experience.`,
-    source: null,
+    text: `Stop piecing yourself together through a stream of thoughts
+and allow yourself simply to be what you are.
+
+When mental activity in maintaining the image of "I" ceases,
+immense energy is released,
+naturally giving birth to peace and bliss.`,
+    source: "Want Clarity",
     tags: ["stillness"]
   },
   {
@@ -6185,7 +6225,7 @@ Do not hand another person control over your attention.`,
   },
   {
     number: 853,
-    text: `Name three situations in which you most often lose clarity. ” Name specific situations.`,
+    text: `Name three situations in which you most often lose clarity. Do not say "life as a whole." Name specific situations.`,
     source: null,
     tags: ["stillness"]
   },
@@ -6345,7 +6385,7 @@ See the false as false — and the war is over.`,
   },
   {
     number: 878,
-    text: `The self cannot attain the absence of self. The one who desires enlightenment is the only wall in its way.`,
+    text: `The ego cannot destroy itself. The one who desires enlightenment is the only wall in its way.`,
     source: "Jed McKenna",
     tags: ["stillness"]
   },
@@ -6381,7 +6421,7 @@ See the false as false — and the war is over.`,
   },
   {
     number: 884,
-    text: `The false self cannot become true. It can only disappear.`,
+    text: `The false image of self cannot become true. It can only disappear.`,
     source: "Jed McKenna",
     tags: ["stillness"]
   },
@@ -6393,19 +6433,19 @@ See the false as false — and the war is over.`,
   },
   {
     number: 886,
-    text: `The self is ego, and ego is a lie. There is nothing more to see.`,
+    text: `The self-image is ego, and ego is an illusion. There is nothing more to look for here.`,
     source: "Jed McKenna",
     tags: ["stillness"]
   },
   {
     number: 887,
-    text: `There is no self, and nothing to realize. To understand that there is nothing to realize — that is realization.`,
+    text: `There is no separate "I", and nothing to realize. To realize that there is nothing to achieve — that is realization.`,
     source: "U. G. Krishnamurti",
     tags: ["stillness"]
   },
   {
     number: 888,
-    text: `Everything you do to free yourself from the self is the self.`,
+    text: `Trying to free yourself from the ego, you only strengthen the one who is trying to be free.`,
     source: "U. G. Krishnamurti",
     tags: ["stillness"]
   },
@@ -6769,7 +6809,7 @@ Rehearse.`,
   },
   {
     number: 947,
-    text: `" You notice the loss — and that noticing is awareness itself.
+    text: `You do not "lose awareness." You notice the loss — and that noticing is awareness itself.
 Do not miss it a second time.`,
     source: null,
     tags: ["stillness"]
@@ -7123,7 +7163,7 @@ Get to know him before the chores are done.`,
   },
   {
     number: 1004,
-    text: `" Time is what disappears when you disappear.
+    text: `The mind says "not yet time." Time is what disappears when you disappear.
 Find it.`,
     source: null,
     tags: ["stillness"]
@@ -7401,7 +7441,9 @@ Any chore done this way is meditation.`,
   },
   {
     number: 1048,
-    text: `Stop bargaining with your laziness. " For the ego, the day of its demise is never a convenient one.`,
+    text: `Stop bargaining with your laziness.
+The mind loves debates about whether "today is a good day for practice."
+For the ego, the day of its demise is never a convenient one.`,
     source: null,
     tags: ["stillness"]
   },
@@ -7432,7 +7474,9 @@ Exactly: that ancient survival algorithm that has driven you in circles of resen
   },
   {
     number: 1053,
-    text: `" A corpse rests forever. While you breathe, be alive or stop pretending to be a seeker.`,
+    text: `Your favorite excuse is "I need a rest."
+A corpse rests forever.
+While you breathe, be alive or stop pretending to be a seeker.`,
     source: null,
     tags: ["stillness"]
   },
@@ -7501,7 +7545,9 @@ Stop turning away the moment it gets hot.`,
   },
   {
     number: 1064,
-    text: `" Your body wants to idle; your true nature demands a breakthrough. Choose consciously.`,
+    text: `Stop calling procrastination "intuitive relaxation."
+Your body wants to idle; your true nature demands a breakthrough.
+Choose consciously.`,
     source: null,
     tags: ["stillness"]
   },
@@ -7525,7 +7571,8 @@ Stop turning away the moment it gets hot.`,
   },
   {
     number: 1068,
-    text: `" A mind at peace is merely a sleeping predator. Seek that which sees the mind itself.`,
+    text: `Do not look for "peace of mind." A mind at peace is merely a sleeping predator.
+Seek that which sees the mind itself.`,
     source: null,
     tags: ["stillness"]
   },
@@ -7596,8 +7643,9 @@ Do not fall for its bargaining — practice through reluctance.`,
   },
   {
     number: 1079,
-    text: `Every time you postpone contemplation for cheap dopamine, the mind checks a box: "This one is back on the leash.
-"`,
+    text: `Every time you postpone contemplation for cheap dopamine, the mind checks a bold box:
+"This guy is back on the leash again.
+Let's continue the game."`,
     source: null,
     tags: ["stillness"]
   },
@@ -7663,8 +7711,11 @@ Do not fall for its bargaining — practice through reluctance.`,
   },
   {
     number: 1090,
-    text: `You are neither earth, nor water, nor fire, nor air, nor mind. Know yourself as untouched Consciousness, and you will find peace right now.`,
-    source: "Ashtavakra Gita",
+    text: `Any form inevitably carries an element of discomfort and limitation.
+Do not seek perfect peace in body or mind, as true
+meditation is not about creating ideal conditions,
+but about presence that shines through any dynamic of states.`,
+    source: "Want Clarity",
     tags: ["stillness"]
   },
   {
@@ -7675,9 +7726,13 @@ Do not fall for its bargaining — practice through reluctance.`,
   },
   {
     number: 1092,
-    text: `In the moment when the breath pauses between inhalation and exhalation, turn your attention to the opening silence.
-There lies your true home.`,
-    source: "Vijnana Bhairava Tantra",
+    text: `Claiming authorship of thoughts creates a subtle pleasure
+in the process of thinking, even when it is suffering or sorrow.
+
+It is this craving for the micro-pleasure
+of feeling yourself to be the "thinker" that constantly pulls you
+back into identification.`,
+    source: "Want Clarity",
     tags: ["stillness"]
   },
   {
@@ -7688,14 +7743,14 @@ There lies your true home.`,
 - Who works?
 
 Someone might say, the character. But there is no character either. There is only a story about a character. That story is what you are.`,
-    source: null,
+    source: "Want Clarity",
     tags: ["stillness"]
   },
   {
     number: 1094,
     text: `There is perception, and there is perception from the perspective of "I". The latter is a limitation of perception to "I".
 To remain as perception, one must perceive the perception from the perspective of "I".`,
-    source: null,
+    source: "Want Clarity",
     tags: ["stillness"]
   },
   {
@@ -7730,7 +7785,8 @@ Don't turn another impulse into another wasted minute.`,
   },
   {
     number: 1099,
-    text: `Don't start your day with a stream of other people's information. "`,
+    text: `Don't start your day with a stream of other people's information.
+Before letting other people's thoughts into your head, investigate the very sensation of "I woke up."`,
     source: null,
     tags: ["stillness"]
   },
@@ -7799,7 +7855,8 @@ Pause for a moment and discover what you're seeking beyond nourishment.`,
   },
   {
     number: 1109,
-    text: `" Test that promise. What exactly is being sought?
+    text: `Every desire promises: "Do this — and it will get better."
+Test that promise. What exactly is being sought?
 And who is supposed to feel better?`,
     source: null,
     tags: ["stillness"]
@@ -7920,14 +7977,15 @@ Here it is: you have already spent so many days on everything except what matter
   },
   {
     number: 1127,
-    text: `" But this applies to someone who willingly walks toward what challenges them. A person who merely survives through inaction does not become stronger — only quieter.`,
+    text: `Nietzsche: "What does not kill me makes me stronger."
+But this applies to someone who willingly walks toward what challenges them. A person who merely survives through inaction does not become stronger — only quieter.`,
     source: "Nietzsche",
     tags: ["stillness"]
   },
   {
     number: 1128,
-    text: `Bruce Lee: "Don't think. Feel. It is like a finger pointing away to the moon. " Stop thinking about the practice.
-Do it.`,
+    text: `Bruce Lee: "Don't think. Feel. It is like a finger pointing away to the moon. Do not concentrate on the finger, or you will miss all that heavenly glory."
+Stop thinking about the practice. Do it.`,
     source: "Bruce Lee",
     tags: ["stillness"]
   },
@@ -7947,7 +8005,8 @@ When the answer is "no" for too many days in a row, it is time to change somethi
   },
   {
     number: 1131,
-    text: `Milarepa said: "Last year, I thought about meditating. " Between those two sentences lies a year lost to overthinking.`,
+    text: `Milarepa said: "Last year, I thought about meditating. Today, I meditate."
+Between those two sentences lies a year lost to overthinking.`,
     source: "Milarepa",
     tags: ["stillness"]
   },
@@ -7974,7 +8033,8 @@ Count. Act.`,
   },
   {
     number: 1135,
-    text: `" You don't need to wait for that bed. Tell yourself what matters now.`,
+    text: `One day you will lie in a hospital bed, and the doctor will utter a phrase after which all your "laters" become "nevers."
+You don't need to wait for that bed. Say that phrase to yourself now.`,
     source: null,
     tags: ["stillness"]
   },
@@ -7987,7 +8047,8 @@ You can stand in the middle of a storm without allowing it to settle inside you.
   },
   {
     number: 1137,
-    text: `Arnold Schwarzenegger: "You have two voices. One says: give up, you're tired. " The voice you obey most often is the one that eventually becomes you.`,
+    text: `Arnold Schwarzenegger: "You have two voices. One says: give up, you're tired. The other: one more rep."
+The voice you obey most often is the one that eventually becomes you.`,
     source: "Arnold Schwarzenegger",
     tags: ["stillness"]
   },
@@ -8059,7 +8120,7 @@ Not for a result. Simply so the mind does not begin your day.`,
   },
   {
     number: 1148,
-    text: `" Not for meditation. Simply to notice three times where attention is resting right now.`,
+    text: `Set three alarms a day with one word: "Stop." Not for meditation. Simply to notice three times where attention is resting right now.`,
     source: null,
     tags: ["stillness"]
   },
@@ -8272,7 +8333,8 @@ Do not avoid difficult days — they are your training ground, not your excuse.`
   },
   {
     number: 1181,
-    text: `" Life is the sorting out. Practice is the place from which it is sorted. You have mistaken the address again.`,
+    text: `The mind says: "practice can wait, first I will deal with life." Life is the sorting out. Practice is the place from which it is sorted.
+You have mistaken the address again.`,
     source: null,
     tags: ["stillness"]
   },
@@ -8285,7 +8347,8 @@ Laziness is a landscape. Change the landscape, do not try to be a hero.`,
   },
   {
     number: 1183,
-    text: `" Simply do everything ten percent slower: eat, write, speak, walk. Slowness does not require time — it requires a master.`,
+    text: `Today, don't do anything "spiritual." Simply do everything ten percent slower: eat, write, speak, walk.
+Slowness does not require time — it requires a master.`,
     source: null,
     tags: ["stillness"]
   },
@@ -8311,7 +8374,8 @@ The mind dislikes what cannot be purchased.`,
   },
   {
     number: 1187,
-    text: `" People abandon what has already worked. Practice that "does not work" is the only real one. The rest is rehearsing an image.`,
+    text: `Do not abandon practice because "it is not working." People abandon what has already worked. Practice that "does not work" is the only real one.
+The rest is rehearsing an image.`,
     source: null,
     tags: ["stillness"]
   },
@@ -8377,7 +8441,8 @@ See what remains.`,
   },
   {
     number: 1197,
-    text: `" The crumbling is the practice arriving early as an unexpected guest. Meet it at the door.`,
+    text: `When everything falls apart, do not wait for "better times for practice." The crumbling is the practice arriving early as an unexpected guest.
+Meet it at the door.`,
     source: null,
     tags: ["stillness"]
   },
@@ -8514,8 +8579,13 @@ Notice the absolute impossibility of it.`,
   },
   {
     number: 1219,
-    text: `You don't forget the practice. You just temporarily become the one who forgot. And that can be noticed too.`,
-    source: null,
+    text: `The whole practice comes down to recognizing the moment
+you are pulled into the author's center and returning to non-involvement.
+
+Your ability to remain in observation depends on your willingness
+to let go of the craving to derive pleasure
+from self-importance and the hustle of life.`,
+    source: "Want Clarity",
     tags: ["stillness"]
   },
   {
@@ -9126,9 +9196,14 @@ Notice the absolute impossibility of it.`,
   },
   {
     number: 1321,
-    text: `If people speak words about you, it means they are speaking words about themselves.`,
-    source: "Amu Mom",
-    tags: ["wisdom"]
+    text: `Your key task is to learn to live in uncertainty
+and feel comfortable within it.
+
+Stop clinging to explanations, concepts, and judgments
+devised by the mind. Only by resting in uncertainty
+do you deal with reality, rather than with its projections.`,
+    source: "Want Clarity",
+    tags: ["stillness"]
   },
   {
     number: 1322,
@@ -10505,8 +10580,13 @@ Choose right now.`,
   },
   {
     number: 1537,
-    text: `Watch how every mental problem dissolves if you cease feeding it with attention and dialogue.`,
-    source: "Sri Shankaracharya",
+    text: `Do not let random spiritual experiences cloud
+your capacity for discernment and sobriety.
+
+Awareness is not a pursuit of ecstatic states,
+but the capacity to remain in inquiry, even when the mind demands
+another scoop of "spiritual ice cream."`,
+    source: "Want Clarity",
     tags: ["stillness"]
   },
   {
@@ -10679,8 +10759,14 @@ Choose right now.`,
   },
   {
     number: 1566,
-    text: `Hold attention in the utter simplicity of perception: what is seen is merely seen, what is heard is merely heard, without binding to an «I.»`,
-    source: "Sri Shankaracharya",
+    text: `You cannot deconstruct and assemble yourself at the same time.
+The more actively you preach spirituality to others, the further
+you stray from the essence, as the teacher's role reinforces the conceptual "I."
+
+Try keeping silent for a couple of weeks and stop offering advice —
+you will see how personal inquiry
+resumes with renewed power.`,
+    source: "Want Clarity",
     tags: ["stillness"]
   },
   {
@@ -13174,8 +13260,14 @@ Stop now.`,
   },
   {
     number: 1912,
-    text: `You brush your teeth without inspiration and without doubt, because it has become part of the day. Do the same with practice. Imperturbably.`,
-    source: null,
+    text: `Assume total responsibility for everything that happens
+in your life, not as an individual making decisions,
+but as consciousness itself, which is what you are.
+
+You are the situation creating all of this;
+you are the people committing harm,
+and you are the problems that arise.`,
+    source: "Want Clarity",
     tags: ["stillness"]
   },
   {
@@ -13467,8 +13559,10 @@ Watch how the mind tries to take offense, and do not let it finish its sentence.
   },
   {
     number: 1954,
-    text: `The pain of discipline weighs ounces. The pain of regret weighs tons.`,
-    source: null,
+    text: `Uncertainty is the baseline state of perception.
+Abiding in it allows you to step beyond
+habitual concepts and expectations regarding reality.`,
+    source: "Want Clarity",
     tags: ["stillness"]
   },
   {
@@ -14059,7 +14153,7 @@ from the illusion of the personality in order to realize deeper truths.
 
 If you fall asleep with thoughts of tomorrow or anything else,
 you wake up with them.`,
-    source: null,
+    source: "Want Clarity",
     tags: ["stillness"]
   },
   {
@@ -14067,7 +14161,7 @@ you wake up with them.`,
     text: `Relax. Your true goal has nothing to do with the one
 you have made up for yourself.
 Your true goal is to learn to let go of control.`,
-    source: null,
+    source: "Want Clarity",
     tags: ["stillness"]
   },
   {
@@ -14075,7 +14169,7 @@ Your true goal is to learn to let go of control.`,
     text: `If you want to break the program called "destiny", remember:
 tomorrow there will be less free time, and the closer to the finale,
 the harder it will be to find it.`,
-    source: null,
+    source: "Want Clarity",
     tags: ["stillness"]
   },
   {
@@ -14098,7 +14192,7 @@ And the character cannot escape from this, because their story is always only ab
 what was and what will be.
 
 As long as you are a character, you are doomed to live in a state of anxiety.`,
-    source: null,
+    source: "Want Clarity",
     tags: ["stillness"]
   },
   {
@@ -14106,7 +14200,7 @@ As long as you are a character, you are doomed to live in a state of anxiety.`,
     text: `Step out of knowledge, allow yourself to know nothing and seek nothing.
 Remain in the unknown and in not understanding what to seek, how to go, where to move.
 Let there only be existence without any knowledge.`,
-    source: null,
+    source: "Want Clarity",
     tags: ["stillness"]
   },
   {
@@ -14416,5 +14510,79 @@ and transitioning into a new format of perception of the world.`,
 that you feel yourself to be.`,
     source: "Want Clarity",
     tags: ["stillness"]
+  },
+  {
+    number: 2073,
+    text: `Shift into the state of the absence of the experiencer.
+Keep your attention on yourself as perception itself,
+not as a character — this builds the habit of staying
+in the flow and minimizes fallbacks into identifying with the ego.`,
+    source: "Want Clarity",
+    tags: ["stillness"]
+  },
+  {
+    number: 2074,
+    text: `A professional approach to realization implies having
+a system of rules, regular tasks, and mindfulness triggers.
+This allows you to maintain focus and see the path comprehensively,
+preventing the mind from endlessly jumping from one idea to another
+depending on random external recommendations.`,
+    source: "Want Clarity",
+    tags: ["stillness"]
+  },
+  {
+    number: 2075,
+    text: `In meditation, you do not have to do anything.
+When an inner effort arises, the doer is assembled —
+the feeling that you are gathering yourself in your head
+to complete a task.
+
+For meditation to happen naturally, you must release this doer
+and allow all perceptual processes to flow entirely on their own,
+without your participation.`,
+    source: "Want Clarity",
+    tags: ["stillness"]
+  },
+  {
+    number: 2076,
+    text: `The constant feeling of "I", "me", and "mine" demands enormous amounts of vital energy. Most of your energy is spent maintaining the illusion of a separate human "I" through the continuous work of the mind.`,
+    source: "Want Clarity",
+    tags: ["stillness"]
+  },
+  {
+    number: 2077,
+    text: `Detachment from the fruits of activity is higher than meditation. This is not an abandonment of action or emotion, but immersion in the process for the sake of the process itself. When you act without clinging to the fruits, you deprive the “doer” of the foundation of its existence — a goal in the future — and return to the present.`,
+    source: "Want Clarity",
+    tags: ["stillness"]
+  },
+  {
+    number: 2078,
+    text: `Regularity is a critically important factor of conscious practice. Without it, any experiences remain mere accidental flashes that do not transform your worldview.`,
+    source: "Want Clarity",
+    tags: ["stillness"]
+  },
+  {
+    number: 2079,
+    text: `The process of death or vanishing does not exist. Falling into sleep is merely losing attention toward the very process of being. If you learn not to lose awareness at the moment of falling asleep, you will see that entering a dream or death is simply a change of scenery, while awareness itself remains unchanged.`,
+    source: "Want Clarity",
+    tags: ["stillness"]
+  },
+  {
+    number: 2080,
+    text: `Use the practice of conscious falling asleep for meditation. Relax without losing vigilance in order to track the moment dreams load. This subtle balancing will allow you to understand how to maintain presence in any state, without falling into unconscious oblivion.`,
+    source: "Want Clarity",
+    tags: ["stillness"]
+  },
+  {
+    number: 2081,
+    text: `Detach from the fruits of activity. The process itself, the creation itself, is primary. There is nothing important for the sake of which anything is worth doing; every goal is conditional and plays no significant role.`,
+    source: "Want Clarity",
+    tags: ["stillness"]
+  },
+  {
+    number: 2082,
+    text: `Practice the direct seeing that everything lives on its own: the body, thoughts, desires, anxieties, sounds, events. In this process, there is no central subject.`,
+    source: "Want Clarity",
+    tags: ["guidance", "stillness"]
   }
 ];

@@ -8,19 +8,19 @@ export default [
   {
     number: 2,
     text: `No hay nadie en este cuerpo.`,
-    source: null,
+    source: "Quiero Claridad",
     tags: ["silencio"]
   },
   {
     number: 3,
     text: `La mente es un filtro a través del cual la conciencia percibe el mundo y, al mismo tiempo, lo crea. Y por «el mundo» nos referimos a todo: pensamientos, sensaciones, el cuerpo y el universo mismo.`,
-    source: null,
+    source: "Quiero Claridad",
     tags: ["silencio"]
   },
   {
     number: 4,
     text: `Que suceda un día de este año: el sueño termina, el cuerpo se levanta, se rasca, va al baño, aparecen pensamientos — y tú sigues sin aparecer.`,
-    source: null,
+    source: "Quiero Claridad",
     tags: ["silencio"]
   },
   {
@@ -43,7 +43,7 @@ Porque es el único punto absolutamente inmóvil en todo el mecanismo que ha pue
 Solo piénsalo — ¡igual al Gran Vampiro!
 Sus espejos ya no pueden detenerte, porque ya no vas a ninguna parte.
 Este es el Sendero Negro Secreto.`,
-    source: null,
+    source: "Quiero Claridad",
     tags: ["silencio"]
   },
   {
@@ -55,7 +55,7 @@ Déjalo en paz. 😂
 Que medite, busque la iluminación y viva como le plazca.
 Manos fuera. Deja de intentar manejarlo todo: detener pensamientos, disolver a Vasya, perseguir algún estado...
 Dale un respiro al mundo de ti.`,
-    source: null,
+    source: "Quiero Claridad",
     tags: ["silencio"]
   },
   {
@@ -66,7 +66,7 @@ Eso es todo.
 No necesitan hacer nada.
 Simplemente necesitan dejar de hacer lo que están haciendo.
 Dejen de convertirse constantemente en alguien y de mirar el mundo a través de los ojos de esa persona.`,
-    source: null,
+    source: "Quiero Claridad",
     tags: ["silencio"]
   },
   {
@@ -75,7 +75,7 @@ Dejen de convertirse constantemente en alguien y de mirar el mundo a través de 
 
 Desarrollar la conciencia es especialmente importante para cualquiera que cuide su figura.
 De lo contrario, te despistas un momento — y ella ya está comiendo.`,
-    source: null,
+    source: "Quiero Claridad",
     tags: ["recomendaciones"]
   },
   {
@@ -94,7 +94,7 @@ Nunca podrás decirles que los amas. Y nunca escucharás «te perdono».
 Nunca podrás darles un poco más de calidez y alegría.
 Y ellos nunca más sentirán que los abrazas y les susurras esas palabras.
 Siente esto. Compréndelo. ¿Quizás esta comprensión puede cambiar algo, incluso ahora?`,
-    source: null,
+    source: "Quiero Claridad",
     tags: ["recomendaciones"]
   },
   {
@@ -106,7 +106,7 @@ Nada puede dañarte.
 Nada puede destruirte.
 No puedes llegar tarde a nada.
 No tengas miedo.`,
-    source: null,
+    source: "Quiero Claridad",
     tags: ["silencio"]
   },
   {
@@ -128,7 +128,7 @@ Son problemas de la mente-cuerpo.
 Y se encargará de ellos, como siempre lo ha hecho.
 Si no lo hace, eso también es asunto suyo.
 Que se preocupe por ello.`,
-    source: null,
+    source: "Quiero Claridad",
     tags: ["silencio"]
   },
   {
@@ -139,7 +139,7 @@ Que se preocupe por ello.`,
 — Porque tú no eres una parte. Tú eres el todo —libre y completo—, sin embargo, forzado a vivir en una prisión de cadenas imaginarias. Este anhelo y dolor te hacen luchar dentro de la jaula de esa prisión imaginaria.
 — ¿Entonces no es el personaje quien sufre?
 — No. Es Dios, habiéndose olvidado de sí mismo en un ser humano. Es un anhelo universal nacido de no saber cómo salir de este círculo vicioso.`,
-    source: null,
+    source: "Quiero Claridad",
     tags: ["observaciones"]
   },
   {
@@ -153,7 +153,7 @@ Es otro nivel de experimentar la vida.
 Vasto, rompiendo los límites de la conciencia.
 Si no sientes que la vida se experimenta en otro nivel, no te has sumergido completamente en el estado al que estas palabras apuntan.
 Ríndete completamente a esta comprensión.`,
-    source: null,
+    source: "Quiero Claridad",
     tags: ["silencio"]
   },
   {
@@ -164,7 +164,7 @@ Nada te amenaza.
 Nada puede dañarte.
 El mundo entero está dentro de ti.
 Y tú eres el mundo entero.`,
-    source: null,
+    source: "Quiero Claridad",
     tags: ["silencio"]
   },
   {
@@ -178,7 +178,7 @@ También se le llama «no-hacer». Recuerdas que todo sucede por sí mismo.
 Otro es: «El mundo está dentro». Recuerdas que todo es el espacio de la conciencia, y que el cuerpo, la mente, los conceptos, la personalidad y la presencia existen dentro de ti.
 Y recuerda: este «tú» es solo una forma de hablar.
 De lo contrario, aparecerá un gran «Yo», conteniéndolo todo.`,
-    source: null,
+    source: "Quiero Claridad",
     tags: ["silencio"]
   },
   {
@@ -188,13 +188,13 @@ De lo contrario, aparecerá un gran «Yo», conteniéndolo todo.`,
 2. Confianza total en la existencia.
 3. Disolverse en lo indefinible.
 4. Tú eres la existencia misma.`,
-    source: null,
+    source: "Quiero Claridad",
     tags: ["silencio"]
   },
   {
     number: 17,
     text: `Todo simplemente sucede.`,
-    source: null,
+    source: "Quiero Claridad",
     tags: ["silencio"]
   },
   {
@@ -211,14 +211,14 @@ En el momento en que aparece un problema, significa que te has aferrado a algo..
 En el momento en que aparece «mío», el «yo» aparece con él.
 De aquí proviene la tradición de desechar, renunciar, abandonar y renunciar. Pero no necesitas tirar tu ropa, amigos, dinero o deseos...
 Necesitas ver que nada de eso pertenece a nadie — nada de eso es tuyo.`,
-    source: null,
+    source: "Quiero Claridad",
     tags: ["silencio"]
   },
   {
     number: 19,
     text: `Lo que sea que estés experimentando — ¿a quién le importa? Todos tus momentos de «¡Oh! ¿Qué fue eso?» son señales falsas.
 Ponle una etiqueta a todo: no importa. Solo una cosa importa: mantén tu atención en el hecho de que todo simplemente sucede. No en los estados que surgen en el camino, sino en los procesos mismos.`,
-    source: null,
+    source: "Quiero Claridad",
     tags: ["silencio"]
   },
   {
@@ -228,7 +228,7 @@ Te das cuenta de que este llamado mundo real no existe...
 Y aparece un mundo de infancia y sueños...
 Un mundo que no existe en ninguna parte, donde el tiempo no existe...
 Es como si volvieras a casa, a un sueño en el que puedes permanecer para siempre...`,
-    source: null,
+    source: "Quiero Claridad",
     tags: ["silencio"]
   },
   {
@@ -236,7 +236,7 @@ Es como si volvieras a casa, a un sueño en el que puedes permanecer para siempr
     text: `Verte a ti mismo como un ser humano es una condición antinatural que requiere un esfuerzo mental constante para mantenerla.
 Deja de recomponerte continuamente a través de un flujo de pensamientos sobre ti mismo, y volverás a tu estado natural — te convertirás en el ser mismo.
 Una vasta cantidad de energía será liberada, y eso es lo que da origen a la dicha.`,
-    source: null,
+    source: "Quiero Claridad",
     tags: ["silencio"]
   },
   {
@@ -247,7 +247,7 @@ Para despertar, debes actuar rápidamente, ahora mismo: detén la carrera.
 Luego suelta todo. Rinde tu vida — no a nadie, simplemente abandónalo todo, completa y de una vez.
 Totalmente. Sin expectativas. Irrevocablemente.
 Con la aceptación total de que no hay vuelta atrás.`,
-    source: null,
+    source: "Quiero Claridad",
     tags: ["silencio"]
   },
   {
@@ -255,32 +255,32 @@ Con la aceptación total de que no hay vuelta atrás.`,
     text: `Necesitas descubrir la Nada, reconocer que esto es lo que eres, y dejar que la mente descanse en esta Nada.
 Eres indefinibilidad atemporal y consciente.
 Basta con descubrir esto y no perderlo de vista.`,
-    source: null,
+    source: "Quiero Claridad",
     tags: ["silencio"]
   },
   {
     number: 24,
     text: `Siente esto ahora mismo.
 Te cansas no porque te falte energía, sino porque te experimentas a ti mismo como real.`,
-    source: null,
+    source: "Quiero Claridad",
     tags: ["silencio"]
   },
   {
     number: 25,
     text: `Mira la realidad sin tomar una posición.`,
-    source: null,
+    source: "Quiero Claridad",
     tags: ["silencio"]
   },
   {
     number: 26,
     text: `Necesitas entender muy claramente por qué la iluminación no puede existir como un evento que sucede — y sin embargo, la iluminación existe como un hecho.`,
-    source: null,
+    source: "Quiero Claridad",
     tags: ["silencio"]
   },
   {
     number: 27,
-    text: `Hay una palabra que te lleva a casa y vuelve a poner la vida en su lugar. ”`,
-    source: null,
+    text: `Hay una palabra que te lleva a casa y vuelve a poner la vida en su lugar. Esa palabra es «Inafectabilidad».`,
+    source: "Quiero Claridad",
     tags: ["silencio"]
   },
   {
@@ -293,7 +293,7 @@ Mantén tu distancia.
 No te involucres.
 Permanece en la presencia sin esfuerzo de la ausencia de todo.
 Aquí.`,
-    source: null,
+    source: "Quiero Claridad",
     tags: ["silencio"]
   },
   {
@@ -326,7 +326,7 @@ Las condiciones favorables desaparecerán.
 La sabiduría se desvanecerá.
 
 La conclusión: hay una prioridad principal, y es más importante que cualquier otra cosa — incluso la creatividad. Primero mantén tu distancia; luego crea.`,
-    source: null,
+    source: "Quiero Claridad",
     tags: ["silencio"]
   },
   {
@@ -342,7 +342,7 @@ La creación automática de un «Yo» duplicado — un «Yo» que supuestamente 
 Por ejemplo: «Me di cuenta de que no hay nadie aquí», «TÚ creas una imagen de ti mismo», o «¿Cómo puedes no hacer nada si de todos modos estás haciendo algo?»...
 
 La mente inmediatamente crea otro «Yo», convirtiéndolo en aquel que entiende la gran verdad de que nadie existe.`,
-    source: null,
+    source: "Quiero Claridad",
     tags: ["silencio"]
   },
   {
@@ -355,7 +355,7 @@ Por eso los monjes cultivan la aceptación, mientras que nosotros hablamos de un
 Pero el acuerdo no puede surgir sin una confianza total en la vida — sin soltar completamente el control.
 Suelta los dedos. Cuando venga el pensamiento: «Realmente debo resolver este problema primero, y luego volveré a la práctica», responde: «Tengo miedo, pero lo suelto».
 Deja que las cosas se desarrollen como deban.`,
-    source: null,
+    source: "Quiero Claridad",
     tags: ["silencio"]
   },
   {
@@ -366,13 +366,13 @@ Deja que las cosas se desarrollen como deban.`,
 — El sentido de tu vida es interpretar tu papel. ¡Interprétalo bien! Con iniciativa y compromiso de todo corazón.
 — ¿Y cuál es el sentido de la vida después de la iluminación?
 — Sigue interpretando tu papel, pero ahora sabiendo que es una obra.`,
-    source: null,
+    source: "Quiero Claridad",
     tags: ["citas"]
   },
   {
     number: 33,
     text: `Eres la realidad sin límites.`,
-    source: null,
+    source: "Quiero Claridad",
     tags: ["silencio"]
   },
   {
@@ -380,13 +380,13 @@ Deja que las cosas se desarrollen como deban.`,
     text: `El «sentido de Yo — un yo individual» puede ser notado ahora mismo, sin meditación.
 Simplemente deja de identificarte con él.
 Luego permanece en ninguna parte.`,
-    source: null,
+    source: "Quiero Claridad",
     tags: ["silencio"]
   },
   {
     number: 35,
     text: `El mundo está aquí, pero tú no estás en él.`,
-    source: null,
+    source: "Quiero Claridad",
     tags: ["silencio"]
   },
   {
@@ -394,7 +394,7 @@ Luego permanece en ninguna parte.`,
     text: `En cada encrucijada, elige lo nuevo.
 No lo que es mejor, más cómodo o más útil — elige lo nuevo.
 Solo lo nuevo puede mostrarte lo que nunca has conocido y hacerte más sabio.`,
-    source: null,
+    source: "Quiero Claridad",
     tags: ["citas"]
   },
   {
@@ -405,20 +405,20 @@ Quizás esta es la naturaleza del “yo”: usa todo para hacer su personalidad 
 Usa amigos, conocidos, extraños en redes sociales, hijos, familia y seres queridos.
 Para esto, sacrifica oportunidades, su futuro, sus sueños y la calidez en la que los seres queridos podrían haber encontrado consuelo.
 Disfrazado de servicialidad, escucha solo para poder responder.`,
-    source: null,
+    source: "Quiero Claridad",
     tags: ["citas"]
   },
   {
     number: 38,
     text: `No son las personas las que nos causan dolor, sino nuestros pensamientos sobre ellas.
 Sin embargo, preferimos elegir el sufrimiento que aceptar este hecho — y la responsabilidad que conlleva.`,
-    source: null,
+    source: "Quiero Claridad",
     tags: ["citas"]
   },
   {
     number: 39,
     text: `Cuando siempre estás haciendo algo, nunca encuentras tiempo para encontrarte contigo mismo. Y así la vida continúa, pero no hay nadie allí para vivirla.`,
-    source: null,
+    source: "Quiero Claridad",
     tags: ["citas"]
   },
   {
@@ -436,7 +436,7 @@ La tuya.
 La que te espera.
 Imagina cómo es por dentro.
 Compara.`,
-    source: null,
+    source: "Quiero Claridad",
     tags: ["recomendaciones"]
   },
   {
@@ -469,7 +469,7 @@ La mente no está diseñada para trabajar con estructuras complejas. Así es sim
 
 P.D. Una cosa más...
 Cuando escribas — si lo haces — escribe como si tus palabras fueran a ser leídas y publicadas después de tu muerte. Hazlas claras, completas, legibles y ordenadas. Esto importa porque la mente quiere ahorrar tiempo y convierte el trabajo real en garabatos. Eso arruinará todo. Y una cosa más... Si esto fue útil, usa la flecha de la derecha y recomiéndalo a amigos que puedan necesitarlo.`,
-    source: null,
+    source: "Quiero Claridad",
     tags: ["recomendaciones"]
   },
   {
@@ -480,7 +480,7 @@ Esta perspectiva fragmenta la realidad, creando historias y confinándonos dentr
 Aquí está el brillante sueño de un nuevo nacimiento y la esperanza de felicidad; allí, alguien ya siente el dolor de una desaparición inminente.
 Aparecen, estallan, se fusionan, se expanden, se afianzan y sufren.
 Sumergirse en las profundidades cambia cómo ves lo que está sucediendo. Volver a la superficie ya no puede quitarte esa comprensión.`,
-    source: null,
+    source: "Quiero Claridad",
     tags: ["silencio"]
   },
   {
@@ -492,14 +492,14 @@ Eso es una mentira.
 No tienes conocimiento de primera mano de tu nacimiento.
 Te enseñaron a pensar de esa manera.
 Exactamente de la misma manera, te enseñaron a pensar que morirás.`,
-    source: null,
+    source: "Quiero Claridad",
     tags: ["citas"]
   },
   {
     number: 44,
     text: `— Dime, ¿cómo debo meditar para descubrir mi verdadera naturaleza?
 — ¿Así que ya has decidido que hay alguien que debe meditar, y que ese alguien eres tú?`,
-    source: null,
+    source: "Quiero Claridad",
     tags: ["silencio"]
   },
   {
@@ -513,7 +513,7 @@ También hay un quinto nivel.
 Dado que solo el diez por ciento de la población llega al final del segundo nivel — y que, en el mejor de los casos, lleva media vida — solo unas pocas docenas de miles de millones llegan al principio del cuarto.
 ¿Quizás es hora de entender esto y empezar a mirar más ampliamente desde el principio?
 No es tan difícil como parece.`,
-    source: null,
+    source: "Quiero Claridad",
     tags: ["citas"]
   },
   {
@@ -544,13 +544,13 @@ Y sabe que esto requiere un deseo genuino y una sed genuina de verdad. Un verdad
 En el momento en que un verdadero maestro ve a alguien marcando tales demandas absurdas con los dedos, te explicará rápidamente adónde tienes que ir y con qué rapidez. En cuanto a tu actitud repentinamente cambiada hacia él, simplemente no le importaría en absoluto.
 
 Y ganará su vida no de satsangs y libros, sino porque sabe cómo hacer excelentes taburetes, dirigir una empresa o bordar. Hace su propio trabajo en lugar de viajar de ciudad en ciudad y de país en país, predicando o celebrando satsangs a cambio de donaciones.`,
-    source: null,
+    source: "Quiero Claridad",
     tags: ["silencio"]
   },
   {
     number: 47,
     text: `Tomar una decisión es el paso más importante.`,
-    source: null,
+    source: "Quiero Claridad",
     tags: ["silencio"]
   },
   {
@@ -561,14 +561,14 @@ Pero no está siendo soñado por otro tú, por tu “yo real”, o por ti en alg
 Tampoco está siendo soñado por otra versión de sí mismo.
 Simplemente está siendo soñado.
 Tú estás siendo soñado.`,
-    source: null,
+    source: "Quiero Claridad",
     tags: ["silencio"]
   },
   {
     number: 49,
     text: `¿Qué significado podría tener la vida para un personaje en un sueño?
 ¿De qué hay que preocuparse cuando se trata de no lograr algún objetivo?`,
-    source: null,
+    source: "Quiero Claridad",
     tags: ["silencio"]
   },
   {
@@ -584,7 +584,7 @@ Sí, tarde o temprano, te acostarás en tu cama pensando que la vida es injusta 
 Ahora yaces solo, y tienes miedo. Miedo de que ya no puedas cambiar nada. El tiempo se acabó. Y con su paso llega una comprensión de lo que realmente importa — junto con la realización de que todos esos años dedicados a la salud, los logros, el éxito profesional y los apartamentos de lujo han sido devaluados. Fuiste un pringado. Malgastaste tu vida porque nunca encontraste el tiempo, en algún punto intermedio, para detenerte y mirar a tu alrededor. Nunca te tomaste ese tiempo. Estabas demasiado absorto en el juego y en el autoengaño. Repetiste tan a menudo que debías vivir ahora mismo que terminaste perdiendo la vida misma de la que hablabas.
 
 Ahora todo lo que queda es reír, y luego llorar en tu almohada hasta que el sueño te libere de este doloroso vacío.`,
-    source: null,
+    source: "Quiero Claridad",
     tags: ["recomendaciones"]
   },
   {
@@ -592,7 +592,7 @@ Ahora todo lo que queda es reír, y luego llorar en tu almohada hasta que el sue
     text: `...Bienvenido a la Matrix, donde no eres más que una vaca lechera.
 El propósito de la existencia de esta vaca es alimentar con su energía a un parásito llamado mente.
 Cuando la vaca envejece, se cansa y se agota, es sacrificada...`,
-    source: null,
+    source: "Quiero Claridad",
     tags: ["silencio"]
   },
   {
@@ -603,7 +603,7 @@ Recuerda esto sobre todo: la mente es el ejecutor del mundo. Un buen y fiel ejec
 El mundo es un genio que da vida a todos tus deseos y sueños. Pero el mundo no tiene deseos propios. Así que si temes un huracán y lo imaginas destruyendo tu casa, el mundo lo arreglará para ti. ¿Quieres esa imagen? Aquí la tienes. Si te imaginas en una orilla blanca junto a la persona que amas, con gusto comenzará a pintar esa escena. ¿Quieres derrotar a todos en una lucha difícil? Ciertamente. ¿Quieres rescatar gatitos? No hay problema. Aquí hay gente cruel, y aquí hay gatitos. ¿Quieres ganar el derecho a tener éxito? Allá vamos — crearemos obstáculos y te daremos la voluntad para superarlos. Solo imagina tu vida, este año, mañana — y así será. Tus deseos y miedos determinan lo que ves, y por lo tanto lo que el mundo construirá. “Lo que desees, mi querido”, dice. “La mente y yo nos encargaremos de todo. Relájate y no te interpongas.”
 
 Simplemente relájate y confía completamente en el mundo. Hará realidad todas tus fantasías.`,
-    source: null,
+    source: "Quiero Claridad",
     tags: ["recomendaciones"]
   },
   {
@@ -613,7 +613,7 @@ El éxito es ser tan altamente hábil en el trabajo que amas que puedes permitir
 A partir de este momento, lo que más importa en tu vida es tener tanto tiempo libre como necesites, y saber que en cualquier momento puedes ganar el nivel de comodidad que necesitas ahora mismo.
 Es independencia absoluta de cosas, personas, circunstancias, caprichos de clientes, enredos materiales e incluso las reglas de supervivencia de la sociedad.
 A través de tu maestría, compras solo una cosa: libertad absoluta.`,
-    source: null,
+    source: "Quiero Claridad",
     tags: ["citas"]
   },
   {
@@ -624,7 +624,7 @@ Algo que me ayudara a dejar de lado la superficialidad del mundo humano y volver
 Aquí están esas palabras...
 
 “Todo pasa a través de ti. No hay nadie con quien luchar, nadie de quien huir. Nadie está aquí. Solo un sueño, creando un mundo dentro de sí mismo y de sí mismo: tiempo, eventos, personas, relaciones, el futuro, dilemas, planes, pensamientos, deseos, sentimientos. Silencio por todas partes. Escucha su sonido.”`,
-    source: null,
+    source: "Quiero Claridad",
     tags: ["silencio"]
   },
   {
@@ -632,13 +632,13 @@ Aquí están esas palabras...
     text: `El tipo correcto de escritura se basa en el efecto de una píldora de la verdad. El punto es que la gente a menudo no puede soportar la verdad, porque los obliga a actuar y cambiar su situación, o a admitir su propia insuficiencia y su falta de voluntad para hacer algo al respecto.
 ...
 Por eso la verdad es el instrumento de influencia más poderoso — y por qué provoca la mayor agresión en aquellos que se niegan a reconocerla.`,
-    source: null,
+    source: "Quiero Claridad",
     tags: ["citas"]
   },
   {
     number: 56,
     text: `Cuando las personas se niegan a dejar que sus relaciones mueran al viejo yo, se niegan a cambiar y se niegan a pagar con piezas preciosas de su amado “yo”, la relación muere antes que ellos.`,
-    source: null,
+    source: "Quiero Claridad",
     tags: ["citas"]
   },
   {
@@ -648,13 +648,13 @@ Di lo que deba decirse, luego suéltalo y regresa a la posición del testigo.
 No hay necesidad de seguir hablando una vez que el pensamiento ha sido expresado.
 De lo contrario, obtienes un flujo interminable de palabras como esta:
 “No entiendo cuándo va a terminar esto no tengo tiempo para mí siempre hay problemas y ni un solo minuto para estar solo conmigo mismo Dios cuándo terminará esto”`,
-    source: null,
+    source: "Quiero Claridad",
     tags: ["silencio"]
   },
   {
     number: 58,
     text: `El coraje se mide por la distancia entre tomar una decisión y pasar a la acción.`,
-    source: null,
+    source: "Quiero Claridad",
     tags: ["citas"]
   },
   {
@@ -663,7 +663,7 @@ De lo contrario, obtienes un flujo interminable de palabras como esta:
 Recuerda: en el momento en que sientes que estás viviendo en primera persona, estás atascado.
 Tus programas y narrativas están viviendo tu vida ahora, mientras tú estás profundamente dormido, soñando.
 El despertar es experimentar la realidad desde la perspectiva de la realidad como un todo — la realidad en la que el personaje en primera persona se mueve.`,
-    source: null,
+    source: "Quiero Claridad",
     tags: ["citas"]
   },
   {
@@ -675,13 +675,13 @@ El despertar es experimentar la realidad desde la perspectiva de la realidad com
 Si tus planes no te traen alegría, olvídalos y busca el camino que sí lo haga.
 El éxito no se define por lograr metas o llevar a cabo planes, sino por la cantidad de alegría que te trae tu actividad presente.
 Encuentra esas actividades y construye tus planes diarios en torno a ellas. No en torno a metas, sino en torno a las actividades mismas.`,
-    source: null,
+    source: "Quiero Claridad",
     tags: ["citas"]
   },
   {
     number: 61,
     text: `Para tener éxito, créate un mar de problemas — y luego resuélvelos todos. Cuantos más problemas, mayor el éxito.`,
-    source: null,
+    source: "Quiero Claridad",
     tags: ["citas"]
   },
   {
@@ -691,7 +691,7 @@ Para hacer esto, empieza a observar el proceso. Notarás que tu oponente tambié
 Siguen cada movimiento de tu ego, retroceden, se erizan y responden.
 Después de un tiempo, te detendrás y verás la confusión en el ego de la otra persona.
 En esa confusión, intentará una variación aleatoria tras otra, esperando hacer que tu ego se mueva de nuevo.`,
-    source: null,
+    source: "Quiero Claridad",
     tags: ["citas"]
   },
   {
@@ -709,7 +709,7 @@ La cultura occidental, por el contrario, está orientada hacia la maduración y 
 Mi camino es un enfoque integrado. El camino del “autodesarrollo + autoindagación” hace posible no solo despertar dentro del sueño, reconociendo la ilusión como una ilusión, sino también usar esa claridad para crear tus propios mundos dentro de él. Estas palabras no son del todo precisas, porque en el momento del despertar la visión del mundo en primera persona desaparece, junto con los conceptos de mío, tuyo y de otra persona...
 
 Como dicen: felicidad, placer y paz absoluta.`,
-    source: null,
+    source: "Quiero Claridad",
     tags: ["citas"]
   },
   {
@@ -727,7 +727,7 @@ E incluso si asientes, puede que no captes lo extraordinaria que es esta situaci
 Nunca has hecho que nada suceda por ti mismo. Nunca.
 Ninguna de tus decisiones es tuya.
 Eres meramente un programa, un transmisor sin voluntad propia, sin elección propia, y ni siquiera el derecho a decidir si tomar conciencia de su propia naturaleza.`,
-    source: null,
+    source: "Quiero Claridad",
     tags: ["silencio"]
   },
   {
@@ -737,7 +737,7 @@ Todas las contradicciones, conflictos internos y externos, y la depresión está
 La gente se desgarra por la falta de claridad aquí.
 Para compensar su confusión, inventan palabras como “debo”, “debería” y “circunstancias”, escondiéndose de su propia ignorancia.
 Y todo lo que se necesita es sentarse y mirar cuidadosamente tus deseos y necesidades.`,
-    source: null,
+    source: "Quiero Claridad",
     tags: ["citas"]
   },
   {
@@ -747,7 +747,7 @@ La atención responde a la pregunta: “¿Qué estoy haciendo?” La fuerza de l
 La conciencia responde a la pregunta: “¿Por qué estoy haciendo esto?” De nuevo, pocas personas examinan adónde van, por qué van allí, qué les dará y si necesitan ir allí en absoluto. Responder a estas preguntas requiere dedicar tiempo y aplicar esa misma atención.
 He visto literalmente a personas que considero fuertes y exitosas dedicar un día entero a examinar sus metas personales, miedos y deseos, y a comprender lo que realmente quieren. Tomaban un lápiz y papel y se volvían hacia adentro. Cada domingo...
 Pocas personas hacen esto. Estas son dos grandes capacidades, y no surgen por sí mismas.`,
-    source: null,
+    source: "Quiero Claridad",
     tags: ["citas"]
   },
   {
@@ -760,19 +760,19 @@ Actúa contra la lógica, el sentido común e incluso tu propia falta de motivac
 Haz algo — aspira el suelo, si es todo lo que puedes hacer.
 ¿Te sientes mal? Coge la aspiradora y empieza a aspirar.
 Sigue hasta que los vecinos de abajo suban y empiecen a llamar a tu puerta.`,
-    source: null,
+    source: "Quiero Claridad",
     tags: ["citas"]
   },
   {
     number: 68,
     text: `Nunca mires atrás. Nada ha cambiado allí.`,
-    source: null,
+    source: "Quiero Claridad",
     tags: ["recomendaciones"]
   },
   {
     number: 69,
     text: `Cualquier tarea requiere menos energía cuando la haces de todo corazón que cuando la haces a medias.`,
-    source: null,
+    source: "Quiero Claridad",
     tags: ["sabiduría"]
   },
   {
@@ -781,7 +781,7 @@ Sigue hasta que los vecinos de abajo suban y empiecen a llamar a tu puerta.`,
 Esto no es un horror tradicional diseñado simplemente para asustarte. Es una historia especulativa contada a través de los ojos de Luke, de doce años, sobre cómo se ve obligado a crecer muy rápidamente y tomar sus propias decisiones. ¿Debería luchar, como su amigo Nick, sabiendo que la lucha está condenada, o rendirse, como tantos otros hacen?
 ¿Debería aceptar las reglas impuestas cuando la desesperación misma grita: “Ríndete, haz lo que te dicen y te sentirás mejor de inmediato”? ¿Debería insensibilizarse, o seguir adelante a pesar de su miedo? Y hay una pregunta aún más grande: ¿vale la pena salvar el mundo si hacerlo significa torturar y matar niños? El libro plantea muchísimas preguntas sin dar respuestas. No son preguntas infantiles, sino preguntas que cada uno debe responder por sí mismo.
 Todo el que lea este libro tomará su propia decisión y encontrará sus propias respuestas. Y eso es precisamente lo que tanto importa para un niño en crecimiento: aprender a tomar sus propias decisiones. Lo recomiendo encarecidamente.`,
-    source: null,
+    source: "Quiero Claridad",
     tags: ["lectura"]
   },
   {
@@ -789,20 +789,20 @@ Todo el que lea este libro tomará su propia decisión y encontrará sus propias
     text: `Para entrar en la dicha, deja de juzgar todo lo que sucede —y deja de juzgarte a ti mismo.
 Comprende que los nombres, las palabras, las letras y las etiquetas no tienen esencia inherente. Esto puede verse fácil e inmediatamente.
 Entonces, cada juicio se convierte en lo que realmente es: solo una palabra.`,
-    source: null,
+    source: "Quiero Claridad",
     tags: ["silencio"]
   },
   {
     number: 72,
     text: `Todo lo que sucede en este momento es necesario.`,
-    source: null,
+    source: "Quiero Claridad",
     tags: ["silencio"]
   },
   {
     number: 73,
     text: `Usualmente pensamos que tenemos que esperar a que nuestro sueño se haga realidad. En realidad, simplemente tenemos que apoderarnos de él.
 Simplemente ve y reclama aquello con lo que sueñas.`,
-    source: null,
+    source: "Quiero Claridad",
     tags: ["recomendaciones"]
   },
   {
@@ -810,7 +810,7 @@ Simplemente ve y reclama aquello con lo que sueñas.`,
     text: `¿Tienes un sueño? ¿Un sueño que moldearía todos tus planes y todas tus decisiones importantes?
 Conozco personas que tienen metas —grandes, interesantes metas. Las persiguen, superando dificultades y debilidades personales. Pero un sueño es algo más. Un sueño es algo que haces por los demás. Un sueño es algo que cambia el mundo.
 Pocas personas son capaces de vivir por un sueño. Porque es difícil. Casi imposible. Y conlleva una enorme responsabilidad. Cuando persigues tu sueño, la gente inevitablemente estará a tu lado —personas que han creído en tu sueño, personas que han creído en tu fuerza. Vivir por un sueño es difícil. Solo los más fuertes pueden hacerlo.`,
-    source: null,
+    source: "Quiero Claridad",
     tags: ["recomendaciones"]
   },
   {
@@ -818,7 +818,7 @@ Pocas personas son capaces de vivir por un sueño. Porque es difícil. Casi impo
     text: `La mente se ve obligada a jugar ajedrez consigo misma, a veces desde la perspectiva de una persona y a veces desde la de otra. Pero en verdad, te está hablando a ti.
 Tú eres lo que percibe las conversaciones de la mente. Tú eres lo que escucha, pero no evalúa, juzga ni reacciona.
 Tú eres la presencia divina con la que la mente intenta comunicarse eternamente.`,
-    source: null,
+    source: "Quiero Claridad",
     tags: ["silencio"]
   },
   {
@@ -847,7 +847,7 @@ Luchar contra la realidad es una locura.`,
   {
     number: 78,
     text: `El camino es el fin de la guerra interna con lo que está sucediendo ahora mismo.`,
-    source: null,
+    source: "Quiero Claridad",
     tags: ["silencio"]
   },
   {
@@ -862,7 +862,7 @@ Luchar contra la realidad es una locura.`,
     number: 80,
     text: `Tu única tarea es la total aceptación interna de cada momento de tu vida, sin la menor resistencia.
 Por fuera, actúa como desees. Pero internamente, permanece anclado en una serenidad absoluta e impenetrable.`,
-    source: null,
+    source: "Quiero Claridad",
     tags: ["silencio"]
   },
   {
@@ -874,7 +874,7 @@ Por fuera, actúa como desees. Pero internamente, permanece anclado en una seren
   {
     number: 82,
     text: `Cada segundo pasado en la no-implicación importa. Entrena la mente.`,
-    source: null,
+    source: "Quiero Claridad",
     tags: ["silencio"]
   },
   {
@@ -886,7 +886,7 @@ Por fuera, actúa como desees. Pero internamente, permanece anclado en una seren
   {
     number: 84,
     text: `Comienza tu día y vive como si no estuvieras aquí.`,
-    source: null,
+    source: "Quiero Claridad",
     tags: ["silencio"]
   },
   {
@@ -941,7 +941,7 @@ Por fuera, actúa como desees. Pero internamente, permanece anclado en una seren
     number: 93,
     text: `No estás en el momento.
 Tú eres el momento.`,
-    source: null,
+    source: "Quiero Claridad",
     tags: ["silencio"]
   },
   {
@@ -950,13 +950,13 @@ Tú eres el momento.`,
 Tú eres lo que es consciente de la acción.
 No puedes actuar, porque las acciones están sucediendo.
 Sin embargo, suceden en la presencia —es decir, en ti.`,
-    source: null,
+    source: "Quiero Claridad",
     tags: ["silencio"]
   },
   {
     number: 95,
     text: `¿Sigues esperando que la vida comience una vez que los problemas hayan terminado?`,
-    source: null,
+    source: "Quiero Claridad",
     tags: ["silencio"]
   },
   {
@@ -998,25 +998,25 @@ Hablan de una manera que no perturba la mente de otra persona ni agita la suya p
   {
     number: 101,
     text: `Aquel que piensa que hay un pensamiento es el pensamiento mismo.`,
-    source: null,
+    source: "Quiero Claridad",
     tags: ["silencio"]
   },
   {
     number: 102,
     text: `Tú eres el lugar desde donde todo es visto.`,
-    source: null,
+    source: "Quiero Claridad",
     tags: ["silencio"]
   },
   {
     number: 103,
     text: `Rendición total. ¡Esta es la instrucción esencial!`,
-    source: null,
+    source: "Quiero Claridad",
     tags: ["silencio"]
   },
   {
     number: 104,
     text: `Permanece inquebrantable en el desapego.`,
-    source: null,
+    source: "Quiero Claridad",
     tags: ["silencio"]
   },
   {
@@ -1028,27 +1028,27 @@ Si puedes sentir este estado, eso es lo que eres.
 Tu verdadera naturaleza.
 Esto es la iluminación.
 Si tu personalidad y cuerpo desaparecen pero el sentido de un observador separado permanece, eso es liberación —pero no iluminación.`,
-    source: null,
+    source: "Quiero Claridad",
     tags: ["silencio"]
   },
   {
     number: 106,
     text: `Vive desde un sentido de lo indefinible.`,
-    source: null,
+    source: "Quiero Claridad",
     tags: ["silencio"]
   },
   {
     number: 107,
     text: `El estado moldea la realidad.
 No cambies el mundo — cambia el estado. El estado cambia por sí solo cuando te disuelves en el flujo.`,
-    source: null,
+    source: "Quiero Claridad",
     tags: ["silencio"]
   },
   {
     number: 108,
     text: `Disuélvete en el flujo. Confía en él y conviértete en él.
 No eres el centro, sino el espacio de conciencia en el que la vida se vive a sí misma.`,
-    source: null,
+    source: "Quiero Claridad",
     tags: ["silencio"]
   },
   {
@@ -1056,7 +1056,7 @@ No eres el centro, sino el espacio de conciencia en el que la vida se vive a sí
     text: `No hay nadie viviendo esta vida.
 Solo hay vida, viviéndose a sí misma.
 No eres el hacedor, sino la conciencia inafectada en la que todo surge y desaparece.`,
-    source: null,
+    source: "Quiero Claridad",
     tags: ["silencio"]
   },
   {
@@ -1064,13 +1064,13 @@ No eres el hacedor, sino la conciencia inafectada en la que todo surge y desapar
     text: `No atribuyas importancia a nada.
 Un pensamiento sobre la iluminación y un pensamiento sobre una taza son de la misma naturaleza.
 No eleves uno ni devalúes el otro. De esta manera, se liberan a sí mismos.`,
-    source: null,
+    source: "Quiero Claridad",
     tags: ["silencio"]
   },
   {
     number: 111,
     text: `Detén la carrera. Ahora mismo.`,
-    source: null,
+    source: "Quiero Claridad",
     tags: ["silencio"]
   },
   {
@@ -1084,50 +1084,50 @@ Interfieres con ellos.
 Déjate en paz, y todo encajará.
 Confía, incluso cuando parezca que todo va mal.
 Así es solo como te parece a ti.`,
-    source: null,
+    source: "Quiero Claridad",
     tags: ["silencio"]
   },
   {
     number: 113,
     text: `Si quieres resolver un problema irresoluble pero no tienes idea de cómo, siéntate y simplemente quédate ahí: sin gente, sin actividad, sin distracciones.
 En una hora, la solución aparecerá.`,
-    source: null,
+    source: "Quiero Claridad",
     tags: ["silencio"]
   },
   {
     number: 114,
     text: `Medita ahora.`,
-    source: null,
+    source: "Quiero Claridad",
     tags: ["silencio"]
   },
   {
     number: 115,
     text: `Vive como si nadie estuviera aquí.`,
-    source: null,
+    source: "Quiero Claridad",
     tags: ["silencio"]
   },
   {
     number: 116,
     text: `Eres conciencia eterna e inafectada.`,
-    source: null,
+    source: "Quiero Claridad",
     tags: ["silencio"]
   },
   {
     number: 117,
     text: `Todo pasa a través de ti, y nada te toca.`,
-    source: null,
+    source: "Quiero Claridad",
     tags: ["silencio"]
   },
   {
     number: 118,
     text: `Confía en la vida. Ella sabe cómo.`,
-    source: null,
+    source: "Quiero Claridad",
     tags: ["silencio"]
   },
   {
     number: 119,
     text: `La realidad es muy suave.`,
-    source: null,
+    source: "Quiero Claridad",
     tags: ["silencio"]
   },
   {
@@ -1138,21 +1138,24 @@ Eres la quietud misma.
 El mundo entero está dentro de ti y hecho de ti, sin embargo, no te toca.
 Eres lo indefinible en lo que juegan los conceptos de definición.
 Eres vacío inmóvil, indefinido, plenamente lleno.`,
-    source: null,
+    source: "Quiero Claridad",
     tags: ["silencio"]
   },
   {
     number: 121,
-    text: `Eres el centro inmóvil del sueño, intocado por nada.
-El mundo entero está dentro de ti.`,
-    source: null,
+    text: `Tu tarea no es reflexionar ni describir la realidad,
+sino apagar la mente, pasando al formato de observador puro.
+
+Todas las discusiones y reflexiones sirven a un solo propósito:
+acercarte a la práctica y luego desaparecer.`,
+    source: "Quiero Claridad",
     tags: ["silencio"]
   },
   {
     number: 122,
     text: `Encuentra tu enraizamiento en el espacio de la presencia, y observa la mente trabajando dentro de ese espacio.
 Esto requiere un desapego inquebrantable.`,
-    source: null,
+    source: "Quiero Claridad",
     tags: ["silencio"]
   },
   {
@@ -1161,7 +1164,7 @@ Esto requiere un desapego inquebrantable.`,
 Puedes entrar en él dejando de ser parte de lo que se llama “mi vida”.
 Indefinibilidad absoluta y no-saber.
 Aquí no hay tiempo.`,
-    source: null,
+    source: "Quiero Claridad",
     tags: ["silencio"]
   },
   {
@@ -1170,25 +1173,25 @@ Aquí no hay tiempo.`,
 Esa es la ilusión del tiempo.
 Solo hay ahora, y todos tus recuerdos son información sobre un pasado que nunca fue.
 Existes como un instante congelado.`,
-    source: null,
+    source: "Quiero Claridad",
     tags: ["silencio"]
   },
   {
     number: 125,
     text: `El tiempo y el espacio son ilusiones que surgen cuando diferentes experiencias se unen.`,
-    source: null,
+    source: "Quiero Claridad",
     tags: ["silencio"]
   },
   {
     number: 126,
     text: `Hay EXPERIENCIA, y dentro de ella un ser humano corre de un lado a otro.`,
-    source: null,
+    source: "Quiero Claridad",
     tags: ["silencio"]
   },
   {
     number: 127,
     text: `Lo que notas crea el espacio de tu vida — o tú como la vida misma.`,
-    source: null,
+    source: "Quiero Claridad",
     tags: ["silencio"]
   },
   {
@@ -1197,7 +1200,7 @@ Existes como un instante congelado.`,
 Todo simplemente sucede.
 Tú no existes.
 El cuerpo vive, los pensamientos van y vienen, los deseos surgen.`,
-    source: null,
+    source: "Quiero Claridad",
     tags: ["silencio"]
   },
   {
@@ -1205,7 +1208,7 @@ El cuerpo vive, los pensamientos van y vienen, los deseos surgen.`,
     text: `Necesitas desarrollar el hábito de permanecer desapegado de cualquier situación que se desarrolle.
 Impasibilidad.
 Una especie de impasibilidad inquebrantable hacia todo lo que sucede.`,
-    source: null,
+    source: "Quiero Claridad",
     tags: ["silencio"]
   },
   {
@@ -1213,14 +1216,14 @@ Una especie de impasibilidad inquebrantable hacia todo lo que sucede.`,
     text: `La vida está sucediendo.
 No eres tú quien está siendo enseñado — el aprendizaje está ocurriendo.
 No eres tú quien compra el pan — el pan está siendo comprado.`,
-    source: null,
+    source: "Quiero Claridad",
     tags: ["silencio"]
   },
   {
     number: 131,
     text: `Simplemente eres, con la forma moviéndose a través de ello...
 La eternidad se extiende por delante.`,
-    source: null,
+    source: "Quiero Claridad",
     tags: ["silencio"]
   },
   {
@@ -1229,7 +1232,7 @@ La eternidad se extiende por delante.`,
 Te aferras a estas preguntas como si fueran un salvavidas, aunque la mera presencia de la pregunta es solo otra maldita picazón en la parte posterior de la mente.
 No hay un “yo” que necesite entender o tomar conciencia de nada.
 Simplemente existe el proceso de percibir. Sin dueño. Sin centro. Sin observador.`,
-    source: null,
+    source: "Quiero Claridad",
     tags: ["silencio"]
   },
   {
@@ -1237,7 +1240,7 @@ Simplemente existe el proceso de percibir. Sin dueño. Sin centro. Sin observado
     text: `Deja de buscar tu “verdadero ser”.
 Eres lo que queda cuando toda búsqueda ha cesado.
 Mientras te sientas a esperar alguna revelación, tu mente simplemente está jugando con otro juguete espiritual, reemplazando un concepto por otro.`,
-    source: null,
+    source: "Quiero Claridad",
     tags: ["silencio"]
   },
   {
@@ -1245,7 +1248,7 @@ Mientras te sientas a esperar alguna revelación, tu mente simplemente está jug
     text: `Toda esta charla sobre “conciencia”, “presencia” y “el aquí y ahora” son completas patrañas mientras haya alguien detrás intentando aferrarse al momento.
 Nadie se aferra a nada. Todo fluye por sí mismo.
 No eres tú quien es consciente. Eres aquello sobre lo que todo esto se despliega, sin que hagas el más mínimo esfuerzo.`,
-    source: null,
+    source: "Quiero Claridad",
     tags: ["silencio"]
   },
   {
@@ -1253,7 +1256,7 @@ No eres tú quien es consciente. Eres aquello sobre lo que todo esto se desplieg
     text: `Deja de obsesionarte con tu “práctica” como si fuera un tesoro sagrado.
 Si practicas la conciencia, entonces hay alguien que practica y algo que practicar. Eso es puro sueño.
 La iluminación no es estar “en un estado de conciencia”. Es cuando ya no queda nadie para ser inconsciente.`,
-    source: null,
+    source: "Quiero Claridad",
     tags: ["silencio"]
   },
   {
@@ -1261,7 +1264,7 @@ La iluminación no es estar “en un estado de conciencia”. Es cuando ya no qu
     text: `Olvídate de todos tus estados, revelaciones y “prácticas profundas”.
 Todo lo que puede ser experimentado desaparecerá. Todo lo que puede ser sentido llegará a su fin.
 Solo permanece lo que no tiene nombre, ni forma, ni maldita historia espiritual.`,
-    source: null,
+    source: "Quiero Claridad",
     tags: ["silencio"]
   },
   {
@@ -2353,7 +2356,7 @@ Retira esa creencia, da un paso atrás hacia el silencio — y todo el castillo 
   {
     number: 271,
     text: `Cuando “Grisha” está presente, Dios no lo está. Cuando Dios está presente, “Grisha” no lo está.`,
-    source: null,
+    source: "Quiero Claridad",
     tags: ["silencio"]
   },
   {
@@ -2365,7 +2368,7 @@ Necesitas desarrollar el hábito de ser inquebrantable, intocado por las circuns
 De lo contrario, las situaciones y dificultades volverán a crear una niebla de vida ordinaria y te arrastrarán a la rutina.
 Será como si siguieras cayendo en el olvido.
 Aprende a permanecer inquebrantablemente desapegado.`,
-    source: null,
+    source: "Quiero Claridad",
     tags: ["silencio"]
   },
   {
@@ -3499,7 +3502,8 @@ Investiga dónde encuentras el tiempo al que supuestamente necesitas regresar.`,
   },
   {
     number: 431,
-    text: `La mente habitual reclama incluso la liberación como propia.”`,
+    text: `La mente habitual reclama incluso la liberación como propia.
+Observa cómo surge el pensamiento: «Esto me sucedió/está sucediendo a mí».`,
     source: null,
     tags: ["silencio"]
   },
@@ -4027,7 +4031,7 @@ Emerge del piloto automático.`,
   },
   {
     number: 512,
-    text: `Cuando llegue la ansiedad, pregunta: “¿A quién pertenece?” Empieza a buscar al dueño, и solo encontrarás silencio.`,
+    text: `Cuando llegue la ansiedad, pregunta: “¿A quién pertenece?” Empieza a buscar al dueño, y solo encontrarás silencio.`,
     source: null,
     tags: ["silencio"]
   },
@@ -4076,7 +4080,8 @@ Deja de modelar constantemente el siguiente paso y mantén la atención en el he
   },
   {
     number: 520,
-    text: `El dolor físico es simplemente una señal biológica.`,
+    text: `El dolor físico es simplemente una señal biológica.
+El sufrimiento solo aparece junto con el cuento de «esto me está pasando a mí».`,
     source: null,
     tags: ["silencio"]
   },
@@ -4138,7 +4143,9 @@ Todo ocurre dentro de ti.`,
   },
   {
     number: 530,
-    text: `El momento presente es un concepto de la mente. La percepción simplemente ocurre, sin marcas de tiempo.`,
+    text: `No intentes «vivir en el momento presente».
+El momento presente es un concepto de la mente.
+La percepción simplemente ocurre, sin marcas de tiempo.`,
     source: null,
     tags: ["silencio"]
   },
@@ -4150,7 +4157,8 @@ Todo ocurre dentro de ti.`,
   },
   {
     number: 532,
-    text: `Cada vez que dices «Yo no soy el cuerpo», creas una nueva imagen que supuestamente no es el cuerpo.`,
+    text: `Cada vez que dices «Yo no soy el cuerpo», creas una nueva imagen que supuestamente no es el cuerpo.
+Desecha el concepto mismo de «Yo».`,
     source: null,
     tags: ["silencio"]
   },
@@ -4174,13 +4182,19 @@ Todo ocurre dentro de ti.`,
   },
   {
     number: 536,
-    text: `Cuando surge el deseo de levantarse de la meditación, reconócelo como una sensación pasajera, no como una orden personal.`,
-    source: null,
+    text: `La práctica no tolera la dispersión.
+O intensidad o regularidad (y mejor aún, ambas):
+solo a través de ellas se rompe el estancamiento de la mente.
+
+Sin esto, solo recordarás la iluminación
+de vez en cuando, pero no avanzarás hacia ella.`,
+    source: "Quiero Claridad",
     tags: ["silencio"]
   },
   {
     number: 537,
-    text: `No hay un «hacedor» dentro.`,
+    text: `No hay un «hacedor» dentro.
+La acción ocurre, la decisión se forma, y luego la mente viene corriendo con el grito: «yo decidí esto».`,
     source: null,
     tags: ["silencio"]
   },
@@ -4192,7 +4206,8 @@ Todo ocurre dentro de ti.`,
   },
   {
     number: 539,
-    text: `No intentes expandir tu «Yo» al tamaño del Absoluto — eso es simplemente el ego inflándose a sí mismo.`,
+    text: `No intentes expandir tu «Yo» al tamaño del Absoluto — eso es simplemente el ego inflándose a sí mismo.
+Desecha el «Yo» inicial.`,
     source: null,
     tags: ["silencio"]
   },
@@ -4228,7 +4243,7 @@ Todo ocurre dentro de ti.`,
   },
   {
     number: 545,
-    text: `Cada vez que el temporizador suena, no busques estados profundos.`,
+    text: `Cada vez que el temporizador suena, no busques estados profundos, sino simplemente recuerda: todo existe, pero «yo» no.`,
     source: null,
     tags: ["silencio"]
   },
@@ -4282,8 +4297,8 @@ Todo ocurre dentro de ti.`,
   },
   {
     number: 554,
-    text: `Aquieta la mente y cumple con tus deberes como una tortuga que ha retirado sus miembros.`,
-    source: "Yoga Vasistha",
+    text: `Aquel que puede retirar los sentidos de los objetos de los sentidos, tal como una tortuga retira sus extremidades dentro del caparazón, se encuentra firmemente fijo en la sabiduría.`,
+    source: "Bhagavad Gita, 2.58",
     tags: ["silencio"]
   },
   {
@@ -4352,7 +4367,7 @@ No te esfuerces por obtener lo que está ausente, y no rechaces lo que llega.`,
     text: `Haz de la indagación, junto con los sabios, sobre estas preguntas el trabajo de toda tu vida: “¿Qué soy yo?
 ¿Qué son los objetos visibles?
 ¿Qué son la vida y el alma viviente?
-”`,
+¿Cómo y de dónde surgen?”`,
     source: "Yoga Vasistha",
     tags: ["silencio"]
   },
@@ -4583,7 +4598,8 @@ Observa que la historia misma existe como un pensamiento ahora mismo.`,
   },
   {
     number: 603,
-    text: `Durante mucho tiempo has sido prisionero de la identificación con el cuerpo. »`,
+    text: `Durante mucho tiempo has sido prisionero de la identificación con el cuerpo.
+Corta este vínculo con el conocimiento: «Yo soy conciencia».`,
     source: "Ashtavakra Gita, I.14",
     tags: ["silencio"]
   },
@@ -5115,7 +5131,8 @@ Indaga la naturaleza cambiante de estos estados, y no te apresures a identificar
   },
   {
     number: 685,
-    text: `«Solo la Conciencia está viva.»`,
+    text: `«Solo la Conciencia está viva.
+Todo lo objetivo está muerto e inerte.»`,
     source: "Sri Atmananda Krishna Menon",
     tags: ["silencio"]
   },
@@ -5219,7 +5236,9 @@ No conviertas el despertar en el sueño de un evento futuro. Sé atento a la rea
   },
   {
     number: 701,
-    text: `No respondas con palabras. Simplemente detente y reconoce la presencia inmediata.`,
+    text: `Pregúntate: «¿Soy consciente?».
+No respondas con palabras.
+Simplemente detente y reconoce la presencia inmediata.`,
     source: "Sailor Bob Adamson",
     tags: ["silencio"]
   },
@@ -5326,8 +5345,13 @@ No lo olvides y no te distraigas.`,
   },
   {
     number: 718,
-    text: `Estudiar el Camino del Buddha es estudiarse a uno mismo. Estudiarse a uno mismo es olvidarse de uno mismo.`,
-    source: "Dogen",
+    text: `Para dar el paso, es necesario descartar
+consecuentemente todo lo que creías ser:
+no soy una persona, ni pensamientos, ni sensaciones.
+
+Al descartar lo que no eres, permaneces en el vacío,
+esperando el momento en que ocurra un salto cualitativo en la percepción.`,
+    source: "Quiero Claridad",
     tags: ["silencio"]
   },
   {
@@ -5359,7 +5383,7 @@ No lo pospongas ni por un instante.`,
   {
     number: 723,
     text: `Todas las cosas condicionadas se desmoronan. ¡Practica incansablemente!`,
-    source: "The Buddha",
+    source: "El Buda",
     tags: ["silencio"]
   },
   {
@@ -5403,8 +5427,15 @@ No pierdas ni un solo momento. Dedica toda tu mente a la práctica del Camino.`,
   },
   {
     number: 730,
-    text: `Suelta un poco y ganarás un poco de paz. Suelta completamente y ganarás paz completa.`,
-    source: "Ajahn Chah",
+    text: `Imagina que tu vida solo transcurre
+mientras estás sentado en meditación.
+En cuanto te levantas, todo desaparece y se detiene,
+como si la vida hubiera terminado.
+
+Reconocer que no hay nada más significativo
+que tu tarea primordial de presencia ayuda a superar
+la ilusión de los asuntos cotidianos y a permanecer más tiempo meditando.`,
+    source: "Quiero Claridad",
     tags: ["silencio"]
   },
   {
@@ -5489,8 +5520,13 @@ No permitas que nada se interponga.`,
   },
   {
     number: 744,
-    text: `Todas las cosas compuestas están sujetas a la decadencia. ¡Practica incansablemente!`,
-    source: "El Buda",
+    text: `La esencia de la práctica meditativa radica en la dinámica
+del crecimiento de la continuidad de la consciencia.
+
+El objetivo no es simplemente sentarse mecánicamente,
+sino aumentar los intervalos de permanencia de la consciencia
+sin distracción en los pensamientos.`,
+    source: "Quiero Claridad",
     tags: ["silencio"]
   },
   {
@@ -5827,9 +5863,13 @@ Cada ansiedad es una oportunidad para ver el mecanismo de la identificación.`,
   },
   {
     number: 798,
-    text: `Utiliza cada transición de una tarea a otra como un recordatorio.
-No lleves el automatismo de una actividad a la siguiente. Haz una pausa de un segundo. Regresa a la experiencia directa.`,
-    source: null,
+    text: `Deja de reconstruirte a ti mismo a través del flujo de pensamientos
+y permítete simplemente ser lo que eres.
+
+Cuando cesa la actividad mental de mantener la imagen del «yo»,
+se libera una energía colosal,
+dando paso de forma natural a la paz y la dicha.`,
+    source: "Quiero Claridad",
     tags: ["silencio"]
   },
   {
@@ -6185,7 +6225,7 @@ No entregues a otra persona el control sobre tu atención.`,
   },
   {
     number: 853,
-    text: `Nombra tres situaciones en las que con mayor frecuencia pierdes la claridad. ” Nombra situaciones específicas.`,
+    text: `Nombra tres situaciones en las que con mayor frecuencia pierdes la claridad. No digas «la vida en general». Nombra situaciones específicas.`,
     source: null,
     tags: ["silencio"]
   },
@@ -6345,7 +6385,7 @@ Ve lo falso como falso — y la guerra habrá terminado.`,
   },
   {
     number: 878,
-    text: `El yo no puede alcanzar la ausencia del yo. Aquel que desea la iluminación es el único muro en su camino.`,
+    text: `El ego no puede destruirse a sí mismo. Aquel que desea la iluminación es el único muro en su camino.`,
     source: "Jed McKenna",
     tags: ["silencio"]
   },
@@ -6381,7 +6421,7 @@ Ve lo falso como falso — y la guerra habrá terminado.`,
   },
   {
     number: 884,
-    text: `El yo falso no puede volverse verdadero. Solo puede desaparecer.`,
+    text: `La imagen falsa de uno mismo no puede volverse verdadera. Solo puede desaparecer.`,
     source: "Jed McKenna",
     tags: ["silencio"]
   },
@@ -6393,19 +6433,19 @@ Ve lo falso como falso — y la guerra habrá terminado.`,
   },
   {
     number: 886,
-    text: `El yo es ego, y el ego es una mentira. No hay nada más que ver.`,
+    text: `La imagen de uno mismo es el ego, y el ego es una ilusión. No hay nada más que buscar aquí.`,
     source: "Jed McKenna",
     tags: ["silencio"]
   },
   {
     number: 887,
-    text: `No hay yo, ni nada que realizar. Entender que no hay nada que realizar: eso es la realización.`,
+    text: `No hay un «yo» separado, ni nada que realizar. Darse cuenta de que no hay nada que alcanzar: eso es la realización.`,
     source: "U. G. Krishnamurti",
     tags: ["silencio"]
   },
   {
     number: 888,
-    text: `Todo lo que haces para liberarte del yo es el yo.`,
+    text: `Al intentar liberarte del ego, solo fortaleces a quien intenta liberarse.`,
     source: "U. G. Krishnamurti",
     tags: ["silencio"]
   },
@@ -6769,7 +6809,7 @@ Ensaya.`,
   },
   {
     number: 947,
-    text: `" Notas la pérdida — y ese notar es la conciencia misma.
+    text: `No «pierdes la conciencia». Notas la pérdida — y ese notar es la conciencia misma.
 No lo pases por alto una segunda vez.`,
     source: null,
     tags: ["silencio"]
@@ -7123,7 +7163,7 @@ Llega a conocerlo antes de que las tareas hayan concluido.`,
   },
   {
     number: 1004,
-    text: `" El tiempo es lo que desaparece cuando tú desapareces.
+    text: `La mente dice «todavía no es el momento». El tiempo es lo que desaparece cuando tú desapareces.
 Encuéntralo.`,
     source: null,
     tags: ["silencio"]
@@ -7401,7 +7441,9 @@ Cualquier tarea hecha de este modo es meditación.`,
   },
   {
     number: 1048,
-    text: `Deja de regatear con tu pereza. " Para el ego, el día de su desaparición nunca es un día oportuno.`,
+    text: `Deja de regatear con tu pereza.
+A la mente le encantan los debates sobre si «hoy es un día propicio para la práctica».
+Para el ego, el día de su desaparición nunca es un día oportuno.`,
     source: null,
     tags: ["silencio"]
   },
@@ -7432,7 +7474,9 @@ Exactamente: ese ancestral algoritmo de supervivencia que te ha arrastrado por c
   },
   {
     number: 1053,
-    text: `" Un cadáver descansa para siempre. Mientras respires, está vivo o deja de fingir que eres un buscador.`,
+    text: `Tu excusa favorita es «necesito un descanso».
+Un cadáver descansa para siempre.
+Mientras respires, mantente vivo o deja de fingir que eres un buscador.`,
     source: null,
     tags: ["silencio"]
   },
@@ -7501,7 +7545,9 @@ Deja de mirar hacia otro lado en el momento en que empieza a quemar.`,
   },
   {
     number: 1064,
-    text: `" Tu cuerpo quiere estar al ralentí; tu verdadera naturaleza exige un avance decisivo. Elige conscientemente.`,
+    text: `Basta de llamar a la procrastinación «relajación intuitiva».
+Tu cuerpo quiere holgazanear; tu verdadera naturaleza exige un avance decisivo.
+Elige conscientemente.`,
     source: null,
     tags: ["silencio"]
   },
@@ -7525,7 +7571,8 @@ Deja de mirar hacia otro lado en el momento en que empieza a quemar.`,
   },
   {
     number: 1068,
-    text: `" Una mente en paz es simplemente un depredador durmiente. Busca aquello que ve a la mente misma.`,
+    text: `No busques la «paz mental». Una mente en paz es simplemente un depredador durmiente.
+Busca aquello que ve a la mente misma.`,
     source: null,
     tags: ["silencio"]
   },
@@ -7596,8 +7643,9 @@ No caigas en su regateo: practica a través de la reticencia.`,
   },
   {
     number: 1079,
-    text: `Cada vez que pospones la contemplación por dopamina barata, la mente marca una casilla: "Este ha vuelto a la correa.
-"`,
+    text: `Cada vez que pospones la contemplación por dopamina barata, la mente marca una casilla:
+«Este chico está de nuevo con la correa puesta.
+Continuemos el juego».`,
     source: null,
     tags: ["silencio"]
   },
@@ -7663,8 +7711,11 @@ No caigas en su regateo: practica a través de la reticencia.`,
   },
   {
     number: 1090,
-    text: `No eres tierra, ni agua, ni fuego, ni aire, ni mente. Reconócete como Consciencia inmaculada y hallarás la paz ahora mismo.`,
-    source: "Ashtavakra Gita",
+    text: `Cualquier forma conlleva inevitablemente un elemento de incomodidad y límite.
+No busques una calma perfecta en el cuerpo o la mente, ya que la verdadera
+meditación no consiste en crear condiciones ideales,
+sino en una presencia que brota a través de cualquier dinámica de estados.`,
+    source: "Quiero Claridad",
     tags: ["silencio"]
   },
   {
@@ -7675,9 +7726,13 @@ No caigas en su regateo: practica a través de la reticencia.`,
   },
   {
     number: 1092,
-    text: `En el instante en que la respiración se detiene entre la inhalación y la exhalación, dirige tu atención hacia el silencio abierto.
-Allí reside tu verdadero hogar.`,
-    source: "Vijnana Bhairava Tantra",
+    text: `Apropiarse del rol de autor de los pensamientos genera un placer sutil
+en el proceso de pensar, incluso si se trata de sufrimiento o melancolía.
+
+Es precisamente ese deseo de obtener un microplacer
+al sentirse «el pensador» lo que te arrastra constantemente
+de vuelta a la identificación.`,
+    source: "Quiero Claridad",
     tags: ["silencio"]
   },
   {
@@ -7688,14 +7743,14 @@ Allí reside tu verdadero hogar.`,
 - ¿Quién trabaja?
 
 Alguien podría decir: el personaje. Pero tampoco hay ningún personaje. Solo hay una historia acerca de un personaje. Esa historia es lo que eres.`,
-    source: null,
+    source: "Quiero Claridad",
     tags: ["silencio"]
   },
   {
     number: 1094,
     text: `Existe la percepción, y existe la percepción desde la perspectiva del "yo". Esta última es una limitación de la percepción hacia el "yo".
 Para permanecer como la percepción, hay que percibir la percepción desde la perspectiva del "yo".`,
-    source: null,
+    source: "Quiero Claridad",
     tags: ["silencio"]
   },
   {
@@ -7730,7 +7785,8 @@ No conviertas otro impulso en otro minuto perdido.`,
   },
   {
     number: 1099,
-    text: `No comiences tu día con un flujo de información ajena. "`,
+    text: `No comiences tu día con un flujo de información ajena.
+Antes de dejar entrar pensamientos ajenos en tu cabeza, investiga la sensación misma de «me he despertado».`,
     source: null,
     tags: ["silencio"]
   },
@@ -7799,7 +7855,8 @@ Haz una pausa por un momento y descubre qué estás buscando más allá de la nu
   },
   {
     number: 1109,
-    text: `" Pon a prueba esa promesa. ¿Qué es exactamente lo que se busca?
+    text: `Cualquier deseo promete: «Haz esto y te sentirás mejor».
+Pon a prueba esa promesa. ¿Qué es exactamente lo que se busca?
 ¿Y quién se supone que debe sentirse mejor?`,
     source: null,
     tags: ["silencio"]
@@ -7849,21 +7906,21 @@ Observa directamente la experiencia misma.`,
     number: 1116,
     text: `Supera la ira con la ausencia de ira, el mal con la bondad, la mezquindad con la generosidad y la mentira con la verdad.
 No te conviertas en una extensión de aquello con lo que te encuentras.`,
-    source: "Buddha",
+    source: "Buda",
     tags: ["silencio"]
   },
   {
     number: 1117,
     text: `Sé directo, humilde, abierto a la guía y libre de arrogancia.
 No humilles a nadie. No desees el mal a nadie. ¿No es esto también parte de la práctica espiritual genuina?`,
-    source: "Buddha",
+    source: "Buda",
     tags: ["silencio"]
   },
   {
     number: 1118,
     text: `Hay dos extremos: la búsqueda del placer y el tormento de uno mismo. Ninguno conduce al despertar.
 No busques ni la comodidad a cualquier precio ni el sufrimiento por el bien de la trascendencia espiritual. Sigue el Camino Medio.`,
-    source: "Buddha",
+    source: "Buda",
     tags: ["silencio"]
   },
   {
@@ -7889,7 +7946,7 @@ Pregúntate: si este fuera tu último día, ¿estarías sentado aquí exactament
   {
     number: 1122,
     text: `Séneca escribió: no es que tengamos poco tiempo, sino que perdemos mucho. Pasas tu vida intentando matar el tiempo, y eso es lo único que nunca podrás recuperar.`,
-    source: "Seneca",
+    source: "Séneca",
     tags: ["silencio"]
   },
   {
@@ -7920,14 +7977,15 @@ Aquí la tienes: ya has pasado muchísimos días en todo excepto en lo que más 
   },
   {
     number: 1127,
-    text: `" Pero esto se aplica a quien camina voluntariamente hacia lo que le desafía. Una persona que simplemente sobrevive mediante la inacción no se vuelve más fuerte, solo más silenciosa.`,
+    text: `Nietzsche: «Lo que no me mata me hace más fuerte».
+Pero esto se aplica a quien camina voluntariamente hacia lo que le desafía. Una persona que simplemente sobrevive mediante la inacción no se vuelve más fuerte, solo más silenciosa.`,
     source: "Nietzsche",
     tags: ["silencio"]
   },
   {
     number: 1128,
-    text: `Bruce Lee: "No pienses. Siente. Es como un dedo que señala hacia la luna. " Deja de pensar en la práctica.
-Hazla.`,
+    text: `Bruce Lee: «No pienses. Siente. Es como un dedo señalando a la luna. No te concentres en el dedo o te perderás toda la gloria celestial».
+Deja de pensar en la práctica. Hazla.`,
     source: "Bruce Lee",
     tags: ["silencio"]
   },
@@ -7947,7 +8005,8 @@ Cuando la respuesta es "no" durante demasiados días seguidos, es hora de cambia
   },
   {
     number: 1131,
-    text: `Milarepa dijo: "El año pasado pensé en meditar. " Entre esas dos frases yace un año perdido en el exceso de pensamiento.`,
+    text: `Milarepa dijo: «El año pasado pensé en meditar. Hoy medito».
+Entre esas dos frases yace un año perdido en el exceso de pensamiento.`,
     source: "Milarepa",
     tags: ["silencio"]
   },
@@ -7974,7 +8033,8 @@ Cuenta. Actúa.`,
   },
   {
     number: 1135,
-    text: `" No necesitas esperar a esa cama. Dite a ti mismo qué es lo que importa ahora.`,
+    text: `Un día te acostarás en la cama de un hospital y el médico pronunciará una frase después de la cual todos tus «luego» se convertirán en «nunca».
+No necesitas esperar a esa cama. Dite esa frase a ti mismo ahora.`,
     source: null,
     tags: ["silencio"]
   },
@@ -7987,7 +8047,8 @@ Puedes permanecer en medio de una tormenta sin permitir que se asiente dentro de
   },
   {
     number: 1137,
-    text: `Arnold Schwarzenegger: "Tienes dos voces. Una dice: ríndete, estás cansado. " La voz a la que obedeces más a menudo es la que eventualmente se convierte en ti.`,
+    text: `Arnold Schwarzenegger: «Tienes dos voces. Una dice: ríndete, estás cansado. La otra: una repetición más».
+La voz a la que obedeces más a menudo es la que eventualmente se convierte en ti.`,
     source: "Arnold Schwarzenegger",
     tags: ["silencio"]
   },
@@ -8059,7 +8120,7 @@ No por un resultado. Simplemente para que la mente no comience tu día.`,
   },
   {
     number: 1148,
-    text: `" No para meditar. Simplemente para notar tres veces dónde descansa la atención en este momento.`,
+    text: `Configura tres alarmas al día con una sola palabra: «Alto». No para meditar. Simplemente para notar tres veces dónde descansa la atención en este momento.`,
     source: null,
     tags: ["silencio"]
   },
@@ -8272,7 +8333,8 @@ No evites los días difíciles; son tu campo de entrenamiento, no tu excusa.`,
   },
   {
     number: 1181,
-    text: `La vida es la selección. La práctica es el lugar desde donde se selecciona. Te has vuelto a equivocar de dirección.`,
+    text: `La mente dice: «la práctica puede esperar, primero arreglaré mi vida». La vida es el arreglo. La práctica es el lugar desde donde se arregla.
+Te has vuelto a equivocar de dirección.`,
     source: null,
     tags: ["silencio"]
   },
@@ -8285,7 +8347,8 @@ La pereza es un paisaje. Cambia el paisaje, no intentes ser un héroe.`,
   },
   {
     number: 1183,
-    text: `Simplemente haz todo un diez por ciento más lento: come, escribe, habla, camina. La lentitud no requiere tiempo; requiere un maestro.`,
+    text: `Hoy no hagas nada «espiritual». Simplemente haz todo un diez por ciento más lento: come, escribe, habla, camina.
+La lentitud no requiere tiempo; requiere un dueño.`,
     source: null,
     tags: ["silencio"]
   },
@@ -8311,7 +8374,8 @@ A la mente le disgusta lo que no se puede comprar.`,
   },
   {
     number: 1187,
-    text: `" La gente abandona lo que ya ha funcionado. La práctica que "no funciona" es la única real. Lo demás es ensayar una imagen.`,
+    text: `No abandones la práctica porque «no esté funcionando». La gente abandona lo que ya ha funcionado. La práctica que «no funciona» es la única real.
+Lo demás es ensayar una imagen.`,
     source: null,
     tags: ["silencio"]
   },
@@ -8377,7 +8441,8 @@ Observa qué es lo que queda.`,
   },
   {
     number: 1197,
-    text: `" El derrumbe es la práctica llegando temprano como un huésped inesperado. Recíbela en la puerta.`,
+    text: `Cuando todo se derrumbe, no esperes «tiempos mejores para la práctica». El derrumbe es la práctica que llega antes de tiempo como huésped inesperado.
+Recíbela en la puerta.`,
     source: null,
     tags: ["silencio"]
   },
@@ -8514,8 +8579,13 @@ Nota la absoluta imposibilidad de ello.`,
   },
   {
     number: 1219,
-    text: `No olvidas la práctica. Simplemente te conviertes temporalmente en aquel que olvidó. Y eso también se puede notar.`,
-    source: null,
+    text: `Toda la práctica se reduce a reconocer el momento
+en que eres arrastrado al centro del autor y volver a la no implicación.
+
+Tu capacidad de permanecer en la observación depende de tu disposición
+a renunciar al deseo de obtener placer
+de tu propia importancia y del ajetreo de la vida.`,
+    source: "Quiero Claridad",
     tags: ["silencio"]
   },
   {
@@ -9126,9 +9196,14 @@ Nota la absoluta imposibilidad de ello.`,
   },
   {
     number: 1321,
-    text: `Si las personas dicen palabras sobre ti, significa que están diciendo palabras sobre sí mismas.`,
-    source: "Amu Mom",
-    tags: ["sabiduría"]
+    text: `Tu tarea fundamental es aprender a vivir en la incertidumbre
+y sentirte cómodo en ella.
+
+Deja de aferrarte a las explicaciones, conceptos y valoraciones
+que inventa la mente. Solo habitando la incertidumbre
+tratas con la realidad, y no con sus proyecciones.`,
+    source: "Quiero Claridad",
+    tags: ["silencio"]
   },
   {
     number: 1322,
@@ -9415,19 +9490,19 @@ Nota la absoluta imposibilidad de ello.`,
   {
     number: 1369,
     text: `No actúes como si fueras a vivir diez mil años. La muerte se Cierne sobre ti. Mientras vivas, mientras esté en tu poder, sé bueno.`,
-    source: "Marcus Aurelius",
+    source: "Marco Aurelio",
     tags: ["silencio"]
   },
   {
     number: 1370,
     text: `Nada grande se crea de repente, como tampoco un racimo de uvas o un higo. Si me dices que deseas un higo, dale tiempo.`,
-    source: "Epictetus",
+    source: "Epicteto",
     tags: ["silencio"]
   },
   {
     number: 1371,
     text: `Mientras dudamos y demoramos, la vida se escapa rápidamente.`,
-    source: "Seneca",
+    source: "Séneca",
     tags: ["silencio"]
   },
   {
@@ -9565,7 +9640,7 @@ Nota la absoluta imposibilidad de ello.`,
   {
     number: 1394,
     text: `Dite primero a ti mismo lo que habrías de ser; y luego haz lo que tengas que hacer.`,
-    source: "Epictetus",
+    source: "Epicteto",
     tags: ["silencio"]
   },
   {
@@ -10505,8 +10580,13 @@ Elige ahora mismo.`,
   },
   {
     number: 1537,
-    text: `Observa cómo cada problema mental se disuelve si dejas de alimentarlo con atención y diálogo.`,
-    source: "Sri Shankaracharya",
+    text: `No permitas que las experiencias espirituales fortuitas nublen
+tu capacidad de discernimiento y sobriedad.
+
+La consciencia no es la búsqueda de estados extáticos,
+sino la capacidad de permanecer en la indagación, incluso cuando la mente exige
+otra porción de «helado espiritual».`,
+    source: "Quiero Claridad",
     tags: ["silencio"]
   },
   {
@@ -10679,8 +10759,14 @@ Elige ahora mismo.`,
   },
   {
     number: 1566,
-    text: `Mantén la atención en la absoluta simplicidad de la percepción: lo que se ve es meramente visto, lo que se oye es meramente oído, sin ataduras a un «yo».`,
-    source: "Sri Shankaracharya",
+    text: `No puedes desarmarte y reconstruirte al mismo tiempo.
+Cuanto más activamente hables de espiritualidad a otros, más te alejas
+de lo esencial, pues el papel de maestro refuerza el «yo» conceptual.
+
+Prueba a guardar silencio durante un par de semanas y deja de dar consejos:
+verás cómo tu práctica de autoindagación
+renace con renovada fuerza.`,
+    source: "Quiero Claridad",
     tags: ["silencio"]
   },
   {
@@ -13173,8 +13259,14 @@ Detente ahora.`,
   },
   {
     number: 1912,
-    text: `Te lavas los dientes sin inspiración y sin dudas, porque se ha convertido en parte del día. Haz lo mismo con la práctica. Con serenidad.`,
-    source: null,
+    text: `Asume la responsabilidad total de todo lo que ocurre
+en tu vida, pero no como un individuo que toma decisiones,
+sino como la consciencia misma, que es lo que eres.
+
+Tú eres la situación que origina todo esto;
+tú eres las personas que causan daño
+y tú eres los problemas que surgen.`,
+    source: "Quiero Claridad",
     tags: ["silencio"]
   },
   {
@@ -13466,8 +13558,10 @@ Observa cómo la mente intenta ofenderse y no la dejes terminar la frase.`,
   },
   {
     number: 1954,
-    text: `El dolor de la disciplina pesa gramos. El dolor del arrepentimiento pesa toneladas.`,
-    source: null,
+    text: `La incertidumbre es el estado primordial de la percepción.
+Permanecer en ella permite trascender
+los conceptos y expectativas habituales sobre la realidad.`,
+    source: "Quiero Claridad",
     tags: ["silencio"]
   },
   {
@@ -14059,7 +14153,7 @@ de la ilusión de la personalidad para comprender cosas más profundas.
 
 Si te duermes con pensamientos sobre el mañana o cualquier otra cosa,
 con ellos mismos despertarás.`,
-    source: null,
+    source: "Quiero Claridad",
     tags: ["silencio"]
   },
   {
@@ -14067,7 +14161,7 @@ con ellos mismos despertarás.`,
     text: `Relájate. Tu verdadero objetivo no tiene nada que ver
 con el que te has inventado.
 Tu verdadero objetivo es aprender a soltar el control.`,
-    source: null,
+    source: "Quiero Claridad",
     tags: ["silencio"]
   },
   {
@@ -14075,7 +14169,7 @@ Tu verdadero objetivo es aprender a soltar el control.`,
     text: `Si quieres romper el programa llamado "destino", recuerda:
 mañana habrá menos tiempo libre, y cuanto más cerca del final,
 más difícil será encontrarlo.`,
-    source: null,
+    source: "Quiero Claridad",
     tags: ["silencio"]
   },
   {
@@ -14085,7 +14179,7 @@ la persona común crea su propio mundo fantástico en el que vive como un person
 
 Al mismo tiempo, surgen constantemente discrepancias entre la vida real
 y la vida de este personaje, ya que el mundo inventado siempre se adelanta a la realidad
-y el personaje vive, por так decirlo, en el futuro.
+y el personaje vive, por así decirlo, en el futuro.
 
 Y esta vida en el futuro genera todo el tiempo una sensación de desgarro
 y pánico permanente debido a que ese futuro podría materializarse y debe ser evitado.
@@ -14097,7 +14191,7 @@ Y el personaje no puede escapar de esto, porque su historia siempre trata única
 de lo que fue y de lo que será.
 
 Mientras seas un personaje, estarás condenado a vivir en un estado de inquietud.`,
-    source: null,
+    source: "Quiero Claridad",
     tags: ["silencio"]
   },
   {
@@ -14105,7 +14199,7 @@ Mientras seas un personaje, estarás condenado a vivir en un estado de inquietud
     text: `Sal del conocimiento, permítete no saber nada y no buscar nada.
 Quédate en lo desconocido y en el no entender qué buscar, cómo avanzar, hacia dónde moverse.
 Que solo haya existencia sin conocimiento alguno.`,
-    source: null,
+    source: "Quiero Claridad",
     tags: ["silencio"]
   },
   {
@@ -14229,7 +14323,7 @@ ni siquiera eres una sensación separada del Yo.`,
 Mira con atención: quieres que el presente se vaya.
 
 Mira con atención. Ahora mismo estás con el pensamiento allá, al final del camino,
-en casa, в la tienda, al final del proyecto, en los resultados de la meditación,
+en casa, en la tienda, al final del proyecto, en los resultados de la meditación,
 esperando, esperando, esperando...
 
 El presente te estorba; te impide llegar allí.`,
@@ -14413,5 +14507,79 @@ y pasar a un nuevo formato de percibir el mundo.`,
 con la que te sientes identificado.`,
     source: "Quiero Claridad",
     tags: ["silencio"]
+  },
+  {
+    number: 2073,
+    text: `Pasa al estado de ausencia del experimentador.
+Mantén la atención en ti mismo como la percepción misma,
+no como un personaje; esto crea el hábito de permanecer
+en el flujo y minimiza los retrocesos hacia la identificación con el ego.`,
+    source: "Quiero Claridad",
+    tags: ["silencio"]
+  },
+  {
+    number: 2074,
+    text: `Un enfoque profesional hacia la realización implica
+contar con un sistema de reglas, tareas regulares y detonantes de consciencia.
+Esto permite mantener el enfoque y ver el camino de manera integral,
+impidiendo que la mente salte sin cesar de una idea a otra
+en función de recomendaciones externas aleatorias.`,
+    source: "Quiero Claridad",
+    tags: ["silencio"]
+  },
+  {
+    number: 2075,
+    text: `En la meditación no debes hacer nada.
+Cuando surge un esfuerzo interno, se construye el hacedor:
+la sensación de que te estás reuniendo en tu cabeza
+para cumplir una tarea.
+
+Para que la meditación ocurra de forma natural, es necesario
+soltar a este hacedor y permitir que todos los procesos de percepción
+fluyan por sí mismos, sin tu intervención.`,
+    source: "Quiero Claridad",
+    tags: ["silencio"]
+  },
+  {
+    number: 2076,
+    text: `La sensación constante de "yo", "a mí" y "mío" requiere una enorme cantidad de energía vital. La mayor parte de tu energía se destina a mantener la ilusión de un "yo" humano separado a través del trabajo continuo de la mente.`,
+    source: "Quiero Claridad",
+    tags: ["silencio"]
+  },
+  {
+    number: 2077,
+    text: `El desapego de los resultados de la actividad es superior a la meditación. No se trata de renunciar a la acción o a las emociones, sino de sumergirse en el proceso por el proceso mismo. Cuando actúas sin apego a los frutos, privas al "hacedor" de la base de su existencia —un objetivo en el futuro— y regresas al presente.`,
+    source: "Quiero Claridad",
+    tags: ["silencio"]
+  },
+  {
+    number: 2078,
+    text: `La regularidad es un factor de vital importancia en la práctica consciente. Sin ella, cualquier experiencia no pasa de ser un destello casual que no transforma tu percepción del mundo.`,
+    source: "Quiero Claridad",
+    tags: ["silencio"]
+  },
+  {
+    number: 2079,
+    text: `El proceso de la muerte o de la desaparición no existe. Caer en el sueño es simplemente perder la atención hacia el proceso mismo de ser. Si aprendes a no perder la consciencia en el momento de quedarte dormido, verás que el paso al sueño o a la muerte es solo un cambio de decorado, mientras que la consciencia misma permanece inmutable.`,
+    source: "Quiero Claridad",
+    tags: ["silencio"]
+  },
+  {
+    number: 2080,
+    text: `Utiliza la práctica del sueño consciente para la meditación. Relájate sin perder la vigilancia para percibir el momento en que se cargan los sueños. Este sutil equilibrio te permitirá comprender cómo mantener la presencia en cualquier estado, sin caer en el olvido inconsciente.`,
+    source: "Quiero Claridad",
+    tags: ["silencio"]
+  },
+  {
+    number: 2081,
+    text: `Desapégate de los resultados de la actividad. Lo primordial es el proceso mismo, la creación misma. No hay nada importante por lo cual valga la pena hacer algo; cualquier meta es condicional y no tiene mayor relevancia.`,
+    source: "Quiero Claridad",
+    tags: ["silencio"]
+  },
+  {
+    number: 2082,
+    text: `Practica la visión directa de que todo vive por sí mismo: el cuerpo, los pensamientos, los deseos, las inquietudes, los sonidos, los acontecimientos. En este proceso no hay un sujeto central.`,
+    source: "Quiero Claridad",
+    tags: ["recomendaciones", "silencio"]
   }
 ];
