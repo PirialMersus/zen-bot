@@ -69,6 +69,7 @@ import { getSupportInlineKeyboard } from './keyboard/support.js';
 import { activityMiddleware, resolveUserLanguage } from './middlewares/activity.js';
 import { createMongoSessionStore } from './storage/sessionStore.js';
 import { suppressExpectedError } from './utils/logger.js';
+import { cleanupUser } from './services/cleanupUser.js';
 
 export const bot = new Telegraf(process.env.BOT_TOKEN);
 
@@ -234,6 +235,16 @@ bot.hears(allowedIntervalOptions, async (ctx) => {
   }
 
   await handleDeleteAfterPreset(ctx, COMBINED_AUTO_DELETE_MAP[incomingMessageText]);
+});
+
+bot.on('my_chat_member', async (ctx) => {
+  const newChatMemberStatus = ctx.myChatMember?.new_chat_member?.status;
+  const targetTelegramUserId = ctx.from?.id || ctx.myChatMember?.chat?.id;
+  if (newChatMemberStatus === 'kicked' && targetTelegramUserId) {
+    await cleanupUser(targetTelegramUserId).catch((cleanupError) => {
+      console.error('CHAT_MEMBER_CLEANUP_USER_ERROR', cleanupError?.message || cleanupError);
+    });
+  }
 });
 
 bot.on('photo', async (ctx) => {

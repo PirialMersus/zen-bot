@@ -226,4 +226,30 @@ describe('Middleware активности и уведомление о ново�
     expect(createdDatabaseUser).not.toBeNull();
     expect(createdDatabaseUser.language).toBe('es');
   });
+
+  it('должен пропускать событие my_chat_member без создания пользователя и без уведомления админа', async () => {
+    const blockingTelegramUserId = 88223377;
+    const mockContext = createMockContext({
+      userId: blockingTelegramUserId,
+      from: {
+        id: blockingTelegramUserId,
+        first_name: 'Blocker',
+        language_code: 'ru'
+      }
+    });
+    mockContext.myChatMember = {
+      chat: { id: blockingTelegramUserId },
+      new_chat_member: { status: 'kicked' }
+    };
+
+    const nextMiddlewareFunction = vi.fn().mockResolvedValue();
+
+    await activityMiddleware(mockContext, nextMiddlewareFunction);
+
+    expect(nextMiddlewareFunction).toHaveBeenCalledTimes(1);
+    expect(mockContext.telegram.sendMessage).not.toHaveBeenCalled();
+
+    const createdDatabaseUser = await User.findOne({ telegramId: blockingTelegramUserId });
+    expect(createdDatabaseUser).toBeNull();
+  });
 });

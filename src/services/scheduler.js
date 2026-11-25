@@ -6,6 +6,7 @@ import { DEFAULT_TIMEZONE } from '../constants/timezones.js';
 import { SUPPORTED_LANGUAGES, DEFAULT_LANGUAGE } from '../constants/languages.js';
 import { logError } from '../utils/logger.js';
 import { cleanupUser } from './cleanupUser.js';
+import { createDatabaseBackup } from './backupService.js';
 import { isQuietNow, getQuietEndDate } from './quietHours.js';
 import { getNextPointerForUser, getNextFavoritePointerForUser } from '../services/pointers.js';
 import {
@@ -15,7 +16,7 @@ import {
 } from './reminderDelivery.js';
 
 const TICK_MS = 60 * 1000;
-const INACTIVE_DAYS = 30;
+const INACTIVE_DAYS = 90;
 const DAY_MS = 24 * 60 * 60 * 1000;
 const LOCK_TIMEOUT_MS = 2 * 60 * 1000;
 
@@ -59,6 +60,12 @@ const performInactiveUsersCleanup = async (now) => {
       },
       { telegramId: 1 }
     ).lean();
+
+    if (inactiveUsers.length > 0) {
+      await createDatabaseBackup('inactive_users_daily_cleanup').catch((backupError) => {
+        logError(backupError, { scope: 'inactiveUserCleanupBackup' });
+      });
+    }
 
     for (const inactiveUser of inactiveUsers) {
       const activeRemindersCount = await Reminder.countDocuments({

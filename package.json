@@ -13,6 +13,7 @@
     "seed:pointers:es": "node scripts/seedPointersEs.js",
     "reindex:pointers": "node scripts/reindexPointers.js",
     "sync:pointers": "node scripts/syncAllPointers.js",
+    "db:backup": "node scripts/backupDatabase.js",
     "pointer:remove": "node scripts/removePointer.js",
     "test": "vitest run --fileParallelism=false",
     "test:watch": "vitest",

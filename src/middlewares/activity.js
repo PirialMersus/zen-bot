@@ -136,6 +136,8 @@ const notifyAdministratorAboutNewUser = async (ctx, telegramId) => {
 };
 
 export const activityMiddleware = async (ctx, next) => {
+  if (ctx.myChatMember) return next();
+
   const telegramId = ctx.from?.id || ctx.callbackQuery?.from?.id || ctx.message?.from?.id;
 
   if (!telegramId) return next();

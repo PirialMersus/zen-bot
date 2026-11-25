@@ -3,7 +3,7 @@ import { connectDB, disconnectDB } from './storage/db.js';
 import { bot, registerBotCommands } from './bot.js';
 import { startScheduler, stopScheduler } from './services/scheduler.js';
 import { startServer, stopServer } from './server.js';
-import { validateApplicationEnvironment } from './utils/env.js';
+import { validateApplicationEnvironment, validateBotAndDatabaseEnvironmentCompatibility } from './utils/env.js';
 
 let isBotTerminating = false;
 
@@ -70,6 +70,7 @@ const startBotWithAutoRestart = async () => {
 
   while (!isBotTerminating) {
     try {
+      await validateBotAndDatabaseEnvironmentCompatibility(bot);
       await registerBotCommands(bot);
       await bot.launch();
       break;
