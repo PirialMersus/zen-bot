@@ -16624,5 +16624,370 @@ No conviertas el olvido en una razón para abandonar la práctica.`,
     text: `Las grandes obras se realizan no con la fuerza, sino con la perseverancia.`,
     source: "Samuel Johnson",
     tags: ["sabiduría"]
+  },
+  {
+    number: 2407,
+    text: `Cada vez que dices «tengo que resolver esto», creas un «yo» que necesita resolverlo.
+No intentes resolverlo. Observa cómo el problema se disuelve sin tu participación.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 2408,
+    text: `La libertad no es «libertad de algo». La libertad es cuando no hay nadie que pueda no ser libre.
+¿Quién es el que quiere libertad? Encuéntralo — y verás el vacío.`,
+    source: "Nisargadatta Maharaj",
+    tags: ["silencio"]
+  },
+  {
+    number: 2409,
+    text: `No intentes «estar aquí y ahora».
+«Aquí y ahora» no es una práctica, es un hecho.
+Ya estás aquí. No puedes no estar aquí.
+Suelta el esfuerzo — y quedará solo lo que siempre ha estado.`,
+    source: "Tony Parsons",
+    tags: ["silencio"]
+  },
+  {
+    number: 2410,
+    text: `¿Buscas una «experiencia del vacío»?
+El vacío no es una experiencia. La experiencia es un objeto.
+El vacío es aquello en lo que surge la experiencia.
+No lo busques. Tú eres eso.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 2411,
+    text: `No tienes que ser «consciente».
+El mismo pensamiento «debo ser consciente» es una nueva trampa.
+Simplemente nota: la consciencia ya está ocurriendo. La vista ve, el oído oye.
+No le añadas un «yo».`,
+    source: "Douglas Harding",
+    tags: ["silencio"]
+  },
+  {
+    number: 2412,
+    text: `Tienes miedo de «perderte».
+Pero ¿qué vas a perder? ¿Un montón de recuerdos y hábitos que llamas «tú mismo»?
+Eso no es una pérdida. Es liberación del equipaje.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 2413,
+    text: `«No puedo detener los pensamientos» es un pensamiento.
+«Quiero paz» es un pensamiento.
+«Busco la iluminación» es un pensamiento.
+¿Quién es el que cree en todos estos pensamientos?
+Encuéntralo.
+No existe.`,
+    source: "Robert Adams",
+    tags: ["silencio"]
+  },
+  {
+    number: 2414,
+    text: `Deja de buscar «sentido».
+El sentido es una historia que la mente cuenta sobre los acontecimientos.
+Los acontecimientos no tienen sentido.
+La vida no tiene sentido.
+Y eso no es una tragedia.
+Es libertad de la historia.`,
+    source: "U. G. Krishnamurti",
+    tags: ["silencio"]
+  },
+  {
+    number: 2415,
+    text: `¿Sabes cuántos mensajes enviaste que hubiera sido mejor no enviar?
+En el último año — decenas.
+En toda tu vida — miles. Cada mensaje enviado con rabia, con rencor, con «ahora va a ver» — es una pequeña guerra que declaraste y perdiste al mismo tiempo.
+Porque una hora después lo releerás — y sentirás vergüenza.
+Y ya es tarde para borrarlo: leído, capturado en pantalla, enviado a mamá, por mamá a la tía, por la tía a todo el clan.
+Un mensaje que NO enviaste es una vida que salvaste. La tuya. Y la de quien iba dirigido.
+Práctica: hoy, antes de cada mensaje «con emoción» — diez segundos. Reléelo.
+Imagina que lo leen en voz alta en tu funeral. Todos. Incluyendo a la abuela. Y al juez.
+Si después de diez segundos todavía quieres enviarlo — envíalo. Pero 8 de cada 10 se desinflarán en esos diez segundos como un globo pinchado.
+Quedará un «bueno, da igual». Y ese será el mejor mensaje de tu día.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 2416,
+    text: `Esta noche entrarás en una habitación oscura. Y, como siempre, al instante pulsarás el interruptor.
+Maquinalmente. En 0.2 segundos. Como has hecho durante 25 años.
+Ahora — no lo pulses. Quédate 10 segundos en la oscuridad. Solo quédate ahí.
+Al principio será incómodo: «qué hago aquí parado como un idiota en la oscuridad». Luego los ojos empezarán a adaptarse — y aparecerán los contornos.
+Una silla. Un armario. Una ventana. Una habitación conocida que has visto mil veces — y no has visto ni una sola vez.
+Porque siempre encendías la luz ANTES de mirar.
+La oscuridad no es el enemigo. La oscuridad es la pausa del mundo. No la temes porque haya algo allí. Sino porque no hay nadie allí.
+Incluyéndote a ti. Y este encuentro con «nadie» es lo único que realmente has estado evitando todos estos años.
+10 segundos. Una vez. Hoy. La luz esperará. No se irá a ninguna parte. Tú, en cambio, sí. Pronto.
+Vale la pena conocer a quien hasta ahora no tuvo tiempo.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 2417,
+    text: `Mañana te sentarás frente al ordenador. Y en 0.4 segundos la mano irá al ratón, el dedo al botón, el ojo a la pantalla.
+Y empieza: pestaña, pestaña, pestaña, correo, feed, otra vez correo.
+Ahora — no de inmediato. Siéntate. Un minuto. Frente a la pantalla oscura.
+No medites. No te «pongas en modo trabajo». Solo quédate sentado. Un minuto. Antes de que la pantalla empiece a alimentarte.
+¿Sabes qué descubrirás?
+Que ni siquiera te has sentado frente al ordenador en el último año. Te sentaron frente a él. Un reflejo. El cuerpo llegó, la mano se apoyó, el ojo se abrió — y tú no estabas.
+Había un algoritmo. El mismo que tiene un alcohólico: mano-vaso-boca. Solo que el tuyo es mano-ratón-pestaña.
+Un minuto frente a la pantalla — y te conviertes en el dueño, no en una aplicación. ¿Suena pequeño?
+Es la mayor libertad disponible para ti gratis, sin gurú, sin retiro, sin cursos de «éxito total». Simplemente dejaste de ser autoejecutable.
+Un minuto. Mañana. Antes de pulsar el botón.
+Si lo olvidas — no pasa nada, el arranque automático trabajará por ti. Como siempre. Hasta la jubilación. Hasta la tumba. Con exactamente la misma expresión en la cara.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 2418,
+    text: `Cada notificación en tu teléfono es una pequeña descarga eléctrica.
+Clin — y ya no estás aquí. Clin — y tu atención salió volando. Clin — y eres un extraño en tu propia vida.
+En un día — 200 clines. En un año — 73,000. En 10 años — ni siquiera viviste. Te tiraban de los hilos. Como a una marioneta.
+Y tú obedientemente dabas tirones. Pensando «solo estoy revisando». ¿Revisando qué? ¿Que te vuelvan a tirar del hilo? Spoiler: lo harán.
+Quien siempre está disponible no le hace falta de verdad a nadie. Es una función. Un botón de «responder».
+No lo valoran — lo usan. Y es el primero en quejarse de que «no me valoran».
+Se valora a quienes es difícil localizar.
+No porque jueguen. Sino porque tienen su propia vida en la que no irrumpen 73,000 veces al año.
+Práctica: hoy — una hora.
+Notificaciones desactivadas. Todas. Excepto llamadas de tres números (realmente importantes). Una hora. No te perderás nada. El mundo no se derrumbará.
+Y tú — por primera vez en un año — estarás solo. Contigo mismo. En silencio. Sin sobresaltos.
+Hay que acostumbrarse a esto. Como al aire fresco después de la mina.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 2419,
+    text: `Siéntate y escribe una carta a tu yo de 10 años.
+
+No «si pudiera volver». Solo — una carta. «Hola. Ahora tengo tantos años. Quiero decirte...».
+Media página. ¿Qué le dirías? ¿De qué le advertirías? ¿Con qué lo consolarías? ¿Qué le prometerías?
+
+¿Sabes qué descubrirás? Que la mitad de lo que le dirás es sobre cómo tuvo miedo en vano.
+Vergüenza en vano. Pensó «no lo lograré» en vano. Creyó a quienes decían que era «raro» en vano.
+
+Y ahora — el giro. Ese niño de 10 años sigues siendo tú.
+No se ha ido a ninguna parte.
+Sigue sentado dentro y todavía tiene miedo de lo mismo.
+Y tú eres el único adulto que puede decirle lo que necesitaba oír hace 25 años.
+No lo hiciste. Durante 25 años. Él esperó.
+
+Escríbela. Hoy. Media página. Léela en voz alta. Con tu propia voz. A tu yo de 10 años.
+Si lloras — significa que la carta llegó. La recibió. Por fin.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 2420,
+    text: `Tres agradecimientos antes de dormir son una reprogramación.
+En un mes empezarás a notar las tardes cálidas en el momento, no a posteriori. En medio año —
+dejarás de ser una máquina de infelicidad. Sin terapeuta. Sin pastillas.
+Tres líneas. Cada noche. En una libreta, no en el teléfono.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 2421,
+    text: `Enderézate. Ahora mismo. Llevas cuatro horas sentado como un camarón, y el cuerpo
+ya adoptó la forma de tu vida.
+
+A los cincuenta el camarón se volverá permanente. Los médicos lo llamarán «osteocondrosis».
+El nombre correcto es «así me siento desde los veinticinco».
+
+Enderézate. Inhala. ¿Lo notaste? Respirar es literalmente más fácil. Vivir — también.
+Solo hay una columna. No te darán otra.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 2422,
+    text: `Escríbete una carta para dentro de un año. Media página. «Espero que tengas...» —
+¿qué? ¿Qué esperas lograr?
+
+En un año llegará, y verás: o cumpliste — o viviste otro año pasando de largo.
+
+Media página. Hoy. Dentro de un año, uno de los dos tendrá razón. Que seas tú.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 2423,
+    text: `Antes de dormir, descarga tu cabeza en papel. Todo: pendientes, miedos, «no olvidar».
+Cinco minutos.
+
+El cerebro guarda la lista en el disco destinado al sueño — por eso no duermes:
+teme borrarla. El papel es un disco externo. Transfiérela.
+
+Por la mañana la lista parecerá más tonta que por la noche. Siempre es así. Y esa es la prueba:
+por la noche exagerabas. Cada noche. Toda tu vida.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 2424,
+    text: `Ahogas el aburrimiento al instante, con cualquier distracción. Pero detrás hay una puerta:
+la mente desacostumbrada al silencio primero grita, luego se calma, y queda algo que no oías desde hace años. Tú mismo.
+
+Todas las tradiciones espirituales comenzaron en el desierto, en el bosque, en una celda.
+No porque sea bonito allí. Sino porque allí es aburrido. Quince minutos.
+La puerta chirría. Ábrela.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 2425,
+    text: `Hoy no te obligues a meditar «bien». Siéntate e intenta meditar MAL.
+
+Una mala meditación: cinco minutos escarbando en los pensamientos — y esa es una práctica honesta.
+El objetivo de la práctica no es el resultado. El objetivo es volver.
+Cien veces caíste — cien veces volviste. Ese es el entrenamiento. Todo.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 2426,
+    text: `Una mañana — diferente. Se abrieron los ojos — primero el cuerpo, la respiración, la luz.
+Que el conferenciante espere cinco minutos. Esperará. Es muy paciente. Tú — aún no. Hazte.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 2427,
+    text: `Hoy nota los puntos de elección. Té o café, ascensor o escaleras —
+cientos de encrucijadas al día, y todas las pasaste en piloto automático.
+
+El piloto automático no es malo, ahorra energía.
+El problema es que es él quien conduce el coche por la vida: trabajo por inercia, reacciones por plantilla,
+noche por horario. Y luego «¿adónde se fueron los años?» — adonde todas
+las encrucijadas pasaron sin ti.
+
+Cinco encrucijadas hoy — conscientemente. Pequeñas.
+Café o té — elige con la mano, no por hábito. Recuperaste el volante por cinco segundos. El comienzo
+del camino es exactamente así.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 2428,
+    text: `Comprueba hoy: ¿cuánto tiempo pasas en silencio sin señal entrante?
+No «en el descanso entre llamadas» — en el silencio del que no esperas nada.
+
+Para ti el silencio es una «calma» en la que hay que meter algo:
+un pódcast, música, ansiedad. El tiempo vacío se percibe como una avería.
+Eres un receptor que teme quedarse sin emisión.
+
+Cinco minutos de silencio sin expectativa. No meditación, no descanso — solo silencio.
+Al principio zumbará. No es el silencio lo que zumba.
+Es el sistema nervioso, al que por primera vez en años le dejaron callar.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 2429,
+    text: `Hoy una pregunta para cada asunto: «¿Para qué hago esto?» —
+y una respuesta honesta, no la oficial.
+
+«¿Para qué?» revela las correas de transmisión: miedo, hábito, «así se hace», búsqueda de aprobación ajena.
+A veces — rara vez — hay algo vivo allí: interés, cuidado, amor.
+Pero más a menudo — un autómata heredado de alguien que tampoco preguntaba.
+
+Tres «¿para qué?» al día. Destapa una correa — y verás qué hace girar tu vida. ¿Incómodo?
+Entonces se revela no aquel de quien cuentas historias. La precisión vale más que los cumplidos.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 2430,
+    text: `Hoy encuentra la incomodidad — y no huyas.
+Espérala: frío, una pausa incómoda, una fila aburrida. Quédate dentro.
+
+La incomodidad es una alarma, no una sentencia.
+La mente grita «huye», pero mide honestamente: no duele, no es peligroso — solo es poco habitual.
+Entre «poco habitual» e «insoportable» tienes un signo de igualdad. Puesto en la infancia.
+Nunca verificado por nadie.
+
+Treinta segundos en la incomodidad — y la alarma se calla.
+Acabas de descubrir: la jaula estaba abierta.
+Lleva este conocimiento contigo todo el día.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 2431,
+    text: `Siéntate por la noche. Pregunta: ¿qué fue real hoy?
+No «qué pasó» — sino qué fue de verdad: un sabor, una mirada, un momento donde ESTUVISTE.
+
+Resultará — unos cinco minutos. Un día de dieciséis horas, y de lo real —
+cinco minutos robados al piloto automático. Así vive casi todo el mundo: años —
+en modo borrador, en limpio — nada.
+
+No te reproches. Señala esos cinco minutos — y mañana encuentra seis.
+El camino de la consciencia no es un salto al nirvana. Es un recuento cada noche:
+cuánta vida se vivió hoy. Empieza a contar hoy.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 2432,
+    text: `Afirmas que no hay hacedor. Pero ¿realmente investigaste su ausencia o simplemente creíste en ese concepto?`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 2433,
+    text: `Cuando dices «yo soy consciente», ¿qué designa exactamente la palabra «yo» en esa afirmación?`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 2434,
+    text: `Si has descubierto al testigo, ¿por qué consideras que precisamente él es la verdad definitiva?`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 2435,
+    text: `¿Quién decidió que la experiencia de hoy no es lo suficientemente profunda?`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 2436,
+    text: `¿Dónde termina la experiencia directa y comienza su interpretación?`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 2437,
+    text: `¿Estás percibiendo lo que ocurre ahora o pensando en cómo percibirlo correctamente?`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 2438,
+    text: `¿Se puede encontrar el centro de la percepción sin usar para ello la memoria, una imagen o un pensamiento?`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 2439,
+    text: `Cuando dices «me olvidé de mí», ¿quién exactamente descubre ese olvido?`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 2440,
+    text: `¿Buscas libertad de la personalidad o intentas crear una imagen más perfecta de ti mismo?`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 2441,
+    text: `¿Qué ocurrirá si dejas de saber de antemano qué eres?`,
+    source: null,
+    tags: ["silencio"]
   }
 ];

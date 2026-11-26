@@ -16627,5 +16627,370 @@ Do not turn forgetting into a reason to abandon practice.`,
     text: `Great works are performed not by strength, but by perseverance.`,
     source: "Samuel Johnson",
     tags: ["wisdom"]
+  },
+  {
+    number: 2407,
+    text: `Every time you say "I need to figure this out," you create a "me" that needs to figure it out.
+Don't try to figure it out. Watch how the problem dissolves without your involvement.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 2408,
+    text: `Freedom is not "freedom from something." Freedom is when there is no one left to be unfree.
+Who is the one that wants freedom? Find him — and you will see emptiness.`,
+    source: "Nisargadatta Maharaj",
+    tags: ["stillness"]
+  },
+  {
+    number: 2409,
+    text: `Don't try to "be here and now."
+"Here and now" is not a practice, it is a fact.
+You are already here. You cannot be not here.
+Drop the effort — and only what has always been will remain.`,
+    source: "Tony Parsons",
+    tags: ["stillness"]
+  },
+  {
+    number: 2410,
+    text: `Are you looking for an "experience of emptiness"?
+Emptiness is not an experience. Experience is an object.
+Emptiness is that in which experience arises.
+Don't look for it. You are it.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 2411,
+    text: `You don't have to be "mindful."
+The very thought "I should be mindful" is a new trap.
+Simply notice: awareness is already happening. Sight sees, hearing hears.
+Don't add an "I" to it.`,
+    source: "Douglas Harding",
+    tags: ["stillness"]
+  },
+  {
+    number: 2412,
+    text: `You are afraid of "losing yourself."
+But what will you lose? A pile of memories and habits that you call "yourself"?
+That is not a loss. That is liberation from baggage.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 2413,
+    text: `"I cannot stop my thoughts" is a thought.
+"I want peace" is a thought.
+"I am seeking enlightenment" is a thought.
+Who is the one who believes all these thoughts?
+Find him.
+He doesn't exist.`,
+    source: "Robert Adams",
+    tags: ["stillness"]
+  },
+  {
+    number: 2414,
+    text: `Stop looking for "meaning."
+Meaning is a story the mind tells about events.
+Events are without meaning.
+Life is without meaning.
+And that is not a tragedy.
+That is freedom from the story.`,
+    source: "U. G. Krishnamurti",
+    tags: ["stillness"]
+  },
+  {
+    number: 2415,
+    text: `Do you know how many messages you've sent that you'd have been better off not sending?
+Over the past year — dozens.
+Over a lifetime — thousands. Every message sent in rage, in hurt, in "I'll show him now" — is a small war you declared and lost at the same time.
+Because an hour later you'll reread it — and feel ashamed.
+And it's too late to delete: read, screenshotted, sent to mom, by mom to auntie, by auntie to the whole clan.
+A message you did NOT send is a life you saved. Your own. And the person's it was meant for.
+Practice: today, before every message "with emotion" — ten seconds. Reread it.
+Imagine it being read aloud at your funeral. To everyone. Including grandma. And the judge.
+If after ten seconds you still want to send it — send it. But 8 out of 10 will deflate in those ten seconds like a punctured balloon.
+What's left is "never mind, forget it." And that will be the best message of your day.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 2416,
+    text: `Tonight you'll walk into a dark room. And, as always, immediately flick the switch.
+Automatically. In 0.2 seconds. Just as you've done for 25 years.
+Now — don't flick it. Stand for 10 seconds in the dark. Just stand.
+At first it will feel awkward: "why am I standing here like an idiot in the dark?" Then your eyes will begin to adjust — and outlines will appear.
+A chair. A wardrobe. A window. A familiar room you've seen a thousand times — and never seen once.
+Because you always turned on the light BEFORE looking.
+Darkness is not the enemy. Darkness is the pause of the world. You fear it not because something is there. But because no one is there.
+Including you. And this acquaintance with "no one" is the only thing you've truly been avoiding all these years.
+10 seconds. Once. Today. The light will wait. It's not going anywhere. You, on the other hand, are. Soon.
+It's worth meeting the one who hasn't had the chance yet.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 2417,
+    text: `Tomorrow you'll sit down at the computer. And in 0.4 seconds your hand will reach for the mouse, your finger for the button, your eye for the screen.
+And off it goes: tab, tab, tab, email, feed, email again.
+Now — not right away. Sit. For a minute. In front of the dark screen.
+Don't meditate. Don't "get into work mode." Just sit. One minute. Before the screen starts feeding you.
+Do you know what you'll discover?
+That you haven't even sat down at the computer over the past year. You were sat down at it. A reflex. The body arrived, the hand landed, the eye opened — and you weren't there.
+There was an algorithm. The same one an alcoholic has: hand-glass-mouth. Only yours is hand-mouse-tab.
+One minute in front of the screen — and you become the master, not an app. Sounds small?
+It is the greatest freedom available to you for free, without a guru, without a retreat, without "success" courses. You simply stopped being auto-launched.
+A minute. Tomorrow. Before pressing the button.
+If you forget — no worries, autorun will do the job for you. As usual. Until retirement. Until the grave. With the exact same expression on your face.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 2418,
+    text: `Every notification on your phone is a tiny electric shock.
+Ding — and you're no longer here. Ding — and your attention has flown away. Ding — and you're a stranger in your own life.
+In a day — 200 dings. In a year — 73,000. In 10 years — you didn't even live. You were jerked around. Like a puppet.
+And you obediently twitched. Thinking "I'm just checking." Checking what? That you'll get jerked again? Spoiler: you will.
+Someone who is always available is truly needed by no one. They are a function. A "reply" button.
+They aren't valued — they are used. And they are the first to complain that "nobody values me."
+People value those who are hard to reach.
+Not because they play games. But because they have their own life that doesn't get broken into 73,000 times a year.
+Practice: today — one hour.
+Notifications off. All of them. Except calls from three numbers (genuinely important ones). One hour. You won't miss anything. The world won't collapse.
+And you — for the first time in a year — will be alone. With yourself. Quietly. Without being jerked around.
+You have to get used to it. Like fresh air after a coal mine.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 2419,
+    text: `Sit down and write a letter to your 10-year-old self.
+
+Not "if I could go back." Just — a letter. "Hi. I'm this old now. I want to tell you...".
+Half a page. What would you tell him? What would you warn him about? How would you comfort him? What would you promise?
+
+Do you know what you'll discover? That half of what you tell him is about how he was afraid for no reason.
+Shy for no reason. Thought "I won't make it" for no reason. Believed those who said he was "not right" for no reason.
+
+And now — the twist. That 10-year-old is still you.
+He hasn't gone anywhere.
+He sits inside and is still afraid of the exact same things.
+And you are the only adult who can tell him what he needed to hear 25 years ago.
+You didn't do it. For 25 years. He waited.
+
+Write it. Today. Half a page. Read it aloud. In your own voice. To your 10-year-old self.
+If you cry — it means the letter arrived. He got it. Finally.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 2420,
+    text: `Three gratitudes before sleep is a rewiring.
+In a month you'll start noticing warm evenings in the moment, not in hindsight. In six months —
+you'll stop being a misery machine. Without a therapist. Without pills.
+Three lines. Every evening. In a notebook, not on your phone.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 2421,
+    text: `Straighten up. Right now. You've been sitting like a shrimp for the fourth hour, and your body
+has already taken the shape of your life.
+
+By fifty, the shrimp will become permanent. Doctors will call it "osteochondrosis."
+The real name is "this is how I've been sitting since twenty-five."
+
+Straighten up. Breathe in. Notice? Breathing is literally easier. Living — too.
+You only get one spine. They won't issue another.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 2422,
+    text: `Write a letter to yourself a year from now. Half a page. "I hope you..." —
+what? What do you hope to accomplish?
+
+In a year it will arrive, and you'll see: either you kept your word — or you lived another year passing by.
+
+Half a page. Today. In a year, one of you will turn out to be right. Let it be you.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 2423,
+    text: `Before sleep, offload your head onto paper. Everything: tasks, fears, "don't forget."
+Five minutes.
+
+The brain keeps the list on a drive meant for sleep — that's why you can't sleep:
+it's afraid of erasing it. Paper is an external drive. Transfer it.
+
+In the morning the list will look sillier than at night. Always does. And that is the proof:
+at night you were exaggerating. Every night. Your whole life.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 2424,
+    text: `You drown out boredom instantly, with any straw you can grab. Yet behind it lies a door:
+a mind unaccustomed to silence screams at first, then quiets down, and something remains that you haven't heard in years. Yourself.
+
+All spiritual traditions began in the desert, in the forest, in a cell.
+Not because it's pretty there. Because it's boring there. Fifteen minutes.
+The door is creaking. Open it.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 2425,
+    text: `Today, don't force yourself to meditate "properly." Sit down and try to meditate BADLY.
+
+A bad meditation: five minutes of poking around in thoughts — and that is an honest practice.
+The goal of practice is not a result. The goal is returning.
+Fell a hundred times — returned a hundred times. That is the training. All of it.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 2426,
+    text: `One morning — differently. Eyes open — first the body, breathing, light.
+Let the lecturer wait five minutes. He'll wait. He's very patient. You aren't yet. Become so.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 2427,
+    text: `Today, notice the choice points. Tea or coffee, elevator or stairs —
+hundreds of forks in the road a day, and you passed them all on autopilot.
+
+Autopilot isn't evil, it saves energy.
+The problem is that it's the one driving the car through life: work by inertia, reactions by template,
+evening by schedule. And then "where did the years go?" — to where all
+the forks passed without you.
+
+Five forks today — consciously. Small ones.
+Coffee or tea — choose with your hand, not by habit. You took back the steering wheel for five seconds. The start
+of the path looks exactly like that.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 2428,
+    text: `Check today: how much time do you spend in silence with no incoming signal?
+Not "in a break between calls" — in silence from which you expect nothing.
+
+For you, silence is a "lull" that needs something stuffed into it:
+a podcast, music, anxiety. Empty time is perceived as a malfunction.
+You are a receiver afraid of being left without a broadcast.
+
+Five minutes of silence with no expectation. Not meditation, not rest — just silence.
+At first there will be ringing. It's not the silence ringing.
+It's your nervous system, allowed to be quiet for the first time in years.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 2429,
+    text: `Today, one question for every task: "Why am I doing this?" —
+and an honest answer, not the official one.
+
+"Why" exposes the drive belts: fear, habit, "that's how it's done," chasing someone else's approval.
+Sometimes — rarely — something alive is there: interest, care, love.
+More often — an automaton inherited from someone who didn't ask either.
+
+Three "whys" in a day. Expose one belt — and you'll see what spins your life. Uncomfortable?
+Then what's being exposed isn't the person you tell stories about. Accuracy is worth more than compliments.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 2430,
+    text: `Today, meet discomfort — and don't run.
+Wait for it: cold, an awkward pause, a boring line. Stand inside it.
+
+Discomfort is an alarm, not a sentence.
+The mind screams "run," but measure honestly: not painful, not dangerous — just unfamiliar.
+Between "unfamiliar" and "unbearable" you have an equals sign. Placed in childhood.
+Never verified by anyone.
+
+Thirty seconds in discomfort — and the alarm goes silent.
+You just learned: the cage was open.
+Keep this knowledge with you all day.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 2431,
+    text: `Sit down in the evening. Question: what was real today?
+Not "what happened" — but what was truly real: a taste, a glance, a moment where you WERE there.
+
+It will turn out to be about five minutes. A sixteen-hour day, and of what's real —
+five minutes stolen from autopilot. Almost everyone lives like this: years —
+in draft mode, clean copy — nothing.
+
+Don't scold yourself. Note those five minutes — and tomorrow find six.
+The path of awareness is not a leap into nirvana. It is a nightly recount:
+how much life was actually lived today. Start counting today.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 2432,
+    text: `You claim there is no doer. But did you actually investigate its absence, or did you simply believe in the concept?`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 2433,
+    text: `When you say "I am aware," what exactly does the word "I" refer to in that statement?`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 2434,
+    text: `If you have discovered the witness, why do you assume that it is the ultimate truth?`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 2435,
+    text: `Who decided that today's experience is not deep enough?`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 2436,
+    text: `Where does direct experience end and its interpretation begin?`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 2437,
+    text: `Are you perceiving what is happening right now, or thinking about how to perceive it properly?`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 2438,
+    text: `Can a center of perception be found without using memory, an image, or a thought?`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 2439,
+    text: `When you say "I forgot myself," who exactly notices that forgetting?`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 2440,
+    text: `Are you seeking freedom from the personality, or trying to create a more perfected image of yourself?`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 2441,
+    text: `What will happen if you stop knowing in advance what you are?`,
+    source: null,
+    tags: ["stillness"]
   }
 ];
