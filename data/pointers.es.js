@@ -16989,5 +16989,89 @@ cuánta vida se vivió hoy. Empieza a contar hoy.`,
     text: `¿Qué ocurrirá si dejas de saber de antemano qué eres?`,
     source: null,
     tags: ["silencio"]
+  },
+  {
+    number: 2442,
+    text: `No le temes a la muerte. Le temes a no llegar a vivir de verdad.`,
+    source: "Chuck Palahniuk",
+    tags: ["silencio"]
+  },
+  {
+    number: 2443,
+    text: `Hasta que lo inconsciente no se haga consciente, el subconsciente dirigirá tu vida y tú le llamarás destino.`,
+    source: "Carl Jung",
+    tags: ["silencio"]
+  },
+  {
+    number: 2444,
+    text: `El hombre no se ve afectado por las cosas que suceden, sino por lo que piensa acerca de ellas.`,
+    source: "Epicteto",
+    tags: ["silencio"]
+  },
+  {
+    number: 2445,
+    text: `Un lector vive mil vidas antes de morir. El que nunca lee vive solo una. Pero tú ni siquiera vives esa — solo la repites.`,
+    source: "George R.R. Martin",
+    tags: ["silencio"]
+  },
+  {
+    number: 2446,
+    text: `Cuando dejo ir lo que soy, me convierto en lo que podría ser.`,
+    source: "Lao-Tsé",
+    tags: ["silencio"]
+  },
+  {
+    number: 2447,
+    text: `Tus ojos están abiertos, pero estás dormido. Estás dormido y sueñas que estás despierto.`,
+    source: "Carlos Castaneda",
+    tags: ["silencio"]
+  },
+  {
+    number: 2448,
+    text: `El verdadero viaje de descubrimiento no consiste en buscar nuevos paisajes, sino en tener nuevos ojos.`,
+    source: "Marcel Proust",
+    tags: ["silencio"]
+  },
+  {
+    number: 2449,
+    text: `Todo lo que nos irrita de los demás nos puede llevar a un mejor entendimiento de nosotros mismos.`,
+    source: "Carl Jung",
+    tags: ["silencio"]
+  },
+  {
+    number: 2450,
+    text: `Si eres lo suficientemente valiente para decir adiós, la vida te recompensará con un nuevo hola.`,
+    source: "Paulo Coelho",
+    tags: ["silencio"]
+  },
+  {
+    number: 2451,
+    text: `La mente es un sirviente maravilloso, pero un amo terrible.`,
+    source: "Robin Sharma",
+    tags: ["silencio"]
+  },
+  {
+    number: 2452,
+    text: `¿Cuándo fue la última vez que hiciste algo por primera vez? Tu vida es una repetición. Vives el mismo día durante años y lo llamas vida.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 2453,
+    text: `No estás cansado de la vida. Estás cansado del papel que interpretas. Suelta el guion y descubrirás que el escenario siempre estuvo vacío.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 2454,
+    text: `Todo a lo que te aferras ya pasó. Estás abrazando cenizas y te enojas porque no calientan.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 2455,
+    text: `Te quejas de que la vida pasa de largo. Pero eres tú quien pasa de largo de la vida. Ella está aquí. Siempre ha estado aquí. Eres tú quien está en la cabeza, en los planes, en el mañana.`,
+    source: null,
+    tags: ["silencio"]
   }
 ];

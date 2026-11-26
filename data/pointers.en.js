@@ -16992,5 +16992,89 @@ how much life was actually lived today. Start counting today.`,
     text: `What will happen if you stop knowing in advance what you are?`,
     source: null,
     tags: ["stillness"]
+  },
+  {
+    number: 2442,
+    text: `You are not afraid of death. You are afraid that you won't get a chance to truly live.`,
+    source: "Chuck Palahniuk",
+    tags: ["stillness"]
+  },
+  {
+    number: 2443,
+    text: `Until you make the unconscious conscious, it will direct your life and you will call it fate.`,
+    source: "Carl Jung",
+    tags: ["stillness"]
+  },
+  {
+    number: 2444,
+    text: `Man is not affected by events, but by the view he takes of them.`,
+    source: "Epictetus",
+    tags: ["stillness"]
+  },
+  {
+    number: 2445,
+    text: `A reader lives a thousand lives before he dies. The man who never reads lives only one. But you are not even living that one — you are merely retelling it.`,
+    source: "George R.R. Martin",
+    tags: ["stillness"]
+  },
+  {
+    number: 2446,
+    text: `When I let go of what I am, I become what I might be.`,
+    source: "Lao Tzu",
+    tags: ["stillness"]
+  },
+  {
+    number: 2447,
+    text: `Your eyes are open, but you are asleep. You are asleep and dreaming that you are awake.`,
+    source: "Carlos Castaneda",
+    tags: ["stillness"]
+  },
+  {
+    number: 2448,
+    text: `The real voyage of discovery consists not in seeking new landscapes, but in having new eyes.`,
+    source: "Marcel Proust",
+    tags: ["stillness"]
+  },
+  {
+    number: 2449,
+    text: `Everything that irritates us about others can lead us to an understanding of ourselves.`,
+    source: "Carl Jung",
+    tags: ["stillness"]
+  },
+  {
+    number: 2450,
+    text: `If you're brave enough to say goodbye, life will reward you with a new hello.`,
+    source: "Paulo Coelho",
+    tags: ["stillness"]
+  },
+  {
+    number: 2451,
+    text: `The mind is a wonderful servant, but a terrible master.`,
+    source: "Robin Sharma",
+    tags: ["stillness"]
+  },
+  {
+    number: 2452,
+    text: `When was the last time you did something for the first time? Your life is a rerun. You live the exact same day for years and call it a life.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 2453,
+    text: `You are not tired of life. You are tired of the role you play. Drop the script — and you'll find the stage has been empty all along.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 2454,
+    text: `Everything you cling to has already passed. You are embracing ashes and angry that they do not warm you.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 2455,
+    text: `You complain that life is passing you by. But it is you passing life by. It is here. It has always been here. You are the one stuck in your head, in plans, in tomorrow.`,
+    source: null,
+    tags: ["stillness"]
   }
 ];
