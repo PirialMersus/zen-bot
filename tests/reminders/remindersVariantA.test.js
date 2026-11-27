@@ -148,4 +148,43 @@ describe('Управление напоминаниями (Вариант А)', 
     expect(replyText).toContain('… и ещё');
     expect(replyOptions.reply_markup.inline_keyboard.flat().length).toBe(60);
   });
+
+  it('должен отображать время автоудаления в списке напоминаний, если оно задано', async () => {
+    const telegramUserId = 66778816;
+    await User.create({ telegramId: telegramUserId, timezone: 'Europe/Minsk' });
+
+    await Reminder.create({
+      userId: String(telegramUserId),
+      chatId: telegramUserId,
+      text: 'С автоудалением 60',
+      intervalMinutes: 15,
+      deleteAfterSeconds: 60,
+      isActive: true
+    });
+    await Reminder.create({
+      userId: String(telegramUserId),
+      chatId: telegramUserId,
+      text: 'С автоудалением 45',
+      intervalMinutes: 30,
+      deleteAfterSeconds: 45,
+      isActive: false
+    });
+    await Reminder.create({
+      userId: String(telegramUserId),
+      chatId: telegramUserId,
+      text: 'Без автоудаления',
+      intervalMinutes: 60,
+      deleteAfterSeconds: null,
+      isActive: true
+    });
+
+    const mockContext = createMockContext({ userId: telegramUserId });
+    await handleMyReminders(mockContext);
+
+    expect(mockContext.reply).toHaveBeenCalledTimes(1);
+    const [replyText] = mockContext.reply.mock.calls[0];
+    expect(replyText).toContain('🗑 автоудаление: 60 сек');
+    expect(replyText).toContain('🗑 автоудаление: 45 сек');
+    expect(replyText).not.toContain('undefined');
+  });
 });

@@ -28,6 +28,7 @@ const REMINDERS_FORMAT_LOCALIZATIONS = {
     moreReminders: (count) => `… и ещё ${count} напоминаний`,
     pausedHint: '(Напоминание на паузе. Нажми «▶️ Возобновить» ниже, чтобы включить)',
     listPausedBadge: 'на паузе ⏸️',
+    listAutoDeleteSeconds: (seconds) => `🗑 автоудаление: ${seconds} сек`,
     buttonManage: (index) => `${index}. 🟢 Настроить`,
     buttonResume: (index) => `${index}. ⏸️ Возобновить ▶️`,
     buttonCompactManage: (index) => `${index} 🟢`,
@@ -54,6 +55,7 @@ const REMINDERS_FORMAT_LOCALIZATIONS = {
     moreReminders: (count) => `… and ${count} more reminders`,
     pausedHint: '(Reminder is paused. Tap "▶️ Resume" below to turn it on)',
     listPausedBadge: 'paused ⏸️',
+    listAutoDeleteSeconds: (seconds) => `🗑 auto-delete: ${seconds} sec`,
     buttonManage: (index) => `${index}. 🟢 Manage`,
     buttonResume: (index) => `${index}. ⏸️ Resume ▶️`,
     buttonCompactManage: (index) => `${index} 🟢`,
@@ -80,6 +82,7 @@ const REMINDERS_FORMAT_LOCALIZATIONS = {
     moreReminders: (count) => `… та ще ${count} нагадувань`,
     pausedHint: '(Нагадування на паузі. Натисни «▶️ Відновити» нижче, щоб увімкнути)',
     listPausedBadge: 'на паузі ⏸️',
+    listAutoDeleteSeconds: (seconds) => `🗑 автовидалення: ${seconds} сек`,
     buttonManage: (index) => `${index}. 🟢 Налаштувати`,
     buttonResume: (index) => `${index}. ⏸️ Відновити ▶️`,
     buttonCompactManage: (index) => `${index} 🟢`,
@@ -106,6 +109,7 @@ const REMINDERS_FORMAT_LOCALIZATIONS = {
     moreReminders: (count) => `… y ${count} recordatorios más`,
     pausedHint: '(El recordatorio está en pausa. Toca "▶️ Reanudar" abajo para activarlo)',
     listPausedBadge: 'en pausa ⏸️',
+    listAutoDeleteSeconds: (seconds) => `🗑 autoeliminación: ${seconds} seg`,
     buttonManage: (index) => `${index}. 🟢 Gestionar`,
     buttonResume: (index) => `${index}. ⏸️ Reanudar ▶️`,
     buttonCompactManage: (index) => `${index} 🟢`,
@@ -284,11 +288,17 @@ export const buildRemindersListPayload = (
         : null;
 
     const nextRunSuffix = nextRunTime ? ` • 🕒 ${nextRunTime}` : '';
+    const hasAutoDelete =
+      reminderItem.deleteAfterSeconds !== null &&
+      reminderItem.deleteAfterSeconds !== undefined;
+    const autoDeleteSuffix = hasAutoDelete
+      ? ` • ${formatLocalization.listAutoDeleteSeconds(reminderItem.deleteAfterSeconds)}`
+      : '';
     const pausedSuffix =
       !reminderItem.isActive && formatLocalization.listPausedBadge
         ? ` • <i>${formatLocalization.listPausedBadge}</i>`
         : '';
-    const currentLine = `<b>${indexNumber}.</b> ${statusIcon} «${escapeHtml(shortText)}»\n   <i>${intervalLabel}${nextRunSuffix}${pausedSuffix}</i>`;
+    const currentLine = `<b>${indexNumber}.</b> ${statusIcon} «${escapeHtml(shortText)}»\n   <i>${intervalLabel}${nextRunSuffix}${autoDeleteSuffix}${pausedSuffix}</i>`;
 
     const remainingIfTruncated = reminders.length - (index + 1);
     const potentialOverflowNotice =
