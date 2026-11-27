@@ -17073,5 +17073,65 @@ cuánta vida se vivió hoy. Empieza a contar hoy.`,
     text: `Te quejas de que la vida pasa de largo. Pero eres tú quien pasa de largo de la vida. Ella está aquí. Siempre ha estado aquí. Eres tú quien está en la cabeza, en los planes, en el mañana.`,
     source: null,
     tags: ["silencio"]
+  },
+  {
+    number: 2456,
+    text: `En cualquier momento de decisión, lo mejor que puedes hacer es lo correcto, lo segundo mejor es lo incorrecto, y lo peor que puedes hacer es no hacer nada.`,
+    source: "Theodore Roosevelt",
+    tags: ["silencio"]
+  },
+  {
+    number: 2457,
+    text: `Una vez que tomas una decisión firme, el universo entero conspira para que suceda.`,
+    source: "Ralph Waldo Emerson",
+    tags: ["silencio"]
+  },
+  {
+    number: 2458,
+    text: `El valor no es la ausencia de miedo, sino la decisión de que hay algo más importante que el miedo.`,
+    source: "Ambrose Redmoon",
+    tags: ["silencio"]
+  },
+  {
+    number: 2459,
+    text: `La disciplina es la decisión de hacer lo que no quieres hacer para lograr lo que quieres lograr.`,
+    source: "John Maxwell",
+    tags: ["silencio"]
+  },
+  {
+    number: 2460,
+    text: `El precio de la disciplina siempre es menor que el precio del arrepentimiento.`,
+    source: "Jim Rohn",
+    tags: ["silencio"]
+  },
+  {
+    number: 2461,
+    text: `Una verdadera decisión es cuando dejas de dejarte un camino de regreso. Mientras haya una salida de emergencia, no avanzas con toda tu fuerza.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 2462,
+    text: `Las dudas no desaparecen por pensar demasiado. Solo se van cuando pasas a la acción.`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 2463,
+    text: `Cuando una elección se siente difícil, no preguntes "¿qué es más fácil?", sino "¿por qué opción me respetaré dentro de un año?".`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 2464,
+    text: `Pregúntate ahora mismo: "¿De verdad sigo pensando, o simplemente estoy ganando tiempo porque la decisión es incómoda?"`,
+    source: null,
+    tags: ["silencio"]
+  },
+  {
+    number: 2465,
+    text: `Hazte esta pregunta: "¿Qué le aconsejaría a mi mejor amigo en esta misma situación?" — y haz exactamente eso, sin concesiones contigo mismo.`,
+    source: null,
+    tags: ["silencio"]
   }
 ];

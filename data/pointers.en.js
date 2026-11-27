@@ -17076,5 +17076,65 @@ how much life was actually lived today. Start counting today.`,
     text: `You complain that life is passing you by. But it is you passing life by. It is here. It has always been here. You are the one stuck in your head, in plans, in tomorrow.`,
     source: null,
     tags: ["stillness"]
+  },
+  {
+    number: 2456,
+    text: `In any moment of decision, the best thing you can do is the right thing, the next best thing is the wrong thing, and the worst thing you can do is nothing.`,
+    source: "Theodore Roosevelt",
+    tags: ["stillness"]
+  },
+  {
+    number: 2457,
+    text: `Once you make a decision, the universe conspires to make it happen.`,
+    source: "Ralph Waldo Emerson",
+    tags: ["stillness"]
+  },
+  {
+    number: 2458,
+    text: `Courage is not the absence of fear, but rather the assessment that something else is more important than fear.`,
+    source: "Ambrose Redmoon",
+    tags: ["stillness"]
+  },
+  {
+    number: 2459,
+    text: `Discipline is a decision to do what you really don't want to do, so you can achieve what you really want to achieve.`,
+    source: "John Maxwell",
+    tags: ["stillness"]
+  },
+  {
+    number: 2460,
+    text: `The price of discipline is always less than the pain of regret.`,
+    source: "Jim Rohn",
+    tags: ["stillness"]
+  },
+  {
+    number: 2461,
+    text: `A real decision is when you stop leaving yourself a way back. As long as there is an emergency exit, you are not moving forward at full strength.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 2462,
+    text: `Doubts do not disappear from endless thinking. They vanish only when you move to action.`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 2463,
+    text: `When a choice feels hard, ask not "what is easier?", but "which option will I respect myself for a year from now?".`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 2464,
+    text: `Ask yourself right now: "Am I really still thinking — or am I just stalling because the decision is uncomfortable?"`,
+    source: null,
+    tags: ["stillness"]
+  },
+  {
+    number: 2465,
+    text: `Ask yourself: "What would I advise my best friend in this exact situation?" — and do that exact thing, with no excuses for yourself.`,
+    source: null,
+    tags: ["stillness"]
   }
 ];
